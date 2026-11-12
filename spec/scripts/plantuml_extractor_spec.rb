@@ -197,13 +197,13 @@ RSpec.describe PlantumlExtractor do
       expect(Dir.children(File.join(out_dir, "sequence"))).to be_empty
     end
 
-    it "keeps Sirena's own ledger cases" do
-      touch("sirena.create.basic.puml")
+    it "keeps Etassia's own ledger cases" do
+      touch("etassia.create.basic.puml")
       touch("upstream.case.puml")
       described_class::Writer.clear(out_dir)
 
       expect(Dir.children(File.join(out_dir, "sequence")))
-        .to eq(["sirena.create.basic.puml"])
+        .to eq(["etassia.create.basic.puml"])
     end
   end
 

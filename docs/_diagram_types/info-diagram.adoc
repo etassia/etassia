@@ -52,7 +52,7 @@ Info diagrams render as:
 
 === Theme integration
 
-Info diagrams integrate with Sirena's theme system:
+Info diagrams integrate with Etassia's theme system:
 
 * `node_bg`: Background color for the info box (default: light blue)
 * `node_stroke`: Border color for the info box (default: blue)
@@ -63,7 +63,7 @@ Info diagrams integrate with Sirena's theme system:
 
 === Parser
 
-The info diagram parser (`Sirena::Parser::Info`) uses Parslet grammar to handle:
+The info diagram parser (`Etassia::Parser::Info`) uses Parslet grammar to handle:
 
 * Basic `info` keyword
 * Optional `showInfo` flag (inline or on separate line)
@@ -71,13 +71,13 @@ The info diagram parser (`Sirena::Parser::Info`) uses Parslet grammar to handle:
 
 === Model
 
-The info diagram model (`Sirena::Diagram::Info`) contains:
+The info diagram model (`Etassia::Diagram::Info`) contains:
 
 * `show_info`: Boolean flag indicating if showInfo is enabled
 
 === Renderer
 
-The info renderer (`Sirena::Renderer::Info`) creates:
+The info renderer (`Etassia::Renderer::Info`) creates:
 
 * A rounded rectangle box (400x100 pixels)
 * Centered text displaying the info message

@@ -12,8 +12,8 @@ module CorpusSweepSpecHelpers
   end
 
   def engine_returning(output)
-    instance_double(Sirena::Engine, render: output).tap do |engine|
-      allow(Sirena::Engine).to receive(:new).and_return(engine)
+    instance_double(Etassia::Engine, render: output).tap do |engine|
+      allow(Etassia::Engine).to receive(:new).and_return(engine)
     end
   end
 
@@ -83,9 +83,9 @@ RSpec.describe CorpusSweep, :aggregate_failures do
 
     it "classifies a render that outlives the case timeout as timeout" do
       stub_const("#{described_class}::CASE_TIMEOUT", 0.05)
-      engine = instance_double(Sirena::Engine)
+      engine = instance_double(Etassia::Engine)
       allow(engine).to receive(:render) { sleep 5 }
-      allow(Sirena::Engine).to receive(:new).and_return(engine)
+      allow(Etassia::Engine).to receive(:new).and_return(engine)
       expect(sweeper.render_result(pie)).to eq(:timeout)
     end
 

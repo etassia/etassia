@@ -29,75 +29,75 @@ ruby scripts/audit_singleton_captures.rb --check
 
 **Files scanned (3):**
 
-- `lib/sirena/parser/builders/class_diagram.rb`
-- `lib/sirena/parser/class_diagram.rb`
-- `lib/sirena/parser/grammars/class_diagram.rb`
+- `lib/etassia/parser/builders/class_diagram.rb`
+- `lib/etassia/parser/class_diagram.rb`
+- `lib/etassia/parser/grammars/class_diagram.rb`
 
 **Result:** 1 executable `Array(...)` hit
 
-- `lib/sirena/parser/builders/class_diagram.rb:201` — `Array(stmt[:namespace_body]).each { |s| process_statement(s) }`
+- `lib/etassia/parser/builders/class_diagram.rb:201` — `Array(stmt[:namespace_body]).each { |s| process_statement(s) }`
 
 ## 07b — sequence
 
 **Files scanned (3):**
 
-- `lib/sirena/parser/builders/sequence.rb`
-- `lib/sirena/parser/grammars/sequence.rb`
-- `lib/sirena/parser/sequence.rb`
+- `lib/etassia/parser/builders/sequence.rb`
+- `lib/etassia/parser/grammars/sequence.rb`
+- `lib/etassia/parser/sequence.rb`
 
 **Result:** 1 executable `Array(...)` hit
 
-- `lib/sirena/parser/builders/sequence.rb:114` — `Array(statements).each do |stmt|`
+- `lib/etassia/parser/builders/sequence.rb:114` — `Array(statements).each do |stmt|`
 
 ## 07c — git, gitgraph
 
 **Files scanned (3):**
 
-- `lib/sirena/parser/builders/git_graph.rb`
-- `lib/sirena/parser/git_graph.rb`
-- `lib/sirena/parser/grammars/git_graph.rb`
+- `lib/etassia/parser/builders/git_graph.rb`
+- `lib/etassia/parser/git_graph.rb`
+- `lib/etassia/parser/grammars/git_graph.rb`
 
 **Result:** 2 executable `Array(...)` hits
 
-- `lib/sirena/parser/builders/git_graph.rb:78` — `Array(statements).each do |statement|`
-- `lib/sirena/parser/builders/git_graph.rb:95` — `Array(options).each_with_object({}) do |option, result|`
+- `lib/etassia/parser/builders/git_graph.rb:78` — `Array(statements).each do |statement|`
+- `lib/etassia/parser/builders/git_graph.rb:95` — `Array(options).each_with_object({}) do |option, result|`
 
 ## 07d — gantt, radar, kanban, user_journey
 
 **Files scanned (10):**
 
-- `lib/sirena/parser/builders/gantt.rb`
-- `lib/sirena/parser/builders/kanban.rb`
-- `lib/sirena/parser/builders/radar.rb`
-- `lib/sirena/parser/gantt.rb`
-- `lib/sirena/parser/grammars/gantt.rb`
-- `lib/sirena/parser/grammars/kanban.rb`
-- `lib/sirena/parser/grammars/radar.rb`
-- `lib/sirena/parser/kanban.rb`
-- `lib/sirena/parser/radar.rb`
-- `lib/sirena/parser/user_journey.rb`
+- `lib/etassia/parser/builders/gantt.rb`
+- `lib/etassia/parser/builders/kanban.rb`
+- `lib/etassia/parser/builders/radar.rb`
+- `lib/etassia/parser/gantt.rb`
+- `lib/etassia/parser/grammars/gantt.rb`
+- `lib/etassia/parser/grammars/kanban.rb`
+- `lib/etassia/parser/grammars/radar.rb`
+- `lib/etassia/parser/kanban.rb`
+- `lib/etassia/parser/radar.rb`
+- `lib/etassia/parser/user_journey.rb`
 
 **Result:** 5 executable `Array(...)` hits
 
-- `lib/sirena/parser/builders/gantt.rb:187` — `Array(parts.is_a?(Array) ? parts : [parts]).map do |part|`
-- `lib/sirena/parser/builders/kanban.rb:389` — `lines_array = Array(lines)`
-- `lib/sirena/parser/builders/radar.rb:117` — `Array(statements).grep(Hash).each do |statement|`
-- `lib/sirena/parser/radar.rb:72` — `assign_curve_values(curve, Array(data[:values]), axes)`
-- `lib/sirena/parser/user_journey.rb:187` — `Array(tree[:lines]).each do |line|`
+- `lib/etassia/parser/builders/gantt.rb:187` — `Array(parts.is_a?(Array) ? parts : [parts]).map do |part|`
+- `lib/etassia/parser/builders/kanban.rb:389` — `lines_array = Array(lines)`
+- `lib/etassia/parser/builders/radar.rb:117` — `Array(statements).grep(Hash).each do |statement|`
+- `lib/etassia/parser/radar.rb:72` — `assign_curve_values(curve, Array(data[:values]), axes)`
+- `lib/etassia/parser/user_journey.rb:187` — `Array(tree[:lines]).each do |line|`
 
 ## 07e — architecture, c4, block
 
 **Files scanned (9):**
 
-- `lib/sirena/parser/architecture.rb`
-- `lib/sirena/parser/block.rb`
-- `lib/sirena/parser/builders/architecture.rb`
-- `lib/sirena/parser/builders/block.rb`
-- `lib/sirena/parser/builders/c4.rb`
-- `lib/sirena/parser/c4.rb`
-- `lib/sirena/parser/grammars/architecture.rb`
-- `lib/sirena/parser/grammars/block.rb`
-- `lib/sirena/parser/grammars/c4.rb`
+- `lib/etassia/parser/architecture.rb`
+- `lib/etassia/parser/block.rb`
+- `lib/etassia/parser/builders/architecture.rb`
+- `lib/etassia/parser/builders/block.rb`
+- `lib/etassia/parser/builders/c4.rb`
+- `lib/etassia/parser/c4.rb`
+- `lib/etassia/parser/grammars/architecture.rb`
+- `lib/etassia/parser/grammars/block.rb`
+- `lib/etassia/parser/grammars/c4.rb`
 
 **Result:** zero `Array(...)` hits
 
@@ -106,47 +106,47 @@ ruby scripts/audit_singleton_captures.rb --check
 
 **Files scanned (30):**
 
-- `lib/sirena/parser/builders/error.rb`
-- `lib/sirena/parser/builders/info.rb`
-- `lib/sirena/parser/builders/mindmap.rb`
-- `lib/sirena/parser/builders/packet.rb`
-- `lib/sirena/parser/builders/pie.rb`
-- `lib/sirena/parser/builders/quadrant.rb`
-- `lib/sirena/parser/builders/requirement.rb`
-- `lib/sirena/parser/builders/sankey.rb`
-- `lib/sirena/parser/builders/timeline.rb`
-- `lib/sirena/parser/builders/xy_chart.rb`
-- `lib/sirena/parser/error.rb`
-- `lib/sirena/parser/grammars/error.rb`
-- `lib/sirena/parser/grammars/info.rb`
-- `lib/sirena/parser/grammars/mindmap.rb`
-- `lib/sirena/parser/grammars/packet.rb`
-- `lib/sirena/parser/grammars/pie.rb`
-- `lib/sirena/parser/grammars/quadrant.rb`
-- `lib/sirena/parser/grammars/requirement.rb`
-- `lib/sirena/parser/grammars/sankey.rb`
-- `lib/sirena/parser/grammars/timeline.rb`
-- `lib/sirena/parser/grammars/xy_chart.rb`
-- `lib/sirena/parser/info.rb`
-- `lib/sirena/parser/mindmap.rb`
-- `lib/sirena/parser/packet.rb`
-- `lib/sirena/parser/pie.rb`
-- `lib/sirena/parser/quadrant.rb`
-- `lib/sirena/parser/requirement.rb`
-- `lib/sirena/parser/sankey.rb`
-- `lib/sirena/parser/timeline.rb`
-- `lib/sirena/parser/xy_chart.rb`
+- `lib/etassia/parser/builders/error.rb`
+- `lib/etassia/parser/builders/info.rb`
+- `lib/etassia/parser/builders/mindmap.rb`
+- `lib/etassia/parser/builders/packet.rb`
+- `lib/etassia/parser/builders/pie.rb`
+- `lib/etassia/parser/builders/quadrant.rb`
+- `lib/etassia/parser/builders/requirement.rb`
+- `lib/etassia/parser/builders/sankey.rb`
+- `lib/etassia/parser/builders/timeline.rb`
+- `lib/etassia/parser/builders/xy_chart.rb`
+- `lib/etassia/parser/error.rb`
+- `lib/etassia/parser/grammars/error.rb`
+- `lib/etassia/parser/grammars/info.rb`
+- `lib/etassia/parser/grammars/mindmap.rb`
+- `lib/etassia/parser/grammars/packet.rb`
+- `lib/etassia/parser/grammars/pie.rb`
+- `lib/etassia/parser/grammars/quadrant.rb`
+- `lib/etassia/parser/grammars/requirement.rb`
+- `lib/etassia/parser/grammars/sankey.rb`
+- `lib/etassia/parser/grammars/timeline.rb`
+- `lib/etassia/parser/grammars/xy_chart.rb`
+- `lib/etassia/parser/info.rb`
+- `lib/etassia/parser/mindmap.rb`
+- `lib/etassia/parser/packet.rb`
+- `lib/etassia/parser/pie.rb`
+- `lib/etassia/parser/quadrant.rb`
+- `lib/etassia/parser/requirement.rb`
+- `lib/etassia/parser/sankey.rb`
+- `lib/etassia/parser/timeline.rb`
+- `lib/etassia/parser/xy_chart.rb`
 
 **Result:** 11 executable `Array(...)` hits
 
-- `lib/sirena/parser/builders/mindmap.rb:250` — `nodes_array = Array(nodes)`
-- `lib/sirena/parser/builders/packet.rb:60` — `Array(statements).each do |stmt|`
-- `lib/sirena/parser/builders/requirement.rb:224` — `Array(class_data)`
-- `lib/sirena/parser/builders/sankey.rb:78` — `Array(statements).each do |stmt|`
-- `lib/sirena/parser/builders/xy_chart.rb:33` — `values: Array(values),`
-- `lib/sirena/parser/builders/xy_chart.rb:41` — `values: Array(values),`
-- `lib/sirena/parser/builders/xy_chart.rb:74` — `values: Array(values),`
-- `lib/sirena/parser/builders/xy_chart.rb:84` — `values: Array(values),`
-- `lib/sirena/parser/builders/xy_chart.rb:97` — `values: Array(values),`
-- `lib/sirena/parser/builders/xy_chart.rb:113` — `Array(statements).grep(Hash).each do |statement|`
-- `lib/sirena/parser/packet.rb:46` — `Array(fields).each { |data| diagram.add_field(build_field(data)) }`
+- `lib/etassia/parser/builders/mindmap.rb:250` — `nodes_array = Array(nodes)`
+- `lib/etassia/parser/builders/packet.rb:60` — `Array(statements).each do |stmt|`
+- `lib/etassia/parser/builders/requirement.rb:224` — `Array(class_data)`
+- `lib/etassia/parser/builders/sankey.rb:78` — `Array(statements).each do |stmt|`
+- `lib/etassia/parser/builders/xy_chart.rb:33` — `values: Array(values),`
+- `lib/etassia/parser/builders/xy_chart.rb:41` — `values: Array(values),`
+- `lib/etassia/parser/builders/xy_chart.rb:74` — `values: Array(values),`
+- `lib/etassia/parser/builders/xy_chart.rb:84` — `values: Array(values),`
+- `lib/etassia/parser/builders/xy_chart.rb:97` — `values: Array(values),`
+- `lib/etassia/parser/builders/xy_chart.rb:113` — `Array(statements).grep(Hash).each do |statement|`
+- `lib/etassia/parser/packet.rb:46` — `Array(fields).each { |data| diagram.add_field(build_field(data)) }`

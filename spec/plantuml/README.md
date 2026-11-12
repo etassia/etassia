@@ -44,7 +44,7 @@ different value and a source URL, and none exists yet.
    step 2 may find a case PlantUML renders as a different type.
 
 Result at the pinned SHA: 37 class, 79 sequence. The sequence directory
-also holds 13 `sirena.*` ledger cases (no `.meta.json`, so outside the
+also holds 13 `etassia.*` ledger cases (no `.meta.json`, so outside the
 manifest checksum) that count in `pin.json` and the scoreboard. `!include`/`!define`
 blocks are kept and flagged `uses_preprocessor: true`.
 
@@ -84,6 +84,6 @@ runtime that actually renders the diagrams:
 
 Scoreboard rows live in `scoreboard/plantuml.json`. `bundle exec rake plantuml`
 measures them: a case passes when the committed oracle verdict is `valid` and
-Sirena renders it to well-formed SVG. `bundle exec rake plantuml:check` fails
+Etassia renders it to well-formed SVG. `bundle exec rake plantuml:check` fails
 CI when the committed file differs from a fresh measurement. The current
 counts live in that file; oracle-rejected cases are not in its denominators.

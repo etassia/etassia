@@ -11,7 +11,7 @@ RSpec.describe SpecSupport::LayoutParity::CaseComparator do
       type: "flowchart",
       reference: "spec/fixtures_mermaid/flowchart/example.svg",
       reference_svg: '<svg viewBox="0 0 1 1"/>',
-      sirena_svg: nil,
+      etassia_svg: nil,
       reproduce: "bundle exec rake 'corpus[flowchart,valid]'",
       recognizer: SpecSupport::LayoutParity::FlowchartRecognizer.new,
     }
@@ -19,6 +19,6 @@ RSpec.describe SpecSupport::LayoutParity::CaseComparator do
 
   it "rejects a missing candidate without render-error evidence" do
     expect { compare }
-      .to raise_error(ArgumentError, "sirena svg or render error is required")
+      .to raise_error(ArgumentError, "etassia svg or render error is required")
   end
 end

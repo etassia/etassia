@@ -17,7 +17,7 @@ module MermaidToolchain
   CI_PUPPETEER_CONFIG_PATH = File.join(
     ROOT, "config", "mermaid-puppeteer-ci.json"
   )
-  CI_CANARY_ENV = "SIRENA_ORACLE_CI_CANARY_NO_SANDBOX"
+  CI_CANARY_ENV = "ETASSIA_ORACLE_CI_CANARY_NO_SANDBOX"
   FONTCONFIG_PATH = File.join(ROOT, "config", "mermaid-fonts.conf")
   MMDC_NAME = Gem.win_platform? ? "mmdc.cmd" : "mmdc"
   MMDC_PATH = File.join(ROOT, "node_modules", ".bin", MMDC_NAME)
@@ -145,9 +145,9 @@ module MermaidToolchain
   # Both variables are required so an ordinary environment cannot accidentally
   # replace the oracle selected by the repository lockfile.
   def test_binary
-    return unless ENV["SIRENA_ALLOW_TEST_MMDC"] == "1"
+    return unless ENV["ETASSIA_ALLOW_TEST_MMDC"] == "1"
 
-    ENV.fetch("SIRENA_MMDC_TEST_BIN", nil)
+    ENV.fetch("ETASSIA_MMDC_TEST_BIN", nil)
   end
 
   def ci_canary_browser_arguments

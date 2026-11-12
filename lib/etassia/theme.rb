@@ -1,0 +1,73 @@
+# frozen_string_literal: true
+
+require "lutaml/model"
+
+module Etassia
+  # Theme's real attributes are defined once, here. The requires below sit
+  # inside this class body rather than above it: Ruby binds the `Theme`
+  # constant before running the body, so by the time they execute,
+  # Etassia::Theme already exists for the five sub-model files (each written
+  # compact-style, e.g. `class Etassia::Theme::Typography`) to be defined
+  # under. A sub-model file required standalone (bypassing this file) would
+  # raise NameError on Etassia::Theme, not resolve to a wrong superclass.
+  class Theme < Lutaml::Model::Serializable
+    MERGEABLE_ATTRIBUTES = %i[colors typography shapes spacing effects].freeze
+
+    require_relative "theme/color_palette"
+    require_relative "theme/typography"
+    require_relative "theme/shape_styles"
+    require_relative "theme/spacing_config"
+    require_relative "theme/effect_styles"
+
+    attribute :name, :string
+    attribute :description, :string
+    attribute :colors, ColorPalette
+    attribute :typography, Typography
+    attribute :shapes, ShapeStyles
+    attribute :spacing, SpacingConfig
+    attribute :effects, EffectStyles
+
+    yaml do
+      map "name", to: :name
+      map "description", to: :description
+      map "colors", to: :colors
+      map "typography", to: :typography
+      map "shapes", to: :shapes
+      map "spacing", to: :spacing
+      map "effects", to: :effects
+    end
+
+    # Load theme from YAML file
+    def self.load(path)
+      yaml_content = File.read(path)
+      from_yaml(yaml_content)
+    end
+
+    # Merge with another theme (for overrides)
+    def merge(other_theme)
+      self.class.new(
+        name: other_theme.name || name,
+        description: other_theme.description || description,
+        **merged_attributes(other_theme),
+      )
+    end
+
+    private
+
+    def merged_attributes(other_theme)
+      MERGEABLE_ATTRIBUTES.to_h do |attribute|
+        values = [public_send(attribute), other_theme.public_send(attribute)]
+        [attribute, merge_attribute(*values)]
+      end
+    end
+
+    def merge_attribute(base, override)
+      return base if override.nil?
+      return override if base.nil?
+
+      # For now, just use override if provided, base otherwise
+      # Full deep merge would require iterating over attributes
+      override
+    end
+  end
+end

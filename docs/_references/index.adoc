@@ -11,17 +11,17 @@ Reference material for quick lookup.
 
 == What's in This Section
 
-* link:../../guides/cli-reference/[CLI Reference] - the `sirena` commands
+* link:../../guides/cli-reference/[CLI Reference] - the `etassia` commands
 * link:../../pages/compatibility/[Mermaid Compatibility] - per-type corpus pass rates
 
 == Command-Line Interface
 
-Complete documentation of all `sirena` commands:
+Complete documentation of all `etassia` commands:
 
-* `sirena render` - Render a single diagram
-* `sirena batch` - Process multiple diagrams
-* `sirena types` - List supported diagram types
-* `sirena version` - Show version information
+* `etassia render` - Render a single diagram
+* `etassia batch` - Process multiple diagrams
+* `etassia types` - List supported diagram types
+* `etassia version` - Show version information
 
 Planned: API reference, theme reference, error reference, quick reference cards.
 

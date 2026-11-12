@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Regenerates lib/sirena/text_measurement/dejavu_advances.rb from the hmtx
+# Regenerates lib/etassia/text_measurement/dejavu_advances.rb from the hmtx
 # tables of DejaVu Sans and DejaVu Sans Bold, the face Java's "SansSerif"
 # resolves to on Linux and so the face a PlantUML server measures salt text
 # with. DejaVu Fonts 2.37 is under the Bitstream Vera licence with public
@@ -17,7 +17,7 @@
 #
 #   ruby scripts/generate_dejavu_advances.rb \
 #     DejaVuSans.ttf DejaVuSans-Bold.ttf \
-#     lib/sirena/text_measurement/dejavu_advances.rb
+#     lib/etassia/text_measurement/dejavu_advances.rb
 require "ttfunk"
 
 RANGES = [0x20..0x7E, 0xA0..0x24F].freeze
@@ -79,7 +79,7 @@ def render(faces)
     # Extended-B. Advances are numeric facts about a glyph, not a copy of any
     # font. Same layout as ArialAdvances::DATA; REGULAR and BOLD hold them
     # in per-mille em.
-    module Sirena
+    module Etassia
       class TextMeasurement
         module DejaVuAdvances
   HEADER

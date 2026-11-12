@@ -10,14 +10,14 @@ RSpec.describe SpecSupport::LayoutParity::GitGraphMarkerGeometry do
     described_class.extract(File.read(path))
   end
 
-  def sirena_measurements
+  def etassia_measurements
     path = "spec/mermaid/gitgraph/#{source_name}.mmd"
-    described_class.extract(Sirena.render(File.read(path)))
+    described_class.extract(Etassia.render(File.read(path)))
   end
 
   def comparisons
     described_class.compare(reference: reference_measurements,
-                            sirena: sirena_measurements)
+                            etassia: etassia_measurements)
   end
 
   def expected_keys
@@ -25,7 +25,7 @@ RSpec.describe SpecSupport::LayoutParity::GitGraphMarkerGeometry do
   end
 
   def real_pair_summary
-    [reference_measurements.map(&:key), sirena_measurements.map(&:key),
+    [reference_measurements.map(&:key), etassia_measurements.map(&:key),
      comparisons.map(&:key), comparisons.map(&:error)]
   end
 
@@ -70,12 +70,12 @@ RSpec.describe SpecSupport::LayoutParity::GitGraphMarkerGeometry do
   def zero_reference_errors
     reference = [measurement("commit-1", 0.0)]
     [0, 5].map do |radius|
-      sirena = [measurement("commit-1", radius.to_f)]
-      described_class.compare(reference: reference, sirena: sirena).first.error
+      etassia = [measurement("commit-1", radius.to_f)]
+      described_class.compare(reference: reference, etassia: etassia).first.error
     end
   end
 
-  it "compares all markers in a real reference and Sirena pair" do
+  it "compares all markers in a real reference and Etassia pair" do
     expect(real_pair_summary)
       .to match([expected_keys, expected_keys, expected_keys, error_matchers])
   end
@@ -96,17 +96,17 @@ RSpec.describe SpecSupport::LayoutParity::GitGraphMarkerGeometry do
 
   it "refuses to drop an unmatched marker" do
     reference = described_class.extract(circle_svg(5))
-    sirena = described_class.extract(circle_svg(5, 5))
+    etassia = described_class.extract(circle_svg(5, 5))
 
-    expect { described_class.compare(reference: reference, sirena: sirena) }
+    expect { described_class.compare(reference: reference, etassia: etassia) }
       .to raise_error(ArgumentError, "marker counts differ")
   end
 
   it "refuses to pair markers with different keys" do
     reference = [measurement("commit-1", 5.0)]
-    sirena = [measurement("commit-2", 5.0)]
+    etassia = [measurement("commit-2", 5.0)]
 
-    expect { described_class.compare(reference: reference, sirena: sirena) }
+    expect { described_class.compare(reference: reference, etassia: etassia) }
       .to raise_error(ArgumentError, "marker keys differ")
   end
 end

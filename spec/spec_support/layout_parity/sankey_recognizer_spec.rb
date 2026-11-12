@@ -58,9 +58,9 @@ RSpec.describe SpecSupport::LayoutParity::SankeyRecognizer do
   end
 
   it "matches node labels and flow endpoints on both producer shapes" do
-    sirena = Sirena.render(source)
+    etassia = Etassia.render(source)
 
-    expect([summaries(reference_svg), summaries(sirena)])
+    expect([summaries(reference_svg), summaries(etassia)])
       .to eq([expected, expected])
   end
 end

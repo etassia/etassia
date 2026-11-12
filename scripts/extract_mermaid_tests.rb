@@ -2,15 +2,15 @@
 # frozen_string_literal: true
 
 # Comprehensive test extraction from mermaid-js repository
-# Extracts ALL Mermaid diagram test cases for sirena validation
+# Extracts ALL Mermaid diagram test cases for etassia validation
 
 require "fileutils"
 require "json"
 require_relative "corpus_case_identity"
 require_relative "corpus_refresh"
 
-SIRENA_ROOT = File.expand_path("..", __dir__)
-OUTPUT_DIR = "#{SIRENA_ROOT}/spec/mermaid".freeze
+ETASSIA_ROOT = File.expand_path("..", __dir__)
+OUTPUT_DIR = "#{ETASSIA_ROOT}/spec/mermaid".freeze
 
 # All Mermaid diagram types discovered from packages/mermaid/src/diagrams/
 DIAGRAM_TYPES = {

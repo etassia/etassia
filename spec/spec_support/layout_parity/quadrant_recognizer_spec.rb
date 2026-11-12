@@ -15,8 +15,8 @@ RSpec.describe SpecSupport::LayoutParity::QuadrantRecognizer do
 
   def real_pair(name = "quadrant_chart-579fb996")
     reference = reference_svg("quadrant/#{name}.svg")
-    sirena = Sirena.render(corpus_source("quadrant/#{name}.mmd"))
-    [summaries(reference), summaries(sirena)]
+    etassia = Etassia.render(corpus_source("quadrant/#{name}.mmd"))
+    [summaries(reference), summaries(etassia)]
   end
 
   def ibm_points
@@ -29,9 +29,9 @@ RSpec.describe SpecSupport::LayoutParity::QuadrantRecognizer do
   end
 
   it "matches region and point identities with containment parents" do
-    reference_summary, sirena_summary = real_pair
+    reference_summary, etassia_summary = real_pair
 
-    expect(sirena_summary).to eq(reference_summary)
+    expect(etassia_summary).to eq(reference_summary)
   end
 
   it "assigns a boundary-straddling point by its center" do

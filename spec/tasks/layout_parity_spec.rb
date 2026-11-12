@@ -10,7 +10,7 @@ end
 RSpec.describe LayoutParity do
   include UnshardedRakefile
 
-  let(:scoreboard) { Sirena::LayoutParityScoreboard }
+  let(:scoreboard) { Etassia::LayoutParityScoreboard }
   let(:directory) { Dir.mktmpdir }
   let(:path) { File.join(directory, "layout-parity.json") }
 

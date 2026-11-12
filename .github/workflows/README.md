@@ -46,11 +46,11 @@ runs are in neither column: their job logs were not fetched. 14 Windows
 jobs logged no cache line. The fast lane is over budget on Windows.
 
 Windows `unit` cells therefore run the specs as three parallel jobs
-(`shard: 1/3, 2/3, 3/3`), each given `SIRENA_SPEC_SHARD=<i>/<n>`. The Rakefile
+(`shard: 1/3, 2/3, 3/3`), each given `ETASSIA_SPEC_SHARD=<i>/<n>`. The Rakefile
 passes `tasks/support/spec_shard.rb`'s file list to RSpec; the last shard also
 runs the rake tasks that follow RSpec (benchmark, corpus, claims, layout
 parity). Every spec file lands in exactly one shard
-(`spec/sirena/spec_shard_spec.rb`). Ubuntu and macOS stay one job per cell.
+(`spec/etassia/spec_shard_spec.rb`). Ubuntu and macOS stay one job per cell.
 
 For repeatable Ruby dependency cache evidence, dispatch CI with a unique
 `cache_version`, then rerun the same source and key. Nondefault versions
@@ -84,7 +84,7 @@ Worked example, a conformance job for the full lane:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4
       - uses: ruby/setup-ruby@a0102e0972be65f351c307e2d64b9314a57c8073  # v1
         with: { ruby-version: '3.3', bundler-cache: true }
-      - run: bundle exec rspec spec/sirena/svg_conformance_spec.rb
+      - run: bundle exec rspec spec/etassia/svg_conformance_spec.rb
   # ...and in full-lane:  needs: [docs-build, links, conformance]
 ```
 
@@ -109,7 +109,7 @@ dispatch moved to the `cascade` job and now fires only on push events
 The old tag-triggered `do-release` dispatch was removed: releases now start
 only from `release.yml`'s manual dispatch and must pass its changelog preflight.
 The Ruby/OS matrix is hard-coded in `unit`; it was previously fetched from
-metanorma's `ruby-matrix.json`, which did not include Sirena's Ruby 3.2 floor.
+metanorma's `ruby-matrix.json`, which did not include Etassia's Ruby 3.2 floor.
 
 ## Repository-owned release
 
@@ -123,7 +123,7 @@ The manual entrypoint first runs `scripts/check_changelog.rb` with the
 requested version. The publishing job then verifies that the workflow source
 is the current `main` head and that the latest `fast-lane` and `full-lane`
 checks for that exact SHA succeeded. It generates a commit that may change
-only `lib/sirena/version.rb`, verifies the requested version through
+only `lib/etassia/version.rb`, verifies the requested version through
 `scripts/check_release_source.rb`, builds the gem, atomically pushes the
 version commit and tag, and publishes with the repository's RubyGems API key.
 

@@ -89,7 +89,7 @@ of 24, not 23.
    takes `parser:`, `transform:` and `renderer:` only
    (`diagram_registry.rb:54`), so the registry cannot name the model
    whose contract is being checked. Fill it in on all 24 rows in
-   `lib/sirena.rb`.
+   `lib/etassia.rb`.
 
    The registry is the source of completeness here. One row per type
    means the invariant grows with the table instead of with a hand-kept
@@ -217,12 +217,12 @@ refactor can drop 200 cases and nothing notices.
 
    Give each layer its own error class — `ParseError`, `LayoutError`
    (still `TransformError` until item 03 renames it), `RenderError`, all
-   under `Sirena::Error` — and let them propagate. If the engine wraps at
+   under `Etassia::Error` — and let them propagate. If the engine wraps at
    all, it wraps inside `rescue => e` so the original stays as `cause`,
    and it never stringifies a backtrace. See `LAYERS.md`.
 
 1. Add `lib/tasks/corpus.rake`. `rake corpus` runs every `.mmd` under
-   `spec/mermaid/` through `Sirena.render` and writes
+   `spec/mermaid/` through `Etassia.render` and writes
    `scoreboard/corpus.json`: one row per case with `pass` or `fail`, and
    on failure:
    - **stage**: `detect` / `parse` / `layout` / `render`
@@ -272,10 +272,10 @@ break something?*
 ### Files
 
 `spec/contract_spec.rb` (new), `spec/fixtures/contract/*.mmd` (new,
-24 of them), `lib/sirena/diagram_registry.rb`, `lib/sirena.rb`,
+24 of them), `lib/etassia/diagram_registry.rb`, `lib/etassia.rb`,
 `lib/tasks/corpus.rake` (new),
-`scoreboard/corpus.json` (new), `lib/sirena/diagram/*.rb` (about 12 of
-them), `lib/sirena/parser/treemap.rb`, `lib/sirena/transform/*.rb`.
+`scoreboard/corpus.json` (new), `lib/etassia/diagram/*.rb` (about 12 of
+them), `lib/etassia/parser/treemap.rb`, `lib/etassia/transform/*.rb`.
 
 ---
 
@@ -316,14 +316,14 @@ Status: 17 of 17 true on 2026-10-10; each line below names its proof.
       not a unit test on the transform. That is the only form that keeps
       holding after 04 and 06 move the pipeline
       Proof: `contract_spec.rb` 'an invalid model driven through Engine' raises `TransformError` /Invalid diagram/ (green).
-- [x] A — `grep -rn "def type$" lib/sirena/diagram/` returns nothing
-      Proof: `grep -rn "def type$" lib/sirena/diagram/` -> no output.
+- [x] A — `grep -rn "def type$" lib/etassia/diagram/` returns nothing
+      Proof: `grep -rn "def type$" lib/etassia/diagram/` -> no output.
 - [x] A — all 24 transforms inherit `Transform::Base`
-      Proof: registered transforms: 24 of 24 are `< Sirena::Transform::Base`.
+      Proof: registered transforms: 24 of 24 are `< Etassia::Transform::Base`.
 - [x] A — no `Treemap = TreemapParser` alias remains
       Proof: `grep -rn 'Treemap = ' lib/` -> no output; `Parser.const_defined?(:Treemap, false)` is false.
 - [x] B — a failing parse raises `ParseError` out of `Engine#render`, not `PipelineError`; no backtrace appears inside any message string
-      Proof: `Engine.new.render("flowchart TD\n  A -->")` raises `Sirena::Parser::ParseError` (a `Sirena::Error`), message has no `.rb:` frames.
+      Proof: `Engine.new.render("flowchart TD\n  A -->")` raises `Etassia::Parser::ParseError` (a `Etassia::Error`), message has no `.rb:` frames.
 - [x] B — `rake corpus` writes `scoreboard/corpus.json`; it is committed
       Proof: file exists, 1997 rows, last changed in bbd6c62e; `bundle exec rake corpus:check` -> `corpus:check: clean (1997 cases' pass/fail match the committed scoreboard)` at ba8e1917 + this commit.
 - [x] B — the reported rate is over evidence-valid cases, and says so

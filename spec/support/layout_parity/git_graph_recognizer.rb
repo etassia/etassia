@@ -17,8 +17,8 @@ module SpecSupport
           markers + reference_labels(extractor, doc) +
             reference_lanes(extractor, doc)
         else
-          labels = sirena_labels(extractor, doc, markers)
-          markers + labels + sirena_lanes(labels)
+          labels = etassia_labels(extractor, doc, markers)
+          markers + labels + etassia_lanes(labels)
         end
       end
 
@@ -126,17 +126,17 @@ module SpecSupport
         doc.xpath("//line").select { |line| class_token?(line, "branch") }
       end
 
-      def sirena_labels(extractor, doc, markers)
+      def etassia_labels(extractor, doc, markers)
         return [] if markers.empty?
 
         orientation = orientation(extractor, doc, markers)
         labels = doc.xpath("//text").filter_map do |text|
-          sirena_label(extractor, text, markers, orientation)
+          etassia_label(extractor, text, markers, orientation)
         end
         deduplicate_branch_labels(labels)
       end
 
-      def sirena_lanes(labels)
+      def etassia_lanes(labels)
         labels.filter_map do |label|
           next unless label.kind == :branch_label
 
@@ -158,22 +158,22 @@ module SpecSupport
         end
       end
 
-      def sirena_label(extractor, text, markers, orientation)
+      def etassia_label(extractor, text, markers, orientation)
         entry = text_entry(extractor, text)
         marker = nearest_element(entry[:box], markers) if entry
         return unless marker
 
         explicit_kind = explicit_label_kind(text)
         kind = explicit_kind ||
-          sirena_label_kind(entry[:box], marker.bbox, markers,
+          etassia_label_kind(entry[:box], marker.bbox, markers,
                             orientation, text)
         return unless explicit_kind ||
           recognized_label_position?(kind, entry[:box], marker)
 
-        logical_sirena_label(kind, entry)
+        logical_etassia_label(kind, entry)
       end
 
-      def logical_sirena_label(kind, entry)
+      def logical_etassia_label(kind, entry)
         return if generated_commit_label?(kind, entry[:label])
 
         logical_element(kind, entry[:label], entry[:box])
@@ -193,7 +193,7 @@ module SpecSupport
         kind == :commit_label && label.match?(GENERATED_COMMIT_LABEL)
       end
 
-      def sirena_label_kind(label, marker, markers, orientation, text)
+      def etassia_label_kind(label, marker, markers, orientation, text)
         if text["font-weight"] == "bold" && (text["text-anchor"] == "start" ||
                     branch_position?(label, markers, orientation))
           return :branch_label

@@ -13,7 +13,7 @@ parent: Diagram Types
 XY charts display data using x and y coordinates, supporting line and bar
 series for trend and comparison visualization.
 
-The xy-chart implementation in Sirena follows the established Parslet
+The xy-chart implementation in Etassia follows the established Parslet
 architecture, with support for:
 
 * A titled chart (`title "..."`)
@@ -26,12 +26,12 @@ architecture, with support for:
 
 The xy-chart implementation consists of:
 
-* `lib/sirena/diagram/xy_chart.rb` - `Diagram::XyChart` and `Diagram::XYAxis` model classes
-* `lib/sirena/parser/grammars/xy_chart.rb` - Parslet grammar
-* `lib/sirena/parser/builders/xy_chart.rb` - `Parser::Builders::XyChart`, the parse tree transformer
-* `lib/sirena/parser/xy_chart.rb` - Main parser
-* `lib/sirena/layout/xy_chart.rb` - `Layout::XyChart`, the layout transformer
-* `lib/sirena/renderer/xy_chart.rb` - SVG renderer
+* `lib/etassia/diagram/xy_chart.rb` - `Diagram::XyChart` and `Diagram::XYAxis` model classes
+* `lib/etassia/parser/grammars/xy_chart.rb` - Parslet grammar
+* `lib/etassia/parser/builders/xy_chart.rb` - `Parser::Builders::XyChart`, the parse tree transformer
+* `lib/etassia/parser/xy_chart.rb` - Main parser
+* `lib/etassia/layout/xy_chart.rb` - `Layout::XyChart`, the layout transformer
+* `lib/etassia/renderer/xy_chart.rb` - SVG renderer
 
 == Syntax
 
@@ -128,5 +128,5 @@ xychart-beta
 == See Also
 
 * link:../index/[Documentation Index]
-* https://github.com/claricle/sirena/blob/main/lib/sirena/diagram/xy_chart.rb[XY Chart Diagram Model]
-* https://github.com/claricle/sirena/blob/main/lib/sirena/renderer/xy_chart.rb[XY Chart Renderer]
+* https://github.com/claricle/etassia/blob/main/lib/etassia/diagram/xy_chart.rb[XY Chart Diagram Model]
+* https://github.com/claricle/etassia/blob/main/lib/etassia/renderer/xy_chart.rb[XY Chart Renderer]

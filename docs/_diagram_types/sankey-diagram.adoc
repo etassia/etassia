@@ -10,7 +10,7 @@ parent: Diagram Types
 
 == Overview
 
-Sankey diagrams in Sirena visualize flow quantities between nodes, where the width of arrows or connections is proportional to the flow rate. Sankey diagrams are ideal for showing how quantities move through a system, making them excellent for energy flows, material flows, cost distributions, and other transfer visualizations.
+Sankey diagrams in Etassia visualize flow quantities between nodes, where the width of arrows or connections is proportional to the flow rate. Sankey diagrams are ideal for showing how quantities move through a system, making them excellent for energy flows, material flows, cost distributions, and other transfer visualizations.
 
 Sankey diagrams are useful for:
 

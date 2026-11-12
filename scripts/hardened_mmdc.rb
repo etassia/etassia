@@ -11,7 +11,7 @@ require_relative "mermaid_toolchain" unless defined?(MermaidToolchain)
 module HardenedMmdc
   module_function
 
-  # Sirena gets the same deadline mmdc has here, so a caller comparing the two
+  # Etassia gets the same deadline mmdc has here, so a caller comparing the two
   # is comparing them under one shared budget rather than two independent
   # guesses.
   CASE_TIMEOUT = 30

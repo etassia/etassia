@@ -15,7 +15,7 @@ require "yaml"
 # longer ship inside the gem since D6 narrowed the gemspec's files allowlist
 # to lib+exe, but they still feed the docs site once TODO.foundation/15 wires
 # it up. So this task DOES dirty git, on purpose: regenerating is how a
-# tracked example stays honest about what Sirena renders today.
+# tracked example stays honest about what Etassia renders today.
 EXAMPLE_TODAY = Date.new(2026, 1, 1)
 
 # The only example sources legitimately unrenderable today.
@@ -123,7 +123,7 @@ module ExampleTasks
 
   def examples_lock_path(root)
     key = Digest::SHA256.hexdigest(File.realpath(root))
-    File.join(Dir.tmpdir, "sirena-examples-#{key}.lock")
+    File.join(Dir.tmpdir, "etassia-examples-#{key}.lock")
   end
 
   # Copies each diagram dir's SVGs into docs_assets_dir with the same
@@ -381,7 +381,7 @@ module ExampleTasks
   # An SVG whose source is gone still lingers: git tracks it, and the
   # generate loop walks sources, so nothing ever visits it. It has to go —
   # but nothing here can tell a stale generated SVG from
-  # one a human wrote, because Sirena stamps no provenance into its output.
+  # one a human wrote, because Etassia stamps no provenance into its output.
   #
   # So generation REPORTS them and `rake examples:prune` deletes them. A
   # routine regeneration can no longer destroy a file it did not create; the
@@ -611,7 +611,7 @@ module ExampleTasks
     relative = mmd_file.sub("#{examples_dir}/", "")
     expected = EXPECTED_UNRENDERABLE_SOURCES.include?(relative)
     theme = theme_for(mmd_file)
-    engine = Sirena::Engine.new(theme: theme, today: EXAMPLE_TODAY)
+    engine = Etassia::Engine.new(theme: theme, today: EXAMPLE_TODAY)
     validate_render(engine, source, relative, expected, stats)
   end
 
@@ -748,7 +748,7 @@ module ExampleTasks
 
   def temporary_write_path(destination)
     File.join(File.dirname(destination),
-              ".sirena-#{Process.pid}-#{SecureRandom.hex(8)}.tmp")
+              ".etassia-#{Process.pid}-#{SecureRandom.hex(8)}.tmp")
   end
 
   def ensure_safe_source(source)
@@ -831,7 +831,7 @@ module ExampleTasks
   end
 
   def generate_source_svg(mmd_file, svg_file, theme, examples_dir)
-    svg = Sirena.render(File.read(mmd_file), theme: theme, today: EXAMPLE_TODAY)
+    svg = Etassia.render(File.read(mmd_file), theme: theme, today: EXAMPLE_TODAY)
     write_svg(svg_file, svg, examples_dir)
   end
 

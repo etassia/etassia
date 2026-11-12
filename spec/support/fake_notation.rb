@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "sirena"
+require "etassia"
 
 # A notation written against the public contract alone: no engine, parser or
 # layout edit stands behind it. Specs build instances and register them
@@ -53,7 +53,7 @@ module FakeNotation
 
     def parse(source)
       unless claims?(source)
-        raise Sirena::Engine::DiagramTypeError,
+        raise Etassia::Engine::DiagramTypeError,
               "Unable to detect diagram type from source. " \
               "Source must start with one of: #{@prefix}"
       end
@@ -64,7 +64,7 @@ module FakeNotation
     private
 
     def parsed(source)
-      Sirena::Notation::Parsed.new(
+      Etassia::Notation::Parsed.new(
         type: types.first,
         diagram: { notation: id, source: source },
         transform: Layout,

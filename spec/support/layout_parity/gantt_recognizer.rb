@@ -2,7 +2,7 @@
 
 module SpecSupport
   module LayoutParity
-    # Gantt task shapes and date ticks shared by mmdc and Sirena SVGs.
+    # Gantt task shapes and date ticks shared by mmdc and Etassia SVGs.
     class GanttRecognizer
       TASK_LABEL = /(?:taskText|milestoneText|activeText|doneText|critText)/
 
@@ -14,7 +14,7 @@ module SpecSupport
         if reference?(doc)
           reference_tasks(extractor, doc) + reference_ticks(extractor, doc)
         else
-          sirena_tasks(extractor, doc) + sirena_ticks(extractor, doc)
+          etassia_tasks(extractor, doc) + etassia_ticks(extractor, doc)
         end
       end
 
@@ -63,15 +63,15 @@ module SpecSupport
         tick_elements(extractor, nodes)
       end
 
-      def sirena_tasks(extractor, doc)
+      def etassia_tasks(extractor, doc)
         texts = text_entries(extractor, doc)
-        sirena_shapes(doc).filter_map do |shape|
+        etassia_shapes(doc).filter_map do |shape|
           label = outside_row_label(extractor, shape, texts)
           task_element(extractor, shape, label)
         end
       end
 
-      def sirena_shapes(doc)
+      def etassia_shapes(doc)
         doc.xpath("//rect | //polygon")
       end
 
@@ -87,7 +87,7 @@ module SpecSupport
           (label.center.last - shape.center.last).abs <= tolerance
       end
 
-      def sirena_ticks(extractor, doc)
+      def etassia_ticks(extractor, doc)
         labels = text_entries(extractor, doc)
         entries = vertical_grid_lines(extractor, doc).filter_map do |line|
           bottom_axis_label(line, labels)

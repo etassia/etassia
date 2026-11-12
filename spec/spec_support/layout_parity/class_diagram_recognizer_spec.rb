@@ -52,7 +52,7 @@ RSpec.describe SpecSupport::LayoutParity::ClassDiagramRecognizer do
 
   def recognized_pair(path)
     reference = reference_svg(path.sub(/\.mmd\z/, ".svg"))
-    render = Sirena.render(corpus_source(path))
+    render = Etassia.render(corpus_source(path))
     [recognized(reference), recognized(render)]
   end
 

@@ -1,0 +1,34 @@
+# frozen_string_literal: true
+
+require "nokogiri"
+require "spec_helper"
+require "etassia/notation/plantuml"
+
+Etassia::Notation.send(:entries).delete(:plantuml)
+
+RSpec.describe Etassia::Notation::PlantUML::Sequence::Layout do
+  include_context "with an isolated notation registry"
+  include DejaVuText
+
+  before { Etassia::Notation.register(Etassia::Notation::PlantUML) }
+
+  let(:source) do
+    <<~PLANTUML
+      @startuml
+      participant A
+      A -> A : hi
+      @enduml
+    PLANTUML
+  end
+  let(:rectangle) do
+    Nokogiri::XML(Etassia.render(source, notation: :plantuml))
+      .remove_namespaces!.at_xpath(
+        '//g[starts-with(@id,"participant-A-")]/rect',
+      )
+  end
+
+  it "uses intrinsic dimensions for an ordinary plain participant" do
+    expect(%w[width height].map { |name| rectangle[name].to_f })
+      .to eq([dejavu("A", size: 14) + 14.0, 30.4883])
+  end
+end

@@ -4,7 +4,7 @@ module SpecSupport
   module LayoutParity
     # Sequence participants (contract section 1). Mermaid's top and bottom
     # boxes are presentation copies of one semantic participant, so the top
-    # copy supplies its geometry. Sirena draws that participant once.
+    # copy supplies its geometry. Etassia draws that participant once.
     # Mermaid draws a box participant as a top-level rect and an actor,
     # boundary, control or entity participant as a g; both carry the name.
     class SequenceRecognizer
@@ -15,7 +15,7 @@ module SpecSupport
       end
 
       def elements(extractor, doc)
-        reference(extractor, doc) + sirena(extractor, doc)
+        reference(extractor, doc) + etassia(extractor, doc)
       end
 
       private
@@ -29,7 +29,7 @@ module SpecSupport
         end
       end
 
-      def sirena(extractor, doc)
+      def etassia(extractor, doc)
         doc.xpath("//g[starts-with(@id, 'participant-')]").filter_map do |g|
           box = extractor.bbox(g)
           next unless box

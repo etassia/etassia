@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Sirena's SVG is a fraction of the mermaid reference's size, and the fraction
+# Etassia's SVG is a fraction of the mermaid reference's size, and the fraction
 # differs per diagram type (the state_diagram reference is 358 KB of embedded
 # styling). The band is therefore centred on each type's measured ratio, not
 # on one global range wide enough for every type.

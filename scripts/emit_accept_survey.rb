@@ -2,7 +2,7 @@
 # frozen_string_literal: true
 
 require "elkrb"
-require_relative "../lib/sirena"
+require_relative "../lib/etassia"
 
 module EmitAcceptSurvey
   ROOT = File.expand_path("..", __dir__)
@@ -26,13 +26,13 @@ module EmitAcceptSurvey
   module_function
 
   def run
-    results = Sirena::DiagramRegistry.types.map { |type| probe(type) }
+    results = Etassia::DiagramRegistry.types.map { |type| probe(type) }
     verify(results)
     print_results(results)
   end
 
   def probe(type)
-    handlers = Sirena::DiagramRegistry.get(type)
+    handlers = Etassia::DiagramRegistry.get(type)
     diagram_ir = source_ir(type, handlers)
     layout = handlers[:transform].new
     scene = layout.call(diagram_ir)
@@ -42,7 +42,7 @@ module EmitAcceptSurvey
   def source_ir(type, handlers)
     source = File.read(example_path(type))
     diagram = handlers[:parser].new.parse(source)
-    Sirena::Notation::Mermaid::IRAdapter.call(type, diagram)
+    Etassia::Notation::Mermaid::IRAdapter.call(type, diagram)
   end
 
   def probe_result(type, handlers, diagram_ir, layout, scene)

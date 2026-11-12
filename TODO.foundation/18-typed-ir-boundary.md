@@ -13,7 +13,7 @@ are its design evidence. Gates item 12's **Done**, not its start.
 
 ## Why the old deferral argument still shapes this
 
-The reason for deferring was real: Sirena's 24 transforms emit
+The reason for deferring was real: Etassia's 24 transforms emit
 materially different structures, so an IR designed from Mermaid alone
 would encode Mermaid's assumptions and PlantUML would fight it.
 
@@ -39,7 +39,7 @@ language. A construct that exists because one notation spells something
 a particular way stays in that notation's plugin.
 
 That is a different question from which **diagram categories** the IR
-covers. Sirena renders three structurally different kinds:
+covers. Etassia renders three structurally different kinds:
 
 Apply these tests **in order**. The order matters: a type can satisfy
 more than one, and the first match wins.
@@ -47,11 +47,11 @@ more than one, and the first match wins.
 1. **pre-positioned** — the *notation's grammar* fully determines layout,
    for every valid document, with no layout engine involved. Block is the
    clear case: the author's `columns` fixes the grid
-   (`lib/sirena/layout/block.rb:43-109`). Block also emits `from`/`to`
-   connectivity (`lib/sirena/layout/block.rb:182-198`), which is exactly why
+   (`lib/etassia/layout/block.rb:43-109`). Block also emits `from`/`to`
+   connectivity (`lib/etassia/layout/block.rb:182-198`), which is exactly why
    this test runs first.
 
-   Ask it of the notation, not of one file. Every Sirena transform happens
+   Ask it of the notation, not of one file. Every Etassia transform happens
    to emit final coordinates today, so "is the output positioned" would
    match all 24 types and collapse the taxonomy. A notation where *some*
    elements carry positions and others do not — DOT with `pos=`, BPMN with
@@ -60,18 +60,18 @@ more than one, and the first match wins.
 2. **graph-shaped** — the transform emits edges whose **endpoints identify
    nodes**, by whatever spelling. Sankey is the obvious case: it emits
    `nodes:` and `flows:` carrying literal `source:`/`target:`
-   (`lib/sirena/layout/sankey.rb:214-230`). It looks like a chart and is a
+   (`lib/etassia/layout/sankey.rb:214-230`). It looks like a chart and is a
    graph.
 
    Architecture is the case that shows why the test is about recoverable
    identity rather than key names: it emits `edge:` plus `from_x/from_y/
-   to_x/to_y` (`lib/sirena/layout/architecture.rb:296-317`) and no
+   to_x/to_y` (`lib/etassia/layout/architecture.rb:296-317`) and no
    `source`/`target` key anywhere, yet the endpoints are recoverable from the
    embedded edge model. It is graph-shaped. Containment on its own does not
    qualify.
 3. **data-shaped** — everything else: values, or placed content carrying no
    connectivity. Pie is the clear case (`Layout::Pie#build_graph` at
-   `lib/sirena/layout/pie.rb:26-54` emits no node boxes). This is the residual
+   `lib/etassia/layout/pie.rb:26-54` emits no node boxes). This is the residual
    category, so every type lands somewhere.
 
 Those examples are illustrative, not an exhaustive roster. Apply the tests
@@ -148,6 +148,6 @@ the foundation close with the architecture issue #2 asks for half-built.
 
 ## Files
 
-`lib/sirena/ir/**` (new), `lib/sirena/layout/*`,
-`lib/sirena/notation/**`, `spec/sirena/ir/**` (new),
+`lib/etassia/ir/**` (new), `lib/etassia/layout/*`,
+`lib/etassia/notation/**`, `spec/etassia/ir/**` (new),
 `docs/ir-type-map.md` (new), and item 10's boundary spec.

@@ -6,18 +6,18 @@ require "open3"
 require "rbconfig"
 
 # Runs scripts/corpus_sweep.rb over the pie corpus in a child process with
-# Sirena::Engine#render replaced by one fixed string, so the script's own
+# Etassia::Engine#render replaced by one fixed string, so the script's own
 # pass predicate is what is under test rather than any renderer.
 #
 # One child sweeps every SVG below in turn: each example used to spawn its
-# own Ruby (bundler/setup and all of sirena loaded), which made this file
+# own Ruby (bundler/setup and all of etassia loaded), which made this file
 # about 16 spawns, 1 to 2 s each on a Windows runner.
 module CorpusSweepRunner
   REPO_ROOT = File.expand_path("../..", __dir__)
 
   WELL_FORMED = {
     "a well-formed SVG" => '<svg xmlns="http://www.w3.org/2000/svg"><text>a</text></svg>',
-    # Sirena's real output opens `<svg` followed by a newline, not a space, so
+    # Etassia's real output opens `<svg` followed by a newline, not a space, so
     # the root-tag shape is pinned on every spelling the predicate accepts.
     "a newline after <svg" =>
       %(<svg\n  xmlns="http://www.w3.org/2000/svg"\n  width="1"></svg>\n),
@@ -52,8 +52,8 @@ module CorpusSweepRunner
     require "bundler/setup"
     require "json"
     require "stringio"
-    require "sirena"
-    Sirena::Engine.class_eval { def render(_source, *) = ENV.fetch("FAKE_SVG") }
+    require "etassia"
+    Etassia::Engine.class_eval { def render(_source, *) = ENV.fetch("FAKE_SVG") }
     # corpus_sweep.rb only runs its report when loaded as the main program
     # ($PROGRAM_NAME == __FILE__); `load` alone leaves $PROGRAM_NAME as "-e"
     # and the script returns before printing anything.
@@ -74,7 +74,7 @@ module CorpusSweepRunner
   def self.sweeps
     @sweeps ||= begin
       svgs = WELL_FORMED.values + MALFORMED.values
-      # bundler/setup must run before "sirena" is required in the child, or a
+      # bundler/setup must run before "etassia" is required in the child, or a
       # default gem (json) activates unpinned and Bundler's own activation
       # later conflicts with the Gemfile's pinned version.
       out, err, status = Open3.capture3(

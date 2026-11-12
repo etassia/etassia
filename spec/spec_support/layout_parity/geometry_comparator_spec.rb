@@ -15,8 +15,8 @@ RSpec.describe SpecSupport::LayoutParity::GeometryComparator do
     element_class.new(kind: :node, key: key, bbox: extent)
   end
 
-  def pair(key, reference_extent, sirena_extent)
-    [element(key, reference_extent), element(key, sirena_extent)]
+  def pair(key, reference_extent, etassia_extent)
+    [element(key, reference_extent), element(key, etassia_extent)]
   end
 
   def compare(pairs, root_box: box(0, 0, 100, 100), max_width: nil,
@@ -79,7 +79,7 @@ RSpec.describe SpecSupport::LayoutParity::GeometryComparator do
     end
 
     it "keeps evidence boxes for each pair" do
-      expect(top_five.first.values_at(:bbox_reference, :bbox_sirena))
+      expect(top_five.first.values_at(:bbox_reference, :bbox_etassia))
         .to eq([[120.0, 0.0, 130.0, 10.0], [120.0, 0.0, 180.0, 10.0]])
     end
   end

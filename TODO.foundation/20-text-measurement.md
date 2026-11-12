@@ -12,10 +12,10 @@ Owner ruled best-effort sizing acceptable, with this card opened.
 
 ## Facts
 
-Sirena sizes text by counting characters. `TextMeasurement` multiplies
+Etassia sizes text by counting characters. `TextMeasurement` multiplies
 `font_size * 0.5` per character, and every transform sizes its boxes from
 that. Self-loop label overflow uses a separate, wider hint,
-`WIDE_CHAR_WIDTH_RATIO = 1.5` in `lib/sirena/renderer/flowchart.rb`, raised
+`WIDE_CHAR_WIDTH_RATIO = 1.5` in `lib/etassia/renderer/flowchart.rb`, raised
 from an initial `1.0` in this same PR.
 
 **No scalar bounds it, and that is measured, not argued.** Real advances,
@@ -31,8 +31,8 @@ because the characters that break it are not in the font at all:
     U+4E2D  中     ABSENT from Arial and Helvetica
     U+FDFD  ﷽     ABSENT from Arial and Helvetica, renders at 6.49 em
 
-**A renderer substitutes a font sirena has never seen for those**, so no
-table keyed on sirena's own font stack can predict their width. That is the
+**A renderer substitutes a font etassia has never seen for those**, so no
+table keyed on etassia's own font stack can predict their width. That is the
 architectural fact this card exists for.
 
 Unicode properties do not rescue it either. U+FDFD has East Asian Width
@@ -50,7 +50,7 @@ reads the laid-out geometry back. Measured, same three labels:
                                      10x 中   375.6
                                      3x  ﷽    523.9
 
-Sirena is pure Ruby with no browser and no font metrics dependency
+Etassia is pure Ruby with no browser and no font metrics dependency
 (`ttfunk` is NOT declared; it resolved only because another gem pulls it in).
 
 **The 0.889 reading does not reproduce; it was a different font, not a
@@ -101,7 +101,7 @@ when the target is the pinned oracle output.
 ## Related
 
 The deep-namespace limit is the same shape and is already accepted on the
-same terms: sirena dies at roughly 250 nesting levels where mmdc renders,
+same terms: etassia dies at roughly 250 nesting levels where mmdc renders,
 because Ruby's thread VM stack size is fixed at interpreter startup and a
 library cannot change it. Recorded as a capability gap, not a defect.
 

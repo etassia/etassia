@@ -7,22 +7,22 @@ module SpecSupport
     # Extracts and compares Quadrant point radii by visible point label.
     class QuadrantPointGeometry
       Measurement = Data.define(:key, :radius)
-      Comparison = Data.define(:key, :reference_radius, :sirena_radius, :error)
+      Comparison = Data.define(:key, :reference_radius, :etassia_radius, :error)
 
       def self.extract(svg)
         document = Nokogiri::XML(svg) { |config| config.strict.nonet }
         document.remove_namespaces!
-        reference_points(document) || sirena_points(document)
+        reference_points(document) || etassia_points(document)
       end
 
-      def self.compare(reference:, sirena:)
+      def self.compare(reference:, etassia:)
         reference_points = extract(reference)
-        sirena_points = extract(sirena)
-        unless reference_points.size == sirena_points.size
+        etassia_points = extract(etassia)
+        unless reference_points.size == etassia_points.size
           raise ArgumentError, "point counts differ"
         end
 
-        pair(index(reference_points), index(sirena_points))
+        pair(index(reference_points), index(etassia_points))
       end
 
       def self.reference_points(document)
@@ -37,14 +37,14 @@ module SpecSupport
       end
       private_class_method :reference_points
 
-      def self.sirena_points(document)
+      def self.etassia_points(document)
         document.xpath(
           "//circle[starts-with(@id, 'point_') or starts-with(@id, 'point-')]",
         ).map do |circle|
           measurement(circle, normalized(circle.next_element))
         end
       end
-      private_class_method :sirena_points
+      private_class_method :etassia_points
 
       def self.measurement(circle, key)
         Measurement.new(key: key, radius: new(circle).radius)
@@ -64,16 +64,16 @@ module SpecSupport
       end
       private_class_method :index
 
-      def self.pair(reference, sirena)
-        unless reference.keys.sort == sirena.keys.sort
+      def self.pair(reference, etassia)
+        unless reference.keys.sort == etassia.keys.sort
           raise ArgumentError, "point labels differ"
         end
 
         reference.keys.sort.map do |key|
           expected = reference.fetch(key).radius
-          actual = sirena.fetch(key).radius
+          actual = etassia.fetch(key).radius
           Comparison.new(key: key, reference_radius: expected,
-                         sirena_radius: actual,
+                         etassia_radius: actual,
                          error: analog_error(actual, expected))
         end
       end

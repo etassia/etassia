@@ -7,7 +7,7 @@ module ClassNoteSvg
   module_function
 
   def document(source)
-    REXML::Document.new(Sirena::Engine.new.render(source))
+    REXML::Document.new(Etassia::Engine.new.render(source))
   end
 
   def texts(source)

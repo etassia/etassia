@@ -27,7 +27,7 @@ error
 
 Mermaid detects an error diagram only when the whole source is the
 keyword. Text after it, as in `Error Diagrams`, is not an error diagram
-there, and Sirena refuses it the same way.
+there, and Etassia refuses it the same way.
 
 The keyword can be lowercase or capitalized:
 
@@ -66,20 +66,20 @@ Error diagrams use fixed error colors but integrate with theme typography:
 
 === Parser
 
-The error diagram parser (`Sirena::Parser::Error`) uses Parslet grammar to handle:
+The error diagram parser (`Etassia::Parser::Error`) uses Parslet grammar to handle:
 
 * The `error` or `Error` keyword, alone on its line
 
 === Model
 
-The error diagram model (`Sirena::Diagram::Error`) contains:
+The error diagram model (`Etassia::Diagram::Error`) contains:
 
 * `message`: Optional error message string (never set from Mermaid
   source, which cannot carry one)
 
 === Renderer
 
-The error renderer (`Sirena::Renderer::Error`) creates:
+The error renderer (`Etassia::Renderer::Error`) creates:
 
 * A rounded rectangle box (400x120 pixels)
 * An error icon (red circle with exclamation mark) on the left

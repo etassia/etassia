@@ -111,7 +111,7 @@ sequence then proves temporal semantics.)
 
 ## Files
 
-`lib/sirena/notation/plantuml/**`, `spec/plantuml/` (absorbing item 16's
+`lib/etassia/notation/plantuml/**`, `spec/plantuml/` (absorbing item 16's
 `spec/plantuml_spike/` cases — say so in the PR rather than leaving two
 directories), `scripts/extract_plantuml_tests.rb` (new), `TODO.notations`
 (new), and lane entries in `.github/workflows/` (19a owns those files).

@@ -1,6 +1,6 @@
 # Versioning and releases
 
-Sirena is pre-1.0. This file is the contract behind each version number.
+Etassia is pre-1.0. This file is the contract behind each version number.
 
 ## What 0.x promises
 
@@ -22,16 +22,16 @@ Only these are covered by the promise:
 
 | Surface | Contract |
 |---|---|
-| `Sirena.render(source, options = {})` | Returns an SVG String; raises on unparseable or unsupported input. |
-| `Sirena::Engine#render(source, options = {})` | Same behaviour; documented `options` include `theme:` (name, `Theme` or Hash), `verbose:`, `today:`, and `layout_engine:` (`:grid` or `:elk`). Unknown keys are ignored; invalid documented values may raise. |
-| CLI `sirena render`, `sirena batch`, `sirena types`, `sirena version` (`--version`, `-V`) | Command names, documented options, `render` exiting 1 on error. `batch` continues after per-file failures and exits 1 when one or more files fail. |
-| `Sirena::VERSION` | The released version string. |
+| `Etassia.render(source, options = {})` | Returns an SVG String; raises on unparseable or unsupported input. |
+| `Etassia::Engine#render(source, options = {})` | Same behaviour; documented `options` include `theme:` (name, `Theme` or Hash), `verbose:`, `today:`, and `layout_engine:` (`:grid` or `:elk`). Unknown keys are ignored; invalid documented values may raise. |
+| CLI `etassia render`, `etassia batch`, `etassia types`, `etassia version` (`--version`, `-V`) | Command names, documented options, `render` exiting 1 on error. `batch` continues after per-file failures and exits 1 when one or more files fail. |
+| `Etassia::VERSION` | The released version string. |
 
 ## Internal
 
 Everything else, whatever its visibility, may change in any release without a
 changelog entry: parsers, grammars, diagram models, transforms, renderers,
-`Sirena::Svg`, layout, `DiagramRegistry`, `Theme::Registry`, error class
+`Etassia::Svg`, layout, `DiagramRegistry`, `Theme::Registry`, error class
 hierarchy, and the notation plugin shapes that item 10 introduces. A notation
 plugin shape becomes public only when this file lists it.
 
@@ -40,10 +40,10 @@ plugin shape becomes public only when this file lists it.
 1. Merge changes; each releasable one adds a bullet under `## [Unreleased]`.
 2. Open a changelog-only PR that renames `[Unreleased]` to
    `[X.Y.Z] - YYYY-MM-DD` and adds an empty `[Unreleased]`. A PR that wants a
-   release says so in its body. No PR edits `lib/sirena/version.rb`.
+   release says so in its body. No PR edits `lib/etassia/version.rb`.
 3. The maintainer dispatches the `release` workflow (`workflow_dispatch`) with
    `next_version`. Repository-owned steps verify the checked `main` head, bump
-   only `lib/sirena/version.rb`, build the gem, push that commit and its tag
+   only `lib/etassia/version.rb`, build the gem, push that commit and its tag
    atomically, and publish with the repository's RubyGems API key.
 4. The changelog preflight (`scripts/check_changelog.rb <next_version>`) must
    pass before the publishing job starts. It is a prerequisite job in
@@ -66,7 +66,7 @@ Conditions of the bypass:
   source is the current `main` head and that this exact SHA has successful
   `fast-lane` and `full-lane` checks. It then uses
   `scripts/check_release_source.rb` to assert that the generated bump commit
-  changes `lib/sirena/version.rb` and nothing else and contains the requested
+  changes `lib/etassia/version.rb` and nothing else and contains the requested
   target version. Either assertion failing aborts before the push.
 - Tag pushes made with `GITHUB_TOKEN` trigger no workflows; nothing downstream
   relies on them running.
@@ -87,7 +87,7 @@ The tracked workflow contains the complete publishing implementation. It does
 not call a reusable workflow or install a release helper: its only external
 workflow actions are checkout and Ruby setup, both pinned to immutable commit
 SHAs. `skip` performs no version commit and publishes/tags the version already
-in `lib/sirena/version.rb`; use it to resume publishing if a prior run pushed
+in `lib/etassia/version.rb`; use it to resume publishing if a prior run pushed
 the version commit and tag but failed during the RubyGems push.
 
 ## Open

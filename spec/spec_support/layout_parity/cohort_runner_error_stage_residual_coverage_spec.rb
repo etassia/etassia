@@ -16,7 +16,7 @@ RSpec.describe SpecSupport::LayoutParity::CohortRunner do
   let(:doubles) do
     {
       comparator: class_double(SpecSupport::LayoutParity::CaseComparator),
-      renderer: instance_double(Sirena::Engine),
+      renderer: instance_double(Etassia::Engine),
     }
   end
   let(:runner) do
@@ -36,9 +36,9 @@ RSpec.describe SpecSupport::LayoutParity::CohortRunner do
   after { FileUtils.remove_entry(root) }
 
   {
-    Sirena::Engine::DiagramTypeError => "detect",
-    Sirena::Parser::ParseError => "parse",
-    Sirena::Renderer::RenderError => "render",
+    Etassia::Engine::DiagramTypeError => "detect",
+    Etassia::Parser::ParseError => "parse",
+    Etassia::Renderer::RenderError => "render",
     StandardError => "unknown",
   }.each do |raised_class, expected_stage|
     context "when rendering raises #{raised_class}" do

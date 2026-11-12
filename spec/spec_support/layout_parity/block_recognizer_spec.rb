@@ -21,22 +21,22 @@ RSpec.describe SpecSupport::LayoutParity::BlockRecognizer do
 
   def real_pair(name)
     reference = reference_svg("block/#{name}.svg")
-    sirena = Sirena.render(corpus_source("block/#{name}.mmd"))
-    [summaries(reference), summaries(sirena)]
+    etassia = Etassia.render(corpus_source("block/#{name}.mmd"))
+    [summaries(reference), summaries(etassia)]
   end
 
   it "matches anonymous compounds and their labeled leaves" do
     name = "block_spec-532fdf55"
-    reference_summary, sirena_summary = real_pair(name)
+    reference_summary, etassia_summary = real_pair(name)
 
-    expect(sirena_summary).to eq(reference_summary)
+    expect(etassia_summary).to eq(reference_summary)
   end
 
   it "matches semantic-id compounds and scopes their nested leaves" do
     name = "block-b7a88657"
     reference = reference_svg("block/#{name}.svg")
-    sirena = Sirena.render(corpus_source("block/#{name}.mmd"))
+    etassia = Etassia.render(corpus_source("block/#{name}.mmd"))
 
-    expect(identity_summaries(sirena)).to eq(identity_summaries(reference))
+    expect(identity_summaries(etassia)).to eq(identity_summaries(reference))
   end
 end

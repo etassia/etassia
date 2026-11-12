@@ -1,4 +1,4 @@
-# Sirena: changes to the foundation plan
+# Etassia: changes to the foundation plan
 
 *What we're changing in the plan, and why.*
 
@@ -17,13 +17,13 @@ gains one criterion, which is why an earlier count said nine.
 ## Background, for anyone new to the repo
 
 Mermaid is diagram-as-text. The official renderer (`mmdc`) is JavaScript
-and needs Node plus a headless Chromium. **Sirena does the same job in
+and needs Node plus a headless Chromium. **Etassia does the same job in
 pure Ruby, with no Node and no browser.** That's the whole product.
 
 24 Mermaid diagram types are registered. `spec/mermaid/` holds 1,997
 files, but a third of them are not Mermaid — 632 extraction artifacts
 and 59 cases mmdc rejected, per `spec/mermaid/corpus-verdicts.yml`.
-Against the **1,032 evidence-valid cases, Sirena renders 574 — 55.6%**,
+Against the **1,032 evidence-valid cases, Etassia renders 574 — 55.6%**,
 leaving **458** to fix (measured 2026-08-27,
 `bundle exec ruby scripts/corpus_sweep.rb`). Closing that gap is the job.
 
@@ -142,7 +142,7 @@ purpose:
   03  naming            Transform -> Layout, pure rename
   04  typed Scene       kill the 24 undocumented hash shapes
   05  boilerplate       12 parsers, 9 doc-creators, 6 palettes (3 names)
-  06  registry          lib/sirena.rb 300+ lines -> under 40
+  06  registry          lib/etassia.rb 300+ lines -> under 40
   07  adding a type     generator, shared examples, one onboarding page
 ```
 
@@ -206,7 +206,7 @@ discovery for external notations, and a blocking API contract document.
 
 **Do:** one type table plus convention-based class lookup. 300+ lines
 becomes under 40, and the dead top-level `self.render` at
-`lib/sirena.rb:38` gets deleted.
+`lib/etassia.rb:38` gets deleted.
 
 **Why:** it's a plugin system for a second notation that doesn't exist
 yet. The item itself notes the shape is settled but the API contract
@@ -407,7 +407,7 @@ Pure renames, no logic change. The corpus number must not move.
 types use `XParser` / `XTransform` / `XRenderer`, seven use the bare type
 name for transform and renderer (`GitGraph`, `Mindmap`, `Kanban`,
 `Radar`, `XYChart`, `Packet`, `Treemap`), and one parser is bare
-(`Parser::Architecture`). All become `Sirena::<Layer>::<Type>`:
+(`Parser::Architecture`). All become `Etassia::<Layer>::<Type>`:
 
 ```
   Parser::PieParser         ->  Parser::Pie
@@ -429,7 +429,7 @@ constants under 3 names (`DEFAULT_COLORS`, `FLOW_COLORS`,
 per the breakdown in `05-delete-the-boilerplate.md` (measured 2026-09-02) —
 9 copies of `create_document_from_layout`, the no-op
 `add_arrow_marker` placeholder, the `Treemap = TreemapParser` alias, and
-the dead top-level `self.render` at `lib/sirena.rb:38`.
+the dead top-level `self.render` at `lib/etassia.rb:38`.
 
 Pre-1.0, so no deprecation aliases — callers get updated and the old
 names go.
@@ -502,7 +502,7 @@ appearance is a renderer concern. Both get the theme; neither guesses.
 
 **Each layer raises its own error, and the class survives to the
 caller:** `DiagramTypeError`, `ParseError`, `LayoutError`, `RenderError`,
-all under `Sirena::Error`. No more collapsing everything into
+all under `Etassia::Error`. No more collapsing everything into
 `PipelineError` with a stringified backtrace.
 
 ---
@@ -550,23 +550,23 @@ is to look.
 Worth an afternoon each:
 
 ```
-  lib/sirena.rb                 300+ lines of copy-paste, plus a dead
+  lib/etassia.rb                 300+ lines of copy-paste, plus a dead
                                 self.render at line 38
 
-  lib/sirena/engine.rb          the pipeline in one file: the regex
+  lib/etassia/engine.rb          the pipeline in one file: the regex
                                 table at :32, the grid stub at :199,
                                 the error wrapping at :119
 
-  lib/sirena/transform/pie.rb   a "transform" that copies fields
-  lib/sirena/transform/mindmap.rb  a "transform" that does layout
+  lib/etassia/transform/pie.rb   a "transform" that copies fields
+  lib/etassia/transform/mindmap.rb  a "transform" that does layout
                                 compare them and the naming problem
                                 explains itself
 
-  lib/sirena/renderer/pie.rb    then read the renderer that consumes
+  lib/etassia/renderer/pie.rb    then read the renderer that consumes
                                 the hash pie.rb emits, and notice that
                                 the contract only exists here
 
-  lib/sirena/svg/text.rb        the same attribute declared twice —
+  lib/etassia/svg/text.rb        the same attribute declared twice —
                                 `attribute` and a dead `map_attribute`
                                 — plus one `writes_attributes` entry;
                                 work out which one runs

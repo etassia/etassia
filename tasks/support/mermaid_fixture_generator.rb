@@ -5,7 +5,7 @@ class MermaidFixtureGenerator
   FIXTURE_DIR = "spec/fixtures_mermaid"
   FAIL_NOTE = "Should have failed but succeeded"
 
-  # Supported diagram types in Sirena
+  # Supported diagram types in Etassia
   DIAGRAM_TYPES = %w[
     flowchart sequence class er state user_journey
     gantt pie timeline quadrant gitgraph

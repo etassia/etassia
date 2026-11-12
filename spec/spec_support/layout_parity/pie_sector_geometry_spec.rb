@@ -10,7 +10,7 @@ RSpec.describe SpecSupport::LayoutParity::PieSectorGeometry do
   end
 
   def real_pair_values
-    [real_reference_sector.radius, real_sirena_sector.radius,
+    [real_reference_sector.radius, real_etassia_sector.radius,
      real_comparison.radius_error, real_comparison.sweep_error]
   end
 
@@ -19,15 +19,15 @@ RSpec.describe SpecSupport::LayoutParity::PieSectorGeometry do
     @real_reference_sector ||= measurements(File.read(path)).first
   end
 
-  def real_sirena_sector
+  def real_etassia_sector
     path = "spec/mermaid/pie/#{source_name}.mmd"
-    rendered = Sirena::Engine.new.render(File.read(path))
-    @real_sirena_sector ||= measurements(rendered).last
+    rendered = Etassia::Engine.new.render(File.read(path))
+    @real_etassia_sector ||= measurements(rendered).last
   end
 
   def real_comparison
     @real_comparison ||= described_class.compare(
-      reference: real_reference_sector, sirena: real_sirena_sector,
+      reference: real_reference_sector, etassia: real_etassia_sector,
     )
   end
 
@@ -75,14 +75,14 @@ RSpec.describe SpecSupport::LayoutParity::PieSectorGeometry do
   def collapsed_comparison
     reference = described_class::Measurement.new(radius: 10.0,
                                                  sweep_angle: Math::PI / 2)
-    described_class.compare(reference: reference, sirena: zero_measurement)
+    described_class.compare(reference: reference, etassia: zero_measurement)
   end
 
   def full_error
     described_class::Comparison.new(radius_error: 1.0, sweep_error: 1.0)
   end
 
-  it "compares the same labelled sector in a real reference and Sirena pair" do
+  it "compares the same labelled sector in a real reference and Etassia pair" do
     expect(real_pair_values).to match(real_pair_matchers)
   end
 

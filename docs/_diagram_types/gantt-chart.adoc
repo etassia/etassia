@@ -10,7 +10,7 @@ parent: Diagram Types
 
 == Overview
 
-Gantt chart diagrams in Sirena visualize project schedules, showing tasks over time with dependencies, sections, and status indicators. Gantt charts are essential for project management and timeline visualization.
+Gantt chart diagrams in Etassia visualize project schedules, showing tasks over time with dependencies, sections, and status indicators. Gantt charts are essential for project management and timeline visualization.
 
 Gantt charts are useful for:
 
@@ -405,7 +405,7 @@ gantt
 
 === Currently not supported
 
-The following Mermaid Gantt chart features are not yet supported in Sirena:
+The following Mermaid Gantt chart features are not yet supported in Etassia:
 
 * Click events and interactivity
 * Custom styling with `style` directives

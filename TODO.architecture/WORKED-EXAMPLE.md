@@ -25,7 +25,7 @@ back half of the pipeline does.
 
 ## 1. Parser — becomes a declaration
 
-**Before** (`lib/sirena/parser/pie.rb`, 48 lines) — this exact body is
+**Before** (`lib/etassia/parser/pie.rb`, 48 lines) — this exact body is
 copy-pasted into 12 of the 24 parsers:
 
 ```ruby
@@ -48,7 +48,7 @@ end
 **After** — the body moves to `Parser::Base` once (item 05):
 
 ```ruby
-module Sirena
+module Etassia
   module Parser
     class Pie < Base
       grammar Grammars::Pie
@@ -60,7 +60,7 @@ end
 
 ## 2. Layout — emits a class, not a Hash
 
-**Before** (`lib/sirena/transform/pie.rb`) — returns a Hash whose shape
+**Before** (`lib/etassia/transform/pie.rb`) — returns a Hash whose shape
 is written down nowhere:
 
 ```ruby
@@ -77,12 +77,12 @@ def to_graph(diagram)
 end
 ```
 
-**After** (`lib/sirena/layout/pie.rb`) — the result class lives in the
+**After** (`lib/etassia/layout/pie.rb`) — the result class lives in the
 same file, so one file answers both "how is pie laid out" and "what does
 that layout look like":
 
 ```ruby
-module Sirena
+module Etassia
   module Layout
     class Pie < Layout::Base   # gives #call, and the theme/today readers
       RADIUS = 150
@@ -175,23 +175,23 @@ the visible-colour-change alternative.
 
 ## 4. Registration — one row
 
-**Before** — 13 lines in `lib/sirena.rb`, plus a separate entry in
+**Before** — 13 lines in `lib/etassia.rb`, plus a separate entry in
 `Engine::DIAGRAM_TYPE_PATTERNS`:
 
 ```ruby
-require_relative 'sirena/parser/pie'
-require_relative 'sirena/transform/pie'
-require_relative 'sirena/renderer/pie'
+require_relative 'etassia/parser/pie'
+require_relative 'etassia/transform/pie'
+require_relative 'etassia/renderer/pie'
 
-Sirena::DiagramRegistry.register(
+Etassia::DiagramRegistry.register(
   :pie,
-  parser: Sirena::Parser::PieParser,
-  transform: Sirena::Transform::PieTransform,
-  renderer: Sirena::Renderer::PieRenderer
+  parser: Etassia::Parser::PieParser,
+  transform: Etassia::Transform::PieTransform,
+  renderer: Etassia::Renderer::PieRenderer
 )
 ```
 
-**After** — one row in `lib/sirena/notation/mermaid.rb`, classes found by
+**After** — one row in `lib/etassia/notation/mermaid.rb`, classes found by
 convention (item 06):
 
 ```ruby

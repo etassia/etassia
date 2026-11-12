@@ -10,7 +10,7 @@ parent: Diagram Types
 
 == Overview
 
-State diagrams in Sirena represent state machines, showing the different states a system can be in and the transitions between those states. They are essential for modeling behavior in reactive systems, workflows, and protocol implementations.
+State diagrams in Etassia represent state machines, showing the different states a system can be in and the transitions between those states. They are essential for modeling behavior in reactive systems, workflows, and protocol implementations.
 
 State diagrams are useful for:
 
@@ -33,7 +33,7 @@ stateDiagram-v2
     <diagram-content>
 ----
 
-NOTE: Sirena uses the version 2 syntax (`stateDiagram-v2`) which is the current standard.
+NOTE: Etassia uses the version 2 syntax (`stateDiagram-v2`) which is the current standard.
 
 === States
 
@@ -533,7 +533,7 @@ stateDiagram-v2
 
 === Currently not supported
 
-The following Mermaid state diagram features are not yet supported in Sirena:
+The following Mermaid state diagram features are not yet supported in Etassia:
 
 * Fork and join states with `<<fork>>` and `<<join>>` stereotypes
 * Custom styling with CSS classes

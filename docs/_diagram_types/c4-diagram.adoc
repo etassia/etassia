@@ -10,7 +10,7 @@ parent: Diagram Types
 
 == Overview
 
-C4 (Context, Container, Component, Code) diagrams visualize software architecture at different levels of abstraction. Sirena renders C4 diagrams with the element types, boundaries, and relationships shown below.
+C4 (Context, Container, Component, Code) diagrams visualize software architecture at different levels of abstraction. Etassia renders C4 diagrams with the element types, boundaries, and relationships shown below.
 
 === Supported C4 Levels
 
@@ -208,7 +208,7 @@ C4Component
 
 === Basic Relationship
 
-Use https://github.com/claricle/sirena/blob/main/lib/sirena/diagram/c4.rb[`Rel()`] to show a directional relationship:
+Use https://github.com/claricle/etassia/blob/main/lib/etassia/diagram/c4.rb[`Rel()`] to show a directional relationship:
 
 [source,mermaid]
 ----
@@ -351,7 +351,7 @@ C4Container
 
 == Layout Configuration
 
-Configure diagram layout using https://github.com/claricle/sirena/blob/main/lib/sirena/parser/grammars/c4.rb[`UpdateLayoutConfig()`]:
+Configure diagram layout using https://github.com/claricle/etassia/blob/main/lib/etassia/parser/grammars/c4.rb[`UpdateLayoutConfig()`]:
 
 [source,mermaid]
 ----
@@ -412,12 +412,12 @@ Element colors come from the active theme and element boxes are sized from their
 
 C4 diagrams are implemented using the 6-file Parslet architecture:
 
-1. https://github.com/claricle/sirena/blob/main/lib/sirena/diagram/c4.rb[`Diagram::C4`] - Data model with elements, boundaries, relationships
-2. https://github.com/claricle/sirena/blob/main/lib/sirena/parser/grammars/c4.rb[`Parser::Grammars::C4`] - Parslet grammar for C4 syntax
-3. https://github.com/claricle/sirena/blob/main/lib/sirena/parser/builders/c4.rb[`Parser::Builders::C4`] - Parse tree to diagram model builder
-4. https://github.com/claricle/sirena/blob/main/lib/sirena/parser/c4.rb[`Parser::C4`] - Main parser class
-5. https://github.com/claricle/sirena/blob/main/lib/sirena/layout/c4.rb[`Layout::C4`] - Diagram to graph layout
-6. https://github.com/claricle/sirena/blob/main/lib/sirena/renderer/c4.rb[`Renderer::C4`] - SVG renderer
+1. https://github.com/claricle/etassia/blob/main/lib/etassia/diagram/c4.rb[`Diagram::C4`] - Data model with elements, boundaries, relationships
+2. https://github.com/claricle/etassia/blob/main/lib/etassia/parser/grammars/c4.rb[`Parser::Grammars::C4`] - Parslet grammar for C4 syntax
+3. https://github.com/claricle/etassia/blob/main/lib/etassia/parser/builders/c4.rb[`Parser::Builders::C4`] - Parse tree to diagram model builder
+4. https://github.com/claricle/etassia/blob/main/lib/etassia/parser/c4.rb[`Parser::C4`] - Main parser class
+5. https://github.com/claricle/etassia/blob/main/lib/etassia/layout/c4.rb[`Layout::C4`] - Diagram to graph layout
+6. https://github.com/claricle/etassia/blob/main/lib/etassia/renderer/c4.rb[`Renderer::C4`] - SVG renderer
 
 `Layout::C4` positions elements with the fallback grid; `layout_engine: :elk` is not available for C4.
 
@@ -425,7 +425,7 @@ C4 diagrams are implemented using the 6-file Parslet architecture:
 
 The C4 rendering pipeline:
 
-1. **Parse** - Convert Mermaid source to https://github.com/claricle/sirena/blob/main/lib/sirena/diagram/c4.rb[`C4`] model
+1. **Parse** - Convert Mermaid source to https://github.com/claricle/etassia/blob/main/lib/etassia/diagram/c4.rb[`C4`] model
 2. **Graph** - Convert to graph structure with positions
 3. **Layout** - Calculate positions for elements and boundaries
 4. **Render** - Generate SVG with C4 styling
@@ -486,7 +486,7 @@ For issues not covered here:
 
 == See Also
 
-* https://github.com/claricle/sirena/blob/main/README.adoc[Main Documentation]
+* https://github.com/claricle/etassia/blob/main/README.adoc[Main Documentation]
 * link:../flowchart/[Flowchart Diagrams]
 * link:../sequence-diagram/[Sequence Diagrams]
 * https://c4model.com/[C4 Model Official Site]

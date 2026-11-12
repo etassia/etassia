@@ -43,7 +43,7 @@ against the full 1,997.
 ## Method (each sub-track)
 
 1. Classify failures into buckets by **root construct**, found by
-   bisecting the input — the method the `sirena-corpus` skill defines.
+   bisecting the input — the method the `etassia-corpus` skill defines.
    A parslet failure location names where the parse gave up, which is
    often not where the unsupported construct is. Buckets are facts;
    hypotheses go in the bucket doc.
@@ -73,5 +73,5 @@ item 07 still carries its separate 90% joint handoff with item 14.
 
 ## Files
 
-`lib/sirena/parser/{grammars,transforms}/{flowchart,state_diagram,er_diagram,treemap}.rb`
+`lib/etassia/parser/{grammars,transforms}/{flowchart,state_diagram,er_diagram,treemap}.rb`
 and their parser/transform/renderer counterparts; specs per bucket.

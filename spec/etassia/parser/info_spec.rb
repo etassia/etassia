@@ -1,0 +1,58 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+require "etassia/parser/info"
+
+RSpec.describe Etassia::Parser::Info, :aggregate_failures do
+  let(:parser) { described_class.new }
+
+  describe "#parse" do
+    it "parses a simple info diagram" do
+      source = "info"
+
+      diagram = parser.parse(source)
+
+      expect(diagram).to be_a(Etassia::Diagram::Info)
+      expect(diagram.show_info).to be false
+    end
+
+    it "parses info diagram with showInfo flag" do
+      source = "info showInfo"
+
+      diagram = parser.parse(source)
+
+      expect(diagram).to be_a(Etassia::Diagram::Info)
+      expect(diagram.show_info).to be true
+    end
+
+    it "validates diagram structure" do
+      source = "info"
+
+      diagram = parser.parse(source)
+
+      expect(diagram.valid?).to be true
+    end
+  end
+
+  # :corpus - sweeps the whole fixture directory and only asserts
+  # `not_to raise_error`. Runs in `spec:corpus`, isolated from the
+  # coverage-collecting `spec:unit` run: see .simplecov and
+  # tasks/coverage.rake.
+  describe "fixture files", :corpus do
+    oracle_rejected = %w[
+      info_spec-9a1bf395.mmd
+      should_throw_because_of_unsupported_info_grammar-04542f46.mmd
+      should_throw_because_of_unsupported_info_grammar-951f438a.mmd
+    ]
+
+    Dir.glob("spec/mermaid/info/*.mmd").each do |fixture_file|
+      next if oracle_rejected.include?(File.basename(fixture_file))
+
+      it "parses #{File.basename(fixture_file)}" do
+        source = File.read(fixture_file)
+
+        expect { parser.parse(source) }.not_to raise_error
+      end
+    end
+  end
+end

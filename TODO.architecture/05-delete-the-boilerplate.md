@@ -12,16 +12,16 @@ The first three Part C criteria below have executed proof from `main`
 `a23c2d193` on 2026-10-13. Named palettes and builtin paint-role guarantees
 are implemented. The owner-clarified all-type owned-paint criterion is
 satisfied by the landed 26-example proof in
-`spec/sirena/engine_registered_type_theme_paint_spec.rb`. Historical per-part
+`spec/etassia/engine_registered_type_theme_paint_spec.rb`. Historical per-part
 corpus-gate evidence remains open; whole-SVG differences alone remain
 insufficient.
 
-Focused existing proof: `spec/sirena/theme/color_palette_fallback_keys_spec.rb`,
-`spec/sirena/layout/git_graph_palette_spec.rb`,
-`spec/sirena/renderer/git_graph_theme_spec.rb` and
-`spec/sirena/renderer/pie_theme_roles_spec.rb` passed 24 examples with zero
+Focused existing proof: `spec/etassia/theme/color_palette_fallback_keys_spec.rb`,
+`spec/etassia/layout/git_graph_palette_spec.rb`,
+`spec/etassia/renderer/git_graph_theme_spec.rb` and
+`spec/etassia/renderer/pie_theme_roles_spec.rb` passed 24 examples with zero
 failures (seed 52055). The read-only measurement is preserved in
-`/private/tmp/sirena-architecture05-evidence.json` and its companion log.
+`/private/tmp/etassia-architecture05-evidence.json` and its companion log.
 
 **Goal:** parse errors that name the line, column and offending source
 for all 24 types; themes that actually work; about 1,500 fewer lines.
@@ -51,7 +51,7 @@ comparing puts the 24 parsers into four groups:
 whose only job is to name three classes.
 
 `flowchart` looks like group 2 and is not. It calls `normalize_line_ends`
-(`lib/sirena/parser/flowchart.rb:33`, defined at `:69`) before parsing, which
+(`lib/etassia/parser/flowchart.rb:33`, defined at `:69`) before parsing, which
 folds a lone `\r` into a newline; `block.rb` and `requirement.rb` have no such
 call. Measured: `graph TD\rA[Start]-->B[End]\r` renders today and raises
 `ParseError` against a declarative body with the normalisation dropped. Reducing
@@ -126,7 +126,7 @@ Plus six more bespoke `create_document_for_<type>` methods, and one
 override of plain `create_document` (`renderer/quadrant.rb:60`).
 
 **16 per-renderer definitions**, measured 2026-08-27:
-`grep -rn "def create_document" lib/sirena/renderer/` returns 17, one of
+`grep -rn "def create_document" lib/etassia/renderer/` returns 17, one of
 which is `Renderer::Base`'s own. An inventory that counts only the two
 named shapes misses quadrant.
 
@@ -165,10 +165,10 @@ different names**: `DEFAULT_COLORS` in `pie`, `radar` and `xy_chart`,
 **There is a SIXTH, and it is not in a renderer.**
 `Transform::GitGraph::DEFAULT_COLORS` (`transform/git_graph.rb:32`) supplies
 branch colours at `:245` and `:253`. A search confined to
-`lib/sirena/renderer/` misses it entirely. It also matters to item 03: that
+`lib/etassia/renderer/` misses it entirely. It also matters to item 03: that
 class becomes `Layout::GitGraph`, and a layout holding a colour table
 violates LAYERS.md's "geometry, no styling" contract. Move it with the other
-five, and search `lib/sirena/` — not just the renderers.
+five, and search `lib/etassia/` — not just the renderers.
 
 The theme system exists — `Theme::Registry`, four built-in YAML themes,
 a `--theme` CLI flag — and DOES return theme-varying values:
@@ -214,7 +214,7 @@ hardcoded fallback is what renders.
 
    Re-derive with:
 
-       ruby -Ilib -rsirena -e 'used = Dir.glob("lib/**/*.rb").flat_map { |f| File.read(f).scan(/theme_color\(:([a-z_]+)\)/).flatten }.uniq; p used - Sirena::Theme::ColorPalette.attributes.keys.map(&:to_s)'
+       ruby -Ilib -retassia -e 'used = Dir.glob("lib/**/*.rb").flat_map { |f| File.read(f).scan(/theme_color\(:([a-z_]+)\)/).flatten }.uniq; p used - Etassia::Theme::ColorPalette.attributes.keys.map(&:to_s)'
 
    Dropping the fallbacks without adding these 16 turns 16 colours into
    `nil`. Add exactly these keys, carrying the value each fallback
@@ -235,7 +235,7 @@ hardcoded fallback is what renders.
 
    Re-derive with:
 
-       ruby -Ilib -rsirena -e 'p = Hash.new { |h,k| h[k] = [] }; Dir.glob("lib/**/*.rb").each { |f| File.read(f).scan(/theme_color\(:([a-z_]+)\)\s*\|\|\s*["\x27]([^"\x27]+)["\x27]/) { |k,v| p[k] << v } }; p.each { |k,v| puts "#{k} #{v.uniq.inspect}" if v.uniq.size > 1 }'
+       ruby -Ilib -retassia -e 'p = Hash.new { |h,k| h[k] = [] }; Dir.glob("lib/**/*.rb").each { |f| File.read(f).scan(/theme_color\(:([a-z_]+)\)\s*\|\|\s*["\x27]([^"\x27]+)["\x27]/) { |k,v| p[k] << v } }; p.each { |k,v| puts "#{k} #{v.uniq.inspect}" if v.uniq.size > 1 }'
 
    **The character class accepting both quote styles is load-bearing.** An
    earlier version of this command required double quotes and reported
@@ -268,10 +268,10 @@ hardcoded fallback is what renders.
 
 ## Files
 
-`lib/sirena/parser/*.rb`, `lib/sirena/renderer/*.rb`,
-`lib/sirena/transform/git_graph.rb` (the sixth palette),
-`lib/sirena/theme.rb`, `lib/sirena/theme/color_palette.rb`,
-`spec/sirena/theme_spec.rb`.
+`lib/etassia/parser/*.rb`, `lib/etassia/renderer/*.rb`,
+`lib/etassia/transform/git_graph.rb` (the sixth palette),
+`lib/etassia/theme.rb`, `lib/etassia/theme/color_palette.rb`,
+`spec/etassia/theme_spec.rb`.
 
 ---
 
@@ -287,15 +287,15 @@ headings silently drop everything after the first block.
 - [x] A — `user_journey`'s score check raises something other than `ParseError`
 - [x] A — one builder calling convention: `block`, `flowchart` and `requirement`'s
       `self.apply` class methods are migrated to instance methods, not merely called
-      differently — `grep -rn "def self.apply" lib/sirena/parser/builders/` returns
+      differently — `grep -rn "def self.apply" lib/etassia/parser/builders/` returns
       nothing
 - [x] B — one `create_document` on `Renderer::Base`, no per-renderer copies
 - [x] B — no renderer sets `@offset_x` / `@offset_y`
-- [x] C — `grep -rn "DEFAULT_COLORS\|FLOW_COLORS\|SECTION_COLORS" lib/sirena/`
-      returns nothing. **Search all of `lib/sirena/`, not just the renderers** —
+- [x] C — `grep -rn "DEFAULT_COLORS\|FLOW_COLORS\|SECTION_COLORS" lib/etassia/`
+      returns nothing. **Search all of `lib/etassia/`, not just the renderers** —
       the sixth palette lives in `transform/git_graph.rb` and a renderer-only
       grep reports success with it still there
-      Proof (2026-10-13, `main a23c2d193`): zero matches across `lib/sirena/`.
+      Proof (2026-10-13, `main a23c2d193`): zero matches across `lib/etassia/`.
 - [x] C — a git_graph rendered under `default` and under `dark` differs in its
       BRANCH colours specifically. Measured before the change, the two documents
       differ while both keep `#7c3aed` and `#2563eb`, so a whole-document diff
@@ -304,7 +304,7 @@ headings silently drop everything after the first block.
       Proof (2026-10-13, `main a23c2d193`): actual rendered commit branch fills
       were `[#2563eb, #7c3aed, #2563eb]` under default and
       `[#3794ff, #858585, #3794ff]` under dark.
-- [x] C — `cat lib/sirena/renderer/*.rb | grep -o '#[0-9a-fA-F]\{6\}' | wc -l` returns **10 or fewer**, against a measured baseline of **269** (2026-09-01). Count OCCURRENCES, not lines: `grep -c` reports c4.rb at 11 where the part C baseline above says 25, so the two are not comparable and "near zero" cannot be judged from it
+- [x] C — `cat lib/etassia/renderer/*.rb | grep -o '#[0-9a-fA-F]\{6\}' | wc -l` returns **10 or fewer**, against a measured baseline of **269** (2026-09-01). Count OCCURRENCES, not lines: `grep -c` reports c4.rb at 11 where the part C baseline above says 25, so the two are not comparable and "near zero" cannot be judged from it
       Proof (2026-10-13, `main a23c2d193`): nine six-digit hex occurrences,
       counted with the criterion's exact file scope and occurrence predicate.
 - [x] C — for EVERY registered type, not just git_graph: rendering under `default`
@@ -314,7 +314,7 @@ headings silently drop everything after the first block.
       git_graph got above — its default and dark SVGs already differ in 12
       lines elsewhere in the document (background, text) while both keep
       `#4472C4`. Measured 2026-09-04:
-      `bundle exec exe/sirena render pie.mmd -o d.svg --theme default` vs
+      `bundle exec exe/etassia render pie.mmd -o d.svg --theme default` vs
       `--theme dark`, then `diff d.svg k.svg | wc -l` -> 12, and
       `grep -c '#4472C4' d.svg k.svg` -> 1 in each. So "switching themes
       visibly changes output for every registered type" is satisfied today
@@ -322,7 +322,7 @@ headings silently drop everything after the first block.
       Owner clarification (2026-10-13): use each type’s existing categorical
       palettes or semantic paint roles; no new palette or styling schema is
       required for types that use semantic roles. Executed proof:
-      `spec/sirena/engine_registered_type_theme_paint_spec.rb` checks exact
+      `spec/etassia/engine_registered_type_theme_paint_spec.rb` checks exact
       selected diagram-owned fill/stroke values against the builtin YAML
       under both themes, including every registered type and named palette.
       The focused proof passes 26 examples. Controls freezing categorical

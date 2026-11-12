@@ -7,39 +7,39 @@ nav_order: 3
 
 = CLI Reference
 
-Complete reference for the Sirena command-line interface.
+Complete reference for the Etassia command-line interface.
 
 == Getting Help
 
-Running `sirena` without a command displays the command list. The root help
+Running `etassia` without a command displays the command list. The root help
 forms below do the same:
 
 [source,shell]
 ----
-sirena
-sirena help
-sirena -h
-sirena --help
+etassia
+etassia help
+etassia -h
+etassia --help
 ----
 
 Use `help` with a command name for that command's usage and options:
 
 [source,shell]
 ----
-sirena help render
-sirena help batch
+etassia help render
+etassia help batch
 ----
 
 The CLI also provides a command tree:
 
 [source,shell]
 ----
-sirena tree
+etassia tree
 ----
 
 `--help` and `-h` are root-level help forms, not command options. For example,
-`sirena render --help` treats `--help` as the input file and fails if that file
-does not exist. Use `sirena help render` instead.
+`etassia render --help` treats `--help` as the input file and fails if that file
+does not exist. Use `etassia help render` instead.
 
 == Commands
 
@@ -49,14 +49,14 @@ Render one diagram as SVG.
 
 [source,shell]
 ----
-sirena render [FILE]
+etassia render [FILE]
 ----
 
 ==== Argument
 
 `FILE`::
-  Optional diagram input file. When omitted, or when `FILE` is `-`, Sirena
-  reads source from standard input. For a file, Sirena tries its registered
+  Optional diagram input file. When omitted, or when `FILE` is `-`, Etassia
+  reads source from standard input. For a file, Etassia tries its registered
   extension before inspecting the source to select a notation.
 
 ==== Options
@@ -81,7 +81,7 @@ sirena render [FILE]
 
 `--require PATH`, `-r PATH`::
   Load a notation file before rendering. This option is repeatable. Each file
-  must register its notation with Sirena.
+  must register its notation with Etassia.
 
 ==== Examples
 
@@ -89,31 +89,31 @@ Render a file to an SVG file:
 
 [source,shell]
 ----
-sirena render diagram.mmd -o diagram.svg
+etassia render diagram.mmd -o diagram.svg
 ----
 
 Render standard input, with either supported stdin form:
 
 [source,shell]
 ----
-cat diagram.mmd | sirena render
-cat diagram.mmd | sirena render -
+cat diagram.mmd | etassia render
+cat diagram.mmd | etassia render -
 ----
 
 Select SVG explicitly and use a built-in theme:
 
 [source,shell]
 ----
-sirena render diagram.mmd -f svg -t dark -o diagram.svg
-sirena render diagram.mmd -t high_contrast -o diagram.svg
+etassia render diagram.mmd -f svg -t dark -o diagram.svg
+etassia render diagram.mmd -t high_contrast -o diagram.svg
 ----
 
 Select a notation explicitly, or load one supplied by another file:
 
 [source,shell]
 ----
-sirena render --notation mermaid diagram.txt
-sirena render --require ./my_notation.rb diagram.my
+etassia render --notation mermaid diagram.txt
+etassia render --require ./my_notation.rb diagram.my
 ----
 
 === batch
@@ -122,7 +122,7 @@ Render diagram files in a directory.
 
 [source,shell]
 ----
-sirena batch [OPTIONS]
+etassia batch [OPTIONS]
 ----
 
 `batch` has no positional argument; use `--input` or `-i` to choose input.
@@ -150,7 +150,7 @@ sirena batch [OPTIONS]
 `--require PATH`, `-r PATH`::
   Load a notation file before discovering inputs. This option is repeatable.
 
-When the input is a directory, Sirena recursively finds regular files whose
+When the input is a directory, Etassia recursively finds regular files whose
 case-insensitive extensions belong to the selected notation, or to any
 registered notation when `--notation` is omitted. It writes an `.svg` file
 under the output directory with the same relative path. Discovery excludes
@@ -161,10 +161,10 @@ For example:
 
 [source,shell]
 ----
-sirena batch -i diagrams -o output
-sirena batch -i diagrams -o output -t dark
-sirena batch -i diagrams -o output --notation mermaid
-sirena batch -i diagrams -o output -r ./my_notation.rb
+etassia batch -i diagrams -o output
+etassia batch -i diagrams -o output -t dark
+etassia batch -i diagrams -o output --notation mermaid
+etassia batch -i diagrams -o output -r ./my_notation.rb
 ----
 
 Batch status is reported in its summary. Current edge-case behavior is:
@@ -186,7 +186,7 @@ List the diagram types registered by the current executable:
 
 [source,shell]
 ----
-sirena types [OPTIONS]
+etassia types [OPTIONS]
 ----
 
 Output begins with `Supported diagram types:`. It then groups identifiers under
@@ -228,24 +228,24 @@ mermaid:
 
 === version
 
-Show the Sirena version:
+Show the Etassia version:
 
 [source,shell]
 ----
-sirena version
-sirena --version
-sirena -V
+etassia version
+etassia --version
+etassia -V
 ----
 
 Each form prints:
 
 ----
-sirena version 0.1.0
+etassia version 0.1.0
 ----
 
 == Environment Variables
 
-The CLI does not currently read any `SIRENA_*` environment variables.
+The CLI does not currently read any `ETASSIA_*` environment variables.
 
 == Exit Behavior
 
@@ -261,4 +261,4 @@ so it exits 0 rather than 1.
 
 * link:../../diagram_types/index/[Diagram Types Reference] - Syntax for all 24 types
 * link:../quick-start/[Quick Start Guide] - Get started quickly
-* https://github.com/claricle/sirena/tree/main/examples[Examples] - Browse working examples
+* https://github.com/claricle/etassia/tree/main/examples[Examples] - Browse working examples

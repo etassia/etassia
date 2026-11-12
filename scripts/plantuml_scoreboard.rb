@@ -6,7 +6,7 @@ require "timeout"
 require "fileutils"
 
 # Measures scoreboard/plantuml.json: a case passes when the pinned oracle
-# calls it valid AND Sirena renders it to well-formed SVG by the predicate
+# calls it valid AND Etassia renders it to well-formed SVG by the predicate
 # scripts/corpus_sweep.rb applies to the Mermaid corpus. `check!` fails when
 # the committed file differs from a fresh measurement.
 module PlantumlScoreboard
@@ -72,7 +72,7 @@ module PlantumlScoreboard
 
   def renders?(source)
     svg = Timeout.timeout(CASE_TIMEOUT) do
-      Sirena.render(source, notation: :plantuml)
+      Etassia.render(source, notation: :plantuml)
     end
     predicate.send(:well_formed_svg?, svg)
   rescue StandardError
@@ -109,7 +109,7 @@ module PlantumlScoreboard
   # Committed rows keep their identity fields (notation, type, provenance);
   # only the measured fields are replaced.
   def fresh_rows(committed)
-    require "sirena/notation/plantuml"
+    require "etassia/notation/plantuml"
     verdict_by_id = verdicts
     committed.map do |row|
       row.merge(measure(row.fetch("type"), verdict_by_id))

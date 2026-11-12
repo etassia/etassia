@@ -3,7 +3,7 @@
 # checker treats a removed claim as an exact substring that must stay absent
 # from tracked source outside the inventory/plan/build-output exclusions.
 
-- claim: "Sirena currently supports all diagram type languages defined in Mermaid."
+- claim: "Etassia currently supports all diagram type languages defined in Mermaid."
   file: "README.adoc"
   disposition: "removed"
   evidence: "ruby scripts/check_claims_manifest.rb"
@@ -27,7 +27,7 @@
   evidence: "ruby scripts/check_claims_manifest.rb"
   pr: 106
 
-- claim: "Sirena implements comprehensive test coverage against the official mermaid-js"
+- claim: "Etassia implements comprehensive test coverage against the official mermaid-js"
   file: "README.adoc"
   disposition: "removed"
   evidence: "ruby scripts/check_claims_manifest.rb"
@@ -99,16 +99,16 @@
   evidence: "ruby scripts/check_claims_manifest.rb"
   pr: 106
 
-- claim: "Sirena registers 24 diagram types (replacing the former 19/19+ claims)"
+- claim: "Etassia registers 24 diagram types (replacing the former 19/19+ claims)"
   file: "README.adoc, docs/_pages/comparison.adoc, docs/_pages/compatibility.adoc"
   disposition: "corrected"
-  evidence: "bundle exec ruby -Ilib -e \"require 'sirena'; abort unless Sirena::DiagramRegistry.types.size == 24\""
+  evidence: "bundle exec ruby -Ilib -e \"require 'etassia'; abort unless Etassia::DiagramRegistry.types.size == 24\""
   pr: 106
 
 - claim: "Metanorma-oriented output means self-contained SVG validated with svg_conform"
   file: "README.adoc"
   disposition: "corrected"
-  evidence: "bundle exec rspec spec/sirena/svg_conformance_spec.rb"
+  evidence: "bundle exec rspec spec/etassia/svg_conformance_spec.rb"
   pr: 106
 
 - claim: "benchmark:quick and benchmark:compare run; the report is a dated single-machine measurement"
@@ -174,13 +174,13 @@
 - claim: 'README: six plain-Ruby diagram classes and typed Layout::Scene for six types'
   file: README.adoc
   disposition: corrected
-  evidence: bundle exec ruby -Ilib -e 'require "sirena"; abort unless Sirena::Layout::Scene'
+  evidence: bundle exec ruby -Ilib -e 'require "etassia"; abort unless Etassia::Layout::Scene'
   pr: 271
 
-- claim: 'README: 10 of the 26 files under lib/sirena/parser/builders subclass Parslet::Transform'
+- claim: 'README: 10 of the 26 files under lib/etassia/parser/builders subclass Parslet::Transform'
   file: README.adoc
   disposition: corrected
-  evidence: grep -l 'Parslet::Transform' lib/sirena/parser/builders/*.rb | wc -l
+  evidence: grep -l 'Parslet::Transform' lib/etassia/parser/builders/*.rb | wc -l
   pr: 271
 
 - claim: register_type(type, parser:, transform:, renderer:, model:)
@@ -211,11 +211,11 @@
     call
   file: ARCHITECTURE.md
   disposition: corrected
-  evidence: bundle exec ruby -Ilib -e 'require "sirena"; abort if Sirena::Notation::Mermaid.respond_to?(:register_type);
-    abort unless Sirena::Notation::Mermaid::TYPES.size == 24'
+  evidence: bundle exec ruby -Ilib -e 'require "etassia"; abort if Etassia::Notation::Mermaid.respond_to?(:register_type);
+    abort unless Etassia::Notation::Mermaid::TYPES.size == 24'
   pr: 271
 
-- claim: "`Sirena::DiagramRegistry.register`), the same mechanism every built-in diagram
+- claim: "`Etassia::DiagramRegistry.register`), the same mechanism every built-in diagram
     type"
   file: docs/_features/index.adoc
   disposition: removed
@@ -252,7 +252,7 @@
   evidence: ruby scripts/check_claims_manifest.rb
   pr: 271
 
-- claim: 'Sirena includes four professional themes:'
+- claim: 'Etassia includes four professional themes:'
   file: docs/_features/index.adoc
   disposition: removed
   evidence: ruby scripts/check_claims_manifest.rb
@@ -264,11 +264,11 @@
   evidence: ruby scripts/check_claims_manifest.rb
   pr: 271
 
-- claim: Extension point is Sirena::Notation.register; DiagramRegistry has no register
+- claim: Extension point is Etassia::Notation.register; DiagramRegistry has no register
   file: docs/_features/index.adoc
   disposition: corrected
-  evidence: bundle exec ruby -Ilib -e 'require "sirena"; abort if Sirena::DiagramRegistry.respond_to?(:register);
-    abort unless Sirena::Notation.respond_to?(:register)'
+  evidence: bundle exec ruby -Ilib -e 'require "etassia"; abort if Etassia::DiagramRegistry.respond_to?(:register);
+    abort unless Etassia::Notation.respond_to?(:register)'
   pr: 271
 
 - claim: Professional-quality SVG output
@@ -295,13 +295,13 @@
   evidence: test "$(grep -c '^|link:diagram_types' docs/index.adoc)" = 24
   pr: 271
 
-- claim: Rails Integration** - Using Sirena in Rails applications
+- claim: Rails Integration** - Using Etassia in Rails applications
   file: docs/_tutorials/index.adoc
   disposition: removed
   evidence: ruby scripts/check_claims_manifest.rb
   pr: 271
 
-- claim: Jekyll Integration** - Static site generation with Sirena
+- claim: Jekyll Integration** - Static site generation with Etassia
   file: docs/_tutorials/index.adoc
   disposition: removed
   evidence: ruby scripts/check_claims_manifest.rb
@@ -313,7 +313,7 @@
   evidence: ruby scripts/check_claims_manifest.rb
   pr: 271
 
-- claim: Production Deployment** - Running Sirena in production environments
+- claim: Production Deployment** - Running Etassia in production environments
   file: docs/_guides/index.adoc
   disposition: removed
   evidence: ruby scripts/check_claims_manifest.rb
@@ -337,13 +337,13 @@
   evidence: ruby scripts/check_claims_manifest.rb
   pr: 271
 
-- claim: "**Theming System** - How themes work in Sirena"
+- claim: "**Theming System** - How themes work in Etassia"
   file: docs/_pages/index.adoc
   disposition: removed
   evidence: ruby scripts/check_claims_manifest.rb
   pr: 271
 
-- claim: "**Configuration** - Configuring Sirena for your needs"
+- claim: "**Configuration** - Configuring Etassia for your needs"
   file: docs/_pages/index.adoc
   disposition: removed
   evidence: ruby scripts/check_claims_manifest.rb
@@ -355,13 +355,13 @@
   evidence: ruby scripts/check_claims_manifest.rb
   pr: 271
 
-- claim: "|Better debugging in Sirena"
+- claim: "|Better debugging in Etassia"
   file: docs/_pages/compatibility.adoc
   disposition: removed
   evidence: ruby scripts/check_claims_manifest.rb
   pr: 271
 
-- claim: "|Easier customization in Sirena"
+- claim: "|Easier customization in Etassia"
   file: docs/_pages/compatibility.adoc
   disposition: removed
   evidence: ruby scripts/check_claims_manifest.rb
@@ -391,7 +391,7 @@
   evidence: ruby scripts/check_claims_manifest.rb
   pr: 271
 
-- claim: 'Sirena includes comprehensive compatibility testing:'
+- claim: 'Etassia includes comprehensive compatibility testing:'
   file: docs/_pages/compatibility.adoc
   disposition: removed
   evidence: ruby scripts/check_claims_manifest.rb
@@ -413,7 +413,7 @@
     output
   file: docs/_pages/compatibility.adoc
   disposition: corrected
-  evidence: printf 'graph TD\n A[x]\n style A fill:#f9f\n' | bundle exec exe/sirena
+  evidence: printf 'graph TD\n A[x]\n style A fill:#f9f\n' | bundle exec exe/etassia
     render | grep -c 'fill="#f9f"' (prints 0)
   pr: 271
 
@@ -465,19 +465,19 @@
   evidence: ruby scripts/check_claims_manifest.rb
   pr: 271
 
-- claim: provides a comprehensive comparison of Sirena
+- claim: provides a comprehensive comparison of Etassia
   file: docs/_pages/comparison.adoc
   disposition: removed
   evidence: ruby scripts/check_claims_manifest.rb
   pr: 271
 
-- claim: Sirena renders PlantUML class and sequence diagrams with --require sirena/notation/plantuml
+- claim: Etassia renders PlantUML class and sequence diagrams with --require etassia/notation/plantuml
   file: docs/_pages/comparison.adoc
   disposition: corrected
   evidence: bundle exec ruby -e 'puts File.read("scoreboard/plantuml.json")[0,200]'
   pr: 271
 
-- claim: Sirena provides full support for rendering C4 diagrams
+- claim: Etassia provides full support for rendering C4 diagrams
   file: docs/_diagram_types/c4-diagram.adoc
   disposition: removed
   evidence: ruby scripts/check_claims_manifest.rb
@@ -489,7 +489,7 @@
   evidence: ruby scripts/check_claims_manifest.rb
   pr: 271
 
-- claim: 'Sirena uses the standard C4-PlantUML color scheme:'
+- claim: 'Etassia uses the standard C4-PlantUML color scheme:'
   file: docs/_diagram_types/c4-diagram.adoc
   disposition: removed
   evidence: ruby scripts/check_claims_manifest.rb

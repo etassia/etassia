@@ -5,9 +5,9 @@ require "json"
 # Renders the per-type pass table in docs/_pages/compatibility.adoc from
 # scoreboard/corpus.json. Only the region between the BEGIN/END markers is
 # owned by this task; `rake docs:compatibility` rewrites it, and
-# spec/sirena/docs_compatibility_spec.rb fails when the page and
+# spec/etassia/docs_compatibility_spec.rb fails when the page and
 # scoreboard differ.
-module Sirena
+module Etassia
   module DocsCompatibility
     ROOT = File.expand_path("..", __dir__)
     PAGE_PATH = File.join(ROOT, "docs/_pages/compatibility.adoc")
@@ -154,9 +154,9 @@ module Sirena
 
     def plantuml_region(scoreboard_path = PLANTUML_SCOREBOARD_PATH)
       counts = plantuml_counts(JSON.parse(File.read(scoreboard_path)))
-      claim = "**Syntax Compatibility:** Sirena renders PlantUML class and " \
+      claim = "**Syntax Compatibility:** Etassia renders PlantUML class and " \
               "sequence diagrams when started with `--require " \
-              "sirena/notation/plantuml` (`scoreboard/plantuml.json`: " \
+              "etassia/notation/plantuml` (`scoreboard/plantuml.json`: " \
               "#{counts.join(', ')} oracle-valid cases). Other PlantUML " \
               "diagram types are not supported."
       [PLANTUML_BEGIN_MARKER, claim, PLANTUML_END_MARKER].join("\n")
@@ -219,6 +219,6 @@ end
 namespace :docs do
   desc "Regenerate the table in docs/_pages/compatibility.adoc"
   task :compatibility do
-    Sirena::DocsCompatibility.write!
+    Etassia::DocsCompatibility.write!
   end
 end

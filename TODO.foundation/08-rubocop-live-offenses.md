@@ -3,7 +3,7 @@
 Status (2026-10-10): **complete.** PR #24 established zero live RuboCop
 offenses and the CI lint entry point. The four RuboCop gems are version-pinned
 in `Gemfile`, `.rubocop.yml` inherits from an immutable commit URL, and the dead
-`scripts/rename_to_sirena.rb` plus its three exclusions are absent. The initial
+`scripts/rename_to_etassia.rb` plus its three exclusions are absent. The initial
 suppressed-debt movement was recorded as 189 → 186; subsequent item 09 work
 continues to shrink the machine-readable debt from that baseline.
 
@@ -24,7 +24,7 @@ CI today is inherited and unaudited — step 1 settles it.
    second rubocop invocation next to an inherited one.
 2. `rubocop -a`, review the diff hunk-by-hunk, suite + corpus after.
 3. Hand-fix the remainder.
-4. Delete `scripts/rename_to_sirena.rb` (dead self-referential script)
+4. Delete `scripts/rename_to_etassia.rb` (dead self-referential script)
    AND its three `.rubocop_todo.yml` exclusions — deleting the file
    without them leaves stale exclusions and silently moves the
    parked-debt number. If item 02 has already baselined the lint column,
@@ -43,7 +43,7 @@ CI today is inherited and unaudited — step 1 settles it.
 Complete; the criteria below remain the executable contract.
 
 `bundle exec rubocop` exits 0; it runs in 19a's reserved fast-lane slot;
-the lint toolchain is pinned; `scripts/rename_to_sirena.rb` and its
+the lint toolchain is pinned; `scripts/rename_to_etassia.rb` and its
 three todo exclusions are gone; `.rubocop.yml`'s remote `inherit_from`
 points at an immutable commit URL.
 

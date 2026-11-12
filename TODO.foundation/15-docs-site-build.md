@@ -13,7 +13,7 @@ Can start: now. Pairs with 11 (this is mechanics; 11 is truth).
   orphaned `examples/` page) — Jekyll skips them entirely.
 - `docs/Gemfile` exactly pins all seven direct dependencies, and
   `docs/_config.yml` selects only `theme: just-the-docs`. The owner ruled
-  in PR #111 that Sirena commits no lockfiles, including
+  in PR #111 that Etassia commits no lockfiles, including
   `docs/Gemfile.lock`; exact docs Gemfile pins satisfy this criterion.
 - Two link styles; `.html` suffixes 404 under `permalink: pretty`;
   markdown-syntax links inside AsciiDoc render literally; source-path

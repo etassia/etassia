@@ -5,7 +5,7 @@ require "yaml"
 
 # Validates the committed docs-claims dispositions and ensures text declared
 # removed cannot reappear in tracked user-facing source.
-module Sirena
+module Etassia
   module ClaimsManifestCheck
     class GitGrepError < StandardError; end
 
@@ -18,7 +18,7 @@ module Sirena
       ":(exclude)TODO.foundation",
       ":(exclude)_site",
       ":(exclude)#{MANIFEST_RELPATH}",
-      ":(exclude)spec/sirena/claims_manifest_check_spec.rb",
+      ":(exclude)spec/etassia/claims_manifest_check_spec.rb",
     ].freeze
 
     module_function
@@ -152,5 +152,5 @@ end
 
 if __FILE__ == $PROGRAM_NAME
   root = File.expand_path("..", __dir__)
-  exit(Sirena::ClaimsManifestCheck.report!(root: root) ? 0 : 1)
+  exit(Etassia::ClaimsManifestCheck.report!(root: root) ? 0 : 1)
 end

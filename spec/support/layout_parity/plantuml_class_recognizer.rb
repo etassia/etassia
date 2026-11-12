@@ -3,13 +3,13 @@
 module SpecSupport
   module LayoutParity
     # Logical class nodes, contents, and relations shared by pinned PlantUML
-    # references and Sirena's PlantUML renderer.
+    # references and Etassia's PlantUML renderer.
     class PlantumlClassRecognizer
       REFERENCE_CLASS = "entity"
       REFERENCE_RELATION = "link"
-      SIRENA_CLASS = "class-"
-      SIRENA_RELATION = "relation-"
-      SIRENA_JUNCTION = "junction-"
+      ETASSIA_CLASS = "class-"
+      ETASSIA_RELATION = "relation-"
+      ETASSIA_JUNCTION = "junction-"
       UNRESOLVED_ENDPOINT = "unresolved-endpoint"
       ENDPOINT_TOLERANCE = 6.0
       RECT_ATTRIBUTES = %w[x y width height].freeze
@@ -33,7 +33,7 @@ module SpecSupport
 
       def class_groups(extractor, doc)
         groups = doc.xpath("//g").select do |group|
-          reference_class?(group) || sirena_class?(group)
+          reference_class?(group) || etassia_class?(group)
         end
         title_counts = reference_title_counts(groups)
 
@@ -50,7 +50,7 @@ module SpecSupport
       def class_name(group, title_counts)
         return reference_name(group, title_counts) if reference_class?(group)
 
-        group["id"].to_s.delete_prefix(SIRENA_CLASS)
+        group["id"].to_s.delete_prefix(ETASSIA_CLASS)
       end
 
       def reference_title_counts(groups)
@@ -87,8 +87,8 @@ module SpecSupport
           group.at_xpath("./rect").nil?
       end
 
-      def sirena_class?(group)
-        group["id"].to_s.start_with?(SIRENA_CLASS)
+      def etassia_class?(group)
+        group["id"].to_s.start_with?(ETASSIA_CLASS)
       end
 
       def class_elements(groups)
@@ -149,7 +149,7 @@ module SpecSupport
       def relation_groups(doc)
         doc.xpath("//g").select do |group|
           classes(group).include?(REFERENCE_RELATION) ||
-            group["id"].to_s.start_with?(SIRENA_RELATION, SIRENA_JUNCTION)
+            group["id"].to_s.start_with?(ETASSIA_RELATION, ETASSIA_JUNCTION)
         end
       end
 
@@ -157,7 +157,7 @@ module SpecSupport
         if classes(group).include?(REFERENCE_RELATION)
           reference_endpoints(group, groups)
         else
-          sirena_endpoints(group, groups)
+          etassia_endpoints(group, groups)
         end
       end
 
@@ -168,7 +168,7 @@ module SpecSupport
         end
       end
 
-      def sirena_endpoints(group, groups)
+      def etassia_endpoints(group, groups)
         path = group.at_xpath(".//path[@d]")
         points = transformed_path_points(path)
         return [UNRESOLVED_ENDPOINT] * 2 if points.empty?

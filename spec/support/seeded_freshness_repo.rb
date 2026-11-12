@@ -80,7 +80,7 @@ class SeededFreshnessRepo < SeededScoreboardRepo
   private
 
   def install_task
-    %w[tasks/corpus.rake lib/sirena/corpus_type_names.rb].each do |path|
+    %w[tasks/corpus.rake lib/etassia/corpus_type_names.rb].each do |path|
       destination = File.join(dir, path)
       FileUtils.mkdir_p(File.dirname(destination))
       FileUtils.cp(SpecSupport::RepositoryPaths.path(path), destination)
@@ -140,9 +140,9 @@ class SeededFreshnessRepo < SeededScoreboardRepo
   def measured_row(path)
     row = { "case" => path.delete_prefix("#{dir}/spec/mermaid/"),
             "verdict" => "valid", "pass" => true }
-    Sirena::Engine.new.render(File.read(path))
+    Etassia::Engine.new.render(File.read(path))
     row
-  rescue Sirena::Parser::ParseError => e
+  rescue Etassia::Parser::ParseError => e
     row.merge("pass" => false, "stage" => "parse",
               "exception_class" => e.class.name)
   end

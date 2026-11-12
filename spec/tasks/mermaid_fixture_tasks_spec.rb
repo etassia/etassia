@@ -142,10 +142,10 @@ RSpec.describe MermaidFixtureTasks do
         %w[match different broken].each do |name|
           File.write("spec/fixtures_mermaid/flowchart/#{name}.svg", "<svg/>")
         end
-        allow(Sirena).to receive(:render).with("match").and_return("<svg/>")
-        allow(Sirena).to receive(:render).with("different")
+        allow(Etassia).to receive(:render).with("match").and_return("<svg/>")
+        allow(Etassia).to receive(:render).with("different")
           .and_return("<svg><path/><path/></svg>")
-        allow(Sirena).to receive(:render).with("broken").and_raise("bad source")
+        allow(Etassia).to receive(:render).with("broken").and_raise("bad source")
       end
 
       it "counts failures and differences while skipping absent references" do
@@ -163,8 +163,8 @@ RSpec.describe MermaidFixtureTasks do
       stub_const("MermaidFixtureGenerator::DIAGRAM_TYPES", %w[flowchart empty])
       seed_source("valid", "valid")
       seed_source("broken", "broken")
-      allow(Sirena).to receive(:render).with("valid").and_return("<svg/>")
-      allow(Sirena).to receive(:render).with("broken")
+      allow(Etassia).to receive(:render).with("valid").and_return("<svg/>")
+      allow(Etassia).to receive(:render).with("broken")
         .and_raise("parse failure")
     end
 

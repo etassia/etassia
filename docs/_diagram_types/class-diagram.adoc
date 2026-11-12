@@ -10,7 +10,7 @@ parent: Diagram Types
 
 == Overview
 
-Class diagrams in Sirena represent the structure of object-oriented systems by showing classes, their attributes, methods, and the relationships between them. They are fundamental for documenting software architecture and design patterns.
+Class diagrams in Etassia represent the structure of object-oriented systems by showing classes, their attributes, methods, and the relationships between them. They are fundamental for documenting software architecture and design patterns.
 
 Class diagrams are useful for:
 
@@ -710,7 +710,7 @@ classDiagram
 
 === Currently not supported
 
-The following Mermaid class diagram features are not yet supported in Sirena:
+The following Mermaid class diagram features are not yet supported in Etassia:
 
 * Custom styling with CSS classes
 * Click events and links

@@ -2,7 +2,7 @@
 
 require "fileutils"
 
-# Writes a tiny checkout (Gemfile, lib/sirena.rb and exe/sirena) whose API and
+# Writes a tiny checkout (Gemfile, lib/etassia.rb and exe/etassia) whose API and
 # CLI behaviour is set by keyword, so a spec can seed a difference in one
 # surface.
 module FakeSurfaceCheckout
@@ -15,14 +15,14 @@ module FakeSurfaceCheckout
     opts = DEFAULTS.merge(overrides)
     FileUtils.mkdir_p([File.join(dir, "lib"), File.join(dir, "exe")])
     File.write(File.join(dir, "Gemfile"), "# frozen_string_literal: true\n")
-    File.write(File.join(dir, "lib", "sirena.rb"), fake_api(opts))
-    File.write(File.join(dir, "exe", "sirena"), fake_cli(opts))
+    File.write(File.join(dir, "lib", "etassia.rb"), fake_api(opts))
+    File.write(File.join(dir, "exe", "etassia"), fake_cli(opts))
     dir
   end
 
   def fake_api(opts)
     <<~RUBY
-      module Sirena
+      module Etassia
         def self.render(source, _options = {})
           raise ArgumentError, #{opts[:api_error].inspect} if source.include?("bad")
 

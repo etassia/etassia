@@ -15,7 +15,7 @@ RSpec.describe CoverageTasks do
 
   let(:old_path) { "spec/benchmarks/flowchart_subgraph_benchmark.rb" }
   let(:new_path) do
-    "spec/benchmarks/sirena/parser/flowchart_subgraph_benchmark_spec.rb"
+    "spec/benchmarks/etassia/parser/flowchart_subgraph_benchmark_spec.rb"
   end
   let(:content) { "RSpec.describe('benchmark') { it('times parsing') {} }\n" }
   let(:base) { sh(Dir.pwd, "git", "rev-parse", "HEAD") }
@@ -97,7 +97,7 @@ RSpec.describe CoverageTasks do
   end
 
   {
-    "ordinary unit discovery" => "spec/sirena/parser/flowchart_spec.rb",
+    "ordinary unit discovery" => "spec/etassia/parser/flowchart_spec.rb",
     "a hidden directory" => "spec/benchmarks/.hidden/flowchart_spec.rb",
     "a hidden filename" => "spec/benchmarks/.flowchart_spec.rb",
     "a non-spec suffix" => "spec/benchmarks/flowchart.rb",
@@ -118,7 +118,7 @@ RSpec.describe CoverageTasks do
   end
 
   context "with the source in ordinary unit discovery" do
-    let(:old_path) { "spec/sirena/parser/flowchart_spec.rb" }
+    let(:old_path) { "spec/etassia/parser/flowchart_spec.rb" }
 
     it "refuses moving a unit spec into excluded benchmark discovery" do
       expect(described_class.changed_paths(base)).to include(old_path)
@@ -149,8 +149,8 @@ RSpec.describe CoverageTasks do
   end
 
   it "refuses a destination beneath a symlink directory skipped by discovery" do
-    FileUtils.mv("spec/benchmarks/sirena", "spec/elsewhere")
-    File.symlink("../elsewhere", "spec/benchmarks/sirena")
+    FileUtils.mv("spec/benchmarks/etassia", "spec/elsewhere")
+    File.symlink("../elsewhere", "spec/benchmarks/etassia")
 
     expect(described_class.identical_benchmark_move?(
              "R100", [old_path, new_path], base

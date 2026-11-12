@@ -2,7 +2,7 @@
 
 module SpecSupport
   module LayoutParity
-    # Kanban sections and cards shared by mmdc references and Sirena renders.
+    # Kanban sections and cards shared by mmdc references and Etassia renders.
     class KanbanRecognizer
       def container_kinds
         [:section]
@@ -10,7 +10,7 @@ module SpecSupport
 
       def elements(extractor, doc)
         reference = reference_elements(extractor, doc)
-        reference.empty? ? sirena_elements(extractor, doc) : reference
+        reference.empty? ? etassia_elements(extractor, doc) : reference
       end
 
       private
@@ -42,7 +42,7 @@ module SpecSupport
         :card if classes.include?("node")
       end
 
-      def sirena_elements(extractor, doc)
+      def etassia_elements(extractor, doc)
         rects = rectangles(extractor, doc)
         maximal(rects).flat_map do |section|
           section_elements(extractor, doc, section, rects)

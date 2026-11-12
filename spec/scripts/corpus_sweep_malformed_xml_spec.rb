@@ -49,8 +49,8 @@ RSpec.describe "scripts/corpus_sweep.rb", :aggregate_failures, type: :task do
       File.write(prelude, <<~RUBY)
         require 'bundler/setup'
         $LOAD_PATH.unshift(#{File.join(CORPUS_SWEEP_ROOT, 'lib').inspect})
-        require 'sirena'
-        Sirena::Engine.prepend(Module.new { def render(*) = #{malformed_svg.inspect} })
+        require 'etassia'
+        Etassia::Engine.prepend(Module.new { def render(*) = #{malformed_svg.inspect} })
       RUBY
 
       sweep_info.call(prelude).first

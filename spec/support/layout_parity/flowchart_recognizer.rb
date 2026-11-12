@@ -4,14 +4,14 @@ module SpecSupport
   module LayoutParity
     # Flowchart elements for both sides (contract section 1):
     #   reference: g.node id="flowchart-<id>-<n>", g.cluster id="<id>"
-    #   Sirena:    g id="node-<id>",               g id="cluster-<id>"
+    #   Etassia:    g id="node-<id>",               g id="cluster-<id>"
     # The label group (reference g.label, g.cluster-label) is excluded from a
     # bbox: mermaid draws an attribute-less placeholder rect in it.
     class FlowchartRecognizer
       LABEL_CLASSES = %w[label cluster-label].freeze
       REFERENCE_NODE = /\Aflowchart-(.+)-\d+\z/
-      SIRENA_NODE = /\Anode-(.+)\z/
-      SIRENA_CLUSTER = /\Acluster-(.+)\z/
+      ETASSIA_NODE = /\Anode-(.+)\z/
+      ETASSIA_CLUSTER = /\Acluster-(.+)\z/
 
       def container_kinds
         [:cluster]
@@ -35,7 +35,7 @@ module SpecSupport
       def identify(group)
         id = group["id"]
         classes = group["class"].to_s.split
-        reference_kind(reference_id(group), classes) || sirena_kind(id)
+        reference_kind(reference_id(group), classes) || etassia_kind(id)
       end
 
       def reference_id(group)
@@ -49,10 +49,10 @@ module SpecSupport
         [:cluster, id] if classes.include?("cluster")
       end
 
-      def sirena_kind(id)
-        if (key = id[SIRENA_NODE, 1])
+      def etassia_kind(id)
+        if (key = id[ETASSIA_NODE, 1])
           [:node, key]
-        elsif (key = id[SIRENA_CLUSTER, 1])
+        elsif (key = id[ETASSIA_CLUSTER, 1])
           [:cluster, key]
         end
       end

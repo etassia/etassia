@@ -2,7 +2,7 @@
 
 require "spec_helper"
 
-RSpec.describe Sirena::Parser::<%= klass %> do
+RSpec.describe Etassia::Parser::<%= klass %> do
   subject(:parser) { described_class.new }
 
   it "reads one item per indented line" do
@@ -17,6 +17,6 @@ RSpec.describe Sirena::Parser::<%= klass %> do
 
   it "refuses an unindented line" do
     expect { parser.parse("<%= keyword %>\nfirst\n") }
-      .to raise_error(Sirena::Parser::ParseError)
+      .to raise_error(Etassia::Parser::ParseError)
   end
 end

@@ -2,10 +2,10 @@
 
 module SpecSupport
   module LayoutParity
-    # Logical ER entity nodes shared by mmdc references and Sirena renders.
+    # Logical ER entity nodes shared by mmdc references and Etassia renders.
     class ErDiagramRecognizer
       REFERENCE_NODE = /\Aentity-(.+)-\d+\z/
-      SIRENA_NODE = /\Aentity-(.+)\z/
+      ETASSIA_NODE = /\Aentity-(.+)\z/
 
       def container_kinds
         []
@@ -32,7 +32,7 @@ module SpecSupport
           return reference_id(group)[REFERENCE_NODE, 1]
         end
 
-        id[SIRENA_NODE, 1]
+        id[ETASSIA_NODE, 1]
       end
 
       def reference_id(group)

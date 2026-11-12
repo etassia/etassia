@@ -10,7 +10,7 @@ parent: Diagram Types
 
 == Overview
 
-Timeline diagrams in Sirena represent chronological events and milestones arranged along a time axis. Timelines are ideal for visualizing historical progressions, project milestones, or any sequence of events that occur over time.
+Timeline diagrams in Etassia represent chronological events and milestones arranged along a time axis. Timelines are ideal for visualizing historical progressions, project milestones, or any sequence of events that occur over time.
 
 Timelines are useful for:
 
@@ -351,7 +351,7 @@ Run tests with:
 
 [source,shell]
 ----
-bundle exec rspec spec/sirena/parser/timeline_spec.rb
+bundle exec rspec spec/etassia/parser/timeline_spec.rb
 ----
 
 == Related documentation

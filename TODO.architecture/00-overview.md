@@ -1,4 +1,4 @@
-# Sirena architecture plan
+# Etassia architecture plan
 
 Read this page, then `LAYERS.md`, `RULES.md` and `WORKED-EXAMPLE.md`.
 After that, start at `01-safety-net.md` and work in order.
@@ -14,14 +14,14 @@ Mermaid is diagram-as-text — the fenced ```mermaid blocks you see in
 GitHub READMEs. The official renderer (`mmdc`) is JavaScript and needs
 Node plus a headless Chromium browser.
 
-**Sirena does the same job in pure Ruby, with no Node and no browser.**
+**Etassia does the same job in pure Ruby, with no Node and no browser.**
 That is the whole product.
 
 ```
    INPUT: Mermaid text                          OUTPUT: SVG
    +------------------------+                  +------------------------+
    | pie title Sales        |                  | <svg width="500" ...>  |
-   |   "Apples"  : 42       |  --> sirena -->  |   <path d="M 250 200   |
+   |   "Apples"  : 42       |  --> etassia -->  |   <path d="M 250 200   |
    |   "Oranges" : 58       |                  |      L 250 50 A ..."/> |
    +------------------------+                  |   <text>Apples</text>  |
                                                +------------------------+
@@ -68,7 +68,7 @@ buckets.
 The raw 36.9% is not a worse version of 55.6%; it is a different
 question with a different denominator. It is *lower*, because it counts
 632 artifacts and 59 rejections that sit outside today's evidence-backed
-target — not because they are unrenderable. Sirena in fact renders 15 of
+target — not because they are unrenderable. Etassia in fact renders 15 of
 the artifacts and 18 of the rejections; that says nothing useful, which
 is the point. Quote the valid-only figure, and say which one you mean.
 
@@ -298,7 +298,7 @@ after 01 is protected by 01.
 
 **Items 01-03 and 06 change no rendered output at all, WITH ONE EXCEPTION
 named in item 01.** Universalising the `valid?` guard refuses a bare header
-such as `kanban\n`, which sirena renders today. **The oracle does NOT back
+such as `kanban\n`, which etassia renders today. **The oracle does NOT back
 that refusal** — with a real browser, mmdc exits 0 on bare `kanban`,
 `flowchart` and `sequenceDiagram`; only `classDiagram` errors. An earlier
 note here cited mmdc as justification and was wrong: that run had no

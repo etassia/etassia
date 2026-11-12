@@ -1,0 +1,1116 @@
+# frozen_string_literal: true
+
+require_relative "base"
+require_relative "elk_placement"
+require_relative "class_cell_placement"
+require_relative "class_namespace_placement"
+require_relative "class_name_advances"
+require_relative "class_note_nodes"
+require_relative "class_diagram_notes"
+require_relative "class_diagram_namespaces"
+require_relative "class_namespace_nodes"
+require_relative "../diagram/class_diagram"
+require_relative "../diagram/generic_text"
+require_relative "../notation/mermaid/ir_adapters/class_diagram"
+require_relative "../js_math"
+
+module Etassia
+  module Layout
+    # Computes final canvas geometry for class diagrams.
+    class ClassDiagram < Base
+      DEFAULT_NAME_FONT_SIZE = 16
+      DEFAULT_SMALL_FONT_SIZE = 12
+      HEADER_PADDING = 24
+      MMDC_FONT_SIZE = 16
+      # Courier New's advance: 1229 of 2048 units, the same for every glyph.
+      COURIER_ADVANCE = 1229 / 2048.0
+      COURIER_FAMILIES = ["courier", "courier new"].freeze
+      EMPTY_CLASS_HEIGHT = 84
+      STEREOTYPE_HEIGHT = 24
+      MEMBER_HEIGHT = 24
+      ATTRIBUTES_BASE = 96
+      METHODS_ONLY_BASE = 102
+      RENDER_LINE_HEIGHT = 18
+      COMPARTMENT_PADDING = 10
+      CLASS_SPACING = 80
+      DIAGRAM_PADDING = 20
+      ARROW_SIZE = 10
+      DIAMOND_SIZE = 12
+      DART_NEAR = 3
+      DART_FAR = 14
+      DART_WIDTH = 5
+
+      SemanticAttribute = Struct.new(
+        :name, :type, :visibility, :text, :rendered_text, keyword_init: true
+      ) do
+        def display_text
+          rendered_text
+        end
+      end
+      SemanticMethod = Struct.new(
+        :name, :parameters, :return_type, :visibility, :text, :rendered_text,
+        keyword_init: true
+      ) do
+        def display_text
+          rendered_text
+        end
+      end
+      SemanticEntity = Struct.new(
+        :id, :name, :stereotype, :attributes, :class_methods,
+        keyword_init: true
+      )
+      SemanticRelationship = Struct.new(
+        :from_id, :to_id, :relationship_type, :label,
+        :source_cardinality, :target_cardinality, :start_marker, :end_marker,
+        :dashed, :written_reversed, keyword_init: true
+      )
+      SemanticDiagram = Struct.new(
+        :id, :title, :direction, :theme, :entities, :relationships,
+        :font_family, keyword_init: true
+      )
+      private_constant :SemanticAttribute, :SemanticMethod, :SemanticEntity,
+                       :SemanticRelationship, :SemanticDiagram
+
+      class Point < Lutaml::Model::Serializable
+        attribute :x, :float
+        attribute :y, :float
+      end
+
+      class Section < Lutaml::Model::Serializable
+        attribute :start_point, Point
+        attribute :end_point, Point
+        attribute :bend_points, Point, collection: true, default: -> { [] }
+      end
+
+      class Label < Lutaml::Model::Serializable
+        attribute :text, :string
+        attribute :x, :float
+        attribute :y, :float
+        attribute :font_size, :float
+        attribute :font_family, :string
+        attribute :font_weight, :string
+        attribute :text_anchor, :string
+      end
+
+      class Marker < Lutaml::Model::Serializable
+        attribute :points, :string
+        attribute :fill, :string
+      end
+
+      class Separator < Lutaml::Model::Serializable
+        attribute :x1, :float
+        attribute :y1, :float
+        attribute :x2, :float
+        attribute :y2, :float
+      end
+
+      class Node < Lutaml::Model::Serializable
+        attribute :id, :string
+        attribute :x, :float
+        attribute :y, :float
+        attribute :width, :float
+        attribute :height, :float
+        attribute :labels, Label, collection: true, default: -> { [] }
+        attribute :name, Label
+        attribute :stereotype, Label
+        attribute :attributes, Label, collection: true, default: -> { [] }
+        attribute :method_rows, Label, collection: true, default: -> { [] }
+        attribute :separators, Separator, collection: true, default: -> { [] }
+      end
+
+      class Edge < Lutaml::Model::Serializable
+        attribute :id, :string
+        attribute :source, :string
+        attribute :target, :string
+        attribute :sections, Section, collection: true, default: -> { [] }
+        attribute :markers, Marker, collection: true, default: -> { [] }
+        attribute :labels, Label, collection: true, default: -> { [] }
+        attribute :dashed, :boolean, default: false
+      end
+
+      class Scene < Layout::Scene
+        attribute :id, :string
+        attribute :view_box, :string
+        attribute :children, Node, collection: true, default: -> { [] }
+        attribute :edges, Edge, collection: true, default: -> { [] }
+        attribute :notes, Layout::ClassNote, collection: true,
+                                             default: -> { [] }
+        attribute :namespaces, Layout::ClassNamespaceBox, collection: true,
+                                                          default: -> { [] }
+      end
+
+      def self.from_graph(graph, theme: nil)
+        layout = new
+        layout.theme = theme if theme
+        layout.send(:scene_from_graph, graph)
+      end
+
+      def self.connection_point(from_node, to_node)
+        new.send(:connection_point, from_node, to_node)
+      end
+
+      def self.triangle_marker(from, to, filled)
+        new.send(:triangle_marker, from, to, filled)
+      end
+
+      def self.diamond_marker(from, to, filled)
+        new.send(:diamond_marker, from, to, filled)
+      end
+
+      def self.dart_marker(from, to)
+        new.send(:dart_marker, from, to)
+      end
+
+      # :grid (the default) or :elk. The explicit switch lets Foundation 14
+      # ratchet ELK geometry before it becomes the default.
+      attr_accessor :placement
+
+      def scene(diagram)
+        graph = build_graph(diagram)
+        reject_unsupported_elk_graph!(graph) if placement == :elk
+        placer.apply(graph)
+        scene_from_graph(graph)
+      end
+
+      private
+
+      def placer
+        placement == :elk ? ElkPlacement : ClassNamespacePlacement
+      end
+
+      def reject_unsupported_elk_graph!(graph)
+        return unless graph[:children].any? { |node| namespace_node?(node) }
+
+        raise LayoutError,
+              "elkrb class layout does not support namespace nesting"
+      end
+
+      def namespace_node?(node)
+        node[:children] || node[:id].start_with?("namespace:")
+      end
+
+      def build_graph(source)
+        graph = ir_graph(source)
+        diagram = semantic_diagram(graph)
+        @courier = courier?(diagram.font_family)
+        {
+          id: diagram.id || "class_diagram",
+          children: grouped_entities(diagram, graph) + note_nodes(graph),
+          edges: transform_relationships(diagram),
+          layoutOptions: layout_options(diagram),
+        }
+      end
+
+      def grouped_entities(diagram, graph)
+        namespaces = ClassDiagramNamespaces.call(graph)
+        namespace_layout.nest(
+          transform_entities(diagram), namespaces,
+          hierarchical: hierarchical_namespaces?(diagram, namespaces)
+        )
+      end
+
+      def hierarchical_namespaces?(diagram, namespaces)
+        owners = namespace_owners(namespaces)
+        diagram.relationships.any? do |relationship|
+          hierarchical_relationship?(relationship, owners)
+        end
+      end
+
+      def namespace_owners(namespaces)
+        namespaces.each_with_object({}) do |namespace, index|
+          namespace.class_ids.each { |id| index[id] = namespace.name }
+        end
+      end
+
+      def hierarchical_relationship?(relationship, owners)
+        from = owners[relationship.from_id]
+        to = owners[relationship.to_id]
+        from && to && from != to && prefix_related?(from, to)
+      end
+
+      def prefix_related?(first, second)
+        first.start_with?("#{second}.") || second.start_with?("#{first}.")
+      end
+
+      def namespace_layout
+        ClassNamespaceNodes.new(size: lambda { |title|
+          measure_text(title, font_size: name_font_size)
+        })
+      end
+
+      # Notes sit after the classes so adding one never moves a class.
+      def note_nodes(graph)
+        note_layout.nodes(ClassDiagramNotes.call(graph))
+      end
+
+      def text_width(text, size)
+        measure_text(text, font_size: size)[:width]
+      end
+
+      def note_layout
+        ClassNoteNodes.new(
+          font_size: name_font_size,
+          measure: method(:text_width),
+          connect: ->(from, to) { connection_point(from, to) },
+        )
+      end
+
+      def ir_graph(diagram)
+        return diagram if diagram.is_a?(IR::Graph)
+
+        Notation::Mermaid::IRAdapters::ClassDiagram.call(diagram)
+      end
+
+      def semantic_diagram(graph)
+        children, nodes_by_id = semantic_context(graph)
+        SemanticDiagram.new(
+          **semantic_metadata(graph, children),
+          **semantic_collections(graph, children, nodes_by_id),
+        )
+      end
+
+      def semantic_context(graph)
+        children = graph.nodes.group_by(&:parent_id)
+        nodes_by_id = graph.nodes.to_h { |node| [node.id, node] }
+        [children, nodes_by_id]
+      end
+
+      def semantic_metadata(graph, children)
+        settings = graph.nodes.find { |node| node.role == "diagram_settings" }
+        fields = semantic_fields(children[settings&.id])
+        {
+          id: fields["diagram_identifier"], title: graph.label,
+          direction: fields["layout_direction"], theme: fields["theme"],
+          font_family: fields["font_family"]
+        }
+      end
+
+      def semantic_collections(graph, children, nodes_by_id)
+        {
+          entities: semantic_entities(graph, children),
+          relationships: semantic_relationships(
+            graph, children, nodes_by_id
+          ),
+        }
+      end
+
+      def semantic_entities(graph, children)
+        graph.nodes.filter_map do |node|
+          semantic_entity(node, children) if node.role == "class"
+        end
+      end
+
+      def semantic_entity(node, children)
+        fields = semantic_fields(children[node.id])
+        SemanticEntity.new(
+          id: fields.fetch("original_identifier", node.id),
+          name: node.label, stereotype: fields["stereotype"],
+          **entity_members(node, children)
+        )
+      end
+
+      def entity_members(node, children)
+        nodes = children[node.id]
+        {
+          attributes: semantic_members(
+            nodes, children, "attribute", SemanticAttribute
+          ),
+          class_methods: semantic_members(
+            nodes, children, "operation", SemanticMethod
+          ),
+        }
+      end
+
+      def semantic_members(nodes, children, role, type)
+        Array(nodes).select { |node| node.role == role }.map do |node|
+          fields = semantic_fields(children[node.id])
+          type.new(**member_attributes(fields, node.label, role))
+        end
+      end
+
+      def member_attributes(fields, rendered_text, role)
+        common = {
+          name: fields["name"], visibility: fields["visibility"],
+          text: fields["source_text"], rendered_text: rendered_text
+        }
+        return common.merge(type: fields["type"]) if role == "attribute"
+
+        common.merge(
+          parameters: fields["parameters"],
+          return_type: fields["return_type"],
+        )
+      end
+
+      def semantic_relationships(graph, children, nodes_by_id)
+        graph.edges.map do |edge|
+          semantic_relationship(edge, children, nodes_by_id)
+        end
+      end
+
+      def semantic_relationship(edge, children, nodes_by_id)
+        fields = semantic_fields(children[edge.parent_id])
+        SemanticRelationship.new(
+          **relationship_identity(edge, children, nodes_by_id, fields),
+          **relationship_ends(fields), **relationship_style(fields)
+        )
+      end
+
+      def relationship_identity(edge, children, nodes_by_id, fields)
+        {
+          from_id: source_identifier(nodes_by_id[edge.source_id], children),
+          to_id: source_identifier(nodes_by_id[edge.target_id], children),
+          label: edge.label,
+          relationship_type: fields["relationship_type"],
+        }
+      end
+
+      def relationship_ends(fields)
+        {
+          source_cardinality: fields["source_cardinality"],
+          target_cardinality: fields["target_cardinality"],
+        }
+      end
+
+      def relationship_style(fields)
+        {
+          start_marker: fields["source_marker"],
+          end_marker: fields["target_marker"],
+          dashed: boolean_field(fields["dashed"]),
+          written_reversed: boolean_field(fields["written_reversed"]),
+        }
+      end
+
+      def source_identifier(node, children)
+        return unless node
+
+        semantic_fields(children[node.id]).fetch("original_identifier", node.id)
+      end
+
+      def semantic_fields(nodes)
+        Array(nodes).to_h { |node| [node.role, node.label] }
+      end
+
+      def boolean_field(value)
+        return if value.nil?
+
+        value == "true"
+      end
+
+      def scene_from_graph(graph)
+        flat, boxes = namespace_layout.flatten(graph[:children] || [])
+        width, height = scene_dimensions(flat + box_extents(boxes))
+        content = scene_content(graph, flat)
+
+        Scene.new(
+          id: graph[:id] || "class_diagram", width: width, height: height,
+          view_box: "0 0 #{width} #{height}", namespaces: boxes, **content
+        )
+      end
+
+      def scene_content(graph, flat)
+        notes, classes = flat.partition { |node| note_layout.note?(node) }
+        { children: classes.map { |node| typed_node(node) },
+          edges: typed_edges(graph[:edges] || [], classes),
+          notes: typed_notes(notes, classes) }
+      end
+
+      def box_extents(boxes)
+        boxes.map do |box|
+          { x: box.x, y: box.y, width: box.width, height: box.height }
+        end
+      end
+
+      def typed_notes(notes, classes)
+        note_layout.notes(notes, classes.to_h { |node| [node[:id], node] })
+      end
+
+      def scene_dimensions(children)
+        [content_width(children), content_height(children)].map do |value|
+          value + (DIAGRAM_PADDING * 2)
+        end
+      end
+
+      def transform_entities(diagram)
+        diagram.entities.map { |entity| transform_entity(entity) }
+      end
+
+      def transform_entity(entity)
+        dimensions = calculate_entity_dimensions(entity)
+        {
+          id: entity.id, width: dimensions[:width],
+          height: dimensions[:height], labels: entity_labels(entity),
+          metadata: entity_metadata(entity)
+        }
+      end
+
+      def entity_metadata(entity)
+        {
+          name: entity.name, stereotype: entity.stereotype,
+          attributes: entity.attributes.map { |item| attribute_to_hash(item) },
+          methods: entity.class_methods.map { |item| method_to_hash(item) }
+        }
+      end
+
+      def transform_relationships(diagram)
+        diagram.relationships.map { |item| transform_relationship(item) }
+      end
+
+      def transform_relationship(relationship)
+        {
+          id: "#{relationship.from_id}_to_#{relationship.to_id}",
+          sources: [relationship.from_id], targets: [relationship.to_id],
+          labels: relationship_labels(relationship),
+          metadata: relationship_metadata(relationship)
+        }
+      end
+
+      def relationship_metadata(relationship)
+        metadata = {
+          relationship_type: relationship.relationship_type,
+          start_marker: relationship.start_marker,
+          end_marker: relationship.end_marker,
+          dashed: relationship.dashed,
+        }
+        return metadata unless relationship.written_reversed
+
+        metadata.merge(written_reversed: true)
+      end
+
+      def calculate_entity_dimensions(entity)
+        {
+          width: entity_width(entity),
+          height: entity_height(entity),
+        }
+      end
+
+      # mmdc sizes a class box from Trebuchet MS 16px labels: the widest
+      # header line plus 24, widened to hold the widest member plus half
+      # the header line plus 24.
+      def entity_width(entity)
+        header = header_width(entity)
+        members = member_widths(entity.attributes + entity.class_methods)
+        return header + HEADER_PADDING if members.empty?
+
+        [header + HEADER_PADDING,
+         members.max + (header / 2) + HEADER_PADDING].max
+      end
+
+      def header_width(entity)
+        widths = [name_width(entity.name)]
+        widths << mmdc_text_width("«#{entity.stereotype}»") if entity.stereotype
+        widths.max
+      end
+
+      def name_width(name)
+        Diagram::GenericText.display(name).each_char.sum do |char|
+          bold_advance(char)
+        end
+      end
+
+      def bold_advance(char)
+        return COURIER_ADVANCE * name_font_size if @courier
+
+        per_mille = ClassNameAdvances::TABLE[char]
+        return per_mille * name_font_size / 1000.0 if per_mille
+
+        trebuchet_width(char, name_font_size) *
+          ClassNameAdvances::FALLBACK_RATIO
+      end
+
+      def member_widths(items)
+        items.map { |item| mmdc_text_width(item.display_text) }
+      end
+
+      def mmdc_text_width(text)
+        shown = Diagram::GenericText.display(text)
+        return COURIER_ADVANCE * scaled_mmdc_font_size * shown.length if
+          @courier
+
+        trebuchet_width(shown, scaled_mmdc_font_size)
+      end
+
+      # Courier and Courier New, the monospaced faces mmdc resolves `courier`
+      # to; anything else keeps the Trebuchet MS widths.
+      def courier?(font_family)
+        first = font_family.to_s.split(",").first.to_s
+        COURIER_FAMILIES.include?(first.delete("'\"").strip.downcase)
+      end
+
+      def scaled_mmdc_font_size
+        MMDC_FONT_SIZE * small_font_size / DEFAULT_SMALL_FONT_SIZE.to_f
+      end
+
+      def trebuchet_width(text, font_size)
+        TextMeasurement.measure_in(
+          :trebuchet, text, font_size: font_size
+        )[:width]
+      end
+
+      # mmdc stacks a 48px header (24 more with an annotation) over one
+      # 24px row per member, with 12px of padding above and below each
+      # compartment that holds members.
+      def entity_height(entity)
+        attributes = entity.attributes.length
+        methods = entity.class_methods.length
+        header = entity.stereotype ? STEREOTYPE_HEIGHT : 0
+        return EMPTY_CLASS_HEIGHT + header if (attributes + methods).zero?
+
+        base = attributes.zero? ? METHODS_ONLY_BASE : ATTRIBUTES_BASE
+        base + header + (MEMBER_HEIGHT * (attributes + methods))
+      end
+
+      def name_block_width(entity)
+        widths = [measure_text(entity.name, font_size: name_font_size)[:width]]
+        if entity.stereotype
+          widths << measure_text("<<#{entity.stereotype}>>",
+                                 font_size: small_font_size)[:width]
+        end
+        widths.max
+      end
+
+      def entity_labels(entity)
+        text = if entity.stereotype
+                 "<<#{entity.stereotype}>>\n#{entity.name}"
+               else
+                 entity.name
+               end
+        dimensions = measure_text(text, font_size: name_font_size)
+        [{
+          text: text,
+          width: name_block_width(entity),
+          height: dimensions[:height],
+        }]
+      end
+
+      def relationship_labels(relationship)
+        [
+          relationship_label(relationship.label),
+          relationship_label(relationship.source_cardinality, "source"),
+          relationship_label(relationship.target_cardinality, "target"),
+        ].compact
+      end
+
+      def relationship_label(text, position = nil)
+        return if text.nil? || text.empty?
+
+        dimensions = measure_text(text, font_size: small_font_size)
+        {
+          text: text,
+          width: dimensions[:width],
+          height: dimensions[:height],
+          position: position,
+        }
+      end
+
+      def attribute_to_hash(attribute)
+        {
+          name: attribute.name,
+          type: attribute.type,
+          visibility: attribute.visibility,
+          text: attribute.display_text,
+        }
+      end
+
+      def method_to_hash(method)
+        {
+          name: method.name,
+          parameters: method.parameters,
+          return_type: method.return_type,
+          visibility: method.visibility,
+          text: method.display_text,
+        }
+      end
+
+      def typed_node(node)
+        dimensions = box_values(node)
+        rows = node_rows(
+          *dimensions.first(3), node[:id], node[:metadata] || {}
+        )
+        build_typed_node(node[:id], dimensions, rows)
+      end
+
+      def build_typed_node(id, dimensions, rows)
+        x_coord, y_coord, width, height = dimensions
+        Node.new(
+          id: id, x: x_coord, y: y_coord,
+          width: width, height: height,
+          labels: node_labels(rows),
+          name: rows[:name], stereotype: rows[:stereotype],
+          attributes: rows[:attributes], method_rows: rows[:methods],
+          separators: typed_separators(x_coord, width, rows[:separator_ys])
+        )
+      end
+
+      def node_labels(rows)
+        [rows[:stereotype], rows[:name], *rows[:attributes], *rows[:methods]]
+          .compact
+      end
+
+      def typed_separators(x_coord, width, positions)
+        positions.map do |y_coord|
+          Separator.new(
+            x1: x_coord, y1: y_coord,
+            x2: x_coord + width, y2: y_coord
+          )
+        end
+      end
+
+      def node_rows(x_coord, y_coord, width, id, metadata)
+        stereotype, name, cursor = node_header_rows(
+          x_coord, y_coord, width, id, metadata
+        )
+        attributes, cursor, separator_ys = node_attribute_rows(
+          metadata, x_coord, cursor
+        )
+        methods, = member_rows(metadata[:methods] || [], x_coord, cursor)
+        node_row_data(stereotype, name, attributes, methods, separator_ys)
+      end
+
+      def node_row_data(stereotype, name, attributes, methods, separator_ys)
+        {
+          name: name, stereotype: stereotype, attributes: attributes,
+          methods: methods, separator_ys: separator_ys
+        }
+      end
+
+      def node_attribute_rows(metadata, x_coord, cursor)
+        attribute_rows(metadata[:attributes] || [], x_coord, cursor)
+      end
+
+      def node_header_rows(x_coord, y_coord, width, id, metadata)
+        stereotype, cursor = stereotype_row(
+          x_coord, y_coord + COMPARTMENT_PADDING, width,
+          metadata[:stereotype]
+        )
+        name, cursor = name_row(metadata[:name] || id, x_coord, cursor, width)
+        [stereotype, name, cursor]
+      end
+
+      def name_row(name, x_coord, y_coord, width)
+        row = label(
+          Diagram::GenericText.display(name), x_coord + (width / 2),
+          y_coord, name_font_size,
+          family: "Arial, sans-serif",
+          weight: "bold",
+          anchor: "middle"
+        )
+        [row, y_coord + RENDER_LINE_HEIGHT]
+      end
+
+      def attribute_rows(items, x_coord, y_coord)
+        separator_ys = [y_coord + 5]
+        rows, cursor = member_rows(
+          items, x_coord, separator_ys.last + 10
+        )
+        return [rows, cursor, separator_ys] if rows.empty?
+
+        separator_ys << (cursor + 5)
+        [rows, separator_ys.last + 10, separator_ys]
+      end
+
+      def stereotype_row(x_coord, y_coord, width, stereotype)
+        return [nil, y_coord] if stereotype.nil? || stereotype.empty?
+
+        row = label(
+          "«#{stereotype}»", x_coord + (width / 2), y_coord,
+          small_font_size, family: "Arial, sans-serif", anchor: "middle"
+        )
+        [row, y_coord + RENDER_LINE_HEIGHT]
+      end
+
+      def member_rows(items, x_coord, y_coord)
+        rows = items.map.with_index do |item, index|
+          label(item[:text], x_coord + COMPARTMENT_PADDING,
+                y_coord + (index * RENDER_LINE_HEIGHT), small_font_size,
+                family: "monospace")
+        end
+        [rows, y_coord + (items.length * RENDER_LINE_HEIGHT)]
+      end
+
+      def typed_edges(edges, nodes)
+        by_id = nodes.to_h { |node| [node[:id], node] }
+        edges.filter_map do |edge|
+          typed_edge_for_nodes(edge, by_id)
+        end
+      end
+
+      def typed_edge_for_nodes(edge, nodes_by_id)
+        source = nodes_by_id[edge[:sources]&.first]
+        target = nodes_by_id[edge[:targets]&.first]
+        typed_edge(edge, source, target) if source && target
+      end
+
+      def typed_edge(edge, source, target)
+        sections = typed_sections(edge, source, target)
+        terminals = section_terminals(sections)
+        markers, dashed = typed_edge_style(edge, terminals)
+
+        Edge.new(
+          id: edge[:id], source: source[:id], target: target[:id],
+          sections: sections,
+          markers: markers,
+          labels: positioned_terminal_labels(edge, terminals),
+          dashed: dashed
+        )
+      end
+
+      def typed_sections(edge, source, target)
+        sections = edge[:sections] || []
+        unless sections.empty?
+          return sections.map { |section| typed_section(section) }
+        end
+
+        [Section.new(
+          start_point: point(connection_point(source, target)),
+          end_point: point(connection_point(target, source)),
+        )]
+      end
+
+      def typed_section(section)
+        Section.new(
+          start_point: point(
+            section_coordinate(section, :start_point, :startPoint),
+          ),
+          end_point: point(section_coordinate(section, :end_point, :endPoint)),
+          bend_points: Array(
+            section_coordinate(section, :bend_points, :bendPoints),
+          ).map { |coordinates| point(coordinates) },
+        )
+      end
+
+      def section_coordinate(section, snake_case, camel_case)
+        section[snake_case] || section[camel_case] || section[camel_case.to_s]
+      end
+
+      def coordinate_hash(value)
+        { x: normalized_coordinate(value.x), y: normalized_coordinate(value.y) }
+      end
+
+      def section_terminals(sections)
+        first = sections.first
+        last = sections.last
+        source_next = first.bend_points.first || first.end_point
+        target_previous = last.bend_points.last || last.start_point
+        {
+          source: coordinate_hash(first.start_point),
+          source_next: coordinate_hash(source_next),
+          target_previous: coordinate_hash(target_previous),
+          target: coordinate_hash(last.end_point),
+        }
+      end
+
+      def normalized_coordinate(value)
+        value.to_i == value ? value.to_i : value
+      end
+
+      def typed_edge_style(edge, terminals)
+        edge_style(terminals, edge[:metadata] || {})
+      end
+
+      def positioned_terminal_labels(edge, terminals)
+        positioned_labels(edge[:labels], terminals[:source], terminals[:target])
+      end
+
+      def edge_style(terminals, metadata)
+        type = metadata[:relationship_type] || "association"
+        mixed = metadata[:start_marker] || metadata[:end_marker]
+        markers = if mixed
+                    mixed_markers(terminals, metadata)
+                  else
+                    relationship_markers(terminals, type)
+                  end
+        [markers, mixed ? metadata[:dashed] : type == "dependency"]
+      end
+
+      def connection_point(from_node, to_node)
+        from_box = box_geometry(from_node)
+        from_center = box_center(from_box)
+        to_center = box_center(box_geometry(to_node))
+        delta = point_delta(from_center, to_center)
+        return from_center if same_point?(delta)
+
+        box_connection_point(from_box, from_center, delta)
+      end
+
+      def box_geometry(node)
+        x_coord, y_coord, width, height = box_values(node)
+        { x: x_coord, y: y_coord, width: width, height: height }
+      end
+
+      def box_center(box)
+        {
+          x: box[:x] + (box[:width] / 2),
+          y: box[:y] + (box[:height] / 2),
+        }
+      end
+
+      def point_delta(from, to)
+        { x: to[:x] - from[:x], y: to[:y] - from[:y] }
+      end
+
+      def same_point?(delta)
+        delta[:x].abs < 0.001 && delta[:y].abs < 0.001
+      end
+
+      def box_connection_point(box, center, delta)
+        if delta[:x].abs > delta[:y].abs
+          horizontal_connection_point(box, center, delta)
+        else
+          vertical_connection_point(box, center, delta)
+        end
+      end
+
+      def horizontal_connection_point(box, center, delta)
+        x_coord = delta[:x].positive? ? box[:x] + box[:width] : box[:x]
+        y_coord = projected_coordinate(
+          center[:y], delta[:y], delta[:x], x_coord - center[:x]
+        )
+        { x: x_coord, y: y_coord }
+      end
+
+      def vertical_connection_point(box, center, delta)
+        y_coord = delta[:y].positive? ? box[:y] + box[:height] : box[:y]
+        x_coord = projected_coordinate(
+          center[:x], delta[:x], delta[:y], y_coord - center[:y]
+        )
+        { x: x_coord, y: y_coord }
+      end
+
+      def projected_coordinate(origin, numerator, denominator, offset)
+        return origin if numerator.abs < 0.001
+
+        origin + ((numerator / denominator) * offset)
+      end
+
+      def box_values(node)
+        return [node.x, node.y, node.width, node.height] if node.is_a?(Node)
+
+        [
+          node[:x] || 0,
+          node[:y] || 0,
+          node[:width] || 150,
+          node[:height] || 100,
+        ]
+      end
+
+      def mixed_markers(terminals, metadata)
+        [
+          marker_at(
+            terminals[:source], terminals[:source_next],
+            metadata[:start_marker]
+          ),
+          marker_at(
+            terminals[:target], terminals[:target_previous],
+            metadata[:end_marker]
+          ),
+        ].compact
+      end
+
+      def relationship_markers(terminals, type)
+        marker = terminal_marker(terminals, type)
+        marker ? [marker] : []
+      end
+
+      def terminal_marker(terminals, type)
+        case type
+        when "inheritance" then target_triangle(terminals, true)
+        when "realization" then target_triangle(terminals, false)
+        when "composition" then source_diamond(terminals, true)
+        when "aggregation" then source_diamond(terminals, false)
+        end
+      end
+
+      def target_triangle(terminals, filled)
+        triangle_marker(
+          terminals[:target_previous], terminals[:target], filled
+        )
+      end
+
+      def source_diamond(terminals, filled)
+        diamond_marker(terminals[:source], terminals[:source_next], filled)
+      end
+
+      def marker_at(point, away_from, type)
+        case type
+        when "inheritance" then triangle_marker(away_from, point, false)
+        when "dependency" then dart_marker(point, away_from)
+        when "composition" then diamond_marker(point, away_from, true)
+        when "aggregation" then diamond_marker(point, away_from, false)
+        end
+      end
+
+      def triangle_marker(from, to, filled)
+        to_x, to_y = coordinates(to)
+        angle = marker_angle(from, to)
+        first = marker_point(
+          to_x, to_y, -ARROW_SIZE, angle + (Math::PI / 6)
+        )
+        second = marker_point(
+          to_x, to_y, -ARROW_SIZE, angle - (Math::PI / 6)
+        )
+        marker([[to_x, to_y], first, second], filled)
+      end
+
+      def dart_marker(from, to)
+        from_x, from_y = coordinates(from)
+        angle = marker_angle(from, to)
+        tip = marker_point(from_x, from_y, DART_NEAR, angle)
+        back = marker_point(from_x, from_y, DART_FAR, angle)
+        first, second = dart_wings(back, angle)
+        marker([tip, first, midpoint(tip, back), second], true)
+      end
+
+      def diamond_marker(from, to, filled)
+        from_x, from_y = coordinates(from)
+        angle = marker_angle(from, to)
+        points = [
+          marker_point(from_x, from_y, DIAMOND_SIZE, angle),
+          marker_point(from_x, from_y, DIAMOND_SIZE / 2,
+                       angle + (Math::PI / 2)),
+          marker_point(from_x, from_y, -DIAMOND_SIZE, angle),
+          marker_point(from_x, from_y, DIAMOND_SIZE / 2,
+                       angle - (Math::PI / 2)),
+        ]
+        marker(points, filled)
+      end
+
+      def marker_angle(from, to)
+        from_x, from_y = coordinates(from)
+        to_x, to_y = coordinates(to)
+        JsMath.atan2(to_y - from_y, to_x - from_x)
+      end
+
+      def coordinates(point)
+        [point[:x], point[:y]]
+      end
+
+      def dart_wings(back, angle)
+        back_x, back_y = back
+        [
+          marker_point(
+            back_x, back_y, DART_WIDTH, angle + (Math::PI / 2)
+          ),
+          marker_point(
+            back_x, back_y, DART_WIDTH, angle - (Math::PI / 2)
+          ),
+        ]
+      end
+
+      def midpoint(first, second)
+        [
+          (first[0] + second[0]) / 2,
+          (first[1] + second[1]) / 2,
+        ]
+      end
+
+      def marker_point(x_coord, y_coord, distance, angle)
+        [
+          x_coord + (distance * JsMath.cos(angle)),
+          y_coord + (distance * JsMath.sin(angle)),
+        ]
+      end
+
+      def marker(points, filled)
+        Marker.new(points: points.map { |x, y| "#{x},#{y}" }.join(" "),
+                   fill: filled ? "#000000" : "#ffffff")
+      end
+
+      def positioned_labels(labels, from, to)
+        (labels || []).filter_map do |item|
+          positioned_label(item, from, to)
+        end
+      end
+
+      def positioned_label(item, from, to)
+        case item[:position]
+        when "source" then source_label(item[:text], from)
+        when "target" then target_label(item[:text], to)
+        when nil then center_label(item[:text], from, to)
+        end
+      end
+
+      def source_label(text, point)
+        label(text, point[:x] + 5, point[:y] - 5, small_font_size,
+              family: "Arial, sans-serif")
+      end
+
+      def target_label(text, point)
+        label(text, point[:x] - 5, point[:y] - 5, small_font_size,
+              family: "Arial, sans-serif", anchor: "end")
+      end
+
+      def center_label(text, from, to)
+        x_coord = (from[:x] + to[:x]) / 2
+        y_coord = ((from[:y] + to[:y]) / 2) - 5
+        label(text, x_coord, y_coord, small_font_size,
+              family: "Arial, sans-serif", anchor: "middle")
+      end
+
+      def label(text, x_coord, y_coord, font_size, style = {})
+        Label.new(text: text, x: x_coord, y: y_coord, font_size: font_size,
+                  font_family: style[:family], font_weight: style[:weight],
+                  text_anchor: style[:anchor])
+      end
+
+      def point(coordinates)
+        Point.new(x: coordinates[:x], y: coordinates[:y])
+      end
+
+      def content_width(children)
+        return 840 if children.empty?
+
+        children.map { |node| (node[:x] || 0) + (node[:width] || 150) }.max + 40
+      end
+
+      def content_height(children)
+        return 640 if children.empty?
+
+        children.map do |node|
+          (node[:y] || 0) + (node[:height] || 100)
+        end.max + 40
+      end
+
+      def name_font_size
+        valid_font_size(theme&.typography&.font_size_large) ||
+          DEFAULT_NAME_FONT_SIZE
+      end
+
+      def small_font_size
+        valid_font_size(theme&.typography&.font_size_small) ||
+          DEFAULT_SMALL_FONT_SIZE
+      end
+
+      def valid_font_size(value)
+        value if value.is_a?(Numeric) && value.finite? && value.positive?
+      end
+
+      def layout_options(diagram)
+        build_elk_options(
+          algorithm: ALGORITHM_LAYERED,
+          direction: direction_to_layout(diagram.direction),
+          **class_layout_spacing,
+        )
+      end
+
+      def class_layout_spacing
+        {
+          ElkOptions::NODE_NODE_SPACING => CLASS_SPACING,
+          ElkOptions::LAYER_SPACING => CLASS_SPACING,
+          ElkOptions::EDGE_NODE_SPACING => 40,
+          ElkOptions::EDGE_EDGE_SPACING => 20,
+          ElkOptions::NODE_PLACEMENT => "NETWORK_SIMPLEX",
+          ElkOptions::MODEL_ORDER => "NODES_AND_EDGES",
+          ElkOptions::HIERARCHY_HANDLING => "INCLUDE_CHILDREN",
+        }
+      end
+
+      def direction_to_layout(direction)
+        {
+          "TD" => DIRECTION_DOWN, "TB" => DIRECTION_DOWN,
+          "LR" => DIRECTION_RIGHT, "RL" => DIRECTION_LEFT,
+          "BT" => DIRECTION_UP
+        }.fetch(direction, DIRECTION_DOWN)
+      end
+    end
+  end
+end

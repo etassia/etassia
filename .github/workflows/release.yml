@@ -35,7 +35,7 @@ jobs:
         name: resolve target version
         run: |
           target=$(ruby -r ./scripts/check_changelog -e \
-            'puts Sirena::ChangelogCheck.target_version(ARGV.fetch(0), Sirena::ChangelogCheck.current_version("lib/sirena/version.rb"))' \
+            'puts Etassia::ChangelogCheck.target_version(ARGV.fetch(0), Etassia::ChangelogCheck.current_version("lib/etassia/version.rb"))' \
             "$NEXT_VERSION")
           echo "value=$target" >> "$GITHUB_OUTPUT"
         env:
@@ -79,12 +79,12 @@ jobs:
       - name: prepare version-only release commit
         run: |
           current=$(ruby -r ./scripts/check_changelog -e \
-            'puts Sirena::ChangelogCheck.current_version("lib/sirena/version.rb")')
+            'puts Etassia::ChangelogCheck.current_version("lib/etassia/version.rb")')
           if [ "$current" != "$TARGET_VERSION" ]; then
             ruby scripts/check_release_source.rb write-version "$TARGET_VERSION"
             git config user.name "github-actions[bot]"
             git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-            git add lib/sirena/version.rb
+            git add lib/etassia/version.rb
             git commit -m "bump version to $TARGET_VERSION"
           fi
           git diff --name-only "$GITHUB_SHA"..HEAD > "$RUNNER_TEMP/release-paths"
@@ -92,7 +92,7 @@ jobs:
             "$TARGET_VERSION" "$NEXT_VERSION" "$RUNNER_TEMP/release-paths"
 
       - name: build gem
-        run: gem build sirena.gemspec --output "$RUNNER_TEMP/sirena-$TARGET_VERSION.gem"
+        run: gem build etassia.gemspec --output "$RUNNER_TEMP/etassia-$TARGET_VERSION.gem"
 
       - name: push version commit and tag
         run: |
@@ -105,7 +105,7 @@ jobs:
           git push --atomic origin HEAD:main "refs/tags/$tag"
 
       - name: publish gem
-        run: gem push "$RUNNER_TEMP/sirena-$TARGET_VERSION.gem"
+        run: gem push "$RUNNER_TEMP/etassia-$TARGET_VERSION.gem"
 
       - name: remove publishing credentials
         if: always()

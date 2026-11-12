@@ -1,7 +1,7 @@
-# Sirena notation roadmap
+# Etassia notation roadmap
 
 This roadmap starts after the foundation phase closes. It carries the notation
-list from [issue #2](https://github.com/claricle/sirena/issues/2) forward without
+list from [issue #2](https://github.com/claricle/etassia/issues/2) forward without
 scheduling it inside the foundation plan.
 
 The first implementation is **Graphviz / DOT**. The typed intermediate
@@ -12,7 +12,7 @@ roadmap executes. PlantUML class and sequence remain owned by foundation item
 
 ## Fixed architecture contract
 
-Sirena's core remains notation-neutral. A notation is added by registering its
+Etassia's core remains notation-neutral. A notation is added by registering its
 renderer module, never by extending a central notation switch. Every renderer
 follows the same path:
 

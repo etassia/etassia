@@ -10,7 +10,7 @@ parent: Diagram Types
 
 == General
 
-Block diagrams in Sirena provide a column-based layout system for visualizing hierarchical structures, data flows, and system architectures using blocks and connections. Unlike flowcharts which use graph-based layouts, block diagrams arrange elements in a structured grid with explicit column positioning.
+Block diagrams in Etassia provide a column-based layout system for visualizing hierarchical structures, data flows, and system architectures using blocks and connections. Unlike flowcharts which use graph-based layouts, block diagrams arrange elements in a structured grid with explicit column positioning.
 
 Block diagrams are declared with the `block-beta` keyword and support:
 

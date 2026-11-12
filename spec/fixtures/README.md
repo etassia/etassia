@@ -1,8 +1,8 @@
-# Test Fixtures for sirena
+# Test Fixtures for etassia
 
 This directory contains reference test fixtures generated from the official
 mermaid-js implementation. These serve as "golden" outputs for regression
-testing and validation of sirena's SVG generation capabilities.
+testing and validation of etassia's SVG generation capabilities.
 
 ## Directory Structure
 
@@ -36,9 +36,9 @@ spec/fixtures/
 
 These fixtures serve multiple purposes:
 
-1. **Regression Testing**: Ensure sirena output stays consistent across
+1. **Regression Testing**: Ensure etassia output stays consistent across
    code changes
-2. **Validation**: Compare sirena generated SVG against official mermaid-js
+2. **Validation**: Compare etassia generated SVG against official mermaid-js
    output
 3. **Documentation**: Provide concrete examples of expected behavior for each
    diagram type
@@ -48,7 +48,7 @@ These fixtures serve multiple purposes:
 
 The `expected.svg` files are generated using the official **mermaid-js CLI**
 (`@mermaid-js/mermaid-cli`) from the example files in `examples/`. These
-represent the canonical output format that sirena aims to replicate or
+represent the canonical output format that etassia aims to replicate or
 approximate.
 
 ### Original Source Files
@@ -95,13 +95,13 @@ This Rake task:
 These fixtures can be used in RSpec tests to validate output:
 
 ```ruby
-RSpec.describe Sirena::Engine do
+RSpec.describe Etassia::Engine do
   describe "flowchart rendering" do
     let(:input) { File.read("spec/fixtures/flowchart/input.mmd") }
     let(:expected_svg) { File.read("spec/fixtures/flowchart/expected.svg") }
 
     it "generates structurally similar SVG to mermaid-js" do
-      actual_svg = Sirena::Engine.new.render(input)
+      actual_svg = Etassia::Engine.new.render(input)
 
       # Compare structure, not exact match due to implementation differences
       expect(actual_svg).to include("<svg")
@@ -114,7 +114,7 @@ end
 
 ## Validation Approach
 
-When comparing sirena output to these reference fixtures, consider:
+When comparing etassia output to these reference fixtures, consider:
 
 1. **Structural Comparison**: Focus on SVG element structure rather than
    exact string matching
@@ -132,7 +132,7 @@ Update fixtures when:
 - mermaid-js output format changes significantly
 - New diagram features are added to the examples
 - Reference implementation is updated to a new major version
-- Testing reveals discrepancies between sirena and mermaid-js output
+- Testing reveals discrepancies between etassia and mermaid-js output
 
 ### How to Update
 
@@ -155,7 +155,7 @@ To regenerate reference fixtures from mermaid-js:
 
 4. Run tests to ensure compatibility:
    ```bash
-   bundle exec rspec spec/sirena/engine_reference_fixtures_spec.rb
+   bundle exec rspec spec/etassia/engine_reference_fixtures_spec.rb
    ```
 
 5. Commit the updated fixtures if tests pass
@@ -167,4 +167,4 @@ official mermaid-js implementation, ensuring consistency and accuracy.
 
 - `examples/README.md` - Example diagrams and generation scripts
 - `spec/integration/` - Integration tests using these fixtures
-- `ARCHITECTURE.md` - Overall sirena architecture
+- `ARCHITECTURE.md` - Overall etassia architecture

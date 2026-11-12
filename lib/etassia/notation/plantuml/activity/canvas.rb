@@ -1,0 +1,117 @@
+# frozen_string_literal: true
+
+require_relative "../../../text_measurement"
+require_relative "mark"
+require_relative "metrics"
+
+module Etassia
+  module Notation
+    module PlantUML
+      module Activity
+        # Collects {Mark}s in drawing order and the extent they reach.
+        class Canvas
+          INK = "#181818"
+          MONO_SIZE = 10
+
+          # @return [Array<Mark>]
+          attr_reader :marks
+          # @return [Float] the leftmost x any mark reaches
+          attr_reader :min_x
+          # @return [Float] the rightmost x any mark reaches
+          attr_reader :max_x
+          # @return [Float] the lowest y any mark reaches
+          attr_reader :max_y
+
+          # @param metrics [Metrics] the font sizes of the roles
+          def initialize(metrics = Metrics.new)
+            @metrics = metrics
+            @marks = []
+            @min_x = Float::INFINITY
+            @max_x = 0.0
+            @max_y = 0.0
+          end
+
+          def add(kind, **attrs)
+            @marks << Mark.new(kind, **attrs)
+          end
+
+          def see(left, right, bottom)
+            @min_x = [@min_x, left].min
+            @max_x = [@max_x, right].max
+            @max_y = [@max_y, bottom].max
+          end
+
+          # `role` names the `<style>` selector that restyles the mark:
+          # :partition, :diamond, :note or :arrow; nil is a plain action.
+          #
+          # @param box [Box]
+          def rect(box, fill:, radius: nil, role: nil, stroke: INK)
+            see(box.left, box.right, box.bottom)
+            add(:rect, x: box.left, y: box.top, width: box.width,
+                       height: box.height, fill: fill, stroke: stroke,
+                       rx: radius, role: role)
+          end
+
+          # @param box [Box]
+          def polygon(points, fill:, stroke: INK, role: nil)
+            points.each { |x_pos, y_pos| see(x_pos, x_pos, y_pos) }
+            add(:polygon, points: points, fill: fill, stroke: stroke,
+                          role: role)
+          end
+
+          def circle(box, radius, fill:, role: nil, width: 1)
+            see(box.left, box.right, box.bottom)
+            add(:circle, cx: box.cx, cy: box.cy, r: radius, fill: fill,
+                         stroke: "#222222", role: role, width: width)
+          end
+
+          def path(points, stroke:, width: 1.0, dash: nil, curve: false)
+            points.each { |x_pos, y_pos| see(x_pos, x_pos, y_pos) }
+            add(:path, points: points, stroke: stroke, width: width,
+                       dash: dash, curve: curve)
+          end
+
+          # One text mark per line, the first baseline at `point`.
+          def lines(rows, point, anchor: "start", role: nil, **face)
+            face = { size: @metrics.size(role), **face }
+            rows.each_with_index do |content, index|
+              y_pos = point.last + (index * @metrics.line_height(role))
+              text([point.first, y_pos], content, anchor,
+                   face.merge(role: role))
+            end
+          end
+
+          # @return [Float] the width of the widest of the monospace rows
+          def mono_width(rows)
+            rows.map do |row|
+              TextMeasurement.measure(row, font_size: MONO_SIZE,
+                                           monospace: true)[:width]
+            end.max
+          end
+
+          # Monospace notice lines, `pitch` apart.
+          def mono_lines(rows, point, pitch:)
+            rows.each_with_index do |content, index|
+              add(:text, x: point.first, y: point.last + (index * pitch),
+                         content: content, anchor: "start", size: MONO_SIZE,
+                         family: "monospace", role: nil)
+            end
+          end
+
+          private
+
+          def text(point, content, anchor, face)
+            size = face[:size]
+            role = face[:role]
+            width = @metrics.text_width([content], role: role, size: size)
+            left = point.first - (width * { "start" => 0, "middle" => 0.5,
+                                            "end" => 1 }.fetch(anchor))
+            see(left, left + width, point.last + 3)
+            add(:text, x: point.first, y: point.last, content: content,
+                       anchor: anchor, **face)
+          end
+        end
+      end
+    end
+  end
+end

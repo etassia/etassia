@@ -12,14 +12,14 @@ module CorpusRakeProbe
   PROBE = <<~RUBY
     require "json"
     require "rake"
-    require "sirena"
+    require "etassia"
     load "tasks/corpus.rake"
-    answers = [Sirena::Corpus.types,
-               Sirena::Corpus.registry_type("gitgraph"),
-               Sirena::Corpus.registry_type("unknown")]
-    Sirena::CorpusTypeNames.send(:remove_const, :DIRECTORIES)
-    Sirena::CorpusTypeNames.const_set(:DIRECTORIES, { "gitgraph" => :pie })
-    puts JSON.dump(answers << Sirena::Corpus.registry_type("gitgraph"))
+    answers = [Etassia::Corpus.types,
+               Etassia::Corpus.registry_type("gitgraph"),
+               Etassia::Corpus.registry_type("unknown")]
+    Etassia::CorpusTypeNames.send(:remove_const, :DIRECTORIES)
+    Etassia::CorpusTypeNames.const_set(:DIRECTORIES, { "gitgraph" => :pie })
+    puts JSON.dump(answers << Etassia::Corpus.registry_type("gitgraph"))
   RUBY
 
   def corpus_rake_answers

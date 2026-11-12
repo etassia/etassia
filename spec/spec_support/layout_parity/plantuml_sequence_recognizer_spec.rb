@@ -15,7 +15,7 @@ module PlantumlSequenceSvgs
         <line x1="90" y1="80" x2="25" y2="80"/><text>back</text></g>
     </svg>
   SVG
-  SIRENA = <<~SVG
+  ETASSIA = <<~SVG
     <svg viewBox="0 0 200 200">
       <g id="participant-a-150.0"><rect x="5" y="150" width="40" height="20"/>
         <text>Alice</text></g>
@@ -48,7 +48,7 @@ module PlantumlSequenceSvgs
       </g>
     </svg>
   SVG
-  SIRENA_UNLABELLED = <<~SVG
+  ETASSIA_UNLABELLED = <<~SVG
     <svg viewBox="0 0 200 100">
       <g id="message-1"><path d="M 20 55 L 180 55"/></g>
       <g id="message-2"><path d="M 20 75 L 180 75"/></g>
@@ -69,7 +69,7 @@ module PlantumlSequenceSvgs
       </g>
     </svg>
   SVG
-  SIRENA_WITH_EMBEDDED_NOTE = <<~SVG
+  ETASSIA_WITH_EMBEDDED_NOTE = <<~SVG
     <svg viewBox="0 0 200 200">
       <g id="participant-Alice-5.0">
         <rect x="5" y="5" width="40" height="20"/><text>Alice</text>
@@ -111,19 +111,19 @@ RSpec.describe SpecSupport::LayoutParity::PlantumlSequenceRecognizer do
     )
   end
 
-  it "takes the topmost Sirena copy of a participant" do
-    participant = elements(PlantumlSequenceSvgs::SIRENA).first
+  it "takes the topmost Etassia copy of a participant" do
+    participant = elements(PlantumlSequenceSvgs::ETASSIA).first
     expect(participant.bbox.min_y).to eq(5.0)
   end
 
   it "numbers messages by document order on both producers" do
-    expect(keys(PlantumlSequenceSvgs::SIRENA)).to eq(
+    expect(keys(PlantumlSequenceSvgs::ETASSIA)).to eq(
       keys(PlantumlSequenceSvgs::REFERENCE),
     )
   end
 
   it "labels a message with its text" do
-    labels = elements(PlantumlSequenceSvgs::SIRENA).map(&:label)
+    labels = elements(PlantumlSequenceSvgs::ETASSIA).map(&:label)
     expect(labels).to eq(["Alice", "hi", "back"])
   end
 
@@ -134,8 +134,8 @@ RSpec.describe SpecSupport::LayoutParity::PlantumlSequenceRecognizer do
 
   it "recognizes unlabelled Teoz messages on both producers" do
     reference = elements(PlantumlSequenceSvgs::LEGACY_TEOZ_UNLABELLED)
-    sirena = elements(PlantumlSequenceSvgs::SIRENA_UNLABELLED)
-    expect(reference.map(&:label)).to eq(sirena.map(&:label)).and eq(["", ""])
+    etassia = elements(PlantumlSequenceSvgs::ETASSIA_UNLABELLED)
+    expect(reference.map(&:label)).to eq(etassia.map(&:label)).and eq(["", ""])
   end
 
   it "recognizes a legacy Teoz actor from its ellipse and path glyph" do
@@ -145,7 +145,7 @@ RSpec.describe SpecSupport::LayoutParity::PlantumlSequenceRecognizer do
   end
 
   it "treats a diagram embedded in a note as an opaque picture" do
-    labels = elements(PlantumlSequenceSvgs::SIRENA_WITH_EMBEDDED_NOTE)
+    labels = elements(PlantumlSequenceSvgs::ETASSIA_WITH_EMBEDDED_NOTE)
       .map(&:label)
     expect(labels).to eq(["Alice", "outer"])
   end

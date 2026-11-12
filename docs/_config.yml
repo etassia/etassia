@@ -1,11 +1,11 @@
-# Jekyll configuration for Sirena documentation
+# Jekyll configuration for Etassia documentation
 # Uses Just the Docs theme - https://just-the-docs.com/
 
 # Site settings
-title: Sirena Documentation
+title: Etassia Documentation
 description: Pure Ruby Mermaid diagram rendering library with 24 diagram types
 url: https://claricle.github.io
-baseurl: /sirena
+baseurl: /etassia
 
 # Theme
 theme: just-the-docs
@@ -72,7 +72,7 @@ back_to_top: true
 back_to_top_text: "Back to top"
 
 # Footer content
-footer_content: 'Copyright &copy; 2025 Ribose. Sirena is open source under the BSD-2-Clause license.'
+footer_content: 'Copyright &copy; 2025 Ribose. Etassia is open source under the BSD-2-Clause license.'
 
 # Color scheme
 color_scheme: light
@@ -82,12 +82,12 @@ logo: false
 
 # Aux links for the upper right navigation
 aux_links:
-  "Sirena on GitHub":
-    - "https://github.com/claricle/sirena"
+  "Etassia on GitHub":
+    - "https://github.com/claricle/etassia"
   "Report Issue":
-    - "https://github.com/claricle/sirena/issues"
+    - "https://github.com/claricle/etassia/issues"
   "RubyGems":
-    - "https://rubygems.org/gems/sirena"
+    - "https://rubygems.org/gems/etassia"
 
 # Aux links configuration
 aux_links_new_tab: true

@@ -9,7 +9,7 @@ module SpecSupport
     class GitGraphMarkerGeometry
       Measurement = Data.define(:key, :radius)
       Comparison = Data.define(
-        :key, :reference_radius, :sirena_radius, :error
+        :key, :reference_radius, :etassia_radius, :error
       )
 
       CENTER_EPSILON = 0.01
@@ -18,20 +18,20 @@ module SpecSupport
         document = Nokogiri::XML(svg) { |config| config.strict.nonet }
         document.remove_namespaces!
         reference = reference_nodes(document)
-        return sirena_measurements(document) if reference.empty?
+        return etassia_measurements(document) if reference.empty?
 
         reference_measurements(reference)
       end
 
-      def self.compare(reference:, sirena:)
-        unless reference.size == sirena.size
+      def self.compare(reference:, etassia:)
+        unless reference.size == etassia.size
           raise ArgumentError, "marker counts differ"
         end
-        unless reference.map(&:key) == sirena.map(&:key)
+        unless reference.map(&:key) == etassia.map(&:key)
           raise ArgumentError, "marker keys differ"
         end
 
-        reference.zip(sirena).map { |pair| comparison(*pair) }
+        reference.zip(etassia).map { |pair| comparison(*pair) }
       end
 
       def self.reference_nodes(document)
@@ -50,13 +50,13 @@ module SpecSupport
       end
       private_class_method :reference_measurements
 
-      def self.sirena_measurements(document)
+      def self.etassia_measurements(document)
         document.xpath("//circle").each_with_index.map do |circle, index|
           Measurement.new(key: "commit-#{index + 1}",
                           radius: new(circle).radius)
         end
       end
-      private_class_method :sirena_measurements
+      private_class_method :etassia_measurements
 
       def self.groups(nodes)
         nodes.each_with_object([]) do |node, grouped|
@@ -74,18 +74,18 @@ module SpecSupport
       end
       private_class_method :same_center?
 
-      def self.comparison(reference, sirena)
+      def self.comparison(reference, etassia)
         Comparison.new(key: reference.key,
                        reference_radius: reference.radius,
-                       sirena_radius: sirena.radius,
-                       error: radius_error(reference, sirena))
+                       etassia_radius: etassia.radius,
+                       error: radius_error(reference, etassia))
       end
       private_class_method :comparison
 
-      def self.radius_error(reference, sirena)
+      def self.radius_error(reference, etassia)
         return unless reference.radius
 
-        analog_error(sirena.radius, reference.radius)
+        analog_error(etassia.radius, reference.radius)
       end
       private_class_method :radius_error
 

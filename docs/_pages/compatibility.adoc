@@ -5,7 +5,7 @@ parent: Core Topics
 nav_order: 4
 ---
 
-== Sirena vs Mermaid.js Compatibility
+== Etassia vs Mermaid.js Compatibility
 
 === Purpose
 
@@ -13,13 +13,13 @@ This page focuses specifically on **Mermaid.js syntax compatibility** - what wor
 
 === Overview
 
-Sirena reads Mermaid.js syntax in a pure Ruby implementation. This page documents measured compatibility and known differences between Sirena and Mermaid.js.
+Etassia reads Mermaid.js syntax in a pure Ruby implementation. This page documents measured compatibility and known differences between Etassia and Mermaid.js.
 
 === Feature Comparison Matrix
 
 [cols="3,2,2,2"]
 |===
-|Feature |Mermaid.js |Sirena |Notes
+|Feature |Mermaid.js |Etassia |Notes
 
 |**Diagram Types**
 |20+
@@ -34,12 +34,12 @@ Sirena reads Mermaid.js syntax in a pure Ruby implementation. This page document
 |**Themes**
 |CSS-based
 |YAML-based
-|Sirena themes are YAML files or a Hash
+|Etassia themes are YAML files or a Hash
 
 |**Batch Mode**
 |Manual scripting
 |Built-in
-|`sirena batch` command
+|`etassia batch` command
 
 |**Dependencies**
 |Node + Puppeteer
@@ -52,14 +52,14 @@ Sirena reads Mermaid.js syntax in a pure Ruby implementation. This page document
 |Not benchmarked
 
 |**Startup Time**
-|Measured in the linked dated Sirena report
-|Measured in the linked dated Sirena report
+|Measured in the linked dated Etassia report
+|Measured in the linked dated Etassia report
 |One Apple M2 run; see Performance Comparison below
 
 |**Memory Usage**
 |Not benchmarked
 |Not benchmarked
-|The recorded Sirena run did not measure memory
+|The recorded Etassia run did not measure memory
 
 |**Interactive Features**
 |Supported
@@ -208,7 +208,7 @@ artifacts and cases mmdc rejects are excluded from the denominator.
 |===
 // END GENERATED
 
-Regenerate with `bundle exec rake docs:compatibility`; `spec/sirena/docs_compatibility_spec.rb` fails when this table and `scoreboard/corpus.json` disagree.
+Regenerate with `bundle exec rake docs:compatibility`; `spec/etassia/docs_compatibility_spec.rb` fails when this table and `scoreboard/corpus.json` disagree.
 
 ==== Not Supported
 
@@ -219,7 +219,7 @@ Regenerate with `bundle exec rake docs:compatibility`; `spec/sirena/docs_compati
 
 ==== Shared Syntax
 
-The following syntax elements exist in both Mermaid.js and Sirena; exact
+The following syntax elements exist in both Mermaid.js and Etassia; exact
 parity has not been verified element-by-element and is not claimed:
 
 * Diagram type declarations
@@ -242,11 +242,11 @@ graph TD
     style A fill:#f9f,stroke:#333,stroke-width:4px
 ----
 
-**Sirena:**
+**Etassia:**
 Inline `style` lines are accepted by the parser but have no effect on the output (measured: the node keeps the theme fill and stroke). Apply a theme globally instead:
 [source,bash]
 ----
-sirena render diagram.mmd --theme dark
+etassia render diagram.mmd --theme dark
 ----
 
 ===== Click Events
@@ -259,7 +259,7 @@ graph TD
     click A callback "Tooltip"
 ----
 
-**Sirena:** `click` lines are accepted and ignored; no link or callback is emitted (static SVG output)
+**Etassia:** `click` lines are accepted and ignored; no link or callback is emitted (static SVG output)
 
 ===== Custom CSS Classes
 
@@ -271,21 +271,21 @@ graph TD
     class A myClass
 ----
 
-**Sirena:** `class` and `classDef` lines are accepted and ignored; use the theme system for styling
+**Etassia:** `class` and `classDef` lines are accepted and ignored; use the theme system for styling
 
 === Performance Comparison
 
 The `benchmark:compare` and `benchmark:quick` rake tasks run against
-`Sirena.render`. One dated Apple M2 comparison with mermaid-cli, its method,
+`Etassia.render`. One dated Apple M2 comparison with mermaid-cli, its method,
 and reproduction commands is published in the
 link:../../performance-benchmark/[Performance Benchmark report]. That report did
 not measure memory, and one machine's result is not a general performance
-guarantee. Sirena's lack of a browser or Node.js dependency remains a
+guarantee. Etassia's lack of a browser or Node.js dependency remains a
 structural difference, not itself a timing measurement.
 
 === Migration Benefits
 
-==== Why Migrate to Sirena?
+==== Why Migrate to Etassia?
 
 **Simpler Deployment**
 
@@ -303,7 +303,7 @@ structural difference, not itself a timing measurement.
 
 * Rake task automation ships today (`tasks/*.rake`)
 * Rails helpers/views and Jekyll-specific integration are not built; using
-  Sirena from a Rails or Jekyll app today means calling `Sirena.render`
+  Etassia from a Rails or Jekyll app today means calling `Etassia.render`
   yourself, the same as from any other Ruby code
 
 **Enhanced Tooling**
@@ -322,10 +322,10 @@ structural difference, not itself a timing measurement.
 * You're already using Node.js stack
 * You need real-time client-side rendering
 
-==== Use Sirena When:
+==== Use Etassia When:
 
 * Server-side rendering is required
-* Building Ruby applications that can call `Sirena.render` directly
+* Building Ruby applications that can call `Etassia.render` directly
 * Batch processing many diagrams
 * CI/CD diagram generation
 * Simpler deployment is priority
@@ -344,13 +344,13 @@ Compatibility can be checked with:
 rake mermaid:validate
 
 # Compare output with Mermaid.js
-sirena render diagram.mmd -o sirena-output.svg
+etassia render diagram.mmd -o etassia-output.svg
 # Compare with mermaid-cli output
 ----
 
 === Future Compatibility
 
-Sirena aims for syntax parity with Mermaid.js; the table above is the measured state. New Mermaid.js features will be evaluated for inclusion based on:
+Etassia aims for syntax parity with Mermaid.js; the table above is the measured state. New Mermaid.js features will be evaluated for inclusion based on:
 
 * Server-side rendering applicability
 * Ruby ecosystem fit
@@ -359,11 +359,11 @@ Sirena aims for syntax parity with Mermaid.js; the table above is the measured s
 
 === Getting Help
 
-* **Issues**: https://github.com/claricle/sirena/issues[Report compatibility issues]
-* **Examples**: https://github.com/claricle/sirena/tree/main/examples[Example Diagrams]
+* **Issues**: https://github.com/claricle/etassia/issues[Report compatibility issues]
+* **Examples**: https://github.com/claricle/etassia/tree/main/examples[Example Diagrams]
 
 === Related Documentation
 
-* link:../comparison/[Tool Comparison] - Compare Sirena with Mermaid.js, PlantUML, and Graphviz
+* link:../comparison/[Tool Comparison] - Compare Etassia with Mermaid.js, PlantUML, and Graphviz
 * link:../../diagram_types/index/[Diagram Types Reference] - Syntax for all diagram types
 

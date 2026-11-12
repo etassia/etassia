@@ -37,12 +37,12 @@ module SimpleCovConfiguration
   def configure_groups(config)
     # Group coverage by component so regressions remain attributable. Files
     # that match none of these paths remain in SimpleCov's Ungrouped bucket.
-    config.group "Parser", %r{\Alib/sirena/parser(\.rb\z|/)}
-    config.group "Diagram", %r{\Alib/sirena/diagram(\.rb\z|/)}
-    config.group "Layout", %r{\Alib/sirena/layout(\.rb\z|/)}
-    config.group "Renderer", %r{\Alib/sirena/renderer(\.rb\z|/)}
-    config.group "Svg", %r{\Alib/sirena/svg(\.rb\z|/)}
-    config.group "Theme", %r{\Alib/sirena/theme(\.rb\z|/)}
+    config.group "Parser", %r{\Alib/etassia/parser(\.rb\z|/)}
+    config.group "Diagram", %r{\Alib/etassia/diagram(\.rb\z|/)}
+    config.group "Layout", %r{\Alib/etassia/layout(\.rb\z|/)}
+    config.group "Renderer", %r{\Alib/etassia/renderer(\.rb\z|/)}
+    config.group "Svg", %r{\Alib/etassia/svg(\.rb\z|/)}
+    config.group "Theme", %r{\Alib/etassia/theme(\.rb\z|/)}
   end
 
   def configure_floor(config)

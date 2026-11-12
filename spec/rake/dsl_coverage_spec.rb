@@ -9,7 +9,7 @@ require "open3"
 
 # tasks/coverage.rake is loaded only by the Rakefile
 # (`Dir.glob('tasks/**/*.rake')`), never required by the app itself, so nothing
-# in spec/sirena/** exercises it. mutation-check.sh and line-deletion-check.sh
+# in spec/etassia/** exercises it. mutation-check.sh and line-deletion-check.sh
 # both confirmed 0% protection for this file before this spec existed.
 # Each example gets its OWN Rake::Application: a Rake::Task only ever runs once
 # per application (`invoke` is a no-op once marked complete), and several

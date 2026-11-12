@@ -5,7 +5,7 @@ require_relative "../../scripts/native_types"
 
 # Shared helpers for the native (PARG) / Parslet parity specs. A type's spec
 # file calls NativeParity.corpus_examples / edge_examples inside its own
-# RSpec.describe; see spec/sirena/parser/native/pie_parity_spec.rb.
+# RSpec.describe; see spec/etassia/parser/native/pie_parity_spec.rb.
 module NativeParity
   CORPUS = File.expand_path("../mermaid", __dir__)
 
@@ -13,8 +13,8 @@ module NativeParity
 
   def parser_class(directory)
     path, name = NativeTypes::TYPES.fetch(directory)
-    require "sirena/parser/#{path}"
-    Sirena::Parser.const_get(name)
+    require "etassia/parser/#{path}"
+    Etassia::Parser.const_get(name)
   end
 
   def native_directories
@@ -26,11 +26,11 @@ module NativeParity
   end
 
   def with_native(native)
-    previous = ENV.fetch("SIRENA_NATIVE_PARSER", nil)
-    ENV["SIRENA_NATIVE_PARSER"] = native ? "1" : "ruby"
+    previous = ENV.fetch("ETASSIA_NATIVE_PARSER", nil)
+    ENV["ETASSIA_NATIVE_PARSER"] = native ? "1" : "ruby"
     yield
   ensure
-    ENV["SIRENA_NATIVE_PARSER"] = previous
+    ENV["ETASSIA_NATIVE_PARSER"] = previous
   end
 
   # [:ok, model yaml] or [:error, message] for one parse path.
@@ -38,7 +38,7 @@ module NativeParity
     with_native(native) do
       [:ok, dump(directory, parser_class(directory).new.parse(source))]
     end
-  rescue Sirena::Parser::ParseError => e
+  rescue Etassia::Parser::ParseError => e
     [:error, e.message]
   end
 
@@ -66,7 +66,7 @@ module NativeParity
   def native_answers(directory)
     with_native(true) do
       fixtures(directory).count do |path|
-        Sirena::Parser::Native.parse(parser_class(directory).native.first,
+        Etassia::Parser::Native.parse(parser_class(directory).native.first,
                                      File.read(path))
       end
     end
@@ -87,7 +87,7 @@ RSpec.shared_examples "native corpus parity" do |directory|
   end
 
   it "answers natively for every fixture Parslet accepts" do
-    skip "parsanol engine absent" unless Sirena::Parser::Native.available?
+    skip "parsanol engine absent" unless Etassia::Parser::Native.available?
 
     expect(NativeParity.native_answers(directory))
       .to be >= NativeParity.parslet_accepts(directory)

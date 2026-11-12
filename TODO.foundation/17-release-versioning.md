@@ -17,7 +17,7 @@ no releasable changelog entry.
 
 The chosen protected-`main` mechanism is the narrow release-workflow bypass
 documented in `VERSIONING.md`, but applying that repository setting remains an
-owner/19a action. The repository is still at `Sirena::VERSION = "0.1.0"` and
+owner/19a action. The repository is still at `Etassia::VERSION = "0.1.0"` and
 its only release tag is `v0.1.0`, so neither required pre-12 cut nor the
 end-to-end release demonstration is complete.
 
@@ -32,7 +32,7 @@ what this version promises".
 ## Do
 
 1. Adopt explicit 0.x semantics: what the public API promises
-   (`Sirena.render`, `Engine#render`, CLI), what is internal (notation
+   (`Etassia.render`, `Engine#render`, CLI), what is internal (notation
    plugin shapes — the item-10 boundary).
 2. CHANGELOG.md — define the format and what makes an entry
    *releasable*, precisely enough that a job can check it. "Every
@@ -40,7 +40,7 @@ what this version promises".
    needs a predicate.
 3. Release mechanics (fixed convention): releases run through the
    cimas-generated `release.yml` — the bot bumps
-   `lib/sirena/version.rb`, tags, and pushes the gem. No PR ever bumps
+   `lib/etassia/version.rb`, tags, and pushes the gem. No PR ever bumps
    a version; a PR that wants a release says so in its body and the
    maintainer dispatches. Note that `workflow_dispatch` is not the only
    trigger — `release.yml:9` ALSO accepts `repository_dispatch`
@@ -90,7 +90,7 @@ The release reaches `main` by the mechanism chosen in step 5, and a
 release is demonstrated end to end — not just described.
 
 The 0.x versioning contract is committed and names what the public API
-promises (`Sirena.render`, `Engine#render`, the CLI) and what is
+promises (`Etassia.render`, `Engine#render`, the CLI) and what is
 internal (the item-10 notation plugin shapes) — a contract nobody wrote
 down cannot be honoured.
 

@@ -7,7 +7,7 @@ has_children: true
 
 == Tutorials
 
-Step-by-step tutorials to help you accomplish specific tasks with Sirena.
+Step-by-step tutorials to help you accomplish specific tasks with Etassia.
 
 == What's in This Section
 

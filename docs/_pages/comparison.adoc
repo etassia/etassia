@@ -3,24 +3,24 @@ layout: default
 title: Tool Comparison
 parent: Core Topics
 nav_order: 5
-description: "Compare Sirena with Mermaid.js, PlantUML, Graphviz, and other diagram tools"
+description: "Compare Etassia with Mermaid.js, PlantUML, Graphviz, and other diagram tools"
 ---
 
-== Sirena vs Other Diagram Tools
+== Etassia vs Other Diagram Tools
 
 === Purpose
 
-This page compares Sirena with other popular diagram generation tools to help you choose the right tool for your needs.
+This page compares Etassia with other popular diagram generation tools to help you choose the right tool for your needs.
 
 === Overview
 
-Sirena is a pure Ruby renderer for Mermaid syntax, for server-side use. Compatibility with Mermaid.js varies by diagram type; see the compatibility page.
+Etassia is a pure Ruby renderer for Mermaid syntax, for server-side use. Compatibility with Mermaid.js varies by diagram type; see the compatibility page.
 
 === Feature Comparison Matrix
 
 [cols="2,2,2,2,2"]
 |===
-|Feature |Sirena |Mermaid.js |PlantUML |Graphviz
+|Feature |Etassia |Mermaid.js |PlantUML |Graphviz
 
 |**Language**
 |Ruby
@@ -47,7 +47,7 @@ Sirena is a pure Ruby renderer for Mermaid syntax, for server-side use. Compatib
 |C/C++ runtime
 
 |**Installation**
-|`gem install sirena`
+|`gem install etassia`
 |`npm install mermaid`
 |JAR download
 |Binary install
@@ -83,7 +83,7 @@ Sirena is a pure Ruby renderer for Mermaid syntax, for server-side use. Compatib
 |DOT language
 
 |**Rails Integration**
-|None built-in; call `Sirena.render` from any Ruby code
+|None built-in; call `Etassia.render` from any Ruby code
 |Via Node bridge
 |Via Java bridge
 |Limited
@@ -107,15 +107,15 @@ Sirena is a pure Ruby renderer for Mermaid syntax, for server-side use. Compatib
 |Not measured in the linked report
 
 |**Startup Time**
-|Measured in the linked dated Sirena report
-|Measured in the linked dated Sirena report
+|Measured in the linked dated Etassia report
+|Measured in the linked dated Etassia report
 |Not measured in the linked report
 |Not measured in the linked report
 |===
 
 === Detailed Comparison
 
-==== Sirena (This Tool)
+==== Etassia (This Tool)
 
 **Strengths:**
 
@@ -228,7 +228,7 @@ Sirena is a pure Ruby renderer for Mermaid syntax, for server-side use. Compatib
 === Performance Benchmarks
 
 The `benchmark:compare` and `benchmark:quick` rake tasks run against
-`Sirena.render`. One dated Apple M2 comparison with mermaid-cli, its method,
+`Etassia.render`. One dated Apple M2 comparison with mermaid-cli, its method,
 and reproduction commands is published in the
 link:../../performance-benchmark/[Performance Benchmark report]. That report did
 not measure memory, and one machine's result is not a general performance
@@ -236,13 +236,13 @@ guarantee or a comparison with PlantUML or Graphviz.
 
 === Migration Paths
 
-==== From Mermaid.js to Sirena
+==== From Mermaid.js to Etassia
 
 **Syntax Compatibility:** partial; see the compatibility page and `scoreboard/corpus.json`
 
 **Migration Steps:**
 
-. Replace `npm install mermaid` with `gem install sirena`
+. Replace `npm install mermaid` with `gem install etassia`
 . Change rendering calls from JavaScript to Ruby
 . Adapt themes from CSS to YAML
 . Remove click event handlers (not supported)
@@ -251,22 +251,22 @@ guarantee or a comparison with PlantUML or Graphviz.
 
 A migration guide is planned.
 
-==== From PlantUML to Sirena
+==== From PlantUML to Etassia
 
 // BEGIN GENERATED: rake docs:compatibility plantuml
-**Syntax Compatibility:** Sirena renders PlantUML class and sequence diagrams when started with `--require sirena/notation/plantuml` (`scoreboard/plantuml.json`: class 35/35, sequence 93/93 oracle-valid cases). Other PlantUML diagram types are not supported.
+**Syntax Compatibility:** Etassia renders PlantUML class and sequence diagrams when started with `--require etassia/notation/plantuml` (`scoreboard/plantuml.json`: class 35/35, sequence 93/93 oracle-valid cases). Other PlantUML diagram types are not supported.
 // END GENERATED: rake docs:compatibility plantuml
 
 **Migration Strategy:**
 
 . Identify diagram types needed
 . Load the PlantUML notation for class and sequence diagrams; rewrite other PlantUML syntax to Mermaid syntax
-. Test rendering with Sirena
+. Test rendering with Etassia
 . Adapt theming and styling
 . Update build scripts
 
 
-==== From Graphviz to Sirena
+==== From Graphviz to Etassia
 
 **Syntax Compatibility:** Not directly compatible
 
@@ -281,7 +281,7 @@ A migration guide is planned.
 
 === Decision Matrix
 
-==== Choose Sirena When:
+==== Choose Etassia When:
 
 ✅ You're building Ruby/Rails applications +
 ✅ Server-side rendering is required +
@@ -319,20 +319,20 @@ A migration guide is planned.
 
 === Hybrid Approaches
 
-==== Sirena + Mermaid.js
+==== Etassia + Mermaid.js
 
-Use Sirena for server-side/build-time rendering and Mermaid.js for client-side interactive diagrams:
+Use Etassia for server-side/build-time rendering and Mermaid.js for client-side interactive diagrams:
 
-* Static documentation: Sirena
+* Static documentation: Etassia
 * Interactive web app: Mermaid.js
-* CI/CD generation: Sirena
+* CI/CD generation: Etassia
 * Live editor: Mermaid.js
 
 ==== Multi-Tool Documentation
 
 Different tools for different diagram types:
 
-* Flowcharts & Sequences: Sirena
+* Flowcharts & Sequences: Etassia
 * Detailed UML: PlantUML
 * Network graphs: Graphviz
 * Interactive demos: Mermaid.js
@@ -343,8 +343,8 @@ Different tools for different diagram types:
 |===
 |Tool |Framework Integration |Build Tool Support
 
-|**Sirena**
-|Callable from any Ruby framework (Rails, Jekyll, Sinatra, Padrino) via `Sirena.render`; no dedicated integration layer built yet
+|**Etassia**
+|Callable from any Ruby framework (Rails, Jekyll, Sinatra, Padrino) via `Etassia.render`; no dedicated integration layer built yet
 |Rake, Bundler, GitHub Actions (Ruby)
 
 |**Mermaid.js**
@@ -366,7 +366,7 @@ Different tools for different diagram types:
 |===
 |Tool |License |Commercial Use
 
-|**Sirena**
+|**Etassia**
 |BSD-2-Clause
 |✅ Unrestricted
 
@@ -392,15 +392,15 @@ Different tools for different diagram types:
 * https://mermaid.js.org[Mermaid.js Official Site]
 * https://plantuml.com[PlantUML Official Site]
 * https://graphviz.org[Graphviz Official Site]
-* https://github.com/claricle/sirena[Sirena on GitHub]
+* https://github.com/claricle/etassia[Etassia on GitHub]
 
 === Conclusion
 
 Each tool has its strengths and ideal use cases:
 
-* **Sirena** renders Mermaid syntax server-side in Ruby
+* **Etassia** renders Mermaid syntax server-side in Ruby
 * **Mermaid.js** renders interactive browser-based diagrams
 * **PlantUML** targets UML documentation
 * **Graphviz** is a general graph layout tool
 
-Choose based on your tech stack, rendering requirements, and diagram complexity. For Ruby applications needing server-side Mermaid-compatible rendering without a Node.js or Java runtime, Sirena may fit; see "Performance Benchmarks" above for the scoped measurement and its limits.
+Choose based on your tech stack, rendering requirements, and diagram complexity. For Ruby applications needing server-side Mermaid-compatible rendering without a Node.js or Java runtime, Etassia may fit; see "Performance Benchmarks" above for the scoped measurement and its limits.

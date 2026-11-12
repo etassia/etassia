@@ -12,7 +12,7 @@
 #     fuzzed surface is not "one bare identifier on its own line" --
 #     see IdentifierGenerator's own doc)
 #   - a KNOWN_DIVERGENCES regression corpus (see below -- required)
-#   - a #sirena_verdict_for(source) that runs THAT type's own parser
+#   - a #etassia_verdict_for(source) that runs THAT type's own parser
 #   - the name of a mermaid db getter that returns an id-keyed Map, used
 #     for the structural check (getVertices, getClasses, getStates,
 #     getEntities, ...) -- pass nil to skip the structural check and
@@ -23,7 +23,7 @@
 # KNOWN_DIVERGENCES is not decoration. dev.md's rule for any detector is
 # that a detector never watched go red is a hopeful regex, not a
 # detector -- so every per-type script is required to carry at least one
-# case, sourced from a real, reproduced disagreement between sirena and
+# case, sourced from a real, reproduced disagreement between etassia and
 # an actual installed mermaid, that this harness demonstrably flags. A
 # type script whose regression corpus is empty prints a loud warning and
 # is excluded from the aggregate divergence report until one is added.
@@ -43,7 +43,7 @@ module MermaidFuzz
   ROOT = File.expand_path("..", __dir__)
   MERMAID_RUNNER = File.join(ROOT, "scripts", "mermaid_fuzz_runner.js")
 
-  # One generated (or fixed) fuzz case: the source text sirena and
+  # One generated (or fixed) fuzz case: the source text etassia and
   # mermaid both see, and an id used to match up the two sides' results
   # after they are computed independently.
   Case = Struct.new(:id, :source)
@@ -188,7 +188,7 @@ module MermaidFuzz
   # Runs a type-specific verdict proc over every case in-process (no
   # subprocess), reducing each result to the same shape the mermaid side
   # reports: accepted?, and if so, an ordered id list.
-  module SirenaSide
+  module EtassiaSide
     module_function
 
     def run(cases, verdict_for)
@@ -198,8 +198,8 @@ module MermaidFuzz
 
   # Runs a type's own parser (via the block) and reduces the result to
   # {accepted:, ids:} / {accepted: false, error:}. Every per-type script's
-  # SIRENA_VERDICT_FOR wraps its parser call in this rather than
-  # hand-rolling `rescue Sirena::Parser::ParseError` four times.
+  # ETASSIA_VERDICT_FOR wraps its parser call in this rather than
+  # hand-rolling `rescue Etassia::Parser::ParseError` four times.
   #
   # Rescues StandardError too, not only ParseError. This is a fuzzer:
   # its entire job is to throw adversarial, previously-untried input at a
@@ -211,7 +211,7 @@ module MermaidFuzz
   # well-formed rejection in any report.
   def self.safe_parse
     { accepted: true, ids: yield }
-  rescue Sirena::Parser::ParseError => e
+  rescue Etassia::Parser::ParseError => e
     { accepted: false, error: e.message }
   rescue StandardError => e
     { accepted: false, error: "UNEXPECTED #{e.class}: #{e.message}" }
@@ -220,13 +220,13 @@ module MermaidFuzz
   # Compares one case's two verdicts and classifies agreement. Identical
   # to sequence_fuzz.rb's Comparison except the structural key is the
   # generic `:ids` rather than sequence's `:actors` -- every type's
-  # verdict is normalized to that shape by SirenaSide/MermaidSide above.
+  # verdict is normalized to that shape by EtassiaSide/MermaidSide above.
   class Comparison
     attr_reader :kind, :detail
 
-    def initialize(kase, sirena, mermaid)
+    def initialize(kase, etassia, mermaid)
       @kase = kase
-      @sirena = sirena
+      @etassia = etassia
       @mermaid = mermaid
       @kind, @detail = classify
     end
@@ -242,10 +242,10 @@ module MermaidFuzz
     private
 
     def classify
-      unless @sirena[:accepted] == @mermaid[:accepted]
+      unless @etassia[:accepted] == @mermaid[:accepted]
         return accept_reject_mismatch
       end
-      return [:agree, "both rejected"] unless @sirena[:accepted]
+      return [:agree, "both rejected"] unless @etassia[:accepted]
 
       id_mismatch
     end
@@ -253,18 +253,18 @@ module MermaidFuzz
     def accept_reject_mismatch
       [
         :accept_reject_mismatch,
-        "sirena accepted=#{@sirena[:accepted]} " \
+        "etassia accepted=#{@etassia[:accepted]} " \
         "mermaid accepted=#{@mermaid[:accepted]} " \
-        "(sirena: #{@sirena[:error] || @sirena[:ids].inspect}, " \
+        "(etassia: #{@etassia[:error] || @etassia[:ids].inspect}, " \
         "mermaid: #{@mermaid[:error] || @mermaid[:ids].inspect})",
       ]
     end
 
     def id_mismatch
       if same_ids?
-        [:agree, "both accepted, ids=#{@sirena[:ids].inspect}"]
+        [:agree, "both accepted, ids=#{@etassia[:ids].inspect}"]
       else
-        detail = "sirena ids=#{@sirena[:ids].inspect} " \
+        detail = "etassia ids=#{@etassia[:ids].inspect} " \
                  "mermaid ids=#{@mermaid[:ids].inspect}"
         [:id_mismatch, detail]
       end
@@ -282,9 +282,9 @@ module MermaidFuzz
     # id but would be a false positive for an order-insensitive multi-id
     # comparison.
     def same_ids?
-      return true if @sirena[:ids].nil? && @mermaid[:ids].nil?
+      return true if @etassia[:ids].nil? && @mermaid[:ids].nil?
 
-      @sirena[:ids] == @mermaid[:ids]
+      @etassia[:ids] == @mermaid[:ids]
     end
   end
 
@@ -306,7 +306,7 @@ module MermaidFuzz
     # accepts before trusting anything else) run through BOTH sides and
     # required to come back `:agree`. This is the negative control:
     # without it, a Comparison that always reports a divergence -- or a
-    # SIRENA_VERDICT_FOR that always raises -- would still pass the
+    # ETASSIA_VERDICT_FOR that always raises -- would still pass the
     # known-divergence check below, because every known divergence IS
     # (trivially) flagged divergent by a checker that flags everything.
     # Confirmed exactly that gap during review: a Comparison monkeypatched
@@ -320,19 +320,19 @@ module MermaidFuzz
     #   is fully reproducible from its seed alone
     # @param known_divergences [Array<Case>] required regression corpus;
     #   see the file banner on why this must be non-empty
-    # @param sirena_verdict_for [#call(source)] this type's own parser,
+    # @param etassia_verdict_for [#call(source)] this type's own parser,
     #   reduced to {accepted:, ids:} / {accepted: false, error:}
     # @param mermaid_getter [String, nil] mermaid db getter name, or nil
     # @param mermaid_preflight [String] a fixed, known-valid source for
     #   this diagram type -- see MermaidSide's doc on why it must be fixed
     def initialize(
-      label:, generator_factory:, known_divergences:, sirena_verdict_for:,
+      label:, generator_factory:, known_divergences:, etassia_verdict_for:,
       **mermaid_options
     )
       @label = label
       @generator_factory = generator_factory
       @known_divergences = known_divergences
-      @sirena_verdict_for = sirena_verdict_for
+      @etassia_verdict_for = etassia_verdict_for
       set_mermaid_options(**mermaid_options)
     end
 
@@ -467,12 +467,12 @@ module MermaidFuzz
     end
 
     def compare(cases)
-      sirena_results = SirenaSide.run(cases, @sirena_verdict_for)
+      etassia_results = EtassiaSide.run(cases, @etassia_verdict_for)
       mermaid_results = MermaidSide.run(
         cases, getter: @mermaid_getter, preflight: @mermaid_preflight
       )
       cases.map do |kase|
-        Comparison.new(kase, sirena_results[kase.id], mermaid_results[kase.id])
+        Comparison.new(kase, etassia_results[kase.id], mermaid_results[kase.id])
       end
     end
   end

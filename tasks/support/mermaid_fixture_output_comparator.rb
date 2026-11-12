@@ -15,7 +15,7 @@ class MermaidOutputComparator
     return report_missing_references(diagram_type) unless
       Dir.exist?(reference_dir)
 
-    require "sirena"
+    require "etassia"
     results = compare_sources(diagram_type, reference_dir)
     print_comparison_results(results)
   end
@@ -55,7 +55,7 @@ class MermaidOutputComparator
   end
 
   def source_matches_reference?(source, reference)
-    similar_structure?(Sirena.render(source), File.read(reference))
+    similar_structure?(Etassia.render(source), File.read(reference))
   rescue StandardError
     false
   end
@@ -76,7 +76,7 @@ class MermaidOutputComparator
     def self.name = "MermaidTestValidator"
 
     def validate_all
-      require "sirena"
+      require "etassia"
 
       results = {}
 
@@ -97,7 +97,7 @@ class MermaidOutputComparator
     end
 
     def source_renderable?(source)
-      Sirena.render(source)
+      Etassia.render(source)
       true
     rescue StandardError
       false

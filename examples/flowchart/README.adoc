@@ -64,7 +64,7 @@ image::01-basic-flow.svg[]
 === 02: Node Shapes
 
 Showcases four node shapes (rectangle, rounded, rhombus, circle); see the Syntax
-Overview above for the full set Sirena supports.
+Overview above for the full set Etassia supports.
 
 **File**: link:02-node-shapes.mmd[02-node-shapes.mmd]
 

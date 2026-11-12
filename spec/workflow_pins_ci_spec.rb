@@ -98,9 +98,9 @@ module WorkflowHelpers
 
   def expected_published_gem_values
     command =
-      "gem build sirena.gemspec --output " \
-      '"$RUNNER_TEMP/sirena-$TARGET_VERSION.gem"'
-    [command, 'gem push "$RUNNER_TEMP/sirena-$TARGET_VERSION.gem"', nil]
+      "gem build etassia.gemspec --output " \
+      '"$RUNNER_TEMP/etassia-$TARGET_VERSION.gem"'
+    [command, 'gem push "$RUNNER_TEMP/etassia-$TARGET_VERSION.gem"', nil]
   end
 
   def authentication_step(jobs)
@@ -266,7 +266,7 @@ RSpec.describe WorkflowPins, :aggregate_failures do
     end
 
     it "shards only Windows and runs every other combination in full" do
-      expect(unit_rake_step(jobs).dig("env", "SIRENA_SPEC_SHARD"))
+      expect(unit_rake_step(jobs).dig("env", "ETASSIA_SPEC_SHARD"))
         .to eq("${{ matrix.os == 'windows-latest' && matrix.shard || '' }}")
     end
 
@@ -341,7 +341,7 @@ RSpec.describe WorkflowPins, :aggregate_failures do
     end
 
     it "limits the Chromium workaround to the oracle canary step" do
-      expected = [{ "SIRENA_ORACLE_CI_CANARY_NO_SANDBOX" => "1" }, nil]
+      expected = [{ "ETASSIA_ORACLE_CI_CANARY_NO_SANDBOX" => "1" }, nil]
 
       expect(oracle_browser_scope(jobs)).to eq(expected)
     end

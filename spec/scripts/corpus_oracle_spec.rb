@@ -183,8 +183,8 @@ module CorpusOracleSpecSupport
     run_script("--oracle", *args, seed: seed) do |dir|
       bin = fake_mmdc(dir, mmdc)
       { "PATH" => "#{bin}:#{ENV.fetch('PATH')}",
-        "SIRENA_ALLOW_TEST_MMDC" => "1",
-        "SIRENA_MMDC_TEST_BIN" => File.join(bin, "mmdc") }
+        "ETASSIA_ALLOW_TEST_MMDC" => "1",
+        "ETASSIA_MMDC_TEST_BIN" => File.join(bin, "mmdc") }
     end
   end
 

@@ -1,6 +1,6 @@
 # Changelog
 
-All releasable changes to Sirena are recorded here. The contract each version
+All releasable changes to Etassia are recorded here. The contract each version
 number makes is in [VERSIONING.md](VERSIONING.md).
 
 ## Format
@@ -9,7 +9,7 @@ number makes is in [VERSIONING.md](VERSIONING.md).
   first.
 - Inside a section, bullets sit under `### Added`, `### Changed`,
   `### Deprecated`, `### Removed`, `### Fixed` or `### Security`.
-- A change is releasable when it alters what a user of `Sirena.render`,
+- A change is releasable when it alters what a user of `Etassia.render`,
   `Engine#render` or the CLI can observe. Refactors, specs and CI are not
   entries.
 - **Releasable version**: the release preflight
@@ -17,24 +17,24 @@ number makes is in [VERSIONING.md](VERSIONING.md).
   `## [X.Y.Z]` section exists for the version being cut and holds at least one
   bullet under a category above. Before dispatching a release, a
   changelog-only PR renames `[Unreleased]` to `[X.Y.Z] - date` and adds a
-  fresh empty `[Unreleased]`. No PR changes `lib/sirena/version.rb`.
+  fresh empty `[Unreleased]`. No PR changes `lib/etassia/version.rb`.
 
 ## [Unreleased]
 
 ### Added
 
-- `Sirena.render` uses the Rust runtime of the optional `sirena-native` gem
+- `Etassia.render` uses the Rust runtime of the optional `etassia-native` gem
   when it is installed, with the same SVG bytes, and renders in Ruby when it
-  is missing or cannot answer. `SIRENA_RUNTIME=auto|ruby|rust` selects it.
+  is missing or cannot answer. `ETASSIA_RUNTIME=auto|ruby|rust` selects it.
 - PlantUML `!include FILE[!SELECTOR]`, `!includesub FILE!NAME` and
   `!startsub`/`!endsub` are expanded. Files are read beside the source's
   `path:` (or `base_dir:`) and then in `include_path:` or
   `PLANTUML_INCLUDE_PATH`, never outside those directories. A file that cannot
-  be read raises `Sirena::Notation::PlantUML::Include::Error`.
+  be read raises `Etassia::Notation::PlantUML::Include::Error`.
 
 ### Changed
 
-- Sirena now requires Ruby 3.3 or newer and elkrb `~> 2.0`. elkrb 2 itself
+- Etassia now requires Ruby 3.3 or newer and elkrb `~> 2.0`. elkrb 2 itself
   requires Ruby 3.3.
 
 ## [0.2.0] - 2026-10-16
@@ -44,21 +44,21 @@ number makes is in [VERSIONING.md](VERSIONING.md).
 - Added a notation registry, API notation selection, and CLI `--notation` /
   repeatable `--require` options for loading notation plugins.
 - Added bundled PlantUML class and sequence rendering, available by loading
-  `sirena/notation/plantuml`.
+  `etassia/notation/plantuml`.
 - Added `today:` for reproducible date-sensitive rendering and
   `layout_engine:` for selecting the supported layout placement.
 
 ### Changed
 
-- Sirena now requires Ruby 3.2 or newer, elkrb `~> 1.0`, lutaml-model
+- Etassia now requires Ruby 3.2 or newer, elkrb `~> 1.0`, lutaml-model
   `~> 0.8.0`, kramdown `~> 2.5` and plurimath-parslet `~> 3.0`.
-- `sirena batch` discovers every registered notation's extensions, continues
+- `etassia batch` discovers every registered notation's extensions, continues
   after individual file failures, and exits 1 when any input failed.
 - #62 renamed most of the gem's parser, renderer, layout and diagram-model
   classes. Every rename below is a plain name change: nothing was removed
   except where a row says so.
 
-- Diagram model classes (`Sirena::Diagram`):
+- Diagram model classes (`Etassia::Diagram`):
 
   | Old name | New name |
   | --- | --- |
@@ -81,7 +81,7 @@ number makes is in [VERSIONING.md](VERSIONING.md).
   The last two pairs each reuse a name: the old per-item class moves aside so
   the whole-diagram class can take its plain name.
 
-- Parser classes (`Sirena::Parser`): every class ending in `Parser` dropped
+- Parser classes (`Etassia::Parser`): every class ending in `Parser` dropped
   that suffix, e.g. `Parser::FlowchartParser` -> `Parser::Flowchart`. Applies
   to `Block`, `C4`, `ClassDiagram`, `ErDiagram`, `Error`, `Flowchart`,
   `Gantt`, `GitGraph`, `Info`, `Kanban`, `Mindmap`, `Packet`, `Pie`,
@@ -92,7 +92,7 @@ number makes is in [VERSIONING.md](VERSIONING.md).
   `Parser::Grammars::XYChart` became `Parser::Grammars::XyChart`
   (capitalization only; every other grammar class kept its name).
 
-- Renderer classes (`Sirena::Renderer`): every class ending in `Renderer`
+- Renderer classes (`Etassia::Renderer`): every class ending in `Renderer`
   dropped that suffix, e.g. `Renderer::FlowchartRenderer` ->
   `Renderer::Flowchart`. Applies to `Architecture`, `Block`, `C4`,
   `ClassDiagram`, `ErDiagram`, `Error`, `Flowchart`, `Gantt`, `Info`, `Pie`,
@@ -100,7 +100,7 @@ number makes is in [VERSIONING.md](VERSIONING.md).
   `Timeline`, `UserJourney`. `Renderer::XYChart` became `Renderer::XyChart`
   (capitalization only).
 
-- The `Sirena::Transform` module was renamed to `Sirena::Layout`, and every
+- The `Etassia::Transform` module was renamed to `Etassia::Layout`, and every
   class ending in `Transform` dropped that suffix at the same time, e.g.
   `Transform::FlowchartTransform` -> `Layout::Flowchart`. Applies to
   `Architecture`, `Block`, `C4`, `ClassDiagram`, `ErDiagram`, `Error`,
@@ -113,10 +113,10 @@ number makes is in [VERSIONING.md](VERSIONING.md).
   `Layout::Radar`, `Layout::Treemap`, `Layout::Base`.
   `Transform::XYChart` became `Layout::XyChart` (namespace and
   capitalization). `Transform::TransformError` was removed; its replacement
-  is `Sirena::Layout::LayoutError`.
+  is `Etassia::Layout::LayoutError`.
 
-- The `Sirena::Parser::Transforms` module was renamed to
-  `Sirena::Parser::Builders`; class names inside it did not change, e.g.
+- The `Etassia::Parser::Transforms` module was renamed to
+  `Etassia::Parser::Builders`; class names inside it did not change, e.g.
   `Parser::Transforms::Flowchart` -> `Parser::Builders::Flowchart`,
   `Parser::Transforms::Kanban::BoardBuilder` ->
   `Parser::Builders::Kanban::BoardBuilder`. `Parser::Transforms::XYChart`
@@ -130,7 +130,7 @@ number makes is in [VERSIONING.md](VERSIONING.md).
 - Emit well-formed UTF-8 SVG for every committed rendered conformance case,
   including escaped text and non-UTF-8 process locales.
 - Report invalid input, unknown CLI values, and source-triggered stack or heap
-  exhaustion through Sirena's error and exit-status contracts instead of
+  exhaustion through Etassia's error and exit-status contracts instead of
   leaking raw VM failures or failing silently.
 - Honor theme typography, paint and palette roles across the supported
   Mermaid diagrams, including partial custom themes completed from defaults.

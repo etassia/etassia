@@ -1,0 +1,302 @@
+# frozen_string_literal: true
+
+require_relative "../../../svg"
+require_relative "archimate"
+require_relative "cloud"
+require_relative "data_shape"
+require_relative "entity_shape"
+require_relative "figures"
+require_relative "../creole"
+require_relative "metrics"
+require_relative "tab"
+
+module Etassia
+  module Notation
+    module PlantUML
+      module NodeGraph
+        # Draws one placed node as SVG elements.
+        class Shapes
+          STROKE = "#181818"
+          FILL = "#F1F1F1"
+          FONT = "sans-serif"
+          HEX = /\A[0-9A-Fa-f]{3,8}\z/
+          # The reference draws every leaf with a hairline, a port with a
+          # heavy line, and a container with a plain one.
+          LEAF_WIDTH = "0.5"
+          WIDTHS = { portin: "1.5", portout: "1.5" }.freeze
+          # A package and a folder are the two containers drawn heavy, in
+          # black rather than the plain stroke.
+          HEAVY = { width: "1.5", stroke: "#000000" }.freeze
+          HEAVY_KINDS = %i[package folder].freeze
+          private_constant :LEAF_WIDTH, :WIDTHS, :HEAVY, :HEAVY_KINDS
+
+          # @param placed [Placed]
+          # @return [Array<Svg::Element>]
+          def draw(placed)
+            return DataShape.new(placed).elements if placed.node.kind == :data
+            return entity(placed) if placed.node.kind == :entity
+
+            @p = placed
+            @out = []
+            @icon = false
+            placed.node.container? ? container : figure
+            @out
+          end
+
+          private
+
+          def entity(placed)
+            EntityShape.new(placed).elements
+          end
+
+          def line
+            return HEAVY.transform_keys(width: :stroke_width) if heavy?
+
+            { stroke: STROKE, stroke_width: stroke_width }
+          end
+
+          def heavy?
+            @p.node.container? && HEAVY_KINDS.include?(@p.node.kind)
+          end
+
+          # A container keeps the plain line; so does its icon, drawn as the
+          # hairline of a leaf component.
+          def stroke_width
+            return "0.5" if @icon
+
+            @p.node.container? ? "1" : WIDTHS.fetch(@p.node.kind, LEAF_WIDTH)
+          end
+
+          def add(type, **attrs)
+            @out << type.new.tap do |node|
+              attrs.each { |key, value| node.public_send(:"#{key}=", value) }
+            end
+          end
+
+          def fill
+            color = @p.node.color
+            return container_fill unless color
+
+            color.match?(HEX) ? "##{color}" : color
+          end
+
+          def at(spec)
+            [along(spec[0], spec[2], @p.x, @p.width),
+             along(spec[1], spec[3], @p.y + figure_drop, @p.height)]
+          end
+
+          def along(fraction, offset, origin, extent)
+            origin + (fraction * extent) + offset
+          end
+
+          # An actor's stereotype is written above its figure, which moves
+          # down a line to make room.
+          def figure_drop
+            above_figure? ? Metrics::LINE_HEIGHT : 0
+          end
+
+          def above_figure?
+            @p.node.kind == :actor && @p.node.stereotype
+          end
+
+          def size(spec)
+            [(spec[0] * @p.width) + spec[2], (spec[1] * @p.height) + spec[3]]
+          end
+
+          def figure
+            kind = @p.node.kind
+            Figures.for(kind).each do |type, *args|
+              send(:"draw_#{type}", *args)
+            end
+            label(Figures.label(kind).merge(@p.node.sprite ? { dy: 10 } : {}))
+            draw_sprite if @p.node.sprite
+          end
+
+          # The icon of an archimate element, centred at its top; the label
+          # moves down to make room.
+          def draw_sprite
+            left = @p.x + (@p.width / 2) - 8.5
+            add(Svg::Path, d: @p.node.sprite, fill: "#000000",
+                           transform: "translate(#{left},#{@p.y + 12})")
+          end
+
+          def draw_rect(origin, extent, radius = nil)
+            x, y = at(origin)
+            width, height = size(extent)
+            add(Svg::Rect, x: x, y: y, width: width, height: height,
+                           rx: radius, ry: radius, fill: fill, **line)
+          end
+
+          def draw_circle(center, radius)
+            x, y = at(center)
+            add(Svg::Circle, cx: x, cy: y, r: radius, fill: fill, **line)
+          end
+
+          def draw_line(from, to)
+            x1, y1 = at(from)
+            x2, y2 = at(to)
+            add(Svg::Line, x1: x1, y1: y1, x2: x2, y2: y2, **line)
+          end
+
+          def draw_ellipse
+            add(Svg::Ellipse, cx: @p.x + (@p.width / 2),
+                              cy: @p.y + (@p.height / 2), rx: @p.width / 2,
+                              ry: @p.height / 2, fill: fill, **line)
+          end
+
+          def draw_polygon(points, color = fill)
+            add(Svg::Polygon, points: points.map { |pt| at(pt).join(",") }
+              .join(" "),
+                              fill: color, **line)
+          end
+
+          def draw_path(commands, color = fill)
+            add(Svg::Path, d: commands.map { |cmd| command(*cmd) }.join(" "),
+                           fill: color, **line)
+          end
+
+          def draw_cloud
+            add(Svg::Path, d: Cloud.new(@p).to_d, fill: fill, **line)
+          end
+
+          def command(verb, *args)
+            case verb
+            when :Z then "Z"
+            when :A then arc(*args)
+            else "#{verb}#{at(args.first).join(',')}"
+            end
+          end
+
+          def arc(radii, sweep, target)
+            "A#{size(radii).join(',')} 0 0 #{sweep} #{at(target).join(',')}"
+          end
+
+          def lines
+            Metrics.text_lines(@p.node)
+          end
+
+          def label(options)
+            top = options[:top] ? @p.y + options[:top] : middle(options)
+            anchor, x_pos = label_anchor(options)
+            lines.each_with_index do |line, index|
+              y = top + (index * Metrics::LINE_HEIGHT) + Metrics::ASCENT
+              caption(stereotype?(index), [x_pos, y], line, anchor)
+            end
+          end
+
+          def caption(stereotype, point, line, anchor)
+            return text(*point, line, anchor) unless stereotype
+
+            stereotype_line(*point, line, anchor)
+          end
+
+          def stereotype?(index)
+            index.zero? && @p.node.stereotype
+          end
+
+          # The stereotype line is italic; an actor's goes above its figure,
+          # the name lines staying where they were.
+          def stereotype_line(x_pos, baseline, line, anchor)
+            text(x_pos, above_figure? ? @p.y + Metrics::ASCENT : baseline,
+                 line, anchor)
+            @out.last.font_style = "italic"
+          end
+
+          def label_anchor(options)
+            return ["start", @p.x + options[:left]] if options[:left]
+
+            width = @p.width - options.fetch(:shrink, 0)
+            ["middle", @p.x + options.fetch(:shift, 0) + (width / 2)]
+          end
+
+          def middle(options)
+            @p.y + ((@p.height - Metrics.text_height(lines)) / 2) +
+              options.fetch(:dy, 0)
+          end
+
+          # A container is open: only a colour of its own fills it, so what it
+          # holds shows through.
+          def container_fill
+            @p.node.container? ? "none" : FILL
+          end
+
+          def container
+            outline = Figures.container(@p.node.kind) || Figures::BOX
+            outline.each { |type, *args| send(:"draw_#{type}", *args) }
+            decorate
+            lines.each_with_index { |line, index| header(line, index) }
+          end
+
+          def decorate
+            draw_tab if tabbed?
+            draw_icon if @p.node.kind == :component
+          end
+
+          def tabbed?
+            Figures::TABBED.include?(@p.node.kind)
+          end
+
+          # A component container carries the glyph of a component too.
+          def draw_icon
+            @icon = true
+            Figures::COMPONENT.drop(1).each do |type, *args|
+              send(:"draw_#{type}", *args)
+            end
+          end
+
+          def draw_tab
+            points = Tab.points(@p.x, @p.y, tab_text_width, @p.node.kind)
+            add(Svg::Polygon, points: points, fill: FILL, **line)
+          end
+
+          def tab_text_width
+            TextMeasurement.measure_in(:dejavu_bold, lines.first.to_s,
+                                       font_size: Metrics::FONT_SIZE)[:width]
+          end
+
+          # A header clears the cap of a cylinder, the bumps of a cloud and
+          # the slanted top of a node.
+          HEADER_DROP = { database: 10, cloud: 12, node: 8 }.freeze
+          HEADER_LEFT = { cloud: 24 }.freeze
+          private_constant :HEADER_DROP, :HEADER_LEFT
+
+          def header(line, index)
+            return tab_text(line) if tabbed? && index.zero?
+
+            weight = index.zero? ? "bold" : nil
+            return centred_title(line, index, weight) if centred?
+
+            text(@p.x + 12 + HEADER_LEFT.fetch(@p.node.kind, 0),
+                 header_top(index), line, "start", weight)
+          end
+
+          # A component container names itself in the middle of its top.
+          def centred? = @p.node.kind == :component
+
+          def centred_title(line, index, weight)
+            text(@p.x + (@p.width / 2), header_top(index), line, "middle",
+                 weight)
+          end
+
+          def header_top(index)
+            @p.y + 13 + Metrics::ASCENT + HEADER_DROP.fetch(@p.node.kind, 0) +
+              (index * Metrics::LINE_HEIGHT)
+          end
+
+          def tab_text(line)
+            top = @p.y + Tab.baseline(@p.node.kind)
+            text(@p.x + Tab.indent(@p.node.kind), top, line, "start", "bold")
+          end
+
+          def text(x_pos, y_pos, content, anchor, weight = nil)
+            add(Svg::Text, x: x_pos, y: y_pos, content: content,
+                           text_anchor: anchor, font_family: FONT,
+                           font_size: Metrics::FONT_SIZE.to_s,
+                           font_weight: weight, fill: "#000000")
+            Creole.assign(@out.last, content)
+          end
+        end
+      end
+    end
+  end
+end

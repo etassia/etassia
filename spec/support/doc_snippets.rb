@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "shellwords"
-require "sirena/cli"
+require "etassia/cli"
 require "stringio"
 require "tmpdir"
 
@@ -12,25 +12,25 @@ module DocSnippets
   # Blocks that are not executed, each with the reason. Keyed by the
   # first line of the block body.
   SKIPPED = {
-    "gem 'sirena'" => "a Gemfile line, not Ruby to run",
+    "gem 'etassia'" => "a Gemfile line, not Ruby to run",
     "bundle install" => "installs the bundle, not part of the library",
-    "gem install sirena" => "installs the published gem",
+    "gem install etassia" => "installs the published gem",
     "Mermaid Syntax Input (String)" => "ASCII-art pipeline diagram",
-    "Sirena (Root Module)" => "ASCII-art component tree",
-    "git clone https://github.com/claricle/sirena.git" =>
+    "Etassia (Root Module)" => "ASCII-art component tree",
+    "git clone https://github.com/claricle/etassia.git" =>
       "clones the repository",
     %(echo 'export PATH="$HOME/.gem/ruby/X.X.0/bin:$PATH"' >> ~/.bashrc) =>
       "edits the reader's shell profile",
-    "gem install sirena --user-install" => "installs the published gem",
-    "sirena render [FILE]" => "usage synopsis with a placeholder",
-    "sirena batch [OPTIONS]" => "usage synopsis with a placeholder",
-    "sirena types [OPTIONS]" => "usage synopsis with a placeholder",
-    "sirena render --notation mermaid diagram.txt" =>
+    "gem install etassia --user-install" => "installs the published gem",
+    "etassia render [FILE]" => "usage synopsis with a placeholder",
+    "etassia batch [OPTIONS]" => "usage synopsis with a placeholder",
+    "etassia types [OPTIONS]" => "usage synopsis with a placeholder",
+    "etassia render --notation mermaid diagram.txt" =>
       "needs ./my_notation.rb, a notation file the reader writes",
-    "sirena batch -i diagrams -o output" =>
+    "etassia batch -i diagrams -o output" =>
       "needs ./my_notation.rb, a notation file the reader writes",
     "# Run Mermaid.js compatibility tests" =>
-      "rake task and mermaid-cli comparison, not the sirena CLI",
+      "rake task and mermaid-cli comparison, not the etassia CLI",
   }.freeze
 
   ROOT = File.expand_path("../..", __dir__)
@@ -122,14 +122,14 @@ module DocSnippets
     piped = line.match(/\Acat (\S+) \| (.*)/m)
     return with_stdin(File.read(piped[1])) { shell(piped[2]) } if piped
 
-    with_quiet_stdout { Sirena::Cli.start(sirena_args(line)) }
+    with_quiet_stdout { Etassia::Cli.start(etassia_args(line)) }
   end
 
-  def sirena_args(line)
+  def etassia_args(line)
     command, *args = Shellwords.split(line)
-    return args if command == "sirena"
+    return args if command == "etassia"
 
-    raise ArgumentError, "only the sirena CLI is run, got #{line.inspect}"
+    raise ArgumentError, "only the etassia CLI is run, got #{line.inspect}"
   end
 
   def with_stdin(text)

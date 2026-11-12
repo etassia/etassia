@@ -4,7 +4,7 @@ require "svg_conform"
 require "rexml/document"
 require "yaml"
 
-# Cases and judging for spec/sirena/notation/plant_uml_svg_conformance_spec.rb.
+# Cases and judging for spec/etassia/notation/plant_uml_svg_conformance_spec.rb.
 module PlantUmlConformanceHelpers
   ROOT = File.expand_path("../..", __dir__)
 
@@ -27,7 +27,7 @@ module PlantUmlConformanceHelpers
   end
 
   def render_plantuml(path)
-    Sirena::Engine.new.render(File.read(path))
+    Etassia::Engine.new.render(File.read(path))
   end
 
   # @return [String, nil] why the svg is not conformant, or nil
@@ -43,7 +43,7 @@ module PlantUmlConformanceHelpers
   end
 
   def profile_problem(svg)
-    result = SvgConform.validate(svg, profile: Sirena::Svg::CONFORMANCE_PROFILE)
+    result = SvgConform.validate(svg, profile: Etassia::Svg::CONFORMANCE_PROFILE)
     return nil if result.valid?
 
     (result.errors + result.validity_errors).map(&:message).uniq.first(3)

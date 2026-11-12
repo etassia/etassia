@@ -5,13 +5,13 @@ module SpecSupport
     # Matches the elements of two figures by the identity contract in
     # TODO.foundation/14. Geometry is deliberately left to the comparator.
     class ElementMatcher
-      def self.match(reference:, sirena:)
-        new(reference, sirena).match
+      def self.match(reference:, etassia:)
+        new(reference, etassia).match
       end
 
-      def initialize(reference, sirena)
+      def initialize(reference, etassia)
         @reference = reference
-        @sirena = sirena
+        @etassia = etassia
       end
 
       def match
@@ -26,10 +26,10 @@ module SpecSupport
 
       private
 
-      attr_reader :reference, :sirena
+      attr_reader :reference, :etassia
 
       def scopes
-        elements = reference.elements + sirena.elements
+        elements = reference.elements + etassia.elements
         elements.map { |element| scope_of(element) }.uniq
       end
 
@@ -39,20 +39,20 @@ module SpecSupport
 
       def match_scope(scope)
         reference_elements = in_scope(reference, scope)
-        sirena_elements = in_scope(sirena, scope)
-        match_by = match_mode(reference_elements, sirena_elements)
+        etassia_elements = in_scope(etassia, scope)
+        match_by = match_mode(reference_elements, etassia_elements)
         reference_groups = group(reference_elements, match_by)
-        sirena_groups = group(sirena_elements, match_by)
+        etassia_groups = group(etassia_elements, match_by)
 
-        group_results(scope, match_by, reference_groups, sirena_groups)
+        group_results(scope, match_by, reference_groups, etassia_groups)
       end
 
       def in_scope(figure, scope)
         figure.elements.select { |element| scope_of(element) == scope }
       end
 
-      def match_mode(reference_elements, sirena_elements)
-        elements = reference_elements + sirena_elements
+      def match_mode(reference_elements, etassia_elements)
+        elements = reference_elements + etassia_elements
         elements.all? { |element| element.identity == :id } ? :id : :label
       end
 
@@ -62,54 +62,54 @@ module SpecSupport
         end
       end
 
-      def group_results(scope, match_by, reference_groups, sirena_groups)
-        keys = (reference_groups.keys + sirena_groups.keys).uniq
+      def group_results(scope, match_by, reference_groups, etassia_groups)
+        keys = (reference_groups.keys + etassia_groups.keys).uniq
         results = keys.map do |key|
-          match_group(scope, key, match_by, reference_groups, sirena_groups)
+          match_group(scope, key, match_by, reference_groups, etassia_groups)
         end
         aggregate(results)
       end
 
-      def match_group(scope, key, match_by, reference_groups, sirena_groups)
+      def match_group(scope, key, match_by, reference_groups, etassia_groups)
         reference_group = reference_groups.fetch(key, [])
-        sirena_group = sirena_groups.fetch(key, [])
-        pairs = reference_group.zip(sirena_group).first(
-          common_count(reference_group, sirena_group),
+        etassia_group = etassia_groups.fetch(key, [])
+        pairs = reference_group.zip(etassia_group).first(
+          common_count(reference_group, etassia_group),
         )
 
         {
           pairs: pairs,
           ambiguous_count: ambiguity_count(
-            reference_group, sirena_group, pairs
+            reference_group, etassia_group, pairs
           ),
           failures: failure(
-            scope, key, match_by, reference_group, sirena_group
+            scope, key, match_by, reference_group, etassia_group
           ),
         }
       end
 
-      def common_count(reference_group, sirena_group)
-        [reference_group.length, sirena_group.length].min
+      def common_count(reference_group, etassia_group)
+        [reference_group.length, etassia_group.length].min
       end
 
-      def ambiguous?(reference_group, sirena_group)
-        reference_group.length > 1 || sirena_group.length > 1
+      def ambiguous?(reference_group, etassia_group)
+        reference_group.length > 1 || etassia_group.length > 1
       end
 
-      def ambiguity_count(reference_group, sirena_group, pairs)
-        ambiguous?(reference_group, sirena_group) ? pairs.length : 0
+      def ambiguity_count(reference_group, etassia_group, pairs)
+        ambiguous?(reference_group, etassia_group) ? pairs.length : 0
       end
 
-      def failure(scope, key, match_by, reference_group, sirena_group)
+      def failure(scope, key, match_by, reference_group, etassia_group)
         reference_count = reference_group.length
-        sirena_count = sirena_group.length
-        return [] if reference_count == sirena_count
+        etassia_count = etassia_group.length
+        return [] if reference_count == etassia_count
 
-        type = reference_count > sirena_count ? :missing : :extra
+        type = reference_count > etassia_count ? :missing : :extra
         [{
           type: type, group: [*scope, key], match_by: match_by,
-          count: (reference_count - sirena_count).abs,
-          reference_count: reference_count, sirena_count: sirena_count
+          count: (reference_count - etassia_count).abs,
+          reference_count: reference_count, etassia_count: etassia_count
         }]
       end
 
@@ -127,7 +127,7 @@ module SpecSupport
 
       def order_pairs(pairs)
         positions = reference.elements.each_with_index.to_h
-        pairs.sort_by do |reference_element, _sirena_element|
+        pairs.sort_by do |reference_element, _etassia_element|
           positions.fetch(reference_element)
         end
       end

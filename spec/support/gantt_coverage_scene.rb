@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Lays out Gantt source text for the branch-coverage specs of
-# Sirena::Layout::Gantt.
+# Etassia::Layout::Gantt.
 module GanttCoverageScene
   module_function
 
@@ -13,7 +13,7 @@ module GanttCoverageScene
   end
 
   def lay_out(document, theme: nil)
-    layout = Sirena::Layout::Gantt.new
+    layout = Etassia::Layout::Gantt.new
     layout.theme = theme if theme
     layout.call(document, today: TODAY)
   end
@@ -27,7 +27,7 @@ module GanttCoverageScene
   end
 
   def parse(body)
-    Sirena::Parser::Gantt.new.parse("#{HEADER}#{body}")
+    Etassia::Parser::Gantt.new.parse("#{HEADER}#{body}")
   end
 
   def tasks(scene)
@@ -39,9 +39,9 @@ module GanttCoverageScene
   end
 
   def settingless_document(body)
-    ir = Sirena::Notation::Mermaid::IRAdapters::Gantt.call(parse(body))
+    ir = Etassia::Notation::Mermaid::IRAdapters::Gantt.call(parse(body))
     kept = ir.items.reject { |item| item.role == "schedule_settings" }
-    Sirena::IR::Prepositioned.new(
+    Etassia::IR::Prepositioned.new(
       id: ir.id, label: ir.label, role: ir.role,
       items: kept, connections: ir.connections
     )

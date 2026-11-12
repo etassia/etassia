@@ -2,14 +2,14 @@
 
 require "spec_helper"
 
-RSpec.describe Sirena::Layout::<%= klass %> do
+RSpec.describe Etassia::Layout::<%= klass %> do
   let(:diagram) do
-    Sirena::IR::Data.new(
+    Etassia::IR::Data.new(
       id: "<%= type %>",
       role: "ordered_list",
       items: [
-        Sirena::IR::Item.new(id: "item_0", label: "a", role: "list_item"),
-        Sirena::IR::Item.new(id: "item_1", label: "b", role: "list_item"),
+        Etassia::IR::Item.new(id: "item_0", label: "a", role: "list_item"),
+        Etassia::IR::Item.new(id: "item_1", label: "b", role: "list_item"),
       ],
     )
   end

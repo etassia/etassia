@@ -24,7 +24,7 @@ RSpec.describe SpecSupport::LayoutParity::CaseLedger do
         case_id: case_id,
         type: "flowchart",
         reference: "spec/fixtures_mermaid/#{case_id}.svg",
-        sirena_status: "rendered",
+        etassia_status: "rendered",
         invariants: invariants,
         geometry: measured_geometry,
         reproduce: "bundle exec rspec spec/layout_parity_spec.rb",

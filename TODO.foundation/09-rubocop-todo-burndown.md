@@ -5,8 +5,8 @@ column lives in the scoreboard, so the burndown can run without it but
 cannot close without it. Does NOT block PlantUML.
 
 Parallel with everything **except item 10**: `.rubocop_todo.yml` parks
-debt in `lib/sirena.rb` (one exclusion) and
-`lib/sirena/commands/batch.rb` (three: `Layout/ArgumentAlignment`,
+debt in `lib/etassia.rb` (one exclusion) and
+`lib/etassia/commands/batch.rb` (three: `Layout/ArgumentAlignment`,
 `Style/RescueStandardError`, `Style/StringConcatenation`), and item 10
 rewrites both files. Cop families touching those files wait for item 10
 or rebase onto it; every other family stays parallel.

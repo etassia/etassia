@@ -59,16 +59,16 @@ module SpecSupport
         MERMAID
       end
 
-      # [mmdc reference, Sirena render] of one flowchart corpus case.
+      # [mmdc reference, Etassia render] of one flowchart corpus case.
       def flowchart_sides(name)
         [reference_svg("flowchart/#{name}.svg"),
-         Sirena.render(corpus_source("flowchart/#{name}.mmd"))]
+         Etassia.render(corpus_source("flowchart/#{name}.mmd"))]
       end
 
-      # [mmdc reference, Sirena render] of a two-participant sequence.
+      # [mmdc reference, Etassia render] of a two-participant sequence.
       def sequence_sides
         [reference_svg("sequence/knsv-8bc11092.svg"),
-         Sirena.render("sequenceDiagram\n  Alice->>Bob: Hi\n")]
+         Etassia.render("sequenceDiagram\n  Alice->>Bob: Hi\n")]
       end
 
       def participant_tops(svg, recognizer)

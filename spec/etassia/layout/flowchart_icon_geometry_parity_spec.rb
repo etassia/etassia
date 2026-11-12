@@ -1,0 +1,24 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+RSpec.describe Etassia::Layout::Flowchart do
+  subject(:scene) { described_class.new.call(parser.parse(source)) }
+
+  let(:parser) { Etassia::Parser::Flowchart.new }
+  let(:source) do
+    File.read(
+      "spec/mermaid/flowchart/configuration_spec-5b7a1b25.mmd",
+    )
+  end
+
+  it "reserves one icon advance while retaining the displayed label" do
+    expect(icon_geometry).to eq(["Car", 44.992, 104.992, 54.0])
+  end
+
+  def icon_geometry
+    car = scene.children.find { |node| node.id == "F" }
+    [car.labels.first.text, car.labels.first.width.round(3),
+     car.width.round(3), car.height]
+  end
+end

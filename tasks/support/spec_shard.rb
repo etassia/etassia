@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-module Sirena
+module Etassia
   # Splits the spec files into N disjoint groups that together hold every
   # file, so CI can run the groups as parallel jobs. Selected by
-  # `SIRENA_SPEC_SHARD=<index>/<count>` (1-based); unset runs everything.
+  # `ETASSIA_SPEC_SHARD=<index>/<count>` (1-based); unset runs everything.
   #
   # Files are dealt largest-first to the least loaded group. The weights
   # only balance the groups: a file missing from WEIGHTS still runs in
@@ -12,14 +12,14 @@ module Sirena
     # Seconds on a Windows runner (CI run 38054172040, Ruby 3.2); files
     # that spawn `bundle exec rubocop` or render the whole corpus.
     WEIGHTS = {
-      "spec/sirena/lint_debt_spec.rb" => 178,
-      "spec/sirena/lint_debt_scoreboard_spec.rb" => 164,
+      "spec/etassia/lint_debt_spec.rb" => 178,
+      "spec/etassia/lint_debt_scoreboard_spec.rb" => 164,
       "spec/scripts/corpus_sweep_task_spec.rb" => 58,
-      "spec/sirena/svg_conformance_spec.rb" => 27,
-      "spec/sirena/conformance_spec.rb" => 24,
-      "spec/sirena/theme_spec.rb" => 11,
-      "spec/sirena/parser/user_journey_spec.rb" => 11,
-      "spec/sirena/notation/plant_uml_spike_spec.rb" => 10,
+      "spec/etassia/svg_conformance_spec.rb" => 27,
+      "spec/etassia/conformance_spec.rb" => 24,
+      "spec/etassia/theme_spec.rb" => 11,
+      "spec/etassia/parser/user_journey_spec.rb" => 11,
+      "spec/etassia/notation/plant_uml_spike_spec.rb" => 10,
     }.freeze
     DEFAULT_WEIGHT = 0.6
     # Seconds the last group also spends on the non-RSpec rake tasks.
@@ -31,7 +31,7 @@ module Sirena
 
     # Returns nil when the variable is unset or empty.
     def self.from_env(env = ENV)
-      value = env.fetch("SIRENA_SPEC_SHARD", "").strip
+      value = env.fetch("ETASSIA_SPEC_SHARD", "").strip
       return if value.empty?
 
       new(*value.split("/", 2).map { |part| Integer(part) })

@@ -15,7 +15,7 @@ if ENV["COVERAGE"] == "true"
   SimpleCov.start
 end
 
-require "sirena"
+require "etassia"
 
 Dir[File.join(__dir__, "support", "**", "*.rb")].each { |f| require f }
 

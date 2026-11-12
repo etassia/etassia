@@ -1,16 +1,16 @@
-= Sirena Examples
+= Etassia Examples
 
-This directory contains examples for all 24 supported diagram types in Sirena, a pure Ruby Mermaid diagram renderer.
+This directory contains examples for all 24 supported diagram types in Etassia, a pure Ruby Mermaid diagram renderer.
 
 == Quick Start
 
 [source,bash]
 ----
 # Render an example
-bundle exec ruby exe/sirena render examples/flowchart/01-basic-flow.mmd -o output.svg
+bundle exec ruby exe/etassia render examples/flowchart/01-basic-flow.mmd -o output.svg
 
 # Or use the library directly
-ruby -r ./lib/sirena -e 'puts Sirena.render(File.read("examples/flowchart/01-basic-flow.mmd"))'
+ruby -r ./lib/etassia -e 'puts Etassia.render(File.read("examples/flowchart/01-basic-flow.mmd"))'
 ----
 
 == Diagram Types
@@ -207,6 +207,6 @@ bundle exec rake examples:validate
 
 == See Also
 
-* link:../README.adoc[Main Sirena Documentation]
+* link:../README.adoc[Main Etassia Documentation]
 * link:../docs/[Additional Documentation]
 * https://mermaid.js.org/[Mermaid Official Documentation]

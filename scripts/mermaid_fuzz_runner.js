@@ -7,7 +7,7 @@
 // scripts/state_diagram_fuzz.rb, scripts/er_diagram_fuzz.rb, ...) can
 // share one driver instead of one copy each. It only knows how to ask
 // mermaid a question; it does not generate inputs and does not know
-// what Sirena said.
+// what Etassia said.
 //
 // Usage: node scripts/mermaid_fuzz_runner.js < payload.json > results.json
 //   payload.json {

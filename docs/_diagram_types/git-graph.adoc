@@ -10,7 +10,7 @@ parent: Diagram Types
 
 == Overview
 
-Git graph diagrams in Sirena visualize Git repository history, showing commits,
+Git graph diagrams in Etassia visualize Git repository history, showing commits,
 branches, merges, and cherry-pick operations. These diagrams provide a clear
 visual representation of version control workflows, making them ideal for
 documentation, tutorials, and code review discussions.
@@ -476,7 +476,7 @@ Lower numbers appear higher in the vertical layout.
 
 === Currently not supported
 
-The following Mermaid git graph features are not yet supported in Sirena:
+The following Mermaid git graph features are not yet supported in Etassia:
 
 * Comments using `%%`
 * Custom styling with themes beyond built-in types
