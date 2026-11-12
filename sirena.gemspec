@@ -3,7 +3,7 @@
 require_relative "lib/sirena/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "sirena"
+  spec.name          = "etassia"
   spec.version       = Sirena::VERSION
   spec.authors       = ["Ribose Inc."]
   spec.email         = ["open.source@ribose.com"]
