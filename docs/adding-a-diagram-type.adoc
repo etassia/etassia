@@ -116,13 +116,13 @@ without another hand-edited list.
 
 [source,shell]
 ----
-bundle exec rspec spec/sirena/notation/mermaid_contract_spec.rb -e demo
+bundle exec rspec spec/etassia/notation/mermaid_contract_spec.rb -e demo
 bundle exec rspec \
-  spec/sirena/parser/demo_spec.rb \
-  spec/sirena/diagram/demo_spec.rb \
-  spec/sirena/notation/mermaid/ir_adapters/demo_spec.rb \
-  spec/sirena/layout/demo_spec.rb \
-  spec/sirena/renderer/demo_spec.rb
+  spec/etassia/parser/demo_spec.rb \
+  spec/etassia/diagram/demo_spec.rb \
+  spec/etassia/notation/mermaid/ir_adapters/demo_spec.rb \
+  spec/etassia/layout/demo_spec.rb \
+  spec/etassia/renderer/demo_spec.rb
 ----
 
 The shared contract verifies the canonical fixture, convention-based parser,
@@ -134,7 +134,7 @@ Render the fixture through the public CLI when you want to inspect it:
 
 [source,shell]
 ----
-bundle exec exe/sirena render spec/fixtures/contract/demo.mmd -o demo.svg
+bundle exec exe/etassia render spec/fixtures/contract/demo.mmd -o demo.svg
 ----
 
 From here, change the generated Grammar, Builder, Diagram, adapter, Layout,
@@ -210,7 +210,7 @@ Reproduce one reported case with the public CLI to see its complete error:
 
 [source,shell]
 ----
-bundle exec exe/sirena render spec/mermaid/<type>/<case>.mmd -o /dev/null
+bundle exec exe/etassia render spec/mermaid/<type>/<case>.mmd -o /dev/null
 ----
 
 A successful fix removes the case from the relevant scoped failure list. A

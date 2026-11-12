@@ -107,7 +107,7 @@ Add Sirena to your Gemfile:
 
 [source,ruby]
 ----
-gem 'sirena'
+gem 'etassia'
 ----
 
 Then execute:
@@ -121,7 +121,7 @@ Or install it directly:
 
 [source,shell]
 ----
-gem install sirena
+gem install etassia
 ----
 
 === Requirements
@@ -137,7 +137,7 @@ Render a single Mermaid diagram to SVG:
 
 [source,shell]
 ----
-sirena render diagram.mmd -o output.svg
+etassia render diagram.mmd -o output.svg
 ----
 
 Create a PlantUML class diagram in `diagram.puml`:
@@ -153,7 +153,7 @@ User --> Account : owns
 Then render it by loading the bundled notation:
 
 ----
-sirena render --require sirena/notation/plantuml diagram.puml -o output.svg
+etassia render --require etassia/notation/plantuml diagram.puml -o output.svg
 ----
 
 The same notation renders PlantUML sequence diagrams. Create
@@ -169,21 +169,21 @@ Bob --> Alice : hi
 Then render it the same way:
 
 ----
-sirena render --require sirena/notation/plantuml sequence.puml -o sequence.svg
+etassia render --require etassia/notation/plantuml sequence.puml -o sequence.svg
 ----
 
 Render all Mermaid files in a directory:
 
 [source,shell]
 ----
-sirena batch -i input_dir/ -o output_dir/
+etassia batch -i input_dir/ -o output_dir/
 ----
 
 List all supported diagram types:
 
 [source,shell]
 ----
-sirena types
+etassia types
 ----
 
 === Programmatic usage
@@ -192,7 +192,7 @@ Use Sirena in your Ruby code:
 
 [source,ruby]
 ----
-require 'sirena'
+require 'etassia'
 
 # Render from a string
 mermaid_code = <<~MERMAID
@@ -201,15 +201,15 @@ mermaid_code = <<~MERMAID
     B --> C[End]
 MERMAID
 
-svg = Sirena.render(mermaid_code)
+svg = Etassia.render(mermaid_code)
 File.write('output.svg', svg)
 
 # Render from a file
-svg = Sirena.render(File.read('diagram.mmd'))
+svg = Etassia.render(File.read('diagram.mmd'))
 File.write('output.svg', svg)
 
 # Pick a built-in theme
-svg = Sirena.render(mermaid_code, theme: 'dark')
+svg = Etassia.render(mermaid_code, theme: 'dark')
 ----
 
 ==== Optional Rust runtime
@@ -323,7 +323,7 @@ Mermaid Syntax Input (String)
 .Component relationships
 [source]
 ----
-Sirena (Root Module)
+Etassia (Root Module)
     │
     ├── Engine (Orchestrator)
     │     ├── coordinates overall flow

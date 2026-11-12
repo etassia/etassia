@@ -37,9 +37,9 @@ Welcome to Sirena, a pure Ruby Mermaid diagram rendering library that converts M
 [source,ruby]
 ----
 # Basic usage
-require 'sirena'
+require 'etassia'
 
-svg = Sirena.render(<<~MERMAID)
+svg = Etassia.render(<<~MERMAID)
   graph TD
     Start --> End
 MERMAID

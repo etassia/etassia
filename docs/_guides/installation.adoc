@@ -22,7 +22,7 @@ Install Sirena directly from RubyGems:
 
 [source,shell]
 ----
-gem install sirena
+gem install etassia
 ----
 
 === Via Bundler
@@ -31,7 +31,7 @@ Add Sirena to your `Gemfile`:
 
 [source,ruby]
 ----
-gem 'sirena'
+gem 'etassia'
 ----
 
 Then install:
@@ -47,8 +47,8 @@ Clone the repository and install locally:
 
 [source,shell]
 ----
-git clone https://github.com/claricle/sirena.git
-cd sirena
+git clone https://github.com/etassia/etassia.git
+cd etassia
 bundle install
 bundle exec rake install
 ----
@@ -59,7 +59,7 @@ Verify the installation:
 
 [source,shell]
 ----
-sirena version
+etassia version
 ----
 
 You should see output similar to:
@@ -94,7 +94,7 @@ If you encounter permission errors during installation, try:
 
 [source,shell]
 ----
-gem install sirena --user-install
+gem install etassia --user-install
 ----
 
 Or use a Ruby version manager like `rbenv` or `rvm`.

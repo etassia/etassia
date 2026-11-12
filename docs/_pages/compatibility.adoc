@@ -246,7 +246,7 @@ graph TD
 Inline `style` lines are accepted by the parser but have no effect on the output (measured: the node keeps the theme fill and stroke). Apply a theme globally instead:
 [source,bash]
 ----
-sirena render diagram.mmd --theme dark
+etassia render diagram.mmd --theme dark
 ----
 
 ===== Click Events
@@ -344,7 +344,7 @@ Compatibility can be checked with:
 rake mermaid:validate
 
 # Compare output with Mermaid.js
-sirena render diagram.mmd -o sirena-output.svg
+etassia render diagram.mmd -o etassia-output.svg
 # Compare with mermaid-cli output
 ----
 

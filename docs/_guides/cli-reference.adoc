@@ -16,25 +16,25 @@ forms below do the same:
 
 [source,shell]
 ----
-sirena
-sirena help
-sirena -h
-sirena --help
+etassia
+etassia help
+etassia -h
+etassia --help
 ----
 
 Use `help` with a command name for that command's usage and options:
 
 [source,shell]
 ----
-sirena help render
-sirena help batch
+etassia help render
+etassia help batch
 ----
 
 The CLI also provides a command tree:
 
 [source,shell]
 ----
-sirena tree
+etassia tree
 ----
 
 `--help` and `-h` are root-level help forms, not command options. For example,
@@ -49,7 +49,7 @@ Render one diagram as SVG.
 
 [source,shell]
 ----
-sirena render [FILE]
+etassia render [FILE]
 ----
 
 ==== Argument
@@ -89,31 +89,31 @@ Render a file to an SVG file:
 
 [source,shell]
 ----
-sirena render diagram.mmd -o diagram.svg
+etassia render diagram.mmd -o diagram.svg
 ----
 
 Render standard input, with either supported stdin form:
 
 [source,shell]
 ----
-cat diagram.mmd | sirena render
-cat diagram.mmd | sirena render -
+cat diagram.mmd | etassia render
+cat diagram.mmd | etassia render -
 ----
 
 Select SVG explicitly and use a built-in theme:
 
 [source,shell]
 ----
-sirena render diagram.mmd -f svg -t dark -o diagram.svg
-sirena render diagram.mmd -t high_contrast -o diagram.svg
+etassia render diagram.mmd -f svg -t dark -o diagram.svg
+etassia render diagram.mmd -t high_contrast -o diagram.svg
 ----
 
 Select a notation explicitly, or load one supplied by another file:
 
 [source,shell]
 ----
-sirena render --notation mermaid diagram.txt
-sirena render --require ./my_notation.rb diagram.my
+etassia render --notation mermaid diagram.txt
+etassia render --require ./my_notation.rb diagram.my
 ----
 
 === batch
@@ -122,7 +122,7 @@ Render diagram files in a directory.
 
 [source,shell]
 ----
-sirena batch [OPTIONS]
+etassia batch [OPTIONS]
 ----
 
 `batch` has no positional argument; use `--input` or `-i` to choose input.
@@ -161,10 +161,10 @@ For example:
 
 [source,shell]
 ----
-sirena batch -i diagrams -o output
-sirena batch -i diagrams -o output -t dark
-sirena batch -i diagrams -o output --notation mermaid
-sirena batch -i diagrams -o output -r ./my_notation.rb
+etassia batch -i diagrams -o output
+etassia batch -i diagrams -o output -t dark
+etassia batch -i diagrams -o output --notation mermaid
+etassia batch -i diagrams -o output -r ./my_notation.rb
 ----
 
 Batch status is reported in its summary. Current edge-case behavior is:
@@ -186,7 +186,7 @@ List the diagram types registered by the current executable:
 
 [source,shell]
 ----
-sirena types [OPTIONS]
+etassia types [OPTIONS]
 ----
 
 Output begins with `Supported diagram types:`. It then groups identifiers under
@@ -232,9 +232,9 @@ Show the Sirena version:
 
 [source,shell]
 ----
-sirena version
-sirena --version
-sirena -V
+etassia version
+etassia --version
+etassia -V
 ----
 
 Each form prints:

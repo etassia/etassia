@@ -34,7 +34,7 @@ Run Sirena to generate an SVG:
 
 [source,shell]
 ----
-sirena render my-first-diagram.mmd -o output.svg
+etassia render my-first-diagram.mmd -o output.svg
 ----
 
 === Step 3: View the Result
@@ -76,7 +76,7 @@ Use Sirena in your Ruby code:
 
 [source,ruby]
 ----
-require 'sirena'
+require 'etassia'
 
 # Render from a string
 mermaid_code = <<~MERMAID
@@ -84,11 +84,11 @@ mermaid_code = <<~MERMAID
     A --> B
 MERMAID
 
-svg = Sirena.render(mermaid_code)
+svg = Etassia.render(mermaid_code)
 File.write('output.svg', svg)
 
 # Render from a file
-svg = Sirena.render(File.read('diagram.mmd'))
+svg = Etassia.render(File.read('diagram.mmd'))
 ----
 
 == Batch Processing
@@ -97,7 +97,7 @@ Render multiple diagrams at once:
 
 [source,shell]
 ----
-sirena batch -i diagrams/ -o output/
+etassia batch -i diagrams/ -o output/
 ----
 
 This renders all `.mmd` files in `diagrams/` directory to SVG files in `output/`.
@@ -114,19 +114,19 @@ View available commands:
 
 [source,shell]
 ----
-sirena help
+etassia help
 ----
 
 View help for a specific command:
 
 [source,shell]
 ----
-sirena help render
+etassia help render
 ----
 
 List all supported diagram types:
 
 [source,shell]
 ----
-sirena types
+etassia types
 ----
