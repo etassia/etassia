@@ -1,0 +1,86 @@
+# frozen_string_literal: true
+
+require_relative "appearance"
+require_relative "chrome"
+require_relative "keyword_defaults"
+require_relative "message"
+
+module Etassia
+  module Notation
+    module PlantUML
+      module Sequence
+        # What the sequence parser returns: participants in order of first
+        # mention, the items (messages, notes, fragment edges, dividers) in
+        # source order and the boxes around neighbouring participants.
+        # Private to this notation.
+        class Diagram
+          EXTRAS = { footbox: true, warnings: [].freeze, title: nil,
+                     chrome: Chrome::NONE, teoz: false }.freeze
+          private_constant :EXTRAS
+
+          attr_reader :participants, :items, :boxes, :appearance, :warnings,
+                      :title, :chrome
+
+          # @param appearance [Appearance] what skinparam and `<style>` set
+          # @param footbox [Boolean] false after `hide footbox`
+          # @param warnings [Array<String>] drawn as banners above the heads
+          # @param title [String, nil] the lines drawn above everything
+          # @param chrome [Chrome] the header, footer, caption and legend
+          def initialize(participants:, items:, boxes: [].freeze,
+                         appearance: Appearance.new, **extras)
+            @participants = participants
+            @items = items
+            @boxes = boxes
+            @appearance = appearance
+            assign_extras(KeywordDefaults.resolve(extras, EXTRAS))
+            freeze
+          end
+
+          # @return [Integer, nil] the narrowest participant head asked for
+          def min_head_width
+            appearance.min_width
+          end
+
+          def footbox?
+            @footbox
+          end
+
+          def teoz?
+            @teoz
+          end
+
+          # @return [Diagram] this diagram with other items
+          def with_items(items)
+            Diagram.new(participants: participants, items: items,
+                        boxes: boxes, appearance: appearance,
+                        footbox: footbox?, warnings: warnings, title: title,
+                        chrome: chrome, teoz: teoz?)
+          end
+
+          def messages
+            items.grep(Message)
+          end
+
+          # The parser refuses a diagram with no participant.
+          def valid?
+            !participants.empty?
+          end
+
+          def diagram_type
+            :sequence_diagram
+          end
+
+          private
+
+          def assign_extras(extras)
+            @footbox = extras[:footbox]
+            @warnings = extras[:warnings]
+            @title = extras[:title]
+            @chrome = extras[:chrome]
+            @teoz = extras[:teoz]
+          end
+        end
+      end
+    end
+  end
+end

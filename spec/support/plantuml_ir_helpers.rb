@@ -65,14 +65,14 @@ module PlantUmlIrHelpers
   end
 
   def parse_class(source)
-    Sirena::Notation::PlantUML::Parser.new.parse(source)
+    Etassia::Notation::PlantUML::Parser.new.parse(source)
   end
 
   # The corpus sources the parser accepts.
   def corpus_diagrams
     Dir[CORPUS_GLOB].filter_map do |path|
       parse_class(File.read(path))
-    rescue Sirena::Notation::PlantUML::UnsupportedConstructError
+    rescue Etassia::Notation::PlantUML::UnsupportedConstructError
       nil
     end
   end

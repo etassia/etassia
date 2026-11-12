@@ -2,7 +2,7 @@
 
 # A task file and its helper module, not library code: tasks/*.rake is
 # loaded only by the Rakefile's `Dir.glob('tasks/**/*.rake').each { |r|
-# load r }`, never by lib/sirena.rb's require chain, so Sirena::Corpus's
+# load r }`, never by lib/etassia.rb's require chain, so Etassia::Corpus's
 # module-level `abort` in #check! can only ever run inside a rake process
 # (a real script entry point) -- confirmed by grepping both files for any
 # path that would `require` this one.
@@ -10,10 +10,10 @@ require "yaml"
 require "json"
 require "fileutils"
 require "timeout"
-require_relative "../lib/sirena/corpus_type_names"
+require_relative "../lib/etassia/corpus_type_names"
 
 # TODO.architecture/01-safety-net.md, Part B ("Corpus check"). `rake corpus`
-# renders every spec/mermaid case through Sirena.render and writes
+# renders every spec/mermaid case through Etassia.render and writes
 # scoreboard/corpus.json -- the corpus column of the ONE scoreboard
 # TODO.foundation/02b's schema defines (per-case rows; an aggregate rate is
 # always DERIVED from them, never stored as its own source of truth). `rake
@@ -25,7 +25,7 @@ require_relative "../lib/sirena/corpus_type_names"
 # oracle toolchain, regenerating reference SVGs, content-hash case IDs, or a
 # geometry/conformance/coverage/lint-debt column. Those arrive with
 # TODO.foundation/02b at item 08 step 3a.
-module Sirena
+module Etassia
   module Corpus
     CORPUS_ROOT = File.expand_path("../spec/mermaid", __dir__)
     VERDICTS_PATH = File.join(CORPUS_ROOT, "corpus-verdicts.yml")
@@ -45,7 +45,7 @@ module Sirena
 
     # The registry type a corpus directory holds, nil when it holds none.
     def registry_type(directory)
-      Sirena::CorpusTypeNames.registry_type(directory)
+      Etassia::CorpusTypeNames.registry_type(directory)
     end
 
     # Every case, or one type's, as paths relative to CORPUS_ROOT -- the
@@ -81,25 +81,25 @@ module Sirena
     end
 
     # Which pipeline stage an exception belongs to. Item 01 step 0 gave each
-    # layer its own Sirena::Error subclass precisely so this is a lookup
+    # layer its own Etassia::Error subclass precisely so this is a lookup
     # instead of a guess.
     def stage_for(exception)
       case exception
-      when Sirena::Engine::DiagramTypeError then "detect"
-      when Sirena::Parser::ParseError then "parse"
-      when Sirena::Layout::LayoutError then "layout"
-      when Sirena::Renderer::RenderError then "render"
+      when Etassia::Engine::DiagramTypeError then "detect"
+      when Etassia::Parser::ParseError then "parse"
+      when Etassia::Layout::LayoutError then "layout"
+      when Etassia::Renderer::RenderError then "render"
       when Timeout::Error then "timeout"
       else "unknown"
       end
     end
 
-    # One case, one render. Pass means Sirena.render did not raise -- not
+    # One case, one render. Pass means Etassia.render did not raise -- not
     # that the SVG it returned is well-formed or conforming; that is item
     # 04's conformance column, out of scope here on purpose.
     def render_case(relative_path)
       source = File.read(File.join(CORPUS_ROOT, relative_path))
-      Timeout.timeout(CASE_TIMEOUT) { Sirena::Engine.new.render(source) }
+      Timeout.timeout(CASE_TIMEOUT) { Etassia::Engine.new.render(source) }
       { pass: true }
     rescue StandardError => e
       failed_render(e)
@@ -362,9 +362,9 @@ desc "Render the spec/mermaid corpus; writes scoreboard/corpus.json. " \
      "Scope to one type with corpus[type] (diagnostic only, does not write); " \
      "corpus[type,valid] lists only failures the oracle calls valid."
 task :corpus, %i[type filter] do |_task, args|
-  require "sirena"
+  require "etassia"
   begin
-    Sirena::Corpus.run(args[:type], args[:filter])
+    Etassia::Corpus.run(args[:type], args[:filter])
   rescue ArgumentError => e
     abort "corpus: #{e.message}"
   end
@@ -373,8 +373,8 @@ end
 namespace :corpus do
   desc "Diff a fresh corpus run against the committed scoreboard/corpus.json"
   task :check do
-    require "sirena"
-    Sirena::Corpus.check!
+    require "etassia"
+    Etassia::Corpus.check!
   end
 end
 

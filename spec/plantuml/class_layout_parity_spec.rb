@@ -3,9 +3,9 @@
 require "spec_helper"
 require "digest"
 require "yaml"
-require "sirena/notation/plantuml"
+require "etassia/notation/plantuml"
 
-Sirena::Notation.send(:entries).delete(:plantuml)
+Etassia::Notation.send(:entries).delete(:plantuml)
 
 # Recomputes every oracle-valid PlantUML class case against its pinned
 # reference and compares the result with the committed ledger.
@@ -22,7 +22,7 @@ module Plantuml
     #     -e 'require "./spec/plantuml/class_layout_parity_spec"' \
     #     -e "Plantuml::ClassLayoutParity.record!"
     def self.record!
-      Sirena::Notation.register(Sirena::Notation::PlantUML)
+      Etassia::Notation.register(Etassia::Notation::PlantUML)
       path = File.join(ROOT, "class_layout_parity.yml")
       header = File.readlines(path).take_while { |line| line.start_with?("#") }
       rows = measured_rows.sort_by { |row| row["case"] }
@@ -90,8 +90,8 @@ module Plantuml
       SpecSupport::LayoutParity::CaseComparator.compare(
         case_id: "plantuml/class/#{id}", type: "plantuml_class",
         reference: reference, reference_svg: File.read(reference),
-        sirena_svg: Sirena.render(File.read(source_path(id)),
-                                  notation: :plantuml),
+        etassia_svg: Etassia.render(File.read(source_path(id)),
+                                    notation: :plantuml),
         reproduce: "bundle exec rspec #{REPRODUCE}",
         recognizer: SpecSupport::LayoutParity::PlantumlClassRecognizer.new,
         spatial_kinds: [:class]
@@ -147,7 +147,7 @@ RSpec.describe Plantuml::ClassLayoutParity do
   include_context "with an isolated notation registry"
   include described_class
 
-  before { Sirena::Notation.register(Sirena::Notation::PlantUML) }
+  before { Etassia::Notation.register(Etassia::Notation::PlantUML) }
 
   it "has pinned provenance for every oracle-valid class case" do
     expect([case_ids.size, evidence_failures]).to eq([35, []])

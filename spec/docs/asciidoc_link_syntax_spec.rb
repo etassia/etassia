@@ -15,7 +15,7 @@ module AsciidocLinkSyntax
   end.freeze
   MARKDOWN_SOURCE_LINK = %r{\[[^\]]+\]\((?:\.\./)?(?:lib|spec)/[^)]+\)}
   SOURCE_URL = Regexp.new(
-    "https://github\\.com/claricle/sirena/blob/main/" \
+    "https://github\\.com/etassia/etassia/blob/main/" \
     "(?:lib|spec)/[^\\s\\[]+\\[[^\\]]+\\]",
   )
 

@@ -1,0 +1,138 @@
+# frozen_string_literal: true
+
+require_relative "../../renderer/base"
+require_relative "../../svg"
+require_relative "layout"
+
+module Etassia
+  module Notation
+    module PlantUMLSalt
+      # Draws a {Scene} the way PlantUML draws a salt window: black one-pixel
+      # rules and widgets as small outlined shapes.
+      class Renderer < Etassia::Renderer::Base
+        FONT_FAMILY = "sans-serif"
+        INK = "#000000"
+        NO_BREAK_SPACE = "\u00A0"
+        private_constant :FONT_FAMILY, :INK, :NO_BREAK_SPACE
+
+        # @param scene [Scene]
+        # @return [Svg::Document]
+        def render(scene)
+          Svg::Document.new(
+            width: scene.width, height: scene.height,
+            view_box: scene.view_box
+          ).tap do |document|
+            scene.marks.each { |mark| document << draw(mark) }
+          end
+        end
+
+        private
+
+        def draw(mark)
+          case mark.kind
+          when :rect then rectangle(mark)
+          when :ellipse then ellipse(mark)
+          when :polygon then polygon(mark)
+          when :line then rule(mark)
+          else text(mark)
+          end
+        end
+
+        def element(type, **attributes)
+          type.new.tap do |node|
+            attributes.each do |name, value|
+              node.public_send(:"#{name}=", value) unless value.nil?
+            end
+          end
+        end
+
+        def outline(mark)
+          { fill: mark.fill, stroke: mark.ink || INK,
+            stroke_width: mark.weight.to_s }
+        end
+
+        def rectangle(mark)
+          box = mark.box
+          element(Svg::Rect, x: box.left, y: box.top, width: box.width,
+                             height: box.height, rx: mark.radius,
+                             ry: mark.radius, **outline(mark))
+        end
+
+        def ellipse(mark)
+          radius = mark.box.width / 2
+          element(Svg::Ellipse, cx: mark.box.left + radius,
+                                cy: mark.box.top + radius, rx: radius,
+                                ry: radius, **outline(mark))
+        end
+
+        def polygon(mark)
+          points = mark.points.map { |pair| pair.map { |n| n.round(4) } }
+          element(Svg::Polygon, points: Svg::Polygon.build_points(points),
+                                **outline(mark))
+        end
+
+        def rule(mark)
+          box = mark.box
+          element(Svg::Line, x1: box.left, y1: box.top, x2: box.right,
+                             y2: box.bottom, stroke: mark.ink || INK,
+                             stroke_width: format("%g", mark.weight),
+                             stroke_dasharray: mark.dash)
+        end
+
+        # The width is the layout's, so a viewer's own sans-serif cannot
+        # move the text after it.
+        def text(mark)
+          run = mark.run
+          lead = edge_width(run, /\A\s*/)
+          trail = edge_width(run, /\s*\z/)
+          element(Svg::Text, content: content(run),
+                             **placement(mark, lead, trail),
+                             **typeface(run))
+        end
+
+        # A run of spaces is drawn as no-break spaces, as PlantUML does:
+        # SVG would collapse them to an empty node, and an underline or
+        # strike through them would vanish.
+        def content(run)
+          return run.text.strip unless run.text.strip.empty?
+
+          NO_BREAK_SPACE * run.text.length
+        end
+
+        def placement(mark, lead, trail)
+          box = mark.box
+          { x: (box.left + lead).round(4),
+            y: (box.top + Mark::TEXT_LIFT).round(4),
+            text_length: (box.width - lead - trail).round(4),
+            length_adjust: "spacing" }
+        end
+
+        def typeface(run)
+          { font_family: FONT_FAMILY,
+            font_size: (run.size || Layout::FONT_SIZE).to_s,
+            font_weight: ("bold" if run.bold),
+            font_style: ("italic" if run.italic), fill: run.color,
+            text_decoration: decoration(run) }
+        end
+
+        def decoration(run)
+          kinds = [("underline" if run.underline),
+                   ("line-through" if run.strike)].compact
+          kinds.join(" ") unless kinds.empty?
+        end
+
+        # SVG collapses a text element's edge spaces, so the leading ones
+        # are measured and added to x, and the trailing ones left out of
+        # the length, as PlantUML does.
+        def edge_width(run, edge)
+          return 0.0 if run.text.strip.empty?
+
+          lead = run.text[edge].length
+          TextMeasurement.measure_in(:dejavu, " " * lead,
+                                     font_size: run.size ||
+                                       Layout::FONT_SIZE)[:width]
+        end
+      end
+    end
+  end
+end

@@ -69,7 +69,7 @@ jobs:
             format('{0}-{1}', inputs.cache_version, github.job) || '0' }}
       - run: bundle exec rake
         env:
-          SIRENA_SPEC_SHARD: >-
+          ETASSIA_SPEC_SHARD: >-
             ${{ matrix.os == 'windows-latest' && matrix.shard || '' }}
 
   pins:
@@ -102,7 +102,7 @@ jobs:
         # GitHub's AppArmor policy blocks Chromium's user-namespace sandbox.
         # Keep this explicit opt-out on the canary step, never the whole job.
         env:
-          SIRENA_ORACLE_CI_CANARY_NO_SANDBOX: '1'
+          ETASSIA_ORACLE_CI_CANARY_NO_SANDBOX: '1'
 
   lint:
     # Its own job, not a step inside the unit matrix. Lint answers in under a
@@ -271,13 +271,13 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
-      SIRENA_RS_REF: 18a46c0e8bfb243c83ce34234ab18c9e8b627643
+      ETASSIA_RS_REF: 18a46c0e8bfb243c83ce34234ab18c9e8b627643
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4
         with:
           repository: claricle/sirena-rs
-          ref: ${{ env.SIRENA_RS_REF }}
+          ref: ${{ env.ETASSIA_RS_REF }}
           path: sirena-rs
       - uses: ruby/setup-ruby@a0102e0972be65f351c307e2d64b9314a57c8073  # v1
         with:
@@ -292,10 +292,10 @@ jobs:
         env:
           SIRENA_NATIVE_LIB: ${{ github.workspace }}/sirena-rs/target/release/libsirena_ffi.so
           RUBYLIB: ${{ github.workspace }}/sirena-rs/bindings/ruby/lib
-          SIRENA_RUNTIME: rust
+          ETASSIA_RUNTIME: rust
         run: >-
-          bundle exec rspec spec/sirena/runtime_spec.rb
-          spec/sirena/runtime_native_equality_spec.rb
+          bundle exec rspec spec/etassia/runtime_spec.rb
+          spec/etassia/runtime_native_equality_spec.rb
 
   # Reserved full-lane slots, added to `needs` below:
   #   parity (14, waits on elkrb), scoreboard guard (02b)

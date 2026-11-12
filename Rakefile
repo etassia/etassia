@@ -5,13 +5,13 @@ require "rspec/core/rake_task"
 
 require_relative "tasks/support/spec_shard"
 
-# CI splits the suite across parallel jobs with SIRENA_SPEC_SHARD=<i>/<n>;
+# CI splits the suite across parallel jobs with ETASSIA_SPEC_SHARD=<i>/<n>;
 # unset, every spec file runs.
-SPEC_SHARD = Sirena::SpecShard.from_env
+SPEC_SHARD = Etassia::SpecShard.from_env
 
 RSpec::Core::RakeTask.new(:spec) do |task|
   task.pattern = SPEC_SHARD.files if SPEC_SHARD
-  task.exclude_pattern = Sirena::SpecShard::BENCHMARK_PATTERN
+  task.exclude_pattern = Etassia::SpecShard::BENCHMARK_PATTERN
 end
 
 # Speed and size checks are excluded from ordinary spec discovery.
@@ -20,7 +20,7 @@ end
 # machine was busy. `rake` still runs them, so CI guards every
 # regression they pin.
 RSpec::Core::RakeTask.new(:benchmark) do |task|
-  task.pattern = Sirena::SpecShard::BENCHMARK_PATTERN
+  task.pattern = Etassia::SpecShard::BENCHMARK_PATTERN
   task.exclude_pattern = ""
 end
 

@@ -21,10 +21,10 @@ module SpecSupport
         paths.map { |path| new(path).measurement }
       end
 
-      def self.compare(reference:, sirena:)
+      def self.compare(reference:, etassia:)
         Comparison.new(
-          radius_error: analog_error(sirena.radius, reference.radius),
-          sweep_error: analog_error(sirena.sweep_angle,
+          radius_error: analog_error(etassia.radius, reference.radius),
+          sweep_error: analog_error(etassia.sweep_angle,
                                     reference.sweep_angle),
         )
       end

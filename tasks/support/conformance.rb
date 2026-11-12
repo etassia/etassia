@@ -9,12 +9,12 @@ require "json"
 require "rexml/document"
 require "svg_conform"
 require "timeout"
-require "sirena"
+require "etassia"
 
-module Sirena
+module Etassia
   # The conformance column of the scoreboard: one row per corpus case that
   # renders to an SVG document, saying whether that SVG is well-formed XML
-  # and valid under Sirena::Svg::CONFORMANCE_PROFILE. A case that does not
+  # and valid under Etassia::Svg::CONFORMANCE_PROFILE. A case that does not
   # render has no document to judge and no row; its status is
   # scoreboard/corpus.json's.
   #
@@ -34,7 +34,7 @@ module Sirena
     CASE_TIMEOUT = 10
     # Gantt bars are placed relative to today, so an unpinned render judges a
     # different document every day. Same date
-    # spec/sirena/svg_conformance_spec.rb pins.
+    # spec/etassia/svg_conformance_spec.rb pins.
     TODAY = Date.new(2026, 1, 1)
 
     module_function

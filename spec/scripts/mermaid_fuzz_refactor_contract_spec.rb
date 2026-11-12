@@ -51,7 +51,7 @@ RSpec.describe MermaidFuzz do
   context "with required runner oracle options" do
     let(:options) do
       { label: "probe", generator_factory: ->(_) {}, known_divergences: [],
-        sirena_verdict_for: ->(_) {}, mermaid_getter: nil,
+        etassia_verdict_for: ->(_) {}, mermaid_getter: nil,
         mermaid_preflight: "flowchart TD\nA" }
     end
 

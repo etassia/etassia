@@ -60,8 +60,8 @@ module MermaidDiffSpecSupport
       capture = proc do
         Open3.capture3(
           { "PATH" => "#{bin}:#{ENV.fetch('PATH')}",
-            "SIRENA_ALLOW_TEST_MMDC" => "1",
-            "SIRENA_MMDC_TEST_BIN" => File.join(bin, "mmdc") },
+            "ETASSIA_ALLOW_TEST_MMDC" => "1",
+            "ETASSIA_MMDC_TEST_BIN" => File.join(bin, "mmdc") },
           *command,
         )
       end
@@ -361,14 +361,14 @@ module MermaidDiffSpecSupport
     end
 
     def prefix_path(dir, &)
-      previous_allow = ENV.fetch("SIRENA_ALLOW_TEST_MMDC", nil)
-      previous_binary = ENV.fetch("SIRENA_MMDC_TEST_BIN", nil)
-      ENV["SIRENA_ALLOW_TEST_MMDC"] = "1"
-      ENV["SIRENA_MMDC_TEST_BIN"] = File.join(dir, "mmdc")
+      previous_allow = ENV.fetch("ETASSIA_ALLOW_TEST_MMDC", nil)
+      previous_binary = ENV.fetch("ETASSIA_MMDC_TEST_BIN", nil)
+      ENV["ETASSIA_ALLOW_TEST_MMDC"] = "1"
+      ENV["ETASSIA_MMDC_TEST_BIN"] = File.join(dir, "mmdc")
       with_path("#{dir}:#{ENV.fetch('PATH')}", &)
     ensure
-      ENV["SIRENA_ALLOW_TEST_MMDC"] = previous_allow
-      ENV["SIRENA_MMDC_TEST_BIN"] = previous_binary
+      ENV["ETASSIA_ALLOW_TEST_MMDC"] = previous_allow
+      ENV["ETASSIA_MMDC_TEST_BIN"] = previous_binary
     end
 
     def with_path(path)

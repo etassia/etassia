@@ -1,0 +1,39 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+require "etassia"
+
+RSpec.describe Etassia::Renderer::LineBreakText do
+  let(:timeline) { "timeline\n  2000 : first<br>second\n" }
+  let(:mindmap) { "mindmap\n  root\n    a<br/>b\n" }
+
+  it "breaks a timeline label at <br>" do
+    expect(Etassia::Engine.new.render(timeline)).to include(">first</tspan>")
+  end
+
+  it "starts the next timeline line in a new tspan" do
+    expect(Etassia::Engine.new.render(timeline)).to include(">second</tspan>")
+  end
+
+  it "keeps no raw <br> in a timeline" do
+    expect(Etassia::Engine.new.render(timeline)).not_to include("&lt;br")
+  end
+
+  it "breaks a mindmap label at <br/>" do
+    expect(Etassia::Engine.new.render(mindmap)).to include(">b</tspan>")
+  end
+
+  it "keeps no raw <br/> in a mindmap" do
+    expect(Etassia::Engine.new.render(mindmap)).not_to include("&lt;br")
+  end
+
+  it "leaves a label without a break as plain text" do
+    svg = Etassia::Engine.new.render("mindmap\n  root\n    plain\n")
+    expect(svg).not_to include("<tspan")
+  end
+
+  it "places the second line by absolute y, never by dy" do
+    svg = Etassia::Engine.new.render(mindmap)
+    expect(svg).not_to match(/<tspan[^>]* dy=/)
+  end
+end

@@ -1,0 +1,39 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+module ClassNameAdvancesSpecHelpers
+  def class_width(label, theme: nil)
+    source = "classDiagram\nclass C[\"#{label}\"]\n"
+    diagram = Etassia::Parser::ClassDiagram.new.parse(source)
+    Etassia::Layout::ClassDiagram.new.call(diagram, theme: theme)
+      .children.first.width
+  end
+
+  def fallback_width(font_size)
+    advance = Etassia::TextMeasurement.measure_in(
+      :trebuchet, "!", font_size: font_size
+    )[:width]
+    24 + (advance * described_class::FALLBACK_RATIO)
+  end
+end
+
+RSpec.describe Etassia::Layout::ClassNameAdvances do
+  include ClassNameAdvancesSpecHelpers
+
+  it "uses the fitted bold advance for a known character" do
+    expected = 24 + (described_class::TABLE.fetch("W") * 16 / 1000.0)
+
+    expect(class_width("W")).to be_within(0.001).of(expected)
+  end
+
+  it "uses widened Trebuchet for an unobserved character" do
+    expect(class_width("!")).to be_within(0.001).of(fallback_width(16))
+  end
+
+  it "scales fallback advances with a custom name font size" do
+    theme = Etassia::Theme::Registry.get(:high_contrast)
+    expect(class_width("!", theme: theme))
+      .to be_within(0.001).of(fallback_width(18))
+  end
+end

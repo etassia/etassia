@@ -229,9 +229,9 @@ module PlantumlExtractor
   module Writer
     module_function
 
-    # Sirena's own ledger cases share the type folders; extraction must
+    # Etassia's own ledger cases share the type folders; extraction must
     # never delete them.
-    OWN_PREFIX = "sirena."
+    OWN_PREFIX = "etassia."
 
     def write(cases, out_dir)
       cases.each do |id, kase|

@@ -93,14 +93,14 @@ module PlantUmlSequenceIrHelpers
   end
 
   def parse_sequence(source)
-    Sirena::Notation::PlantUML::Sequence::Parser.new.parse(source)
+    Etassia::Notation::PlantUML::Sequence::Parser.new.parse(source)
   end
 
   def sequence_corpus_diagrams
     Dir[CORPUS_GLOB].filter_map do |path|
       parse_sequence(File.read(path))
-    rescue Sirena::Parser::ParseError,
-           Sirena::Notation::PlantUML::UnsupportedConstructError
+    rescue Etassia::Parser::ParseError,
+           Etassia::Notation::PlantUML::UnsupportedConstructError
       nil
     end
   end
@@ -111,7 +111,7 @@ module PlantUmlSequenceIrHelpers
   # parser spelled out, which nothing observes.
   def sequence_shape(value)
     case value
-    when Sirena::Notation::PlantUML::Sequence::Appearance
+    when Etassia::Notation::PlantUML::Sequence::Appearance
       appearance_shape(value)
     when Array, Hash then collection_shape(value)
     when Symbol, String, Numeric, nil, true, false then value

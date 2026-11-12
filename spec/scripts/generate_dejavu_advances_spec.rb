@@ -75,7 +75,7 @@ RSpec.describe "scripts/generate_dejavu_advances.rb", :aggregate_failures,
     let(:advances) do
       mod = Module.new
       mod.module_eval(rendered, "(generated)")
-      mod::Sirena::TextMeasurement::DejaVuAdvances
+      mod::Etassia::TextMeasurement::DejaVuAdvances
     end
 
     it "parses back to per-mille advances" do

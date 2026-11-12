@@ -1,0 +1,55 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+require "etassia/notation/plantuml"
+
+Etassia::Notation.send(:entries).delete(:plantuml)
+
+RSpec.describe Etassia::Notation::PlantUML::Layout do
+  include_context "with an isolated notation registry"
+
+  before { Etassia::Notation.register(Etassia::Notation::PlantUML) }
+
+  let(:expected_content) do
+    {
+      "resources.vega.migration.HideShow004_Test--16625d433c68" => [
+        ["B", "B", "~run(): boolean"],
+      ],
+      "resources.vega.nonreg.group2903.reported_case--fd42e1abb616" => [
+        ["Respuesta", "Respuesta", "fecha: Date"],
+        ["Opcion", "Opcion", "texto: String"],
+        ["Voto", "Voto", "getOpcion(): Opcion"],
+      ],
+    }
+  end
+  let(:missing_content) do
+    expected_content.to_h do |id, target_keys|
+      [id, missing_content_keys(id) & target_keys]
+    end
+  end
+
+  it "matches pinned suffix-typed member text without a pre-colon space" do
+    expect(missing_content).to eq(expected_content.transform_values { [] })
+  end
+
+  def parity_result(id)
+    source = File.join("spec/plantuml/class", "#{id}.puml")
+    reference = File.join("spec/plantuml/references/class", "#{id}.svg")
+    SpecSupport::LayoutParity::CaseComparator.compare(
+      case_id: id, type: "plantuml_class", reference: reference,
+      reference_svg: File.read(reference),
+      etassia_svg: Etassia.render(File.read(source), notation: :plantuml),
+      reproduce: __FILE__,
+      recognizer: SpecSupport::LayoutParity::PlantumlClassRecognizer.new,
+      spatial_kinds: [:class]
+    )
+  end
+
+  def missing_content_keys(id)
+    parity_result(id).invariants.filter_map do |failure|
+      key = failure.fetch(:subject_keys)
+      key.last if key.first == :class_content &&
+        failure.dig(:normalized, :difference) == :missing
+    end
+  end
+end

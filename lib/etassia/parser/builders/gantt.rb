@@ -1,0 +1,267 @@
+# frozen_string_literal: true
+
+require_relative "../../diagram/gantt"
+
+module Etassia
+  module Parser
+    module Builders
+      # Transform for converting Parslet parse tree to Gantt diagram model.
+      #
+      # Converts the parse tree output from Grammars::Gantt into a
+      # fully-formed Diagram::Gantt object with sections and tasks.
+      class Gantt
+        TAG_KEYWORDS = %w[done active crit milestone].freeze
+        DURATION_PATTERN = /\A\d+(?:\.\d+)?(?:ms|[Mdhmswy])\z/
+        ITEM_HANDLERS = {
+          header: :process_header,
+          title: :process_title,
+          date_format: :process_date_format,
+          axis_format: :process_axis_format,
+          tick_interval: :process_tick_interval,
+          excludes: :process_excludes,
+          weekend: :process_weekend,
+          inclusive_end_dates: :process_inclusive_end_dates,
+          today_marker: :process_today_marker,
+          acc_title: :process_acc_title,
+          acc_descr: :process_acc_descr,
+          section: :process_section,
+          click_id: :process_click,
+          task_entry: :process_task,
+        }.freeze
+        private_constant :TAG_KEYWORDS, :DURATION_PATTERN, :ITEM_HANDLERS
+
+        # Transform parse tree into Gantt diagram.
+        #
+        # @param tree [Array, Hash] Parslet parse tree
+        # @return [Diagram::Gantt] the gantt chart diagram model
+        def apply(tree)
+          diagram = Diagram::Gantt.new
+          @current_section = nil
+          @click_map = {}
+          process_tree(diagram, tree)
+          apply_click_handlers(diagram)
+          diagram
+        end
+
+        private
+
+        # Tree structure: array with header and statements
+        def process_tree(diagram, tree)
+          return tree.each { |item| process_item(diagram, item) } if
+            tree.is_a?(Array)
+
+          process_item(diagram, tree) if tree.is_a?(Hash)
+        end
+
+        def process_item(diagram, item)
+          return unless item.is_a?(Hash)
+
+          ITEM_HANDLERS.each do |key, handler|
+            send(handler, diagram, item) if item.key?(key)
+          end
+        end
+
+        def process_header(diagram, item)
+          # Header is just the 'gantt' keyword, nothing to extract
+        end
+
+        def process_title(diagram, item)
+          diagram.title = extract_text(item[:title])
+        end
+
+        def process_date_format(diagram, item)
+          diagram.date_format = extract_text(item[:date_format])
+        end
+
+        def process_axis_format(diagram, item)
+          diagram.axis_format = extract_text(item[:axis_format])
+        end
+
+        def process_tick_interval(diagram, item)
+          diagram.tick_interval = extract_text(item[:tick_interval])
+        end
+
+        def process_excludes(diagram, item)
+          excludes_text = extract_text(item[:excludes])
+          diagram.excludes << excludes_text unless excludes_text.empty?
+        end
+
+        def process_weekend(diagram, item)
+          diagram.weekend = extract_text(item[:weekend])
+        end
+
+        def process_inclusive_end_dates(diagram, _item)
+          diagram.inclusive_end_dates = true
+        end
+
+        def process_today_marker(diagram, item)
+          diagram.today_marker = extract_text(item[:today_marker])
+        end
+
+        def process_acc_title(diagram, item)
+          # Store as metadata (not currently in model)
+        end
+
+        def process_acc_descr(diagram, item)
+          # Store as metadata (not currently in model)
+        end
+
+        def process_section(diagram, item)
+          section_name = extract_text(item[:section])
+          @current_section = Diagram::GanttSection.new(section_name)
+          diagram.sections << @current_section
+        end
+
+        def process_click(_diagram, item)
+          click_id = extract_text(item[:click_id])
+          if item[:href]
+            @click_map[click_id] = {
+              type: :href, value: extract_text(item[:href])
+            }
+          elsif item[:callback]
+            @click_map[click_id] = {
+              type: :callback, value: extract_text(item[:callback])
+            }
+          end
+        end
+
+        def process_task(diagram, item)
+          ensure_current_section(diagram)
+          task_entry = item[:task_entry]
+          task = build_task(task_entry)
+          @current_section.tasks << task
+        end
+
+        def ensure_current_section(diagram)
+          return if @current_section
+
+          @current_section = Diagram::GanttSection.new("Default")
+          diagram.sections << @current_section
+        end
+
+        def build_task(task_entry)
+          task = Diagram::GanttTask.new
+          task.description = extract_text(task_entry[:description])
+          process_task_details(task, task_entry[:task_details]) if
+            task_entry[:task_details]
+          task
+        end
+
+        # Task details are a comma-separated list of fields (mermaid allows
+        # tags, an id, "after"/"until", a date, and a duration). Tags are
+        # unambiguous keywords, consumed first regardless of position. What
+        # is left occupies id/start/end — THREE positional slots — and
+        # mermaid classifies by POSITION when there are exactly three (the
+        # id is always first, even when its text happens to look like a
+        # date, corpus gantt/NNN). An "after"/"until" dependency fills the
+        # start slot the same as a bare date would, so it must still count
+        # towards that three-slot rule; only once the id is settled does it
+        # get stripped out on its own.
+        #
+        # Outside the three-slot case there is no id field at all — every
+        # remaining value is a start/end/duration, by position, never by
+        # shape. Measured against mmdc: `T: 20240101, 20240103` under
+        # `dateFormat YYYYMMDD` renders both compact fields as dates with no
+        # id (mermaid auto-generates one); a single non-date, non-duration
+        # field on its own (`T: someid`) is a parse ERROR in mermaid, not an
+        # id. So `classify_value_field` never falls back to treating a field
+        # as an id — DURATION_PATTERN is the only shape test, and everything
+        # else is a date, whether or not it looks like one (this is also
+        # what keeps a leftover compact date from stomping the id that the
+        # three-slot rule already assigned).
+        def process_task_details(task, details)
+          return unless details.is_a?(Hash)
+
+          fields = extract_task_fields(details[:parts])
+          positional_fields = reject_tag_fields(task, fields)
+          task.id = positional_fields.shift if positional_fields.length == 3
+
+          value_fields = reject_dependency_fields(task, positional_fields)
+
+          dates = []
+          value_fields.each { |field| classify_value_field(task, field, dates) }
+          assign_dates(task, dates)
+        end
+
+        def extract_task_fields(parts)
+          Array(parts.is_a?(Array) ? parts : [parts]).map do |part|
+            extract_text(part[:field])
+          end
+        end
+
+        def reject_tag_fields(task, fields)
+          fields.reject do |field|
+            next false unless TAG_KEYWORDS.include?(field)
+
+            task.tags << field
+            true
+          end
+        end
+
+        def reject_dependency_fields(task, fields)
+          fields.reject do |field|
+            case field
+            when /\Aafter\s+(.+)\z/
+              task.after_task = Regexp.last_match(1)
+              true
+            when /\Auntil\s+(.+)\z/
+              task.until_task = Regexp.last_match(1)
+              true
+            end
+          end
+        end
+
+        def classify_value_field(task, field, dates)
+          if field.match?(DURATION_PATTERN)
+            task.duration = field
+          else
+            dates << field
+          end
+        end
+
+        # A lone date is normally the start. After an "after" dependency,
+        # though, the dependency supplies the start (see
+        # Gantt#resolve_task_dependency, which reads calculated
+        # start from the referenced task and never consults `start_date`
+        # once `after_task` is set) — so a single trailing date there is the
+        # end, or `resolve_task_dependency` never finds an end to compute.
+        def assign_dates(task, dates)
+          if dates.length == 1 && task.after_task
+            task.end_date = dates[0]
+          else
+            task.start_date = dates[0] if dates[0]
+            task.end_date = dates[1] if dates[1]
+          end
+        end
+
+        def apply_click_handlers(diagram)
+          diagram.sections.flat_map(&:tasks).each do |task|
+            apply_click_handler(task)
+          end
+        end
+
+        def apply_click_handler(task)
+          click_info = @click_map[task.id]
+          return unless task.id && click_info
+
+          if click_info[:type] == :href
+            task.click_href = click_info[:value]
+          elsif click_info[:type] == :callback
+            task.click_callback = click_info[:value]
+          end
+        end
+
+        def extract_text(value)
+          case value
+          when Hash
+            value.values.first.to_s
+          when String
+            value
+          else
+            value.to_s
+          end.strip
+        end
+      end
+    end
+  end
+end

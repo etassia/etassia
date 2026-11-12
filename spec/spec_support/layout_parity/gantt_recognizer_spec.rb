@@ -16,8 +16,8 @@ RSpec.describe SpecSupport::LayoutParity::GanttRecognizer do
   def real_pair
     name = "should_handle_a_task_definition-09f6496b"
     reference = reference_svg("gantt/#{name}.svg")
-    sirena = Sirena.render(corpus_source("gantt/#{name}.mmd"))
-    [recognized(reference), recognized(sirena)]
+    etassia = Etassia.render(corpus_source("gantt/#{name}.mmd"))
+    [recognized(reference), recognized(etassia)]
   end
 
   def pair_summary
@@ -28,10 +28,10 @@ RSpec.describe SpecSupport::LayoutParity::GanttRecognizer do
   end
 
   def tick_extremes
-    reference, sirena = real_pair.map do |side|
+    reference, etassia = real_pair.map do |side|
       side.select { |item| item.first == :tick }
     end
-    [reference.first, reference.last, sirena.first, sirena.last]
+    [reference.first, reference.last, etassia.first, etassia.last]
   end
 
   def expected_tick_extremes

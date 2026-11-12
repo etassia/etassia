@@ -15,14 +15,14 @@ RSpec.describe SpecSupport::LayoutParity::PieRecognizer do
 
   def real_pair(name)
     reference = reference_svg("pie/#{name}.svg")
-    sirena = Sirena.render(corpus_source("pie/#{name}.mmd"))
-    [summaries(reference), summaries(sirena)]
+    etassia = Etassia.render(corpus_source("pie/#{name}.mmd"))
+    [summaries(reference), summaries(etassia)]
   end
 
   def value_sorted_expected
     reference = %w[Football Ice-Hockey Bandy]
-    sirena = %w[Bandy Ice-Hockey Football]
-    [reference, sirena].map do |labels|
+    etassia = %w[Bandy Ice-Hockey Football]
+    [reference, etassia].map do |labels|
       labels.map { |label| [:pie_sector, label, :label] }
     end
   end

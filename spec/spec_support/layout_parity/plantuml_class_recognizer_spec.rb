@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "sirena/notation/plantuml"
+require "etassia/notation/plantuml"
 
-Sirena::Notation.send(:entries).delete(:plantuml)
+Etassia::Notation.send(:entries).delete(:plantuml)
 
 RSpec.describe SpecSupport::LayoutParity::PlantumlClassRecognizer do
   subject(:recognizer) { described_class.new }
@@ -14,7 +14,7 @@ RSpec.describe SpecSupport::LayoutParity::PlantumlClassRecognizer do
 
   let(:spike_root) { File.expand_path("../../plantuml_spike", __dir__) }
 
-  before { Sirena::Notation.register(Sirena::Notation::PlantUML) }
+  before { Etassia::Notation.register(Etassia::Notation::PlantUML) }
 
   def source(name)
     File.read(File.join(spike_root, "cases", "#{name}.puml"))
@@ -162,14 +162,14 @@ RSpec.describe SpecSupport::LayoutParity::PlantumlClassRecognizer do
 
   it "keeps relation ownership aligned with the reference" do
     name = "16-full-example"
-    render = Sirena.render(source(name), notation: :plantuml)
+    render = Etassia.render(source(name), notation: :plantuml)
 
     expect(keys(render)).to eq(keys(reference(name)))
   end
 
   it "resolves mixed arrow-side endpoints without reversing their owners" do
     name = "17-mixed-arrow-sides"
-    render = Sirena.render(source(name), notation: :plantuml)
+    render = Etassia.render(source(name), notation: :plantuml)
     expect(keys(render)).to eq(keys(reference(name)))
   end
 
@@ -186,22 +186,22 @@ RSpec.describe SpecSupport::LayoutParity::PlantumlClassRecognizer do
 
   it "normalizes stereotype decorations from both producers" do
     expect(keys(stereotype_svg(:reference)))
-      .to eq(keys(stereotype_svg(:sirena)))
+      .to eq(keys(stereotype_svg(:etassia)))
   end
 
   it "does not classify PlantUML note groups as classes" do
     expect(keys(class_note_svg(:reference)))
-      .to eq(keys(class_note_svg(:sirena)))
+      .to eq(keys(class_note_svg(:etassia)))
   end
 
   it "resolves relation endpoints after producer transforms" do
     expect(keys(translated_relation_svg(:reference)))
-      .to eq(keys(translated_relation_svg(:sirena)))
+      .to eq(keys(translated_relation_svg(:etassia)))
   end
 
   it "matches package-qualified and dollar-sanitized producer identities" do
     expect(keys(qualified_identity_svg(:reference)))
-      .to eq(keys(qualified_identity_svg(:sirena)))
+      .to eq(keys(qualified_identity_svg(:etassia)))
   end
 
   it "retains qualified identities when visible titles are ambiguous" do

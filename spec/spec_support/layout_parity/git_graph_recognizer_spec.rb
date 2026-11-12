@@ -20,8 +20,8 @@ RSpec.describe SpecSupport::LayoutParity::GitGraphRecognizer do
   def real_pair
     name = "showcase_base-f21356f4"
     reference = reference_svg("gitgraph/#{name}.svg")
-    sirena = Sirena.render(corpus_source("gitgraph/#{name}.mmd"))
-    [recognized(reference), recognized(sirena)]
+    etassia = Etassia.render(corpus_source("gitgraph/#{name}.mmd"))
+    [recognized(reference), recognized(etassia)]
   end
 
   def keys_of(elements, kind)
@@ -55,7 +55,7 @@ RSpec.describe SpecSupport::LayoutParity::GitGraphRecognizer do
        checkout x
        commit
     MERMAID
-    keys_of(recognized(Sirena.render(source)), :lane)
+    keys_of(recognized(Etassia.render(source)), :lane)
   end
 
   def lane_dimensions(svg)
@@ -69,7 +69,7 @@ RSpec.describe SpecSupport::LayoutParity::GitGraphRecognizer do
   def real_svgs
     name = "showcase_base-f21356f4"
     [reference_svg("gitgraph/#{name}.svg"),
-     Sirena.render(corpus_source("gitgraph/#{name}.mmd"))]
+     Etassia.render(corpus_source("gitgraph/#{name}.mmd"))]
   end
 
   it "uses marker ordinals and semantic branch labels on a real pair" do
@@ -88,9 +88,9 @@ RSpec.describe SpecSupport::LayoutParity::GitGraphRecognizer do
   end
 
   it "recognizes semantic lanes from both rendered representations" do
-    reference, sirena = real_summary.map(&:last)
+    reference, etassia = real_summary.map(&:last)
 
-    expect([reference, sirena]).to eq([expected_branches, expected_branches])
+    expect([reference, etassia]).to eq([expected_branches, expected_branches])
   end
 
   it "uses zero-area anchors for semantic lanes" do

@@ -4,8 +4,8 @@ module SpecSupport
   module LayoutParity
     # Logical requirement and element nodes shared by both SVG producers.
     class RequirementRecognizer
-      SIRENA_REQUIREMENT = /\Arequirement-(.+)\z/
-      SIRENA_ELEMENT = /\Aelement-(.+)\z/
+      ETASSIA_REQUIREMENT = /\Arequirement-(.+)\z/
+      ETASSIA_ELEMENT = /\Aelement-(.+)\z/
 
       def container_kinds
         []
@@ -28,10 +28,10 @@ module SpecSupport
 
       def identify(extractor, group)
         id = group["id"]
-        if id.match?(SIRENA_REQUIREMENT)
-          return [:requirement, id[SIRENA_REQUIREMENT, 1]]
+        if id.match?(ETASSIA_REQUIREMENT)
+          return [:requirement, id[ETASSIA_REQUIREMENT, 1]]
         end
-        return [:element, id[SIRENA_ELEMENT, 1]] if id.match?(SIRENA_ELEMENT)
+        return [:element, id[ETASSIA_ELEMENT, 1]] if id.match?(ETASSIA_ELEMENT)
         return unless group["class"].to_s.split.include?("node")
 
         reference_kind(extractor.label(group), id)

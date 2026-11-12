@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "sirena/notation/plantuml/sequence"
+require "etassia/notation/plantuml/sequence"
 
 # Helpers for the PlantUML sequence title and embedded-diagram specs.
 module PlantUmlSequenceTitleHelpers
@@ -9,12 +9,12 @@ module PlantUmlSequenceTitleHelpers
   end
 
   def parsed_diagram(*lines)
-    Sirena::Notation::PlantUML::Sequence::Parser.new
+    Etassia::Notation::PlantUML::Sequence::Parser.new
       .parse(titled_source(*lines))
   end
 
   def laid_out(*lines)
-    parsed = Sirena::Notation::PlantUML::Sequence.parse(titled_source(*lines))
+    parsed = Etassia::Notation::PlantUML::Sequence.parse(titled_source(*lines))
     parsed.transform.new.call(parsed.diagram)
   end
 
@@ -25,7 +25,7 @@ module PlantUmlSequenceTitleHelpers
   def refusal_for(*lines)
     parsed_diagram(*lines)
     nil
-  rescue Sirena::Notation::PlantUML::UnsupportedConstructError => e
+  rescue Etassia::Notation::PlantUML::UnsupportedConstructError => e
     e
   end
 

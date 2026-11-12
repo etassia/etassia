@@ -9,7 +9,7 @@ module TimelineRenderHelpers
 
   def render_doc(source)
     scene = lay_out(source)
-    xml = Sirena::Renderer::Timeline.new.render(scene).to_xml
+    xml = Etassia::Renderer::Timeline.new.render(scene).to_xml
     REXML::Document.new(xml)
   end
 

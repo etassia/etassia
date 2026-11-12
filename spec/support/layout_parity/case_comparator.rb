@@ -17,7 +17,7 @@ module SpecSupport
         @type = arguments.fetch(:type)
         @reference = arguments.fetch(:reference)
         @reference_svg = arguments.fetch(:reference_svg)
-        @sirena_svg = arguments.fetch(:sirena_svg)
+        @etassia_svg = arguments.fetch(:etassia_svg)
         @reproduce = arguments.fetch(:reproduce)
         @recognizer = arguments.fetch(:recognizer)
         @analog_measurements = arguments[:analog_measurements]
@@ -29,8 +29,8 @@ module SpecSupport
         return missing_reference_result unless reference_svg
         return render_error_result if render_error
 
-        unless sirena_svg
-          raise ArgumentError, "sirena svg or render error is required"
+        unless etassia_svg
+          raise ArgumentError, "etassia svg or render error is required"
         end
 
         compare_rendered
@@ -38,15 +38,15 @@ module SpecSupport
 
       private
 
-      attr_reader :case_id, :type, :reference, :reference_svg, :sirena_svg,
+      attr_reader :case_id, :type, :reference, :reference_svg, :etassia_svg,
                   :reproduce, :recognizer, :analog_measurements, :render_error,
                   :spatial_kinds
 
       def compare_rendered
-        reference_figure, sirena_figure, match = extract_and_match
+        reference_figure, etassia_figure, match = extract_and_match
         invariants = invariants_for(match)
         geometry = geometry_for(reference_figure, match).merge(
-          element_counts(reference_figure, sirena_figure),
+          element_counts(reference_figure, etassia_figure),
         )
 
         result("rendered", invariants, with_analogs(geometry))
@@ -54,16 +54,16 @@ module SpecSupport
 
       def extract_and_match
         reference_figure = extractor.extract(reference_svg)
-        sirena_figure = extractor.extract(sirena_svg)
+        etassia_figure = extractor.extract(etassia_svg)
         match = ElementMatcher.match(reference: reference_figure,
-                                     sirena: sirena_figure)
-        [reference_figure, sirena_figure, match]
+                                     etassia: etassia_figure)
+        [reference_figure, etassia_figure, match]
       end
 
-      def element_counts(reference_figure, sirena_figure)
+      def element_counts(reference_figure, etassia_figure)
         {
           reference_elements: reference_figure.elements.length,
-          sirena_elements: sirena_figure.elements.length,
+          etassia_elements: etassia_figure.elements.length,
         }
       end
 
@@ -81,8 +81,8 @@ module SpecSupport
             rule: "element-presence",
             subject_keys: failure[:group],
             expected: failure[:reference_count],
-            actual: failure[:sirena_count],
-            bbox_sirena: nil,
+            actual: failure[:etassia_count],
+            bbox_etassia: nil,
             bbox_reference: nil,
             normalized: {
               match_by: failure[:match_by],
@@ -94,7 +94,7 @@ module SpecSupport
       end
 
       def spatial_failures(pairs)
-        selected = pairs.select do |reference_element, _sirena_element|
+        selected = pairs.select do |reference_element, _etassia_element|
           spatial_kinds.include?(reference_element.kind)
         end
         SpatialInvariantChecker.check(pairs: selected)
@@ -123,7 +123,7 @@ module SpecSupport
 
         analog_measurements.call(
           reference_svg: reference_svg,
-          sirena_svg: sirena_svg,
+          etassia_svg: etassia_svg,
         ).map do |measurement|
           { key: measurement.fetch(:key), error: measurement.fetch(:error) }
         end
@@ -135,7 +135,7 @@ module SpecSupport
           subject_keys: [case_id],
           expected: reference,
           actual: nil,
-          bbox_sirena: nil,
+          bbox_etassia: nil,
           bbox_reference: nil,
           normalized: nil,
         }
@@ -170,7 +170,7 @@ module SpecSupport
           case_id: case_id,
           type: type,
           reference: reference,
-          sirena_status: status,
+          etassia_status: status,
           invariants: invariants,
           geometry: geometry,
           reproduce: reproduce,

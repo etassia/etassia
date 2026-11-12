@@ -4,7 +4,7 @@
 # fakes. The registry has no public unregister.
 RSpec.shared_context "with an isolated notation registry" do
   around do |example|
-    entries = Sirena::Notation.send(:entries)
+    entries = Etassia::Notation.send(:entries)
     saved = entries.dup
     example.run
   ensure

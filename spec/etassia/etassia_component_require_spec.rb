@@ -1,0 +1,87 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+require "open3"
+require_relative "../support/leptris_fallback_notice_spec_support"
+
+# Pure (shells out, no example state needed), so it is a module function;
+# included below so call sites stay bare method calls.
+module ComponentRequireHelper
+  # Shells out to a real subprocess so a component file's `require` can be
+  # checked in isolation -- $LOADED_FEATURES would make a second in-process
+  # `require "etassia/parser"` a silent no-op once spec_helper has already
+  # loaded the whole gem.
+  def require_standalone(path)
+    out, status = Open3.capture2e(
+      "ruby", "-Ilib", "-e", "require #{path.inspect}"
+    )
+    [LeptrisFallbackNoticeSpecSupport.normalize(out), status]
+  end
+  module_function :require_standalone
+end
+
+# TODO.architecture/01-safety-net.md, Part B step 0. Each pipeline layer's
+# own Error class inherits Etassia::Error so
+# Engine#render can propagate it unwrapped. That constant used to be
+# defined only inline inside lib/etassia.rb's own require chain, so a
+# process that requires a component file directly -- "etassia/parser",
+# "etassia/layout", or "etassia/renderer" -- without first requiring the
+# top-level "etassia" never saw Etassia::Error defined, and blew up with
+# `NameError: uninitialized constant Etassia::Error` the moment the
+# component's base.rb loaded. Nothing in this repo's own suite exercised
+# that path (spec_helper always requires "etassia" first), so the failure
+# was invisible until it was probed directly. Etassia::Error now lives in
+# its own file (lib/etassia/error.rb, following the version.rb pattern) and
+# each base.rb require_relative's it directly.
+#
+# Each example shells out to a real subprocess, not an in-process require
+# -- $LOADED_FEATURES would make a second `require "etassia/parser"` in
+# this same process a silent no-op once spec_helper has already loaded the
+# whole gem.
+RSpec.describe Etassia do
+  include ComponentRequireHelper
+
+  describe "component files, required standalone" do
+    %w[etassia/parser etassia/layout etassia/renderer
+       etassia/engine].each do |path|
+      it "loads #{path} without first requiring the top-level " \
+         "etassia entry point" do
+        out, status = require_standalone(path)
+
+        expect(status).to be_success,
+                          "expected exit 0, got #{status.exitstatus}:\n#{out}"
+      end
+    end
+
+    # A bare "loads without raising" assertion is vacuous specifically for
+    # engine.rb: DiagramTypeError/PipelineError are referenced only inside
+    # method bodies, so a subprocess still exits 0 even with both error
+    # requires deleted (proven by executing that exact mutation). This
+    # gap is unique to engine.rb among the four components -- parser,
+    # transform and renderer already had this same guarantee at the base
+    # tip (their nested Error classes were defined directly under the
+    # `require_relative '../error'` already present in each base.rb, so
+    # the guarantee predates this diff and needs no new example here).
+    context "with engine required standalone" do
+      let(:result) do
+        out, status = Open3.capture2e(
+          "ruby", "-Ilib", "-e",
+          'require "etassia/engine"; ' \
+          "puts Etassia::Engine::DiagramTypeError < Etassia::Error; " \
+          "puts Etassia::Engine::PipelineError < Etassia::Error"
+        )
+        [LeptrisFallbackNoticeSpecSupport.normalize(out), status]
+      end
+
+      it "loads the engine successfully" do
+        out, status = result
+        expect(status).to be_success,
+                          "expected exit 0, got #{status.exitstatus}:\n#{out}"
+      end
+
+      it "defines both engine errors as Etassia::Error subclasses" do
+        expect(result.first.lines.map(&:chomp)).to eq(%w[true true])
+      end
+    end
+  end
+end

@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-# Differential fuzz harness for Sirena's sequence-diagram grammar.
+# Differential fuzz harness for Etassia's sequence-diagram grammar.
 #
 # Generates random single-message sequence-diagram sources, parses each
-# with Sirena's own Parslet grammar, and asks a real, installed mermaid
+# with Etassia's own Parslet grammar, and asks a real, installed mermaid
 # (via scripts/sequence_fuzz_mermaid.js, driven inside one persistent
 # headless-Chrome page) whether it agrees. It reports two kinds of
 # disagreement: one side accepts and the other rejects, or both accept
 # but disagree on the actor names.
 #
-# Tooling only. Does not ship in the gem, is not required by lib/sirena,
+# Tooling only. Does not ship in the gem, is not required by lib/etassia,
 # and is not exercised by `rake`/`rspec`.
 #
 # Usage:
@@ -22,7 +22,7 @@
 #                regression corpus below (default 500)
 #   --verbose    print every case, not just the divergences
 #
-# Exit status: 0 if sirena and mermaid agreed on every case (regression
+# Exit status: 0 if etassia and mermaid agreed on every case (regression
 # corpus included), 1 if any divergence was found. That makes it usable
 # as a gate; see the timing section printed at the end for whether that
 # is actually fast enough to run on every grammar change.
@@ -69,7 +69,7 @@ require "bundler/setup"
 
 $LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
 
-require "sirena"
+require "etassia"
 require "json"
 require "open3"
 require "optparse"
@@ -79,7 +79,7 @@ module SequenceFuzz
   MERMAID_RUNNER = File.join(ROOT, "scripts", "sequence_fuzz_mermaid.js")
 
   # Exact arrow spellings mermaid's own sequence lexer draws (mirrors the
-  # list in lib/sirena/parser/grammars/sequence.rb). The arrow token is
+  # list in lib/etassia/parser/grammars/sequence.rb). The arrow token is
   # deliberately NOT fuzzed -- only real spellings are used, so every
   # divergence found is attributable to the actor-name token.
   ARROWS = %w[
@@ -97,7 +97,7 @@ module SequenceFuzz
 
   MESSAGE_TEXTS = ["", "hello", "a message with spaces", "msg 123"].freeze
 
-  # One generated (or fixed) fuzz case: the source text sirena and
+  # One generated (or fixed) fuzz case: the source text etassia and
   # mermaid both see, and an id used to match up the two sides' results
   # after they are computed independently.
   Case = Struct.new(:id, :source)
@@ -109,9 +109,9 @@ module SequenceFuzz
   # "known-positive" this whole harness is required to go red on.
   #
   # Measured this session against main (85acf20): the FIRST case still
-  # diverges exactly as an ACCEPT/REJECT mismatch (sirena rejects,
+  # diverges exactly as an ACCEPT/REJECT mismatch (etassia rejects,
   # mermaid accepts "B", "A-(%%C"). The SECOND case does not currently
-  # diverge on main -- sirena's narrow `identifier` already rejects it
+  # diverge on main -- etassia's narrow `identifier` already rejects it
   # for an unrelated reason, and so does mermaid, so both sides agree
   # (REJECT/REJECT) until #38 widens the actor-name token. It stays in
   # the regression corpus because #38 landing is exactly the change that
@@ -165,10 +165,10 @@ module SequenceFuzz
     end
   end
 
-  # Runs Sirena's own Sequence in-process (no subprocess) and
+  # Runs Etassia's own Sequence in-process (no subprocess) and
   # reduces the result to the same shape the mermaid side reports:
   # accepted?, and if so, the actor id list in first-appearance order.
-  module SirenaSide
+  module EtassiaSide
     module_function
 
     def run(cases)
@@ -176,9 +176,9 @@ module SequenceFuzz
     end
 
     def verdict_for(source)
-      diagram = Sirena::Parser::Sequence.new.parse(source)
+      diagram = Etassia::Parser::Sequence.new.parse(source)
       { accepted: true, actors: diagram.participants.map(&:id) }
-    rescue Sirena::Parser::ParseError => e
+    rescue Etassia::Parser::ParseError => e
       { accepted: false, error: e.message }
     end
   end
@@ -219,9 +219,9 @@ module SequenceFuzz
   class Comparison
     attr_reader :kind, :detail
 
-    def initialize(kase, sirena, mermaid)
+    def initialize(kase, etassia, mermaid)
       @kase = kase
-      @sirena = sirena
+      @etassia = etassia
       @mermaid = mermaid
       @kind, @detail = classify
     end
@@ -238,8 +238,8 @@ module SequenceFuzz
 
     def classify
       return accept_reject_mismatch \
-        unless @sirena[:accepted] == @mermaid[:accepted]
-      return [:agree, "both rejected"] unless @sirena[:accepted]
+        unless @etassia[:accepted] == @mermaid[:accepted]
+      return [:agree, "both rejected"] unless @etassia[:accepted]
 
       actor_mismatch
     end
@@ -247,20 +247,20 @@ module SequenceFuzz
     def accept_reject_mismatch
       [
         :accept_reject_mismatch,
-        "sirena accepted=#{@sirena[:accepted]} " \
+        "etassia accepted=#{@etassia[:accepted]} " \
         "mermaid accepted=#{@mermaid[:accepted]} " \
-        "(sirena: #{@sirena[:error] || @sirena[:actors].inspect}, " \
+        "(etassia: #{@etassia[:error] || @etassia[:actors].inspect}, " \
         "mermaid: #{@mermaid[:error] || @mermaid[:actors].inspect})",
       ]
     end
 
     def actor_mismatch
-      if @sirena[:actors] == @mermaid[:actors]
-        [:agree, "both accepted, actors=#{@sirena[:actors].inspect}"]
+      if @etassia[:actors] == @mermaid[:actors]
+        [:agree, "both accepted, actors=#{@etassia[:actors].inspect}"]
       else
-        sirena = @sirena[:actors].inspect
+        etassia = @etassia[:actors].inspect
         mermaid = @mermaid[:actors].inspect
-        [:actor_mismatch, "sirena actors=#{sirena} mermaid actors=#{mermaid}"]
+        [:actor_mismatch, "etassia actors=#{etassia} mermaid actors=#{mermaid}"]
       end
     end
   end
@@ -300,25 +300,25 @@ module SequenceFuzz
 
     def time_both_sides(cases)
       start = Time.now
-      sirena_results = SirenaSide.run(cases)
-      sirena_elapsed = Time.now - start
+      etassia_results = EtassiaSide.run(cases)
+      etassia_elapsed = Time.now - start
 
       start = Time.now
       mermaid_results = MermaidSide.run(cases)
       mermaid_elapsed = Time.now - start
 
-      [sirena_results, mermaid_results, sirena_elapsed, mermaid_elapsed]
+      [etassia_results, mermaid_results, etassia_elapsed, mermaid_elapsed]
     end
 
-    def report(cases, sirena_results, mermaid_results,
-               sirena_elapsed, mermaid_elapsed)
+    def report(cases, etassia_results, mermaid_results,
+               etassia_elapsed, mermaid_elapsed)
       comparisons = cases.map do |c|
-        Comparison.new(c, sirena_results[c.id], mermaid_results[c.id])
+        Comparison.new(c, etassia_results[c.id], mermaid_results[c.id])
       end
       divergences = comparisons.select(&:divergence?)
 
       print_cases(comparisons, divergences)
-      print_timings(cases.size, sirena_elapsed, mermaid_elapsed)
+      print_timings(cases.size, etassia_elapsed, mermaid_elapsed)
       print_summary(cases.size, divergences)
 
       exit(divergences.empty? ? 0 : 1)
@@ -328,10 +328,10 @@ module SequenceFuzz
       (@verbose ? comparisons : divergences).each { |c| puts c }
     end
 
-    def print_timings(total, sirena_elapsed, mermaid_elapsed)
-      puts format("sirena:  %<total>d cases in %<elapsed>.3fs (%<rate>.1f/s)",
-                  total: total, elapsed: sirena_elapsed,
-                  rate: total / sirena_elapsed)
+    def print_timings(total, etassia_elapsed, mermaid_elapsed)
+      puts format("etassia:  %<total>d cases in %<elapsed>.3fs (%<rate>.1f/s)",
+                  total: total, elapsed: etassia_elapsed,
+                  rate: total / etassia_elapsed)
       puts format("mermaid: %<total>d cases in %<elapsed>.3fs (%<rate>.1f/s)",
                   total: total, elapsed: mermaid_elapsed,
                   rate: total / mermaid_elapsed)

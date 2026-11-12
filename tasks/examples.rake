@@ -24,7 +24,7 @@ module ExampleRakeTasks
   }.freeze
 
   README_CONTENT = <<~README
-    # Sirena Examples
+    # Etassia Examples
 
     This directory contains example diagrams for all supported diagram types.
 
@@ -109,7 +109,7 @@ module ExampleRakeTasks
   module_function
 
   def generate
-    require "sirena"
+    require "etassia"
     require "yaml"
     require "fileutils"
     require_examples_dir!(EXAMPLES_DIR)
@@ -266,7 +266,7 @@ module ExampleRakeTasks
   end
 
   def validate
-    require "sirena"
+    require "etassia"
     require "yaml"
 
     begin

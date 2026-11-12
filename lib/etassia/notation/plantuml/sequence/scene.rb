@@ -1,0 +1,200 @@
+# frozen_string_literal: true
+
+require "lutaml/model"
+require_relative "../../../layout/scene"
+require_relative "../scene"
+
+module Etassia
+  module Notation
+    module PlantUML
+      module Sequence
+        # Final-canvas geometry for a sequence diagram: coordinates and
+        # drawable roles only; the renderer picks colours and strokes.
+        class Scene < Etassia::Layout::Scene
+          class Head < Lutaml::Model::Serializable
+            class Rectangle < Lutaml::Model::Serializable
+              attribute :x, :float
+              attribute :y, :float
+              attribute :width, :float
+              attribute :height, :float
+              attribute :rx, :float
+              attribute :ry, :float
+            end
+
+            class Ellipse < Lutaml::Model::Serializable
+              attribute :cx, :float
+              attribute :cy, :float
+              attribute :rx, :float
+              attribute :ry, :float
+            end
+
+            class Path < Lutaml::Model::Serializable
+              attribute :data, :string
+              attribute :filled, :boolean
+            end
+
+            class Line < Lutaml::Model::Serializable
+              attribute :x1, :float
+              attribute :y1, :float
+              attribute :x2, :float
+              attribute :y2, :float
+            end
+
+            class Polygon < Lutaml::Model::Serializable
+              attribute :points, :string
+            end
+
+            attribute :id, :string
+            attribute :kind, :string
+            attribute :x, :float
+            attribute :y, :float
+            attribute :width, :float
+            attribute :height, :float
+            attribute :fill, :string
+            attribute :fill_opacity, :float
+            attribute :stroke, :string
+            attribute :texts, PlantUML::Scene::Text, collection: true
+            attribute :rectangles, Rectangle, collection: true
+            attribute :ellipses, Ellipse, collection: true
+            attribute :paths, Path, collection: true
+            attribute :lines, Line, collection: true
+            attribute :polygons, Polygon, collection: true
+          end
+
+          # One shape at an arrow end: a "polygon" (points), a "line" or a
+          # "circle". A polygon is filled with the edge colour when `filled`.
+          class Mark < Lutaml::Model::Serializable
+            attribute :kind, :string
+            attribute :filled, :boolean
+            attribute :heavy, :boolean
+            attribute :points, :string
+            attribute :x1, :float
+            attribute :y1, :float
+            attribute :x2, :float
+            attribute :y2, :float
+            attribute :cx, :float
+            attribute :cy, :float
+            attribute :r, :float
+          end
+
+          class Arrow < Lutaml::Model::Serializable
+            attribute :id, :string
+            attribute :path, :string
+            attribute :dashed, :boolean
+            attribute :colour, :string
+            attribute :marks, Mark, collection: true
+            attribute :texts, PlantUML::Scene::Text, collection: true
+          end
+
+          class Frame < Lutaml::Model::Serializable
+            attribute :x, :float
+            attribute :y, :float
+            attribute :width, :float
+            attribute :height, :float
+            attribute :fill, :string
+            attribute :texts, PlantUML::Scene::Text, collection: true
+          end
+
+          class Fragment < Lutaml::Model::Serializable
+            attribute :x, :float
+            attribute :y, :float
+            attribute :width, :float
+            attribute :height, :float
+            attribute :tab_path, :string
+            attribute :tab_fill, :string
+            attribute :separators, PlantUML::Scene::Segment, collection: true
+            attribute :texts, PlantUML::Scene::Text, collection: true
+          end
+
+          # A laid-out diagram drawn inside a note, `scale` times larger.
+          class Picture < Lutaml::Model::Serializable
+            attribute :x, :float
+            attribute :y, :float
+            attribute :scale, :float
+            attribute :scene, Etassia::Layout::Scene
+          end
+
+          class Note < Lutaml::Model::Serializable
+            attribute :picture, Picture
+            attribute :path, :string
+            attribute :fold_path, :string
+            attribute :fill, :string
+            attribute :fill_opacity, :float
+            attribute :texts, PlantUML::Scene::Text, collection: true
+          end
+
+          # A warning PlantUML draws above the heads.
+          class Banner < Lutaml::Model::Serializable
+            attribute :x, :float
+            attribute :y, :float
+            attribute :width, :float
+            attribute :height, :float
+            attribute :texts, PlantUML::Scene::Text, collection: true
+          end
+
+          # The header, caption or footer, as lines of text.
+          class TextBlock < Lutaml::Model::Serializable
+            attribute :id, :string
+            attribute :texts, PlantUML::Scene::Text, collection: true
+          end
+
+          # The framed legend.
+          class Legend < Lutaml::Model::Serializable
+            attribute :x, :float
+            attribute :y, :float
+            attribute :width, :float
+            attribute :height, :float
+            attribute :texts, PlantUML::Scene::Text, collection: true
+          end
+
+          # The title above the diagram.
+          class Title < Lutaml::Model::Serializable
+            attribute :texts, PlantUML::Scene::Text, collection: true
+          end
+
+          class Bar < Lutaml::Model::Serializable
+            attribute :fill, :string
+            attribute :x, :float
+            attribute :y, :float
+            attribute :width, :float
+            attribute :height, :float
+          end
+
+          class Divider < Lutaml::Model::Serializable
+            attribute :lines, PlantUML::Scene::Segment, collection: true
+            attribute :x, :float
+            attribute :y, :float
+            attribute :width, :float
+            attribute :height, :float
+            attribute :texts, PlantUML::Scene::Text, collection: true
+          end
+
+          # A `...` gap between two messages, with its text if it has any.
+          class Delay < Lutaml::Model::Serializable
+            attribute :y1, :float
+            attribute :y2, :float
+            attribute :texts, PlantUML::Scene::Text, collection: true
+          end
+
+          # `role=value` for each colour or thickness skinparam set.
+          attribute :paint, :string, collection: true
+          attribute :banners, Banner, collection: true
+          attribute :title, Title
+          attribute :text_blocks, TextBlock, collection: true
+          attribute :legend, Legend
+          attribute :frames, Frame, collection: true
+          attribute :fragments, Fragment, collection: true
+          attribute :notes, Note, collection: true
+          attribute :dividers, Divider, collection: true
+          attribute :delays, Delay, collection: true
+          attribute :bars, Bar, collection: true
+          attribute :crosses, PlantUML::Scene::Segment, collection: true
+          attribute :page_breaks, PlantUML::Scene::Segment, collection: true
+          attribute :heads, Head, collection: true
+          attribute :lifelines, PlantUML::Scene::Segment, collection: true
+          attribute :arrows, Arrow, collection: true
+        end
+      end
+    end
+  end
+end

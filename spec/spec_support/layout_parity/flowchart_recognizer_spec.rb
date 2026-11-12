@@ -45,9 +45,9 @@ RSpec.describe SpecSupport::LayoutParity::FlowchartRecognizer do
   end
 
   it "matches semantic node identities in a real reference and render" do
-    reference, sirena = flowchart_sides("configuration_spec-67574f4a")
+    reference, etassia = flowchart_sides("configuration_spec-67574f4a")
 
-    expect([recognized(reference), recognized(sirena)])
+    expect([recognized(reference), recognized(etassia)])
       .to eq([expected_nodes] * 2)
   end
 

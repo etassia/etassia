@@ -3,16 +3,16 @@
 require "spec_helper"
 require "digest"
 require "yaml"
-require "sirena/notation/plantuml"
+require "etassia/notation/plantuml"
 
-Sirena::Notation.send(:entries).delete(:plantuml)
+Etassia::Notation.send(:entries).delete(:plantuml)
 
 RSpec.describe SpecSupport::LayoutParity::CaseComparator do
   include_context "with an isolated notation registry"
 
   let(:spike_root) { File.expand_path("../../plantuml_spike", __dir__) }
 
-  before { Sirena::Notation.register(Sirena::Notation::PlantUML) }
+  before { Etassia::Notation.register(Etassia::Notation::PlantUML) }
 
   def cases
     Dir[File.join(spike_root, "cases", "*.puml")]
@@ -66,7 +66,7 @@ RSpec.describe SpecSupport::LayoutParity::CaseComparator do
       case_id: "plantuml/#{name}", type: "plantuml_class",
       reference: reference,
       reference_svg: File.read(reference),
-      sirena_svg: Sirena.render(File.read(path), notation: :plantuml),
+      etassia_svg: Etassia.render(File.read(path), notation: :plantuml),
       reproduce: "bundle exec rspec #{__FILE__}",
       recognizer: SpecSupport::LayoutParity::PlantumlClassRecognizer.new,
       spatial_kinds: [:class]

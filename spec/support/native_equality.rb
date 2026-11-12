@@ -15,7 +15,7 @@ module NativeEquality
 
   # @return [Hash] :same count, :unported and :different path lists
   def self.compare(paths)
-    ruby = Sirena::Engine.new
+    ruby = Etassia::Engine.new
     tally = { same: 0, unported: [], different: [] }
     paths.each { |path| record(tally, path, ruby) }
     tally

@@ -15,9 +15,9 @@ RSpec.describe SpecSupport::LayoutParity::ElementMatcher do
     figure_class.new(elements: elements, root_box: nil)
   end
 
-  def match(reference_elements, sirena_elements)
+  def match(reference_elements, etassia_elements)
     described_class.match(reference: figure(*reference_elements),
-                          sirena: figure(*sirena_elements))
+                          etassia: figure(*etassia_elements))
   end
 
   def summary(result, attribute = :key)
@@ -25,11 +25,11 @@ RSpec.describe SpecSupport::LayoutParity::ElementMatcher do
     [pairs, result[:ambiguous_count], result[:failures]]
   end
 
-  def failure(type, key, count, reference_count, sirena_count)
+  def failure(type, key, count, reference_count, etassia_count)
     {
       type: type, group: [:node, nil, key], match_by: :id,
       count: count,
-      reference_count: reference_count, sirena_count: sirena_count
+      reference_count: reference_count, etassia_count: etassia_count
     }
   end
 
@@ -55,9 +55,9 @@ RSpec.describe SpecSupport::LayoutParity::ElementMatcher do
 
   it "uses labels when either side cannot expose a semantic id" do
     reference = element("reference-id", label: "Ready")
-    sirena = element("Ready", label: "Ready", identity: :label)
+    etassia = element("Ready", label: "Ready", identity: :label)
 
-    expect(match([reference], [sirena])[:pairs]).to eq([[reference, sirena]])
+    expect(match([reference], [etassia])[:pairs]).to eq([[reference, etassia]])
   end
 
   it "keeps equal keys in different parent scopes separate" do
@@ -70,11 +70,11 @@ RSpec.describe SpecSupport::LayoutParity::ElementMatcher do
 
   it "pairs duplicate group members in source order and counts ambiguity" do
     result = match(duplicate_elements("reference"),
-                   duplicate_elements("sirena"))
+                   duplicate_elements("etassia"))
 
     expect(summary(result, :label))
-      .to eq([[["reference first", "sirena first"],
-               ["reference second", "sirena second"]], 2, []])
+      .to eq([[["reference first", "etassia first"],
+               ["reference second", "etassia second"]], 2, []])
   end
 
   it "pairs common duplicate members and reports unequal group counts" do

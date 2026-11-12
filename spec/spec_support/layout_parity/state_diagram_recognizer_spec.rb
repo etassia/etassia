@@ -23,7 +23,7 @@ RSpec.describe SpecSupport::LayoutParity::StateDiagramRecognizer do
     SVG
   end
 
-  def synthetic_sirena
+  def synthetic_etassia
     <<~SVG
       <svg viewBox="0 0 100 100">
         <g id="state-checkout"><rect width="100" height="100"/>
@@ -58,7 +58,7 @@ RSpec.describe SpecSupport::LayoutParity::StateDiagramRecognizer do
   def real_sides
     name = "should_handle_state_definitions_with_separation-cd10456b"
     [reference_svg("state_diagram/#{name}.svg"),
-     Sirena.render(corpus_source("state_diagram/#{name}.mmd"))]
+     Etassia.render(corpus_source("state_diagram/#{name}.mmd"))]
   end
 
   def real_reference_elements
@@ -73,26 +73,28 @@ RSpec.describe SpecSupport::LayoutParity::StateDiagramRecognizer do
   def simple_terminal_match
     name = "state-5753bc25"
     reference = extract(reference_svg("state_diagram/#{name}.svg"), recognizer)
-    sirena = extract(Sirena.render(corpus_source("state_diagram/#{name}.mmd")),
-                     recognizer)
+    etassia = extract(
+      Etassia.render(corpus_source("state_diagram/#{name}.mmd")),
+      recognizer,
+    )
 
     SpecSupport::LayoutParity::ElementMatcher.match(
       reference: reference,
-      sirena: sirena,
+      etassia: etassia,
     )
   end
 
   it "normalizes generated ordinals and keeps composite ancestry" do
-    actual = [recognized(synthetic_reference), recognized(synthetic_sirena),
+    actual = [recognized(synthetic_reference), recognized(synthetic_etassia),
               recognizer.container_kinds]
 
     expect(actual).to eq([synthetic_elements, synthetic_elements, [:composite]])
   end
 
-  it "recovers composite metadata from a real Sirena render" do
-    reference, sirena = real_sides
+  it "recovers composite metadata from a real Etassia render" do
+    reference, etassia = real_sides
 
-    expect([recognized(reference), recognized(sirena)])
+    expect([recognized(reference), recognized(etassia)])
       .to eq([real_reference_elements, real_reference_elements])
   end
 

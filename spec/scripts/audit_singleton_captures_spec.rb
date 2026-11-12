@@ -56,7 +56,7 @@ RSpec.describe AuditSingletonCaptures do
     it "records exact hit locations" do
       report = described_class.render(root: described_class::ROOT)
 
-      expect(report).to include("lib/sirena/parser/builders/class_diagram.rb")
+      expect(report).to include("lib/etassia/parser/builders/class_diagram.rb")
     end
 
     it "is deterministic" do

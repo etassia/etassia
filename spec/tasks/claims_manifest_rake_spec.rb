@@ -24,7 +24,8 @@ module ClaimsManifestRake
   def invoke_with_report(result)
     with_rake_application do
       load File.expand_path("../../tasks/claims_manifest.rake", __dir__)
-      allow(Sirena::ClaimsManifestCheck).to receive(:report!).and_return(result)
+      allow(Etassia::ClaimsManifestCheck).to receive(:report!)
+        .and_return(result)
       task_exit_status { Rake::Task["claims_manifest:check"].invoke }
     end
   end

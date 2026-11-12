@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
-# Differential fuzz harness for Sirena's ER-diagram identifier grammar.
+# Differential fuzz harness for Etassia's ER-diagram identifier grammar.
 # Sibling to scripts/sequence_fuzz.rb, sharing its comparison and CLI
 # logic via scripts/mermaid_fuzz.rb instead of duplicating it.
 #
 # Generates random single-entity erDiagram sources, parses each with
-# Sirena's own Parslet grammar, and asks a real, installed mermaid
+# Etassia's own Parslet grammar, and asks a real, installed mermaid
 # (via scripts/mermaid_fuzz_runner.js, driven inside one persistent
 # headless-Chrome page) whether it agrees.
 #
-# Tooling only. Does not ship in the gem, is not required by lib/sirena,
+# Tooling only. Does not ship in the gem, is not required by lib/etassia,
 # and is not exercised by `rake`/`rspec`.
 #
 # Usage:
 #   ruby scripts/er_diagram_fuzz.rb [--seed N] [--count N] [--verbose]
 #
-# Exit status: 0 if sirena and mermaid agreed on every case (regression
+# Exit status: 0 if etassia and mermaid agreed on every case (regression
 # corpus included), 1 if any divergence was found, 2 if the regression
 # corpus itself failed to reproduce (see mermaid_fuzz.rb).
 #
@@ -27,7 +27,7 @@
 #       <entity-id>
 #
 # one statement, one line -- the grammar's `entity_declaration` rule.
-# The random axis is the entity id token. Sirena's entity id is the
+# The random axis is the entity id token. Etassia's entity id is the
 # common `identifier` rule (`[a-zA-Z_][a-zA-Z0-9_]*`), the same narrow
 # rule already widened for flowchart and kanban node ids (PRs #21, #27)
 # and shown to be wrong for state ids by state_diagram_fuzz.rb.
@@ -51,7 +51,7 @@ require "bundler/setup"
 
 $LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
 
-require "sirena"
+require "etassia"
 require_relative "mermaid_fuzz"
 
 module ErDiagramFuzz
@@ -63,18 +63,18 @@ module ErDiagramFuzz
   # Reproduced this session with a `--verbose` run of this exact
   # generator, seed 42.
   KNOWN_DIVERGENCES = [
-    # Sirena's entity id, via the common `identifier` rule, cannot lead
+    # Etassia's entity id, via the common `identifier` rule, cannot lead
     # with a digit. mermaid accepts a bare "1" as an entity id.
     MermaidFuzz::Case.new(
       "known-1-digit-leading-entity-id", "erDiagram\n    1\n"
     ),
   ].freeze
 
-  # Runs Sirena's own ErDiagram in-process, via MermaidFuzz.safe_parse
+  # Runs Etassia's own ErDiagram in-process, via MermaidFuzz.safe_parse
   # (see its doc for why unexpected exceptions are caught too, not only
   # ParseError).
-  SIRENA_VERDICT_FOR = lambda do |source|
-    MermaidFuzz.safe_parse { Sirena::Parser::ErDiagram.new.parse(source).entities.map(&:id) }
+  ETASSIA_VERDICT_FOR = lambda do |source|
+    MermaidFuzz.safe_parse { Etassia::Parser::ErDiagram.new.parse(source).entities.map(&:id) }
   end
 
   RUNNER_KWARGS = {
@@ -85,7 +85,7 @@ module ErDiagramFuzz
       )
     end,
     known_divergences: KNOWN_DIVERGENCES,
-    sirena_verdict_for: SIRENA_VERDICT_FOR,
+    etassia_verdict_for: ETASSIA_VERDICT_FOR,
     mermaid_getter: "getEntities",
     mermaid_preflight: "erDiagram\n    A\n",
   }.freeze

@@ -1,0 +1,189 @@
+# frozen_string_literal: true
+
+require_relative "base"
+require_relative "../layout/quadrant"
+require_relative "../svg/document"
+require_relative "../svg/rect"
+require_relative "../svg/line"
+require_relative "../svg/circle"
+require_relative "../svg/group"
+require_relative "../svg/text"
+
+module Etassia
+  module Renderer
+    # Emits SVG from final, typed quadrant-chart geometry.
+    class Quadrant < Base
+      # @param scene [Layout::Quadrant::Scene] final chart geometry
+      # @return [Svg::Document] rendered SVG document
+      def render(scene)
+        svg = create_document(scene)
+        scene_groups(scene).each { |element| svg << element }
+        svg
+      end
+
+      protected
+
+      def scene_groups(scene)
+        [quadrants_group(scene), border_group(scene.axes),
+         points_group(scene.points), labels_group(scene.axis_labels),
+         title_group(scene.title)]
+      end
+
+      def group(name)
+        Svg::Group.new(class_name: name)
+      end
+
+      # One `g.quadrant` per region: its rect, then its label when written.
+      def quadrants_group(scene)
+        group("quadrants").tap do |quadrants|
+          scene.quadrants.each do |quadrant|
+            quadrants << quadrant_group(quadrant)
+          end
+        end
+      end
+
+      def quadrant_group(quadrant)
+        group("quadrant").tap do |cell|
+          cell << quadrant_rect(quadrant)
+          cell << text_element(quadrant.label) if quadrant.label
+        end
+      end
+
+      def quadrant_rect(quadrant)
+        Svg::Rect.new.tap do |rect|
+          rect.x = quadrant.x
+          rect.y = quadrant.y
+          rect.width = quadrant.width
+          rect.height = quadrant.height
+          rect.fill = quadrant_color(quadrant.number)
+        end
+      end
+
+      def border_group(lines)
+        group("border").tap do |border|
+          lines.each { |line| border << border_line(line) }
+        end
+      end
+
+      def border_line(line)
+        Svg::Line.new.tap do |element|
+          element.x1 = line.x1
+          element.y1 = line.y1
+          element.x2 = line.x2
+          element.y2 = line.y2
+          apply_border_style(element, line.stroke_width)
+        end
+      end
+
+      def apply_border_style(element, width)
+        element.stroke = theme_color(:quadrant_grid_line)
+        element.stroke_width = number_string(width)
+      end
+
+      def points_group(points)
+        group("data-points").tap do |container|
+          points.each { |point| container << point_group(point) }
+        end
+      end
+
+      def point_group(point)
+        group("data-point").tap do |cell|
+          cell << point_element(point)
+          cell << text_element(point.label)
+        end
+      end
+
+      def labels_group(labels)
+        group("labels").tap do |container|
+          labels.each { |label| container << label_group(label) }
+        end
+      end
+
+      def label_group(label)
+        group("label").tap { |cell| cell << text_element(label) }
+      end
+
+      def title_group(title)
+        group("title").tap do |container|
+          container << text_element(title) if title
+        end
+      end
+
+      def point_element(point)
+        Svg::Circle.new.tap do |circle|
+          circle.cx = point.x
+          circle.cy = point.y
+          circle.r = point.radius
+          apply_point_style(circle, point)
+        end
+      end
+
+      def apply_point_style(circle, point)
+        circle.fill = point.color || point_color(point.quadrant)
+        circle.stroke = point_stroke(point)
+        circle.stroke_width = number_string(point.stroke_width)
+        circle.id = point.id
+      end
+
+      def point_stroke(point)
+        point.stroke_color || theme_color(:node_stroke)
+      end
+
+      # Scene labels already carry final canvas coordinates. A rotated label
+      # turns around its own anchor instead of moving from a local origin.
+      def text_element(label)
+        Svg::Text.new.tap do |text|
+          text.x = label.x
+          text.y = label.y
+          text.content = label.text
+          text.transform = rotation_transform(label)
+          apply_text_alignment(text, label)
+          apply_text_style(text, label)
+        end
+      end
+
+      def apply_text_alignment(text, label)
+        text.dominant_baseline = label.baseline
+        text.text_anchor = label.text_anchor if label.text_anchor
+      end
+
+      def rotation_transform(label)
+        return if label.rotation.nil? || label.rotation.zero?
+
+        values = [label.rotation, label.x, label.y].map do |value|
+          number_string(value)
+        end
+        "rotate(#{values.join(' ')})"
+      end
+
+      def apply_text_style(text, label)
+        text.fill = theme_color(:label_text)
+        text.font_family = theme_typography(:font_family) || "Arial, sans-serif"
+        text.font_size = number_string(label.font_size)
+        text.font_weight = label.font_weight if label.font_weight
+      end
+
+      def quadrant_color(number)
+        colors = theme&.colors
+        palette = colors&.quadrant_palette
+        colors = Theme::Registry.get(:default).colors if palette.nil? ||
+          palette.empty?
+        colors.palette(:quadrant, number - 1)
+      end
+
+      def point_color(number)
+        {
+          1 => theme_color(:primary),
+          2 => theme_color(:secondary),
+          3 => theme_color(:accent),
+          4 => theme_color(:success),
+        }.fetch(number, theme_color(:primary))
+      end
+
+      def number_string(value)
+        value = value.to_f.round(4)
+        value.to_i == value ? value.to_i.to_s : value.to_s
+      end
+    end
+  end
+end

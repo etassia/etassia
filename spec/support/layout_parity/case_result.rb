@@ -7,7 +7,7 @@ module SpecSupport
       :case_id,
       :type,
       :reference,
-      :sirena_status,
+      :etassia_status,
       :invariants,
       :geometry,
       :reproduce,
@@ -17,7 +17,7 @@ module SpecSupport
           case: case_id,
           type: type,
           reference: reference,
-          sirena_status: sirena_status,
+          etassia_status: etassia_status,
           invariants: invariants,
           geometry: geometry,
           reproduce: reproduce,
@@ -25,7 +25,7 @@ module SpecSupport
       end
 
       def hard_failure?
-        sirena_status != "rendered" || invariants.any? || unmatched_nonempty?
+        etassia_status != "rendered" || invariants.any? || unmatched_nonempty?
       end
 
       private
@@ -36,7 +36,7 @@ module SpecSupport
 
       def both_figures_empty?
         geometry.fetch(:reference_elements).zero? &&
-          geometry.fetch(:sirena_elements).zero?
+          geometry.fetch(:etassia_elements).zero?
       end
     end
   end

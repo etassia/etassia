@@ -1,0 +1,419 @@
+# frozen_string_literal: true
+
+require "lutaml/model"
+require_relative "base"
+require_relative "containment"
+
+module Etassia
+  module Diagram
+    # Represents a flowchart node.
+    #
+    # A node has an identifier, label text, and a shape type that
+    # determines how it should be rendered visually.
+    class FlowchartNode < Lutaml::Model::Serializable
+      # Unique identifier for the node
+      attribute :id, :string
+
+      # Display text/label for the node
+      attribute :label, :string
+
+      # Shape type: :rect, :rounded, :stadium, :subroutine, :cylindrical,
+      # :circle, :asymmetric, :rhombus, :hexagon, :parallelogram,
+      # :parallelogram_alt, :trapezoid, :trapezoid_alt, :double_circle
+      attribute :shape, :string
+
+      # Optional classes/styles
+      attribute :classes, :string
+      attribute :fill, :string
+      attribute :stroke, :string
+
+      PAINT_KEYWORDS = %w[
+        none currentcolor transparent aliceblue antiquewhite aqua aquamarine
+        azure beige bisque black blanchedalmond blue blueviolet brown burlywood
+        cadetblue chartreuse chocolate coral cornflowerblue cornsilk crimson
+        cyan darkblue darkcyan darkgoldenrod darkgray darkgrey darkgreen
+        darkkhaki darkmagenta darkolivegreen darkorange darkorchid darkred
+        darksalmon darkseagreen darkslateblue darkslategray darkslategrey
+        darkturquoise darkviolet deeppink deepskyblue dimgray dimgrey dodgerblue
+        firebrick floralwhite forestgreen fuchsia gainsboro ghostwhite gold
+        goldenrod gray grey green greenyellow honeydew hotpink indianred indigo
+        ivory khaki lavender lavenderblush lawngreen lemonchiffon lightblue
+        lightcoral lightcyan lightgoldenrodyellow lightgray lightgrey lightgreen
+        lightpink lightsalmon lightseagreen lightskyblue lightslategray
+        lightslategrey lightsteelblue lightyellow lime limegreen linen magenta
+        maroon mediumaquamarine mediumblue mediumorchid mediumpurple
+        mediumseagreen mediumslateblue mediumspringgreen mediumturquoise
+        mediumvioletred midnightblue mintcream mistyrose moccasin navajowhite
+        navy oldlace olive olivedrab orange orangered orchid palegoldenrod
+        palegreen paleturquoise palevioletred papayawhip peachpuff peru pink
+        plum powderblue purple rebeccapurple red rosybrown royalblue saddlebrown
+        salmon sandybrown seagreen seashell sienna silver skyblue slateblue
+        slategray slategrey snow springgreen steelblue tan teal thistle tomato
+        turquoise violet wheat white whitesmoke yellow yellowgreen
+      ].freeze
+      HEX_PAINT = /\A#(?:[0-9a-f]{3}|[0-9a-f]{6})\z/i
+      RGB_COMPONENT = /[+-]?(?:\d+(?:\.\d*)?|\.\d+)%?/
+      RGB_PAINT = /\Argb\(\s*#{RGB_COMPONENT}\s*,
+                   \s*#{RGB_COMPONENT}\s*,\s*#{RGB_COMPONENT}\s*\)\z/ix
+      private_constant :PAINT_KEYWORDS, :HEX_PAINT, :RGB_COMPONENT, :RGB_PAINT
+
+      # Invalid CSS declarations leave the earlier paint in force. Keep the
+      # supported opaque color forms separate from permissive parser tails.
+      def self.paint_value(value)
+        paint = value.to_s.strip
+        return paint if PAINT_KEYWORDS.include?(paint.downcase)
+        return paint if HEX_PAINT.match?(paint) || RGB_PAINT.match?(paint)
+
+        nil
+      end
+
+      # Initialize with default shape
+      def initialize(*args)
+        super
+        self.shape ||= "rect"
+      end
+
+      # Validates the node has required attributes.
+      #
+      # @return [Boolean] true if node is valid
+      def valid?
+        !id.nil? && !id.empty? && !label.nil?
+      end
+    end
+
+    # Represents a flowchart edge (connection between nodes).
+    #
+    # An edge connects a source node to a target node, with optional
+    # label text and arrow styling.
+    class FlowchartEdge < Lutaml::Model::Serializable
+      # Source node identifier
+      attribute :source_id, :string
+
+      # Target node identifier
+      attribute :target_id, :string
+
+      # Optional edge label
+      attribute :label, :string
+
+      # Arrow type: the head part, optionally prefixed by the line's
+      # weight. The head part is `line` for none, or `arrow`, `cross` or
+      # `circle`; a `_both` suffix marks the head as drawn at both ends.
+      # Weights are `thick_` and `dotted_`. `invisible` carries neither.
+      attribute :arrow_type, :string
+
+      # Minimum number of layout ranks crossed by an explicitly long link.
+      # nil is the ordinary one-rank Mermaid default.
+      attribute :minimum_rank_span, :integer
+
+      # Initialize with default arrow type
+      def initialize(*args)
+        super
+        self.arrow_type ||= "arrow"
+      end
+
+      # Validates the edge has required attributes.
+      #
+      # @return [Boolean] true if edge is valid
+      def valid?
+        !source_id.nil? && !source_id.empty? &&
+          !target_id.nil? && !target_id.empty?
+      end
+    end
+
+    # A subgraph groups nodes under a titled box. mermaid draws it as a
+    # cluster painted behind the edges and nodes it contains.
+    #
+    # Nodes and edges stay in the diagram's own flat collections — a
+    # subgraph names its members rather than owning them, so an edge
+    # crossing a boundary needs no special case.
+    class FlowchartSubgraph < Lutaml::Model::Serializable
+      # Identifier, as written or generated by mermaid
+      attribute :id, :string
+
+      # The label mermaid draws, resolved by the transform because the
+      # rule depends on how the title was written. Often absent: read
+      # `title`, which falls back to the id, so `subgraph s` reads "s".
+      attribute :declared_title, :string
+
+      # Enclosing subgraph's id, nil at the top level
+      attribute :parent_id, :string
+
+      # Ids of the nodes declared directly inside this subgraph
+      attribute :node_ids, :string, collection: true, default: -> { [] }
+
+      # Ids of the subgraphs declared directly inside this subgraph
+      attribute :child_ids, :string, collection: true, default: -> { [] }
+
+      # `direction` written inside the box, which turns its contents
+      # independently of the diagram's own direction. nil when unwritten.
+      #
+      # Read by nothing yet, so it changes nothing on the page. The
+      # fallback grid ignores layout options entirely, and the diagram's
+      # OWN `direction` is dropped the same way: `flowchart LR` puts its
+      # nodes exactly where `flowchart TD` does. Both start working
+      # together when the real layout engine lands. Keeping the value
+      # here means the source is not thrown away in the meantime.
+      attribute :direction, :string
+
+      # A method rather than a constructor default: the id is usually
+      # assigned after construction, so a fallback baked into initialize
+      # would have already seen nil and stuck with it.
+      #
+      # @return [String] the label to draw on the cluster
+      def title
+        declared_title.nil? || declared_title.empty? ? id : declared_title
+      end
+
+      # mermaid draws no cluster for a subgraph holding nothing, even
+      # though it accepts the source.
+      #
+      # @return [Boolean] true when there is a box worth drawing
+      def drawable?
+        !node_ids.empty? || !child_ids.empty?
+      end
+
+      # Validates the subgraph names itself.
+      #
+      # Everything downstream keys off the id: the layout hangs children
+      # on it, the renderer writes it into the cluster's group id, and an
+      # edge end that names a box finds it by id. A box with no id draws
+      # a cluster nobody can reach, so it is refused here instead.
+      #
+      # @return [Boolean] true if the subgraph is valid
+      def valid?
+        !id.nil? && !id.empty?
+      end
+    end
+
+    # Flowchart diagram model.
+    #
+    # Represents a complete flowchart with nodes and edges. Flowcharts
+    # support various node shapes and edge types to create flow diagrams,
+    # decision trees, and process flows.
+    #
+    # @example Creating a simple flowchart
+    #   flowchart = Flowchart.new(direction: 'TD')
+    #   flowchart.nodes << FlowchartNode.new(
+    #     id: 'A',
+    #     label: 'Start',
+    #     shape: 'stadium'
+    #   )
+    #   flowchart.nodes << FlowchartNode.new(
+    #     id: 'B',
+    #     label: 'Process',
+    #     shape: 'rect'
+    #   )
+    #   flowchart.edges << FlowchartEdge.new(
+    #     source_id: 'A',
+    #     target_id: 'B',
+    #     arrow_type: 'arrow'
+    #   )
+    class Flowchart < Base
+      # Collection of nodes in the flowchart
+      attribute :nodes, FlowchartNode, collection: true, default: -> { [] }
+
+      # Collection of edges connecting nodes
+      attribute :edges, FlowchartEdge, collection: true, default: -> { [] }
+
+      # Subgraphs, flat and in declaration order. Nesting is expressed by
+      # `parent_id` rather than by containment, so a lookup never has to
+      # walk a tree.
+      attribute :subgraphs, FlowchartSubgraph, collection: true,
+                                               default: -> { [] }
+
+      # Returns the diagram type identifier.
+      #
+      # @return [Symbol] :flowchart
+      def diagram_type
+        :flowchart
+      end
+
+      # Validates the flowchart structure.
+      #
+      # A flowchart is valid if:
+      # - `nodes` is set (mermaid draws a source with none at all, but an
+      #   explicit `nil` here is a caller bug, not a real diagram)
+      # - No box is its own ancestor
+      # - A flowchart with no nodes is valid only if it also declares no
+      #   subgraph: mermaid draws a bare `graph TD` as an empty canvas, but
+      #   draws a declared-and-empty subgraph (`subgraph s\nend`) as a
+      #   fallback node this model has no way to represent, so that shape
+      #   is refused instead of silently dropped
+      # - All nodes are valid
+      # - All edges are valid
+      # - All subgraphs are valid
+      # - Every member a box names is in the diagram
+      # - `parent_id` and `child_ids` tell the same story
+      # - Every edge end names a node, or a subgraph that gets drawn
+      #
+      # @return [Boolean] true if flowchart is valid
+      def valid?
+        return false if nodes.nil?
+
+        boxes = subgraphs || []
+        structure_valid?(boxes) && references_resolve?(boxes)
+      end
+
+      # Finds a node by its identifier.
+      #
+      # @param id [String] the node identifier to find
+      # @return [FlowchartNode, nil] the node or nil if not found
+      def find_node(id)
+        nodes.find { |n| n.id == id }
+      end
+
+      # Finds all edges originating from a specific node.
+      #
+      # @param node_id [String] the source node identifier
+      # @return [Array<FlowchartEdge>] edges from the node
+      def edges_from(node_id)
+        edges.select { |e| e.source_id == node_id }
+      end
+
+      # Finds all edges targeting a specific node.
+      #
+      # @param node_id [String] the target node identifier
+      # @return [Array<FlowchartEdge>] edges to the node
+      def edges_to(node_id)
+        edges.select { |e| e.target_id == node_id }
+      end
+
+      private
+
+      def structure_valid?(boxes)
+        !parent_cycle?(boxes) && collections_valid?(boxes) &&
+          containment_valid?(boxes)
+      end
+
+      def collections_valid?(boxes)
+        nodes.all?(&:valid?) && valid_collection?(edges) &&
+          boxes.all?(&:valid?)
+      end
+
+      def containment_valid?(boxes)
+        members_named?(boxes, nodes) && nesting_agrees?(boxes)
+      end
+
+      def valid_collection?(items)
+        items.nil? || items.all?(&:valid?)
+      end
+
+      # An edge may name a subgraph rather than a node: mermaid joins
+      # the cluster boxes and draws no node for either end. Only a box
+      # that gets drawn is carried into the layout and can be reached.
+      def references_resolve?(boxes)
+        drawn_box_ids = drawable_box_ids(boxes)
+        return false if only_undrawable_boxes?(boxes, drawn_box_ids)
+
+        edge_references_resolve?(nodes.map(&:id) + drawn_box_ids)
+      end
+
+      def drawable_box_ids(boxes)
+        boxes.filter_map { |box| box.id if box.drawable? }
+      end
+
+      def only_undrawable_boxes?(boxes, drawn_box_ids)
+        boxes.any? && nodes.empty? && drawn_box_ids.empty?
+      end
+
+      def edge_references_resolve?(known)
+        edges.nil? || edges.all? do |edge|
+          known.include?(edge.source_id) && known.include?(edge.target_id)
+        end
+      end
+
+      # A box names its members rather than owning them, so a name that
+      # matches nothing leaves the box holding an empty seat: the box
+      # counts as drawable, the layout sizes it around no contents, and
+      # the picture shows a cluster with nothing in it.
+      #
+      # A member may name a node or another box. An empty subgraph stays
+      # a plain node in mermaid, so both spellings come out of a parse.
+      #
+      # @param boxes [Array<FlowchartSubgraph>] the diagram's subgraphs
+      # @param drawn_nodes [Array<FlowchartNode>] the diagram's nodes
+      # @return [Boolean] true when every named member is present
+      def members_named?(boxes, drawn_nodes)
+        # A hash rather than an array scan: one box can hold thousands of
+        # members, and asking an array for each of them is quadratic.
+        known = {}
+        drawn_nodes.each { |node| known[node.id] = true }
+        boxes.each { |box| known[box.id] = true }
+
+        boxes.all? do |box|
+          box.node_ids.all? { |member_id| known.key?(member_id) }
+        end
+      end
+
+      # `parent_id` and `child_ids` say the same thing from two ends, and
+      # the drawing believes both. The transform hangs a box off its
+      # `parent_id`, while `drawable?` counts `child_ids` — so a box
+      # listed as a child but pointing nowhere is drawn twice, and one
+      # pointing at a parent that does not list it stops the parent from
+      # being drawn at all. Nothing keeps the two in step on a model
+      # somebody builds by hand, so a model that argues with itself is
+      # refused here rather than drawn wrong.
+      #
+      # A parent nobody declared is not a disagreement: the transform
+      # puts such a box at the top level on purpose.
+      #
+      # Ids are looked up as groups, not one apiece, because a source may
+      # declare the same box twice. Only the first object carries the
+      # nesting; the second is an empty repeat of the same name.
+      #
+      # @param boxes [Array<FlowchartSubgraph>] the diagram's subgraphs
+      # @return [Boolean] true when both directions agree
+      def nesting_agrees?(boxes)
+        holders = boxes.group_by(&:id)
+
+        boxes.all? do |box|
+          named_by_parent?(holders, box) && children_name_back?(holders, box)
+        end
+      end
+
+      def named_by_parent?(holders, box)
+        parents = holders[box.parent_id]
+
+        parents.nil? ||
+          parents.any? { |parent| parent.child_ids.include?(box.id) }
+      end
+
+      def children_name_back?(holders, box)
+        box.child_ids.all? do |child_id|
+          holders.fetch(child_id, []).any? { |child| child.parent_id == box.id }
+        end
+      end
+
+      # A box cannot be its own ancestor. The layout hangs each box off
+      # its parent, so a ring of them hangs off itself: not one of the
+      # boxes in the ring is ever placed, while their nodes still count
+      # as spoken for and so are left out of the loose pile too. Two
+      # boxes parented to each other lose everything they hold, and so
+      # does a box naming itself. Boxes outside the ring still draw,
+      # which is why the model has to refuse this rather than let a
+      # half-empty picture through.
+      #
+      # The parser cannot build one, so this only ever fires on a model
+      # somebody assembled by hand. Every parent edge the transform can
+      # set — a reference it claimed, or a nested declaration — is also
+      # an edge in the containment graph it walks BEFORE any of this,
+      # so the parent graph is a subset of one already proven acyclic.
+      #
+      # Every box contributes its parent, rather than the last one for a
+      # given id winning, because a duplicated id means the layout can
+      # follow either edge and a loop through either one is real.
+      #
+      # @param boxes [Array<FlowchartSubgraph>] the subgraphs to test
+      # @return [Boolean] true when some box is its own ancestor
+      def parent_cycle?(boxes)
+        graph = boxes.each_with_object({}) do |box, acc|
+          next if box.parent_id.nil?
+
+          acc[box.id] = acc.fetch(box.id, []) | [box.parent_id]
+        end
+
+        !Containment.looping_pair(graph).nil?
+      end
+    end
+  end
+end

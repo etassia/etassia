@@ -96,15 +96,15 @@ RSpec.describe SpecSupport::LayoutParity::SvgFigureExtractor do
       expect(parents_of(figure)).to eq(nested_subgraph_parents)
     end
 
-    it "gives a Sirena render the same parents" do
-      svg = Sirena.render(nested_subgraphs_source)
+    it "gives a Etassia render the same parents" do
+      svg = Etassia.render(nested_subgraphs_source)
 
       expect(parents_of(extract(svg, flowchart)))
         .to eq(nested_subgraph_parents)
     end
   end
 
-  describe "one code path for reference and Sirena" do
+  describe "one code path for reference and Etassia" do
     it "gives a flowchart the same (kind, parent, key) set on both sides" do
       keys = flowchart_sides("configuration_spec-67574f4a").map do |svg|
         extract(svg, flowchart).keys.sort_by(&:last)
@@ -115,10 +115,10 @@ RSpec.describe SpecSupport::LayoutParity::SvgFigureExtractor do
     end
 
     it "gives sequence participants the same keys on both sides" do
-      reference, sirena = sequence_sides
-      sirena_keys = extract(sirena, sequence).keys.sort_by(&:last)
+      reference, etassia = sequence_sides
+      etassia_keys = extract(etassia, sequence).keys.sort_by(&:last)
 
-      expect([participant_tops(reference, sequence), sirena_keys])
+      expect([participant_tops(reference, sequence), etassia_keys])
         .to eq([expected_tops, expected_tops])
     end
 

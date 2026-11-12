@@ -3,12 +3,12 @@
 require "benchmark"
 require "fileutils"
 require "json"
-require "sirena"
+require "etassia"
 
 namespace :benchmark do
-  desc "Run performance benchmark comparing Sirena vs Mermaid.js CLI"
+  desc "Run performance benchmark comparing Etassia vs Mermaid.js CLI"
   task :compare do
-    puts "Sirena Performance Benchmark"
+    puts "Etassia Performance Benchmark"
     puts "=" * 80
     puts
 
@@ -24,7 +24,7 @@ namespace :benchmark do
 
   desc "Quick benchmark with sample diagrams"
   task :quick do
-    puts "Sirena Quick Benchmark"
+    puts "Etassia Quick Benchmark"
     puts "=" * 80
     puts
 
@@ -109,8 +109,8 @@ class PerformanceBenchmarker
     unless mermaid_cli_available?
       puts "⚠️  mermaid-cli not found. Install with:"
       puts "   npm install -g @mermaid-js/mermaid-cli"
-      puts "\nRunning Sirena-only benchmark...\n"
-      return benchmark_sirena_only
+      puts "\nRunning Etassia-only benchmark...\n"
+      return benchmark_etassia_only
     end
 
     {
@@ -140,7 +140,7 @@ class PerformanceBenchmarker
     puts "\nSingle Diagram Rendering:"
     results.each do |type, data|
       puts "  #{type}:"
-      puts "    Sirena:     #{format_time(data[:sirena_time])}"
+      puts "    Etassia:     #{format_time(data[:etassia_time])}"
       next unless data[:mermaid_time]
 
       puts "    Mermaid.js: #{format_time(data[:mermaid_time])}"
@@ -149,16 +149,16 @@ class PerformanceBenchmarker
   end
 
   def single_speedup(data)
-    speedup_label(data[:mermaid_time] / data[:sirena_time])
+    speedup_label(data[:mermaid_time] / data[:etassia_time])
   end
 
   def print_startup_summary(results)
     puts "\nStartup Time:"
-    puts "  Sirena:     #{format_time(results[:sirena])}"
+    puts "  Etassia:     #{format_time(results[:etassia])}"
     return unless results[:mermaid]
 
     puts "  Mermaid.js: #{format_time(results[:mermaid])}"
-    puts "  Speedup:    #{speedup_label(results[:mermaid] / results[:sirena])}"
+    puts "  Speedup:    #{speedup_label(results[:mermaid] / results[:etassia])}"
   end
 
   private
@@ -167,7 +167,7 @@ class PerformanceBenchmarker
     unless mermaid_cli_available?
       puts "⚠️  WARNING: mermaid-cli not found"
       puts "Install with: npm install -g @mermaid-js/mermaid-cli"
-      puts "Benchmark will only measure Sirena performance.\n\n"
+      puts "Benchmark will only measure Etassia performance.\n\n"
     end
   end
 
@@ -188,7 +188,7 @@ class PerformanceBenchmarker
     {
       ruby_version: RUBY_VERSION,
       platform: RUBY_PLATFORM,
-      sirena_version: Sirena::VERSION,
+      etassia_version: Etassia::VERSION,
       mermaid_cli_version: mermaid_cli_version,
       cpu_info: cpu_info,
       timestamp: Time.now.iso8601,
@@ -209,9 +209,9 @@ class PerformanceBenchmarker
   end
 
   def benchmark_single(source, type)
-    sirena_time = Benchmark.realtime { 10.times { Sirena.render(source) } }
+    etassia_time = Benchmark.realtime { 10.times { Etassia.render(source) } }
     {
-      sirena_time: sirena_time / 10,
+      etassia_time: etassia_time / 10,
       mermaid_time: benchmark_single_with_mermaid(source, type),
     }
   end
@@ -242,9 +242,9 @@ class PerformanceBenchmarker
     return {} unless mermaid_cli_available?
 
     files = prepare_batch
-    sirena_time = benchmark_sirena_batch(files)
+    etassia_time = benchmark_etassia_batch(files)
     mermaid_time, succeeded = benchmark_mermaid_batch(files)
-    result = batch_result(sirena_time)
+    result = batch_result(etassia_time)
     return result unless succeeded
 
     result.merge(
@@ -266,9 +266,9 @@ class PerformanceBenchmarker
     File.write(File.join(batch_dir, "diagram_#{index}.mmd"), source)
   end
 
-  def benchmark_sirena_batch(files)
-    puts "Benchmarking Sirena batch..."
-    Benchmark.realtime { files.each { |file| Sirena.render(File.read(file)) } }
+  def benchmark_etassia_batch(files)
+    puts "Benchmarking Etassia batch..."
+    Benchmark.realtime { files.each { |file| Etassia.render(File.read(file)) } }
   end
 
   def benchmark_mermaid_batch(files)
@@ -283,11 +283,11 @@ class PerformanceBenchmarker
     [time, succeeded]
   end
 
-  def batch_result(sirena_time)
+  def batch_result(etassia_time)
     {
       diagram_count: 50,
-      sirena_total: sirena_time,
-      sirena_per_diagram: sirena_time / 50,
+      etassia_total: etassia_time,
+      etassia_per_diagram: etassia_time / 50,
     }
   end
 
@@ -304,22 +304,22 @@ class PerformanceBenchmarker
   end
 
   def benchmark_startup_time
-    sirena_startup = benchmark_sirena_startup
+    etassia_startup = benchmark_etassia_startup
     mermaid_startup = benchmark_mermaid_startup
     {
-      sirena: sirena_startup / 10,
+      etassia: etassia_startup / 10,
       mermaid: mermaid_startup ? mermaid_startup / 10 : nil,
     }
   end
 
-  def benchmark_sirena_startup
-    command = "ruby -r sirena " \
-              "-e 'Sirena.render(\"graph TD\\nA-->B\")' 2>/dev/null"
+  def benchmark_etassia_startup
+    command = "ruby -r etassia " \
+              "-e 'Etassia.render(\"graph TD\\nA-->B\")' 2>/dev/null"
     time, succeeded = benchmark_command(10, command)
     return time if succeeded
 
-    raise "Sirena subprocess startup benchmark failed -- a fresh " \
-          "`ruby -r sirena` process could not render; this is not the " \
+    raise "Etassia subprocess startup benchmark failed -- a fresh " \
+          "`ruby -r etassia` process could not render; this is not the " \
           "external mmdc tool, so fix the gem load rather than trusting " \
           "any number from this run"
   end
@@ -334,13 +334,13 @@ class PerformanceBenchmarker
     time if succeeded
   end
 
-  def benchmark_sirena_only
+  def benchmark_etassia_only
     {
       single: SAMPLE_DIAGRAMS.to_h do |type, source|
         time = Benchmark.realtime do
-          10.times { Sirena.render(source) }
+          10.times { Etassia.render(source) }
         end
-        [type, { sirena_time: time / 10, mermaid_time: nil }]
+        [type, { etassia_time: time / 10, mermaid_time: nil }]
       end,
     }
   end
@@ -354,13 +354,13 @@ class PerformanceBenchmarker
 
   def report_header(system)
     <<~ADOC
-      = Sirena Performance Benchmark Report
+      = Etassia Performance Benchmark Report
       :toc:
       :toclevels: 2
 
       == Overview
 
-      This document presents comprehensive performance benchmarks comparing Sirena
+      This document presents comprehensive performance benchmarks comparing Etassia
       (Ruby-native Mermaid renderer) with the official Mermaid.js CLI (mmdc).
 
       == System Information
@@ -371,7 +371,7 @@ class PerformanceBenchmarker
 
       * Ruby Version: #{system[:ruby_version]}
       * Platform: #{system[:platform]}
-      * Sirena Version: #{system[:sirena_version]}
+      * Etassia Version: #{system[:etassia_version]}
       * Mermaid CLI Version: #{system[:mermaid_cli_version]}
       * CPU: #{system[:cpu_info]}
 
@@ -403,7 +403,7 @@ class PerformanceBenchmarker
 
       [cols="2,2,2,2"]
       |===
-      |Diagram Type |Sirena |Mermaid.js |Speedup
+      |Diagram Type |Etassia |Mermaid.js |Speedup
 
       #{single_rows}
       |===
@@ -433,8 +433,8 @@ class PerformanceBenchmarker
       |===
       |Tool |Average Startup Time
 
-      |Sirena
-      |#{format_time(startup[:sirena])}
+      |Etassia
+      |#{format_time(startup[:etassia])}
 
       |Mermaid.js
       |#{format_time(startup[:mermaid])}
@@ -518,7 +518,7 @@ class PerformanceBenchmarker
 
       ---
 
-      _Benchmark generated by Sirena Performance Suite_
+      _Benchmark generated by Etassia Performance Suite_
     ADOC
   end
 
@@ -527,7 +527,7 @@ class PerformanceBenchmarker
       mermaid = format_time(data[:mermaid_time])
       speedup = data[:mermaid_time] ? single_speedup(data) : "N/A"
       "\n#{REPORT_CELL_INDENT}|#{type}\n" \
-        "#{REPORT_CELL_INDENT}|#{format_time(data[:sirena_time])}\n" \
+        "#{REPORT_CELL_INDENT}|#{format_time(data[:etassia_time])}\n" \
         "#{REPORT_CELL_INDENT}|#{mermaid}\n" \
         "#{REPORT_CELL_INDENT}|#{speedup}"
     end.join("\n")
@@ -543,18 +543,18 @@ class PerformanceBenchmarker
 
       [cols="2,2,2"]
       |===
-      |Metric |Sirena |Mermaid.js
+      |Metric |Etassia |Mermaid.js
 
       |Total Time
-      |#{format_time(batch[:sirena_total])}
+      |#{format_time(batch[:etassia_total])}
       |#{format_time(batch[:mermaid_total])}
 
       |Per Diagram
-      |#{format_time(batch[:sirena_per_diagram])}
+      |#{format_time(batch[:etassia_per_diagram])}
       |#{format_time(batch[:mermaid_per_diagram])}
 
       |Throughput
-      |#{batch_throughput(batch, :sirena_total)}
+      |#{batch_throughput(batch, :etassia_total)}
       |#{batch_throughput(batch, :mermaid_total)}
       |===
 
@@ -575,14 +575,14 @@ class PerformanceBenchmarker
              "(mermaid-cli failed during this run)"
     end
 
-    speedup = batch[:mermaid_total] / batch[:sirena_total]
+    speedup = batch[:mermaid_total] / batch[:etassia_total]
     "*Batch speedup:* #{speedup_label(speedup)}"
   end
 
   def startup_speedup_report(startup)
     return unless startup[:mermaid]
 
-    speedup = startup[:mermaid] / startup[:sirena]
+    speedup = startup[:mermaid] / startup[:etassia]
     "*Startup speedup:* #{speedup_label(speedup)}"
   end
 
@@ -605,9 +605,9 @@ class PerformanceBenchmarker
   end
 
   def batch_finding(batch)
-    return unless batch && batch[:sirena_total] && batch[:mermaid_total]
+    return unless batch && batch[:etassia_total] && batch[:mermaid_total]
 
-    speedup = batch[:mermaid_total] / batch[:sirena_total]
+    speedup = batch[:mermaid_total] / batch[:etassia_total]
     ". *Batch Processing:* #{speedup_label(speedup)} for rendering " \
       "#{batch[:diagram_count]} diagrams"
   end
@@ -615,14 +615,14 @@ class PerformanceBenchmarker
   def startup_finding(startup)
     return unless startup[:mermaid]
 
-    speedup = startup[:mermaid] / startup[:sirena]
+    speedup = startup[:mermaid] / startup[:etassia]
     ". *Startup Time (cold start):* #{speedup_label(speedup)}"
   end
 
   def conclusion_startup_report(startup)
     return unless startup[:mermaid]
 
-    speedup = startup[:mermaid] / startup[:sirena]
+    speedup = startup[:mermaid] / startup[:etassia]
     explanation = startup_explanation(speedup)
     "* **Cold start: #{speedup_label(speedup)}** than launching mmdc " \
       "#{explanation}"
@@ -630,17 +630,17 @@ class PerformanceBenchmarker
 
   def startup_explanation(speedup)
     if speedup >= 1
-      return "(Sirena pays Ruby interpreter + gem load per process, " \
+      return "(Etassia pays Ruby interpreter + gem load per process, " \
              "but still starts faster here)"
     end
 
-    "(Sirena pays Ruby interpreter + gem load per process; " \
+    "(Etassia pays Ruby interpreter + gem load per process; " \
       "mmdc's Node process starts faster here)"
   end
 
   def calculate_average_speedup(single_results)
     speedups = single_results.values.filter_map do |data|
-      data[:mermaid_time] / data[:sirena_time] if data[:mermaid_time]
+      data[:mermaid_time] / data[:etassia_time] if data[:mermaid_time]
     end
 
     return "N/A" if speedups.empty?
@@ -660,7 +660,7 @@ class PerformanceBenchmarker
     end
   end
 
-  # A ratio below 1 means Sirena was slower, not faster by a fraction — say
+  # A ratio below 1 means Etassia was slower, not faster by a fraction — say
   # so plainly instead of printing e.g. "0.4x faster" (TODO.foundation/11:
   # measured numbers, not laundered claims).
   def speedup_label(ratio)

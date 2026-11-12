@@ -2,12 +2,12 @@
 
 require "json"
 require "tempfile"
-require "sirena"
+require "etassia"
 
 Dir[File.expand_path("../../spec/support/layout_parity/*.rb", __dir__)]
   .each { |path| require path }
 
-module Sirena
+module Etassia
   # Generates and checks the live per-case layout parity scoreboard.
   module LayoutParityScoreboard
     class DriftError < StandardError; end

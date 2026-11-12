@@ -37,7 +37,7 @@ module SurfaceManifest
     require "digest"
     require "timeout"
     require "date"
-    require "sirena"
+    require "etassia"
     today = Date.parse(ARGV.fetch(0))
     limit = Integer(ARGV.fetch(1))
     rows = JSON.parse($stdin.read).to_h do |kase|
@@ -47,7 +47,7 @@ module SurfaceManifest
       row =
         begin
           source = File.binread(kase.fetch("source_path"))
-          svg = Timeout.timeout(limit) { Sirena.render(source, options) }
+          svg = Timeout.timeout(limit) { Etassia.render(source, options) }
           { "svg_sha256" => Digest::SHA256.hexdigest(svg.to_s) }
         rescue Timeout::Error
           { "error_class" => "Timeout::Error", "error_message" => "timeout" }
@@ -193,7 +193,7 @@ module SurfaceManifest
   end
 
   def cli_result(root, kase, launcher: LAUNCHER, timeout: CASE_TIMEOUT)
-    argv = launcher + ["ruby", "exe/sirena", "render",
+    argv = launcher + ["ruby", "exe/etassia", "render",
                        kase.fetch("source_path"), *kase.fetch("cli_args", [])]
     result = run_process(argv, chdir: root, timeout: timeout)
     {

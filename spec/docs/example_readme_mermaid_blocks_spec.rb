@@ -64,7 +64,7 @@ RSpec.describe ExampleReadmeMermaidBlocks do
     it "renders #{described_class.label(block)} as SVG" do
       source = described_class.source(block)
 
-      expect(Sirena.render(source)).to match(/\A\s*<svg\b.*<\/svg>\s*\z/m)
+      expect(Etassia.render(source)).to match(/\A\s*<svg\b.*<\/svg>\s*\z/m)
     end
   end
 end

@@ -1,0 +1,91 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+require "etassia/notation/plantuml"
+
+RSpec.describe Etassia::Notation::PlantUML::Sequence::Layout do
+  include_context "with an isolated notation registry"
+  include DejaVuText
+
+  before do
+    Etassia::Notation.send(:entries).delete(:plantuml)
+    Etassia::Notation.register(Etassia::Notation::PlantUML)
+  end
+
+  def scene_of(*body)
+    parsed = Etassia::Notation::PlantUML::Sequence.parse(
+      "@startuml\n#{body.join("\n")}\n@enduml\n",
+    )
+    parsed.transform.new.call(parsed.diagram)
+  end
+
+  def arrow_ys(scene)
+    scene.arrows.map { |arrow| arrow.path[/M \S+ (\S+)/, 1].to_f }
+  end
+
+  def plain_head_widths
+    scene_of("participant A", "participant B", "A -> B")
+      .heads.first(2).map(&:width)
+  end
+
+  def divider_cadence_scene
+    scene_of('participant "App" as App', 'actor "OEM" as OEM',
+             "== Process A ==", "App -> OEM: Inform OEM", "activate OEM",
+             "deactivate OEM", "== Process B ==",
+             "App -> OEM: Inform OEM again", "activate OEM", "deactivate OEM")
+  end
+
+  it "sizes classic heads to the PlantUML label advance plus fourteen" do
+    expect(plain_head_widths).to contain_exactly(
+      be_within(1e-9).of(dejavu("A", size: 14) + 14.0),
+      be_within(1e-9).of(dejavu("B", size: 14) + 14.0),
+    )
+  end
+
+  it "leaves PlantUML's ten-pixel floor between unforced classic heads" do
+    heads = scene_of("participant A", "participant B", "A -> B")
+      .heads.first(2)
+
+    expect(heads.last.x - (heads.first.x + heads.first.width)).to eq(10.0)
+  end
+
+  it "uses PlantUML's classic first-row and message cadence" do
+    scene = scene_of("participant A", "participant B",
+                     "A -> B: hello", "B -> A: back")
+
+    expect(arrow_ys(scene)).to eq([82.7988, 112.1093])
+  end
+
+  it "uses PlantUML's classic fragment-header cadence" do
+    scene = scene_of("participant A", "participant B", "group Setup",
+                     "A -> B: hello", "end", "B -> A: back")
+
+    expect(arrow_ys(scene)).to eq([107.1093, 143.4198])
+  end
+
+  it "keeps divider and deactivation clearance on PlantUML's cadence" do
+    expect(arrow_ys(divider_cadence_scene)).to eq([171.1093, 273.7303])
+  end
+
+  it "ends a classic message before the activation bar" do
+    scene = scene_of('participant "App" as App', 'actor "OEM" as OEM',
+                     "App -> OEM: Inform OEM", "activate OEM")
+    endpoint = scene.arrows.first.path[/L (\S+) /, 1].to_f
+
+    expect(scene.lifelines.last.x1 - endpoint).to eq(7.0)
+  end
+
+  def hello_gap
+    bob, alice = %w[Bob Alice].map { |name| dejavu(name, size: 14) + 14.0 }
+    dejavu("hello", size: 13) + 24.0 - ((bob + alice) / 2)
+  end
+
+  it "does not separate peers to make room for a one-participant note" do
+    scene = scene_of("Bob -> Alice: hello", "alt link",
+                     "note over Bob: [[https://www.google.com]]", "end")
+    heads = scene.heads.first(2)
+
+    expect(heads.last.x - (heads.first.x + heads.first.width))
+      .to be_within(1e-9).of(hello_gap)
+  end
+end

@@ -3,12 +3,12 @@
 
 require "json"
 
-module Sirena
+module Etassia
   # Guards the repository-owned release workflow against publishing from an
   # unchecked commit or smuggling files into the generated version bump.
   module ReleaseSourceCheck
     REQUIRED_CHECKS = %w[fast-lane full-lane].freeze
-    VERSION_PATH = "lib/sirena/version.rb"
+    VERSION_PATH = "lib/etassia/version.rb"
 
     module_function
 
@@ -153,5 +153,5 @@ module Sirena
 end
 
 if __FILE__ == $PROGRAM_NAME
-  Sirena::ReleaseSourceCheck::CLI.new(ARGV).run
+  Etassia::ReleaseSourceCheck::CLI.new(ARGV).run
 end

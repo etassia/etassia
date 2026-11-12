@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Reports where sirena and mermaid disagree about a hand-written probe source
+# Reports where etassia and mermaid disagree about a hand-written probe source
 # (the corpus only covers constructs mermaid's own tests happen to include).
 #
 # Usage: ruby scripts/mermaid_diff.rb [--only-gaps] scripts/probes/*.txt
@@ -13,13 +13,13 @@
 # Exits nonzero on any disagreement or infrastructure failure. Needs a POSIX
 # system and mmdc on PATH.
 
-# The verdicts are only worth as much as the sirena that produced them, so
+# The verdicts are only worth as much as the etassia that produced them, so
 # the Gemfile decides which one that is rather than whatever is installed.
 require "bundler/setup"
 
 $LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
 
-require "sirena"
+require "etassia"
 require "timeout"
 require "tmpdir"
 require_relative "mmdc_oracle"
@@ -37,30 +37,30 @@ EXPECTED_CLI = "11.12.0"
 LABELS = { gap: "GAP", over_acceptance: "OVER-ACCEPTANCE",
            infrastructure: "MMDC FAILED" }.freeze
 
-Verdict = Struct.new(:source, :sirena, :mermaid) do
+Verdict = Struct.new(:source, :etassia, :mermaid) do
   def agree?
-    sirena == mermaid
+    etassia == mermaid
   end
 
   def kind
     return :infrastructure if mermaid == :error
     return :agree if agree?
 
-    sirena == :accepts ? :over_acceptance : :gap
+    etassia == :accepts ? :over_acceptance : :gap
   end
 end
 
-# Sirena gets the same deadline mmdc has. Only mmdc had one, and a source
-# sirena grinds on stalled every verdict after it: `packet-beta` with a
+# Etassia gets the same deadline mmdc has. Only mmdc had one, and a source
+# etassia grinds on stalled every verdict after it: `packet-beta` with a
 # 2,000,000 column range is accepted by mmdc in 7.2s and was still rendering
-# in sirena 60s in. A source sirena cannot finish inside the deadline is a
+# in etassia 60s in. A source etassia cannot finish inside the deadline is a
 # rejection as far as this harness is concerned — no diagram comes out
 # either way.
 #
 # SystemStackError is not a StandardError, and parslet recurses once per
 # nesting level: 400 nested subgraphs blew the stack and took the run with it.
-def sirena_verdict(source)
-  Timeout.timeout(HardenedMmdc::CASE_TIMEOUT) { Sirena.render(source) }
+def etassia_verdict(source)
+  Timeout.timeout(HardenedMmdc::CASE_TIMEOUT) { Etassia.render(source) }
   :accepts
 rescue StandardError, SystemStackError
   :rejects
@@ -105,7 +105,7 @@ ESCAPED_SEPARATOR = /^\\(\\*%%%%)(?=\r?$)/
 # as text put an ArgumentError from String#split between the harness and every
 # verdict in the file: one probe that is not valid UTF-8 took the whole sweep
 # down before a single case ran. That probe is a gap, not noise — mmdc renders
-# `A[\xFF\xFE]` and sirena rejects it — so the bytes are handed to both tools
+# `A[\xFF\xFE]` and etassia rejects it — so the bytes are handed to both tools
 # exactly as written.
 def probes(paths)
   paths.flat_map do |path|
@@ -195,7 +195,7 @@ if records.empty?
 end
 
 verdicts = records.map do |source|
-  Verdict.new(source, sirena_verdict(source), mermaid_verdict(source))
+  Verdict.new(source, etassia_verdict(source), mermaid_verdict(source))
 end
 
 report(verdicts, only_gaps: only_gaps)

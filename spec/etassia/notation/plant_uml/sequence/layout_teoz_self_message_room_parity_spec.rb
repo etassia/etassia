@@ -1,0 +1,46 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+require "etassia/notation/plantuml"
+
+RSpec.describe Etassia::Notation::PlantUML::Sequence::Layout do
+  subject(:participant_gap) do
+    parsed = Etassia::Notation::PlantUML::Sequence.parse(
+      "@startuml\n!pragma teoz true\n#{body.join("\n")}\n@enduml\n",
+    )
+    heads = parsed.transform.new.call(parsed.diagram).heads
+    centres = heads.to_h { |head| [head.id, head.x + (head.width / 2)] }
+    (centres.fetch("right") - centres.fetch("left")).round(1)
+  end
+
+  include_context "with an isolated notation registry"
+  include DejaVuText
+
+  before do
+    Etassia::Notation.send(:entries).delete(:plantuml)
+    Etassia::Notation.register(Etassia::Notation::PlantUML)
+  end
+
+  context "with short labels" do
+    let(:body) do
+      ['participant "x" as left', 'participant "y" as right',
+       "left -> left: other", "right -> right: next"]
+    end
+
+    it "keeps self-message loops clear" do
+      expect(participant_gap).to eq(53.0)
+    end
+  end
+
+  context "with a long label" do
+    let(:body) do
+      ["left -> left: test which is very very long", "right -> right: next"]
+    end
+
+    it "fits the self-message label at its sans width" do
+      label = dejavu("test which is very very long", size: 13)
+
+      expect(participant_gap).to eq((label + 14.0).round(1))
+    end
+  end
+end

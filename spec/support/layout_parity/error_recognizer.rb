@@ -28,10 +28,10 @@ module SpecSupport
 
       def icon_nodes(extractor, doc)
         reference = nodes_with_class(doc, "error-icon")
-        reference.empty? ? sirena_icon_nodes(extractor, doc) : reference
+        reference.empty? ? etassia_icon_nodes(extractor, doc) : reference
       end
 
-      def sirena_icon_nodes(extractor, doc)
+      def etassia_icon_nodes(extractor, doc)
         circles = doc.xpath("//circle")
         outline = circles.max_by { |circle| extractor.bbox(circle)&.area.to_f }
         return [] unless outline

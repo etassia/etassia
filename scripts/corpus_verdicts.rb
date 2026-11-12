@@ -49,7 +49,7 @@
 #   3. A byte-identical case in another type directory inherits its evidence.
 #      The corpus holds several extraction generations of the same files.
 #   4. Structural damage in the source itself. Detected by shape, never by
-#      whether Sirena can parse it — the point is to judge the input, not us.
+#      whether Etassia can parse it — the point is to judge the input, not us.
 #   5. A committed local-mmdc verdict for this exact source, from --oracle
 #      (scripts/corpus_oracle.rb). Last, because it only ever speaks for cases
 #      nothing above could settle.

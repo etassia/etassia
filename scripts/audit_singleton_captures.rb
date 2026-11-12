@@ -11,12 +11,12 @@ module AuditSingletonCaptures
   ROOT = File.expand_path("..", __dir__)
   DOCUMENT_PATH = "docs/singleton-capture-audit.md"
   SOURCE_PATTERNS = [
-    "lib/sirena/parser/%s.rb",
-    "lib/sirena/parser/grammars/%s.rb",
-    "lib/sirena/parser/builders/%s.rb",
-    "lib/sirena/parser/transforms/%s.rb",
-    "lib/sirena/transform/%s.rb",
-    "lib/sirena/transforms/%s.rb",
+    "lib/etassia/parser/%s.rb",
+    "lib/etassia/parser/grammars/%s.rb",
+    "lib/etassia/parser/builders/%s.rb",
+    "lib/etassia/parser/transforms/%s.rb",
+    "lib/etassia/transform/%s.rb",
+    "lib/etassia/transforms/%s.rb",
   ].freeze
   SUBTRACKS = {
     "07a" => {

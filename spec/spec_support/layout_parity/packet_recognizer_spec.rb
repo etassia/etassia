@@ -27,8 +27,8 @@ RSpec.describe SpecSupport::LayoutParity::PacketRecognizer do
   def real_pair
     name = "packet_spec-d819b9e5"
     reference = reference_svg("packet/#{name}.svg")
-    sirena = Sirena.render(corpus_source("packet/#{name}.mmd"))
-    [recognized(reference), recognized(sirena)]
+    etassia = Etassia.render(corpus_source("packet/#{name}.mmd"))
+    [recognized(reference), recognized(etassia)]
   end
 
   it "uses the nearest contained text instead of bit ranges or the title" do

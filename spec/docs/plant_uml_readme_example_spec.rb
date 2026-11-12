@@ -11,7 +11,7 @@ require_relative "../support/leptris_fallback_notice_spec_support"
 module PlantUmlReadmeExample
   ROOT = File.expand_path("../..", __dir__)
   README = File.join(ROOT, "README.adoc")
-  EXECUTABLE = File.join(ROOT, "exe/sirena")
+  EXECUTABLE = File.join(ROOT, "exe/etassia")
   LIB = File.join(ROOT, "lib")
   SOURCE_BLOCK = /\n----\n(?<source>@startuml\n.*?@enduml)\n----/m
 
@@ -29,12 +29,12 @@ module PlantUmlReadmeExample
   end
 
   def arguments(name)
-    command = /^sirena render .*#{name}\.puml.*$/
+    command = /^etassia render .*#{name}\.puml.*$/
     Shellwords.split(readme.match(command)[0]).drop(1)
   end
 
   def render(name)
-    Dir.mktmpdir("sirena-readme-plantuml") do |dir|
+    Dir.mktmpdir("etassia-readme-plantuml") do |dir|
       File.write(File.join(dir, "#{name}.puml"), source(name))
       stdout, stderr, status = Open3.capture3(
         RbConfig.ruby, "-I", LIB, EXECUTABLE, *arguments(name), chdir: dir

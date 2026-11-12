@@ -57,16 +57,16 @@ RSpec.describe WorkflowPins do
 
     it "selects only Windows cells for shard labels and execution" do
       step = unit.fetch("steps").find { |row| row["run"] == "bundle exec rake" }
-      expect([unit.fetch("name"), step.dig("env", "SIRENA_SPEC_SHARD")])
+      expect([unit.fetch("name"), step.dig("env", "ETASSIA_SPEC_SHARD")])
         .to eq([expected_label, expected_env])
     end
   end
 
   context "with the retained Windows source partition" do
-    let(:shards) { (1..3).map { |index| Sirena::SpecShard.new(index, 3) } }
+    let(:shards) { (1..3).map { |index| Etassia::SpecShard.new(index, 3) } }
     let(:all_files) do
       benchmarks = Dir.glob("spec/benchmarks/**/*_spec.rb")
-      (Dir.glob(Sirena::SpecShard::PATTERN) - benchmarks).uniq.sort
+      (Dir.glob(Etassia::SpecShard::PATTERN) - benchmarks).uniq.sort
     end
 
     it "runs every unit file exactly once across the Windows groups" do

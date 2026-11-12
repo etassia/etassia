@@ -13,7 +13,7 @@
 # a sibling script's stdout for no real benefit. Run it separately:
 #   ruby scripts/sequence_fuzz.rb --seed N --count N
 #
-# Tooling only. Does not ship in the gem, is not required by lib/sirena,
+# Tooling only. Does not ship in the gem, is not required by lib/etassia,
 # and is not exercised by `rake`/`rspec`.
 #
 # Usage:
@@ -42,7 +42,7 @@ require "optparse"
 
 $LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
 
-require "sirena"
+require "etassia"
 require_relative "mermaid_fuzz"
 require_relative "flowchart_fuzz"
 require_relative "class_diagram_fuzz"
@@ -60,7 +60,7 @@ module DiagramFuzzReport
   # combining the two extraction batches that share one registered
   # diagram type (spec/mermaid/class_diagram + spec/mermaid/class_diagram are
   # both `:class_diagram`, and likewise state/state_diagram,
-  # er/er_diagram, git/gitgraph -- see lib/sirena.rb's
+  # er/er_diagram, git/gitgraph -- see lib/etassia.rb's
   # DiagramRegistry.register calls):
   #
   #   class_diagram   465  (class 181 + class_diagram 284)

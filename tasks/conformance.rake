@@ -9,7 +9,7 @@ desc "Validate the spec/mermaid corpus output; " \
      "writes scoreboard/conformance.json"
 task :conformance do
   require_relative "support/conformance"
-  puts Sirena::Conformance.record!
+  puts Etassia::Conformance.record!
 end
 
 namespace :conformance do
@@ -17,8 +17,8 @@ namespace :conformance do
        "scoreboard/conformance.json is stale"
   task :check do
     require_relative "support/conformance"
-    puts Sirena::Conformance.check!
-  rescue Sirena::Conformance::RegressionError => e
+    puts Etassia::Conformance.check!
+  rescue Etassia::Conformance::RegressionError => e
     warn e.message
     abort "conformance:check: FAILED"
   end

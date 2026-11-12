@@ -29,7 +29,7 @@ RSpec.describe SpeedClock do
     let(:helpers) { Dir[File.join(__dir__, "support", "*.rb")] - clock_sources }
 
     it "include the timed benchmark this check is for" do
-      benchmark = "spec/benchmarks/sirena/parser/" \
+      benchmark = "spec/benchmarks/etassia/parser/" \
                   "flowchart_subgraph_benchmark_spec.rb"
       expect(files).to include(a_string_ending_with(benchmark))
     end

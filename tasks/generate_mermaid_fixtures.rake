@@ -48,7 +48,7 @@ module MermaidFixtureTasks
   end
 
   def compare(diagram_type)
-    puts "Comparing Sirena vs Mermaid.js output for: #{diagram_type}"
+    puts "Comparing Etassia vs Mermaid.js output for: #{diagram_type}"
     puts "=" * 60
     puts
     comparator = MermaidOutputComparator.new
@@ -60,7 +60,7 @@ module MermaidFixtureTasks
   end
 
   def validate
-    puts "Validating Sirena parsers against Mermaid test suite"
+    puts "Validating Etassia parsers against Mermaid test suite"
     puts "=" * 60
     puts
     results = MermaidTestValidator.new.validate_all
@@ -106,10 +106,10 @@ namespace :mermaid do
   task(:check_reference_provenance) do
     MermaidFixtureTasks.check_reference_provenance
   end
-  desc "Compare Sirena output with Mermaid.js reference fixtures"
+  desc "Compare Etassia output with Mermaid.js reference fixtures"
   task :compare, [:diagram_type] do |_task, args|
     MermaidFixtureTasks.compare(args[:diagram_type] || "all")
   end
-  desc "Validate all Sirena parsers against Mermaid test suite"
+  desc "Validate all Etassia parsers against Mermaid test suite"
   task(:validate) { MermaidFixtureTasks.validate }
 end

@@ -2,7 +2,7 @@
 
 module NativeTypes
   # Corpus directory => [require path, parser class name]; one row per
-  # Mermaid diagram type sirena parses.
+  # Mermaid diagram type etassia parses.
   TYPES = {
     "architecture" => ["architecture", "Architecture"],
     "block" => ["block", "Block"],

@@ -1,0 +1,147 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+require "rexml/document"
+require "etassia/notation/plantuml"
+
+RSpec.describe Etassia::Notation::PlantUML::ClassHeader do
+  include_context "with an isolated notation registry"
+
+  before do
+    Etassia::Notation.send(:entries).delete(:plantuml)
+    Etassia::Notation.register(Etassia::Notation::PlantUML)
+  end
+
+  let(:body) { "class C1\nabstract class A1\ninterface I1\nenum E1\n" }
+  let(:source) { "@startuml\n#{body}annotation N1\n@enduml\n" }
+  let(:document) do
+    REXML::Document.new(Etassia.render(source, notation: :plantuml))
+  end
+
+  def group(id)
+    REXML::XPath.first(document, "//g[@id='class-#{id}']")
+  end
+
+  def circle(id)
+    REXML::XPath.first(group(id), "circle")
+  end
+
+  def style_of(id)
+    attributes_of(REXML::XPath.first(group(id), "text[1]"), "font-weight",
+                  "font-style")
+  end
+
+  def attributes_of(element, *names)
+    names.map { |name| element.attributes[name] }
+  end
+
+  def name_text(id)
+    REXML::XPath.first(group(id), "text[1]")
+  end
+
+  # PlantUML 1.2026.6 fills a class spot with these colours.
+  {
+    "C1" => "#ADD1B2", "A1" => "#A9DCDF", "I1" => "#B4A7E5",
+    "E1" => "#EB937F", "N1" => "#E3664A"
+  }.each do |name, fill|
+    it "draws #{name} with a #{fill} spot of radius 11 and a black letter" do
+      letter = REXML::XPath.first(group(name), "path")
+
+      expect([attributes_of(circle(name), "fill", "r"),
+              letter.attributes["fill"]])
+        .to eq([[fill, "11.0"], "#000000"])
+    end
+  end
+
+  it "sets the name to the right of its spot, 14 pixels from its centre" do
+    spot_x = circle("C1").attributes["cx"].to_f
+    name = name_text("C1").attributes
+
+    expect([name["text-anchor"], name["x"].to_f - spot_x])
+      .to match(["start", be_within(0.01).of(14.0)])
+  end
+
+  it "centres the spot at 5.291 above the name's baseline" do
+    baseline = name_text("C1").attributes["y"].to_f
+
+    expect(circle("C1").attributes["cy"].to_f)
+      .to be_within(0.01).of(baseline - 5.291)
+  end
+
+  it "draws names plain, italic only for abstract classes and interfaces" do
+    expect(%w[C1 A1 I1 E1 N1].to_h { |name| [name, style_of(name)] }).to eq(
+      "C1" => [nil, nil], "A1" => [nil, "italic"], "I1" => [nil, "italic"],
+      "E1" => [nil, nil], "N1" => [nil, nil]
+    )
+  end
+
+  it "leaves a class without a spot under `hide circle`" do
+    hidden = REXML::Document.new(
+      Etassia.render("@startuml\nhide circle\nclass C1\n@enduml\n",
+                     notation: :plantuml),
+    )
+
+    expect(REXML::XPath.match(hidden, "//circle")).to be_empty
+  end
+
+  it "rules the two empty compartments of a member-less class" do
+    rules = REXML::XPath.match(group("C1"), "line")
+    top = REXML::XPath.first(group("C1"), "rect").attributes["y"].to_f
+
+    expect(rules.map { |line| line.attributes["y1"].to_f - top })
+      .to eq([32.0, 40.0])
+  end
+
+  context "with only plain classes" do
+    let(:source) { "@startuml\nclass C1\nclass C2\n@enduml\n" }
+
+    it "keeps the 48-high box and both compartment rules of an empty class" do
+      box = REXML::XPath.first(group("C1"), "rect").attributes
+
+      expect([box["height"].to_f, REXML::XPath.match(group("C1"), "line").size])
+        .to eq([48.0, 2])
+    end
+  end
+
+  it "leaves an empty class no compartments under `hide empty members`" do
+    hidden = REXML::Document.new(
+      Etassia.render("@startuml\nhide empty members\nclass C1\nclass C2\n" \
+                     "@enduml\n", notation: :plantuml),
+    )
+
+    expect(REXML::XPath.match(hidden, "//line")).to be_empty
+  end
+
+  it "draws compartment rules a hairline thick and inset by one pixel" do
+    box = REXML::XPath.first(group("C1"), "rect").attributes
+    rule = REXML::XPath.first(group("C1"), "line").attributes
+
+    expect([rule["stroke-width"], rule["x1"].to_f - box["x"].to_f,
+            box["x"].to_f + box["width"].to_f - rule["x2"].to_f])
+      .to eq(["0.5", 1.0, 1.0])
+  end
+
+  it "draws members in the sans-serif face the reference uses" do
+    svg = Etassia.render("@startuml\nclass D {\n  String data\n}\n@enduml\n",
+                         notation: :plantuml)
+
+    expect(svg).not_to include("monospace")
+  end
+
+  describe "the kind row" do
+    let(:related) { "interface List\nclass ArrayList\nList <|-- ArrayList\n" }
+
+    def texts_of(src)
+      svg = Etassia.render("@startuml\n#{src}@enduml\n", notation: :plantuml)
+      REXML::XPath.match(REXML::Document.new(svg), "//text").map(&:text)
+    end
+
+    it "is left out of a related interface, whose spot names its kind" do
+      expect(texts_of(related)).not_to include("<<interface>>")
+    end
+
+    it "is kept when `hide circle` removes the spot" do
+      expect(texts_of("hide circle\n#{related}")).to include("<<interface>>")
+    end
+  end
+end

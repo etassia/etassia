@@ -1,0 +1,79 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+require "etassia/diagram/xy_chart"
+require "etassia/layout/xy_chart"
+
+RSpec.describe Etassia::Layout::XyChart do
+  subject(:scene) { described_class.new.call(diagram) }
+
+  let(:diagram) do
+    Etassia::Diagram::XyChart.new.tap do |chart|
+      chart.title = "Quarterly change"
+      chart.x_axis = axis("Quarter", :categorical, %w[Q1 Q2 Q3])
+      chart.y_axis = axis("Change", :numeric, [], -10, 30)
+      chart.datasets = [dataset("trend", :line, "red", [-10, 10, 30]),
+                        dataset("volume", :bar, "blue", [0, 20, 30])]
+    end
+  end
+
+  it "preserves axis labels, ranges, ordered series, and styles" do
+    expect(chart_summary).to eq(expected_chart_summary)
+  end
+
+  it "converts source values into final point and bar geometry" do
+    expect(geometry_summary).to eq(expected_geometry_summary)
+  end
+
+  it "lays out direct shared IR identically to the private diagram" do
+    ir = Etassia::Notation::Mermaid::IRAdapters::XyChart.call(diagram)
+    scenes = [diagram, ir].map { |input| described_class.new.call(input) }
+
+    expect(scenes.map { |result| Marshal.dump(result) }.uniq.one?).to be(true)
+  end
+
+  def axis(label, type, values, minimum = nil, maximum = nil)
+    Etassia::Diagram::XYAxis.new.tap do |axis|
+      axis.label = label
+      axis.type = type
+      axis.values = values
+      axis.min = minimum
+      axis.max = maximum
+    end
+  end
+
+  def dataset(id, type, color, values)
+    Etassia::Diagram::XYDataset.new(id, id.capitalize, type).tap do |series|
+      series.color = color
+      series.values = values
+    end
+  end
+
+  def chart_summary
+    series = scene.series.map do |item|
+      [item.id, item.chart_type, item.color, item.label]
+    end
+    [scene.title.text, scene.labels.map(&:text), series]
+  end
+
+  def expected_chart_summary
+    ["Quarterly change",
+     ["Quarter", "Q1", "Q2", "Q3", "Change",
+      "30.0", "22.0", "14.0", "6.0", "-2.0"],
+     [["trend", :line, "red", "Trend"],
+      ["volume", :bar, "blue", "Volume"]]]
+  end
+
+  def geometry_summary
+    line, bars = scene.series
+    [line.points.map { |point| [point.x, point.y] },
+     bars.bars.map { |bar| [bar.x, bar.y, bar.height] }]
+  end
+
+  def expected_geometry_summary
+    [[[99.71875190734863, 459.0], [391.3593759536743, 255.0],
+      [683.0, 51.0]],
+     [[83.56875190734863, 357.0, 110.0],
+      [375.20937595367434, 153.0, 314.0], [666.85, 51.0, 416.0]]]
+  end
+end

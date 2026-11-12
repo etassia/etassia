@@ -16,13 +16,13 @@ RSpec.describe SpecSupport::LayoutParity::UserJourneyRecognizer do
   def real_pair
     name = "journey_spec-efcd431c"
     reference = reference_svg("user_journey/#{name}.svg")
-    sirena = Sirena.render(corpus_source("user_journey/#{name}.mmd"))
-    [summaries(reference), summaries(sirena)]
+    etassia = Etassia.render(corpus_source("user_journey/#{name}.mmd"))
+    [summaries(reference), summaries(etassia)]
   end
 
   it "uses the same section and task identities for a real pair" do
-    reference_summary, sirena_summary = real_pair
+    reference_summary, etassia_summary = real_pair
 
-    expect(sirena_summary).to eq(reference_summary)
+    expect(etassia_summary).to eq(reference_summary)
   end
 end

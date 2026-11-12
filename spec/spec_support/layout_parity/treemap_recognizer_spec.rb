@@ -16,13 +16,13 @@ RSpec.describe SpecSupport::LayoutParity::TreemapRecognizer do
   def real_pair
     name = "treemap_spec-8b2a1e63"
     reference = reference_svg("treemap/#{name}.svg")
-    sirena = Sirena.render(corpus_source("treemap/#{name}.mmd"))
-    [summaries(reference), summaries(sirena)]
+    etassia = Etassia.render(corpus_source("treemap/#{name}.mmd"))
+    [summaries(reference), summaries(etassia)]
   end
 
   it "uses the same branch, leaf, and parent identities for a real pair" do
-    reference_summary, sirena_summary = real_pair
+    reference_summary, etassia_summary = real_pair
 
-    expect(sirena_summary).to eq(reference_summary)
+    expect(etassia_summary).to eq(reference_summary)
   end
 end

@@ -134,9 +134,9 @@ class MermaidReferenceGenerator
   end
 
   def detect_type(source)
-    require "sirena"
-    body = Sirena::Source.split(source).fetch(:body)
-    Sirena::Notation::Mermaid.detect_type(body)
+    require "etassia"
+    body = Etassia::Source.split(source).fetch(:body)
+    Etassia::Notation::Mermaid.detect_type(body)
   end
 
   def reject_conflicts!(grouped)
