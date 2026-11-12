@@ -2,6 +2,7 @@
 
 require "spec_helper"
 require "socket"
+require "shellwords"
 require "yaml"
 require_relative "../../scripts/lychee_seed_status_server"
 
@@ -100,6 +101,20 @@ module LinksWorkflow
     end
   end
 
+  def self.published_site_roots
+    config = YAML.safe_load_file(File.join(ROOT, "docs/_config.yml"))
+    [config.fetch("url"), "https://www.claricle.org"].map do |origin|
+      "#{origin}#{config.fetch('baseurl')}/"
+    end
+  end
+
+  def self.site_remaps
+    args = Shellwords.split(step("Link Checker").dig("with", "args"))
+    args.each_cons(2).filter_map do |flag, value|
+      value.split(" ", 2) if flag == "--remap"
+    end.to_h
+  end
+
   def self.ordinary_check_facts
     ordinary = step("Link Checker")
     [
@@ -155,5 +170,13 @@ RSpec.describe LinksWorkflow do
 
   it "still runs the ordinary built-site link check as a hard failure" do
     expect(described_class.ordinary_check_facts).to eq([nil, true, true])
+  end
+
+  it "remaps the current published site roots to the local build" do
+    expected = described_class.published_site_roots.to_h do |root|
+      [root, "file://${{ github.workspace }}/docs/_site/"]
+    end
+
+    expect(described_class.site_remaps).to eq(expected)
   end
 end

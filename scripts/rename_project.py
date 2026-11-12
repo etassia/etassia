@@ -17,6 +17,10 @@ NATIVE_NAMES = (
     "sirena-native", "Sirena::Native", "sirena/native", "sirena_ffi", "sirena-ffi",
     "sirena-rs", "SIRENA_NATIVE_LIB",
 )
+DEPLOYED_SITE_REMAP_URLS = (
+    "https://claricle.github.io/sirena/",
+    "https://www.claricle.org/sirena/",
+)
 
 
 def migrate(old, new, paths):
@@ -39,7 +43,16 @@ def migrate(old, new, paths):
         if b"\0" in data:
             continue
         source = data.decode("utf-8")
-        renamed = pattern.sub(lambda m: replacements.get(m[0], m[0]), source)
+        file_pattern = pattern
+        if name == ".github/workflows/links.yml":
+            preserved_urls = "|".join(
+                re.escape(url) for url in DEPLOYED_SITE_REMAP_URLS
+            )
+            file_pattern = re.compile(f"{preserved_urls}|{pattern.pattern}")
+        renamed = file_pattern.sub(
+            lambda m: replacements.get(m[0], m[0]),
+            source,
+        )
         renamed = re.sub(rf"claricle/{re.escape(new)}(?![\w-])", f"{new}/{new}", renamed)
         if renamed != source:
             path.write_bytes(renamed.encode("utf-8"))
