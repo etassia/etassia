@@ -95,7 +95,7 @@ See link:examples/README.adoc[] for working examples of all diagram types.
 * **Metanorma-oriented SVG** - Self-contained SVG for embedding in Metanorma
   documents; flowchart, sequence, class, pie and Gantt renders pass
   `svg_conform`'s `:metanorma` conformance check with zero errors (checked
-  directly against `SvgConform.validate`; `spec/sirena/svg_conformance_spec.rb`
+  directly against `SvgConform.validate`; `spec/etassia/svg_conformance_spec.rb`
   runs this on every suite run against shipped examples, reference
   fixtures, and the mermaid corpus)
 
@@ -266,7 +266,7 @@ well-defined interfaces.
 **All parsers use Parslet**, a powerful PEG (Parsing Expression Grammar) library
 that provides composability and declarative grammars. The 3-layer Parslet
 architecture (Grammar → Builder → Parser) is not universal: 10 of the 26 files
-under `lib/sirena/parser/builders/` subclass `Parslet::Transform`, the rest are
+under `lib/etassia/parser/builders/` subclass `Parslet::Transform`, the rest are
 plain classes or helpers, and User Journey builds its
 model directly in the parser.
 
@@ -380,7 +380,7 @@ Etassia (Root Module)
 === Parslet-based parser architecture
 
 All 24 implemented diagram types use Parslet for grammar parsing, but only 10 of
-the 26 files under `lib/sirena/parser/builders/` subclass `Parslet::Transform`. Where the 3-layer pattern is
+the 26 files under `lib/etassia/parser/builders/` subclass `Parslet::Transform`. Where the 3-layer pattern is
 followed it looks like this:
 
 . **Layer 1: Grammar** (Parslet::Parser) - Defines syntax rules using Parslet
@@ -389,9 +389,9 @@ followed it looks like this:
   typed Diagram models using pattern matching
 . **Layer 3: Parser** - Orchestrates Grammar and Transform, provides public API
 
-Several types deviate: `lib/sirena/parser/builders/architecture.rb` and
-`lib/sirena/parser/builders/class_diagram.rb` (among other builders under
-`lib/sirena/parser/builders/`) are plain Ruby classes rather than
+Several types deviate: `lib/etassia/parser/builders/architecture.rb` and
+`lib/etassia/parser/builders/class_diagram.rb` (among other builders under
+`lib/etassia/parser/builders/`) are plain Ruby classes rather than
 `Parslet::Transform` subclasses, and `Sirena::Parser::UserJourney#parse`
 builds its diagram model directly from the parse tree without a separate
 Transform layer.

@@ -25,12 +25,12 @@ The pie chart implementation in Sirena follows the established Parslet architect
 
 The pie chart implementation consists of:
 
-* https://github.com/claricle/sirena/blob/main/lib/sirena/diagram/pie.rb[`Diagram::Pie`] - Model classes for pie charts
-* https://github.com/claricle/sirena/blob/main/lib/sirena/parser/grammars/pie.rb[`Parser::Grammars::Pie`] - Parslet grammar
-* https://github.com/claricle/sirena/blob/main/lib/sirena/parser/builders/pie.rb[`Parser::Builders::Pie`] - Parse tree builder
-* https://github.com/claricle/sirena/blob/main/lib/sirena/parser/pie.rb[`Parser::Pie`] - Main parser
-* https://github.com/claricle/sirena/blob/main/lib/sirena/layout/pie.rb[`Layout::Pie`] - Graph layout
-* https://github.com/claricle/sirena/blob/main/lib/sirena/renderer/pie.rb[`Renderer::Pie`] - SVG renderer
+* https://github.com/etassia/etassia/blob/main/lib/etassia/diagram/pie.rb[`Diagram::Pie`] - Model classes for pie charts
+* https://github.com/etassia/etassia/blob/main/lib/etassia/parser/grammars/pie.rb[`Parser::Grammars::Pie`] - Parslet grammar
+* https://github.com/etassia/etassia/blob/main/lib/etassia/parser/builders/pie.rb[`Parser::Builders::Pie`] - Parse tree builder
+* https://github.com/etassia/etassia/blob/main/lib/etassia/parser/pie.rb[`Parser::Pie`] - Main parser
+* https://github.com/etassia/etassia/blob/main/lib/etassia/layout/pie.rb[`Layout::Pie`] - Graph layout
+* https://github.com/etassia/etassia/blob/main/lib/etassia/renderer/pie.rb[`Renderer::Pie`] - SVG renderer
 
 == Syntax
 
@@ -327,5 +327,5 @@ bundle exec rspec spec/sirena/parser/pie_spec.rb
 == See Also
 
 * link:../index/[Documentation Index]
-* https://github.com/claricle/sirena/blob/main/lib/sirena/diagram/pie.rb[Pie Diagram Model]
-* https://github.com/claricle/sirena/blob/main/lib/sirena/renderer/pie.rb[Pie Renderer]
+* https://github.com/etassia/etassia/blob/main/lib/etassia/diagram/pie.rb[Pie Diagram Model]
+* https://github.com/etassia/etassia/blob/main/lib/etassia/renderer/pie.rb[Pie Renderer]

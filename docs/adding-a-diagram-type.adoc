@@ -53,20 +53,20 @@ files, the next five are focused specs, and the last two are existing
 registries updated in place.
 
 // tag::generated-files[]
-* `lib/sirena/parser/<type>.rb`
-* `lib/sirena/parser/grammars/<type>.rb`
-* `lib/sirena/parser/builders/<type>.rb`
-* `lib/sirena/diagram/<type>.rb`
-* `lib/sirena/notation/mermaid/ir_adapters/<type>.rb`
-* `lib/sirena/layout/<type>.rb`
-* `lib/sirena/renderer/<type>.rb`
+* `lib/etassia/parser/<type>.rb`
+* `lib/etassia/parser/grammars/<type>.rb`
+* `lib/etassia/parser/builders/<type>.rb`
+* `lib/etassia/diagram/<type>.rb`
+* `lib/etassia/notation/mermaid/ir_adapters/<type>.rb`
+* `lib/etassia/layout/<type>.rb`
+* `lib/etassia/renderer/<type>.rb`
 * `spec/fixtures/contract/<type>.mmd`
-* `spec/sirena/parser/<type>_spec.rb`
-* `spec/sirena/diagram/<type>_spec.rb`
-* `spec/sirena/notation/mermaid/ir_adapters/<type>_spec.rb`
-* `spec/sirena/layout/<type>_spec.rb`
-* `spec/sirena/renderer/<type>_spec.rb`
-* `lib/sirena/notation/mermaid.rb`
+* `spec/etassia/parser/<type>_spec.rb`
+* `spec/etassia/diagram/<type>_spec.rb`
+* `spec/etassia/notation/mermaid/ir_adapters/<type>_spec.rb`
+* `spec/etassia/layout/<type>_spec.rb`
+* `spec/etassia/renderer/<type>_spec.rb`
+* `lib/etassia/notation/mermaid.rb`
 * `docs/ir-type-map.md`
 // end::generated-files[]
 
