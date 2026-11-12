@@ -2,10 +2,10 @@
 
 module SpecSupport
   module LayoutParity
-    # Logical class nodes shared by mmdc references and Sirena renders.
+    # Logical class nodes shared by mmdc references and Etassia renders.
     class ClassDiagramRecognizer
       REFERENCE_NODE = /\A(?:my-svg-)?classId-(.+)-\d+\z/
-      SIRENA_NODE = /\Aclass-(.+)\z/
+      ETASSIA_NODE = /\Aclass-(.+)\z/
 
       def container_kinds
         []
@@ -27,7 +27,7 @@ module SpecSupport
       private
 
       def key_for(id)
-        id[REFERENCE_NODE, 1] || id[SIRENA_NODE, 1]
+        id[REFERENCE_NODE, 1] || id[ETASSIA_NODE, 1]
       end
     end
   end

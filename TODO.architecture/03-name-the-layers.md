@@ -14,8 +14,8 @@ four PRs. If it moves, you have a typo — find it before continuing.
 **(a) Two different layers are both called "Transform".**
 
 ```
-  Sirena::Parser::Transforms::Pie    parse tree  -> Diagram model
-  Sirena::Transform::PieTransform    Diagram model -> Hash
+  Etassia::Parser::Transforms::Pie    parse tree  -> Diagram model
+  Etassia::Transform::PieTransform    Diagram model -> Hash
 ```
 
 **(b) The layer called `Transform` is doing layout.**
@@ -56,7 +56,7 @@ One commit — and one PR — per rename.
    `Layout::Base`, `TransformError` -> `LayoutError`.
 3. **`Engine#layout_graph` / `apply_fallback_layout` -> `Layout::Grid`**
 
-   A named class in `lib/sirena/layout/grid.rb` that the engine calls
+   A named class in `lib/etassia/layout/grid.rb` that the engine calls
    explicitly. It stays a stub, and it is **explicitly temporary**: put
    a comment at the top saying item 06 deletes it, and when — once
    `Engine` no longer receives a legacy result to hand it. It has no
@@ -66,7 +66,7 @@ One commit — and one PR — per rename.
    while legacy layouts still return graphs; item 06 deletes it once
    item 04 has converted the last one. It is not the thing elkrb
    replaces — see `06-registry-as-data.md` and `08-burndown.md`.
-4. **Uniform class names.** `Sirena::<Layer>::<Type>` everywhere:
+4. **Uniform class names.** `Etassia::<Layer>::<Type>` everywhere:
    `Parser::Pie`, `Diagram::Pie`, `Layout::Pie`, `Renderer::Pie`. The
    suffix repeats the namespace; drop it.
 
@@ -163,7 +163,7 @@ caller in `spec/`, `scripts/` and `lib/tasks/` and delete the old names.
 
 ## Done when
 
-- [ ] `grep -rn "Sirena::Transform\|Transform::Base\|TransformError" lib/`
+- [ ] `grep -rn "Etassia::Transform\|Transform::Base\|TransformError" lib/`
       returns nothing.
 
       Not a bare `grep -rn "Transform" lib/` — that can never return
@@ -172,7 +172,7 @@ caller in `spec/`, `scripts/` and `lib/tasks/` and delete the old names.
       `mindmap`, `packet`, `radar`, `requirement`, `treemap`,
       `xy_chart`), and that is the gem's class name, not ours.
 - [ ] class names are uniform, no `Parser`/`Transform`/`Renderer` suffixes
-- [ ] for every registry key, `Sirena::Diagram::<CamelKey>` resolves
+- [ ] for every registry key, `Etassia::Diagram::<CamelKey>` resolves
       **and is the same class the parser returns** for that type's
       canonical fixture. Existence alone is not the check — it passes
       for `:block` today while resolving to a component
@@ -203,7 +203,7 @@ measured 2026-09-02:
 
 - **Item 02** removes the currently callable `Svg::Text.from_xml` path.
 - **Item 03** changes the registry/detector/model value `:xychart` to
-  `:xy_chart`, which is observable in `sirena types` output.
+  `:xy_chart`, which is observable in `etassia types` output.
 - **Item 06** is the engine/registry/CLI work that `TODO.foundation/03:16-20`
   names explicitly.
 
@@ -229,11 +229,11 @@ nobody checks.
 - Do not fix anything you notice while renaming. Write it down instead.
   A rename PR that also changes behaviour cannot be reviewed, and it
   breaks the "zero change" check that makes this item safe.
-- Do not change the public API: `Sirena.render` and `Engine#render` keep
+- Do not change the public API: `Etassia.render` and `Engine#render` keep
   their names and signatures.
 
 ## Files
 
-`lib/sirena/parser/builders/*` (moved), `lib/sirena/layout/*` (moved),
-`lib/sirena/layout/grid.rb` (new), `lib/sirena/engine.rb`,
-`lib/sirena.rb`, `lib/sirena/renderer/*.rb`, all affected specs.
+`lib/etassia/parser/builders/*` (moved), `lib/etassia/layout/*` (moved),
+`lib/etassia/layout/grid.rb` (new), `lib/etassia/engine.rb`,
+`lib/etassia.rb`, `lib/etassia/renderer/*.rb`, all affected specs.

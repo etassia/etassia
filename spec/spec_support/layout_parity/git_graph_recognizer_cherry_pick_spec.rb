@@ -24,7 +24,7 @@ RSpec.describe SpecSupport::LayoutParity::GitGraphRecognizer do
     source = corpus_source("gitgraph/#{name}.mmd")
     reference = reference_svg("gitgraph/#{name}.svg")
 
-    expect([commit_keys(reference), commit_keys(Sirena.render(source))])
+    expect([commit_keys(reference), commit_keys(Etassia.render(source))])
       .to eq([%w[commit-1 commit-2 commit-3]] * 2)
   end
 
@@ -32,11 +32,11 @@ RSpec.describe SpecSupport::LayoutParity::GitGraphRecognizer do
     let(:name) { "should_generate_an_array_of_known_branches-24cef136" }
     let(:source) { corpus_source("gitgraph/#{name}.mmd") }
     let(:reference) { reference_svg("gitgraph/#{name}.svg") }
-    let(:sirena) { Sirena.render(source) }
+    let(:etassia) { Etassia.render(source) }
 
     it "keeps start-anchored branch labels out of tag identity" do
       expect([[keys(reference, :branch_label), keys(reference, :tag_label)],
-              [keys(sirena, :branch_label), keys(sirena, :tag_label)]])
+              [keys(etassia, :branch_label), keys(etassia, :tag_label)]])
         .to eq([[%w[main b1 b2], []]] * 2)
     end
   end

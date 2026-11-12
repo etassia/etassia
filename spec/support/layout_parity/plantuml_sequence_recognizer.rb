@@ -3,14 +3,14 @@
 module SpecSupport
   module LayoutParity
     # Logical sequence participants and messages shared by pinned PlantUML
-    # references and Sirena's PlantUML renderer. A participant is drawn as a
+    # references and Etassia's PlantUML renderer. A participant is drawn as a
     # head and a tail copy by both producers; the head copy supplies its
     # geometry. Messages are keyed by their order in the document.
     class PlantumlSequenceRecognizer
       REFERENCE_HEAD = "participant-head"
       REFERENCE_MESSAGE = "message"
-      SIRENA_PARTICIPANT = /\Aparticipant-(?<name>.+)-(?<top>-?[\d.]+)\z/
-      SIRENA_MESSAGE = "message-"
+      ETASSIA_PARTICIPANT = /\Aparticipant-(?<name>.+)-(?<top>-?[\d.]+)\z/
+      ETASSIA_MESSAGE = "message-"
 
       def container_kinds
         []
@@ -24,7 +24,7 @@ module SpecSupport
 
       def participants(extractor, doc)
         reference_participants(extractor, doc) +
-          sirena_participants(extractor, doc)
+          etassia_participants(extractor, doc)
       end
 
       def reference_participants(extractor, doc)
@@ -64,7 +64,7 @@ module SpecSupport
 
       # Teoz omits PlantUML's interactive participant wrappers. Its first
       # rectangle/text pair for each lifeline title is still the participant
-      # head; label identity lets it match Sirena even when the source used an
+      # head; label identity lets it match Etassia even when the source used an
       # alias that the legacy SVG did not preserve.
       def legacy_reference_participants(extractor, doc)
         root = legacy_root(doc)
@@ -104,11 +104,11 @@ module SpecSupport
         ellipse&.name == "ellipse" && path&.name == "path"
       end
 
-      def sirena_participants(extractor, doc)
+      def etassia_participants(extractor, doc)
         heads = doc.xpath("//g").filter_map do |group|
           next if embedded_picture_element?(group)
 
-          found = SIRENA_PARTICIPANT.match(group["id"].to_s)
+          found = ETASSIA_PARTICIPANT.match(group["id"].to_s)
           [group, found[:name], found[:top].to_f] if found
         end
         topmost(heads).map do |group, name, _top|
@@ -317,7 +317,7 @@ module SpecSupport
 
       def message?(group)
         classes(group).include?(REFERENCE_MESSAGE) ||
-          group["id"].to_s.start_with?(SIRENA_MESSAGE)
+          group["id"].to_s.start_with?(ETASSIA_MESSAGE)
       end
 
       def classes(group)

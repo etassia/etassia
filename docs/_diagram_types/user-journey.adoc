@@ -10,7 +10,7 @@ parent: Diagram Types
 
 == Overview
 
-User journey diagrams in Sirena map the experience of users as they interact with a system or service over time. They show tasks, actors involved, and satisfaction scores, making them ideal for UX design, service design, and customer experience mapping.
+User journey diagrams in Etassia map the experience of users as they interact with a system or service over time. They show tasks, actors involved, and satisfaction scores, making them ideal for UX design, service design, and customer experience mapping.
 
 User journey diagrams are useful for:
 
@@ -429,7 +429,7 @@ journey
 
 === Currently not supported
 
-The following Mermaid user journey features are not yet supported in Sirena:
+The following Mermaid user journey features are not yet supported in Etassia:
 
 * Custom styling with CSS classes
 * Click events and links

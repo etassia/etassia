@@ -53,7 +53,7 @@ contract and still shape each rollout:
 
 - Hash input uses symbol keys and must contain `children`; every node needs
   numeric `width` and `height` values.
-- Unknown keys such as Sirena's `metadata` are not retained. elkrb does retain
+- Unknown keys such as Etassia's `metadata` are not retained. elkrb does retain
   its modeled `properties` Hash, so rollout must either use `properties` or
   reattach semantic metadata by stable id.
 - A self-loop recurses until `SystemStackError`; an edge to an unknown id is
@@ -64,7 +64,7 @@ contract and still shape each rollout:
   supported options and excludes self-loops.
 - Child coordinates are relative to their container. Edges touching nested
   nodes are not routed by layered, and zero-sized containers can overlap their
-  peers unless Sirena supplies truthful container dimensions first.
+  peers unless Etassia supplies truthful container dimensions first.
 - `Elkrb.known_layout_algorithms` is broken in 1.0.2 because it calls a
   nonexistent registry method. `AlgorithmRegistry.available_algorithms` is
   the working introspection surface.

@@ -72,17 +72,17 @@ module SpecSupport
         end
       end
 
-      def self.quadrant_measurements(reference_svg:, sirena_svg:)
+      def self.quadrant_measurements(reference_svg:, etassia_svg:)
         QuadrantPointGeometry.compare(reference: reference_svg,
-                                      sirena: sirena_svg).map do |comparison|
+                                      etassia: etassia_svg).map do |comparison|
           measurement_row(comparison.key, :radius, comparison.error)
         end
       end
       private_class_method :quadrant_measurements
 
-      def self.radar_measurements(reference_svg:, sirena_svg:)
+      def self.radar_measurements(reference_svg:, etassia_svg:)
         RadarGraticuleGeometry.compare(reference: reference_svg,
-                                       sirena: sirena_svg)
+                                       etassia: etassia_svg)
           .each_with_index.map do |comparison, index|
             measurement_row("graticule-#{index + 1}", :radius,
                             comparison.error)
@@ -90,22 +90,22 @@ module SpecSupport
       end
       private_class_method :radar_measurements
 
-      def self.git_graph_measurements(reference_svg:, sirena_svg:)
+      def self.git_graph_measurements(reference_svg:, etassia_svg:)
         reference = GitGraphMarkerGeometry.extract(reference_svg)
-        sirena = GitGraphMarkerGeometry.extract(sirena_svg)
+        etassia = GitGraphMarkerGeometry.extract(etassia_svg)
         GitGraphMarkerGeometry.compare(reference: reference,
-                                       sirena: sirena).map do |comparison|
+                                       etassia: etassia).map do |comparison|
           measurement_row(comparison.key, :radius, comparison.error)
         end
       end
       private_class_method :git_graph_measurements
 
-      def self.pie_measurements(reference_svg:, sirena_svg:)
+      def self.pie_measurements(reference_svg:, etassia_svg:)
         reference = labeled_pie_measurements(reference_svg)
-        sirena = labeled_pie_measurements(sirena_svg)
-        pair_by_label(reference, sirena).flat_map do |label, expected, actual|
+        etassia = labeled_pie_measurements(etassia_svg)
+        pair_by_label(reference, etassia).flat_map do |label, expected, actual|
           comparison = PieSectorGeometry.compare(reference: expected,
-                                                 sirena: actual)
+                                                 etassia: actual)
           [measurement_row(label, :radius, comparison.radius_error),
            measurement_row(label, :sweep_angle, comparison.sweep_error)]
         end
@@ -124,9 +124,9 @@ module SpecSupport
       end
       private_class_method :labeled_pie_measurements
 
-      def self.pair_by_label(reference, sirena)
+      def self.pair_by_label(reference, etassia)
         expected = measurements_by_label(reference)
-        actual = measurements_by_label(sirena)
+        actual = measurements_by_label(etassia)
         validate_label_counts(expected, actual)
 
         expected.keys.sort.flat_map do |label|

@@ -1,0 +1,528 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+module LayoutFlowchartSpecHelpers
+  def node_width(theme_name)
+    themed_transform = described_class.new
+    themed_transform.theme = Etassia::Theme::Registry.get(theme_name)
+    themed_transform.to_graph(diagram).children.first.width
+  end
+
+  def edge_label_width(typography)
+    themed_transform = described_class.new
+    themed_transform.theme = Etassia::Theme.new(typography: typography)
+    scene = themed_transform.to_graph(diagram)
+    scene.edges.first.labels.first.width
+  end
+
+  def single_node_diagram
+    Etassia::Diagram::Flowchart.new(direction: "TD").tap do |d|
+      d.nodes << Etassia::Diagram::FlowchartNode.new(id: "A", label: "A")
+    end
+  end
+
+  def labelled_edge_diagram
+    Etassia::Diagram::Flowchart.new(direction: "TD").tap do |d|
+      d.nodes << Etassia::Diagram::FlowchartNode.new(id: "A", label: "A")
+      d.nodes << Etassia::Diagram::FlowchartNode.new(id: "B", label: "B")
+      d.edges << Etassia::Diagram::FlowchartEdge.new(
+        source_id: "A", target_id: "B", arrow_type: "arrow",
+        label: "edge label text"
+      )
+    end
+  end
+
+  def label_width_for(flowchart_font_size)
+    typography = Etassia::Theme::Typography.new(
+      flowchart_font_size: flowchart_font_size,
+    )
+    themed_transform = described_class.new
+    themed_transform.theme = Etassia::Theme.new(typography: typography)
+    themed_transform.to_graph(single_node_diagram)
+      .children.first.labels.first.width
+  end
+
+  def first_node_width(theme)
+    themed_transform = described_class.new
+    themed_transform.theme = theme
+    themed_transform.to_graph(diagram).children.first.width
+  end
+
+  def typography_with(small, normal)
+    Etassia::Theme::Typography.new(
+      font_size_small: small, font_size_normal: normal,
+    )
+  end
+
+  def render_with_font_size(value)
+    Etassia::Engine.new(
+      theme: { typography: { flowchart_font_size: value } },
+    ).render("flowchart TD\nA[Start]\nB[End]\nA --> B\n")
+  end
+
+  def measure_widths(scene)
+    scene.children.first.width
+    scene.edges.first.labels.first.width
+  end
+
+  def cluster_children(transform, source, id)
+    model = Etassia::Parser::Flowchart.new.parse(source)
+    cluster = transform.to_graph(model).children.find { |c| c.id == id }
+    cluster.children.map(&:id)
+  end
+
+  def repeated_id_model
+    Etassia::Diagram::Flowchart.new(direction: "TD").tap do |model|
+      model.nodes.push(
+        Etassia::Diagram::FlowchartNode.new(id: "same", label: "First"),
+        Etassia::Diagram::FlowchartNode.new(id: "same", label: "Second"),
+        Etassia::Diagram::FlowchartNode.new(id: "one", label: "One"),
+        Etassia::Diagram::FlowchartNode.new(id: "two", label: "Two"),
+      )
+      model.subgraphs.push(
+        Etassia::Diagram::FlowchartSubgraph.new(
+          id: "group", declared_title: "First group", node_ids: %w[one],
+        ),
+        Etassia::Diagram::FlowchartSubgraph.new(
+          id: "group", declared_title: "Second group", node_ids: %w[two],
+        ),
+      )
+    end
+  end
+
+  def box_members(children)
+    children.select(&:cluster).to_h do |box|
+      [box.labels.first.text,
+       box.children.map { |node| node.labels.first.text }]
+    end
+  end
+
+  def nested_coordinate_graph
+    {
+      id: "flowchart", edges: [],
+      children: [
+        { id: "shell", x: 10, y: 20, width: 100, height: 80,
+          children: [
+            { id: "A", x: 5, y: 7, width: 30, height: 20,
+              labels: [{ text: "A" }], metadata: { shape: "rect" } },
+          ] },
+      ]
+    }
+  end
+
+  def representative_ir_diagram
+    outer = Etassia::Diagram::FlowchartSubgraph.new(
+      id: "outer", declared_title: "Outer", node_ids: ["C"],
+      child_ids: ["inner"]
+    )
+    inner = Etassia::Diagram::FlowchartSubgraph.new(
+      id: "inner", declared_title: "Inner", parent_id: "outer",
+      node_ids: %w[A B], direction: "LR"
+    )
+    Etassia::Diagram::Flowchart.new(
+      id: "process", direction: "BT",
+      nodes: [
+        Etassia::Diagram::FlowchartNode.new(
+          id: "A", label: "Start", shape: "stadium", classes: ":::hot",
+        ),
+        Etassia::Diagram::FlowchartNode.new(
+          id: "B", label: "Choose", shape: "rhombus", classes: ":::cold",
+        ),
+        Etassia::Diagram::FlowchartNode.new(
+          id: "C", label: "Finish", shape: "rect",
+        ),
+      ],
+      edges: [
+        Etassia::Diagram::FlowchartEdge.new(
+          source_id: "A", target_id: "B", label: "yes",
+          arrow_type: "arrow_both"
+        ),
+        Etassia::Diagram::FlowchartEdge.new(
+          source_id: "A", target_id: "B", label: "retry",
+          arrow_type: "dotted_cross"
+        ),
+      ],
+      subgraphs: [outer, inner]
+    )
+  end
+
+  def shared_graph_evidence(scene)
+    shared_hierarchy_evidence(scene) + shared_edge_evidence(scene)
+  end
+
+  def shared_hierarchy_evidence(scene)
+    outer = scene.children.fetch(0)
+    inner = outer.children.fetch(0)
+    [outer.id, inner.id, inner.children.map(&:id), outer.children.last.id]
+  end
+
+  def shared_edge_evidence(scene)
+    [
+      scene.edges.map(&:id), scene.edges.map(&:arrow_type),
+      scene.edges.map { |edge| edge.labels.map(&:text) }
+    ]
+  end
+
+  def collision_ir_diagram
+    Etassia::Diagram::Flowchart.new(
+      id: "same", direction: "TD",
+      nodes: [
+        Etassia::Diagram::FlowchartNode.new(id: "same", label: "First"),
+        Etassia::Diagram::FlowchartNode.new(id: "same", label: "Second"),
+        Etassia::Diagram::FlowchartNode.new(id: "target", label: "Target"),
+      ],
+      edges: [
+        Etassia::Diagram::FlowchartEdge.new(
+          source_id: "same", target_id: "target",
+        ),
+      ]
+    )
+  end
+
+  def collision_scenes
+    source = collision_ir_diagram
+    graph = Etassia::Notation::Mermaid::IRAdapters::Flowchart.call(source)
+
+    [transform.call(source), transform.call(graph)]
+  end
+
+  def collision_scene_identity(scene)
+    [scene.id, scene.children.map(&:id),
+     scene.edges.map { |edge| [edge.source, edge.target] }]
+  end
+
+  def expected_collision_scene_identity
+    ["same", %w[same same target], [["same", "target"]]]
+  end
+
+  def scene_evidence(scene)
+    [Marshal.dump(scene), collision_scene_identity(scene)]
+  end
+
+  def expected_scene_evidence(scene)
+    [Marshal.dump(scene), expected_collision_scene_identity]
+  end
+end
+
+RSpec.describe Etassia::Layout::Flowchart, :aggregate_failures do
+  include LayoutFlowchartSpecHelpers
+
+  let(:transform) { described_class.new }
+
+  describe "#to_graph" do
+    let(:scene) { transform.to_graph(diagram) }
+    let(:node_a) { scene.children.find { |node| node.id == "A" } }
+    let(:edge) { scene.edges.first }
+    let(:diagram) do
+      Etassia::Diagram::Flowchart.new(direction: "TD").tap do |d|
+        d.nodes << Etassia::Diagram::FlowchartNode.new(
+          id: "A",
+          label: "Start",
+          shape: "rect",
+        )
+        d.nodes << Etassia::Diagram::FlowchartNode.new(
+          id: "B",
+          label: "End",
+          shape: "rect",
+        )
+        d.edges << Etassia::Diagram::FlowchartEdge.new(
+          source_id: "A",
+          target_id: "B",
+          arrow_type: "arrow",
+        )
+      end
+    end
+
+    it "converts the diagram to a typed scene" do
+      expect(scene).to be_a(described_class::Scene)
+      expect(scene.id).to eq("flowchart")
+    end
+
+    it "converts nodes and edges to typed scene members" do
+      expect(scene.children).to all(be_a(described_class::Node))
+      expect(scene.edges).to all(be_a(described_class::Edge))
+    end
+
+    it "gives the scene positive dimensions" do
+      expect(scene.width).to be > 0
+      expect(scene.height).to be > 0
+    end
+
+    it "creates one node per declared node" do
+      expect(scene.children.length).to eq(2)
+    end
+
+    it "gives a created node dimensions" do
+      expect(node_a).not_to be_nil
+      expect(node_a.width).to be > 0
+      expect(node_a.height).to be > 0
+    end
+
+    it "gives a created node a label centred on it" do
+      label = node_a.labels.first
+
+      expect(node_a.labels).to all(be_a(described_class::Label))
+      expect(label.text).to eq("Start")
+      expect([label.x, label.y]).to eq([node_a.center_x, node_a.center_y])
+    end
+
+    # `assemble` attaches nested clusters before member nodes, and the
+    # order is what the grid slices three to a row: run `place_nodes`
+    # first instead and the inner box drops from [20, 54] to the second
+    # row, taking the outer box from 308 units tall to 398.
+    it "lists a nested cluster before the nodes beside it" do
+      source = "flowchart TD\nsubgraph outer\nsubgraph inner\ni1\nend\n" \
+               "n1\nn2\nn3\nend\n"
+
+      expect(cluster_children(transform, source, "outer"))
+        .to eq(%w[inner n1 n2 n3])
+    end
+
+    it "emits every node and subgraph when valid model ids repeat" do
+      model = repeated_id_model
+      children = transform.to_graph(model).children
+
+      expect(model).to be_valid
+      expect(children.map { |child| child.labels.first.text })
+        .to eq(["First", "Second", "First group", "Second group"])
+    end
+
+    it "keeps each repeated subgraph's own members" do
+      children = transform.to_graph(repeated_id_model).children
+
+      expect(box_members(children)).to eq("First group" => %w[One],
+                                          "Second group" => %w[Two])
+    end
+
+    it "creates one edge per declared edge" do
+      expect(scene.edges.length).to eq(1)
+    end
+
+    it "carries the edge's endpoints and arrow type" do
+      expect(edge.source).to eq("A")
+      expect(edge.target).to eq("B")
+      expect(edge.arrow_type).to eq("arrow")
+    end
+
+    it "gives the edge point-typed section ends" do
+      expect(edge.sections.first.start_point).to be_a(described_class::Point)
+      expect(edge.sections.first.end_point).to be_a(described_class::Point)
+    end
+
+    # mmdc leaves 8px round the diagram (configuration_spec-67574f4a:
+    # node A at y 8).
+    it "places nodes in final canvas coordinates" do
+      node = transform.to_graph(diagram).children.first
+
+      expect(node.x).to eq(8.0)
+      expect(node.y).to eq(8.0)
+    end
+
+    # configuration_spec-67574f4a: viewBox 437.8125 x 521.28125 round a node
+    # ending at 429.8125 x 513.28125.
+    it "ends the page 8px after the last node" do
+      rights = scene.children.map { |node| node.x + node.width }
+      bottoms = scene.children.map { |node| node.y + node.height }
+
+      expect([scene.width, scene.height])
+        .to eq([rights.max + 8.0, bottoms.max + 8.0])
+    end
+
+    it "flattens nested coordinates into the final canvas frame" do
+      scene = described_class.from_graph(nested_coordinate_graph)
+      node = scene.children.first.children.first
+
+      expect(node).to have_attributes(x: 15.0, y: 27.0)
+    end
+
+    it "raises error for invalid diagram" do
+      # A default Flowchart.new (0 nodes, 0 subgraphs) is a valid empty
+      # diagram now -- nodes: nil is the shape #valid? still refuses.
+      invalid_diagram = Etassia::Diagram::Flowchart.new(nodes: nil)
+
+      expect do
+        transform.to_graph(invalid_diagram)
+      end.to raise_error(Etassia::Layout::LayoutError)
+    end
+
+    # Text measurement must track the theme the renderer actually draws
+    # with, not a hardcoded constant -- otherwise a theme with a larger
+    # flowchart_font_size (high_contrast: 18.0 vs default: 16.0) draws text
+    # wider than the box etassia measured for it.
+    context "with a theme injected for sizing" do
+      let(:diagram) do
+        Etassia::Diagram::Flowchart.new(direction: "TD").tap do |d|
+          d.nodes << Etassia::Diagram::FlowchartNode.new(
+            id: "A",
+            label: "Start",
+            shape: "rect",
+          )
+        end
+      end
+
+      it "measures a wider node under a theme with a larger " \
+         "flowchart_font_size" do
+        expect(node_width(:high_contrast)).to be > node_width(:default)
+      end
+    end
+
+    # mmdc draws an edge label at the node text size, so neither
+    # font_size_small nor font_size_normal moves it.
+    context "with an edge label and differing small and normal sizes" do
+      let(:diagram) { labelled_edge_diagram }
+
+      it "sizes the edge label at flowchart_font_size alone" do
+        expect(edge_label_width(typography_with(12.0, 30.0)))
+          .to eq(edge_label_width(typography_with(20.0, 12.0)))
+      end
+    end
+
+    # The renderer draws at 16.0 when the theme sets no flowchart_font_size,
+    # so the layout's fallback has to be 16.0 too.
+    context "with a theme that has no typography at all" do
+      let(:diagram) { single_node_diagram }
+
+      it "measures node text at the SVG render-side default of 16.0" do
+        explicit_sixteen = Etassia::Theme.new(
+          typography: Etassia::Theme::Typography.new(flowchart_font_size: 16.0),
+        )
+
+        expect(first_node_width(Etassia::Theme.new))
+          .to eq(first_node_width(explicit_sixteen))
+      end
+
+      it "falls back to a default font size of 16.0" do
+        expect(described_class::DEFAULT_FONT_SIZE).to eq(16.0)
+      end
+    end
+
+    # A theme-supplied font size reaches TextMeasurement's box-size
+    # arithmetic directly -- an unvalidated non-finite value raises deep in
+    # Grid's `.to_i` sizing (FloatDomainError on NaN/Infinity), and a
+    # negative one silently produces a smaller-than-fallback label_width
+    # (padding alone can mask it in the padded node :width, so this checks
+    # the unpadded label measurement directly).
+    context "with a theme carrying an invalid flowchart_font_size" do
+      it "falls back to DEFAULT_FONT_SIZE for a negative value" do
+        default_label_width = label_width_for(nil)
+
+        expect(label_width_for(-50.0)).to eq(default_label_width)
+      end
+
+      it "falls back to DEFAULT_FONT_SIZE for a zero value" do
+        default_label_width = label_width_for(nil)
+
+        expect(label_width_for(0)).to eq(default_label_width)
+      end
+
+      it "does not reach a fuller render for a NaN value" do
+        expect { render_with_font_size(Float::NAN) }.not_to raise_error
+      end
+
+      it "does not reach a fuller render for an Infinity value" do
+        expect { render_with_font_size(Float::INFINITY) }.not_to raise_error
+      end
+    end
+
+    # Layout::Base#theme falls back to Theme::Registry.get(:default), and
+    # Theme::Registry.clear (public, "useful for testing") empties that
+    # registry, so the fallback itself can resolve to nil -- a transform
+    # built directly with no theme injected sees exactly this. The renderer
+    # already tolerates a nil theme via safe navigation
+    # (renderer/base.rb#theme_typography); layout_font_size must match that,
+    # not dereference theme directly.
+    context "with no theme registered at all" do
+      let(:diagram) { labelled_edge_diagram }
+
+      after { Etassia::Theme::Registry.load_builtin_themes }
+
+      it "still measures node and edge-label text instead of raising" do
+        Etassia::Theme::Registry.clear
+
+        expect { measure_widths(transform.to_graph(diagram)) }
+          .not_to raise_error
+      end
+    end
+  end
+
+  describe "a node label holding a stray byte that still reports valid" do
+    let(:label) do
+      text = (+"\xD7\xC2\xA8").force_encoding("CESU-8")
+        .encode("UTF-8", invalid: :replace, undef: :replace)
+      model = Etassia::Diagram::Flowchart.new(direction: "TD").tap do |d|
+        d.nodes << Etassia::Diagram::FlowchartNode.new(id: "A", label: text)
+      end
+      transform.to_graph(model).children.first.labels.first
+    end
+
+    it "is sized instead of raising" do
+      expect(label.width).to be > 0
+    end
+  end
+
+  # A newline in a node label is a line break, as `<br>` is: the box is as
+  # wide as the longest line and as tall as all of them. The quote marks
+  # around the label are not drawn, so they are not measured.
+  describe "a node label containing a newline" do
+    let(:source) do
+      "flowchart LR\n  " \
+        "C[\"plain one\nplain two is much longer than the first\"]\n"
+    end
+    let(:label) do
+      model = Etassia::Parser::Flowchart.new.parse(source)
+      transform.to_graph(model).children.first.labels.first
+    end
+
+    it "is as wide as its longest line" do
+      longest = "plain two is much longer than the first"
+      width = Etassia::TextMeasurement
+        .measure_in(:trebuchet, longest, font_size: 16.0)[:width]
+
+      expect(label.width).to be_within(0.01).of(width)
+    end
+
+    it "is as tall as two lines" do
+      expect(label.height).to eq(48.0)
+    end
+  end
+
+  describe "shared graph input" do
+    let(:diagram) { representative_ir_diagram }
+    let(:ir) do
+      Etassia::Notation::Mermaid::IRAdapters::Flowchart.call(diagram)
+    end
+
+    it "produces a byte-identical Scene from private and shared input" do
+      private_scene = transform.call(diagram)
+      shared_scene = transform.call(ir)
+
+      expect(Marshal.dump(shared_scene)).to eq(Marshal.dump(private_scene))
+    end
+
+    it "retains nested groups and ordered styled multi-edge semantics" do
+      expected = [
+        "outer", "inner", %w[A B], "C", %w[A_to_B A_to_B],
+        %w[arrow_both dotted_cross], [["yes"], ["retry"]]
+      ]
+
+      expect(shared_graph_evidence(transform.call(ir))).to eq(expected)
+    end
+
+    it "leaves both source representations unchanged" do
+      before = [Marshal.dump(diagram), Marshal.dump(ir)]
+
+      transform.call(diagram)
+      transform.call(ir)
+
+      expect([Marshal.dump(diagram), Marshal.dump(ir)]).to eq(before)
+    end
+
+    it "keeps legacy Scene identities after collision-safe IR allocation" do
+      private_scene, shared_scene = collision_scenes
+
+      expect(scene_evidence(shared_scene))
+        .to eq(expected_scene_evidence(private_scene))
+    end
+  end
+end

@@ -12,7 +12,7 @@ investigation are unaffected.
 
 **Owner decision 2026-08-10, extended 2026-08-12: this tooling is
 MAINTAINER-LOCAL, not committed.** `AGENTS.md`,
-`.claude/skills/sirena-*`, `.claude/agents/*` and **`CLAUDE.md`** live
+`.claude/skills/etassia-*`, `.claude/agents/*` and **`CLAUDE.md`** live
 untracked on the maintainer's machine (built, reviewed, and live-tested
 — they exist and work). Rationale: they are the maintainer's workbench,
 not repo policy — other developers must not have their tooling choices
@@ -36,10 +36,10 @@ not a plan deliverable.
    Codex and any non-Claude session on this machine discovers the
    rules here; the committed repo carries the bars via
    `TODO.foundation/00-overview.md`.
-2. `.claude/skills/sirena-gates/`: how to run every gate locally
+2. `.claude/skills/etassia-gates/`: how to run every gate locally
    (corpus, coverage, conformance, lint, parity), read/update the
    scoreboard, and what a PR must show before push.
-3. `.claude/skills/sirena-corpus/`: the burndown method — bucket a
+3. `.claude/skills/etassia-corpus/`: the burndown method — bucket a
    type's failures, fix largest-first, one bucket per PR, update the
    scoreboard.
 4. Agent definitions for the parallel tracks (durable, in `.claude/agents/`
@@ -122,7 +122,7 @@ halves after the bootstrap and the new question set land.]
 ## Files
 
 `AGENTS.md`, `CLAUDE.md`,
-`.claude/skills/sirena-{gates,corpus,oracle}/SKILL.md`,
+`.claude/skills/etassia-{gates,corpus,oracle}/SKILL.md`,
 `.claude/agents/*.md` — all maintainer-local, untracked, and all listed
 in `.git/info/exclude` so no `git add` can sweep them in.
 

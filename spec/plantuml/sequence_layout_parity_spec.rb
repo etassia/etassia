@@ -3,9 +3,9 @@
 require "spec_helper"
 require "digest"
 require "yaml"
-require "sirena/notation/plantuml"
+require "etassia/notation/plantuml"
 
-Sirena::Notation.send(:entries).delete(:plantuml)
+Etassia::Notation.send(:entries).delete(:plantuml)
 
 # Recomputes every oracle-valid PlantUML sequence case against its pinned
 # reference and compares the result with the committed ledger.
@@ -22,7 +22,7 @@ module Plantuml
     #     -e 'require "./spec/plantuml/sequence_layout_parity_spec"' \
     #     -e "Plantuml::SequenceLayoutParity.record!"
     def self.record!
-      Sirena::Notation.register(Sirena::Notation::PlantUML)
+      Etassia::Notation.register(Etassia::Notation::PlantUML)
       path = File.join(ROOT, "sequence_layout_parity.yml")
       header = File.readlines(path).take_while { |line| line.start_with?("#") }
       rows = measured_rows.sort_by { |row| row["case"] }
@@ -87,8 +87,8 @@ module Plantuml
       end
     end
 
-    def sirena_svg(id)
-      Sirena.render(File.read(source_path(id)), notation: :plantuml)
+    def etassia_svg(id)
+      Etassia.render(File.read(source_path(id)), notation: :plantuml)
     end
 
     def result_for(id, rendered)
@@ -96,17 +96,17 @@ module Plantuml
       SpecSupport::LayoutParity::CaseComparator.compare(
         case_id: "plantuml/sequence/#{id}", type: "plantuml_sequence",
         reference: reference, reference_svg: File.read(reference),
-        sirena_svg: rendered,
+        etassia_svg: rendered,
         reproduce: "bundle exec rspec #{REPRODUCE}",
         recognizer: SpecSupport::LayoutParity::PlantumlSequenceRecognizer.new,
         spatial_kinds: [:participant]
       )
     end
 
-    # The extractor raises on a Sirena path it cannot read (short cubic
+    # The extractor raises on a Etassia path it cannot read (short cubic
     # arguments); the ledger pins that as its own status instead.
     def row_for(id)
-      rendered = sirena_svg(id)
+      rendered = etassia_svg(id)
       row = SpecSupport::LayoutParity::CaseLedger.build(
         [result_for(id, rendered)],
       ).first
@@ -115,15 +115,15 @@ module Plantuml
       error_row(id)
     end
 
-    # How much taller (positive) or shorter Sirena's lifelines run than the
+    # How much taller (positive) or shorter Etassia's lifelines run than the
     # reference's, head to foot: the whole-diagram height the element
     # metrics above do not see. A match is zero.
     def span_delta(id, rendered)
       reference = span(File.read(reference_path(id)))
-      sirena = span(rendered)
-      return unless reference && sirena
+      etassia = span(rendered)
+      return unless reference && etassia
 
-      (sirena - reference).round(2)
+      (etassia - reference).round(2)
     end
 
     def span(svg)
@@ -226,7 +226,7 @@ RSpec.describe Plantuml::SequenceLayoutParity do
   include_context "with an isolated notation registry"
   include described_class
 
-  before { Sirena::Notation.register(Sirena::Notation::PlantUML) }
+  before { Etassia::Notation.register(Etassia::Notation::PlantUML) }
 
   it "has pinned provenance for every oracle-valid sequence case" do
     expect([case_ids.size, evidence_failures]).to eq([93, []])
@@ -257,7 +257,7 @@ RSpec.describe Plantuml::SequenceLayoutParity do
   end
 
   it "ends the lifelines of the self-message and tail cases on the reference" do
-    cases = %w[sirena.self.label sirena.self.wide sirena.tail.group
+    cases = %w[etassia.self.label etassia.self.wide etassia.tail.group
                resources.vega.asciiverse.hello_001--18b03e1b811e
                resources.vega.asciiverse.self_001--da4311bd2115]
     rows = fresh_rows.select { |row| cases.include?(row["case"]) }

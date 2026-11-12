@@ -2,12 +2,12 @@
 
 module SpecSupport
   module LayoutParity
-    # Logical states shared by mmdc references and Sirena renders.
+    # Logical states shared by mmdc references and Etassia renders.
     class StateDiagramRecognizer
       REFERENCE_TERMINAL = /\Astate-.+_(start|end)-\d+\z/
-      SIRENA_TERMINAL = /\Astate-(start|end)_\d+\z/
+      ETASSIA_TERMINAL = /\Astate-(start|end)_\d+\z/
       REFERENCE_STATE = /\Astate-(.+)-\d+\z/
-      SIRENA_STATE = /\Astate-(.+)\z/
+      ETASSIA_STATE = /\Astate-(.+)\z/
 
       def container_kinds
         [:composite]
@@ -34,7 +34,7 @@ module SpecSupport
       def identify(group, region_keys, root_prefix)
         id = group["id"].delete_prefix(root_prefix)
         terminal(id) || reference_state(group, id, region_keys) ||
-          sirena_state(group)
+          etassia_state(group)
       end
 
       def svg_root_prefix(doc)
@@ -43,7 +43,7 @@ module SpecSupport
       end
 
       def terminal(id)
-        role = id[REFERENCE_TERMINAL, 1] || id[SIRENA_TERMINAL, 1]
+        role = id[REFERENCE_TERMINAL, 1] || id[ETASSIA_TERMINAL, 1]
         [:"terminal-#{role}", "[*]", :id] if role
       end
 
@@ -58,8 +58,8 @@ module SpecSupport
         [:state, key, :id] if key && classes.include?("node")
       end
 
-      def sirena_state(group)
-        key = group["id"][SIRENA_STATE, 1]
+      def etassia_state(group)
+        key = group["id"][ETASSIA_STATE, 1]
         return unless key
 
         key = concurrent_region_key(key)

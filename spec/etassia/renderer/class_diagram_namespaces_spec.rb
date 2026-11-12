@@ -1,0 +1,76 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+require_relative "../../support/class_note_svg"
+
+RSpec.describe Etassia::Renderer::ClassDiagram do
+  let(:source) do
+    "classDiagram\nnamespace Shapes {\n  class Tri\n  class Rect\n}\n" \
+      "namespace Other {\n  class Far\n}\nclass Loose\n" \
+      "Tri --> Far\n"
+  end
+
+  let(:box) { ClassNoteSvg.rect(source, "namespace-Shapes") }
+
+  it "draws the namespace title" do
+    expect(ClassNoteSvg.texts(source)).to include("Shapes")
+  end
+
+  it "shows a namespaced class by its own name" do
+    expect(ClassNoteSvg.texts(source)).to include("Tri", "Rect", "Far")
+  end
+
+  it "shows a class once even when a relationship repeats its id" do
+    expect(ClassNoteSvg.texts(source).count("Tri")).to eq(1)
+  end
+
+  it "draws one box per namespace" do
+    expect(ClassNoteSvg.group_ids(source).grep(/\Anamespace-/))
+      .to eq(%w[namespace-Shapes namespace-Other])
+  end
+
+  it "encloses a class in its namespace box" do
+    inner = ClassNoteSvg.rect(source, "class-Rect")
+    expect(ClassNoteSvg.contained?(inner, box)).to be(true)
+  end
+
+  it "leaves a class of another namespace outside the box" do
+    inner = ClassNoteSvg.rect(source, "class-Far")
+    expect(ClassNoteSvg.contained?(inner, box)).to be(false)
+  end
+
+  it "leaves a class outside any namespace outside the box" do
+    inner = ClassNoteSvg.rect(source, "class-Loose")
+    expect(ClassNoteSvg.contained?(inner, box)).to be(false)
+  end
+
+  it "still joins classes of different namespaces" do
+    expect(ClassNoteSvg.group_ids(source))
+      .to include("rel-Tri_to_Far")
+  end
+
+  it "draws no namespace box when the source has none" do
+    expect(ClassNoteSvg.group_ids("classDiagram\nclass A\n").grep(/namespace/))
+      .to be_empty
+  end
+
+  context "with a namespace that holds no class" do
+    let(:empty_source) do
+      "classDiagram\nnamespace Empty { }\nnamespace Full { class Tri }\n"
+    end
+
+    it "still draws its box" do
+      expect(ClassNoteSvg.group_ids(empty_source))
+        .to include("namespace-Empty")
+    end
+
+    it "still draws its title" do
+      expect(ClassNoteSvg.texts(empty_source)).to include("Empty")
+    end
+
+    it "keeps the title padded inside a 56 high box" do
+      rect = ClassNoteSvg.rect(empty_source, "namespace-Empty")
+      expect(rect["height"].to_f).to eq(56.0)
+    end
+  end
+end

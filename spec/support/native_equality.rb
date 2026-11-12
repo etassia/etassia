@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Compares the Rust runtime's SVG with the Ruby pipeline's for Mermaid corpus
-# paths. Needs `sirena-native` loaded (see runtime_native_equality_spec.rb).
+# paths. Needs `etassia-native` loaded (see runtime_native_equality_spec.rb).
 module NativeEquality
   CORPUS_ROOT = File.expand_path("../mermaid", __dir__)
 
@@ -15,7 +15,7 @@ module NativeEquality
 
   # @return [Hash] :same count, :unported and :different path lists
   def self.compare(paths)
-    ruby = Sirena::Engine.new
+    ruby = Etassia::Engine.new
     tally = { same: 0, unported: [], different: [] }
     paths.each { |path| record(tally, path, ruby) }
     tally
@@ -23,12 +23,12 @@ module NativeEquality
 
   def self.record(tally, path, ruby)
     source = File.read(File.join(CORPUS_ROOT, path))
-    if Sirena::Native.library.render(source).b == ruby.render(source).b
+    if Etassia::Native.library.render(source).b == ruby.render(source).b
       tally[:same] += 1
     else
       tally[:different] << path
     end
-  rescue Sirena::Native::Unported
+  rescue Etassia::Native::Unported
     tally[:unported] << path
   end
   private_class_method :record

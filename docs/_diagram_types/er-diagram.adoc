@@ -10,7 +10,7 @@ parent: Diagram Types
 
 == Overview
 
-Entity Relationship (ER) diagrams in Sirena model the relationships between entities in a database or data model. They are essential for database design, showing entities (tables), their attributes (columns), and the relationships between them.
+Entity Relationship (ER) diagrams in Etassia model the relationships between entities in a database or data model. They are essential for database design, showing entities (tables), their attributes (columns), and the relationships between them.
 
 ER diagrams are useful for:
 
@@ -594,7 +594,7 @@ erDiagram
 
 === Currently not supported
 
-The following Mermaid ER diagram features are not yet supported in Sirena:
+The following Mermaid ER diagram features are not yet supported in Etassia:
 
 * Custom styling with CSS classes
 * Click events and links

@@ -83,7 +83,7 @@ the rename, under this pin.
    Neither "non-error SVG" nor "ignore error output" works as the
    predicate. Error detection is REQUIRED but must be **declared-type
    aware**:
-   - Sirena registers `:error` (`lib/sirena.rb:324`), and mermaid's
+   - Etassia registers `:error` (`lib/etassia.rb:324`), and mermaid's
      `error` cases render error-LOOKING diagrams on purpose — rejecting
      those deletes a whole registered type's cohort.
    - But mmdc exits **0** while emitting an error page:
@@ -95,7 +95,7 @@ the rename, under this pin.
    So: detect the error marker, and treat it as correct output ONLY when
    the declared type is `error`; for any other declared type it is a
    mermaid rejection. The marker is confirmed empirically against the
-   pinned toolchain, with owner sign-off. The `sirena-oracle` skill
+   pinned toolchain, with owner sign-off. The `etassia-oracle` skill
    carries the same table — the two must not drift. Verdicts recorded per
    case with the full 02a provenance; refreshed only via a reviewed
    toolchain bump. Oracle-invalid cases stay in the corpus but leave

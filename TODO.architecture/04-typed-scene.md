@@ -35,8 +35,8 @@ it, so one file answers both "how is this type laid out" and "what does
 that layout look like":
 
 ```ruby
-# lib/sirena/layout/pie.rb
-module Sirena
+# lib/etassia/layout/pie.rb
+module Etassia
   module Layout
     class Pie < Layout::Base           # gives #call, and theme/today readers
       class Scene < Layout::Scene        # width, height inherited
@@ -195,7 +195,7 @@ apart. Apply it twice and content slides into its own padding.
 both are reachable.
 
 Measured 2026-08-27: `grep -rn "@[a-z_]*offset\|padding = "
-lib/sirena/renderer/` returns 44 lines across those four files.
+lib/etassia/renderer/` returns 44 lines across those four files.
 
 ## Scene classes are lutaml, with one restriction
 
@@ -210,7 +210,7 @@ accessors and `writes_attributes` both participate in output.
 
 ## Steps
 
-1. Add `lib/sirena/layout/scene.rb`: `Layout::Scene` with `width` and
+1. Add `lib/etassia/layout/scene.rb`: `Layout::Scene` with `width` and
    `height`. One small PR on its own.
 2. Convert types in this order — geometry-heavy first, because they
    prove the design while you still have room to change it; the small
@@ -253,7 +253,7 @@ accessors and `writes_attributes` both participate in output.
 
    - Without `||=` it does not memoize, so a long gantt render can read
      the clock twice and cross midnight between reads.
-   - `spec/sirena/determinism_spec.rb:209` allowlists the ambient clock
+   - `spec/etassia/determinism_spec.rb:209` allowlists the ambient clock
      read by matching that **exact line**, deliberately, so a second
      ambient read cannot hide in the same file. Any other spelling
      fails it.
@@ -364,7 +364,7 @@ During item 04 the engine still resolves classes through
 - [ ] no renderer indexes a Hash (`[:symbol]`, `.dig`) on its input
 - [ ] no renderer performs arithmetic on coordinates or angles
 - [ ] no renderer holds positional state between calls;
-      `grep -rn "@[a-z_]*offset\|@center_\|@radius\|@layout\|@current_\|padding = " lib/sirena/renderer/`
+      `grep -rn "@[a-z_]*offset\|@center_\|@radius\|@layout\|@current_\|padding = " lib/etassia/renderer/`
       returns nothing. **The offset-only form of this command cannot decide
       the criterion** — it returns no matches while `@center_x`, `@center_y`,
       `@radius` and `@layout` are still held. Widened 2026-09-02.
@@ -399,7 +399,7 @@ During item 04 the engine still resolves classes through
       set it by hand today — width and height alone do not prove the
       viewport is right
 - [ ] `Layout::Base` defines `#call` and **no subclass overrides it**;
-      `grep -rn "def call" lib/sirena/layout/` returns exactly one hit
+      `grep -rn "def call" lib/etassia/layout/` returns exactly one hit
 - [ ] every layout subclass defines `#scene(diagram)` and declares no
       keyword arguments of its own
 - [ ] `theme` and `today` are private readers on `Layout::Base`; a
@@ -427,9 +427,9 @@ During item 04 the engine still resolves classes through
 - [ ] that spec asserts **coordinates**, not a pass count. A corpus run
       cannot tell you Grid overwrote a position
 - [ ] no layout hardcodes a font size. `grep -rn "FONT_SIZE = "
-      lib/sirena/layout/` returning nothing is half the check — two
+      lib/etassia/layout/` returning nothing is half the check — two
       layouts write the literal inline (`block`, `architecture`), so
-      also `grep -rn "font_size: *[0-9]" lib/sirena/layout/`
+      also `grep -rn "font_size: *[0-9]" lib/etassia/layout/`
 - [ ] no layout derives a size from character count either. `mindmap`
       uses `content_length * 8` and `requirement` uses
       `text.length / 25`; neither is a font size and neither grep above
@@ -438,7 +438,7 @@ During item 04 the engine still resolves classes through
 - [ ] rendering one diagram under `default` and `high_contrast` gives
       boxes sized to their own theme's text
 - [ ] every registered type has a layout, and no `Layout.for` call site
-      guards against `nil`; `grep -rn "Layout.for" lib/sirena/` shows no
+      guards against `nil`; `grep -rn "Layout.for" lib/etassia/` shows no
       `&.` and no `|| model`
 - [ ] `rake corpus:check` shows no regression across the whole item
 
@@ -464,12 +464,12 @@ During item 04 the engine still resolves classes through
 
 ## Files
 
-`lib/sirena/layout/scene.rb` (new), `lib/sirena/layout/base.rb` (the
+`lib/etassia/layout/scene.rb` (new), `lib/etassia/layout/base.rb` (the
 `#call` template and its temporary `to_graph` branch),
-`lib/sirena/layout/*.rb`, `lib/sirena/layout/info.rb` and `error.rb` (**not** new — item 03
+`lib/etassia/layout/*.rb`, `lib/etassia/layout/info.rb` and `error.rb` (**not** new — item 03
 renamed the existing transform files into those paths; item 04
-rewrites them, ~20 lines each), `lib/sirena/renderer/*.rb`,
-`lib/sirena/engine.rb` (calls `Layout::Base#call` from the first
+rewrites them, ~20 lines each), `lib/etassia/renderer/*.rb`,
+`lib/etassia/engine.rb` (calls `Layout::Base#call` from the first
 conversion PR, and gates the Grid stage on the legacy branch),
 `spec/contract_spec.rb`, the transition spec, and
 `spec/support/legacy_layout.rb` (new, the `to_graph`-only fixture).

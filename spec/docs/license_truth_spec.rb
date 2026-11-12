@@ -10,7 +10,7 @@ module LicenseTruth
   DOCS_INDEX = File.join(ROOT, "docs/index.adoc")
   DOCS_CONFIG = File.join(ROOT, "docs/_config.yml")
   LICENSE = File.join(ROOT, "LICENSE")
-  GEMSPEC = File.join(ROOT, "sirena.gemspec")
+  GEMSPEC = File.join(ROOT, "etassia.gemspec")
 
   module_function
 

@@ -16,10 +16,10 @@ and final coordinates are not a safe shared contract: elkrb drops unknown
 metadata, translates only some options, and produces geometry of its own.
 
 The PlantUML class slice supplies the second-notation check. Its private parse
-model (`lib/sirena/notation/plantuml/diagram.rb`) has classes and relations;
-its layout (`lib/sirena/notation/plantuml/layout.rb`) measures boxes, places
+model (`lib/etassia/notation/plantuml/diagram.rb`) has classes and relations;
+its layout (`lib/etassia/notation/plantuml/layout.rb`) measures boxes, places
 them, and routes relations; and its final Scene contains drawable geometry
-(`lib/sirena/notation/plantuml/scene.rb`). PlantUML therefore needs the same
+(`lib/etassia/notation/plantuml/scene.rb`). PlantUML therefore needs the same
 graph concepts as Mermaid class diagrams without sharing PlantUML keywords,
 member syntax, relation spellings, or its Scene classes. This rules out both a
 Mermaid-hash IR and a final-canvas Scene as the notation-neutral boundary.
@@ -75,34 +75,34 @@ The tests are applied in this order; the first match wins.
 
 Each implementation path exists on this revision. Evidence cites the current
 layout behavior; the older survey's `transform/*` wording refers to these
-`lib/sirena/layout/*` implementations.
+`lib/etassia/layout/*` implementations.
 
 | Type | Shape | Implementation | Evidence |
 |---|---|---|---|
-| `flowchart` | `graph-shaped` | `lib/sirena/notation/mermaid/ir_adapters/flowchart.rb` | Nodes and subgraphs map to ordered identities and containment; links map to resolved directional edges with normalized labels, markers, and styles. Layout owns all geometry. |
-| `sequence` | `graph-shaped` | `lib/sirena/notation/mermaid/ir_adapters/sequence.rb` | Participants map to identified nodes; messages and sequence constructs retain ordered, resolved endpoint semantics without lifelines, coordinates, or routes. |
-| `class_diagram` | `graph-shaped` | `lib/sirena/notation/mermaid/ir_adapters/class_diagram.rb` | Classes map to identified nodes with members, annotations, namespaces, styles, and notes; relationships retain resolved endpoints and normalized relation semantics. |
-| `state_diagram` | `graph-shaped` | `lib/sirena/notation/mermaid/ir_adapters/state_diagram.rb` | States map to identified, nested nodes and transitions to resolved ordered edges; notes, forks, joins, concurrency, styles, and metadata stay semantic. |
-| `er_diagram` | `graph-shaped` | `lib/sirena/notation/mermaid/ir_adapters/er_diagram.rb` | Entities and attributes map to identified nodes and semantic values; relationships retain resolved endpoints, cardinalities, roles, identification, and order. |
-| `user_journey` | `graph-shaped` | `lib/sirena/notation/mermaid/ir_adapters/user_journey.rb` | Sections and tasks map to ordered contained nodes with scores, actors, styles, and resolved sequential edges; layout owns all geometry. |
-| `gantt` | `pre-positioned` | `lib/sirena/notation/mermaid/ir_adapters/gantt.rb` | Sections, tasks, dates, durations, dependencies, exclusions, statuses, and display settings map to shared constraints; layout owns all geometry. |
-| `pie` | `data-shaped` | `lib/sirena/notation/mermaid/ir_adapters/pie.rb` | Ordered slice values and visibility become shared data; layout alone computes percentages, angles, paths, and labels. |
-| `timeline` | `pre-positioned` | `lib/sirena/notation/mermaid/ir_adapters/timeline.rb` | Sections, events, descriptions, and tasks map to ordered contained placements; layout owns all canvas geometry. |
-| `quadrant` | `pre-positioned` | `lib/sirena/notation/mermaid/ir_adapters/quadrant.rb` | Axis and region labels plus contained point coordinates and source styles map to shared placements; layout owns canvas geometry. |
-| `git_graph` | `graph-shaped` | `lib/sirena/notation/mermaid/ir_adapters/git_graph.rb` | Commits and branches map to ordered identities with resolved parent, merge, and cherry-pick edges and normalized metadata; layout owns all geometry. |
-| `mindmap` | `graph-shaped` | `lib/sirena/notation/mermaid/ir_adapters/mindmap.rb` | Tree nodes map to shared identities, containment, and resolved parent/child edges; layout owns their geometry. |
-| `kanban` | `data-shaped` | `lib/sirena/notation/mermaid/ir_adapters/kanban.rb` | Columns, cards, metadata, and style references map to ordered contained items and values; layout owns stacking and dimensions. |
-| `radar` | `data-shaped` | `lib/sirena/notation/mermaid/ir_adapters/radar.rb` | Axes, datasets, measurements, options, and accessibility map to ordered shared data; layout derives all polar geometry. |
-| `block` | `pre-positioned` | `lib/sirena/notation/mermaid/ir_adapters/block.rb` | Grid columns, ordered spans and spaces, nesting, shapes, and connections map to shared placements and edges; layout owns canvas geometry. |
-| `requirement` | `graph-shaped` | `lib/sirena/notation/mermaid/ir_adapters/requirement.rb` | Requirements and elements map to identified nodes with semantic fields, styles, classes, and resolved normalized relationships; layout owns all geometry. |
-| `xychart` | `pre-positioned` | `lib/sirena/notation/mermaid/ir_adapters/xychart.rb` | Axes, categories, ranges, series, samples, and colors map to ordered shared placements; layout owns canvas geometry. |
-| `architecture` | `graph-shaped` | `lib/sirena/notation/mermaid/ir_adapters/architecture.rb` | Services, junctions, and groups map to identified contained nodes; edges retain resolved endpoints, sides, directionality, styles, and semantic metadata without routes. |
-| `sankey` | `graph-shaped` | `lib/sirena/notation/mermaid/ir_adapters/sankey.rb` | Flows map to shared nodes and resolved weighted edges; layout owns layering, positions, and paths. |
-| `packet` | `pre-positioned` | `lib/sirena/notation/mermaid/ir_adapters/packet.rb` | Fields map to ordered bit-start placements with inclusive spans; layout owns row, column, and pixel geometry. |
-| `treemap` | `data-shaped` | `lib/sirena/notation/mermaid/ir_adapters/treemap.rb` | Preorder hierarchy, explicit magnitudes, derived totals, and normalized styles map to shared data; layout allocates all rectangles. |
-| `c4` | `graph-shaped` | `lib/sirena/notation/mermaid/ir_adapters/c4.rb` | Elements and boundaries map to ordered contained nodes with normalized roles and resolved directional relationships; layout owns all geometry. |
-| `info` | `data-shaped` | `lib/sirena/notation/mermaid/ir_adapters/info.rb` | The title and show-information flag map to shared data without nodes or connectivity; layout owns panel geometry. |
-| `error` | `data-shaped` | `lib/sirena/notation/mermaid/ir_adapters/error.rb` | The title and message map to shared ordered content without connectivity; layout owns panel geometry. |
+| `flowchart` | `graph-shaped` | `lib/etassia/notation/mermaid/ir_adapters/flowchart.rb` | Nodes and subgraphs map to ordered identities and containment; links map to resolved directional edges with normalized labels, markers, and styles. Layout owns all geometry. |
+| `sequence` | `graph-shaped` | `lib/etassia/notation/mermaid/ir_adapters/sequence.rb` | Participants map to identified nodes; messages and sequence constructs retain ordered, resolved endpoint semantics without lifelines, coordinates, or routes. |
+| `class_diagram` | `graph-shaped` | `lib/etassia/notation/mermaid/ir_adapters/class_diagram.rb` | Classes map to identified nodes with members, annotations, namespaces, styles, and notes; relationships retain resolved endpoints and normalized relation semantics. |
+| `state_diagram` | `graph-shaped` | `lib/etassia/notation/mermaid/ir_adapters/state_diagram.rb` | States map to identified, nested nodes and transitions to resolved ordered edges; notes, forks, joins, concurrency, styles, and metadata stay semantic. |
+| `er_diagram` | `graph-shaped` | `lib/etassia/notation/mermaid/ir_adapters/er_diagram.rb` | Entities and attributes map to identified nodes and semantic values; relationships retain resolved endpoints, cardinalities, roles, identification, and order. |
+| `user_journey` | `graph-shaped` | `lib/etassia/notation/mermaid/ir_adapters/user_journey.rb` | Sections and tasks map to ordered contained nodes with scores, actors, styles, and resolved sequential edges; layout owns all geometry. |
+| `gantt` | `pre-positioned` | `lib/etassia/notation/mermaid/ir_adapters/gantt.rb` | Sections, tasks, dates, durations, dependencies, exclusions, statuses, and display settings map to shared constraints; layout owns all geometry. |
+| `pie` | `data-shaped` | `lib/etassia/notation/mermaid/ir_adapters/pie.rb` | Ordered slice values and visibility become shared data; layout alone computes percentages, angles, paths, and labels. |
+| `timeline` | `pre-positioned` | `lib/etassia/notation/mermaid/ir_adapters/timeline.rb` | Sections, events, descriptions, and tasks map to ordered contained placements; layout owns all canvas geometry. |
+| `quadrant` | `pre-positioned` | `lib/etassia/notation/mermaid/ir_adapters/quadrant.rb` | Axis and region labels plus contained point coordinates and source styles map to shared placements; layout owns canvas geometry. |
+| `git_graph` | `graph-shaped` | `lib/etassia/notation/mermaid/ir_adapters/git_graph.rb` | Commits and branches map to ordered identities with resolved parent, merge, and cherry-pick edges and normalized metadata; layout owns all geometry. |
+| `mindmap` | `graph-shaped` | `lib/etassia/notation/mermaid/ir_adapters/mindmap.rb` | Tree nodes map to shared identities, containment, and resolved parent/child edges; layout owns their geometry. |
+| `kanban` | `data-shaped` | `lib/etassia/notation/mermaid/ir_adapters/kanban.rb` | Columns, cards, metadata, and style references map to ordered contained items and values; layout owns stacking and dimensions. |
+| `radar` | `data-shaped` | `lib/etassia/notation/mermaid/ir_adapters/radar.rb` | Axes, datasets, measurements, options, and accessibility map to ordered shared data; layout derives all polar geometry. |
+| `block` | `pre-positioned` | `lib/etassia/notation/mermaid/ir_adapters/block.rb` | Grid columns, ordered spans and spaces, nesting, shapes, and connections map to shared placements and edges; layout owns canvas geometry. |
+| `requirement` | `graph-shaped` | `lib/etassia/notation/mermaid/ir_adapters/requirement.rb` | Requirements and elements map to identified nodes with semantic fields, styles, classes, and resolved normalized relationships; layout owns all geometry. |
+| `xychart` | `pre-positioned` | `lib/etassia/notation/mermaid/ir_adapters/xychart.rb` | Axes, categories, ranges, series, samples, and colors map to ordered shared placements; layout owns canvas geometry. |
+| `architecture` | `graph-shaped` | `lib/etassia/notation/mermaid/ir_adapters/architecture.rb` | Services, junctions, and groups map to identified contained nodes; edges retain resolved endpoints, sides, directionality, styles, and semantic metadata without routes. |
+| `sankey` | `graph-shaped` | `lib/etassia/notation/mermaid/ir_adapters/sankey.rb` | Flows map to shared nodes and resolved weighted edges; layout owns layering, positions, and paths. |
+| `packet` | `pre-positioned` | `lib/etassia/notation/mermaid/ir_adapters/packet.rb` | Fields map to ordered bit-start placements with inclusive spans; layout owns row, column, and pixel geometry. |
+| `treemap` | `data-shaped` | `lib/etassia/notation/mermaid/ir_adapters/treemap.rb` | Preorder hierarchy, explicit magnitudes, derived totals, and normalized styles map to shared data; layout allocates all rectangles. |
+| `c4` | `graph-shaped` | `lib/etassia/notation/mermaid/ir_adapters/c4.rb` | Elements and boundaries map to ordered contained nodes with normalized roles and resolved directional relationships; layout owns all geometry. |
+| `info` | `data-shaped` | `lib/etassia/notation/mermaid/ir_adapters/info.rb` | The title and show-information flag map to shared data without nodes or connectivity; layout owns panel geometry. |
+| `error` | `data-shaped` | `lib/etassia/notation/mermaid/ir_adapters/error.rb` | The title and message map to shared ordered content without connectivity; layout owns panel geometry. |
 
 Summary: **6 pre-positioned, 12 graph-shaped, 6 data-shaped; 24 total.**
 

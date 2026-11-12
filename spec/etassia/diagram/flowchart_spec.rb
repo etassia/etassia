@@ -1,0 +1,344 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+RSpec.describe Etassia::Diagram::Flowchart do
+  def build_flowchart(nodes: [], edges: [], subgraphs: [])
+    described_class.new(
+      direction: "TD", nodes: nodes, edges: edges, subgraphs: subgraphs,
+    )
+  end
+
+  def node(id = "A", label: id)
+    Etassia::Diagram::FlowchartNode.new(id: id, label: label)
+  end
+
+  def rectangular_node(id = "A", label: id)
+    Etassia::Diagram::FlowchartNode.new(id: id, label: label, shape: "rect")
+  end
+
+  def edge(source_id, target_id)
+    Etassia::Diagram::FlowchartEdge.new(
+      source_id: source_id, target_id: target_id, arrow_type: "arrow",
+    )
+  end
+
+  def subgraph(id, **attributes)
+    Etassia::Diagram::FlowchartSubgraph.new(id: id, **attributes)
+  end
+
+  def nested_subgraphs
+    [
+      subgraph("outer", child_ids: %w[middle]),
+      subgraph("middle", parent_id: "outer", child_ids: %w[inner]),
+      subgraph("inner", parent_id: "middle", node_ids: %w[A]),
+    ]
+  end
+
+  def mutually_parented_subgraphs
+    [
+      subgraph("x", parent_id: "y", node_ids: %w[A]),
+      subgraph("y", parent_id: "x", node_ids: %w[B]),
+    ]
+  end
+
+  def box_only_subgraphs
+    [subgraph("one", child_ids: %w[e1]), subgraph("e1", parent_id: "one")]
+  end
+
+  def mismatched_subgraphs(parent_attributes, child_attributes)
+    [
+      subgraph("outer", **parent_attributes),
+      subgraph("inner", **child_attributes),
+    ]
+  end
+
+  def redeclared_subgraphs
+    [
+      subgraph("b", parent_id: "a", node_ids: %w[A]),
+      subgraph("a", child_ids: %w[b]), subgraph("b")
+    ]
+  end
+
+  describe "#diagram_type" do
+    it "returns :flowchart" do
+      flowchart = described_class.new
+      expect(flowchart.diagram_type).to eq(:flowchart)
+    end
+  end
+
+  describe "#valid?" do
+    it "returns true for valid flowchart with nodes" do
+      flowchart = build_flowchart(
+        nodes: [rectangular_node("A", label: "Start")],
+      )
+
+      expect(flowchart.valid?).to be true
+    end
+
+    # Deliberate: mermaid accepts a bare `graph TD` and renders an empty
+    # canvas, so a flowchart with no nodes and no declared subgraph is
+    # valid here too.
+    it "returns true for flowchart without nodes" do
+      flowchart = described_class.new(direction: "TD")
+      expect(flowchart.valid?).to be true
+    end
+
+    # Passes before and after this change (the old, unconditional empty
+    # guard already refused this shape) -- keep it: it is the only check
+    # that a future edit to `&& boxes.any?` does not also let a declared,
+    # undrawable subgraph through as a blank canvas.
+    it "returns false for a flowchart with a subgraph that draws nothing" do
+      flowchart = described_class.new(direction: "TD")
+      flowchart.subgraphs << Etassia::Diagram::FlowchartSubgraph.new(id: "s")
+
+      expect(flowchart.valid?).to be false
+    end
+
+    # Passes before and after this change (`nodes || []` already turned
+    # nil into empty) -- keep it: it is the only check that a future edit
+    # to the `nodes.nil?` guard does not silently accept a nil-nodes
+    # flowchart again.
+    it "returns false when nodes is explicitly nil" do
+      flowchart = described_class.new(direction: "TD", nodes: nil)
+      expect(flowchart.valid?).to be false
+    end
+
+    it "returns false when nodes is nil even with a drawable subgraph tree" do
+      boxes = [subgraph("a", child_ids: ["b"]), subgraph("b", parent_id: "a")]
+      flowchart = build_flowchart(nodes: nil, subgraphs: boxes)
+
+      expect(flowchart.valid?).to be false
+    end
+
+    it "returns false when edge references non-existent node" do
+      flowchart = build_flowchart(
+        nodes: [rectangular_node("A", label: "Start")],
+        edges: [edge("A", "B")],
+      )
+
+      expect(flowchart.valid?).to be false
+    end
+
+    # What the renderer can reach, not what the model happens to hold.
+    # An empty box is never carried into the layout, so an edge naming
+    # one resolves to nothing and is dropped.
+    it "returns false when an edge names a box nobody draws" do
+      flowchart = build_flowchart(
+        nodes: [node], edges: [edge("s", "A")], subgraphs: [subgraph("s")],
+      )
+
+      expect(flowchart.valid?).to be false
+    end
+
+    it "takes an edge that names a box somebody draws" do
+      flowchart = build_flowchart(
+        nodes: [node], edges: [edge("s", "A")],
+        subgraphs: [subgraph("s", node_ids: %w[A])]
+      )
+
+      expect(flowchart.valid?).to be true
+    end
+
+    # A box cannot be its own ancestor. The layout hangs each box off
+    # its parent, so a loop leaves the diagram with no root at all: the
+    # transform finds nothing to place while still counting the looped
+    # boxes' nodes as spoken for, and the drawing comes out empty. The
+    # model used to call that valid.
+    #
+    # Only reachable by hand. The parser refuses the source first, and
+    # every parent edge it can set is present in the containment graph
+    # it checks, so an acyclic parse cannot produce a cyclic model.
+    it "returns false when a box is its own parent" do
+      flowchart = build_flowchart(
+        nodes: [node],
+        subgraphs: [subgraph("s", parent_id: "s", node_ids: %w[A])],
+      )
+
+      expect(flowchart.valid?).to be false
+    end
+
+    it "returns false when two boxes are parented to each other" do
+      flowchart = build_flowchart(
+        nodes: %w[A B].map { |id| node(id) },
+        subgraphs: mutually_parented_subgraphs,
+      )
+
+      expect(flowchart.valid?).to be false
+    end
+
+    # A pair is the shape that was found; the walk has to close a longer
+    # ring too, or the guard is proven in one direction only.
+    it "returns false when three boxes close a ring" do
+      boxes = %w[p q r].zip(%w[q r p]).map do |id, parent|
+        subgraph(id, parent_id: parent, node_ids: %w[A])
+      end
+      flowchart = build_flowchart(nodes: [node], subgraphs: boxes)
+
+      expect(flowchart.valid?).to be false
+    end
+
+    # The rings above prove the guard fires. This proves it does not
+    # fire on a chain of the same depth, which is the shape a real
+    # three-deep nesting has.
+    it "takes three boxes nested one inside the next" do
+      boxes = nested_subgraphs
+      flowchart = build_flowchart(nodes: [node], subgraphs: boxes)
+
+      expect(flowchart.valid?).to be true
+    end
+
+    # Naming a parent nobody declared is not a loop. The transform
+    # already puts such a box at the top level, so refusing it here
+    # would reject a diagram that draws perfectly well.
+    it "takes a box whose parent is not in the diagram" do
+      flowchart = build_flowchart(
+        nodes: [node],
+        subgraphs: [subgraph("s", parent_id: "absent", node_ids: %w[A])],
+      )
+
+      expect(flowchart.valid?).to be true
+    end
+
+    # Every node can end up naming a box, and mmdc draws the boxes. Both
+    # boxes are present, the way a parse leaves them: `one` holds `e1`,
+    # and `e1` holds nothing, so only `one` is worth drawing.
+    it "takes a diagram that is only boxes" do
+      flowchart = build_flowchart(subgraphs: box_only_subgraphs)
+
+      expect(flowchart.valid?).to be true
+    end
+
+    # Everything downstream keys off the box's id, so a box without one
+    # used to pass here and then draw a cluster nobody could reach.
+    it "returns false when a box has no id" do
+      flowchart = build_flowchart(
+        nodes: [node], subgraphs: [subgraph("", node_ids: %w[A])],
+      )
+
+      expect(flowchart.valid?).to be false
+    end
+
+    # The box counts as drawable, so the layout makes room for it and
+    # the cluster comes out empty.
+    it "returns false when a box names a member that is not there" do
+      flowchart = build_flowchart(
+        nodes: [node], subgraphs: [subgraph("s", node_ids: %w[A gone])],
+      )
+
+      expect(flowchart.valid?).to be false
+    end
+
+    # An empty box stays a plain node in mermaid, so a member may name
+    # another box just as well as a node.
+    it "takes a box whose member names another box" do
+      boxes = [subgraph("one", node_ids: %w[e1]), subgraph("e1")]
+      flowchart = build_flowchart(subgraphs: boxes)
+
+      expect(flowchart.valid?).to be true
+    end
+
+    # `parent_id` and `child_ids` say the same thing from two ends and
+    # both are believed: the transform reads the parent, `drawable?`
+    # counts the children. A model where they disagree draws wrong.
+    it "returns false when a child names a parent that does not list it" do
+      boxes = mismatched_subgraphs(
+        { node_ids: %w[A] }, { parent_id: "outer", node_ids: %w[A] }
+      )
+      flowchart = build_flowchart(nodes: [node], subgraphs: boxes)
+
+      expect(flowchart.valid?).to be false
+    end
+
+    it "returns false when a parent lists a child that names nobody" do
+      boxes = mismatched_subgraphs(
+        { child_ids: %w[inner] }, { node_ids: %w[A] }
+      )
+      flowchart = build_flowchart(nodes: [node], subgraphs: boxes)
+
+      expect(flowchart.valid?).to be false
+    end
+
+    it "returns false when a parent lists a child nobody declared" do
+      flowchart = build_flowchart(
+        nodes: [node],
+        subgraphs: [subgraph("outer", node_ids: %w[A], child_ids: %w[gone])],
+      )
+
+      expect(flowchart.valid?).to be false
+    end
+
+    # A source may declare the same box twice. Only the first object
+    # carries the nesting, so the check reads every box of that name.
+    it "takes a box redeclared empty beside the one that holds things" do
+      flowchart = build_flowchart(
+        nodes: [node], subgraphs: redeclared_subgraphs,
+      )
+
+      expect(flowchart.valid?).to be true
+    end
+  end
+
+  describe "#find_node" do
+    let(:flowchart) { described_class.new }
+    let(:node) do
+      Etassia::Diagram::FlowchartNode.new(
+        id: "A",
+        label: "Test",
+        shape: "rect",
+      )
+    end
+
+    before { flowchart.nodes << node }
+
+    it "finds node by id" do
+      expect(flowchart.find_node("A")).to eq(node)
+    end
+
+    it "returns nil for non-existent id" do
+      expect(flowchart.find_node("Z")).to be_nil
+    end
+  end
+
+  describe "#edges_from" do
+    let(:flowchart) { described_class.new }
+    let(:edge) do
+      Etassia::Diagram::FlowchartEdge.new(
+        source_id: "A",
+        target_id: "B",
+        arrow_type: "arrow",
+      )
+    end
+
+    before { flowchart.edges << edge }
+
+    it "finds edges originating from node" do
+      expect(flowchart.edges_from("A")).to eq([edge])
+    end
+
+    it "returns empty array for node with no outgoing edges" do
+      expect(flowchart.edges_from("B")).to eq([])
+    end
+  end
+
+  describe "#edges_to" do
+    let(:flowchart) { described_class.new }
+    let(:edge) do
+      Etassia::Diagram::FlowchartEdge.new(
+        source_id: "A",
+        target_id: "B",
+        arrow_type: "arrow",
+      )
+    end
+
+    before { flowchart.edges << edge }
+
+    it "finds edges targeting node" do
+      expect(flowchart.edges_to("B")).to eq([edge])
+    end
+
+    it "returns empty array for node with no incoming edges" do
+      expect(flowchart.edges_to("A")).to eq([])
+    end
+  end
+end

@@ -12,10 +12,10 @@ RSpec.shared_examples "a diagram type" do |type, gaps = {}|
     File.read(File.join(__dir__, "..", "fixtures", "contract", "#{type}.mmd"))
   end
   let(:model) do
-    Sirena::Notation::Mermaid.layer_class(Sirena::Diagram, type,
-                                          Sirena::Error)
+    Etassia::Notation::Mermaid.layer_class(Etassia::Diagram, type,
+                                          Etassia::Error)
   end
-  let(:diagram) { Sirena::Parser.for(type).parse(fixture) }
+  let(:diagram) { Etassia::Parser.for(type).parse(fixture) }
   let(:header_only) do
     header = fixture.lines.map(&:strip).find do |line|
       !line.empty? && !line.start_with?("%%")
@@ -30,19 +30,19 @@ RSpec.shared_examples "a diagram type" do |type, gaps = {}|
   end
 
   it "resolves a parser inheriting Parser::Base" do
-    expect(Sirena::Parser.for(type)).to be_a(Sirena::Parser::Base)
+    expect(Etassia::Parser.for(type)).to be_a(Etassia::Parser::Base)
   end
 
   it "resolves a layout inheriting Layout::Base" do
-    expect(Sirena::Layout.for(type)).to be_a(Sirena::Layout::Base)
+    expect(Etassia::Layout.for(type)).to be_a(Etassia::Layout::Base)
   end
 
   it "resolves a renderer inheriting Renderer::Base" do
-    expect(Sirena::Renderer.for(type)).to be_a(Sirena::Renderer::Base)
+    expect(Etassia::Renderer.for(type)).to be_a(Etassia::Renderer::Base)
   end
 
   it "resolves a model inheriting Diagram::Base" do
-    expect(model.ancestors).to include(Sirena::Diagram::Base)
+    expect(model.ancestors).to include(Etassia::Diagram::Base)
   end
 
   it "parses the fixture into the convention-resolved model" do
@@ -60,34 +60,34 @@ RSpec.shared_examples "a diagram type" do |type, gaps = {}|
   end
 
   it "renders the fixture to well-formed XML" do
-    expect { REXML::Document.new(Sirena::Engine.new.render(fixture)) }
+    expect { REXML::Document.new(Etassia::Engine.new.render(fixture)) }
       .not_to raise_error
   end
 
   it "renders the fixture under every built-in theme" do
-    svgs = themes.map { |t| Sirena::Engine.new(theme: t).render(fixture) }
+    svgs = themes.map { |t| Etassia::Engine.new(theme: t).render(fixture) }
 
     expect(svgs).to all(include("<svg"))
   end
 
   it "lets a built-in theme change the SVG" do
     pending(gaps[:theme_output]) if gaps[:theme_output]
-    default = Sirena::Engine.new.render(fixture)
-    svgs = themes.map { |t| Sirena::Engine.new(theme: t).render(fixture) }
+    default = Etassia::Engine.new.render(fixture)
+    svgs = themes.map { |t| Etassia::Engine.new(theme: t).render(fixture) }
 
     expect(svgs).to include(satisfy { |svg| svg != default })
   end
 
   if type == :c4
     it "rejects canonical header-only input like the oracle" do
-      expect { Sirena::Engine.new.render(header_only) }
-        .to raise_error(Sirena::Parser::ParseError)
+      expect { Etassia::Engine.new.render(header_only) }
+        .to raise_error(Etassia::Parser::ParseError)
     end
   else
     it "renders header-only input without raising" do
       pending(gaps[:empty_input]) if gaps[:empty_input]
 
-      expect { Sirena::Engine.new.render(header_only) }.not_to raise_error
+      expect { Etassia::Engine.new.render(header_only) }.not_to raise_error
     end
   end
 end

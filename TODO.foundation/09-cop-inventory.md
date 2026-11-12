@@ -1,6 +1,6 @@
 # 09 — Cop inventory
 
-Card step 1's measured inventory. Produced by `Sirena::LintDebt`
+Card step 1's measured inventory. Produced by `Etassia::LintDebt`
 (`tasks/support/lint_debt.rb`), which re-runs rubocop against a config it
 synthesises itself rather than one loaded from `.rubocop.yml` — so a
 local `Exclude`, a deleted plugin, or a todo file renamed and
@@ -36,10 +36,10 @@ it visible; the total is exact regardless of the split):
 glob, not a single file). **Neither is eligible for the signed
 exception allowlist** (`09-rubocop-todo-burndown.md:16-21` permits only
 a metrics cop on a single grammar file) — they must be fixed, not
-signed. `Sirena::LintDebt`'s allowlist refuses both automatically.
+signed. `Etassia::LintDebt`'s allowlist refuses both automatically.
 
 The 4 inline directives are all `Style/OneClassPerFile`:
-`lib/sirena/theme.rb` (1, same-line `# rubocop:disable`),
+`lib/etassia/theme.rb` (1, same-line `# rubocop:disable`),
 `lib/tasks/generate_mermaid_fixtures.rake` (2, block directive),
 `scripts/extract_mermaid_tests.rb` (1, block directive). Only the
 same-line one in `theme.rb` moves under `NewCops: disable`-style
@@ -189,7 +189,7 @@ RSpec/PendingWithoutReason       1
 ### Metrics (13 cops, 1659 offences)
 
 The 13 cops eligible for the signed exception allowlist, on a grammar
-file, one at a time (`Sirena::LintDebt::METRICS_COPS`):
+file, one at a time (`Etassia::LintDebt::METRICS_COPS`):
 
 ```
 Metrics/MethodLength           441

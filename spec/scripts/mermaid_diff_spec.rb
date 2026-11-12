@@ -142,8 +142,8 @@ module MermaidDiffLocalHelpers
       .grep(/\A(?:BUNDLE|BUNDLER|RUBY)/)
       .to_h { |key| [key, nil] }
     environment["PATH"] = "/nonexistent"
-    environment["SIRENA_ALLOW_TEST_MMDC"] = "1"
-    environment["SIRENA_MMDC_TEST_BIN"] = "/nonexistent/mmdc"
+    environment["ETASSIA_ALLOW_TEST_MMDC"] = "1"
+    environment["ETASSIA_MMDC_TEST_BIN"] = "/nonexistent/mmdc"
     Open3.capture3(
       environment, RbConfig.ruby,
       File.expand_path("../../scripts/corpus_verdicts.rb", __dir__),
@@ -180,9 +180,9 @@ RSpec.describe MermaidDiff, :aggregate_failures do
       %i[accepts rejects] => [:over_acceptance, false],
       %i[accepts error] => [:infrastructure, false],
       %i[rejects error] => [:infrastructure, false],
-    }.each do |(sirena, mermaid), (kind, agreement)|
-      it "maps sirena #{sirena} with mermaid #{mermaid} to #{kind}" do
-        verdict = MermaidDiff::Verdict.new("source", sirena, mermaid)
+    }.each do |(etassia, mermaid), (kind, agreement)|
+      it "maps etassia #{etassia} with mermaid #{mermaid} to #{kind}" do
+        verdict = MermaidDiff::Verdict.new("source", etassia, mermaid)
 
         expect([verdict.kind, verdict.agree?]).to eq([kind, agreement])
       end
@@ -194,20 +194,20 @@ RSpec.describe MermaidDiff, :aggregate_failures do
   # started sharing this hardening instead of calling mmdc through a bare
   # Open3.capture3.
 
-  describe "asking sirena for a verdict" do
-    it "accepts a source sirena can render" do
-      expect(harness.send(:sirena_verdict, trivial_source)).to be(:accepts)
+  describe "asking etassia for a verdict" do
+    it "accepts a source etassia can render" do
+      expect(harness.send(:etassia_verdict, trivial_source)).to be(:accepts)
     end
 
     # Only the mmdc half had a deadline. mmdc accepts this source in 7.2s and
-    # sirena was still rendering it 60s in, so one probe like it stalled every
+    # etassia was still rendering it 60s in, so one probe like it stalled every
     # verdict after it and the report never arrived. The guard is here so a
     # regression fails this example instead of wedging the suite.
-    it "gives up on a source sirena cannot finish" do
+    it "gives up on a source etassia cannot finish" do
       stub_const("HardenedMmdc::CASE_TIMEOUT", 0.5)
       source = "packet-beta\n0-2000000: \"x\"\n"
 
-      verdict = Timeout.timeout(guard) { harness.send(:sirena_verdict, source) }
+      verdict = Timeout.timeout(guard) { harness.send(:etassia_verdict, source) }
 
       expect(verdict).to be(:rejects)
     end
@@ -221,7 +221,7 @@ RSpec.describe MermaidDiff, :aggregate_failures do
       deep = "flowchart LR\n#{"  subgraph s\n" * 2000}  " \
              "A --> B\n#{"  end\n" * 2000}"
 
-      expect(harness.send(:sirena_verdict, deep)).to be(:rejects)
+      expect(harness.send(:etassia_verdict, deep)).to be(:rejects)
     end
   end
 
@@ -366,7 +366,7 @@ RSpec.describe MermaidDiff, :aggregate_failures do
       end
     end
 
-    context "when mmdc rejects what sirena accepts" do
+    context "when mmdc rejects what etassia accepts" do
       let(:run) do
         run_harness("flowchart LR\n  A[reject-by-fake]\n",
                     mmdc: selective_mmdc)
@@ -462,14 +462,14 @@ RSpec.describe MermaidDiff, :aggregate_failures do
 
     # The one source you could not write used to be `\%%%%` on its own line,
     # because the escape rewrote it to `%%%%` and left a doubled backslash
-    # doubled. mmdc 11.12.0 renders the intended source and sirena rejects it;
+    # doubled. mmdc 11.12.0 renders the intended source and etassia rejects it;
     # both accept the transformed source containing the bare `%%%%` line.
     it "writes a literal escape character with one more of them" do
       expect(records_in("flowchart LR\n\\\\%%%%\n  A --> B\n"))
         .to eq(["flowchart LR\n\\%%%%\n  A --> B\n"])
     end
 
-    # mmdc renders a source that is not valid UTF-8 and sirena rejects it, so
+    # mmdc renders a source that is not valid UTF-8 and etassia rejects it, so
     # the probe is a gap the harness should report. Reading the file as text
     # raised out of String#split instead, before a single case in it had run.
     it "loads a probe that is not valid UTF-8" do

@@ -16,8 +16,8 @@ stale improvement. See
 nightly retain explicitly defined HEAD-consistency semantics. These local
 payloads do not establish every hosted event's fetch/ref delivery or pinned
 oracle provenance. Hosted deliberate controls
-[38561429267](https://github.com/claricle/sirena/actions/runs/38561429267) and
-[38561596382](https://github.com/claricle/sirena/actions/runs/38561596382)
+[38561429267](https://github.com/claricle/etassia/actions/runs/38561429267) and
+[38561596382](https://github.com/claricle/etassia/actions/runs/38561596382)
 proved that both stable, always-running aggregators reject a genuinely failed
 and a genuinely skipped required child using the unchanged production
 verdict script. Their temporary manual-only proof branch remains unmerged.
@@ -31,9 +31,9 @@ budget satisfaction and protection reverification are still required. The
 selected topology retains Windows' three groups and runs macOS once per
 Ruby, preserving all twelve Ruby/OS combinations and every gate. Matched
 same-branch warm samples
-[38562661316](https://github.com/claricle/sirena/actions/runs/38562661316)
+[38562661316](https://github.com/claricle/etassia/actions/runs/38562661316)
 (12 unit jobs) and
-[38565260570](https://github.com/claricle/sirena/actions/runs/38565260570)
+[38565260570](https://github.com/claricle/etassia/actions/runs/38565260570)
 (20 unit jobs) measured complete fast/full spans of 1105/622 and 897/604
 seconds, including queue and aggregators. Their unit cache keys and resolved
 leptris 1.9.355.0 matched. This single pair supports retaining Windows groups;
@@ -211,7 +211,7 @@ conformance (04), and the fresh-resolution install (01).
 ## Historical lane timings (19b)
 
 Measured 2026-10-11 (historical) with `scripts/ci_lane_timings.rb
-claricle/sirena 2026-10-10T13:00:00Z 200`, then filtered to `ci` runs on `main`
+claricle/etassia 2026-10-10T13:00:00Z 200`, then filtered to `ci` runs on `main`
 that succeeded
 and use the sharded topology: 23 runs, ids 38068467558 through 38115384187
 (`push`, 2026-10-10 16:38Z to 2026-10-11 05:37Z). A lane's time is its slowest

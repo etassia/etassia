@@ -19,7 +19,7 @@ module AddingADiagramTypeManifest
     "bundle exec rake 'type:new[demo]'",
     "bundle exec rake 'corpus[pie]'",
     "bundle exec rake 'corpus[pie,valid]'",
-    "bundle exec rspec spec/sirena/notation/mermaid_contract_spec.rb -e demo",
+    "bundle exec rspec spec/etassia/notation/mermaid_contract_spec.rb -e demo",
     "spec/support/diagram_type_examples.rb",
   ].freeze
 end
@@ -32,13 +32,13 @@ RSpec.describe AddingADiagramTypeManifest do
   end
   let(:generated_manifest) do
     Dir.mktmpdir("documented-type-generator") do |root|
-      types_path = File.join(root, Sirena::TypeGenerator::TYPES_FILE)
+      types_path = File.join(root, Etassia::TypeGenerator::TYPES_FILE)
       FileUtils.mkdir_p(File.dirname(types_path))
-      FileUtils.cp(Sirena::TypeGenerator::TYPES_FILE, types_path)
+      FileUtils.cp(Etassia::TypeGenerator::TYPES_FILE, types_path)
       FileUtils.mkdir_p(File.join(root, "docs"))
-      FileUtils.cp(Sirena::TypeGenerator::IR_MAP_FILE, File.join(root, "docs"))
-      Sirena::TypeGenerator.new(
-        "doc_demo", root: root, types: Sirena::Notation::Mermaid::TYPES
+      FileUtils.cp(Etassia::TypeGenerator::IR_MAP_FILE, File.join(root, "docs"))
+      Etassia::TypeGenerator.new(
+        "doc_demo", root: root, types: Etassia::Notation::Mermaid::TYPES
       ).call.map { |path| path.gsub("doc_demo", "<type>") }
     end
   end

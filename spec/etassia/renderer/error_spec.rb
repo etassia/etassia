@@ -1,0 +1,91 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+require "etassia/renderer/error"
+
+RSpec.describe Etassia::Renderer::Error do
+  subject(:svg) { described_class.new.render(scene) }
+
+  let(:message) { "Dependency missing" }
+  let(:scene) { Etassia::Layout::Error.from_graph({ message: message }) }
+  let(:dark) { Etassia::Theme::Registry.get(:dark) }
+  let(:themed) do
+    dark_scene = Etassia::Layout::Error.from_graph(
+      { message: message }, theme: dark
+    )
+    described_class.new(theme: dark).render(dark_scene)
+  end
+  let(:theme_colors) do
+    [dark.colors.surface, dark.colors.error, dark.colors.edge_stroke,
+     dark.colors.background]
+  end
+
+  it "renders the error canvas, box, icon, and explicit message geometry" do
+    expect(rendered_geometry).to eq(expected_geometry)
+  end
+
+  it "falls back to the default error message" do
+    default_scene = Etassia::Layout::Error.from_graph({ message: nil })
+    default_svg = described_class.new.render(default_scene)
+    label = default_svg.children.grep(Etassia::Svg::Text).first
+
+    expect(Array(label.content).join).to eq("Error")
+  end
+
+  it "requires final typed Scene input" do
+    expect do
+      described_class.new.render(message: message)
+    end.to raise_error(NoMethodError)
+  end
+
+  it "copies supplied icon geometry without manufacturing defaults" do
+    scene.icon.x = 17
+
+    ring = children_of(Etassia::Svg::Circle).first
+    expect(ring.cx).to eq(17.0)
+  end
+
+  it "uses semantic colors from the active theme" do
+    expect(themed.to_xml).to include(*theme_colors)
+  end
+
+  def rendered_geometry
+    box, mark = children_of(Etassia::Svg::Rect)
+    ring, dot = children_of(Etassia::Svg::Circle)
+    [document_geometry, box_geometry(box), circle_geometry(ring),
+     mark_geometry(mark), circle_geometry(dot),
+     children_of(Etassia::Svg::Text).map { |label| text_geometry(label) }]
+  end
+
+  def children_of(type)
+    svg.children.grep(type)
+  end
+
+  def expected_geometry
+    [[2412.0, 512.0, "0 0 2412 512"],
+     [0.0, 0.0, 2412.0, 512.0], [256.0, 256.0, 256.0],
+     [240.0, 128.0, 32.0, 192.0], [256.0, 384.0, 16.0],
+     [[1440.0, 250.0, "middle", "Dependency missing"],
+      [1250.0, 400.0, "middle", "mermaid version 11.12.0"]]]
+  end
+
+  def document_geometry
+    [svg.width, svg.height, svg.view_box]
+  end
+
+  def box_geometry(box)
+    [box.x, box.y, box.width, box.height]
+  end
+
+  def circle_geometry(circle)
+    [circle.cx, circle.cy, circle.r]
+  end
+
+  def mark_geometry(mark)
+    [mark.x, mark.y, mark.width, mark.height]
+  end
+
+  def text_geometry(label)
+    [label.x, label.y, label.text_anchor, Array(label.content).join]
+  end
+end

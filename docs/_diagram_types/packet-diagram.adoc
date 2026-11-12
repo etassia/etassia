@@ -10,7 +10,7 @@ parent: Diagram Types
 
 == Overview
 
-Packet diagrams in Sirena visualize network packet structures and protocol formats. They show how data is organized within network packets, including field layouts, bit ranges, and data organization across multiple rows.
+Packet diagrams in Etassia visualize network packet structures and protocol formats. They show how data is organized within network packets, including field layouts, bit ranges, and data organization across multiple rows.
 
 Packet diagrams are useful for:
 
@@ -252,7 +252,7 @@ packet-beta
 
 === Currently not supported
 
-The following features are not yet supported in Sirena:
+The following features are not yet supported in Etassia:
 
 * Custom row widths (fixed at 32 bits per row)
 * Color customization for specific fields

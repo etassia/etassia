@@ -12,7 +12,7 @@ parent: Diagram Types
 
 Pie chart diagrams visualize proportional data as circular segments. Each slice represents a portion of the whole, making it easy to see relative sizes and distributions at a glance.
 
-The pie chart implementation in Sirena follows the established Parslet architecture and supports:
+The pie chart implementation in Etassia follows the established Parslet architecture and supports:
 
 * Multiple data slices with labels and values
 * Optional title display
@@ -25,12 +25,12 @@ The pie chart implementation in Sirena follows the established Parslet architect
 
 The pie chart implementation consists of:
 
-* https://github.com/claricle/sirena/blob/main/lib/sirena/diagram/pie.rb[`Diagram::Pie`] - Model classes for pie charts
-* https://github.com/claricle/sirena/blob/main/lib/sirena/parser/grammars/pie.rb[`Parser::Grammars::Pie`] - Parslet grammar
-* https://github.com/claricle/sirena/blob/main/lib/sirena/parser/builders/pie.rb[`Parser::Builders::Pie`] - Parse tree builder
-* https://github.com/claricle/sirena/blob/main/lib/sirena/parser/pie.rb[`Parser::Pie`] - Main parser
-* https://github.com/claricle/sirena/blob/main/lib/sirena/layout/pie.rb[`Layout::Pie`] - Graph layout
-* https://github.com/claricle/sirena/blob/main/lib/sirena/renderer/pie.rb[`Renderer::Pie`] - SVG renderer
+* https://github.com/claricle/etassia/blob/main/lib/etassia/diagram/pie.rb[`Diagram::Pie`] - Model classes for pie charts
+* https://github.com/claricle/etassia/blob/main/lib/etassia/parser/grammars/pie.rb[`Parser::Grammars::Pie`] - Parslet grammar
+* https://github.com/claricle/etassia/blob/main/lib/etassia/parser/builders/pie.rb[`Parser::Builders::Pie`] - Parse tree builder
+* https://github.com/claricle/etassia/blob/main/lib/etassia/parser/pie.rb[`Parser::Pie`] - Main parser
+* https://github.com/claricle/etassia/blob/main/lib/etassia/layout/pie.rb[`Layout::Pie`] - Graph layout
+* https://github.com/claricle/etassia/blob/main/lib/etassia/renderer/pie.rb[`Renderer::Pie`] - SVG renderer
 
 == Syntax
 
@@ -86,7 +86,7 @@ pie
 Where,
 
 `"Label Text"`:: The label for the slice, must be in quotes (single or double).
-`value`:: Numeric value (integer or decimal), zero or greater. Mermaid refuses a negative value, and so does Sirena.
+`value`:: Numeric value (integer or decimal), zero or greater. Mermaid refuses a negative value, and so does Etassia.
 
 === Accessibility features
 
@@ -255,7 +255,7 @@ pie
 === Keyword
 
 The keyword is exactly `pie`. Mermaid's parser rejects `Pie`, `pie chart`
-and `Pie Chart`, and so does Sirena.
+and `Pie Chart`, and so does Etassia.
 
 == Examples
 
@@ -307,7 +307,7 @@ The pie chart implementation includes:
 * Outside the compatibility denominator: 1/1 `artifact` cases currently render; 0/8 `invalid` cases currently render.
 * Generated from `scoreboard/corpus.json` by `bundle exec rake docs:compatibility`.
 // END GENERATED: rake docs:compatibility pie
-* 13 RSpec examples in `spec/sirena/parser/pie_spec.rb`
+* 13 RSpec examples in `spec/etassia/parser/pie_spec.rb`
 * Parser, transform, and renderer tests
 * Edge case handling (empty diagrams, negative values, etc.)
 
@@ -315,7 +315,7 @@ Run tests with:
 
 [source,shell]
 ----
-bundle exec rspec spec/sirena/parser/pie_spec.rb
+bundle exec rspec spec/etassia/parser/pie_spec.rb
 ----
 
 == Limitations
@@ -327,5 +327,5 @@ bundle exec rspec spec/sirena/parser/pie_spec.rb
 == See Also
 
 * link:../index/[Documentation Index]
-* https://github.com/claricle/sirena/blob/main/lib/sirena/diagram/pie.rb[Pie Diagram Model]
-* https://github.com/claricle/sirena/blob/main/lib/sirena/renderer/pie.rb[Pie Renderer]
+* https://github.com/claricle/etassia/blob/main/lib/etassia/diagram/pie.rb[Pie Diagram Model]
+* https://github.com/claricle/etassia/blob/main/lib/etassia/renderer/pie.rb[Pie Renderer]

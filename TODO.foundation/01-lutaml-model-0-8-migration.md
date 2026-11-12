@@ -35,9 +35,9 @@ All in-repo work — no cross-repo release is required (re-verified
 
 ## Problem
 
-- Cold `bundle install` resolves lutaml-model 0.8.19 because sirena's
+- Cold `bundle install` resolves lutaml-model 0.8.19 because etassia's
   own gemspec floor is `~> 0.7` (which admits 0.8.x); the gem then
-  crashes at require (`lib/sirena/svg/document.rb:27` uses the removed
+  crashes at require (`lib/etassia/svg/document.rb:27` uses the removed
   string-URI `namespace` form).
 - **elkrb does NOT block this** (proven 2026-08-11 by live `bundle
   lock` + require smoke test): elkrb 1.0.2's `lutaml-model ~> 0.7`
@@ -67,7 +67,7 @@ All in-repo work — no cross-repo release is required (re-verified
    mistake this item exists to fix). Widening to 0.9 is a later,
    tested change.
 4. Set the REAL tested Ruby floor (≥ 3.1, driven by svg_conform) — one
-   number, stated in EVERY version-bearing file: `sirena.gemspec`,
+   number, stated in EVERY version-bearing file: `etassia.gemspec`,
    `README.adoc`, `docs/_guides/installation.adoc`, and `.rubocop.yml`
    (`TargetRubyVersion`, currently 3.0). `.rubocop.yml`
    is also touched by item 08 — whichever lands second rebases; the
@@ -100,12 +100,12 @@ All in-repo work — no cross-repo release is required (re-verified
 - elkrb resolves in the same bundle at lutaml-model 0.8 (true today —
   kept as a regression guard).
 - svg_conform installs alongside AND a smoke test requiring both
-  `sirena` and `svg_conform` in the same unpinned bundle succeeds
+  `etassia` and `svg_conform` in the same unpinned bundle succeeds
   (install alone can already resolve today; the REQUIRE only works
   post-migration — that's what proves the conflict dead).
 - 0 failures; the 1 pending xit is owned by item 07 (sub-track 07f).
 - Ruby floor tested in CI at the declared minimum and latest stable.
-- `sirena.gemspec` declares `lutaml-model ~> 0.8.0` exactly — not
+- `etassia.gemspec` declares `lutaml-model ~> 0.8.0` exactly — not
   `~> 0.8`, checked by reading the line.
 - The before/after corpus run over the current pass set shows zero
   differing SVGs, or each difference is traced to the prefix migration
@@ -118,7 +118,7 @@ All in-repo work — no cross-repo release is required (re-verified
 
 ## Files
 
-`lib/sirena/svg/document.rb`, `sirena.gemspec`, `Gemfile`,
+`lib/etassia/svg/document.rb`, `etassia.gemspec`, `Gemfile`,
 `README.adoc`, `docs/_guides/installation.adoc`,
 `.rubocop.yml`, and one lane entry in `.github/workflows/` (19a owns
 those files).

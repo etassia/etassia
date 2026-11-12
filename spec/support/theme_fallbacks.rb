@@ -23,7 +23,7 @@ module ThemeFallbacks
 
   def builtin_themes
     %i[default dark light high_contrast].map do |name|
-      Sirena::Theme::Registry.get(name)
+      Etassia::Theme::Registry.get(name)
     end
   end
 end

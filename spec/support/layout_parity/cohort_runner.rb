@@ -36,8 +36,8 @@ module SpecSupport
 
       def initialize(paths: PATHS,
                      comparator: CaseComparator,
-                     renderer: Sirena::Engine.new,
-                     detector: Sirena::Notation::Mermaid.method(:detect_type))
+                     renderer: Etassia::Engine.new,
+                     detector: Etassia::Notation::Mermaid.method(:detect_type))
         @scoreboard_path = paths.fetch(:scoreboard)
         @corpus_root = paths.fetch(:corpus)
         @reference_root = paths.fetch(:references)
@@ -95,7 +95,7 @@ module SpecSupport
       end
 
       def recognizer_for(source)
-        body = Sirena::Source.split(source).fetch(:body)
+        body = Etassia::Source.split(source).fetch(:body)
         RecognizerRegistry.fetch(detector.call(body))
       end
 
@@ -166,11 +166,11 @@ module SpecSupport
       end
 
       def compare(candidate)
-        sirena_svg, render_error = render(candidate.source)
+        etassia_svg, render_error = render(candidate.source)
         comparator.compare(
           **comparison_arguments(candidate),
           reference_svg: File.read(candidate.reference_path),
-          sirena_svg: sirena_svg,
+          etassia_svg: etassia_svg,
           render_error: render_error,
         )
       end
@@ -179,7 +179,7 @@ module SpecSupport
         comparator.compare(
           **comparison_arguments(candidate),
           reference_svg: nil,
-          sirena_svg: nil,
+          etassia_svg: nil,
         )
       end
 
@@ -216,10 +216,10 @@ module SpecSupport
 
       def error_stage(error)
         case error
-        when Sirena::Engine::DiagramTypeError then "detect"
-        when Sirena::Parser::ParseError then "parse"
-        when Sirena::Layout::LayoutError then "layout"
-        when Sirena::Renderer::RenderError then "render"
+        when Etassia::Engine::DiagramTypeError then "detect"
+        when Etassia::Parser::ParseError then "parse"
+        when Etassia::Layout::LayoutError then "layout"
+        when Etassia::Renderer::RenderError then "render"
         else "unknown"
         end
       end

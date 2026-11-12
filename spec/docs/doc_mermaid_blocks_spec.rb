@@ -1,22 +1,22 @@
 # frozen_string_literal: true
 
-require "sirena"
+require "etassia"
 
 # Every diagram in a `[source,mermaid]` block on the docs pages is rendered
-# through Sirena.render. A diagram that does not render is listed in
+# through Etassia.render. A diagram that does not render is listed in
 # DocMermaidSpec::EXPECTED_FAILURES with the reason and the error it raises;
 # the list can only shrink: an entry that now renders fails the suite.
 module DocMermaidSpec
-  PARSE = Sirena::Parser::ParseError
-  DETECT = Sirena::Engine::DiagramTypeError
+  PARSE = Etassia::Parser::ParseError
+  DETECT = Etassia::Engine::DiagramTypeError
 
   # Reasons:
   #   :fragment         shows one statement, with no diagram header, so
-  #                     Sirena cannot tell the diagram type
+  #                     Etassia cannot tell the diagram type
   #   :placeholder      contains <...> or ... where the reader fills in content
   #   :mermaid_rejects  mermaid-cli 11 renders an error diagram for it
-  #                     (the docs example is wrong, not Sirena)
-  #   :sirena_gap       mermaid-cli renders it and Sirena raises
+  #                     (the docs example is wrong, not Etassia)
+  #   :etassia_gap       mermaid-cli renders it and Etassia raises
   EXPECTED_FAILURES = {
     "docs/_diagram_types/c4-diagram.adoc" => {
       "Basic Relationship #2" => [:fragment, DETECT],
@@ -89,7 +89,7 @@ module DocMermaidSpec
     },
     "docs/_diagram_types/packet-diagram.adoc" => {
       "Diagram declaration #1" => [:placeholder, PARSE],
-      "Title #1" => [:sirena_gap, PARSE],
+      "Title #1" => [:etassia_gap, PARSE],
       "Field definitions #1" => [:fragment, DETECT],
       "Include title for context #1.1" => [:placeholder, PARSE],
       "Organize fields logically #1.2" => [:mermaid_rejects, PARSE],
@@ -113,7 +113,7 @@ module DocMermaidSpec
       "Flow syntax #2" => [:fragment, DETECT],
       "Node label declarations (optional) #1" => [:fragment, DETECT],
       "Node label declarations (optional) #2" => [:fragment, DETECT],
-      "Budget allocation example #1" => [:sirena_gap, PARSE],
+      "Budget allocation example #1" => [:etassia_gap, PARSE],
       "Choose meaningful node IDs #1" => [:fragment, DETECT],
       "Balance your flows #1" => [:fragment, DETECT],
     },
@@ -133,8 +133,8 @@ module DocMermaidSpec
     },
     "docs/_diagram_types/state-diagram.adoc" => {
       "Diagram declaration #1" => [:placeholder, PARSE],
-      "Scale #1" => [:sirena_gap, PARSE],
-      "Complex state machine with multiple features #1" => [:sirena_gap, PARSE],
+      "Scale #1" => [:etassia_gap, PARSE],
+      "Complex state machine with multiple features #1" => [:etassia_gap, PARSE],
     },
     "docs/_diagram_types/timeline.adoc" => {
       "Event syntax #1" => [:fragment, DETECT],
@@ -150,7 +150,7 @@ module DocMermaidSpec
     },
     "docs/_diagram_types/user-journey.adoc" => {
       "Diagram declaration #1" => [:placeholder, PARSE],
-      "Sections #1" => [:sirena_gap, PARSE],
+      "Sections #1" => [:etassia_gap, PARSE],
       "Tasks #1" => [:fragment, DETECT],
       "Organize with meaningful sections #1.1" => [:placeholder, PARSE],
       "Organize with meaningful sections #1.2" => [:placeholder, PARSE],
@@ -159,7 +159,7 @@ module DocMermaidSpec
     },
   }.freeze
 
-  REASONS = %i[fragment placeholder mermaid_rejects sirena_gap].freeze
+  REASONS = %i[fragment placeholder mermaid_rejects etassia_gap].freeze
 
   def self.expected(diagram)
     EXPECTED_FAILURES.dig(diagram.file, diagram.key)
@@ -193,12 +193,12 @@ RSpec.describe DocMermaidBlocks do
     if DocMermaidSpec.expected(diagram)
       it "#{diagram.file} #{diagram.key} still fails as " \
          "#{DocMermaidSpec.expected(diagram).first}" do
-        expect { Sirena.render(diagram.source) }
+        expect { Etassia.render(diagram.source) }
           .to raise_error(DocMermaidSpec.expected(diagram).last)
       end
     else
       it "#{diagram.file} #{diagram.key} renders an SVG document" do
-        svg = Sirena.render(diagram.source)
+        svg = Etassia.render(diagram.source)
         expect(svg).to match(%r{\A\s*<svg\b.*</svg>\s*\z}m)
       end
     end

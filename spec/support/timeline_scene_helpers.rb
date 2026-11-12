@@ -17,8 +17,8 @@ module TimelineSceneHelpers
   end
 
   def lay_out(source)
-    diagram = Sirena::Parser::Timeline.new.parse(source)
-    Sirena::Layout::Timeline.new.call(diagram)
+    diagram = Etassia::Parser::Timeline.new.parse(source)
+    Etassia::Layout::Timeline.new.call(diagram)
   end
 
   def period(name, *events)

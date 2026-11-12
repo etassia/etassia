@@ -1,7 +1,7 @@
 # Ratchet ledger: regenerate only after a measured improvement.
 # status: pass = e_c<=0.08 and e_w,e_h,e_a<=0.15; miss = over a bar;
 # hard-failure = missing/extra element or invariant broken;
-# comparison-error = Sirena SVG the extractor cannot read.
+# comparison-error = Etassia SVG the extractor cannot read.
 rows:
 - case: java.nonreg.simple.SequenceArrows_0001_Test--d918f796209f
   summary:
@@ -927,7 +927,7 @@ rows:
   matched: 4
   status: pass
   span_delta: 59.35
-- case: sirena.constructs.arrow-colour
+- case: etassia.constructs.arrow-colour
   summary:
     hard_failure: false
     metrics:
@@ -939,7 +939,7 @@ rows:
   matched: 4
   status: pass
   span_delta: 0.0
-- case: sirena.constructs.arrow-extras
+- case: etassia.constructs.arrow-extras
   summary:
     hard_failure: false
     metrics:
@@ -951,7 +951,7 @@ rows:
   matched: 5
   status: pass
   span_delta: 0.0
-- case: sirena.constructs.autonumber
+- case: etassia.constructs.autonumber
   summary:
     hard_failure: false
     metrics:
@@ -963,7 +963,7 @@ rows:
   matched: 6
   status: pass
   span_delta: 0.0
-- case: sirena.constructs.autonumber-format
+- case: etassia.constructs.autonumber-format
   summary:
     hard_failure: false
     metrics:
@@ -975,7 +975,7 @@ rows:
   matched: 8
   status: pass
   span_delta: -0.0
-- case: sirena.constructs.box-colour
+- case: etassia.constructs.box-colour
   summary:
     hard_failure: false
     metrics:
@@ -987,7 +987,7 @@ rows:
   matched: 3
   status: pass
   span_delta: 0.0
-- case: sirena.constructs.order
+- case: etassia.constructs.order
   summary:
     hard_failure: false
     metrics:
@@ -999,7 +999,7 @@ rows:
   matched: 6
   status: pass
   span_delta: 0.0
-- case: sirena.constructs.participant-colour
+- case: etassia.constructs.participant-colour
   summary:
     hard_failure: false
     metrics:
@@ -1011,7 +1011,7 @@ rows:
   matched: 3
   status: pass
   span_delta: 0.0
-- case: sirena.constructs.spacing
+- case: etassia.constructs.spacing
   summary:
     hard_failure: false
     metrics:
@@ -1023,7 +1023,7 @@ rows:
   matched: 5
   status: pass
   span_delta: 0.0
-- case: sirena.constructs.unlabelled
+- case: etassia.constructs.unlabelled
   summary:
     hard_failure: false
     metrics:
@@ -1035,7 +1035,7 @@ rows:
   matched: 3
   status: pass
   span_delta: 0.0
-- case: sirena.create.basic
+- case: etassia.create.basic
   summary:
     hard_failure: false
     metrics:
@@ -1047,7 +1047,7 @@ rows:
   matched: 6
   status: pass
   span_delta: 0.0
-- case: sirena.create.leftward
+- case: etassia.create.leftward
   summary:
     hard_failure: false
     metrics:
@@ -1059,7 +1059,7 @@ rows:
   matched: 4
   status: pass
   span_delta: 0.0
-- case: sirena.create.participant
+- case: etassia.create.participant
   summary:
     hard_failure: false
     metrics:
@@ -1071,7 +1071,7 @@ rows:
   matched: 6
   status: pass
   span_delta: 0.0
-- case: sirena.self.label
+- case: etassia.self.label
   summary:
     hard_failure: false
     metrics:
@@ -1083,7 +1083,7 @@ rows:
   matched: 7
   status: pass
   span_delta: 0.0
-- case: sirena.self.wide
+- case: etassia.self.wide
   summary:
     hard_failure: false
     metrics:
@@ -1095,7 +1095,7 @@ rows:
   matched: 5
   status: pass
   span_delta: 0.0
-- case: sirena.skinparam.paint
+- case: etassia.skinparam.paint
   summary:
     hard_failure: false
     metrics:
@@ -1107,7 +1107,7 @@ rows:
   matched: 4
   status: pass
   span_delta: 11.31
-- case: sirena.tail.group
+- case: etassia.tail.group
   summary:
     hard_failure: false
     metrics:

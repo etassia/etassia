@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
-# Differential fuzz harness for Sirena's state-diagram identifier
+# Differential fuzz harness for Etassia's state-diagram identifier
 # grammar. Sibling to scripts/sequence_fuzz.rb, sharing its comparison
 # and CLI logic via scripts/mermaid_fuzz.rb instead of duplicating it.
 #
 # Generates random single-state stateDiagram-v2 sources, parses each
-# with Sirena's own Parslet grammar, and asks a real, installed mermaid
+# with Etassia's own Parslet grammar, and asks a real, installed mermaid
 # (via scripts/mermaid_fuzz_runner.js, driven inside one persistent
 # headless-Chrome page) whether it agrees.
 #
-# Tooling only. Does not ship in the gem, is not required by lib/sirena,
+# Tooling only. Does not ship in the gem, is not required by lib/etassia,
 # and is not exercised by `rake`/`rspec`.
 #
 # Usage:
 #   ruby scripts/state_diagram_fuzz.rb [--seed N] [--count N] [--verbose]
 #
-# Exit status: 0 if sirena and mermaid agreed on every case (regression
+# Exit status: 0 if etassia and mermaid agreed on every case (regression
 # corpus included), 1 if any divergence was found, 2 if the regression
 # corpus itself failed to reproduce (see mermaid_fuzz.rb).
 #
@@ -27,7 +27,7 @@
 #       <state-id>
 #
 # one statement, one line -- the grammar's `standalone_state` rule. The
-# random axis is the state id token. Sirena's `state_id` rule falls
+# random axis is the state id token. Etassia's `state_id` rule falls
 # through to the common `identifier` rule
 # (`[a-zA-Z_][a-zA-Z0-9_]*`), the same narrow rule flowchart's node_id
 # and kanban's node id both had to be widened away from (PRs #21, #27),
@@ -52,7 +52,7 @@ require "bundler/setup"
 
 $LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
 
-require "sirena"
+require "etassia"
 require_relative "mermaid_fuzz"
 
 module StateDiagramFuzz
@@ -65,7 +65,7 @@ module StateDiagramFuzz
   # generator, seed 42: 209 of 300 random cases diverged this way, so
   # this is not a rare edge case for this grammar.
   KNOWN_DIVERGENCES = [
-    # Sirena's state_id falls through to the narrow common `identifier`
+    # Etassia's state_id falls through to the narrow common `identifier`
     # rule and has no case for a bare "$". mermaid accepts it as an
     # ordinary state id.
     MermaidFuzz::Case.new(
@@ -73,13 +73,13 @@ module StateDiagramFuzz
     ),
   ].freeze
 
-  # Runs Sirena's own StateDiagram in-process, via
+  # Runs Etassia's own StateDiagram in-process, via
   # MermaidFuzz.safe_parse (see its doc for why unexpected exceptions are
   # caught too, not only ParseError -- this type's own error formatter has
   # a live bug, see KNOWN_DIVERGENCES above, which is exactly the kind of
   # thing safe_parse exists to survive rather than crash the batch on).
-  SIRENA_VERDICT_FOR = lambda do |source|
-    MermaidFuzz.safe_parse { Sirena::Parser::StateDiagram.new.parse(source).states.map(&:id) }
+  ETASSIA_VERDICT_FOR = lambda do |source|
+    MermaidFuzz.safe_parse { Etassia::Parser::StateDiagram.new.parse(source).states.map(&:id) }
   end
 
   RUNNER_KWARGS = {
@@ -90,7 +90,7 @@ module StateDiagramFuzz
       )
     end,
     known_divergences: KNOWN_DIVERGENCES,
-    sirena_verdict_for: SIRENA_VERDICT_FOR,
+    etassia_verdict_for: ETASSIA_VERDICT_FOR,
     mermaid_getter: "getStates",
     mermaid_preflight: "stateDiagram-v2\n    A\n",
   }.freeze

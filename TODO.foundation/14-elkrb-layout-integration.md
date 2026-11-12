@@ -16,7 +16,7 @@ completion.
 ## Facts
 
 `Engine#layout_graph` never calls elkrb — fallback grid
-(`lib/sirena/engine.rb:160-168`, `Engine#layout_graph` calling `Layout::Grid.apply`, a
+(`lib/etassia/engine.rb:160-168`, `Engine#layout_graph` calling `Layout::Grid.apply`, a
 class its own header calls temporary) — while README.adoc, ARCHITECTURE.md,
 and parts of `docs/` still claim ELK layout.
 elkrb 1.0.2 resolves and requires cleanly under lutaml-model 0.8
@@ -47,7 +47,7 @@ The bars above are measured as follows. A change to any entry is a change to
 the bar and goes to the owner, per type and with evidence.
 
 **Frame.** The oracle is SVG-only, so the comparator compares SVG to SVG. The
-reference (mmdc output) and the Sirena render are parsed by the SAME extractor
+reference (mmdc output) and the Etassia render are parsed by the SAME extractor
 into a figure: a list of elements `{kind, key, parent, bbox, label}`. Every
 number below is in root `viewBox` user units. The reference engine is dagre (12
 of 1,997 corpus sources request `layout: elk`, all under `spec/mermaid/unknown`),
@@ -60,25 +60,25 @@ Match by `(kind, parent, key)`. `parent` is the key of the matched container
 (none at the root). `key` is the id the author wrote only where BOTH SVGs
 expose that id; otherwise both sides use label text (whitespace collapsed,
 tags stripped, entities decoded) or a per-type role/ordinal below. This keeps
-a Sirena-only id from being compared with a reference label.
+a Etassia-only id from being compared with a reference label.
 
 Reference ids, measured in `spec/fixtures_mermaid` (directory names, which are
 not the registry names: `class`, `er`, `state`, `gitgraph`):
 
 | Type | Reference id grammar | Key |
 |---|---|---|
-| flowchart | nodes `flowchart-<id>-<n>`, edges `L_<src>_<dst>_<n>`, clusters the raw id (`g.cluster id=A`; Sirena: `cluster-A`) | `<id>` |
+| flowchart | nodes `flowchart-<id>-<n>`, edges `L_<src>_<dst>_<n>`, clusters the raw id (`g.cluster id=A`; Etassia: `cluster-A`) | `<id>` |
 | class | `classId-<name>-<n>` | `<name>` |
 | er | `entity-<name>-<n>` | `<name>` |
-| state | leaf nodes `state-<id>-<n>`; composite containers use the raw id; terminals are `state-<scope>_start-<n>` and `state-<scope>_end-<n>` in the reference, where `<scope>` is `root` or the composite's id (Sirena: `state-start_<n>`, `state-end_<n>`); they are recognised by the `_start-` or `_end-` id forms on the reference side and the `state-start_<n>` or `state-end_<n>` forms on the Sirena side, tried before the leaf grammar, because only reference start terminals carry a `state-start` class and Sirena's terminals carry none; Sirena draws a `[*]` text inside the terminal and the reference does not, so that text is not part of the compared element | `<id>`; terminals have kind `terminal-start` or `terminal-end`, the fixed key `[*]` and the container as `parent`, so several at one level are an `ambiguous identity` group |
+| state | leaf nodes `state-<id>-<n>`; composite containers use the raw id; terminals are `state-<scope>_start-<n>` and `state-<scope>_end-<n>` in the reference, where `<scope>` is `root` or the composite's id (Etassia: `state-start_<n>`, `state-end_<n>`); they are recognised by the `_start-` or `_end-` id forms on the reference side and the `state-start_<n>` or `state-end_<n>` forms on the Etassia side, tried before the leaf grammar, because only reference start terminals carry a `state-start` class and Etassia's terminals carry none; Etassia draws a `[*]` text inside the terminal and the reference does not, so that text is not part of the compared element | `<id>`; terminals have kind `terminal-start` or `terminal-end`, the fixed key `[*]` and the container as `parent`, so several at one level are an `ambiguous identity` group |
 | requirement, kanban | the raw id (kanban sections are `g.cluster id=id1`) | the id |
-| architecture | services `service-<id>`, groups `group-<id>`, junctions `node-<id>` (Sirena: `junction-<id>`) | `<id>`; `kind` is service, group or junction |
+| architecture | services `service-<id>`, groups `group-<id>`, junctions `node-<id>` (Etassia: `junction-<id>`) | `<id>`; `kind` is service, group or junction |
 | sequence | `name="<Name>"` on the participant rect/group and lifeline; the `actor<n>` ids are positional. Mermaid draws each participant twice, so `kind` is `participant-top` or `participant-bottom` from the element class | `<Name>` |
-| gantt | `rect id=<task id>` (for example `a1`); a task written without an id gets `task<n>` from mermaid; Sirena's SVG rects carry no id (its `task_<s>_<t>` appears only as bar text) | the task label; the id only breaks a tie between same-label tasks, and only when both sides expose an author id, which Sirena's SVG does not today, so same-label tasks pair in order and are an `ambiguous identity` group |
+| gantt | `rect id=<task id>` (for example `a1`); a task written without an id gets `task<n>` from mermaid; Etassia's SVG rects carry no id (its `task_<s>_<t>` appears only as bar text) | the task label; the id only breaks a tie between same-label tasks, and only when both sides expose an author id, which Etassia's SVG does not today, so same-label tasks pair in order and are an `ambiguous identity` group |
 | mindmap, block | `node_<n>` and `id-<random>-<n>` are not semantic | label |
 | c4, timeline, pie, gitgraph, the rest | no shared semantic primitive id | label or the per-type role/ordinal in sections 2a and 6 |
 
-The Sirena side carries `node-<id>`, `edge-<A>_to_<B>`, `cluster-<id>` and
+The Etassia side carries `node-<id>`, `edge-<A>_to_<B>`, `cluster-<id>` and
 `participant-<id>` (measured on flowchart and sequence). A type for which
 either SVG carries no recoverable semantic key uses the common label or the
 per-type role/ordinal on both sides.
@@ -94,7 +94,7 @@ per case. It is never silently excluded.
   `scale`, `rotate`, `matrix`) and every nested `svg` viewport/viewBox mapping
   from the root down, then take the absolute bbox of each `rect`, `circle`,
   `ellipse`, `polygon`, `polyline`, `path` and `line`. Nested SVG mapping is
-  required by architecture service and group icons, and Sirena xychart line
+  required by architecture service and group icons, and Etassia xychart line
   series are `polyline` elements. A `text` element has no bbox without font
   metrics, so it is represented by its rendered anchor point: `x`/`y` on the
   text or its first positioned `tspan`, including `dx`/`dy`, composed through
@@ -128,7 +128,7 @@ per case. It is never silently excluded.
 A compared element is a LOGICAL element, which is not always one SVG primitive.
 Where several primitives draw one thing, its bbox is the union of theirs: the
 error icon is six `path.error-icon` elements in a reference and two circles and a
-rect in Sirena, so each side's icon is the union of its own primitives. The
+rect in Etassia, so each side's icon is the union of its own primitives. The
 primitive-to-element grouping is a per-type rule of the extractor, applied to
 both sides, and is validated against the corpus in the comparator PR; the
 contract fixes only that the unit compared is the union bbox.
@@ -139,7 +139,7 @@ to legend labels; radar curve primitives to legend labels; quadrant point and
 quadrant rect primitives to their labels; timeline wrappers/markers to their
 time, section or event labels; and sankey path endpoints to node rects.
 Gitgraph commit keys are the commit ordinal (from the reference's generated
-marker class where present, otherwise marker order; Sirena uses marker order),
+marker class where present, otherwise marker order; Etassia uses marker order),
 with an author id used only when both sides expose one. Xychart series keys are
 `(chart type, ordinal among that type)`; bars use their index within the series,
 while the candidate's point circles are grouped into its line series because
@@ -172,7 +172,7 @@ case's worst error may not increase, and an improvement must be recorded.
 
 ### 4. Overlap and containment
 
-Ancestry comes from the REFERENCE, not from Sirena, so the check is not circular:
+Ancestry comes from the REFERENCE, not from Etassia, so the check is not circular:
 two elements are ancestor-related when the reference child bbox lies inside the
 reference container bbox (clusters, subgraphs, treemap sections, block groups).
 
@@ -182,13 +182,13 @@ reference container bbox (clusters, subgraphs, treemap sections, block groups).
 - **Failure, peer overlap:** two NON-ancestor-related node-like elements (the
   node-like elements in section 6's first row, plus participant shapes,
   treemap cells, packet fields, kanban cards and gantt task shapes) in the
-  Sirena render whose bbox
+  Etassia render whose bbox
   intersection exceeds 0.5 user units on BOTH axes. Touching is not overlap
   (block cells share edges). Non-rect node shapes use their bbox. Elements that
   meet or cross by construction are exempt: pie sectors (their bboxes overlap
   at the center), radar curves and axes, sankey flows, gitgraph lane lines and
   chart series.
-- **Failure, containment:** every reference containment pair must hold in Sirena
+- **Failure, containment:** every reference containment pair must hold in Etassia
   (child inside container), and nothing else may lie inside a container unless
   the reference says so.
 
@@ -202,7 +202,7 @@ Part of the hard gate, together with all-nodes-present.
   endpoint or ownership check; a mismatch is a failure whose evidence names
   the rule and the expected and actual counts:
   - `node-presence`: for each `(kind, parent, key)` group of section 1, the
-    Sirena count equals the reference count. A missing or extra node or
+    Etassia count equals the reference count. A missing or extra node or
     container fails.
   - `edge-presence`: an edge is any connector element of the type: the edges
     of the node-and-edge types, sequence messages, sankey flows, and any other
@@ -228,7 +228,7 @@ Part of the hard gate, together with all-nodes-present.
     included. A node keyed by an id (any type whose section 1 key is an id)
     therefore still fails when its label is dropped, which the node check
     cannot see. Text that exists on only one side by construction is not a
-    label: the Sirena state terminal's `[*]` and the id text Sirena draws on a
+    label: the Etassia state terminal's `[*]` and the id text Etassia draws on a
     gantt bar (section 1). Every remaining text resolves to an owner by the
     rules above or is a standalone label, a `(kind text, parent, key)` group
     whose counts must match like any other node group, with `key` resolved as
@@ -247,7 +247,7 @@ Part of the hard gate, together with all-nodes-present.
   recorded as `ambiguous endpoint`.
 - **Labels attach to owners.** A node label's anchor lies inside its owner's
   bbox. An edge label's owner is the edge whose path passes nearest its anchor,
-  and the owner in the Sirena render must be the same edge (by edge identity) as
+  and the owner in the Etassia render must be the same edge (by edge identity) as
   in the reference; no distance threshold is needed. The anchor is the text
   anchor point, or the `foreignObject` rect center.
 - **Label text** (`label-text`, its own failure class, separate from
@@ -256,7 +256,7 @@ Part of the hard gate, together with all-nodes-present.
   entities decoded) and by nothing else; no new normalization is needed. Four
   extractor details that sentence leaves open: a block boundary (`br`, `p`,
   `div`, `li`, `tr`, `ul`, `ol`, `h1` to `h6`) counts as whitespace, because
-  without it `a<br>b` reads `ab` and Sirena's correct text then fails against
+  without it `a<br>b` reads `ab` and Etassia's correct text then fails against
   it (`flowchart/flow_node_data_spec-9daa0459`); any
   Unicode space collapses, so a decoded `&nbsp;` does; adjacent `tspan`
   elements are separated by a space; and a reference sequence message drawn as
@@ -266,7 +266,7 @@ Part of the hard gate, together with all-nodes-present.
   top to bottom by anchor y (an anchor within 4 user units of the row's
   first anchor shares its row), then left to right. ER attribute rows are the
   one place a label is not one cell: the reference draws the type and the name
-  as two labels, Sirena draws the row as one. Before pairing, on both sides, the
+  as two labels, Etassia draws the row as one. Before pairing, on both sides, the
   labels of one entity that share a row merge into one label, their texts
   joined by one space in reading order, so `string` and `registrationNumber`
   become `string registrationNumber`. A pair with
@@ -301,13 +301,13 @@ starts red on these cases.
 | sequence | 107 | 6 | markup or entity code kept in a message (4, `sequence/sequencediagram_spec-4f5cf515`); `wrap:` prefix drawn (4, `sequence/sequencediagram_spec-783aa83b`) |
 | architecture | 19 | 2 | icon placeholder, `?` against `I` (`architecture/architecture_spec-ef15d347`) |
 | requirement | 24 | 1 | `<<satisfies>>` against `satisfies`, `Verification: Test` against `Verify: Test` (`requirement/requirement-9f8b7e75`) |
-| er | 6 | 3 | attribute rows read type then name in the reference, name then type in Sirena (3, `er_diagram/yari2-9471fb3f`: `string registrationNumber` against `registrationNumber string`) |
+| er | 6 | 3 | attribute rows read type then name in the reference, name then type in Etassia (3, `er_diagram/yari2-9471fb3f`: `string registrationNumber` against `registrationNumber string`) |
 | state | 22 | 0 | 4 cases have a note owner on one side only (presence) and are not text-compared; no compared state label differs |
 | other 16 types | 1 to 45 each | 0 by construction | keyed by label text: a text difference is a `node-presence` failure |
 
 Reading the table. 128 of the 538 cohort cases of the seven owner-aware types
 fail. A flowchart edge-label fix removes the 21 pipe-only cases, which would
-leave 22. Class and ER fail because Sirena draws text that differs from the
+leave 22. Class and ER fail because Etassia draws text that differs from the
 reference's; that counts as a failure, so item 21 fixes it and the gate cannot
 pass before 21 lands. Owners are resolved
 for these seven types only; class cardinality terminals and the
@@ -331,7 +331,7 @@ size bar, not another threshold.
 | sequence | participant logical shapes by `name` and top or bottom; messages by (from, to, ordinal), with from and to recovered by the extractor from the message line end points against the participant lifelines (section 2a); note boxes by label; fragment and activation boxes by extractor-defined role plus participant/message interval | participants, notes and boxes `e_c`; message y order must match, endpoint x within 6 units | every nondegenerate bbox `e_w`, `e_h`, `e_a` |
 | pie | sector path by the section 2a label association | sector-bbox center, `e_c` | sector bbox `e_w`, `e_h`, `e_a`; radius and sweep angle from the arc endpoints about the group translate (`path.pieCircle` in a `translate(225,225)` group) |
 | gantt | task shape by task label (rect bar or milestone polygon, associated with its row text; section 1 for the id rule); date axis ticks by label | task bbox `e_c`; tick text anchor `e_c` | task bbox `e_w`, `e_h`, `e_a` |
-| timeline | time, section and event logical elements by their labels; reference wrappers may have a path while Sirena may expose only a text anchor/marker, associated per section 2a | bbox center or text anchor `e_c` | nondegenerate bbox `e_w`, `e_h`, `e_a`; text-only pairs take `e_c` only per section 2 |
+| timeline | time, section and event logical elements by their labels; reference wrappers may have a path while Etassia may expose only a text anchor/marker, associated per section 2a | bbox center or text anchor `e_c` | nondegenerate bbox `e_w`, `e_h`, `e_a`; text-only pairs take `e_c` only per section 2 |
 | quadrant | quadrant rects and point circles by the section 2a label associations | bbox `e_c` | bbox `e_w`, `e_h`, `e_a`; point radius |
 | radar | axes by label (line end point); curves by the section 2a legend association (union of path/polygon and any point markers); graticule circles by radius order | axis end point and curve bbox `e_c` | curve bbox `e_w`, `e_h`, `e_a`; circle radius |
 | xychart | plot frame as the extractor-defined union of axis primitives; series by `(chart type, ordinal)`; each bar by its index; each line path/polyline plus candidate point markers as one series element | bbox `e_c` | bbox `e_w`, `e_h`, `e_a` |
@@ -340,11 +340,11 @@ size bar, not another threshold.
 | treemap | leaf and section rects by label path, with the path recovered from reference containment | `e_c` | `e_w`, `e_h`, `e_a` |
 | gitgraph | commit marker by section 2a ordinal (unioning highlight/merge primitives); branch labels by text; lane lines associated with the branch label | marker `e_c`; branch label anchor `e_c`; lane line end points `e_c` | marker bbox `e_w`, `e_h`, `e_a`; radius when the marker is circular |
 | info | the sole version/info text, with fixed key `info-text` because the two renderers use different wording | anchor `e_c` | none (a text element has no bbox) |
-| error | the error icon (one logical element, the union of its primitives) with fixed key `error-icon`; error text lines use extractor-defined roles because the reference has syntax and version lines while Sirena currently has one message | icon `e_c`; text anchor `e_c` | icon `e_w`, `e_h`, `e_a` |
+| error | the error icon (one logical element, the union of its primitives) with fixed key `error-icon`; error text lines use extractor-defined roles because the reference has syntax and version lines while Etassia currently has one message | icon `e_c`; text anchor `e_c` | icon `e_w`, `e_h`, `e_a` |
 
 `info` and `error` are degenerate (one or a few elements) but still non-vacuous:
 a missing or misplaced element fails. Sequence is a known gap on arrival:
-Sirena draws one top shape per participant, so the reference's bottom
+Etassia draws one top shape per participant, so the reference's bottom
 participants have no counterpart and the all-nodes-present invariant fails
 until the sequence renderer draws them. Reference-only note, fragment and
 activation elements fail the same invariant where present; the comparator
@@ -357,27 +357,27 @@ A failing case records one JSON object:
 
 ```
 { case, type, reference,
-  sirena_status: "rendered" | {error_stage},
+  etassia_status: "rendered" | {error_stage},
   invariants: [{ rule, subject_keys, expected, actual,
-                 bbox_sirena, bbox_reference, normalized }],
+                 bbox_etassia, bbox_reference, normalized }],
   geometry: { worst_e_c, worst_e_w, worst_e_h, worst_e_a, worst_analog, worst_keys,
-              matched, ambiguous, top5: [{ key, bbox_sirena, bbox_reference }] },
+              matched, ambiguous, top5: [{ key, bbox_etassia, bbox_reference }] },
   reproduce: "<command>" }
 ```
 
 A `label-text` record uses the same shape: `rule` is `label-text`, `subject_keys`
 is the owner key and the pair's index in reading order, `expected` and `actual`
-are the reference's and Sirena's normalized texts, and `bbox_sirena` and
+are the reference's and Etassia's normalized texts, and `bbox_etassia` and
 `bbox_reference` are the two label anchors; `normalized` is unused. For the
 flowchart edge `A` to `B` in `flowchart/configuration_spec-67574f4a`:
 
 ```
 { rule: "label-text", subject_keys: [["edge", "A", "B", 0], 0],
-  expected: "Get money", actual: "|Get money|", bbox_sirena: <anchor>,
+  expected: "Get money", actual: "|Get money|", bbox_etassia: <anchor>,
   bbox_reference: <anchor> }
 ```
 
-A missing reference is a FAIL record, never a skip. A Sirena render that raised
+A missing reference is a FAIL record, never a skip. A Etassia render that raised
 records the stage that raised.
 
 ### 8. Not in this contract
@@ -404,11 +404,11 @@ became meaningless:
   `00-overview.md` is that a case leaves a denominator ONLY when the
   oracle rejects it, and "we have no reference" is not an oracle
   rejection.
-- **Not every case Sirena can render.** At most today's 614 pass cases
+- **Not every case Etassia can render.** At most today's 614 pass cases
   produce candidate output to compare.
 
 So the critical-path cohort is **oracle-valid ∩ has-a-reference ∩
-currently Sirena-pass**. Every newly-passing corpus PR (items 05/06/07)
+currently Etassia-pass**. Every newly-passing corpus PR (items 05/06/07)
 adds or updates its own parity row, so the cohort grows with the pass
 set instead of gating on it. Global closure needs BOTH 02b's reference
 generation and the corpus tracks — and a skipped missing reference must
@@ -437,8 +437,8 @@ fail rather than pass silently.
 
 Owner-approved 2026-10-11 (Hassan, recorded in the campaign MESSAGES). These types stay off elkrb; no other type has an exception.
 
-- **Mindmap: cose-bilkent, not elkrb.** mmdc lays mindmaps out with cose-bilkent, and Sirena ports that algorithm (`lib/sirena/layout/mindmap_cose*.rb`). Measured against the committed parity scoreboard, the port improves 21 of 45 mindmap rows and makes none worse. A layered elkrb placement would move nodes away from the reference and reduce parity.
-- **GitGraph: semantic lane layout, not elkrb.** mmdc's gitGraph renderer places commits by branch lane and commit order, with no graph-placement phase upstream. Sirena does the same (`lib/sirena/layout/git_graph.rb`). There is nothing for elkrb to decide.
+- **Mindmap: cose-bilkent, not elkrb.** mmdc lays mindmaps out with cose-bilkent, and Etassia ports that algorithm (`lib/etassia/layout/mindmap_cose*.rb`). Measured against the committed parity scoreboard, the port improves 21 of 45 mindmap rows and makes none worse. A layered elkrb placement would move nodes away from the reference and reduce parity.
+- **GitGraph: semantic lane layout, not elkrb.** mmdc's gitGraph renderer places commits by branch lane and commit order, with no graph-placement phase upstream. Etassia does the same (`lib/etassia/layout/git_graph.rb`). There is nothing for elkrb to decide.
 
 ## Done when
 
@@ -448,7 +448,7 @@ Owner-approved 2026-10-11 (Hassan, recorded in the campaign MESSAGES). These typ
   user-approved exception with its evidence — the point is that no type
   is left undecided, not that elkrb runs everywhere.
 - **Zero invariant failures across the cohort** (oracle-valid ∩
-  has-a-reference ∩ Sirena-pass) — the hard gate, stated as the
+  has-a-reference ∩ Etassia-pass) — the hard gate, stated as the
   completion bar, not just a mechanism. It includes `label-text`, so item
   21 must have landed. Cohort membership is read from
   the scoreboard, never hardcoded.
@@ -474,7 +474,7 @@ Owner-approved 2026-10-11 (Hassan, recorded in the campaign MESSAGES). These typ
   the raise. Item 07 carries the mirror of this. Neither blocks the
   other, so item 12 is not gated on item 07 finishing.
 - Comparator in CI (full lane). Every ELK mention across `README*`,
-  `ARCHITECTURE.md`, `docs/` and `sirena.gemspec` has a row
+  `ARCHITECTURE.md`, `docs/` and `etassia.gemspec` has a row
   in item 11's committed manifest resolved as verified / corrected /
   removed. Grep finds the mentions; the manifest decides which are true,
   because after this item lands some ELK claims become correct. The
@@ -483,5 +483,5 @@ Owner-approved 2026-10-11 (Hassan, recorded in the campaign MESSAGES). These typ
 
 ## Files
 
-`lib/sirena/engine.rb`, `lib/sirena/layout/*`,
+`lib/etassia/engine.rb`, `lib/etassia/layout/*`,
 `spec/layout_parity_spec.rb` + comparator lib, scoreboard.

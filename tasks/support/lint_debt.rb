@@ -10,8 +10,8 @@ require "json"
 require "tmpdir"
 require "open3"
 
-module Sirena
-  # Measures sirena's suppressed rubocop debt against a config this class
+module Etassia
+  # Measures etassia's suppressed rubocop debt against a config this class
   # synthesises itself, rather than one loaded from `.rubocop.yml`. Every
   # local key in that file -- a fresh `Exclude`, a deleted plugin, a todo
   # file renamed and re-inherited under a new name -- is invisible to the
@@ -51,7 +51,7 @@ module Sirena
     ].freeze
 
     # `09-rubocop-todo-burndown.md`'s only eligible exception location.
-    GRAMMAR_PATH_PREFIX = "lib/sirena/parser/grammars/"
+    GRAMMAR_PATH_PREFIX = "lib/etassia/parser/grammars/"
 
     OPTIONS_DOTFILE = ".rubocop"
 

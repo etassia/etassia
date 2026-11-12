@@ -5,7 +5,7 @@ require "json"
 require "fileutils"
 require "tempfile"
 require_relative "corpus_case_identity"
-require_relative "../lib/sirena/corpus_type_names"
+require_relative "../lib/etassia/corpus_type_names"
 
 # Builds the old->new case-ID migration manifest from the committed corpus.
 #

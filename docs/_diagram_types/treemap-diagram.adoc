@@ -10,7 +10,7 @@ parent: Diagram Types
 
 == Overview
 
-Treemap diagrams in Sirena visualize hierarchical data using nested
+Treemap diagrams in Etassia visualize hierarchical data using nested
 rectangles. Each branch of the hierarchy is represented by a rectangle,
 which is then subdivided by rectangles representing its children. The area
 of each rectangle is proportional to a specified value dimension.
@@ -343,7 +343,7 @@ Parent nodes automatically calculate their total value from their children.
 
 === Currently not supported
 
-The following features are not yet supported in Sirena:
+The following features are not yet supported in Etassia:
 
 * Custom layout algorithms (squarify, slice-and-dice, etc.)
 * Interactive drill-down

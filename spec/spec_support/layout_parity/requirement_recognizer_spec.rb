@@ -22,7 +22,7 @@ RSpec.describe SpecSupport::LayoutParity::RequirementRecognizer do
     SVG
   end
 
-  def synthetic_sirena
+  def synthetic_etassia
     <<~SVG
       <svg viewBox="0 0 40 20">
         <g id="requirement-req-2026"><rect width="10" height="10"/></g>
@@ -38,24 +38,24 @@ RSpec.describe SpecSupport::LayoutParity::RequirementRecognizer do
   def real_sides
     name = "requirement-9f8b7e75"
     [reference_svg("requirement/#{name}.svg"),
-     Sirena.render(corpus_source("requirement/#{name}.mmd"))]
+     Etassia.render(corpus_source("requirement/#{name}.mmd"))]
   end
 
   def real_elements
     [[:element, "test_entity", nil], [:requirement, "test_req", nil]]
   end
 
-  it "uses the raw reference ids and removes only Sirena's type prefix" do
-    actual = [recognized(synthetic_reference), recognized(synthetic_sirena),
+  it "uses the raw reference ids and removes only Etassia's type prefix" do
+    actual = [recognized(synthetic_reference), recognized(synthetic_etassia),
               recognizer.container_kinds]
 
     expect(actual).to eq([synthetic_elements, synthetic_elements, []])
   end
 
   it "recognizes the same logical nodes in a real reference and render" do
-    reference, sirena = real_sides
+    reference, etassia = real_sides
 
-    expect([recognized(reference), recognized(sirena)])
+    expect([recognized(reference), recognized(etassia)])
       .to eq([real_elements, real_elements])
   end
 end

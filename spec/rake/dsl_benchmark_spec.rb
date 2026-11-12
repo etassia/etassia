@@ -6,17 +6,17 @@ require "open3"
 require "tmpdir"
 require "fileutils"
 
-# spec_helper.rb already requires "sirena" process-wide, so an in-process load
+# spec_helper.rb already requires "etassia" process-wide, so an in-process load
 # of tasks/benchmark.rake cannot reproduce the NoMethodError guarded here.
 # Shell out to a fresh `ruby` process instead, loading only what the real
-# Rakefile loads before `tasks/*.rake` (a bare Sirena module via
-# lib/sirena/version.rb).
+# Rakefile loads before `tasks/*.rake` (a bare Etassia module via
+# lib/etassia/version.rb).
 #
-module BareSirenaModuleHelper
-  def run_against_bare_sirena_module(repo_root, ruby_after_load)
+module BareEtassiaModuleHelper
+  def run_against_bare_etassia_module(repo_root, ruby_after_load)
     script = <<~RUBY
       require 'rake'
-      require_relative 'lib/sirena/version'
+      require_relative 'lib/etassia/version'
       load 'tasks/benchmark.rake'
       #{ruby_after_load}
     RUBY
@@ -27,7 +27,7 @@ end
 # Puts a fake executable named `name` at the front of PATH for the duration of
 # the block, so any `system("<name> ...")` call in the code under test finds it
 # instead of the real tool. Used to simulate mmdc (or, with name: "ruby", the
-# subprocess Sirena's own startup benchmark shells out to) failing without
+# subprocess Etassia's own startup benchmark shells out to) failing without
 # depending on the real tool's actual availability on the machine running specs.
 module FakeExecutableHelper
   def with_fake_executable(name, exit_code: 1)
@@ -48,30 +48,30 @@ module FakeExecutableHelper
 end
 
 RSpec.describe Rake::DSL, :aggregate_failures do
-  include BareSirenaModuleHelper
+  include BareEtassiaModuleHelper
   include FakeExecutableHelper
 
   let(:repo_root) { File.expand_path("../..", __dir__) }
 
-  it "lets PerformanceBenchmarker call Sirena.render after only the " \
+  it "lets PerformanceBenchmarker call Etassia.render after only the " \
      "gemspec-style load (regression for the NoMethodError)" do
-    _out, err, status = run_against_bare_sirena_module(
-      repo_root, "puts Sirena.render(\"graph TD\\nA-->B\").class"
+    _out, err, status = run_against_bare_etassia_module(
+      repo_root, "puts Etassia.render(\"graph TD\\nA-->B\").class"
     )
 
     expect(status).to be_success, "expected success, got:\n#{err}"
     expect(err).not_to include("NoMethodError")
   end
 
-  context "with the Sirena require removed" do
+  context "with the Etassia require removed" do
     let(:source) { File.read(File.join(repo_root, "tasks/benchmark.rake")) }
-    let(:without_require) { source.sub("require \"sirena\"\n", "") }
+    let(:without_require) { source.sub("require \"etassia\"\n", "") }
     let(:mutation_result) do
       Dir.mktmpdir do |dir|
         FileUtils.mkdir_p(File.join(dir, "tasks"))
         File.write(File.join(dir, "tasks/benchmark.rake"), without_require)
         FileUtils.ln_s(File.join(repo_root, "lib"), File.join(dir, "lib"))
-        run_against_bare_sirena_module(dir, 'Sirena.render("graph TD\\nA-->B")')
+        run_against_bare_etassia_module(dir, 'Etassia.render("graph TD\\nA-->B")')
       end
     end
 
@@ -90,7 +90,7 @@ RSpec.describe Rake::DSL, :aggregate_failures do
     subject(:benchmarker) { PerformanceBenchmarker.new }
 
     # PerformanceBenchmarker is defined once tasks/benchmark.rake is loaded.
-    # Loading it twice in this process (spec_helper already required 'sirena',
+    # Loading it twice in this process (spec_helper already required 'etassia',
     # so the load-order bug above does not apply here) would redefine the class
     # harmlessly, but Rake tasks can only be defined once per
     # Rake::Application -- load in a fresh one.
@@ -166,19 +166,19 @@ RSpec.describe Rake::DSL, :aggregate_failures do
     let(:failed_batch_results) do
       {
         system_info: {
-          ruby_version: "0", platform: "x", sirena_version: "0",
+          ruby_version: "0", platform: "x", etassia_version: "0",
           mermaid_cli_version: "unknown",
           cpu_info: "x",
           timestamp: Time.now.iso8601
         },
-        single_diagram: { flowchart: { sirena_time: 0.01, mermaid_time: nil } },
+        single_diagram: { flowchart: { etassia_time: 0.01, mermaid_time: nil } },
         batch_rendering: {
           diagram_count: 50,
-          sirena_total: 0.5,
-          sirena_per_diagram: 0.01,
+          etassia_total: 0.5,
+          etassia_per_diagram: 0.01,
         },
         memory_usage: {},
-        startup_time: { sirena: 0.5, mermaid: nil },
+        startup_time: { etassia: 0.5, mermaid: nil },
       }
     end
 
@@ -203,7 +203,7 @@ RSpec.describe Rake::DSL, :aggregate_failures do
 
     it "omits mermaid_total from a batch render when every mmdc " \
        "invocation fails" do
-      expect(batch_results[:sirena_total]).not_to be_nil
+      expect(batch_results[:etassia_total]).not_to be_nil
       expect(batch_results).not_to have_key(:mermaid_total)
       expect(batch_results).not_to have_key(:mermaid_per_diagram)
     end
@@ -221,11 +221,11 @@ RSpec.describe Rake::DSL, :aggregate_failures do
       expect(report).to include("not measured")
     end
 
-    it "raises if the Sirena subprocess itself fails " \
+    it "raises if the Etassia subprocess itself fails " \
        "(not an external-tool flake)" do
       with_fake_executable("ruby") do
         expect { PerformanceBenchmarker.new.send(:benchmark_startup_time) }
-          .to raise_error(/Sirena subprocess startup benchmark failed/)
+          .to raise_error(/Etassia subprocess startup benchmark failed/)
       end
     end
   end

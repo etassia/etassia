@@ -60,16 +60,16 @@ number:
 ## The ten files
 
 ```
-  lib/sirena/parser/<type>.rb             the parser itself
-  lib/sirena/parser/grammars/<type>.rb    what the text LOOKS LIKE
-  lib/sirena/parser/builders/<type>.rb    parse tree -> model
-  lib/sirena/diagram/<type>.rb            what the diagram MEANS
-  lib/sirena/notation/mermaid/
+  lib/etassia/parser/<type>.rb             the parser itself
+  lib/etassia/parser/grammars/<type>.rb    what the text LOOKS LIKE
+  lib/etassia/parser/builders/<type>.rb    parse tree -> model
+  lib/etassia/diagram/<type>.rb            what the diagram MEANS
+  lib/etassia/notation/mermaid/
     ir_adapters/<type>.rb                  private model -> shared IR
-  lib/sirena/layout/<type>.rb             geometry, AND its Scene class
-  lib/sirena/renderer/<type>.rb           scene -> SVG
+  lib/etassia/layout/<type>.rb             geometry, AND its Scene class
+  lib/etassia/renderer/<type>.rb           scene -> SVG
   spec/fixtures/contract/<type>.mmd       the contract fixture
-  lib/sirena/notation/mermaid.rb          one row in TYPES
+  lib/etassia/notation/mermaid.rb          one row in TYPES
   docs/ir-type-map.md                     one shape/adapter row
 ```
 
@@ -141,7 +141,7 @@ on top of that.
 - [x] `rake type:new[demo]` produces a type that passes the shared
       examples with no hand-editing
 - [x] a spec asserts the file count: adding `demo` touches 10 defining
-      files, ignoring specs (`spec/sirena/type_generator_spec.rb`)
+      files, ignoring specs (`spec/etassia/type_generator_spec.rb`)
 - [x] `rake type:new[demo]` leaves its disposable acceptance suite **green**,
       including item 06's `TYPES`-to-fixture parity, the IR map, and the SVG
       registry — no hand-edited row

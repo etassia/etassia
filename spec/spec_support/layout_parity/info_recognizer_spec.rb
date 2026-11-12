@@ -16,18 +16,18 @@ RSpec.describe SpecSupport::LayoutParity::InfoRecognizer do
   def real_pair
     name = "info_spec-e8bdfd49"
     reference = reference_svg("info/#{name}.svg")
-    sirena = Sirena.render(corpus_source("info/#{name}.mmd"))
-    [recognized(reference), recognized(sirena)]
+    etassia = Etassia.render(corpus_source("info/#{name}.mmd"))
+    [recognized(reference), recognized(etassia)]
   end
 
   def matched_real_pair
     name = "info_spec-e8bdfd49"
     reference = extract(reference_svg("info/#{name}.svg"), recognizer)
-    sirena = extract(
-      Sirena.render(corpus_source("info/#{name}.mmd")), recognizer
+    etassia = extract(
+      Etassia.render(corpus_source("info/#{name}.mmd")), recognizer
     )
     SpecSupport::LayoutParity::ElementMatcher.match(
-      reference: reference, sirena: sirena,
+      reference: reference, etassia: etassia,
     )
   end
 

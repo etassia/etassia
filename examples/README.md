@@ -1,4 +1,4 @@
-# Sirena Examples
+# Etassia Examples
 
 This directory contains example diagrams for all supported diagram types.
 

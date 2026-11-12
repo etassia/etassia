@@ -5,7 +5,7 @@ module IrWalk
   VOCABULARY_FIELDS = %i[role dimension source_marker target_marker].freeze
 
   def ir_models(root)
-    return [] unless root.is_a?(Sirena::IR::Model)
+    return [] unless root.is_a?(Etassia::IR::Model)
 
     children = root.class.attributes.keys.flat_map do |name|
       Array(root.public_send(name)).flat_map { |value| ir_models(value) }

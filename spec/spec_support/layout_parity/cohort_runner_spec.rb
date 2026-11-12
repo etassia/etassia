@@ -18,14 +18,14 @@ RSpec.describe SpecSupport::LayoutParity::CohortRunner do
     }
   end
   let(:comparator) { class_double(SpecSupport::LayoutParity::CaseComparator) }
-  let(:renderer) { instance_double(Sirena::Engine) }
+  let(:renderer) { instance_double(Etassia::Engine) }
   let(:captured_arguments) { [] }
   let(:runner) do
     described_class.new(
       paths: paths.slice(:scoreboard, :corpus, :references),
       comparator: comparator,
       renderer: renderer,
-      detector: Sirena::Notation::Mermaid.method(:detect_type),
+      detector: Etassia::Notation::Mermaid.method(:detect_type),
     )
   end
 
@@ -211,7 +211,7 @@ RSpec.describe SpecSupport::LayoutParity::CohortRunner do
 
   def missing_summary
     captured_arguments.fetch(0)
-      .values_at(:reference, :reference_svg, :sirena_svg)
+      .values_at(:reference, :reference_svg, :etassia_svg)
   end
 
   def missing_reference_summary
@@ -220,7 +220,7 @@ RSpec.describe SpecSupport::LayoutParity::CohortRunner do
 
   def conflicting_summary
     captured_arguments.fetch(2)
-      .values_at(:reference, :reference_svg, :sirena_svg)
+      .values_at(:reference, :reference_svg, :etassia_svg)
   end
 
   def conflicting_reference_summary
@@ -233,17 +233,17 @@ RSpec.describe SpecSupport::LayoutParity::CohortRunner do
     write_scoreboard(row("flowchart/broken.mmd"))
     write_reference("flowchart/broken.svg")
     allow(renderer).to receive(:render).with(source)
-      .and_raise(Sirena::Layout::LayoutError, "cannot place")
+      .and_raise(Etassia::Layout::LayoutError, "cannot place")
   end
 
   def render_failure_summary
     arguments = captured_arguments.fetch(0)
-    [arguments[:sirena_svg], arguments[:render_error]]
+    [arguments[:etassia_svg], arguments[:render_error]]
   end
 
   def expected_render_failure
     [nil, { error_stage: "layout",
-            exception_class: "Sirena::Layout::LayoutError",
+            exception_class: "Etassia::Layout::LayoutError",
             message: "cannot place" }]
   end
 

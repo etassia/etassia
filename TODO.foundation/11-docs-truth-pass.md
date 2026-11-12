@@ -17,7 +17,7 @@ ELK layout, 19-vs-24 type counts, broken quick-start code
 exit codes, `high-contrast` vs the real `high_contrast`
 (`examples/README.md:63`, `docs/index.adoc:143`,
 `docs/_guides/cli-reference.adoc:43`), "37 examples" vs 53 on disk,
-and a three-way license contradiction: `LICENSE` and `sirena.gemspec:21`
+and a three-way license contradiction: `LICENSE` and `etassia.gemspec:21`
 say BSD-2-Clause, `README.adoc:365` says BSD-3, and `docs/index.adoc:166`
 plus `docs/_config.yml:76` say MIT. `LICENSE` is the source of truth;
 the other three are wrong and this is package metadata, not prose. Docs also promise
@@ -25,7 +25,7 @@ unbuilt features (plugins, caching, Rails/Jekyll/Sinatra integration,
 error-code taxonomy, 38 absent pages).
 
 On benchmarks, be precise: the harness lives in `tasks/benchmark.rake`,
-requires Sirena, and the `benchmark:compare` and `benchmark:quick` tasks run.
+requires Etassia, and the `benchmark:compare` and `benchmark:quick` tasks run.
 The dated Apple M2 run in `docs/PERFORMANCE_BENCHMARK.adoc` is a scoped
 measurement, not a machine-independent performance or memory claim (memory
 was not measured).
@@ -38,9 +38,9 @@ was not measured).
    just the four obvious files:
    - `README.adoc`, `ARCHITECTURE.md`, `docs/**`
    - the 26 tracked `examples/**/README*` files
-   - `sirena.gemspec` metadata — its description still claims "ELK
+   - `etassia.gemspec` metadata — its description still claims "ELK
      layout" (line ~14), plus the license, summary and Ruby floor
-   - CLI help text (`lib/sirena/cli.rb`, `lib/sirena/commands/*`)
+   - CLI help text (`lib/etassia/cli.rb`, `lib/etassia/commands/*`)
    - generated benchmark reports
 
    Explicitly excluded: `_site/`, `docs/plans/`, and anything generated
@@ -65,7 +65,7 @@ was not measured).
    every docs build, or require `rake <generate> && git diff
    --exit-code` on every scoreboard-changing PR. "Live" without a gate
    goes stale the first time someone forgets.
-3. Benchmarks (completed): `benchmark.rake` requires `sirena`; both advertised
+3. Benchmarks (completed): `benchmark.rake` requires `etassia`; both advertised
    tasks run; the dated report records the method, environment, results, and
    reproduction commands. User-facing pages link to it without generalizing
    its single-machine measurements.

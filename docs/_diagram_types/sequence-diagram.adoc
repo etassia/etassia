@@ -10,7 +10,7 @@ parent: Diagram Types
 
 == Overview
 
-Sequence diagrams in Sirena represent interactions between participants over time. They show how processes operate with one another and in what order, making them ideal for documenting system interactions, API calls, and message flows.
+Sequence diagrams in Etassia represent interactions between participants over time. They show how processes operate with one another and in what order, making them ideal for documenting system interactions, API calls, and message flows.
 
 Sequence diagrams are useful for:
 
@@ -574,7 +574,7 @@ sequenceDiagram
 
 === Currently not supported
 
-The following Mermaid sequence diagram features are not yet supported in Sirena:
+The following Mermaid sequence diagram features are not yet supported in Etassia:
 
 * Styling with custom CSS classes
 * Click events and links

@@ -16,13 +16,13 @@ RSpec.describe SpecSupport::LayoutParity::ArchitectureRecognizer do
   def real_pair
     name = "architecture_spec-2a3d0f20"
     reference = reference_svg("architecture/#{name}.svg")
-    sirena = Sirena.render(corpus_source("architecture/#{name}.mmd"))
-    [summaries(reference), summaries(sirena)]
+    etassia = Etassia.render(corpus_source("architecture/#{name}.mmd"))
+    [summaries(reference), summaries(etassia)]
   end
 
   it "matches semantic group, service, and edge identities" do
-    reference_summary, sirena_summary = real_pair
+    reference_summary, etassia_summary = real_pair
 
-    expect(sirena_summary).to eq(reference_summary)
+    expect(etassia_summary).to eq(reference_summary)
   end
 end

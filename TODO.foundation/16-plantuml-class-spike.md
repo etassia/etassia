@@ -14,7 +14,7 @@ Two jobs in one thin slice:
 1. Prove the notation registry with a REAL second notation, not a fake —
    the abstraction is only honest once something non-Mermaid ships
    through it.
-2. Be the weekend demo: `sirena render diagram.puml` producing a clean
+2. Be the weekend demo: `etassia render diagram.puml` producing a clean
    class diagram is the "PlantUML is real" moment for the issue author.
 
 ## Scope — deliberately minimal
@@ -62,6 +62,6 @@ provisioning — all item 12. The spike's corpus IS its 15–20 cases.
 
 ## Files
 
-`lib/sirena/notation/plantuml/**` (new), `spec/plantuml_spike_spec.rb`,
+`lib/etassia/notation/plantuml/**` (new), `spec/plantuml_spike_spec.rb`,
 `spec/plantuml_spike/` (the committed case set + its provenance records).
 Item 12 absorbs both into `spec/plantuml/`.

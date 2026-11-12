@@ -3,7 +3,7 @@
 require "erb"
 require "fileutils"
 
-module Sirena
+module Etassia
   # Scaffolds a new Mermaid diagram type: the files that define it, their
   # specs, and its row in Notation::Mermaid::TYPES. One template set, no
   # options -- every type gets a layout, because the contract needs one.
@@ -14,30 +14,30 @@ module Sirena
     class Error < StandardError; end
 
     TEMPLATES = File.expand_path("../templates/type", __dir__)
-    TYPES_FILE = "lib/sirena/notation/mermaid.rb"
+    TYPES_FILE = "lib/etassia/notation/mermaid.rb"
     IR_MAP_FILE = "docs/ir-type-map.md"
     NAME_FORMAT = /\A[a-z][a-z0-9_]*\z/
 
     # Template => path under the root; %s is the snake_case name.
     DEFINING_FILES = {
-      "parser.rb.erb" => "lib/sirena/parser/%s.rb",
-      "grammar.rb.erb" => "lib/sirena/parser/grammars/%s.rb",
-      "builder.rb.erb" => "lib/sirena/parser/builders/%s.rb",
-      "diagram.rb.erb" => "lib/sirena/diagram/%s.rb",
+      "parser.rb.erb" => "lib/etassia/parser/%s.rb",
+      "grammar.rb.erb" => "lib/etassia/parser/grammars/%s.rb",
+      "builder.rb.erb" => "lib/etassia/parser/builders/%s.rb",
+      "diagram.rb.erb" => "lib/etassia/diagram/%s.rb",
       "ir_adapter.rb.erb" =>
-        "lib/sirena/notation/mermaid/ir_adapters/%s.rb",
-      "layout.rb.erb" => "lib/sirena/layout/%s.rb",
-      "renderer.rb.erb" => "lib/sirena/renderer/%s.rb",
+        "lib/etassia/notation/mermaid/ir_adapters/%s.rb",
+      "layout.rb.erb" => "lib/etassia/layout/%s.rb",
+      "renderer.rb.erb" => "lib/etassia/renderer/%s.rb",
       "fixture.mmd.erb" => "spec/fixtures/contract/%s.mmd",
     }.freeze
 
     SPEC_FILES = {
-      "parser_spec.rb.erb" => "spec/sirena/parser/%s_spec.rb",
-      "diagram_spec.rb.erb" => "spec/sirena/diagram/%s_spec.rb",
+      "parser_spec.rb.erb" => "spec/etassia/parser/%s_spec.rb",
+      "diagram_spec.rb.erb" => "spec/etassia/diagram/%s_spec.rb",
       "ir_adapter_spec.rb.erb" =>
-        "spec/sirena/notation/mermaid/ir_adapters/%s_spec.rb",
-      "layout_spec.rb.erb" => "spec/sirena/layout/%s_spec.rb",
-      "renderer_spec.rb.erb" => "spec/sirena/renderer/%s_spec.rb",
+        "spec/etassia/notation/mermaid/ir_adapters/%s_spec.rb",
+      "layout_spec.rb.erb" => "spec/etassia/layout/%s_spec.rb",
+      "renderer_spec.rb.erb" => "spec/etassia/renderer/%s_spec.rb",
     }.freeze
 
     ROW_ANCHOR = "\n      }.freeze\n"
@@ -171,7 +171,7 @@ module Sirena
 
     def map_row
       "\n| `#{type}` | `data-shaped` | " \
-        "`lib/sirena/notation/mermaid/ir_adapters/#{type}.rb` | " \
+        "`lib/etassia/notation/mermaid/ir_adapters/#{type}.rb` | " \
         "Generated ordered content maps to shared `IR::Data`; layout owns " \
         "geometry. |"
     end

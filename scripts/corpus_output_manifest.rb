@@ -9,9 +9,9 @@ require "timeout"
 require "yaml"
 
 $LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
-require "sirena"
+require "etassia"
 
-# Records the exact bytes Sirena emits for every oracle-valid Mermaid case
+# Records the exact bytes Etassia emits for every oracle-valid Mermaid case
 # that currently renders. The case path is part of every row so equal output
 # bytes cannot collapse distinct corpus cases.
 module CorpusOutputManifest
@@ -57,7 +57,7 @@ module CorpusOutputManifest
   def render_output(relative_path)
     source = File.binread(File.join(CORPUS_ROOT, relative_path))
     Timeout.timeout(CASE_TIMEOUT) do
-      Sirena::Engine.new.render(source, today: TODAY)
+      Etassia::Engine.new.render(source, today: TODAY)
     end
   end
 

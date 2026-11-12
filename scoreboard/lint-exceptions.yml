@@ -1,9 +1,9 @@
-# The signed exception allowlist for sirena's rubocop debt.
+# The signed exception allowlist for etassia's rubocop debt.
 #
 # TODO.foundation/09-rubocop-todo-burndown.md permits exactly one kind of
 # entry: a metrics-class cop, on a single file under
-# lib/sirena/parser/grammars/, where refactoring provably worsens the
-# grammar. `Sirena::LintDebt` checks both halves mechanically -- an
+# lib/etassia/parser/grammars/, where refactoring provably worsens the
+# grammar. `Etassia::LintDebt` checks both halves mechanically -- an
 # entry outside either rule is refused, not silently accepted.
 #
 # Empty on day one. Every future entry needs all FOUR fields shown below.
@@ -15,7 +15,7 @@
 #
 # exceptions:
 #   - cop: Metrics/CyclomaticComplexity
-#     file: lib/sirena/parser/grammars/flowchart.rb
+#     file: lib/etassia/parser/grammars/flowchart.rb
 #     approved_by: <user>
 #     approved_on: <date>
 exceptions: []

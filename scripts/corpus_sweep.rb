@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Renders every spec/mermaid corpus case through Sirena::Engine and
+# Renders every spec/mermaid corpus case through Etassia::Engine and
 # prints per-type pass rates. Interim measurement tool; the scoreboard
 # spec in TODO.foundation/02 replaces it.
 #
@@ -11,7 +11,7 @@ require "bundler/setup"
 
 $LOAD_PATH.unshift(File.expand_path("../lib", __dir__))
 
-require "sirena"
+require "etassia"
 require "timeout"
 require "rexml/document"
 require "strscan"
@@ -91,7 +91,7 @@ def unknown_entity?(name)
 end
 
 def render_result(source)
-  svg = Timeout.timeout(CASE_TIMEOUT) { Sirena::Engine.new.render(source) }
+  svg = Timeout.timeout(CASE_TIMEOUT) { Etassia::Engine.new.render(source) }
   well_formed_svg?(svg) ? :pass : :fail
 rescue Timeout::Error
   :timeout

@@ -1,9 +1,9 @@
 # Mermaid grammar -- PARG source (parsanol grammar language).
 # Extraction target: the hand-written Parslet grammars in
-# claricle/sirena lib/sirena/parser/grammars/*.rb -- the rules below mirror
+# claricle/etassia lib/etassia/parser/grammars/*.rb -- the rules below mirror
 # those grammars rule for rule (same whitespace set, same line_end, same
 # quoting rules), so the native path and the Ruby fallback accept the same
-# language. One entry per diagram type; sirena routes by diagram keyword
+# language. One entry per diagram type; etassia routes by diagram keyword
 # and falls back to the Parslet grammar for every type not yet here and for
 # every input an entry here rejects (so error messages stay positioned).
 # Compile: parsanol parg compile mermaid.parg -o mermaid.json

@@ -16,21 +16,21 @@ RSpec.describe SpecSupport::LayoutParity::TimelineRecognizer do
   def real_pair
     name = "timeline_spec-e03904ce"
     reference = reference_svg("timeline/#{name}.svg")
-    sirena = Sirena.render(corpus_source("timeline/#{name}.mmd"))
-    [summaries(reference), summaries(sirena)]
+    etassia = Etassia.render(corpus_source("timeline/#{name}.mmd"))
+    [summaries(reference), summaries(etassia)]
   end
 
   def pair_for(name)
     reference = reference_svg("timeline/#{name}.svg")
-    sirena = Sirena.render(corpus_source("timeline/#{name}.mmd"))
-    [summaries(reference), summaries(sirena)]
+    etassia = Etassia.render(corpus_source("timeline/#{name}.mmd"))
+    [summaries(reference), summaries(etassia)]
   end
 
   it "keeps a section that has no tasks" do
-    reference_summary, sirena_summary =
+    reference_summary, etassia_summary =
       pair_for("should_handle_a_simple_section_definition_abc_12-d5c1af25")
 
-    expect(sirena_summary).to eq(reference_summary)
+    expect(etassia_summary).to eq(reference_summary)
   end
 
   it "reads the section label of a task-less timeline" do
@@ -48,8 +48,8 @@ RSpec.describe SpecSupport::LayoutParity::TimelineRecognizer do
   end
 
   it "ignores axis annotations while matching periods and events" do
-    reference_summary, sirena_summary = real_pair
+    reference_summary, etassia_summary = real_pair
 
-    expect(sirena_summary).to eq(reference_summary)
+    expect(etassia_summary).to eq(reference_summary)
   end
 end

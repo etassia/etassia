@@ -18,12 +18,12 @@ RSpec.describe SpecSupport::LayoutParity::CaseComparator do
           <g class="node" id="flowchart-b-1"><rect x="30" y="0" width="10" height="10"/></g>
         </svg>
       REFERENCE
-      sirena_svg: <<~SIRENA,
+      etassia_svg: <<~ETASSIA,
         <svg viewBox="0 0 100 100">
           <g id="node-a"><rect x="0" y="0" width="10" height="10"/></g>
           <g id="node-b"><rect x="30" y="0" width="20" height="10"/></g>
         </svg>
-      SIRENA
+      ETASSIA
       reproduce: "bundle exec rspec spec/layout_parity_spec.rb",
       recognizer: SpecSupport::LayoutParity::FlowchartRecognizer.new,
     }
@@ -31,9 +31,9 @@ RSpec.describe SpecSupport::LayoutParity::CaseComparator do
 
   context "with normalized analog measurements" do
     let(:analogs) do
-      lambda do |reference_svg:, sirena_svg:|
+      lambda do |reference_svg:, etassia_svg:|
         raise "missing reference" if reference_svg.empty?
-        raise "missing candidate" if sirena_svg.empty?
+        raise "missing candidate" if etassia_svg.empty?
 
         [{ key: [:point, "b"], error: 0.4 },
          { key: [:point, "a"], error: 0.1 }]
@@ -43,7 +43,7 @@ RSpec.describe SpecSupport::LayoutParity::CaseComparator do
     let(:summary) do
       evidence = comparison.to_h
       geometry = evidence.fetch(:geometry)
-      [evidence[:sirena_status], evidence[:invariants],
+      [evidence[:etassia_status], evidence[:invariants],
        geometry.values_at(:worst_e_w, :worst_analog, :matched, :ambiguous),
        geometry.dig(:worst_keys, :analog), geometry[:top5].size]
     end
@@ -60,9 +60,9 @@ RSpec.describe SpecSupport::LayoutParity::CaseComparator do
     subject(:failure) { comparison.to_h[:invariants].first }
 
     let(:arguments) do
-      candidate = super().fetch(:sirena_svg)
+      candidate = super().fetch(:etassia_svg)
         .sub(/\s*<g id="node-b".*<\/g>/, "")
-      super().merge(sirena_svg: candidate)
+      super().merge(etassia_svg: candidate)
     end
     let(:expected) do
       {
@@ -86,10 +86,10 @@ RSpec.describe SpecSupport::LayoutParity::CaseComparator do
         '<g class="node" id="flowchart-a-2">' \
         '<rect width="5" height="5"/></g></svg>',
       )
-      sirena = super().fetch(:sirena_svg).sub(
+      etassia = super().fetch(:etassia_svg).sub(
         "</svg>", '<g id="node-a"><rect width="5" height="5"/></g></svg>'
       )
-      super().merge(reference_svg: reference, sirena_svg: sirena)
+      super().merge(reference_svg: reference, etassia_svg: etassia)
     end
 
     it "carries the matched and ambiguous counts into geometry evidence" do
@@ -101,13 +101,13 @@ RSpec.describe SpecSupport::LayoutParity::CaseComparator do
   context "with empty extracted figures" do
     let(:empty_svg) { '<svg viewBox="0 0 100 100"></svg>' }
     let(:arguments) do
-      super().merge(reference_svg: empty_svg, sirena_svg: empty_svg)
+      super().merge(reference_svg: empty_svg, etassia_svg: empty_svg)
     end
     let(:empty_summary) do
       [
         comparison.hard_failure?,
         *comparison.geometry.values_at(
-          :reference_elements, :sirena_elements, :matched
+          :reference_elements, :etassia_elements, :matched
         ),
       ]
     end
@@ -127,12 +127,12 @@ RSpec.describe SpecSupport::LayoutParity::CaseComparator do
         SVG
       end
       let(:arguments) do
-        super().merge(reference_svg: reference_svg, sirena_svg: empty_svg)
+        super().merge(reference_svg: reference_svg, etassia_svg: empty_svg)
       end
       let(:failure_summary) do
         rules = comparison.invariants.map { |failure| failure.fetch(:rule) }
         counts = comparison.geometry.values_at(
-          :reference_elements, :sirena_elements
+          :reference_elements, :etassia_elements
         )
         without_invariants = comparison.with(invariants: [])
         [comparison.hard_failure?, without_invariants.hard_failure?,
@@ -156,8 +156,8 @@ RSpec.describe SpecSupport::LayoutParity::CaseComparator do
 
   context "with caller-selected node-like elements" do
     let(:arguments) do
-      overlapping = super().fetch(:sirena_svg).sub('x="30"', 'x="5"')
-      super().merge(sirena_svg: overlapping, spatial_kinds: [:node])
+      overlapping = super().fetch(:etassia_svg).sub('x="30"', 'x="5"')
+      super().merge(etassia_svg: overlapping, spatial_kinds: [:node])
     end
 
     it "runs the spatial checker" do
@@ -183,11 +183,11 @@ RSpec.describe SpecSupport::LayoutParity::CaseComparator do
 
   context "when candidate rendering failed" do
     let(:error) { { error_stage: "layout", message: "elkrb raised" } }
-    let(:arguments) { super().merge(sirena_svg: nil, render_error: error) }
+    let(:arguments) { super().merge(etassia_svg: nil, render_error: error) }
 
     it "records render-stage evidence without parsing a candidate" do
       evidence = comparison.to_h
-      summary = [evidence[:sirena_status],
+      summary = [evidence[:etassia_status],
                  evidence[:geometry].values_at(:matched, :worst_analog)]
       expect(summary).to eq([error, [0, nil]])
     end
@@ -195,13 +195,13 @@ RSpec.describe SpecSupport::LayoutParity::CaseComparator do
 
   context "with one real Flowchart pair" do
     let(:arguments) do
-      reference, sirena = flowchart_sides("configuration_spec-67574f4a")
-      super().merge(reference_svg: reference, sirena_svg: sirena)
+      reference, etassia = flowchart_sides("configuration_spec-67574f4a")
+      super().merge(reference_svg: reference, etassia_svg: etassia)
     end
 
     it "assembles the real matched geometry evidence" do
       evidence = comparison.to_h
-      summary = [evidence[:sirena_status], evidence[:geometry][:matched],
+      summary = [evidence[:etassia_status], evidence[:geometry][:matched],
                  evidence[:geometry][:top5].empty?]
       expect(summary).to eq(["rendered", 6, false])
     end

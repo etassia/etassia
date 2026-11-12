@@ -4,7 +4,7 @@
 > in this directory is still the reference for the items that survive —
 > `TODO.architecture/00-overview.md` has the mapping.
 
-# Sirena Foundation Plan (rev 7)
+# Etassia Foundation Plan (rev 7)
 
 **Date**: 2026-08-11. Revised after a maximum-effort adversarial audit
 that re-derived every claim from live commands. What changed in rev 7:
@@ -173,7 +173,7 @@ one lane entry through
 | Coverage (branch) | ~55% | **97%** | staged timeline: 70 → 80 → 90 → 97, each step tied to a track completing; never lowered |
 | Lint todo | 7,614 parked | **file deleted** | zero live always; monotone shrink; only tiny user-signed metrics exclusions survive in main config |
 | Layout parity | not measured | invariants **hard**; geometry 8%/15% target | per-case geometry ratchet; a type renegotiates only with evidence, user decides; bar raises later |
-| SVG conformance | all samples fail; output is not XML-escaped at all | **100% valid under chosen profile, all output parseable XML** | escape at one boundary in `lib/sirena/svg/`; no runtime auto-fix; conformant by construction |
+| SVG conformance | all samples fail; output is not XML-escaped at all | **100% valid under chosen profile, all output parseable XML** | escape at one boundary in `lib/etassia/svg/`; no runtime auto-fix; conformant by construction |
 | Docs | build exits 0 but the published site is incomplete and broken; false claims throughout | **builds complete; zero unverified claims** | numbers generated from the scoreboard, not hand-written |
 
 Universal: zero High/Medium findings reach any PR (nitpicks count);

@@ -1,0 +1,90 @@
+# frozen_string_literal: true
+
+require_relative "base"
+
+module Etassia
+  module Diagram
+    # Represents an XY chart diagram (scatter/line/bar chart)
+    class XyChart < Base
+      attr_accessor :title, :x_axis, :y_axis, :datasets, :options
+
+      def initialize
+        super
+        @datasets = []
+        @options = {}
+      end
+
+      # Returns the diagram type identifier.
+      #
+      # @return [Symbol] :xychart
+      def diagram_type
+        :xychart
+      end
+
+      # XY charts have no validation rules yet. See TODO.foundation's
+      # corpus burndown for real validation; this is deliberately trivial.
+      #
+      # @return [Boolean] true
+      def valid?
+        true
+      end
+
+      # Add a dataset to the chart
+      def add_dataset(dataset)
+        @datasets << dataset
+      end
+    end
+
+    # Represents an axis configuration
+    class XYAxis
+      attr_accessor :label, :values, :min, :max, :type
+
+      def initialize
+        @type = :numeric # :numeric or :categorical
+        @values = []
+      end
+
+      # Check if axis has categorical values
+      def categorical?
+        @type == :categorical
+      end
+
+      # Check if axis has numeric range
+      def numeric?
+        @type == :numeric
+      end
+
+      # Get the range of the axis
+      def range
+        if numeric?
+          [@min || 0, @max || 100]
+        else
+          [0, values.length - 1]
+        end
+      end
+    end
+
+    # Represents a dataset in an XY chart
+    class XYDataset
+      attr_accessor :id, :label, :chart_type, :color
+      attr_reader :values
+
+      def initialize(id, label = nil, chart_type = :line)
+        @id = id
+        @label = label || id
+        @chart_type = chart_type # :line, :bar, :scatter
+        @values = []
+      end
+
+      # Add a value to the dataset
+      def add_value(value)
+        @values << value.to_f
+      end
+
+      # Set all values at once
+      def values=(vals)
+        @values = vals.map(&:to_f)
+      end
+    end
+  end
+end

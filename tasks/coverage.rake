@@ -7,10 +7,10 @@ require "open3"
 require "digest"
 
 # TODO.foundation/03-coverage-gate.md item 1: the corpus fixture sweeps
-# (examples tagged :corpus -- spec/sirena/parser/{error,info,quadrant}_spec.rb,
-# spec/sirena/engine_spec.rb's treemap context, and
-# spec/sirena/engine_determinism_spec.rb's "never changes whether a diagram type
-# renders at all") assert only that sirena doesn't raise, that its output
+# (examples tagged :corpus -- spec/etassia/parser/{error,info,quadrant}_spec.rb,
+# spec/etassia/engine_spec.rb's treemap context, and
+# spec/etassia/engine_determinism_spec.rb's "never changes whether a diagram type
+# renders at all") assert only that etassia doesn't raise, that its output
 # looks SVG-shaped, or (engine_determinism_spec.rb) that two rescued outcome
 # strings match -- lines they merely exercise would count as "covered"
 # without ever being asserted against if SimpleCov instrumented them. So
@@ -153,7 +153,7 @@ module CoverageTasks
     !status.empty? && paths.length == count && paths.none?(&:empty?)
   end
 
-  # Same pattern as .rspec's default and Sirena::SpecShard::PATTERN.
+  # Same pattern as .rspec's default and Etassia::SpecShard::PATTERN.
   SPEC_PATTERN = "spec/**{,/*/**}/*_spec.rb"
   BENCHMARK_PATTERN = "spec/benchmarks/**/*_spec.rb"
   BENCHMARK_PATTERNS = [

@@ -1,0 +1,57 @@
+# frozen_string_literal: true
+
+require "digest"
+require "spec_helper"
+
+RSpec.describe Etassia::Layout::UserJourney do
+  let(:source) do
+    <<~MERMAID
+      journey
+        title Checkout
+        section Find
+          This is a deliberately long discovery step: 5: Buyer
+          Pay: 2: Buyer, Bank
+    MERMAID
+  end
+
+  let(:diagram) { Etassia::Parser::UserJourney.new.parse(source) }
+  let(:layout) { described_class.new }
+  let(:elk_scene) do
+    layout.placement = :elk
+    layout.call(diagram)
+  end
+
+  it "renders through the public API with real ELK placement" do
+    svg = Etassia.render(source, layout_engine: :elk)
+
+    expect(svg).to include('id="task-task_0"', 'id="task-task_1"')
+  end
+
+  it "publishes ELK task positions and variable dimensions to the Scene" do
+    first, second = elk_scene.tasks.map(&:box)
+
+    expect([first.width > 150, first.height, second.x - first.x, second.y])
+      .to eq([true, 80.0, first.width + 60, 110.0])
+  end
+
+  it "raises the ELK error without falling back" do
+    allow(Elkrb).to receive(:layout).and_raise(Elkrb::Error, "seeded journey")
+
+    expect { Etassia.render(source, layout_engine: :elk) }
+      .to raise_error(Etassia::Layout::LayoutError, /seeded journey/)
+  end
+
+  it "renders an empty valid journey through ELK" do
+    svg = Etassia.render("journey\n", layout_engine: :elk)
+
+    expect([svg.start_with?("<svg"), svg.include?('id="task-')])
+      .to eq([true, false])
+  end
+
+  it "preserves default rendering byte for byte" do
+    digest = Digest::SHA256.hexdigest(Etassia.render(source))
+
+    expect(digest)
+      .to eq("47f3a312d1b3584bc4d449e12c6ac892dc65044062613ea39dbee88028b524f8")
+  end
+end

@@ -1,0 +1,171 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+
+RSpec.describe Etassia::Renderer::C4, :aggregate_failures do
+  subject(:renderer) { described_class.new }
+
+  def scene_for(path)
+    source = File.read(path)
+    diagram = Etassia::Parser::C4.new.parse(source)
+    Etassia::Layout::C4.new.call(diagram)
+  end
+
+  let(:context_scene) { scene_for("examples/c4/01-context-diagram.mmd") }
+  let(:context_xml) { renderer.render(context_scene).to_xml }
+
+  let(:colors) { Etassia::Theme::Registry.get(:default).colors }
+
+  it "renders a typed Scene using its final canvas" do
+    svg = renderer.render(context_scene)
+    expect(context_scene).to be_a(Etassia::Layout::C4::Scene)
+    expect(context_scene.children).to all(be_a(Etassia::Layout::C4::Node))
+    expect([svg.width, svg.height, svg.view_box])
+      .to eq(context_scene.then { |s| [s.width, s.height, s.view_box] })
+  end
+
+  describe "people, systems, external palettes, labels, and relationships" do
+    it "renders the person with its primary palette" do
+      expect(context_xml).to include('id="element-user"', "User",
+                                     "A system user", colors.primary)
+    end
+
+    it "renders the system with its primary palette" do
+      expect(context_xml).to include('id="element-webapp"',
+                                     "Main application", colors.primary)
+    end
+
+    it "renders the external system with its secondary palette" do
+      expect(context_xml).to include('id="element-email"',
+                                     "Sends notifications", colors.secondary)
+    end
+
+    it "renders the relationship with its label and arrowhead" do
+      expect(context_xml).to include('id="rel_0"', "Uses", "<polygon")
+    end
+  end
+
+  it "renders the person head and body from typed points" do
+    person = context_scene.children.find { |node| node.kind == "person" }
+    expect(person.head).to be_a(Etassia::Layout::C4::Circle)
+    expect(person.body).to be_a(Etassia::Layout::C4::Ellipse)
+    expect(context_xml).to include("<circle", "<ellipse")
+  end
+
+  describe "nested boundaries and their child containers" do
+    let(:scene) { scene_for("examples/c4/02-container-diagram.mmd") }
+    let(:xml) { renderer.render(scene).to_xml }
+
+    it "keeps children inside the boundary" do
+      boundary = scene.children.find { |node| node.kind == "boundary" }
+
+      expect(boundary.children).not_to be_empty
+    end
+
+    it "renders the boundary and its label" do
+      expect(xml).to include('id="boundary-ecommerce"', "E-commerce System")
+    end
+
+    it "renders the child container with the primary palette" do
+      expect(xml).to include('id="element-webapp"', colors.primary)
+    end
+
+    it "dashes the boundary outline" do
+      expect(xml).to include('stroke-dasharray="10,5"')
+    end
+  end
+
+  describe "bidirectional relationships" do
+    let(:scene) do
+      source = <<~MERMAID
+        C4Context
+          System(a, "A")
+          System(b, "B")
+          BiRel(a, b, "Syncs", "HTTPS")
+      MERMAID
+      Etassia::Layout::C4.new.call(Etassia::Parser::C4.new.parse(source))
+    end
+    let(:xml) { renderer.render(scene).to_xml }
+
+    it "puts two arrowheads on the edge" do
+      expect(scene.edges.first.arrowheads.length).to eq(2)
+    end
+
+    it "draws two arrowhead polygons" do
+      expect(xml.scan("<polygon").size).to eq(2)
+    end
+
+    it "shows both labels" do
+      expect(xml).to include("Syncs", "[HTTPS]")
+    end
+
+    it "styles the labels distinctly" do
+      expect(xml).to include('font-size="12.0" font-style="normal">Syncs<',
+                             'font-size="12.0" font-style="italic">[HTTPS]<')
+    end
+  end
+
+  it "uses semantic colors from the active theme" do
+    dark = Etassia::Theme::Registry.get(:dark)
+    themed = described_class.new(theme: dark).render(context_scene)
+
+    expect(themed.to_xml).to include(
+      dark.colors.primary, dark.colors.edge_stroke, dark.colors.background
+    )
+  end
+
+  it "draws the first relationship as a line and a later one as a curve" do
+    expect([context_xml.scan("<line").size, context_xml.scan(/ Q\d/).size])
+      .to eq([1, 2])
+  end
+
+  it "ends the first relationship on the target's edge" do
+    edge = context_scene.edges.first.sections.first.end_point
+    expect(context_xml).to include(%(x2="#{edge.x}" y2="#{edge.y}"))
+  end
+
+  it "keeps the title's shifted view box origin" do
+    expect(renderer.render(context_scene).view_box).to start_with("0 -70 ")
+  end
+
+  it "writes a label's final Scene y without another baseline shift" do
+    label = context_scene.edges.first.labels.first
+    expect(context_xml).to include(%(y="#{label.y}"))
+  end
+
+  it "draws the person icon inside the 48 px image box" do
+    expect(context_xml).to include('r="10.0"')
+  end
+
+  describe "database and queue shapes" do
+    let(:xml) do
+      source = <<~MERMAID
+        C4Context
+        SystemDb(db, "Store")
+        SystemQueue(q, "Bus")
+        System(plain, "Plain")
+      MERMAID
+      diagram = Etassia::Parser::C4.new.parse(source)
+      renderer.render(Etassia::Layout::C4.new.call(diagram)).to_xml
+    end
+
+    def group(id)
+      start = %(<g id="element-#{id}">)
+      xml[%r{#{start}.*?</g>\s*</g>|#{start}.*?</g>}m]
+    end
+
+    it "draws a database as a cylinder with caps above and below the box" do
+      expect(group("db")).to include("<path").and(include("c0,-10"))
+        .and(satisfy { |text| !text.include?("<rect") })
+    end
+
+    it "draws a queue as a pill with caps beside the box" do
+      expect(group("q")).to include("<path").and(include("c5,0 5,"))
+        .and(satisfy { |text| !text.include?("<rect") })
+    end
+
+    it "keeps a plain system as a rectangle" do
+      expect(group("plain")).to include("<rect")
+    end
+  end
+end

@@ -16,13 +16,13 @@ RSpec.describe SpecSupport::LayoutParity::XyChartRecognizer do
   def real_pair
     name = "xychart-aaf2900f"
     reference = reference_svg("xychart/#{name}.svg")
-    sirena = Sirena.render(corpus_source("xychart/#{name}.mmd"))
-    [keys(reference), keys(sirena)]
+    etassia = Etassia.render(corpus_source("xychart/#{name}.mmd"))
+    [keys(reference), keys(etassia)]
   end
 
   it "matches every bar and line series by stable ordinal" do
-    reference_keys, sirena_keys = real_pair
+    reference_keys, etassia_keys = real_pair
 
-    expect(sirena_keys).to eq(reference_keys)
+    expect(etassia_keys).to eq(reference_keys)
   end
 end

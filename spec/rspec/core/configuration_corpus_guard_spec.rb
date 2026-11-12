@@ -22,7 +22,7 @@ RSpec.describe RSpec::Core::Configuration do
       env = { "COVERAGE" => "true", "SIMPLECOV_COVERAGE_DIR" => scratch_dir }
       Open3.capture2e(
         env, "bundle", "exec", "rspec", "--tag", "corpus",
-        "spec/sirena/parser/error_spec.rb"
+        "spec/etassia/parser/error_spec.rb"
       )
     end
     { result: result, before: before, after: coverage_state }

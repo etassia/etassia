@@ -8,13 +8,13 @@ module FlowchartSceneBuilder
 
   # @param links [Array<Array>] [from, to] or [from, to, label]
   # @param labels [Hash] node id => label, for nodes not labelled by their id
-  # @return [Sirena::Layout::Flowchart::Scene]
+  # @return [Etassia::Layout::Flowchart::Scene]
   def scene(direction, links, labels: {})
-    Sirena::Layout::Flowchart.new.to_graph(diagram(direction, links, labels))
+    Etassia::Layout::Flowchart.new.to_graph(diagram(direction, links, labels))
   end
 
   def diagram(direction, links, labels)
-    diagram = Sirena::Diagram::Flowchart.new(direction: direction)
+    diagram = Etassia::Diagram::Flowchart.new(direction: direction)
     ids = links.flat_map { |from, to, _| [from, to] }.uniq
     diagram.nodes.concat(ids.map { |id| rect(id, labels.fetch(id, id)) })
     diagram.edges.concat(links.map { |from, to, label| link(from, to, label) })
@@ -29,11 +29,11 @@ module FlowchartSceneBuilder
 
   # The one laid-out node of a flowchart holding only it.
   def lone_node(shape, label)
-    diagram = Sirena::Diagram::Flowchart.new(direction: "TD")
-    diagram.nodes << Sirena::Diagram::FlowchartNode.new(
+    diagram = Etassia::Diagram::Flowchart.new(direction: "TD")
+    diagram.nodes << Etassia::Diagram::FlowchartNode.new(
       id: "A", label: label, shape: shape,
     )
-    Sirena::Layout::Flowchart.new.to_graph(diagram).children.first
+    Etassia::Layout::Flowchart.new.to_graph(diagram).children.first
   end
 
   # The free space from one node to the next along :x or :y.
@@ -57,7 +57,7 @@ module FlowchartSceneBuilder
   end
 
   def svg_rects(source)
-    Sirena::Engine.new.render(source).scan(/<rect[^>]*>/).map do |tag|
+    Etassia::Engine.new.render(source).scan(/<rect[^>]*>/).map do |tag|
       BOX_ATTRIBUTES.map { |name| tag[/\s#{name}="(-?[\d.]+)"/, 1].to_f }
     end
   end
@@ -82,11 +82,11 @@ module FlowchartSceneBuilder
   end
 
   def rect(id, label)
-    Sirena::Diagram::FlowchartNode.new(id: id, label: label, shape: "rect")
+    Etassia::Diagram::FlowchartNode.new(id: id, label: label, shape: "rect")
   end
 
   def link(from, to, label)
-    Sirena::Diagram::FlowchartEdge.new(
+    Etassia::Diagram::FlowchartEdge.new(
       source_id: from, target_id: to, arrow_type: "arrow", label: label,
     )
   end

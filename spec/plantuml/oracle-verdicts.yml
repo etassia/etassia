@@ -1165,7 +1165,7 @@ verdicts:
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
   contract: 1
-- id: sequence/sirena.constructs.arrow-colour
+- id: sequence/etassia.constructs.arrow-colour
   verdict: valid
   reason: rendered SEQUENCE
   source_sha256: cb8ecde757469e42fc1bc52e94d0b818f5f08890c6a17eae73d24880abbcbedc
@@ -1175,7 +1175,7 @@ verdicts:
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
   contract: 1
-- id: sequence/sirena.constructs.arrow-extras
+- id: sequence/etassia.constructs.arrow-extras
   verdict: valid
   reason: rendered SEQUENCE
   source_sha256: 3203b5c9b854c0c1c45d469ddb5578d25896a637cecec49ae5ee568161244bec
@@ -1185,7 +1185,7 @@ verdicts:
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
   contract: 1
-- id: sequence/sirena.constructs.autonumber
+- id: sequence/etassia.constructs.autonumber
   verdict: valid
   reason: rendered SEQUENCE
   source_sha256: 6fd9e270af30bb5e20c54b55e7e84fce9c8d0a582eeb3dd177114e5cfe563f89
@@ -1195,7 +1195,7 @@ verdicts:
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
   contract: 1
-- id: sequence/sirena.constructs.autonumber-format
+- id: sequence/etassia.constructs.autonumber-format
   verdict: valid
   reason: rendered SEQUENCE
   source_sha256: 9d57bb56715846573b2f66c9ceeffe44c5a796182b2dc69622cf4880bfe8e92f
@@ -1205,7 +1205,7 @@ verdicts:
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
   contract: 1
-- id: sequence/sirena.constructs.box-colour
+- id: sequence/etassia.constructs.box-colour
   verdict: valid
   reason: rendered SEQUENCE
   source_sha256: c42f355cad81a85b4cba33829782d48517f43fd66a802d83edb2fa4464c33b00
@@ -1215,7 +1215,7 @@ verdicts:
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
   contract: 1
-- id: sequence/sirena.constructs.order
+- id: sequence/etassia.constructs.order
   verdict: valid
   reason: rendered SEQUENCE
   source_sha256: 554ef7be16646956a9dff3694fc2c8c4bf537fc1434a682cee71c809f9393ed5
@@ -1225,7 +1225,7 @@ verdicts:
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
   contract: 1
-- id: sequence/sirena.constructs.participant-colour
+- id: sequence/etassia.constructs.participant-colour
   verdict: valid
   reason: rendered SEQUENCE
   source_sha256: 3b456ae662a18d6777cce81e5a4026d8d3d12cc99cb951fa44da845167a0d817
@@ -1235,7 +1235,7 @@ verdicts:
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
   contract: 1
-- id: sequence/sirena.constructs.spacing
+- id: sequence/etassia.constructs.spacing
   verdict: valid
   reason: rendered SEQUENCE
   source_sha256: fa6e40ab69ddc7e7ede0d73a02f7f638d0bc1c3934674f8a512f3b902bdcb8f2
@@ -1245,7 +1245,7 @@ verdicts:
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
   contract: 1
-- id: sequence/sirena.constructs.unlabelled
+- id: sequence/etassia.constructs.unlabelled
   verdict: valid
   reason: rendered SEQUENCE
   source_sha256: 92e53b0ec4893ef35800f1d5afa4da7ae0944fa2959076185e4a9495ef099b12
@@ -1255,7 +1255,7 @@ verdicts:
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
   contract: 1
-- id: sequence/sirena.create.basic
+- id: sequence/etassia.create.basic
   verdict: valid
   reason: rendered SEQUENCE
   source_sha256: 596fe04d0173c5f8f942f3a2cb97ccd7127261795d5a69720cee9233cb43f0dc
@@ -1265,7 +1265,7 @@ verdicts:
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
   contract: 1
-- id: sequence/sirena.create.leftward
+- id: sequence/etassia.create.leftward
   verdict: valid
   reason: rendered SEQUENCE
   source_sha256: 903f70d79c50e1d9503a30c6fffec4c41bb2594adec333665f51b1a22eb5c8d5
@@ -1275,7 +1275,7 @@ verdicts:
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
   contract: 1
-- id: sequence/sirena.create.participant
+- id: sequence/etassia.create.participant
   verdict: valid
   reason: rendered SEQUENCE
   source_sha256: b6cbfde5e9b99d9764a8b57b686610d8d0b55d960f735ec4b665ebf9b1f24a10
@@ -1285,7 +1285,7 @@ verdicts:
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
   contract: 1
-- id: sequence/sirena.self.label
+- id: sequence/etassia.self.label
   verdict: valid
   reason: rendered SEQUENCE
   source_sha256: c1635bafe67d588c8f105dffaa4b9db47b524ded35c5f0f90f8e6e9953ffa443
@@ -1295,7 +1295,7 @@ verdicts:
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
   contract: 1
-- id: sequence/sirena.self.wide
+- id: sequence/etassia.self.wide
   verdict: valid
   reason: rendered SEQUENCE
   source_sha256: a18a0ff70948a4e1e78c278e68f6bb79ec879057d2f0eb587363b1b19530459e
@@ -1305,7 +1305,7 @@ verdicts:
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
   contract: 1
-- id: sequence/sirena.skinparam.paint
+- id: sequence/etassia.skinparam.paint
   verdict: valid
   reason: rendered SEQUENCE
   source_sha256: a8cadcb152392532ca9012c04822d23a4b75824f86bef84ce3b813a7f3690352
@@ -1315,7 +1315,7 @@ verdicts:
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
   contract: 1
-- id: sequence/sirena.tail.group
+- id: sequence/etassia.tail.group
   verdict: valid
   reason: rendered SEQUENCE
   source_sha256: 23eddd0e2a3386eee54d4d56e546e3fff6181e08c35010b56f5d578895c645b3

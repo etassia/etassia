@@ -49,7 +49,7 @@ RSpec.describe SpecSupport::LayoutParity::RecognizerRegistry do
   end
 
   def actual_mapping
-    Sirena::Notation::Mermaid.types.to_h do |type|
+    Etassia::Notation::Mermaid.types.to_h do |type|
       entry = described_class.fetch(type)
       [type, [entry.recognizer.class.name.split("::").last,
               entry.reference_directory]]

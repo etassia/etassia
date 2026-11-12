@@ -10,7 +10,7 @@ parent: Diagram Types
 
 == Overview
 
-Radar charts (also known as spider charts or web charts) in Sirena visualize
+Radar charts (also known as spider charts or web charts) in Etassia visualize
 multivariate data on axes that radiate from a central point. They are ideal for
 comparing multiple variables across different items or showing the relative
 performance of different attributes.
@@ -387,7 +387,7 @@ radar-beta
 
 === Currently not supported
 
-The following Mermaid radar features are not yet supported in Sirena:
+The following Mermaid radar features are not yet supported in Etassia:
 
 * Custom colors per dataset
 * Curve-specific styling options

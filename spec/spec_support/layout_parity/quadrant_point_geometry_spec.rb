@@ -6,12 +6,12 @@ RSpec.describe SpecSupport::LayoutParity::QuadrantPointGeometry do
   def cohort(name)
     reference = File.read("spec/fixtures_mermaid/quadrant/#{name}.svg")
     source = File.read("spec/mermaid/quadrant/#{name}.mmd")
-    [reference, Sirena.render(source)]
+    [reference, Etassia.render(source)]
   end
 
   def comparisons(name)
-    reference, sirena = cohort(name)
-    described_class.compare(reference: reference, sirena: sirena)
+    reference, etassia = cohort(name)
+    described_class.compare(reference: reference, etassia: etassia)
   end
 
   def point_svg(label, radius)
@@ -26,7 +26,7 @@ RSpec.describe SpecSupport::LayoutParity::QuadrantPointGeometry do
 
   def comparison_values(name)
     comparisons(name).map do |result|
-      result.to_h.values_at(:key, :reference_radius, :sirena_radius, :error)
+      result.to_h.values_at(:key, :reference_radius, :etassia_radius, :error)
     end
   end
 
@@ -44,8 +44,8 @@ RSpec.describe SpecSupport::LayoutParity::QuadrantPointGeometry do
   end
 
   def zero_reference_errors
-    [point_svg("Zero", 0), point_svg("Zero", 5)].map do |sirena|
-      described_class.compare(reference: point_svg("Zero", 0), sirena: sirena)
+    [point_svg("Zero", 0), point_svg("Zero", 5)].map do |etassia|
+      described_class.compare(reference: point_svg("Zero", 0), etassia: etassia)
         .first.error
     end
   end
@@ -58,14 +58,14 @@ RSpec.describe SpecSupport::LayoutParity::QuadrantPointGeometry do
   def count_mismatch_action
     lambda do
       described_class.compare(reference: point_svg("One", 5),
-                              sirena: two_point_svg)
+                              etassia: two_point_svg)
     end
   end
 
   def label_mismatch_action
     lambda do
       described_class.compare(reference: point_svg("Reference", 5),
-                              sirena: point_svg("Sirena", 5))
+                              etassia: point_svg("Etassia", 5))
     end
   end
 

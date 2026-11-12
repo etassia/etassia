@@ -6,7 +6,7 @@ require "fileutils"
 require "ripper"
 
 # Finds every shipped-code reference to svg_conform's `apply_fixes`, which
-# rewrites the SVG it is given and so must never run over Sirena's output.
+# rewrites the SVG it is given and so must never run over Etassia's output.
 # Reads tokens rather than text, so a comment that mentions the name is not
 # a hit but a call, a `send(:apply_fixes)` symbol or a string is.
 #
@@ -17,7 +17,7 @@ module ApplyFixesScan
 
   # The gemspec decides what ships; code is the subset a token scan can read.
   def shipped_files(root)
-    gemspec = Gem::Specification.load(File.join(root, "sirena.gemspec"))
+    gemspec = Gem::Specification.load(File.join(root, "etassia.gemspec"))
     gemspec.files.grep(SHIPPED_CODE).map do |f|
       File.join(root, f)
     end.select { |f| File.file?(f) }.sort
@@ -82,7 +82,7 @@ RSpec.describe "svg_conform apply_fixes", :aggregate_failures, type: :task do
     expect(apply_fixes_references(shipped_files(repo_root))).to be_empty
   end
 
-  # scripts/, the Rakefile and the gemspec are dev-only: D6 (sirena.gemspec's
+  # scripts/, the Rakefile and the gemspec are dev-only: D6 (etassia.gemspec's
   # `files` became a lib+exe allowlist) means none of them ship, so they are
   # not in the population this scan reads and have no row here. D8 moved
   # every .rake file out of lib/ entirely (lib/tasks -> tasks/), so no
@@ -101,14 +101,14 @@ RSpec.describe "svg_conform apply_fixes", :aggregate_failures, type: :task do
     # a document raises, so a call by any spelling (`fix: true`, Fixer, send)
     # fails here instead of hiding from the token scan.
     let(:fixes_called) { Class.new(StandardError) }
-    let(:profile) { Sirena::Svg::CONFORMANCE_PROFILE }
+    let(:profile) { Etassia::Svg::CONFORMANCE_PROFILE }
     let(:broken_svg) { '<svg xmlns="http://www.w3.org/2000/svg"><rect/></svg>' }
     let(:conformant_validation_files) do
       directory = Dir.mktmpdir
       files = %w[flowchart sequence class_diagram state_diagram er_diagram
                  user_journey xy_chart sankey].map.with_index do |type, index|
         input = File.join(repo_root, "spec", "fixtures", type, "input.mmd")
-        svg = Sirena::Engine.new.render(File.read(input))
+        svg = Etassia::Engine.new.render(File.read(input))
         path = File.join(directory, "#{index}.svg")
         File.write(path, svg)
         [svg, path]
@@ -118,7 +118,7 @@ RSpec.describe "svg_conform apply_fixes", :aggregate_failures, type: :task do
 
     after do |example|
       if example.description ==
-          "does not invoke fixes while validating Sirena output"
+          "does not invoke fixes while validating Etassia output"
         FileUtils.remove_entry(conformant_validation_files.first)
       end
     end
@@ -144,7 +144,7 @@ RSpec.describe "svg_conform apply_fixes", :aggregate_failures, type: :task do
         .to receive(:apply_remediations).and_raise(fixes_called)
     end
 
-    it "does not invoke fixes while validating Sirena output" do
+    it "does not invoke fixes while validating Etassia output" do
       _, files = conformant_validation_files
       files.each do |svg, path|
         expect(SvgConform.validate(svg, profile:, fix: true)).to be_valid

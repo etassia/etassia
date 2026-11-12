@@ -1,8 +1,8 @@
-# Sirena Architecture
+# Etassia Architecture
 
 ## Overview
 
-Sirena is a pure Ruby implementation of Mermaid diagram generation following
+Etassia is a pure Ruby implementation of Mermaid diagram generation following
 strict object-oriented principles with model-driven architecture. The system
 transforms Mermaid syntax into SVG output through a pipeline of well-separated
 components.
@@ -11,9 +11,9 @@ components.
 
 1. **Model-Driven Design**: Every registered diagram model inherits
    `Diagram::Base`, which is a `Lutaml::Model::Serializable`. Six value
-   classes nested under `Sirena::Diagram` are plain Ruby: `PacketField`,
+   classes nested under `Etassia::Diagram` are plain Ruby: `PacketField`,
    `RadarAxis`, `RadarCurve`, `TreemapNode`, `XYAxis` and `XYDataset`. To
-   re-derive that list, select the `Sirena::Diagram` constants that are
+   re-derive that list, select the `Etassia::Diagram` constants that are
    classes and do not descend from `Lutaml::Model::Serializable`
 2. **MECE Separation**: Each component has mutually exclusive, collectively
    exhaustive responsibilities
@@ -23,7 +23,7 @@ components.
 
 ## Processing Pipeline
 
-`Engine#render` (`lib/sirena/engine.rb`) runs a fixed pipeline with a
+`Engine#render` (`lib/etassia/engine.rb`) runs a fixed pipeline with a
 temporary hybrid layout boundary. Converted layouts return a typed
 `Layout::Scene` containing final canvas geometry. Layouts that have not yet
 been converted return a Hash wrapped in `Layout::Legacy`; only that branch
@@ -50,7 +50,7 @@ flowchart TD
     Svg --> Xml["to_xml: SVG string"]
 ```
 
-Each stage raises its own `Sirena::Error` subclass (`Engine::DiagramTypeError`,
+Each stage raises its own `Etassia::Error` subclass (`Engine::DiagramTypeError`,
 `Parser::ParseError`, `Layout::LayoutError`, `Renderer::RenderError`);
 `Engine#render` wraps anything else in `Engine::PipelineError`. An unknown or
 invalid notation raises `Engine::PipelineError` unwrapped, and a malformed
@@ -59,7 +59,7 @@ plugin raises `NotationRegistrationError` at registration.
 ## Component Architecture
 
 ```
-Sirena (Root Module)
+Etassia (Root Module)
     │
     ├── Engine (Orchestrator)
     │     │
@@ -78,7 +78,7 @@ Sirena (Root Module)
     ├── Diagram (Domain Models)
     │     │
     │     ├── Base (Abstract)
-    │     └── one model per registered type (24; see lib/sirena/notation/builtin.rb)
+    │     └── one model per registered type (24; see lib/etassia/notation/builtin.rb)
     │
     ├── Layout (Model to final geometry)
     │     │
@@ -138,7 +138,7 @@ define the grammar and transform inline in the parser file):
 │  • Parses text into intermediate tree      │
 │  • Returns Hash/Array structures           │
 │                                             │
-│  File: lib/sirena/parser/grammars/*.rb     │
+│  File: lib/etassia/parser/grammars/*.rb     │
 └────────────┬────────────────────────────────┘
              │
              ▼ Intermediate tree (Hash/Array)
@@ -149,7 +149,7 @@ define the grammar and transform inline in the parser file):
 │  • Maps patterns to Diagram objects        │
 │  • Returns structured Diagram models       │
 │                                             │
-│  File: lib/sirena/parser/builders/*.rb     │
+│  File: lib/etassia/parser/builders/*.rb     │
 └────────────┬────────────────────────────────┘
              │
              ▼ Diagram models (Lutaml::Model::Serializable)
@@ -160,7 +160,7 @@ define the grammar and transform inline in the parser file):
 │  • Public API: parse(input) → Diagram      │
 │  • Handles errors and edge cases           │
 │                                             │
-│  File: lib/sirena/parser/*.rb              │
+│  File: lib/etassia/parser/*.rb              │
 └─────────────────────────────────────────────┘
 ```
 
@@ -184,23 +184,23 @@ define the grammar and transform inline in the parser file):
 ### Example: Flowchart Parser
 
 ```ruby
-# Layer 1: Grammar (lib/sirena/parser/grammars/flowchart.rb)
-module Sirena::Parser::Grammars
+# Layer 1: Grammar (lib/etassia/parser/grammars/flowchart.rb)
+module Etassia::Parser::Grammars
   class Flowchart < Common  # Common holds the shared rules
     root(:diagram)
     # ... rules
   end
 end
 
-# Layer 2: Builder (lib/sirena/parser/builders/flowchart.rb)
-module Sirena::Parser::Builders
+# Layer 2: Builder (lib/etassia/parser/builders/flowchart.rb)
+module Etassia::Parser::Builders
   class Flowchart < Parslet::Transform
     # ... rules that build Diagram::Flowchart
   end
 end
 
-# Layer 3: Parser (lib/sirena/parser/flowchart.rb)
-class Sirena::Parser::Flowchart < Sirena::Parser::Base
+# Layer 3: Parser (lib/etassia/parser/flowchart.rb)
+class Etassia::Parser::Flowchart < Etassia::Parser::Base
   def parse(source)
     source = normalize_line_ends(source)
     Builders::Flowchart.new.apply(parse_with_grammar(Grammars::Flowchart.new, source))
@@ -359,11 +359,11 @@ class Renderer::NewType < Renderer::Base
   end
 end
 
-# 4. Add one row to Notation::Mermaid::TYPES (lib/sirena/notation/mermaid.rb)
+# 4. Add one row to Notation::Mermaid::TYPES (lib/etassia/notation/mermaid.rb)
 #    with a detection `pattern:` and the `keyword:` the error message prints.
 #    The parser, layout, renderer and model are found by name:
 #    Parser::NewType, Layout::NewType, Renderer::NewType, Diagram::NewType.
-#    lib/sirena/notation/builtin.rb requires the files for each row.
+#    lib/etassia/notation/builtin.rb requires the files for each row.
 ```
 
 `bundle exec rake 'type:new[demo]'` scaffolds these files; see
@@ -424,7 +424,7 @@ SVG::Document
 
 Text width is the sum of per-glyph advances, in pure Ruby. The advances for
 the default theme's stack ("Arial, Helvetica, sans-serif") are a generated
-table (`lib/sirena/text_measurement/arial_advances.rb`), so no font file is
+table (`lib/etassia/text_measurement/arial_advances.rb`), so no font file is
 read at runtime:
 
 ```ruby
@@ -450,7 +450,7 @@ libraries. Layouts use these dimensions for node sizing.
 ## Error Handling
 
 ```
-Sirena::Error (StandardError)
+Etassia::Error (StandardError)
    │
    ├── Engine::DiagramTypeError
    ├── Engine::PipelineError
@@ -485,9 +485,9 @@ Each phase has specific error types for clear debugging and error reporting.
 ## Directory Structure
 
 ```
-sirena/
+etassia/
 ├── lib/
-│   └── sirena/
+│   └── etassia/
 │       ├── version.rb
 │       ├── engine.rb
 │       ├── diagram_registry.rb
@@ -559,7 +559,7 @@ sequenceDiagram
     participant P as Parser
     participant T as Layout
     participant D as Renderer
-    U->>E: Sirena.render(source)
+    U->>E: Etassia.render(source)
     E->>R: resolve(explicit:, path:, source:)
     R-->>E: Notation::Mermaid
     E->>N: parse(source)
@@ -621,7 +621,7 @@ sequenceDiagram
 Retrieves a diagram type's handlers without hardcoding type checks. Each of
 the 24 types is one row of `Notation::Mermaid::TYPES`; its handler classes are
 found by name (`Parser::<Type>`, `Layout::<Type>`, `Renderer::<Type>`,
-`Diagram::<Type>`) and `lib/sirena/notation/builtin.rb` requires their files.
+`Diagram::<Type>`) and `lib/etassia/notation/builtin.rb` requires their files.
 `DIAGRAM_TYPE_PATTERNS` is derived from that table. `DiagramRegistry` delegates
 to it as a deprecated compatibility facade and only reads (`get`, `types`,
 `registered?`).
@@ -635,7 +635,7 @@ flowchart LR
     H --> Tr["transform: Layout class"]
     H --> Re["renderer: Renderer class"]
     H --> Mo["model: Diagram class"]
-    Boot["lib/sirena/notation/builtin.rb: requires each row's files"] --> Get
+    Boot["lib/etassia/notation/builtin.rb: requires each row's files"] --> Get
 ```
 
 ```ruby
@@ -645,16 +645,16 @@ diagram = handlers[:parser].new.parse(source)
 
 ### Registry Pattern (Notation)
 
-`Sirena::Notation` holds one entry per notation, in registration order, and
-Mermaid registers first from `lib/sirena/notation/builtin.rb`. A notation is
+`Etassia::Notation` holds one entry per notation, in registration order, and
+Mermaid registers first from `lib/etassia/notation/builtin.rb`. A notation is
 any object answering `id`, `extensions`, `claims?(source)`, `parse(source)`
 (returning a `Notation::Parsed`) and `types`. A `parse` that also declares a
 `logger:` keyword receives the engine's logger (nil unless `verbose`). A file that calls
-`Sirena::Notation.register(plugin)` when loaded adds one, with no edit to
-Sirena itself: `require "sirena"; require "my_notation"`. `register` raises
+`Etassia::Notation.register(plugin)` when loaded adds one, with no edit to
+Etassia itself: `require "etassia"; require "my_notation"`. `register` raises
 `NotationRegistrationError` for a malformed member, a duplicate id or a
 duplicate extension. The contract is
-[`10a-notation-contract.md`](https://github.com/claricle/sirena/blob/d011db95329072bc318d22cfa59c3dbead79731b/TODO.foundation/10a-notation-contract.md).
+[`10a-notation-contract.md`](https://github.com/claricle/etassia/blob/d011db95329072bc318d22cfa59c3dbead79731b/TODO.foundation/10a-notation-contract.md).
 
 ### Strategy Pattern (Layout/Renderer)
 
@@ -705,7 +705,7 @@ entry point that each renderer implements.
 
 ## Dependencies and Their Roles
 
-Declared in `sirena.gemspec`:
+Declared in `etassia.gemspec`:
 
 - **plurimath-parslet (~> 3.0)**: Parslet fork used to build all diagram grammars
 - **lutaml-model (~> 0.8.0)**: Serialization framework for diagram, Scene,
@@ -717,8 +717,8 @@ Declared in `sirena.gemspec`:
 
 ## Integration with Metanorma
 
-Sirena's SVG is meant to be embedded in Metanorma documents.
-`spec/sirena/svg_conformance_spec.rb` validates, against `svg_conform` with
+Etassia's SVG is meant to be embedded in Metanorma documents.
+`spec/etassia/svg_conformance_spec.rb` validates, against `svg_conform` with
 `CONFORMANCE_PROFILE = :metanorma`: the `examples/*.svg` files the gem ships,
 the reference fixtures rendered for the 8 types that have an `input.mmd`
 under `spec/fixtures/`, and the mermaid-corpus cases that render today (a
@@ -736,6 +736,6 @@ Integration point:
 
 ```ruby
 # In Metanorma document processing
-svg_output = Sirena.render(mermaid_diagram_source)
+svg_output = Etassia.render(mermaid_diagram_source)
 # Embed directly in document
 ```

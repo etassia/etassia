@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Regenerates lib/sirena/text_measurement/arial_advances.rb from Liberation
+# Regenerates lib/etassia/text_measurement/arial_advances.rb from Liberation
 # Sans Regular (SIL OFL 1.1, metric-compatible with Arial). Arial only
 # cross-checks: a codepoint it disagrees on is dropped and reported.
 #
@@ -11,7 +11,7 @@
 #
 #   ruby scripts/generate_text_advances.rb \
 #     LiberationSans-Regular.ttf Arial.ttf \
-#     lib/sirena/text_measurement/arial_advances.rb
+#     lib/etassia/text_measurement/arial_advances.rb
 require "ttfunk"
 
 RANGES = [
@@ -85,7 +85,7 @@ def render(runs)
     # a codepoint where the two differ by more than #{TOLERANCE}/1000 em is
     # absent here, not guessed.
     # Advances are numeric facts about a glyph, not a copy of any font.
-    module Sirena
+    module Etassia
       class TextMeasurement
         module ArialAdvances
           # A line "U+XXXX: a b c" starts a run at that codepoint; every number

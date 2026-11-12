@@ -19,7 +19,7 @@ RSpec.describe SpecSupport::LayoutParity::SpatialInvariantChecker do
         actual: false,
         bbox_reference: [[0.0, 0.0, 20.0, 20.0],
                          [5.0, 5.0, 10.0, 10.0]],
-        bbox_sirena: [[0.0, 0.0, 5.0, 5.0],
+        bbox_etassia: [[0.0, 0.0, 5.0, 5.0],
                       [20.0, 20.0, 25.0, 25.0]],
       },
       introduced_pairs: [
@@ -27,7 +27,7 @@ RSpec.describe SpecSupport::LayoutParity::SpatialInvariantChecker do
         pair("peer-b", box(10, 10, 5, 5), box(5, 5, 5, 5)),
       ],
       introduced_summary: [
-        %w[unexpected-sirena-containment peer-overlap],
+        %w[unexpected-etassia-containment peer-overlap],
         [[[:node, nil, "peer-a"], 0], [[:node, nil, "peer-b"], 0]],
       ],
       overlapping_pairs: [
@@ -76,8 +76,8 @@ RSpec.describe SpecSupport::LayoutParity::SpatialInvariantChecker do
     element_class.new(kind: :node, key: key, bbox: extent)
   end
 
-  def pair(key, reference_extent, sirena_extent)
-    [element(key, reference_extent), element(key, sirena_extent)]
+  def pair(key, reference_extent, etassia_extent)
+    [element(key, reference_extent), element(key, etassia_extent)]
   end
 
   def check(*pairs)
@@ -93,13 +93,13 @@ RSpec.describe SpecSupport::LayoutParity::SpatialInvariantChecker do
     expect(failures).to be_empty
   end
 
-  it "reports reference containment lost by Sirena" do
+  it "reports reference containment lost by Etassia" do
     failures = check(*fixtures.fetch(:missing_pairs))
 
     expect(failures.first).to include(fixtures.fetch(:missing_evidence))
   end
 
-  it "reports containment introduced only by Sirena" do
+  it "reports containment introduced only by Etassia" do
     failures = check(*fixtures.fetch(:introduced_pairs))
     actual = [failures.map { |failure| failure[:rule] },
               failures.first[:subject_keys]]

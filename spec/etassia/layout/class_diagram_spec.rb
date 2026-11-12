@@ -1,0 +1,280 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+require "etassia/notation/mermaid/ir_adapters/class_diagram"
+
+module ClassDiagramLayoutSpecHelpers
+  def measured(text, size, monospace: false)
+    Etassia::TextMeasurement.measure(
+      text, font_size: size, monospace: monospace
+    )[:width]
+  end
+
+  def trebuchet_width(text, size)
+    Etassia::TextMeasurement.measure_in(
+      :trebuchet, text, font_size: size
+    )[:width]
+  end
+
+  def bold_trebuchet_width(text, size)
+    table = Etassia::Layout::ClassNameAdvances::TABLE
+    text.each_char.sum { |char| table.fetch(char) * size / 1000.0 }
+  end
+
+  def parsed(source)
+    Etassia::Parser::ClassDiagram.new.parse(source)
+  end
+
+  def separator_coordinates(node)
+    node.separators.map do |line|
+      [line.x1, line.y1, line.x2, line.y2]
+    end
+  end
+
+  def scene_geometry(scene)
+    [
+      scene.class,
+      scene.children.map(&:class).uniq,
+      scene.edges.map(&:class).uniq,
+      scene.width,
+      scene.height,
+      scene.view_box,
+    ]
+  end
+
+  def member_rows(node)
+    [node.attributes.map(&:text), node.method_rows.map(&:text),
+     separator_coordinates(node)]
+  end
+
+  def edge_geometry(edge)
+    [
+      edge.source, edge.target,
+      *section_geometry(edge.sections.first),
+      edge.labels.map(&:text), edge.markers.map(&:fill)
+    ]
+  end
+
+  def section_geometry(section)
+    [[section.start_point.x, section.start_point.y],
+     [section.end_point.x, section.end_point.y]]
+  end
+
+  def invalid_diagram
+    diagram = Etassia::Diagram::ClassDiagram.new
+    diagram.relationships << Etassia::Diagram::ClassRelationship.new(
+      from_id: "Dog", to_id: "Animal", relationship_type: "inheritance",
+    )
+    diagram
+  end
+
+  def member_width(layout, row)
+    source = "classDiagram\nclass N {\n  #{row}\n}\n"
+    layout.call(parsed(source)).children.first.width
+  end
+
+  def routed_graph
+    nodes = %w[A B].each_with_index.map do |id, index|
+      { id: id, x: index * 200, y: 0, width: 100, height: 50,
+        metadata: { name: id } }
+    end
+    section = {
+      start_point: { x: 100, y: 25 }, end_point: { x: 200, y: 25 },
+      bend_points: [{ x: 150, y: 80 }]
+    }
+    { children: nodes,
+      edges: [{ id: "A_to_B", sources: ["A"], targets: ["B"],
+                sections: [section] }] }
+  end
+
+  def routed_scene_summary(scene)
+    edge = scene.edges.first
+    [
+      scene.children.flat_map(&:labels).map(&:text),
+      [edge.source, edge.target],
+      edge.sections.map { |section| section.bend_points.map(&:y) },
+    ]
+  end
+
+  def multi_section_marker_graph
+    graph = routed_graph
+    graph[:edges].first[:metadata] = { relationship_type: "inheritance" }
+    graph[:edges].first[:sections] = [
+      { start_point: { x: 100, y: 25 }, end_point: { x: 150, y: 75 } },
+      { start_point: { x: 150, y: 75 }, end_point: { x: 200, y: 25 } },
+    ]
+    graph
+  end
+end
+
+RSpec.describe Etassia::Layout::ClassDiagram do
+  include ClassDiagramLayoutSpecHelpers
+
+  let(:layout) { described_class.new }
+  let(:source) do
+    <<~MERMAID
+      classDiagram
+      class Animal {
+        #int age
+        +breathe()
+      }
+      class Dog {
+        +bark()
+      }
+      Dog <|-- Animal : knows
+    MERMAID
+  end
+  let(:diagram) { parsed(source) }
+  let(:scene) { layout.call(diagram) }
+
+  it "returns typed final canvas geometry" do
+    expect(scene_geometry(scene)).to eq(
+      [described_class::Scene, [described_class::Node],
+       [described_class::Edge], 255.744, 450.0,
+       "0 0 255.744 450.0"],
+    )
+  end
+
+  it "positions class nodes through the fallback grid inside layout" do
+    expect(scene.children.map { |node| [node.id, node.x, node.y] })
+      .to eq([["Animal", 50.0, 226.0], ["Dog", 68.176, 50.0]])
+  end
+
+  it "carries final member rows without renderer graph lookups" do
+    expect(member_rows(scene.children.first)).to eq(
+      [["#int age"], ["+breathe()"],
+       [[50.0, 259.0, 175.744, 259.0],
+        [50.0, 292.0, 175.744, 292.0]]],
+    )
+  end
+
+  it "carries final relationship endpoints, labels, and marker geometry" do
+    expect(edge_geometry(scene.edges.first)).to eq(
+      ["Animal", "Dog", [112.872, 226.0],
+       [112.872, 176.0],
+       ["knows"], ["#000000"]],
+    )
+  end
+
+  it "preserves canonical labels and every routed section coordinate" do
+    routed = described_class.from_graph(routed_graph)
+
+    expect(routed_scene_summary(routed))
+      .to eq([%w[A B], %w[A B], [[80.0]]])
+  end
+
+  it "orients routed markers from their adjacent terminal section" do
+    edge = described_class.from_graph(multi_section_marker_graph).edges.first
+    expected = described_class.triangle_marker({ x: 150, y: 75 },
+                                               { x: 200, y: 25 }, true)
+
+    expect(edge.markers.first.points).to eq(expected.points)
+  end
+
+  it "runs Grid once inside layout and not in Engine" do
+    allow(Etassia::Layout::Grid).to receive(:apply).and_call_original
+
+    Etassia::Engine.new.render(source)
+
+    expect(Etassia::Layout::Grid).to have_received(:apply).once
+  end
+
+  it "uses the legacy empty class canvas upstream" do
+    empty_scene = layout.call(parsed("classDiagram\n"))
+
+    expect([empty_scene.width, empty_scene.height, empty_scene.view_box,
+            empty_scene.children, empty_scene.edges])
+      .to eq([880.0, 680.0, "0 0 880 680", [], []])
+  end
+
+  it "lays out shared graph IR identically without mutating the source" do
+    before = Marshal.dump(diagram)
+    graph = Etassia::Notation::Mermaid::IRAdapters::ClassDiagram.call(diagram)
+    from_private_model = Marshal.dump(layout.call(diagram))
+
+    expect([Marshal.dump(layout.call(graph)), Marshal.dump(diagram)])
+      .to eq([from_private_model, before])
+  end
+
+  it "raises for an invalid diagram" do
+    expect { layout.call(invalid_diagram) }
+      .to raise_error(Etassia::Layout::LayoutError)
+  end
+
+  describe "theme-sized text geometry" do
+    let(:stereotype_source) do
+      "classDiagram\nclass N~T~ <<InternationalOrderProcessor>>\n"
+    end
+
+    it "uses the default theme's large and small sizes" do
+      node = layout.call(parsed(stereotype_source)).children.first
+
+      expect([node.name.font_size, node.stereotype.font_size,
+              node.stereotype.y < node.name.y]).to eq([16.0, 12.0, true])
+    end
+
+    context "with the high-contrast theme" do
+      let(:scene) do
+        theme = Etassia::Theme::Registry.get(:high_contrast)
+        layout.call(parsed(stereotype_source), theme: theme)
+      end
+
+      it "uses high-contrast sizes for measurement" do
+        scaled_size = 16 * 14 / 12.0
+        expected = trebuchet_width("«InternationalOrderProcessor»",
+                                   scaled_size) + 24
+
+        expect(scene.children.first.width).to be_within(0.01).of(expected)
+      end
+
+      it "uses high-contrast sizes for emitted labels" do
+        node = scene.children.first
+
+        expect([node.name.font_size, node.stereotype.font_size])
+          .to eq([18.0, 14.0])
+      end
+    end
+  end
+
+  describe "member width" do
+    {
+      "an attribute" => "+#{'i' * 40}",
+      "a zero-argument method" => "+#{'i' * 40}()",
+      "a method return type" => "+#{'i' * 40}() : String",
+      "a typed attribute" => "+String #{'i' * 40}",
+    }.each do |label, row|
+      it "sizes #{label} from the mmdc Trebuchet row" do
+        header = bold_trebuchet_width("N", 16)
+        expected = trebuchet_width(row, 16) + (header / 2) + 24
+
+        expect(member_width(layout, row))
+          .to be_within(0.01).of(expected)
+      end
+    end
+  end
+
+  it "precomputes a dashed dependency edge without a legacy marker" do
+    dependency = layout.call(parsed("classDiagram\nA ..> B\n")).edges.first
+
+    expect([dependency.dashed, dependency.markers]).to eq([true, []])
+  end
+
+  describe "name width" do
+    let(:name) { "InternationalOrderProcessor" }
+
+    it "sizes a class for its large name" do
+      node = layout.call(parsed("classDiagram\nclass #{name}\n")).children.first
+
+      expect(node.width)
+        .to be_within(0.01).of(bold_trebuchet_width(name, 16) + 24)
+    end
+
+    it "sizes a stereotype on its own small-font line" do
+      source = "classDiagram\nclass N <<#{name}>>\n"
+      node = layout.call(parsed(source)).children.first
+
+      expect(node.width)
+        .to be_within(0.01).of(trebuchet_width("«#{name}»", 16) + 24)
+    end
+  end
+end

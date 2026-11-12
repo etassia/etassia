@@ -120,12 +120,12 @@ Each layer raises its own error, and the class survives to the caller.
 
 | Layer | Raises |
 |---|---|
-| `Notation` | `Sirena::DiagramTypeError` |
-| `Parser` | `Sirena::ParseError` |
-| `Layout` | `Sirena::LayoutError` |
-| `Renderer` | `Sirena::RenderError` |
+| `Notation` | `Etassia::DiagramTypeError` |
+| `Parser` | `Etassia::ParseError` |
+| `Layout` | `Etassia::LayoutError` |
+| `Renderer` | `Etassia::RenderError` |
 
-All four inherit `Sirena::Error`.
+All four inherit `Etassia::Error`.
 
 **This is currently broken and item 01 fixes it before anything else.**
 `Engine#render` collapses every non-detection failure into a single

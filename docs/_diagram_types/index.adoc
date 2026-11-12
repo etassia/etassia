@@ -7,7 +7,7 @@ has_children: true
 
 == Diagram Types
 
-Complete reference documentation for all 24 diagram types registered in Sirena.
+Complete reference documentation for all 24 diagram types registered in Etassia.
 
 == What's in This Section
 
@@ -183,10 +183,10 @@ No diagram type has full parity with Mermaid.js; per-type corpus pass rates are 
 
 Find complete examples in the GitHub repository:
 
-* https://github.com/claricle/sirena/tree/main/examples[Example Diagrams]
+* https://github.com/claricle/etassia/tree/main/examples[Example Diagrams]
 
 == Need Help?
 
 * Check *Creating Your First Diagram* (planned) tutorial
 * See *Best Practices* (planned) guide
-* Visit https://github.com/claricle/sirena/issues[GitHub Issues] for support
+* Visit https://github.com/claricle/etassia/issues[GitHub Issues] for support

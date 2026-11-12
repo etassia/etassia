@@ -44,14 +44,14 @@ RSpec.describe CorpusOutputManifest do
   end
 
   describe ".render_output" do
-    let(:engine) { instance_double(Sirena::Engine) }
+    let(:engine) { instance_double(Etassia::Engine) }
 
     before do
       corpus_root = File.join(directory, "corpus")
       FileUtils.mkdir_p(File.join(corpus_root, "gantt"))
       File.binwrite(File.join(corpus_root, "gantt", "1.mmd"), "gantt\r\n".b)
       stub_const("CorpusOutputManifest::CORPUS_ROOT", corpus_root)
-      allow(Sirena::Engine).to receive(:new).and_return(engine)
+      allow(Etassia::Engine).to receive(:new).and_return(engine)
     end
 
     it "renders source bytes with the fixed manifest date" do

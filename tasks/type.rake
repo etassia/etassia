@@ -5,17 +5,17 @@
 namespace :type do
   desc "Scaffold a diagram type: files, specs and its TYPES row"
   task :new, [:name] do |_task, args|
-    require "sirena"
+    require "etassia"
     require_relative "support/type_generator"
 
     name = args[:name] or abort "usage: rake 'type:new[name]'"
-    generator = Sirena::TypeGenerator.new(
+    generator = Etassia::TypeGenerator.new(
       name,
       root: File.expand_path("..", __dir__),
-      types: Sirena::Notation::Mermaid::TYPES,
+      types: Etassia::Notation::Mermaid::TYPES,
     )
     puts generator.call
-  rescue Sirena::TypeGenerator::Error => e
+  rescue Etassia::TypeGenerator::Error => e
     abort "type:new failed: #{e.message}"
   end
 end

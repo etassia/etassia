@@ -17,7 +17,7 @@ module FlowchartCoverageGraphs
 
   def scene(children, edges, direction = nil)
     options = direction ? { "elk.direction" => direction } : {}
-    Sirena::Layout::Flowchart.from_graph(
+    Etassia::Layout::Flowchart.from_graph(
       { id: "g", children: children, edges: edges, layoutOptions: options },
     )
   end
@@ -27,12 +27,12 @@ module FlowchartCoverageGraphs
 
   # The adapter output, with its settings nodes dropped unless keep is set.
   def settingless_graph(source, keep: false)
-    ir = Sirena::Notation::Mermaid::IRAdapters::Flowchart.call(
-      Sirena::Parser::Flowchart.new.parse(source),
+    ir = Etassia::Notation::Mermaid::IRAdapters::Flowchart.call(
+      Etassia::Parser::Flowchart.new.parse(source),
     )
     return ir if keep
 
     kept = ir.nodes.reject { |item| SETTING_ROLES.include?(item.role) }
-    Sirena::IR::Graph.new(id: ir.id, nodes: kept, edges: ir.edges)
+    Etassia::IR::Graph.new(id: ir.id, nodes: kept, edges: ir.edges)
   end
 end

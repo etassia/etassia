@@ -4,7 +4,7 @@ require "nokogiri"
 
 module SpecSupport
   module LayoutParity
-    # Parses ONE svg (an mmdc reference or a Sirena render, same code path)
+    # Parses ONE svg (an mmdc reference or a Etassia render, same code path)
     # into a Figure whose numbers are in root viewBox user units.
     #
     # The extractor owns geometry (transform composition, nested svg

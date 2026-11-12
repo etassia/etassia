@@ -9,9 +9,9 @@ RSpec.describe SpecSupport::LayoutParity::RadarGraticuleGeometry do
     File.read("spec/fixtures_mermaid/radar/#{source_name}.svg")
   end
 
-  def sirena_svg
+  def etassia_svg
     source = File.read("spec/mermaid/radar/#{source_name}.mmd")
-    Sirena.render(source)
+    Etassia.render(source)
   end
 
   def circle_svg(attributes, reference:)
@@ -21,9 +21,9 @@ RSpec.describe SpecSupport::LayoutParity::RadarGraticuleGeometry do
 
   def real_pair_actual
     comparisons = described_class.compare(reference: reference_svg,
-                                          sirena: sirena_svg)
+                                          etassia: etassia_svg)
     [described_class.extract(reference_svg),
-     described_class.extract(sirena_svg), comparisons.map(&:error)]
+     described_class.extract(etassia_svg), comparisons.map(&:error)]
   end
 
   def real_pair_expected
@@ -45,7 +45,7 @@ RSpec.describe SpecSupport::LayoutParity::RadarGraticuleGeometry do
     candidates = [circle_svg('r="0"', reference: false),
                   circle_svg('r="5"', reference: false)]
     candidates.map do |candidate|
-      described_class.compare(reference: zero, sirena: candidate).first.error
+      described_class.compare(reference: zero, etassia: candidate).first.error
     end
   end
 
@@ -59,13 +59,13 @@ RSpec.describe SpecSupport::LayoutParity::RadarGraticuleGeometry do
   end
 
   def mismatch_action
-    sirena = circle_svg('r="10"', reference: false)
+    etassia = circle_svg('r="10"', reference: false)
     lambda do
-      described_class.compare(reference: mismatched_graticules, sirena: sirena)
+      described_class.compare(reference: mismatched_graticules, etassia: etassia)
     end
   end
 
-  it "pairs a real reference and Sirena graticules by radius order" do
+  it "pairs a real reference and Etassia graticules by radius order" do
     expect(real_pair_actual).to match(real_pair_expected)
   end
 

@@ -3,9 +3,9 @@
 // one JSON verdict per input.
 //
 // Companion to scripts/sequence_fuzz.rb, which generates the inputs and
-// runs Sirena's own parser on the Ruby side. This file only knows how to
+// runs Etassia's own parser on the Ruby side. This file only knows how to
 // ask mermaid a question; it does not generate inputs and does not know
-// what Sirena said. That split is deliberate: it lets both sides be
+// what Etassia said. That split is deliberate: it lets both sides be
 // checked independently against known-good behaviour.
 //
 // Usage: node scripts/sequence_fuzz_mermaid.js < cases.json > results.json

@@ -1,13 +1,13 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Regenerates lib/sirena/text_measurement/times_advances.rb from the hmtx
+# Regenerates lib/etassia/text_measurement/times_advances.rb from the hmtx
 # table of Times New Roman Regular, the face a headless Chrome falls back to
 # when mermaid measures sequence text with no font family set. Development-
 # only: `gem install ttfunk`, then plain `ruby`:
 #
 #   ruby scripts/generate_times_advances.rb "Times New Roman.ttf" \
-#     lib/sirena/text_measurement/times_advances.rb
+#     lib/etassia/text_measurement/times_advances.rb
 require "ttfunk"
 require_relative "generate_trebuchet_advances"
 
@@ -24,7 +24,7 @@ def times_render(runs)
     # Horizontal advance widths in per-mille em of Times New Roman Regular,
     # for Basic Latin, Latin-1 through Latin Extended-B and U+FB02. Advances
     # are numeric facts about a glyph, not a copy of any font.
-    module Sirena
+    module Etassia
       class TextMeasurement
         module TimesAdvances
           # Same layout as ArialAdvances::DATA.

@@ -17,7 +17,7 @@ require "optparse"
 require "pathname"
 require "nokogiri"
 
-module Sirena
+module Etassia
   # Pure verification core: docs dir + site dir + baseurl in, an array of
   # failure message strings out. No exit, no printing -- see the guarded
   # entry point at the bottom of this file for that.
@@ -555,7 +555,7 @@ module Sirena
     end
 
     # `../` in a ref can walk the resolved path outside `_site` entirely
-    # (e.g. `/sirena/../_config.yml` resolves to a real file one
+    # (e.g. `/etassia/../_config.yml` resolves to a real file one
     # directory up, in `docs/`, not in `docs/_site/`). Cleanpath collapses
     # the traversal, then the result must still sit AT OR UNDER `_site`'s
     # own absolute path before it counts as a resolved asset -- and it
@@ -583,7 +583,7 @@ module Sirena
     # a real deployment at that baseurl would 404 it, and it is NOT the
     # same thing as a same-named file happening to exist in `_site`'s
     # physical layout (which carries no baseurl prefix directories).
-    # Segment-bounded: `/sirenax/...` must not match a `/sirena` baseurl.
+    # Segment-bounded: `/etassiax/...` must not match a `/etassia` baseurl.
     def strip_baseurl(ref)
       return ref if @baseurl.empty?
 
@@ -615,7 +615,7 @@ if __FILE__ == $PROGRAM_NAME
   end.parse!
 
   site_dir = File.join(options[:docs_dir], "_site")
-  verifier = Sirena::DocsSiteVerifier.new(
+  verifier = Etassia::DocsSiteVerifier.new(
     docs_dir: options[:docs_dir],
     site_dir: site_dir,
     baseurl: options[:baseurl],

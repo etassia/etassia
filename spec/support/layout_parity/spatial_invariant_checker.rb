@@ -4,7 +4,7 @@ module SpecSupport
   module LayoutParity
     # Checks containment and peer-overlap invariants for matched node pairs.
     # The caller owns node-like filtering; reference bboxes alone define
-    # ancestry so Sirena geometry cannot excuse its own collisions.
+    # ancestry so Etassia geometry cannot excuse its own collisions.
     class SpatialInvariantChecker
       OVERLAP_THRESHOLD = 0.5
 
@@ -21,12 +21,12 @@ module SpecSupport
         failures = []
         pairs.each_index.to_a.combination(2) do |first, second|
           reference_relation = containment(first, second, side: 0)
-          sirena_relation = containment(first, second, side: 1)
+          etassia_relation = containment(first, second, side: 1)
 
           add_missing_containment(failures, reference_relation,
-                                  sirena_relation)
+                                  etassia_relation)
           add_unexpected_containment(failures, reference_relation,
-                                     sirena_relation)
+                                     etassia_relation)
           add_peer_overlap(failures, first, second, reference_relation)
         end
         failures
@@ -45,8 +45,8 @@ module SpecSupport
         nil
       end
 
-      def add_missing_containment(failures, reference, sirena)
-        return unless reference && reference != sirena
+      def add_missing_containment(failures, reference, etassia)
+        return unless reference && reference != etassia
 
         failures << containment_evidence(
           "missing-reference-containment", reference,
@@ -54,11 +54,11 @@ module SpecSupport
         )
       end
 
-      def add_unexpected_containment(failures, reference, sirena)
-        return unless sirena && reference != sirena
+      def add_unexpected_containment(failures, reference, etassia)
+        return unless etassia && reference != etassia
 
         failures << containment_evidence(
-          "unexpected-sirena-containment", sirena,
+          "unexpected-etassia-containment", etassia,
           expected: false, actual: true
         )
       end
@@ -98,7 +98,7 @@ module SpecSupport
           subject_keys: indexes.map { |index| subject_keys.fetch(index) },
           expected: expected,
           actual: actual,
-          bbox_sirena: boxes(indexes, 1),
+          bbox_etassia: boxes(indexes, 1),
           bbox_reference: boxes(indexes, 0),
           normalized: normalized,
         }
@@ -109,15 +109,15 @@ module SpecSupport
       end
 
       def intersection(first, second)
-        first_box = sirena_box(first)
-        second_box = sirena_box(second)
+        first_box = etassia_box(first)
+        second_box = etassia_box(second)
         [
           horizontal_intersection(first_box, second_box),
           vertical_intersection(first_box, second_box),
         ]
       end
 
-      def sirena_box(index)
+      def etassia_box(index)
         pairs.fetch(index).fetch(1).bbox
       end
 
@@ -137,7 +137,7 @@ module SpecSupport
 
       def build_subject_keys
         ordinals = Hash.new(0)
-        pairs.map do |reference, _sirena|
+        pairs.map do |reference, _etassia|
           identity = [reference.kind, reference.parent, reference.key]
           ordinal = ordinals[identity]
           ordinals[identity] += 1

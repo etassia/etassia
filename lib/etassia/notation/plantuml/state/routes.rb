@@ -1,0 +1,196 @@
+# frozen_string_literal: true
+
+require_relative "route_geometry"
+require_relative "label_clearance"
+require_relative "route_detour"
+
+module Etassia
+  module Notation
+    module PlantUML
+      module State
+        # Writes each transition of a placed state graph as absolute
+        # `:sections` plus the point its label sits at.
+        #
+        # A transition between two boxes of one container keeps the route ELK
+        # gave it. Every other one (a loop, one that crosses a container's
+        # border, one beside a note, one ELK dropped to break a cycle) is a
+        # straight line between the two states' borders. Transitions between
+        # the same two states are spread apart so none hides another.
+        class Routes
+          include RouteGeometry
+          include LabelClearance
+          include RouteDetour
+
+          # @return [Array(String, String), nil] the two members of a
+          #   container the edge joins, nil when it does not join two of them
+          def self.level_pair(edge, parent, ids)
+            source = member_of(edge[:sources].first, parent, ids)
+            target = member_of(edge[:targets].first, parent, ids)
+            [source, target] if source && target && source != target
+          end
+
+          def self.member_of(id, parent, ids)
+            id = parent[id] until id.nil? || ids.include?(id)
+            id
+          end
+
+          def initialize(graph, nodes, parent, levels, label_reach)
+            @graph = graph
+            @nodes = nodes
+            @parent = parent
+            @levels = levels
+            @label_reach = label_reach
+            @boxes = {}
+            @degree = degrees(graph[:edges])
+            @placed = []
+            @detoured = []
+            @lanes = Hash.new(0)
+          end
+
+          def write
+            measure(@graph[:children], 0.0, 0.0)
+            @slots = label_slots
+            routed = @graph[:edges].map { |edge| [edge, polyline(edge)] }
+            spread(routed).each do |edge, points, slot|
+              record(edge, points, slot)
+            end
+          end
+
+          private
+
+          def record(edge, points, slot)
+            slotted = @slots[edge]
+            points = through(points, slotted) if slotted
+            edge[:sections] = [section(points)]
+            label = edge[:labels]&.first
+            spot = label_point(label_route(edge, points), label, slot)
+            edge[:label_at] = stood(slotted, label) if slotted
+            edge[:label_at] ||= settled(spot, points, label)
+          end
+
+          def stood(slotted, label)
+            slotted.slice(:x, :y).tap { |at| @placed << rect_at(at, label) }
+          end
+
+          # A line whose label has a slot of its own bends through the left
+          # of that slot, as graphviz routes it through its label node.
+          def through(points, slotted)
+            [points.first, [slotted[:via], slotted[:y]], points.last]
+          end
+
+          # The labels that share a rank inside a container stand in the slots
+          # {LabelReach} gives them, which also size that container.
+          def label_slots
+            containers = @boxes.values.select { |box| box.node[:children] }
+            containers.flat_map { |box| container_slots(box) }
+              .each_with_object({}.compare_by_identity) do |(edge, at), found|
+                found[edge] = at
+              end
+          end
+
+          def container_slots(box)
+            @label_reach.slots(box.node[:children]).map do |edge, at|
+              [edge, { x: box.x + at[:x], y: box.y + at[:y],
+                       via: box.x + at[:via] }]
+            end
+          end
+
+          def measure(children, left, top)
+            children.each do |node|
+              box = Box.new(left + node[:x], top + node[:y],
+                            node[:width], node[:height], node)
+              @boxes[node[:id]] = box
+              measure(node[:children] || [], box.x, box.y)
+            end
+          end
+
+          def polyline(edge)
+            source = edge[:sources].first
+            target = edge[:targets].first
+            return loop_points(@boxes.fetch(source)) if source == target
+
+            route = elk_route(edge, source, target) ||
+              straight(source, target)
+            detoured = around_boxes(edge, route)
+            @detoured << edge.object_id if detoured != route
+            detoured
+          end
+
+          # A route bent round a box carries its label along the route
+          # itself; a straight one may slide its label along the chord.
+          def label_route(edge, points)
+            return points if @detoured.include?(edge.object_id)
+
+            clear_of_containers(edge, points)
+          end
+
+          def elk_route(edge, source, target)
+            owner, level = @levels.find { |_, found| placed_edge(found, edge) }
+            placed = level && placed_edge(level, edge)
+            return unless placed && direct?(placed, source, target)
+
+            origin = owner ? @boxes.fetch(owner) : Box.new(0.0, 0.0, 0, 0, nil)
+            shifted(placed[:sections].first, origin, level[:shift])
+          end
+
+          def placed_edge(level, edge)
+            level[:elk]&.fetch(:edges)&.find do |found|
+              found[:id] == edge.object_id.to_s && found[:sections]&.any?
+            end
+          end
+
+          # The ELK route joins the two boxes of the container; it is the
+          # edge's own route only when those are the two states themselves
+          # and neither carries a note.
+          def direct?(placed, source, target)
+            placed[:sources] == [source] && placed[:targets] == [target] &&
+              !noted?(source) && !noted?(target)
+          end
+
+          def noted?(id)
+            @boxes.each_value.any? do |box|
+              box.node.dig(:metadata, :note_target) == id
+            end
+          end
+
+          def straight(source, target)
+            from = @boxes.fetch(source)
+            to = @boxes.fetch(target)
+            [border(from, centre(to)), border(to, centre(from))]
+          end
+
+          def spread(routed)
+            groups = routed.group_by { |edge, _| pair_key(edge) }
+            groups.flat_map { |key, group| spread_group(key, group) }
+          end
+
+          def spread_group(key, group)
+            group.each_with_index.map do |(edge, points), index|
+              slot = Slot.new(index, group.size, 0.0)
+              slot.offset = slot.lane * SPREAD
+              [edge, move(points, key, slot.offset), slot]
+            end
+          end
+
+          def pair_key(edge)
+            [edge[:sources].first, edge[:targets].first].sort
+          end
+
+          # Parts a route from the others of its pair, across the line
+          # between the two states taken in one fixed order so a pair's two
+          # directions part ways. A straight route bows through one bend
+          # point; a longer one moves over.
+          def move(points, key, offset)
+            return points if offset.zero? || key.first == key.last
+
+            from = centre(@boxes.fetch(key.first))
+            to = centre(@boxes.fetch(key.last))
+            return bowed(points, from, to, offset) if points.size == 2
+
+            sideways(points, from, to, offset)
+          end
+        end
+      end
+    end
+  end
+end

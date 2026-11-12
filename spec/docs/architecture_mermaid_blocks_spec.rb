@@ -109,7 +109,7 @@ RSpec.describe ArchitectureMermaidBlocks do
 
   described_class.blocks.each do |block|
     it "renders #{described_class.label(block)} as parseable SVG" do
-      document = REXML::Document.new(Sirena.render(block.source))
+      document = REXML::Document.new(Etassia.render(block.source))
 
       expect(document.root.name).to eq("svg")
     end

@@ -10,7 +10,7 @@ parent: Diagram Types
 
 == General
 
-Requirement diagrams in Sirena provide visualization for system requirements, their relationships, and verification methods. These diagrams are commonly used in systems engineering and software requirements management to model requirements hierarchies, traceability, and validation approaches.
+Requirement diagrams in Etassia provide visualization for system requirements, their relationships, and verification methods. These diagrams are commonly used in systems engineering and software requirements management to model requirements hierarchies, traceability, and validation approaches.
 
 Requirement diagrams are declared with the `requirementDiagram` keyword and support:
 

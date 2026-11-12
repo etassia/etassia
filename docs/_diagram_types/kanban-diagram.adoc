@@ -165,36 +165,36 @@ Kanban diagrams support theme customization:
 
 The Kanban implementation follows the standard 7-file architecture:
 
-. **Diagram Model** (`lib/sirena/diagram/kanban.rb`)
+. **Diagram Model** (`lib/etassia/diagram/kanban.rb`)
    - `KanbanCard`: Card with text and metadata
    - `KanbanColumn`: Column containing cards
    - `Kanban`: Complete board with columns
 
-. **Parser Grammar** (`lib/sirena/parser/grammars/kanban.rb`)
+. **Parser Grammar** (`lib/etassia/parser/grammars/kanban.rb`)
    - Parslet grammar for kanban syntax
    - Handles columns, cards, and metadata
 
-. **Builder** (`lib/sirena/parser/builders/kanban.rb`)
+. **Builder** (`lib/etassia/parser/builders/kanban.rb`)
    - Converts parse tree to diagram model
    - Extracts and validates metadata
 
-. **Parser** (`lib/sirena/parser/kanban.rb`)
+. **Parser** (`lib/etassia/parser/kanban.rb`)
    - Integrates grammar and builder
    - Creates diagram instances
 
-. **Layout** (`lib/sirena/layout/kanban.rb`)
+. **Layout** (`lib/etassia/layout/kanban.rb`)
    - Calculates column positions
    - Determines card layout within columns
    - Computes dimensions based on content
 
-. **Renderer** (`lib/sirena/renderer/kanban.rb`)
+. **Renderer** (`lib/etassia/renderer/kanban.rb`)
    - Draws column backgrounds and headers
    - Renders cards with text
    - Displays metadata fields
 
 . **Tests**
-   - Parser tests: `spec/sirena/parser/kanban_spec.rb`
-   - Renderer tests: `spec/sirena/renderer/kanban_spec.rb`
+   - Parser tests: `spec/etassia/parser/kanban_spec.rb`
+   - Renderer tests: `spec/etassia/renderer/kanban_spec.rb`
 
 === Data Flow
 
@@ -301,7 +301,7 @@ kanban
 
 == See Also
 
-* https://github.com/claricle/sirena/blob/main/README.adoc[Sirena Documentation]
+* https://github.com/claricle/etassia/blob/main/README.adoc[Etassia Documentation]
 * link:../user-journey/[User Journey Diagrams]
 * link:../gantt-chart/[Gantt Charts]
 * link:../timeline/[Timeline Diagrams]

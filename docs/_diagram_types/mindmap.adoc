@@ -10,7 +10,7 @@ parent: Diagram Types
 
 == Overview
 
-Mindmap diagrams in Sirena visualize hierarchical information and ideas in a
+Mindmap diagrams in Etassia visualize hierarchical information and ideas in a
 radial tree structure. They help organize thoughts, concepts, and relationships
 in a visual format that mirrors how we naturally think and make connections.
 
@@ -458,7 +458,7 @@ Note: Use appropriate shape markers to avoid syntax conflicts.
 
 === Currently not supported
 
-The following Mermaid mindmap features are not yet supported in Sirena:
+The following Mermaid mindmap features are not yet supported in Etassia:
 
 * Comments using `%%`
 * HTML line breaks `<br/>` in node text

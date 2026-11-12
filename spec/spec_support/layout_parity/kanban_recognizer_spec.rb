@@ -23,7 +23,7 @@ RSpec.describe SpecSupport::LayoutParity::KanbanRecognizer do
   end
 
   def simple_result
-    [recognized(Sirena.render(simple_source)), recognizer.container_kinds]
+    [recognized(Etassia.render(simple_source)), recognizer.container_kinds]
   end
 
   def expected_simple_result
@@ -35,8 +35,8 @@ RSpec.describe SpecSupport::LayoutParity::KanbanRecognizer do
   def real_labels
     name = "kanban_spec-a9b46069"
     reference = reference_svg("kanban/#{name}.svg")
-    sirena = Sirena.render(corpus_source("kanban/#{name}.mmd"))
-    [reference, sirena].map do |svg|
+    etassia = Etassia.render(corpus_source("kanban/#{name}.mmd"))
+    [reference, etassia].map do |svg|
       recognized(svg).map { |item| item.first(2) }
     end
   end
@@ -57,8 +57,8 @@ RSpec.describe SpecSupport::LayoutParity::KanbanRecognizer do
       kanban_spec-e33c6002
     ].map do |name|
       reference = reference_svg("kanban/#{name}.svg")
-      sirena = Sirena.render(corpus_source("kanban/#{name}.mmd"))
-      [reference, sirena].map do |svg|
+      etassia = Etassia.render(corpus_source("kanban/#{name}.mmd"))
+      [reference, etassia].map do |svg|
         recognized(svg).select { |item| item.first == :card }
       end
     end
@@ -74,6 +74,6 @@ RSpec.describe SpecSupport::LayoutParity::KanbanRecognizer do
 
   it "uses the primary card label instead of metadata values" do
     expect(metadata_card_labels)
-      .to all(satisfy { |reference, sirena| reference == sirena })
+      .to all(satisfy { |reference, etassia| reference == etassia })
   end
 end

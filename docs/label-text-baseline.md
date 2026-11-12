@@ -21,7 +21,7 @@ different count on its first run is a difference to explain, not to accept.
   and the 3 `error`-type cases, whose verdict is `unknown` (no evidence) and whose
   reference is meant to be mermaid's error diagram. Card 14's cohort section
   names oracle-valid only; the 3 are included here and change no count, because
-  `error` has no owner-aware labels. Sirena renders 810 of
+  `error` has no owner-aware labels. Etassia renders 810 of
   the 847 and all but one of the cohort (`kanban`, 1 case, which does not render,
   so it has no label text to compare).
 - **Label and owner.** One label per `foreignObject`, or per `text` outside one,
@@ -35,7 +35,7 @@ different count on its first run is a difference to explain, not to accept.
   the same label count on both sides; a pair with unequal text fails. An owner
   with different counts is a `label-presence` matter and is not text-compared.
   In ER the reference draws each cell of an attribute row (type, name) as its
-  own label and Sirena draws the row as one, so the labels of one entity that
+  own label and Etassia draws the row as one, so the labels of one entity that
   share a row merge into one label, joined by a space in reading order, on both
   sides, before the pairing.
 - **Normalization.** Whitespace collapsed, tags stripped, entities decoded, as
@@ -51,7 +51,7 @@ different count on its first run is a difference to explain, not to accept.
 ```text
 references=847 cohort=800 excluded=47 (oracle invalid/artifact verdict, or the reference is mermaid's own error diagram)
 
-per type: cohort, Sirena did not render, label-text failures (owner-aware types), of those only the pipe bug, other owner/count differences (label-presence), cases where a text is paired with a different text anywhere in the figure (labels left without a partner are not counted)
+per type: cohort, Etassia did not render, label-text failures (owner-aware types), of those only the pipe bug, other owner/count differences (label-presence), cases where a text is paired with a different text anywhere in the figure (labels left without a partner are not counted)
 type          cohort no-render  label-text pipe-only  presence   figure
 architecture      19         0           2         0         3        2
 block              6         0         n/a         -         -        0
@@ -93,7 +93,7 @@ sequence             6           6                 6
 
 Column meanings: `label-text` is the number of cohort cases with at least one
 failing pair (the number the card records); `pipe-only` is how many of those fail
-only because Sirena draws a flowchart edge label as `|text|`; `presence` is the
+only because Etassia draws a flowchart edge label as `|text|`; `presence` is the
 cases where an owner exists on one side only or its label count differs; `figure`
 is the cases where, anywhere in the figure, a text is paired with a different
 text (equal texts cancel first; a label left without a partner is not counted).
@@ -103,34 +103,34 @@ difference there is already a node-presence failure.
 ## Failure shapes
 
 Each line is one shape: how many mismatched pairs, in how many cases, and one
-example (case, reference text, Sirena text). The shape names are the script's
+example (case, reference text, Etassia text). The shape names are the script's
 heuristics; the examples are real.
 
 ```text
 failure shapes, owner-aware types (labels = mismatched pairs, cases = distinct cases, one example each)
 flowchart:
-  edge label drawn with its pipes (|text|)                   labels=58  cases=30  e.g. flowchart/configuration_spec-67574f4a reference="Get money" sirena="|Get money|"
-  literal markup or entity code (<br>, <a>, #9829;, &lt;)    labels=7   cases=7   e.g. flowchart/xss22-3b590ae6 reference="AAA" sirena="\"<a href='javascript#9;t#colon;alert(doc"
-  label kept its quote marks                                 labels=7   cases=6   e.g. flowchart/subgraph-d37c1bec reference="id starting with number" sirena="\"id starting with number\""
-  icon syntax drawn as text (fa:fa-x)                        labels=5   cases=5   e.g. flowchart/configuration_spec-67574f4a reference="Car" sirena="fa:fa-car Car"
-  other                                                      labels=4   cases=4   e.g. flowchart/flow_text_spec-b588244a reference="\\This node has a \\ as text\\" sirena="\\This node has a \\\\ as text\\"
+  edge label drawn with its pipes (|text|)                   labels=58  cases=30  e.g. flowchart/configuration_spec-67574f4a reference="Get money" etassia="|Get money|"
+  literal markup or entity code (<br>, <a>, #9829;, &lt;)    labels=7   cases=7   e.g. flowchart/xss22-3b590ae6 reference="AAA" etassia="\"<a href='javascript#9;t#colon;alert(doc"
+  label kept its quote marks                                 labels=7   cases=6   e.g. flowchart/subgraph-d37c1bec reference="id starting with number" etassia="\"id starting with number\""
+  icon syntax drawn as text (fa:fa-x)                        labels=5   cases=5   e.g. flowchart/configuration_spec-67574f4a reference="Car" etassia="fa:fa-car Car"
+  other                                                      labels=4   cases=4   e.g. flowchart/flow_text_spec-b588244a reference="\\This node has a \\ as text\\" etassia="\\This node has a \\\\ as text\\"
 class:
-  class member format (visibility prefix, spacing, colon)    labels=79  cases=36  e.g. class_diagram/yari-3e69d3e6 reference="test" sirena="+ test"
-  other                                                      labels=47  cases=27  e.g. class_diagram/yari-ca7091fd reference="+String beakColor" sirena="+ beakColor: String"
-  spacing or case only                                       labels=48  cases=22  e.g. class_diagram/classdiagram_elk_v3_spec-c57d14a6 reference="+member1" sirena="+ member1"
-  angle-bracket annotation (<<x>>, guillemets or escaped)    labels=13  cases=13  e.g. class_diagram/yari-635beb05 reference="«interface»" sirena="<<interface>>"
-  literal markup or entity code (<br>, <a>, #9829;, &lt;)    labels=4   cases=4   e.g. class_diagram/classdiagram_elk_v3_spec-c57d14a6 reference="<<interface>>" sirena="+ &lt;&lt;interface&gt;&gt;"
+  class member format (visibility prefix, spacing, colon)    labels=79  cases=36  e.g. class_diagram/yari-3e69d3e6 reference="test" etassia="+ test"
+  other                                                      labels=47  cases=27  e.g. class_diagram/yari-ca7091fd reference="+String beakColor" etassia="+ beakColor: String"
+  spacing or case only                                       labels=48  cases=22  e.g. class_diagram/classdiagram_elk_v3_spec-c57d14a6 reference="+member1" etassia="+ member1"
+  angle-bracket annotation (<<x>>, guillemets or escaped)    labels=13  cases=13  e.g. class_diagram/yari-635beb05 reference="«interface»" etassia="<<interface>>"
+  literal markup or entity code (<br>, <a>, #9829;, &lt;)    labels=4   cases=4   e.g. class_diagram/classdiagram_elk_v3_spec-c57d14a6 reference="<<interface>>" etassia="+ &lt;&lt;interface&gt;&gt;"
 er:
-  other                                                      labels=20  cases=3   e.g. er_diagram/yari2-9471fb3f reference="string registrationNumber" sirena="registrationNumber string"
+  other                                                      labels=20  cases=3   e.g. er_diagram/yari2-9471fb3f reference="string registrationNumber" etassia="registrationNumber string"
 requirement:
-  angle-bracket annotation (<<x>>, guillemets or escaped)    labels=2   cases=1   e.g. requirement/requirement-9f8b7e75 reference="<<satisfies>>" sirena="satisfies"
-  other                                                      labels=1   cases=1   e.g. requirement/requirement-9f8b7e75 reference="Verification: Test" sirena="Verify: Test"
-  reference adds words or symbols                            labels=1   cases=1   e.g. requirement/requirement-9f8b7e75 reference="Text: the test text." sirena="the test text."
+  angle-bracket annotation (<<x>>, guillemets or escaped)    labels=2   cases=1   e.g. requirement/requirement-9f8b7e75 reference="<<satisfies>>" etassia="satisfies"
+  other                                                      labels=1   cases=1   e.g. requirement/requirement-9f8b7e75 reference="Verification: Test" etassia="Verify: Test"
+  reference adds words or symbols                            labels=1   cases=1   e.g. requirement/requirement-9f8b7e75 reference="Text: the test text." etassia="the test text."
 architecture:
-  other                                                      labels=5   cases=2   e.g. architecture/architecture_spec-ef15d347 reference="?" sirena="I"
+  other                                                      labels=5   cases=2   e.g. architecture/architecture_spec-ef15d347 reference="?" etassia="I"
 sequence:
-  literal markup or entity code (<br>, <a>, #9829;, &lt;)    labels=8   cases=4   e.g. sequence/sequencediagram_spec-4f5cf515 reference="multiline text" sirena="multiline<br>text"
-  sequence wrap:/nowrap: prefix drawn                        labels=4   cases=4   e.g. sequence/sequencediagram_spec-783aa83b reference="Hello Bob, how are you? If you are not a" sirena="wrap: Hello Bob, how are you? If you are"
+  literal markup or entity code (<br>, <a>, #9829;, &lt;)    labels=8   cases=4   e.g. sequence/sequencediagram_spec-4f5cf515 reference="multiline text" etassia="multiline<br>text"
+  sequence wrap:/nowrap: prefix drawn                        labels=4   cases=4   e.g. sequence/sequencediagram_spec-783aa83b reference="Hello Bob, how are you? If you are not a" etassia="wrap: Hello Bob, how are you? If you are"
 ```
 
 ## What the survey does not resolve
@@ -139,7 +139,7 @@ sequence:
   are not in the `label-text` count: the class cardinality terminals (`1`, `*`,
   `many`), and the connector labels of types other than the seven above (c4
   relationship labels, for one).
-- Class names that Sirena prefixes with their namespace (`BaseShapes.Triangle`)
+- Class names that Etassia prefixes with their namespace (`BaseShapes.Triangle`)
   have a different owner key from the reference's `Triangle`; that is an identity
   failure and is not text-compared.
 - Architecture icon glyphs (`I`, `A`, `?`) are counted as labels. Whether a drawn
@@ -154,7 +154,7 @@ sequence:
   (`class_diagram/should_parse_diagram_with_direction-ba994d6a`).
 - ER attribute rows have no key or comment cells in this corpus, so the row
   merge is measured on type and name only. The 3 ER cases with attributes fail
-  on column order: the reference reads `string registrationNumber`, Sirena draws
+  on column order: the reference reads `string registrationNumber`, Etassia draws
   `registrationNumber string`.
 
 ## Reproduce
@@ -170,14 +170,14 @@ for name in render_all label_text_survey report; do
     inside && /^```$/ { exit }
     inside' docs/label-text-baseline.md > "$dir/$name.rb"
 done
-bundle exec ruby -Ilib "$dir/render_all.rb" "$dir/sirena"
-bundle exec ruby "$dir/label_text_survey.rb" "$dir/sirena" --json "$dir/results.json"
+bundle exec ruby -Ilib "$dir/render_all.rb" "$dir/etassia"
+bundle exec ruby "$dir/label_text_survey.rb" "$dir/etassia" --json "$dir/results.json"
 ruby "$dir/report.rb" "$dir/results.json"
 ```
 
 The survey reads `spec/mermaid/` and `spec/fixtures_mermaid/` by relative path.
 `--control` compares each reference with itself and must report zero differing
-cases (`bundle exec ruby "$dir/label_text_survey.rb" "$dir/sirena" --control --json "$dir/control.json"`,
+cases (`bundle exec ruby "$dir/label_text_survey.rb" "$dir/etassia" --control --json "$dir/control.json"`,
 then `report.rb` on it); `--no-block-space` and `--ascii-ws` switch off the
 first two extractor details.
 
@@ -186,9 +186,9 @@ first two extractor details.
 ```ruby
 # frozen_string_literal: true
 
-# Renders every reference-bearing corpus input with Sirena and stores the SVG.
+# Renders every reference-bearing corpus input with Etassia and stores the SVG.
 # usage, from the repository root: bundle exec ruby -Ilib render_all.rb OUT_DIR
-require "sirena"
+require "etassia"
 require "timeout"
 require "json"
 require "fileutils"
@@ -207,7 +207,7 @@ refs.each do |ref|
   end
   FileUtils.mkdir_p(File.join(out, type))
   begin
-    svg = Timeout.timeout(30) { Sirena.render(File.read(src)) }
+    svg = Timeout.timeout(30) { Etassia.render(File.read(src)) }
     File.write(File.join(out, type, "#{name}.svg"), svg)
     status[key] = { "status" => "rendered" }
   rescue Timeout::Error
@@ -228,7 +228,7 @@ puts "cases=#{status.size} rendered=#{status.count { |_, v| v['status'] == 'rend
 # Measures how many reference-bearing corpus cases a label TEXT bar would fail.
 #
 # For each of the 847 unique references in spec/fixtures_mermaid/<type>/ it
-# pairs the matching spec/mermaid/<type>/<name>.mmd, takes Sirena's render of
+# pairs the matching spec/mermaid/<type>/<name>.mmd, takes Etassia's render of
 # that input (from the directory render_all.rb filled), extracts the labels of
 # both SVGs, normalises their text, assigns each label to an owner, and
 # compares texts per owner.
@@ -255,7 +255,7 @@ puts "cases=#{status.size} rendered=#{status.count { |_, v| v['status'] == 'rend
 #  * Label: one foreignObject, or one text element outside a foreignObject, with
 #    non-empty normalised text.  A reference sequence message drawn as several
 #    text lines is merged into one label (lines up to the next message line).
-#    Sirena's state terminal "[*]" and gantt bar ids are dropped (card section 5).
+#    Etassia's state terminal "[*]" and gantt bar ids are dropped (card section 5).
 #  * Owner: resolved from the ids both SVGs expose, for flowchart, class, er,
 #    state, requirement, architecture and sequence messages.  Every other label is
 #    standalone: its key is its text (card section 1), so a text difference is a
@@ -373,7 +373,7 @@ def reading_order(labels)
 end
 
 # ER attribute rows: the reference draws each cell of a row (type, name, key,
-# comment) as its own label, Sirena draws the row as one.  The labels of one
+# comment) as its own label, Etassia draws the row as one.  The labels of one
 # entity that share a row merge into one label, joined by a space in reading
 # order, on both sides.
 def merge_er_rows(labels)
@@ -429,7 +429,7 @@ end
 
 # ---------------------------------------------------------------- owners
 # Each resolver gets (prim_node, ancestors, ctx) and returns an owner key or nil.
-# ctx[:known] holds the node ids of that side; ref_rank and sirena_rank number
+# ctx[:known] holds the node ids of that side; ref_rank and etassia_rank number
 # parallel edges 0, 1, ... so both sides name the same edge the same way.
 
 module Owners
@@ -450,7 +450,7 @@ module Owners
     nil
   end
 
-  def flowchart_sirena(_n, anc, ctx)
+  def flowchart_etassia(_n, anc, ctx)
     anc.each do |g|
       id = g["id"].to_s
       return [:node, Regexp.last_match(1)] if id =~ /\Anode-(.+)\z/
@@ -458,7 +458,7 @@ module Owners
       next unless id =~ /\Aedge-(.+)\z/
 
       a, b = split_pair(Regexp.last_match(1), "_to_", ctx[:known])
-      return [:edge, [a, b].sort, ctx[:sirena_rank].call([a, b].sort, g)]
+      return [:edge, [a, b].sort, ctx[:etassia_rank].call([a, b].sort, g)]
     end
     nil
   end
@@ -476,14 +476,14 @@ module Owners
     nil
   end
 
-  def class_sirena(_n, anc, ctx)
+  def class_etassia(_n, anc, ctx)
     anc.each do |g|
       id = g["id"].to_s
       return [:node, Regexp.last_match(1)] if id =~ /\Aclass-(.+)\z/
       next unless id =~ /\Arel-(.+)\z/
 
       a, b = split_pair(Regexp.last_match(1), "_to_", ctx[:known])
-      return [:edge, [a, b].sort, ctx[:sirena_rank].call([a, b].sort, g)]
+      return [:edge, [a, b].sort, ctx[:etassia_rank].call([a, b].sort, g)]
     end
     nil
   end
@@ -502,14 +502,14 @@ module Owners
     nil
   end
 
-  def er_sirena(_n, anc, ctx)
+  def er_etassia(_n, anc, ctx)
     anc.each do |g|
       id = g["id"].to_s
       return [:node, Regexp.last_match(1)] if id =~ /\Aentity-(.+)\z/
       next unless id =~ /\Arel-(.+)\z/
 
       a, b = split_pair(Regexp.last_match(1), "_to_", ctx[:known])
-      return [:edge, [a, b].sort, ctx[:sirena_rank].call([a, b].sort, g)]
+      return [:edge, [a, b].sort, ctx[:etassia_rank].call([a, b].sort, g)]
     end
     nil
   end
@@ -526,7 +526,7 @@ module Owners
     nil
   end
 
-  def state_sirena(_n, anc, ctx)
+  def state_etassia(_n, anc, ctx)
     anc.each do |g|
       id = g["id"].to_s
       return [:node, Regexp.last_match(1)] if id =~ /\Astate-(.+)\z/
@@ -549,14 +549,14 @@ module Owners
     nil
   end
 
-  def requirement_sirena(_n, anc, ctx)
+  def requirement_etassia(_n, anc, ctx)
     anc.each do |g|
       id = g["id"].to_s
       return [:node, Regexp.last_match(1)] if id =~ /\A(?:requirement|element)-(.+)\z/
       next unless id =~ /\Arelationship-(.+)\z/
 
       a, b = split_pair(Regexp.last_match(1), "-", ctx[:known])
-      return [:edge, [a, b].sort, ctx[:sirena_rank].call([a, b].sort, g)]
+      return [:edge, [a, b].sort, ctx[:etassia_rank].call([a, b].sort, g)]
     end
     nil
   end
@@ -570,7 +570,7 @@ module Owners
     nil
   end
 
-  def architecture_sirena(_n, anc, _ctx)
+  def architecture_etassia(_n, anc, _ctx)
     anc.each do |g|
       id = g["id"].to_s
       return [:node, Regexp.last_match(1)] if id =~ /\A(?:service|group)-(.+)\z/
@@ -585,7 +585,7 @@ module Owners
     nil
   end
 
-  def sequence_sirena(_n, anc, _ctx)
+  def sequence_etassia(_n, anc, _ctx)
     anc.each do |g|
       return [:message, Regexp.last_match(1).to_i] if g["id"].to_s =~ /\Amessage-(\d+)\z/
     end
@@ -601,13 +601,13 @@ def known_ids(doc, type, side)
     id = g["id"]
     case [type, side]
     when ["flowchart", :ref] then ids << Regexp.last_match(1) if id =~ /\Aflowchart-(.+)-\d+\z/
-    when ["flowchart", :sirena] then ids << Regexp.last_match(1) if id =~ /\Anode-(.+)\z/
+    when ["flowchart", :etassia] then ids << Regexp.last_match(1) if id =~ /\Anode-(.+)\z/
     when ["class", :ref] then ids << Regexp.last_match(1) if id =~ /\AclassId-(.+)-\d+\z/
-    when ["class", :sirena] then ids << Regexp.last_match(1) if id =~ /\Aclass-(.+)\z/
+    when ["class", :etassia] then ids << Regexp.last_match(1) if id =~ /\Aclass-(.+)\z/
     when ["er", :ref] then ids << Regexp.last_match(1) if id =~ /\Aentity-(.+)-\d+\z/
-    when ["er", :sirena] then ids << Regexp.last_match(1) if id =~ /\Aentity-(.+)\z/
+    when ["er", :etassia] then ids << Regexp.last_match(1) if id =~ /\Aentity-(.+)\z/
     when ["requirement", :ref] then ids << id if classes(g).include?("node")
-    when ["requirement", :sirena] then ids << Regexp.last_match(1) if id =~ /\A(?:requirement|element)-(.+)\z/
+    when ["requirement", :etassia] then ids << Regexp.last_match(1) if id =~ /\A(?:requirement|element)-(.+)\z/
     end
   end
   ids.to_a
@@ -616,7 +616,7 @@ end
 def extract(doc, type, side, mmd)
   prims = primitives(doc)
   ctx = { known: known_ids(doc, type, side) }
-  # parallel edge rank: ref ordinals are rank-normalised; sirena by document order
+  # parallel edge rank: ref ordinals are rank-normalised; etassia by document order
   ref_nums = Hash.new { |h, k| h[k] = [] }
   if side == :ref
     doc.xpath("//*[@data-id]").each do |g|
@@ -643,7 +643,7 @@ def extract(doc, type, side, mmd)
   end
   ctx[:ref_rank] = ->(pair, num) { ref_nums[pair].index(num) || num }
   seen = Hash.new { |h, k| h[k] = [] }
-  ctx[:sirena_rank] = lambda do |pair, g|
+  ctx[:etassia_rank] = lambda do |pair, g|
     seen[pair] << g unless seen[pair].include?(g)
     seen[pair].index(g)
   end
@@ -665,11 +665,11 @@ def extract(doc, type, side, mmd)
   end
   ctx[:msg_index] = ->(n) { msg_group[n] }
 
-  resolver = OWNER_TYPES.include?(type) ? Owners.method("#{type}_#{side == :ref ? 'ref' : 'sirena'}") : nil
+  resolver = OWNER_TYPES.include?(type) ? Owners.method("#{type}_#{side == :ref ? 'ref' : 'etassia'}") : nil
   task_ids = type == "gantt" ? mmd.scan(/:\s*(?:(?:crit|done|active|milestone)\s*,\s*)*([A-Za-z_][\w-]*)\s*,/).flatten : []
   prims.filter_map do |n, txt|
-    next if side == :sirena && txt == "[*]"
-    next if side == :sirena && type == "gantt" && task_ids.include?(txt)
+    next if side == :etassia && txt == "[*]"
+    next if side == :etassia && type == "gantt" && task_ids.include?(txt)
 
     anc = ancestors(n)
     owner = resolver&.call(n, anc, ctx)
@@ -693,8 +693,8 @@ def extract(doc, type, side, mmd)
 end
 
 # State edge labels: the reference numbers every edge (edge0, edge1 ...) even
-# when it has no text; Sirena draws a transition group per transition.  Map the
-# k-th Sirena transition to reference edge k.  Verified per case by checking the
+# when it has no text; Etassia draws a transition group per transition.  Map the
+# k-th Etassia transition to reference edge k.  Verified per case by checking the
 # two counts; on a mismatch the edge labels fall back to one bucket.
 def fix_state_edges!(ref_labels, sir_labels, rdoc, sdoc)
   r_edges = rdoc.xpath("//*[@data-id]").map { |g| g["data-id"] =~ /\Aedge(\d+)\z/ ? Regexp.last_match(1).to_i : nil }.compact.sort
@@ -742,7 +742,7 @@ def shape(rt, st)
   strip = ->(x) { x.gsub(/[\s+\-#~:]/, "") }
   return "class member format (visibility prefix, spacing, colon)" if strip.call(rt) == strip.call(st)
   return "reference adds words or symbols" if st.length > 1 && rt.include?(st)
-  return "sirena adds words or symbols" if rt.length > 1 && st.include?(rt)
+  return "etassia adds words or symbols" if rt.length > 1 && st.include?(rt)
   return "truncated with ellipsis" if st.end_with?("...", "\u2026")
   "other"
 end
@@ -765,8 +765,8 @@ Dir.glob("spec/fixtures_mermaid/*/*.svg").sort.each do |ref|
     next
   end
   rec[:cohort] = true
-  rec[:sirena_status] = status.dig(key, "status")
-  unless rec[:sirena_status] == "rendered"
+  rec[:etassia_status] = status.dig(key, "status")
+  unless rec[:etassia_status] == "rendered"
     results << rec
     next
   end
@@ -774,16 +774,16 @@ Dir.glob("spec/fixtures_mermaid/*/*.svg").sort.each do |ref|
   rdoc = parse(ref)
   sdoc = CONTROL ? parse(ref) : parse(File.join(OUT, "#{key}.svg"))
   rl = extract(rdoc, type, :ref, mmd)
-  sl = extract(sdoc, type, CONTROL ? :ref : :sirena, mmd)
+  sl = extract(sdoc, type, CONTROL ? :ref : :etassia, mmd)
   fix_state_edges!(rl, sl, rdoc, sdoc) if type == "state"
   rl, sl = merge_er_rows(rl), merge_er_rows(sl) if type == "er"
 
   owned_r = rl.select(&:owner).group_by(&:owner)
   owned_s = sl.select(&:owner).group_by(&:owner)
   rec[:owned_ref] = rl.count(&:owner)
-  rec[:owned_sirena] = sl.count(&:owner)
+  rec[:owned_etassia] = sl.count(&:owner)
   rec[:standalone_ref] = rl.count { |l| l.owner.nil? }
-  rec[:standalone_sirena] = sl.count { |l| l.owner.nil? }
+  rec[:standalone_etassia] = sl.count { |l| l.owner.nil? }
 
   mism = []
   leftover = []
@@ -793,18 +793,18 @@ Dir.glob("spec/fixtures_mermaid/*/*.svg").sort.each do |ref|
     rls = owned_r[o]
     sls = owned_s[o]
     # Alternative rule, kept for the sensitivity line: cancel equal texts, pair leftovers.
-    compare_owner(rls.map(&:text), sls.map(&:text))[:mismatched].each { |rt, st| leftover << { owner: o, ref: rt, sirena: st } }
+    compare_owner(rls.map(&:text), sls.map(&:text))[:mismatched].each { |rt, st| leftover << { owner: o, ref: rt, etassia: st } }
     if rls.size != sls.size
-      presence << { owner: o, ref_count: rls.size, sirena_count: sls.size }
+      presence << { owner: o, ref_count: rls.size, etassia_count: sls.size }
       next
     end
     reading_order(rls).zip(reading_order(sls)).each do |rl1, sl1|
-      mism << { owner: o, ref: rl1.text, sirena: sl1.text, shape: shape(rl1.text, sl1.text) } if rl1.text != sl1.text
+      mism << { owner: o, ref: rl1.text, etassia: sl1.text, shape: shape(rl1.text, sl1.text) } if rl1.text != sl1.text
     end
     rls.zip(sls).each { |rl1, sl1| doc_order << { owner: o } if rl1.text != sl1.text }
   end
   rec[:owner_only_ref] = (owned_r.keys - owned_s.keys).size
-  rec[:owner_only_sirena] = (owned_s.keys - owned_r.keys).size
+  rec[:owner_only_etassia] = (owned_s.keys - owned_r.keys).size
   rec[:text_mismatches] = mism
   rec[:presence_diffs] = presence
   rec[:leftover_mismatches] = leftover
@@ -812,16 +812,16 @@ Dir.glob("spec/fixtures_mermaid/*/*.svg").sort.each do |ref|
 
   # figure-level multiset over ALL labels (owned and standalone)
   fig = compare_owner(rl.map(&:text), sl.map(&:text))
-  rec[:figure_mismatched] = fig[:mismatched].map { |rt, st| { ref: rt, sirena: st, shape: shape(rt, st) } }
+  rec[:figure_mismatched] = fig[:mismatched].map { |rt, st| { ref: rt, etassia: st, shape: shape(rt, st) } }
   rec[:figure_extra_ref] = fig[:extra_ref]
-  rec[:figure_extra_sirena] = fig[:extra_sir]
+  rec[:figure_extra_etassia] = fig[:extra_sir]
   # standalone-only multiset (text-keyed groups; a difference is a node-presence matter)
   st_r = rl.select { |l| l.owner.nil? }.map(&:text)
   st_s = sl.select { |l| l.owner.nil? }.map(&:text)
   sa = compare_owner(st_r, st_s)
-  rec[:standalone_mismatched] = sa[:mismatched].map { |rt, st| { ref: rt, sirena: st, shape: shape(rt, st) } }
+  rec[:standalone_mismatched] = sa[:mismatched].map { |rt, st| { ref: rt, etassia: st, shape: shape(rt, st) } }
   rec[:standalone_extra_ref] = sa[:extra_ref]
-  rec[:standalone_extra_sirena] = sa[:extra_sir]
+  rec[:standalone_extra_etassia] = sa[:extra_sir]
   results << rec
 end
 
@@ -843,17 +843,17 @@ coh = rs.select { |r| r["cohort"] }
 puts "references=#{rs.size} cohort=#{coh.size} excluded=#{rs.size - coh.size} " \
      "(oracle invalid/artifact verdict, or the reference is mermaid's own error diagram)"
 puts
-puts "per type: cohort, Sirena did not render, label-text failures (owner-aware types), " \
+puts "per type: cohort, Etassia did not render, label-text failures (owner-aware types), " \
      "of those only the pipe bug, other owner/count differences (label-presence), " \
      "cases where a text is paired with a different text anywhere in the figure (labels left without a partner are not counted)"
 puts format("%-13s %6s %9s %11s %9s %9s %8s", "type", "cohort", "no-render", "label-text", "pipe-only", "presence", "figure")
 tot = Hash.new(0)
 coh.group_by { |r| r["type"] }.sort.each do |t, a|
-  rend = a.select { |r| r["sirena_status"] == "rendered" }
+  rend = a.select { |r| r["etassia_status"] == "rendered" }
   own = OWNER.include?(t)
   tf = rend.select { |r| r["text_mismatches"].any? }
   pipe = tf.count { |r| r["text_mismatches"].all? { |m| m["shape"] == PIPE } }
-  pres = rend.count { |r| r["presence_diffs"].any? || r["owner_only_ref"].positive? || r["owner_only_sirena"].positive? }
+  pres = rend.count { |r| r["presence_diffs"].any? || r["owner_only_ref"].positive? || r["owner_only_etassia"].positive? }
   fg = rend.count { |r| r["figure_mismatched"].any? }
   puts format("%-13s %6d %9d %11s %9s %9s %8d", t, a.size, a.size - rend.size,
               own ? tf.size : "n/a", own ? pipe : "-", own ? pres : "-", fg)
@@ -870,7 +870,7 @@ puts
 puts "sensitivity of the pairing rule, cases failing label-text per owner-aware type:"
 puts format("%-13s %8s %11s %17s", "type", "reading", "document", "cancel-then-pair")
 OWNER.each do |t|
-  a = coh.select { |r| r["type"] == t && r["sirena_status"] == "rendered" }
+  a = coh.select { |r| r["type"] == t && r["etassia_status"] == "rendered" }
   puts format("%-13s %8d %11d %17d", t, a.count { |r| r["text_mismatches"].any? },
               a.count { |r| r["doc_order_mismatches"].any? }, a.count { |r| r["leftover_mismatches"].any? })
 end
@@ -886,8 +886,8 @@ OWNER.each do |t|
   puts "#{t}:"
   shapes.sort_by { |k, v| [-v.map(&:first).uniq.size, k] }.each do |k, v|
     c, m = v.first
-    puts format("  %-58s labels=%-3d cases=%-3d e.g. %s reference=%s sirena=%s", k, v.size, v.map(&:first).uniq.size,
-                c, m["ref"][0, 40].inspect, m["sirena"][0, 40].inspect)
+    puts format("  %-58s labels=%-3d cases=%-3d e.g. %s reference=%s etassia=%s", k, v.size, v.map(&:first).uniq.size,
+                c, m["ref"][0, 40].inspect, m["etassia"][0, 40].inspect)
   end
 end
 ```

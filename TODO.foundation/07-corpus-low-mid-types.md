@@ -39,7 +39,7 @@ Item 07 owns 1,176 cases; item 06 owns 736; item 05's `unknown/` holds
 owner, and the arithmetic is checkable.
 
 07f also owns: the suite's only pending example
-(`spec/sirena/parser/packet_spec.rb:74` xit — implement or delete with
+(`spec/etassia/parser/packet_spec.rb:74` xit — implement or delete with
 justification; zero pending after) and closing every type in this
 tier to 100% of oracle-valid.
 

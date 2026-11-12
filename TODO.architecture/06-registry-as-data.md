@@ -1,7 +1,7 @@
 # 06 — Registry as data
 
 **Goal:** a diagram type is declared in exactly one place.
-**Size:** 1 PR. `lib/sirena.rb` goes from over 300 lines to under 40.
+**Size:** 1 PR. `lib/etassia.rb` goes from over 300 lines to under 40.
 **Prerequisite:** items 03 and 04. Item 03 for the uniform class names
 convention lookup needs; **item 04 because this item deletes
 `Layout::Grid`**, and Grid cannot go until item 04 has converted the
@@ -10,18 +10,18 @@ destructive.
 
 ## Why
 
-`lib/sirena.rb` is over 300 lines: the same block copy-pasted 24 times.
+`lib/etassia.rb` is over 300 lines: the same block copy-pasted 24 times.
 
 ```ruby
-require_relative 'sirena/parser/pie'
-require_relative 'sirena/transform/pie'
-require_relative 'sirena/renderer/pie'
+require_relative 'etassia/parser/pie'
+require_relative 'etassia/transform/pie'
+require_relative 'etassia/renderer/pie'
 
-Sirena::DiagramRegistry.register(
+Etassia::DiagramRegistry.register(
   :pie,
-  parser: Sirena::Parser::PieParser,
-  transform: Sirena::Transform::PieTransform,
-  renderer: Sirena::Renderer::PieRenderer
+  parser: Etassia::Parser::PieParser,
+  transform: Etassia::Transform::PieTransform,
+  renderer: Etassia::Renderer::PieRenderer
 )
 ```
 
@@ -30,7 +30,7 @@ hardcoded in `Engine::DIAGRAM_TYPE_PATTERNS` (`engine.rb:32`). Adding a
 type means editing two files in two different shapes and hoping the
 symbols match.
 
-There is also dead code to delete by name: `lib/sirena.rb:39` defines a
+There is also dead code to delete by name: `lib/etassia.rb:39` defines a
 stray top-level `def self.render` on `main`, referencing a bare `Engine`
 constant. It would raise `NameError` if anything ever called it.
 
@@ -56,7 +56,7 @@ as permanent** — that is the item's own wording.
 
 ## Steps
 
-1. One table, one row per type, in `lib/sirena/notation/mermaid.rb` —
+1. One table, one row per type, in `lib/etassia/notation/mermaid.rb` —
    the only place a type is declared:
 
 ```ruby
@@ -110,26 +110,26 @@ TYPES = {
    `TYPES`. What goes away is the detector's *separate inventory*, and
    with it registry-versus-detector parity. What replaces it is
    table-versus-fixtures parity.
-4. Delete the stray `self.render` at `lib/sirena.rb:39`.
+4. Delete the stray `self.render` at `lib/etassia.rb:39`.
 5. `Engine` holds no type constants. Its render method's **core
    pipeline** is the four lines from `00-overview.md`, the first being
    `type = Notation::Mermaid.detect(source)` — detection moved, it did
    not vanish. Theme resolution, `today`, `verbose` and the
    `Svg::Document` -> String conversion all stay exactly where they are;
    step 6 requires it.
-6. Keep the public API byte-identical: `Sirena.render(source, options)`
+6. Keep the public API byte-identical: `Etassia.render(source, options)`
    and `Engine#render` behave exactly as before, including error
    classes and messages.
 
 ## Done when
 
-- [ ] `lib/sirena.rb` is under 40 lines
+- [ ] `lib/etassia.rb` is under 40 lines
 - [ ] a diagram type is declared in exactly one place
 - [ ] `Engine` contains no diagram-type constants
-- [ ] `grep -n "def self.render" lib/sirena.rb` shows one, inside `module Sirena`
-- [ ] this refactor changes neither the CLI's nor `Sirena.render`'s existing
+- [ ] `grep -n "def self.render" lib/etassia.rb` shows one, inside `module Etassia`
+- [ ] this refactor changes neither the CLI's nor `Etassia.render`'s existing
       behaviour. **`corpus:check` alone cannot prove this** — item 01's task
-      calls only `Sirena.render` and records pass/fail, stage and exception
+      calls only `Etassia.render` and records pass/fail, stage and exception
       class. It never invokes the CLI, never compares SVG bytes and never
       compares error text, so this needs its own gate.
 
@@ -149,12 +149,12 @@ TYPES = {
 
       | Pair (before to after) | Commit | API differences | CLI differences |
       |---|---|---|---|
-      | `86db8f29e` to `1a6ff4172` | move mermaid detection into `Notation::Mermaid` (`lib/sirena.rb` 369 to 40 lines) | 0 | 0 |
+      | `86db8f29e` to `1a6ff4172` | move mermaid detection into `Notation::Mermaid` (`lib/etassia.rb` 369 to 40 lines) | 0 | 0 |
       | `18403b313` to `5386bb590` | add notation registry and resolver | 0 | 0 |
       | `03a237565` to `d8e78e375` | table-driven diagram registry (`Parser.for`, `Layout.for`, `Renderer.for`) | 0 | 1 |
 
       The one difference is `shape/verbose` `cli_stderr`: `--verbose` no longer
-      logs `[Sirena::Engine] Retrieved handlers for architecture` (the debug
+      logs `[Etassia::Engine] Retrieved handlers for architecture` (the debug
       line in `Notation::Mermaid`, removed by `d8e78e375`). SVG, stdout, exit
       status and every error class and message are identical. The box below
       stays unticked until that log line is either restored or accepted as a
@@ -216,8 +216,8 @@ TYPES = {
 - [ ] every piece of item 04's temporary transition machinery is gone,
       not just the fallback branch:
       - `Layout::Base`'s `to_graph` branch, and
-        `grep -rn "to_graph\|@graph" lib/sirena/layout/` returns nothing —
-        scoped to `layout/`, not all of `lib/sirena/`: `@graph` is already a
+        `grep -rn "to_graph\|@graph" lib/etassia/layout/` returns nothing —
+        scoped to `layout/`, not all of `lib/etassia/`: `@graph` is already a
         legitimate, unrelated instance variable in three renderers (sankey,
         timeline, gantt), so a repo-wide grep would report false failures
         there. The method name alone also misses a layout class that still
@@ -261,13 +261,13 @@ extend.
 
 ## Files
 
-`lib/sirena.rb`, `lib/sirena/notation/mermaid.rb` (new),
-`lib/sirena/diagram_registry.rb`, `lib/sirena/engine.rb`,
-`lib/sirena/layout/base.rb` (the `to_graph` fallback comes out),
+`lib/etassia.rb`, `lib/etassia/notation/mermaid.rb` (new),
+`lib/etassia/diagram_registry.rb`, `lib/etassia/engine.rb`,
+`lib/etassia/layout/base.rb` (the `to_graph` fallback comes out),
 `spec/contract_spec.rb` (migrated from `DiagramRegistry.types` to
-`TYPES`), `spec/sirena/lookup_spec.rb` (new, the three-case matrix above).
+`TYPES`), `spec/etassia/lookup_spec.rb` (new, the three-case matrix above).
 
 `Parser.for`, `Layout.for` and `Renderer.for` live on their own
-namespace modules — `lib/sirena/parser.rb`, `lib/sirena/layout.rb`,
-`lib/sirena/renderer.rb`. Name them somewhere; three lookups with no
+namespace modules — `lib/etassia/parser.rb`, `lib/etassia/layout.rb`,
+`lib/etassia/renderer.rb`. Name them somewhere; three lookups with no
 declared home is how they end up on `Engine` again.

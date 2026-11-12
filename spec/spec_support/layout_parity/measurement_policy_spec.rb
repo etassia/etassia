@@ -86,7 +86,7 @@ RSpec.describe SpecSupport::LayoutParity::MeasurementPolicy do
   def unpairable_analog
     policy = described_class.for(:radar)
     policy.analog_measurements.call(reference_svg: one_graticule,
-                                    sirena_svg: two_graticules)
+                                    etassia_svg: two_graticules)
   end
 
   def unpairable_evidence
@@ -109,7 +109,7 @@ RSpec.describe SpecSupport::LayoutParity::MeasurementPolicy do
     source = File.read(corpus_path(type, basename))
     rows = policy.analog_measurements.call(
       reference_svg: reference,
-      sirena_svg: Sirena.render(source),
+      etassia_svg: Etassia.render(source),
     )
     [rows.size, rows.map { |row| row.fetch(:key).last }.uniq]
   end

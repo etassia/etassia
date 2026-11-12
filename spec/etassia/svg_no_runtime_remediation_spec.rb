@@ -1,0 +1,89 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+require "ripper"
+
+# Conformant by construction, not conformant after a repair pass.
+#
+# svg_conform ships a remediation engine that rewrites a document until it
+# validates. Reaching for it would turn the gate green while leaving the
+# generator wrong, and everyone who builds an Svg element directly — a new
+# renderer, anything embedding Etassia — would still get a broken document.
+# So the whole mechanism is out of bounds at runtime.
+#
+# A structural check rather than a behavioural one, because the failure mode
+# is a call nobody writes a test for.
+REMEDIATION_LIB_ROOT = SpecSupport::RepositoryPaths.path("lib")
+REMEDIATION_LIB_FILES = Dir.glob(File.join(REMEDIATION_LIB_ROOT, "**",
+                                           "*.{rb,rake}")).freeze
+
+# The remediation entry points, and the gem that owns them. Etassia's runtime
+# does not depend on svg_conform at all — it is the gate's tool, not the
+# renderer's — so naming it anywhere under lib/ is the same finding.
+REMEDIATION = Regexp.new(
+  "apply_fixes|SvgConform|svg_conform|" \
+  "RemediationEngine|RemediationRunner",
+)
+REMEDIATION_COMMENT_TOKENS = %i[on_comment on_embdoc on_embdoc_beg
+                                on_embdoc_end].freeze
+
+module SvgNoRuntimeRemediationSpecHelpers
+  # Lexed rather than grepped. Half the files under lib/ explain in a comment
+  # why svg_conform rejects a property, and a line-wise grep reads its own
+  # documentation as a violation.
+  def code_tokens(path)
+    Ripper.lex(File.read(path)).reject do |(_position, type, _token)|
+      REMEDIATION_COMMENT_TOKENS.include?(type)
+    end
+  end
+
+  def offences
+    REMEDIATION_LIB_FILES.flat_map do |path|
+      code_tokens(path).filter_map do |(position, _type, token)|
+        if token.match?(REMEDIATION)
+          "#{path.sub("#{REMEDIATION_LIB_ROOT}/",
+                      '')}:#{position.first}: #{token}"
+        end
+      end
+    end
+  end
+end
+
+RSpec.describe Etassia::Svg do
+  describe "runtime remediation" do
+    include SvgNoRuntimeRemediationSpecHelpers
+
+    # A bare count is not a population guard here: enough files live outside
+    # lib/etassia/svg that the broad glob could lose the one directory where a
+    # remediation call would land and still clear any useful threshold. The
+    # focused glob names that directory independently.
+    context "with the focused svg glob" do
+      let(:svg_files) do
+        Dir.glob(File.join(REMEDIATION_LIB_ROOT, "etassia", "svg", "*.rb"))
+      end
+
+      it "finds svg files" do
+        expect(svg_files).not_to be_empty
+      end
+
+      it "includes every SVG file in the broad lib/ glob" do
+        expect(REMEDIATION_LIB_FILES).to include(*svg_files)
+      end
+    end
+
+    it "never references svg_conform or its remediation engine at runtime" do
+      found_offences = offences
+
+      expect(found_offences).to be_empty, -> { found_offences.join("\n") }
+    end
+
+    it "does not declare svg_conform as a runtime dependency" do
+      gemspec = Gem::Specification.load(
+        SpecSupport::RepositoryPaths.path("etassia.gemspec"),
+      )
+
+      expect(gemspec.runtime_dependencies.map(&:name))
+        .not_to include("svg_conform")
+    end
+  end
+end

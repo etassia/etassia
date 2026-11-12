@@ -14,7 +14,7 @@ module PartialThemeRenders
   def partial_theme_fills
     theme = { name: "mine", colors: { background: "#101010" } }
     SOURCES.map do |source|
-      Sirena.render(source, theme: theme).scan(/fill="([^"]*)"/).flatten
+      Etassia.render(source, theme: theme).scan(/fill="([^"]*)"/).flatten
     end
   end
 end

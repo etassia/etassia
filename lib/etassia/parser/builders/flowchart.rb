@@ -1,0 +1,1150 @@
+# frozen_string_literal: true
+
+require "parslet"
+require_relative "../base"
+require_relative "../../diagram/flowchart"
+require_relative "../metadata_yaml"
+require_relative "../mermaid_shapes"
+require_relative "../../diagram/containment"
+
+module Etassia
+  module Parser
+    module Builders
+      # Transform for converting flowchart parse trees to diagram models.
+      #
+      # Handles transformation of nodes, edges, subgraphs, and styling
+      # directives from Parslet parse trees into Flowchart diagram objects.
+      class Flowchart < Parslet::Transform
+        # One parse's bookkeeping.
+        #
+        # It used to sit in `Thread.current` behind a public `.state`, so
+        # any code in the host app could read or rewrite the ids the next
+        # parse was about to hand out, and a parse that raised had to
+        # remember to clear the slot or it kept the whole parse tree
+        # alive. Made inside `apply` and passed down instead, it is
+        # reachable from nowhere else and goes away with the parse.
+        #
+        # A gem runs inside somebody else's app, and these used to be
+        # shared on the class: 11 of 36 concurrent parses of a 60-box
+        # diagram handed out ids that disagreed with the sequential
+        # answer. Every parse now counts on its own object, so two
+        # threads cannot see each other at all.
+        class Context
+          # Generated ids, keyed by statement IDENTITY: two subgraphs
+          # written the same way are still two boxes, and each needs its
+          # own id.
+          attr_reader :ids
+
+          # Who claimed whom, as won rather than as written. Read by the
+          # cycle check once the whole diagram has been walked.
+          attr_reader :ownership
+
+          # The box holding each id, so a member lookup is indexed rather
+          # than a scan over every box.
+          attr_reader :boxes
+
+          # Ids already spoken for. The first box to name an id keeps it.
+          attr_reader :claimed
+
+          # Ids given to edges with `A e1@--> B`. A later `e1@{ ... }`
+          # addresses the edge and is not a node.
+          attr_reader :edge_ids
+
+          def initialize
+            @ids = {}.compare_by_identity
+            @ownership = {}
+            @boxes = {}
+            @claimed = {}
+            @edge_ids = Set.new
+            @counter = -1
+          end
+
+          # mermaid names a box carrying a free title `subGraph<n>`, and
+          # counts from zero within one diagram.
+          #
+          # @return [String] the next generated subgraph id
+          def next_generated_id
+            @counter += 1
+            "subGraph#{@counter}"
+          end
+        end
+
+        # Two ways a name can fail, and they are not the same thing.
+        # Mermaid does not know `nope`, and says so in words a corpus case
+        # quotes. Mermaid does know `bang`, and draws it as a curved
+        # outline etassia has no shape for — naming it a rectangle drew a
+        # picture the source did not ask for, which is worse than saying no.
+        #
+        # @raise [Parser::ParseError] on a name etassia will not draw
+        def metadata_shape(name)
+          return nil if name.nil?
+
+          MERMAID_SHAPES.fetch(name) do
+            raise Parser::ParseError, unsupported_shape(name)
+          end
+        end
+
+        def unsupported_shape(name)
+          return "No such shape: #{name}." unless
+            UNDRAWABLE_SHAPES.include?(name)
+
+          "Shape not supported yet: #{name}."
+        end
+        private :unsupported_shape
+
+        # mermaid parses the body with js-yaml: a single-line body as a flow
+        # mapping, a multiline one as block YAML. Psych does both, so the
+        # rules fall out instead of being reimplemented in the grammar.
+        #
+        # @raise [Parser::ParseError] on YAML mermaid would also refuse
+        def metadata_entries(metadata)
+          document = metadata_document(metadata)
+          # mermaid reads `doc.shape` off whatever `yaml.load` returns, so a
+          # node's document that came back null throws there.
+          raise Parser::ParseError, "Empty metadata." if document.nil?
+
+          entries(document)
+        end
+
+        # The parsed YAML of a metadata block, before any node rule reads
+        # it. An edge's block stops here: `label` and `shape` mean nothing
+        # to an edge, so mermaid never checks them there.
+        #
+        # Mermaid wraps a single-line body as a flow mapping and uses a
+        # multiline body as written. It does not normalize a missing space
+        # after a colon: `shape:rect` is an unknown key, so inserting a space
+        # would honor something mermaid ignores.
+        def metadata_document(metadata)
+          body = line_feeds(metadata_body(metadata))
+          body = strip_metadata_comments(body)
+          body = break_quoted_newlines(body)
+          return {} if body.empty?
+
+          document = body.include?("\n") ? "#{body}\n" : "{\n#{body}\n}"
+          MetadataYaml.value(document)
+        end
+        private :metadata_document
+
+        # Mermaid turns every carriage return into a line feed before it
+        # lexes anything, so a Windows line ending inside the block is an
+        # ordinary newline by the time YAML sees it. Reading it as written
+        # folded `"one` CR `two"` onto one line, left a `%YAML 1.3` CR
+        # unlevelled, and took a body mermaid refuses.
+        def line_feeds(body)
+          body.gsub(/\r\n?/, "\n")
+        end
+
+        # Mermaid strips comments before lexing, so metadata never sees them.
+        # `%%{` is a directive rather than a comment and stays, and a `%%`
+        # with nothing after it is not a comment either.
+        #
+        # The body is a fragment cut from the middle of a line, so its own
+        # first character is not the start of a line — only the newlines
+        # inside it start one. Anchoring on `^` instead let the leading
+        # whitespace run reach back past `@{` and eat the newline that
+        # opened the block, which turned `A@{` nl `%% c` nl `}` into an
+        # empty body etassia drew as a rectangle. mmdc refuses it, because
+        # what is left after the comment goes is `A@{` nl `}`.
+        def strip_metadata_comments(body)
+          body.gsub(/(?<=\n)#{JS_SPACE}*%%(?!\{)[^\n]+\n?/o, "")
+        end
+
+        # A newline inside a double-quoted value is a line break to
+        # mermaid, which rewrites it before js-yaml ever sees it. Letting
+        # YAML fold it turned `"one` newline `two"` into `one two`, where
+        # mmdc renders `one<br/>two`.
+        def break_quoted_newlines(body)
+          body.gsub(/"[^"]*"/) { |run| run.gsub(QUOTED_BREAK, "<br/>") }
+        end
+
+        # mermaid's lexer runs `/\n\s*/g` over the text between the quotes,
+        # and that `\s` is JavaScript's. Ruby's is the five ASCII ones, so
+        # a no-break space after the newline stayed in the label and mmdc
+        # dropped it. The set below is JavaScript's exactly: it takes the
+        # line and paragraph separators and the byte-order mark, and it
+        # leaves the next-line character and the zero-width space alone.
+        JS_SPACE = '[\t\n\v\f\r \u00a0\u1680\u2000-\u200a' \
+                   '\u2028\u2029\u202f\u205f\u3000\ufeff]'
+
+        QUOTED_BREAK = /\n#{JS_SPACE}*/
+
+        private_constant :JS_SPACE, :QUOTED_BREAK
+
+        # A key etassia does not read is left alone rather than validated:
+        # `A@{ extra: true }` is a node mmdc draws, and a merge key is one
+        # of those. A root that is not a mapping has neither key, and mmdc
+        # draws the node untouched.
+        #
+        # Mermaid reads eight more keys off the document. Six of them
+        # (`labelType`, `form`, `pos`, `w`, `h`, `constraint`) leave the
+        # picture alone on their own, so ignoring them matches mmdc. Two do
+        # not: `A@{ icon: "fa:bell" }` and `A@{ img: "x.png" }` each draw a
+        # node with an empty label there, and a plain rectangle named `A`
+        # here. Both are node kinds etassia does not have yet.
+        def entries(document)
+          return {} unless document.is_a?(Hash)
+
+          READ_KEYS.filter_map do |key|
+            usable = usable_value(key, document[key])
+            [key, usable] if usable
+          end.to_h
+        end
+
+        READ_KEYS = %w[shape label].freeze
+
+        # An empty repeat captures as [], not as an empty slice.
+        def metadata_body(metadata)
+          return "" unless metadata.is_a?(Hash)
+
+          value = metadata[:body]
+          value.is_a?(Array) ? "" : value.to_s
+        end
+
+        # Mermaid tests the value for truth before using it, so `null`,
+        # `false`, `0` and `""` are all no-ops rather than errors — the
+        # node keeps what it had. Reading the raw AST made `shape: null`
+        # a lookup for a shape called "null".
+        #
+        # A sequence renders its first element and nothing else: mmdc draws
+        # `label: [one, two]` as `one`, and refuses a shape or a nested
+        # sequence, where the value it reaches for is not a scalar.
+        def usable_value(key, value)
+          return nil unless truthy?(value)
+
+          value = value.first if value.is_a?(Array) && key == "label"
+          return value if value.is_a?(String)
+
+          raise Parser::ParseError, "Unusable #{key} in metadata."
+        end
+
+        # `null`, `false`, `0` and `""` are all falsy to mermaid, which
+        # skips the key rather than failing on it. An empty collection is
+        # NOT falsy in JavaScript, and mmdc does refuse `label: []`.
+        FALSY_VALUES = [nil, false, 0, ""].freeze
+        private_constant :FALSY_VALUES
+
+        def truthy?(value)
+          !FALSY_VALUES.include?(value) &&
+            !(value.is_a?(Float) && value.nan?)
+        end
+
+        # Shape delimiter to type mapping
+        SHAPE_MAP = {
+          "[]" => "rect",
+          "()" => "rounded",
+          "([])" => "stadium",
+          "[[]]" => "subroutine",
+          "[()]" => "cylindrical",
+          "(())" => "circle",
+          "((()))" => "double_circle",
+          ">]" => "asymmetric",
+          "{}" => "rhombus",
+          "{{}}" => "hexagon",
+          "[//]" => "parallelogram",
+          '[\\\\]' => "parallelogram_alt",
+          '[/\\]' => "trapezoid",
+          '[\\/]' => "trapezoid_alt",
+        }.freeze
+
+        # Which marker each character draws. One table serves both ends
+        # because the grammar only ever puts `<` at the start and `>` at
+        # the end — see the `link_start` and `link_end` rules in
+        # `Grammars::Flowchart`, which are the sole producers of this
+        # token.
+        LINK_MARKERS = {
+          ">" => "arrow", "<" => "arrow",
+          "x" => "cross", "o" => "circle"
+        }.freeze
+        private_constant :LINK_MARKERS
+
+        # A comment line inside a label, whitespace as mermaid counts it.
+        COMMENT_LINE = Regexp.new(
+          "\n[\t\v\f \u00A0\u1680\u2000-\u200A\u2028\u2029\u202F" \
+          "\u205F\u3000\uFEFF]*%%[^\n]*",
+        )
+        private_constant :COMMENT_LINE
+
+        LABEL_EDGE_SPACE = /\A#{JS_SPACE}+|#{JS_SPACE}+\z/
+        private_constant :LABEL_EDGE_SPACE
+
+        # mermaid resolves the alias lexemes to a direction word before
+        # anything reads one, so `graph <` lays out exactly like `graph RL`.
+        # Measured against mmdc 11.12.0: `<` RL, `>` LR, `^` BT, `v` and
+        # `BR` TB. Keeping the raw lexeme sent the three glyphs down the
+        # default branch in the graph transform and drew them top-to-bottom.
+        DIRECTION_ALIASES = {
+          "<" => "RL",
+          ">" => "LR",
+          "^" => "BT",
+          "v" => "TB",
+          "BR" => "TB",
+        }.freeze
+
+        # Mermaid honours a leading marker only when the trailing one
+        # matches it. `o--x` draws the cross and nothing at the source, and
+        # a mismatched pair drops back to normal thickness but keeps its
+        # dots. `o==x` is no thicker than `o--x`, while `<-.-x` stays
+        # dotted. Both were read as two-ended links here.
+        def link_type(token)
+          return "invisible" if token.start_with?("~")
+
+          head = LINK_MARKERS[token[-1]]
+          tail = LINK_MARKERS[token[0]]
+          matched = !head.nil? && head == tail
+          ends = matched ? "#{head}_both" : head || "line"
+
+          "#{link_weight(token, tail, matched)}#{ends}"
+        end
+        private :link_type
+
+        # A thick body keeps its weight only when it carries no leading
+        # marker, or a leading marker mermaid actually honours.
+        def link_weight(token, tail, matched)
+          return "dotted_" if token.include?(".")
+          return "thick_" if token.include?("=") && (matched || tail.nil?)
+
+          ""
+        end
+        private :link_weight
+
+        # Direction value
+        rule(dir_value: simple(:v)) { v.to_s }
+
+        # Node ID
+        rule(node_id: simple(:id)) { id.to_s }
+
+        # Shape with label
+        rule(
+          shape: {
+            open: simple(:o),
+            label: simple(:l),
+            close: simple(:c),
+          },
+        ) do
+          delims = "#{o}#{c}"
+          {
+            shape_type: SHAPE_MAP[delims] || "rect",
+            label: l.to_s.strip,
+          }
+        end
+
+        # Handle empty labels
+        rule(
+          shape: {
+            open: simple(:o),
+            label: sequence(:_),
+            close: simple(:c),
+          },
+        ) do
+          delims = "#{o}#{c}"
+          {
+            shape_type: SHAPE_MAP[delims] || "rect",
+            label: "",
+          }
+        end
+
+        # Edge label
+        rule(label: simple(:l)) { l.to_s.strip }
+        rule(label: sequence(:l)) { l.join.strip }
+
+        # Helper method to create nodes
+        def create_node(node_data)
+          Diagram::FlowchartNode.new.tap do |n|
+            n.id = node_data[:node_id]
+            n.label = node_data[:label] || node_data[:node_id]
+            n.shape = node_data[:shape_type] || "rect"
+            n.classes = node_data[:classes] if node_data[:classes]
+          end
+        end
+
+        # `link_token` is the raw lexeme the grammar matched — `-->`,
+        # `o--x`, `~~~`. `link_type` is what turns it into the edge's
+        # arrow type; the two are not the same string.
+        def create_edge(source_id, target_data, link_token, label = nil,
+                        minimum_rank_span = nil)
+          Diagram::FlowchartEdge.new.tap do |e|
+            e.source_id = source_id
+            e.target_id = target_data[:node_id]
+            e.arrow_type = link_type(link_token)
+            e.minimum_rank_span = minimum_rank_span
+            e.label = label
+          end
+        end
+        private :create_edge
+
+        # Mermaid derives a labelled link's length from its closing half,
+        # not from the display token made by joining both halves. It removes
+        # the last character, removes a matching start marker on a double-ended
+        # link, then counts the remaining body beyond the ordinary first rank.
+        def minimum_rank_span(edge_data)
+          token = end_link_token(edge_data).strip
+          line = token[0...-1]
+          line = line[1..] if matching_end_markers?(token)
+          dots = line.count(".")
+          span = dots.positive? ? dots : line.length - 1
+          span if span > 1
+        end
+        private :minimum_rank_span
+
+        def end_link_token(edge_data)
+          return edge_data[:arrow][:token].to_s if edge_data[:arrow]
+
+          edge_data[:close].to_s
+        end
+        private :end_link_token
+
+        def matching_end_markers?(token)
+          LINK_MARKERS[token[0]] == LINK_MARKERS[token[-1]] &&
+            !LINK_MARKERS[token[0]].nil?
+        end
+        private :matching_end_markers?
+
+        # Process a parse tree of [header, *statements]. The Context is local
+        # to this call, so its ids and retained parse nodes cannot cross parses.
+        def apply(tree, diagram = nil)
+          diagram ||= Diagram::Flowchart.new
+          tree = [tree] unless tree.is_a?(Array)
+          apply_header(diagram, tree.first)
+          statements = tree.drop(1)
+          context = Context.new
+          assign_ids(statements, context)
+          process_statements(diagram, statements, context)
+          reject_ownership_cycles(context)
+          promote_referenced_subgraphs(diagram, context)
+
+          diagram
+        end
+
+        def apply_header(diagram, header)
+          return unless header.is_a?(Hash) && header[:direction]
+
+          direction = header[:direction]
+          value = direction[:dir_value] || direction
+          diagram.direction = canonical_direction(value.to_s)
+        end
+        private :apply_header
+
+        def canonical_direction(value)
+          DIRECTION_ALIASES.fetch(value, value)
+        end
+        private :canonical_direction
+
+        def process_statements(diagram, statements, context, parents = [])
+          statements.each do |stmt|
+            next unless stmt.is_a?(Hash)
+
+            process_statement(diagram, stmt, context, parents)
+          end
+        end
+
+        STATEMENT_HANDLERS = {
+          node: :process_node_statement,
+          node_id: :process_standalone_statement,
+          subgraph_keyword: :process_subgraph_statement,
+          direction_keyword: :process_direction_statement,
+          style_keyword: :process_style_statement,
+          link_style_keyword: :process_link_style_statement,
+        }.freeze
+        private_constant :STATEMENT_HANDLERS
+
+        def process_statement(diagram, stmt, context, parents)
+          pair = STATEMENT_HANDLERS.find { |key, _handler| stmt[key] }
+          send(pair.last, diagram, stmt, context, parents) if pair
+        end
+        private :process_statement
+
+        def process_node_statement(diagram, stmt, context, parents)
+          process_node_edge_statement(diagram, stmt, parents.last, context)
+        end
+        private :process_node_statement
+
+        def process_standalone_statement(diagram, stmt, context, parents)
+          process_standalone_node(diagram, stmt, parents.last, context)
+        end
+        private :process_standalone_statement
+
+        def process_subgraph_statement(diagram, stmt, context, parents)
+          process_subgraph(diagram, stmt, context, parents)
+        end
+        private :process_subgraph_statement
+
+        def process_direction_statement(_diagram, stmt, context, parents)
+          set_direction(parents.last, stmt[:dir_value], context)
+        end
+        private :process_direction_statement
+
+        def process_style_statement(diagram, stmt, context, _parents)
+          declare_styled_node(diagram, stmt[:style_target], context)
+          node = diagram.find_node(stmt[:style_target].to_s)
+          apply_node_paint(node, stmt[:style_props]) if node
+        end
+        private :process_style_statement
+
+        # Commas within paint functions belong to the value. Only a comma
+        # introducing another property ends a declaration.
+        def apply_node_paint(node, properties)
+          declarations = properties.to_s.scan(
+            /(?:\A|,)\s*(fill|stroke)\s*:\s*(.*?)(?=,\s*[\w-]+\s*:|\z)/m,
+          )
+          declarations.each do |property, value|
+            paint = Diagram::FlowchartNode.paint_value(value)
+            node.public_send("#{property}=", paint) if paint
+          end
+        end
+        private :apply_node_paint
+
+        def process_link_style_statement(diagram, stmt, _context, _parents)
+          process_link_style(diagram, stmt)
+        end
+        private :process_link_style_statement
+
+        def process_standalone_node(diagram, stmt, parent, context)
+          node_data = {
+            node_id: stmt[:node_id], shape_type: "rect", label: stmt[:node_id]
+          }
+          add_or_update_node(diagram, node_data)
+          claim_member(parent, stmt[:node_id].to_s, context)
+        end
+        private :process_standalone_node
+
+        def process_link_style(diagram, stmt)
+          check_link_indices(diagram, stmt[:link_targets].to_s)
+          check_link_words(stmt)
+        end
+        private :process_link_style
+
+        # mmdc refuses `linkStyle 1` when only edge 0 has been drawn so
+        # far, so the count is the edges written above the statement.
+        def check_link_indices(diagram, targets)
+          return if targets == "default"
+
+          last = diagram.edges.size - 1
+          targets.split(",").each do |token|
+            index = token.to_i
+            # `00` and `01` name no edge: mermaid looks the text up as a key.
+            next if index.to_s == token && index <= last
+
+            raise Parser::ParseError,
+                  "The index #{token} for linkStyle is out of bounds."
+          end
+        end
+        private :check_link_indices
+
+        # mermaid lexes these two as keywords even inside the style text,
+        # so `stroke:default`, `stroke:1default` and a bare `interpolate`
+        # are refused while `stroke:defaults` and `stroke:x-default` are
+        # plain text.
+        LINK_STYLE_KEYWORD = Regexp.new(
+          "(?:\\A|(?<=[,:;]|#{JS_SPACE}))" \
+          "(?:#|[0-9]+)?(interpolate|default)(?![A-Za-z0-9_])",
+        )
+
+        # mermaid rewrites `#name;` as an entity before it parses, except
+        # the last `;` of a lowercase `style ...:#...;` run, then the last
+        # `;` of a `classDef ...:#...;` run applied the same way right
+        # after. `linkStyle` is neither lowercase nor `classDef`, so
+        # `linkStyle 0 stroke:#f00;` holds an entity no style can take.
+        STYLE_RUN = /style.*:(?:(?!#{JS_SPACE}).)*#.*;/
+        CLASS_DEF_RUN = /classDef.*:(?:(?!#{JS_SPACE}).)*#.*;/
+        ENTITY = /#\w+;/
+
+        private_constant :LINK_STYLE_KEYWORD, :STYLE_RUN, :CLASS_DEF_RUN,
+                         :ENTITY
+
+        # Mermaid runs entity stripping over the whole source line, so a curve
+        # name and its properties share one entity check even though the
+        # grammar splits them into fields. A terminating `;` is part of an
+        # entity too.
+        def check_link_words(stmt)
+          [stmt[:link_curve], stmt[:link_props]].each do |text|
+            word = text.to_s[LINK_STYLE_KEYWORD, 1] or next
+            raise Parser::ParseError,
+                  "linkStyle cannot use `#{word}` here: " \
+                  "write `interpolate <curve>` first, then the styles."
+          end
+          text = [stmt[:link_curve], stmt[:link_props]].compact.join(" ")
+          check_link_entities("#{text}#{stmt[:link_end]}")
+        end
+        private :check_link_words
+
+        def check_link_entities(text)
+          entity = text.sub(STYLE_RUN, &:chop)
+            .sub(CLASS_DEF_RUN, &:chop)[ENTITY] or return
+
+          raise Parser::ParseError,
+                "linkStyle reads `#{entity}` as an HTML entity; " \
+                "drop the `;` after the colour."
+        end
+        private :check_link_entities
+
+        # `style Q ...` names a vertex, and mermaid draws it even when no
+        # other statement mentions it, unless an earlier edge carries that
+        # id: then mermaid drops the line and draws no vertex.
+        def declare_styled_node(diagram, target, context)
+          return if diagram.find_node(target.to_s)
+          return if context.edge_ids.include?(target.to_s)
+
+          node_data = { node_id: target, shape_type: "rect", label: target }
+          add_or_update_node(diagram, node_data)
+        end
+
+        # A subgraph cannot be its own ancestor. mmdc refuses that with
+        # "Setting b as parent of a would create a cycle", and the
+        # transform was discarding the ids needed to see it.
+        #
+        # The id is not always the written one. A subgraph declared with a
+        # FREE title gets a generated `subGraph<n>` — so `subgraph s Some
+        # Title` containing `s` is fine, and containing `subGraph0` is the
+        # cycle. Only a bare or bracket-titled declaration keeps its word.
+        def process_subgraph(diagram, stmt, context, parents = [])
+          id = subgraph_id(stmt, context)
+          ancestry = parents + [id]
+          record_subgraph(diagram, stmt, id, parents.last, context)
+          return unless stmt[:subgraph_statements]
+
+          sub_stmts = stmt[:subgraph_statements]
+          sub_stmts = [sub_stmts] unless sub_stmts.is_a?(Array)
+          process_statements(diagram, sub_stmts, context, ancestry)
+        end
+
+        # Ids are handed out in one pass before anything reads them.
+        # `subgraph_id` is asked for the same statement from several
+        # places, and a counter that ticked on every call skipped numbers:
+        # a subgraph nested in another came out `subGraph2`.
+        #
+        # mermaid numbers the innermost box first, so the walk goes down
+        # before it hands anything out. Measured on mmdc 11.12.0:
+        # `subgraph a One` holding `subgraph b Two` makes b subGraph0 and
+        # a subGraph1.
+        def assign_ids(statements, context)
+          statements = [statements] unless statements.is_a?(Array)
+
+          statements.each do |stmt|
+            next unless stmt.is_a?(Hash) && stmt[:subgraph_keyword]
+
+            if stmt[:subgraph_statements]
+              assign_ids(stmt[:subgraph_statements], context)
+            end
+            context.ids[stmt] = allocate_id(stmt, context)
+          end
+        end
+
+        # A quoted id arrives as a Hash, and `to_s` on that gave
+        # `{string: "s"}`, so a quoted self-parent slipped through.
+        def subgraph_id(stmt, context)
+          context.ids[stmt] ||= allocate_id(stmt, context)
+        end
+
+        def allocate_id(stmt, context)
+          generated_id?(stmt) ? context.next_generated_id : written_id(stmt)
+        end
+
+        # A free title always generates one. So does a bare id carrying
+        # whitespace — `subgraph "a b"` is subGraph0 titled "a b". A
+        # bracket title keeps the written id even then, so
+        # `subgraph "a b" [T]` stays `a b`. All measured on mmdc 11.12.0.
+        def generated_id?(stmt)
+          return true if free_titled?(stmt)
+
+          stmt[:subgraph_title].nil? && written_id(stmt).match?(/\s/)
+        end
+
+        def written_id(stmt)
+          plain_id(stmt[:subgraph_id])
+        end
+
+        # A quoted id arrives as `{string: <slice>}`, so a bare `to_s`
+        # gives `{string: "a"@21}` and never matches the id it names.
+        # Every place that compares an id has to unwrap it, not just the
+        # subgraph's own — the cycle walk reads node ids too.
+        def plain_id(raw)
+          return raw.to_s unless raw.is_a?(Hash)
+
+          value = raw.values.first
+          value.is_a?(Array) ? value.join : value.to_s
+        end
+
+        # The grammar captures a bracket title WITHOUT its brackets, so
+        # the text cannot tell the two forms apart. They carry different
+        # keys for that reason — testing for a leading `[` read every
+        # bracketed title as free and generated an id for it.
+        def free_titled?(stmt)
+          !stmt[:subgraph_free_title].nil?
+        end
+
+        # A box cannot end up inside itself. An ancestor chain only sees
+        # loops that nest, and two declarations can close one between
+        # them — `a` holding `b` while `b` holds `a` — so each edge is
+        # recorded as its claim is won, and the whole set is checked
+        # once the diagram has been read.
+        #
+        # Read from the ARBITRATED graph, not from what the source
+        # writes. A claim that lost makes no edge, because the box it
+        # named already belongs to somebody else and mermaid never hangs
+        # it there. Measured on mmdc 11.12.0: `subgraph c` holding `b`,
+        # then `b` holding `a`, then `a` holding `b` draws clusters `c`
+        # and `b` — the last claim loses, so nothing closes. Walking the
+        # written source instead refused a diagram mmdc draws.
+        def reject_ownership_cycles(context)
+          loop_found = Diagram::Containment.looping_pair(context.ownership)
+          return if loop_found.nil?
+
+          parent, child = loop_found
+          raise Parser::ParseError,
+                "Setting #{parent} as parent of #{child} would create " \
+                "a cycle."
+        end
+
+        # Declaration order is kept in the model. Ownership is independent:
+        # a parent declared later can adopt an earlier top-level subgraph.
+        #
+        # Being written inside a box is a claim like any other, so a
+        # declaration takes the id only if nothing named it earlier. When
+        # it loses, the box is still built and still holds what it
+        # contains — it just does not become anybody's child, and the
+        # earlier claimant adopts it once the walk is over.
+        #
+        # The first box wins a duplicated name. When a later declaration is
+        # nested, the winning box—not the just-built empty duplicate—is
+        # parented, matching mermaid's visible containment.
+        def record_subgraph(diagram, stmt, id, parent, context)
+          box = Diagram::FlowchartSubgraph.new
+          box.id = id
+          box.declared_title = subgraph_label(stmt)
+          diagram.subgraphs << box
+          holding = (context.boxes[id] ||= box)
+          holder = claim(parent, id, context)
+          return if holder.nil?
+
+          holding.parent_id = parent
+          holder.child_ids << id
+        end
+
+        # A bracketed title stands alone. A free one keeps the word that
+        # looks like an id, and the gap after it, because mermaid labels
+        # `subgraph s Some Title` with the whole run and generates the id
+        # separately. Measured against mmdc 11.12.0.
+        def subgraph_label(stmt)
+          return stmt[:subgraph_title].to_s if stmt[:subgraph_title]
+
+          if free_titled?(stmt)
+            return [written_id(stmt), stmt[:subgraph_free_gap],
+                    stmt[:subgraph_free_title]].join
+          end
+
+          # The text that was too spaced to serve as an id becomes the
+          # title instead, trimmed: `subgraph " ab"` is titled "ab".
+          generated_id?(stmt) ? written_id(stmt).strip : nil
+        end
+
+        # The one ownership rule: the first box to name an id keeps it,
+        # whether it named a node or another box. Source order decides
+        # and nothing else. Measured against mmdc 11.12.0; the shapes
+        # are one apiece in flowchart_subgraph_ownership_spec.rb.
+        #
+        # A declaration at the TOP level claims nothing, which is why
+        # `subgraph b / X / end` followed by `subgraph c / b / end` still
+        # leaves b inside c.
+        #
+        # This used to be written twice, once here and once as `adopt`'s
+        # "unless the parent is already set". The two disagreed, and a
+        # later nested declaration took an id an earlier reference had
+        # already claimed.
+        #
+        # @return [Diagram::FlowchartSubgraph, nil] the box that took it
+        def claim(parent, id, context)
+          box = enclosing(parent, context)
+          return nil if box.nil? || id.empty? || context.claimed[id]
+
+          context.claimed[id] = true
+          # The edge the cycle check reads. Only a WINNING claim makes
+          # one, which is what stops a losing claim from closing a loop
+          # that mermaid never sees. No `include?` guard: an id is
+          # claimed once, so it can be listed only once.
+          (context.ownership[box.id] ||= []) << id
+          box
+        end
+
+        # `<<`, not `+=`. Each instance gets its own array from the
+        # attribute default, so appending touches nobody else, and `+=`
+        # went through the model's collection setter once per member —
+        # 1,600 nodes in one box took 2.3 seconds instead of half a
+        # millisecond.
+        def claim_member(parent, node_id, context)
+          box = claim(parent, node_id, context)
+          box.node_ids << node_id if box
+        end
+
+        # Indexed rather than searched. Scanning every box for every node
+        # made a 240-subgraph diagram take four times as long to parse as
+        # it did before subgraphs were modelled.
+        def enclosing(parent, context)
+          parent.nil? ? nil : context.boxes[parent]
+        end
+
+        # `direction` inside a box turns that box's contents, and mmdc
+        # accepts a top-level one without honouring it — measured on
+        # 11.12.0, where `flowchart TD` followed by `direction LR` still
+        # stacks its nodes vertically. So there is nothing to do when no
+        # box encloses it.
+        def set_direction(parent, value, context)
+          box = enclosing(parent, context)
+          box.direction = value.to_s if box
+        end
+
+        # An id that names a subgraph names the BOX, not a node beside it.
+        # `one --> two` joins two clusters, and a bare `b` inside
+        # `subgraph a` nests box b in a. Measured on mmdc 11.12.0: every
+        # form of the reference — bare, shaped, an edge endpoint, written
+        # before or after the declaration — draws no node.
+        #
+        # Left until the walk is over because an EMPTY box is the
+        # exception: mmdc draws `subgraph one` / `end` joined by an edge
+        # as a plain node, and nothing knows what a box holds until every
+        # statement has been read.
+        #
+        # The ids are collected first and the nodes swept once. Asking
+        # `find_node` per box rescans the whole collection each time, and
+        # a chain of 2,000 boxes spent 17 seconds in the transform where
+        # this takes under one.
+        def promote_referenced_subgraphs(diagram, context)
+          holders = holders_by_member(diagram)
+          promoted = surviving_boxes(context)
+          return if promoted.empty?
+
+          promoted.each_value { |box| adopt(holders[box.id], box) }
+          diagram.nodes.reject! { |node| promoted.key?(node.id) }
+        end
+
+        # A box is worth drawing when it holds something, and holding
+        # something is exactly what the model already calls `drawable?`.
+        #
+        # This used to settle by fixed point, re-checking whether taking
+        # a reference out of a box had left that box empty. Once `claim`
+        # became the single ownership rule that stopped being possible:
+        # an id sitting in a box's `node_ids` is an id that box WON, so
+        # no declaration parented it elsewhere and the box keeps it.
+        # `adopt` is the only later writer and it MOVES an id from
+        # `node_ids` to `child_ids` on the same holder, so no pass can
+        # leave a box holding less than it holds now.
+        #
+        # Measured before deleting the loop — 2,312 sources, 301 calls to
+        # the old predicate, zero that disagreed with `drawable?`.
+        def surviving_boxes(context)
+          context.boxes.select { |_id, box| box.drawable? }
+        end
+
+        def holders_by_member(diagram)
+          diagram.subgraphs.each_with_object({}) do |box, acc|
+            box.node_ids.each { |id| acc[id] = box }
+          end
+        end
+
+        # The box that claimed the reference becomes the parent, with
+        # nobody to argue with. Two guards used to say so defensively;
+        # both were unreachable, because `parent_id` has exactly two
+        # writers — `record_subgraph`, which only runs on a WINNING
+        # claim, and this method, which runs after the walk. Holding
+        # `box.id` in `node_ids` means this holder won that claim, so
+        # no declaration can have set a parent or listed the child.
+        # `promoted` is keyed by id, so no box is adopted twice either.
+        #
+        # Checked as well as argued, before the guards came out: 2,312
+        # sources, 50 adoptions, none with a parent already set and none
+        # where the holder already listed the child.
+        def adopt(holder, box)
+          return if holder.nil?
+
+          holder.node_ids.delete(box.id)
+          box.parent_id = holder.id
+          holder.child_ids << box.id
+        end
+
+        # The last two arguments are new, and both default, so a caller
+        # written against the old two-argument form still works: with no
+        # enclosing box there is nothing to claim, and the throwaway
+        # context is only there to keep the claim path from special-casing
+        # its absence.
+        def process_node_edge_statement(diagram, stmt, parent = nil,
+                                             context = Context.new)
+          edges = stmt[:edges]
+          nodes = [stmt[:node], *stmt[:group]]
+          sources = declare_group(diagram, nodes, parent, context,
+                                  linkless: edges.nil?)
+          return unless edges
+
+          edge_list(edges).each do |edge_data|
+            next unless edge_data.is_a?(Hash)
+
+            sources = process_edge(diagram, edge_data, sources, parent, context)
+          end
+        end
+
+        def edge_list(edges)
+          edges.is_a?(Array) ? edges : [edges]
+        end
+        private :edge_list
+
+        # `arrow` arrives wrapped with the other edge fields, so it cannot be
+        # unwrapped by a Parslet rule that matches only that key. Validate its
+        # token before the defensive target guard; the grammar currently makes
+        # targets mandatory, but the guard protects a future relaxed rule.
+        def process_edge(diagram, edge_data, sources, parent, context)
+          token = link_token(edge_data)
+          label = edge_label(edge_data)
+          rank_span = minimum_rank_span(edge_data)
+          return sources unless edge_data[:target]
+
+          nodes = [edge_data[:target], *edge_data[:group]]
+          targets = declare_group(diagram, nodes, parent, context)
+          record_edge_id(edge_data, context)
+          connect_groups(diagram, sources, targets, [token, label, rank_span])
+          targets
+        end
+        private :process_edge
+
+        def record_edge_id(edge_data, context)
+          context.edge_ids << edge_data[:edge_id].to_s if edge_data[:edge_id]
+        end
+        private :record_edge_id
+
+        # `A & B --> C & D` links every source to every target.
+        def connect_groups(diagram, sources, targets, link)
+          sources.product(targets).each do |source, target|
+            diagram.edges << create_edge(source[:node_id], target, *link)
+          end
+        end
+        private :connect_groups
+
+        # The text a link carries: nil when it has no label, or when the
+        # pipes hold only space. Written around the link,
+        # `A -- text --> B`, it arrives as the run itself; written after it,
+        # `A -->|text| B`, as the run between the pipes.
+        def edge_label(edge_data)
+          label = edge_data[:label]
+          return inline_label(label) if edge_data[:open]
+
+          piped_label(label[:pipe_text]) if label.is_a?(Hash)
+        end
+        private :edge_label
+
+        # @raise [Parser::ParseError] on a label that nothing is left of
+        def inline_label(label)
+          text = unquoted_label(label)
+          return text unless text.empty?
+
+          raise Parser::ParseError, "An inline link label cannot be empty."
+        end
+        private :inline_label
+
+        # Mermaid trims the text between pipes, and `|  |` is a label of
+        # nothing rather than an error. Nothing left is nil, so the link
+        # has no label.
+        def piped_label(text)
+          trimmed = unquoted_label(text).gsub(LABEL_EDGE_SPACE, "")
+          trimmed unless trimmed.empty?
+        end
+        private :piped_label
+
+        # Mermaid deletes a whole comment line before it lexes, and the
+        # quotes of a quoted run are delimiters, not text.
+        def unquoted_label(label)
+          label.to_s.gsub(COMMENT_LINE, "").delete('"')
+        end
+        private :unquoted_label
+
+        # The nodes one side of a link names: the first, and any that
+        # `&` joined to it. Returns their node data, in source order.
+        #
+        # A member that addresses an edge id (`e1@{ ... }`, `e1:::foo`) names
+        # no node and changes no node that shares the id, except for its
+        # class. Such a shared node still belongs to an enclosing subgraph
+        # that names it. In a link, the id is still returned as its endpoint.
+        def declare_group(diagram, nodes, parent, context, linkless: false)
+          nodes.filter_map do |node_hash|
+            declare_node(diagram, node_hash, parent, context, linkless)
+          end
+        end
+        private :declare_group
+
+        def declare_node(diagram, node_hash, parent, context, linkless)
+          if edge_reference?(node_hash, context)
+            return declare_edge_reference(
+              diagram, node_hash, parent, context, linkless
+            )
+          end
+
+          node_data = extract_node_data(node_hash)
+          add_or_update_node(diagram, node_data)
+          claim_member(parent, node_data[:node_id].to_s, context)
+          node_data
+        end
+        private :declare_node
+
+        def declare_edge_reference(
+          diagram, node_hash, parent, context, linkless
+        )
+          metadata_document(node_hash[:metadata])
+          shared = class_shared_node(diagram, node_hash)
+          claim_member(parent, shared.id, context) if shared
+          { node_id: node_hash[:node_id] } unless linkless
+        end
+        private :declare_edge_reference
+
+        # Any mention of a known edge id — bare (`e1`), shaped (`e1[x]`),
+        # carrying `@{...}`/`:::foo`, or used as a link endpoint — addresses
+        # the edge named `e1`, even when a node is also called `e1`: mermaid
+        # checks the edges first and stops there, so its shape, label and
+        # metadata reach no node.
+        def edge_reference?(node_hash, context)
+          context.edge_ids.include?(node_hash[:node_id].to_s)
+        end
+        private :edge_reference?
+
+        # Mermaid gives a `:::foo` class to every node, edge and subgraph
+        # with that id, so a node sharing an edge's id still takes it.
+        def class_shared_node(diagram, node_hash)
+          node = diagram.find_node(node_hash[:node_id].to_s)
+          node.classes = node_hash[:inline_class].to_s if
+            node && node_hash[:inline_class]
+          node
+        end
+        private :class_shared_node
+        # A link written around its label, `A -- text --> B`, arrives in
+        # two halves, and their concatenation reads like the one-piece
+        # link of the same kind: `-- -->` is `---->`.
+        #
+        # Mermaid reads a `<` opening the closing half as the start head
+        # of the whole link, so it moves to the front, and it refuses an
+        # `x` or `o` opening half whose closing half does not end in the
+        # same marker; a `<` needs a `>` to close it. An `x` or `o` at the
+        # very start of the closing half of a link that already opens with
+        # `<` draws nothing of its own: `A <-- t x--> B` and
+        # `A <-- t o--> B` render as a plain double arrow, measured against
+        # mermaid 11.12.0's own parser.
+        # @raise [Parser::ParseError] on an unmatched opening marker
+        def link_token(edge_data)
+          return edge_data[:arrow][:token].to_s if edge_data[:arrow]
+
+          open = edge_data[:open].to_s
+          raw_close = edge_data[:close].to_s
+          reject_unmatched_marker(open, raw_close)
+          close = closing_half(open, raw_close)
+          return "#{open}#{close}" unless lifts_start_head?(open, close)
+
+          "#{close[0]}#{open}#{close[1..]}"
+        end
+
+        def closing_half(open, close)
+          return close unless open.start_with?("<") && close.match?(/\A[ox]/)
+
+          close[1..]
+        end
+        private :closing_half
+
+        # The start head of the closing half, when the opening half has
+        # none, belongs to the whole link: `<` always, `x` or `o` when the
+        # other end carries the same one.
+        def lifts_start_head?(open, close)
+          return false if open.match?(/\A[ox<]/)
+
+          close.start_with?("<") ||
+            (close.match?(/\A[ox]/) && close[-1] == close[0])
+        end
+        private :lifts_start_head?
+
+        def reject_unmatched_marker(open, close)
+          return if marker_closed?(open[0], close)
+
+          raise Parser::ParseError,
+                "The link #{open}#{close} opens with #{open[0]} " \
+                "and does not close with it."
+        end
+
+        # An opening `<` closes on a head and takes no second `<` start
+        # marker on the closing half, but an `x` or `o` there draws
+        # nothing and is dropped by `link_token` above; an opening `x` or
+        # `o` takes none of its own kind again (`x-- t o--x` draws,
+        # `x-- t x--x` does not). A thick closing half that opens with its
+        # own `<` also needs a head: mmdc refuses `A == t <==x B`,
+        # `A == t <=== B` and `A == t x==> B`, and draws the solid and
+        # dotted forms.
+        def marker_closed?(marker, close)
+          return false if invalid_thick_closure?(close)
+
+          case marker
+          when "x", "o" then close[-1] == marker && close[0] != marker
+          when "<" then close[-1] == ">" && !close.start_with?("<")
+          else true
+          end
+        end
+        private :marker_closed?
+
+        def invalid_thick_closure?(close)
+          close.match?(/\A[ox<]=/) && close[-1] != head_for(close[0])
+        end
+        private :invalid_thick_closure?
+
+        def head_for(start)
+          start == "<" ? ">" : start
+        end
+        private :head_for
+        private :reject_unmatched_marker
+        private :link_token
+
+        # A second mention of a node changes only what it actually says.
+        # Treating an absent shape as `rect` and an absent label as the id
+        # meant `A(keep)` followed by `A@{ shape: rect }` kept the round
+        # shape and lost the label — mermaid does the opposite of both.
+        def add_or_update_node(diagram, node_data)
+          return unless node_data
+
+          existing = diagram.find_node(node_data[:node_id])
+          return diagram.nodes << create_node(node_data) unless existing
+
+          update_node(existing, node_data)
+        end
+
+        def update_node(node, data)
+          node.label = data[:label] if data[:label]
+          node.shape = data[:shape_type] if data[:shape_type]
+          node.classes = data[:classes] if data[:classes]
+        end
+        private :update_node
+
+        # Extract node data from a parse tree. Metadata wins over the bracket
+        # form when both provide a shape or label, matching mermaid.
+        def extract_node_data(node_hash)
+          return nil unless node_hash
+
+          node_id = node_hash[:node_id].to_s
+          shape_type, label = bracket_shape(node_hash[:shape])
+
+          entries = metadata_entries(node_hash[:metadata])
+
+          {
+            node_id: node_id,
+            shape_type: metadata_shape(entries["shape"]) || shape_type,
+            label: entries["label"] || label,
+            classes: node_hash[:inline_class]&.to_s,
+          }
+        end
+
+        # nil means the source said nothing, which is not the same as
+        # saying `rect` or naming the node after itself. `create_node`
+        # supplies the defaults, so only a real mention overwrites.
+        def bracket_shape(shape_data)
+          return [nil, nil] unless shape_data
+
+          delims = "#{shape_data[:open]}#{shape_data[:close]}"
+          label = shape_data[:label]
+          # `A[ ]` is an EMPTY label, not an absent one: mmdc draws a node
+          # with nothing in it, and treating it as absent named the node
+          # after itself and kept an older label on a re-mention.
+          label = label.to_s.gsub(COMMENT_LINE, "") if delims == "()"
+          [SHAPE_MAP[delims] || "rect", label&.to_s&.strip]
+        end
+      end
+    end
+  end
+end

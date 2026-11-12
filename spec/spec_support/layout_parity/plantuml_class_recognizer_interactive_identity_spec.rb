@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 
 require "spec_helper"
-require "sirena/notation/plantuml"
+require "etassia/notation/plantuml"
 
-Sirena::Notation.send(:entries).delete(:plantuml)
+Etassia::Notation.send(:entries).delete(:plantuml)
 
 RSpec.describe SpecSupport::LayoutParity::PlantumlClassRecognizer do
   include SpecSupport::LayoutParity::FigureHelpers
 
   include_context "with an isolated notation registry"
 
-  before { Sirena::Notation.register(Sirena::Notation::PlantUML) }
+  before { Etassia::Notation.register(Etassia::Notation::PlantUML) }
 
   let(:recognizer) { described_class.new }
   let(:case_id) do
@@ -20,7 +20,7 @@ RSpec.describe SpecSupport::LayoutParity::PlantumlClassRecognizer do
   it "matches PlantUML's escaped interactive identity to the source name" do
     reference_keys = keys(interactive_svg(:reference))
 
-    expect(keys(interactive_svg(:sirena))).to eq(reference_keys)
+    expect(keys(interactive_svg(:etassia))).to eq(reference_keys)
   end
 
   it "matches every semantic element in the pinned interactive case" do
@@ -33,7 +33,7 @@ RSpec.describe SpecSupport::LayoutParity::PlantumlClassRecognizer do
 
   def interactive_svg(producer)
     identity = interactive_identity(producer)
-    indent = producer == :sirena ? "\u00A0" * 4 : ""
+    indent = producer == :etassia ? "\u00A0" * 4 : ""
     <<~SVG
       <svg viewBox="0 0 100 100">
         <g #{identity}><rect width="50" height="50"/>
@@ -55,13 +55,13 @@ RSpec.describe SpecSupport::LayoutParity::PlantumlClassRecognizer do
     reference = "spec/plantuml/references/class/#{case_id}.svg"
     SpecSupport::LayoutParity::CaseComparator.compare(
       case_id: case_id, type: "plantuml_class", reference: reference,
-      reference_svg: File.read(reference), sirena_svg: rendered_case,
+      reference_svg: File.read(reference), etassia_svg: rendered_case,
       reproduce: __FILE__, recognizer: recognizer, spatial_kinds: [:class]
     )
   end
 
   def rendered_case
     source = File.read("spec/plantuml/class/#{case_id}.puml")
-    Sirena.render(source, notation: :plantuml)
+    Etassia.render(source, notation: :plantuml)
   end
 end

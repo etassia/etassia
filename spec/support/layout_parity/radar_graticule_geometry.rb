@@ -6,7 +6,7 @@ module SpecSupport
   module LayoutParity
     # Extracts and compares radar graticule radii in increasing radius order.
     class RadarGraticuleGeometry
-      Comparison = Data.define(:reference_radius, :sirena_radius, :error)
+      Comparison = Data.define(:reference_radius, :etassia_radius, :error)
 
       def self.extract(svg)
         document = Nokogiri::XML(svg) { |config| config.strict.nonet }
@@ -15,15 +15,15 @@ module SpecSupport
           .map { |circle| new(circle).radius }.sort
       end
 
-      def self.compare(reference:, sirena:)
+      def self.compare(reference:, etassia:)
         reference_radii = extract(reference)
-        sirena_radii = extract(sirena)
-        unless reference_radii.size == sirena_radii.size
+        etassia_radii = extract(etassia)
+        unless reference_radii.size == etassia_radii.size
           raise ArgumentError, "graticule counts differ"
         end
 
-        reference_radii.zip(sirena_radii).map do |expected, actual|
-          Comparison.new(reference_radius: expected, sirena_radius: actual,
+        reference_radii.zip(etassia_radii).map do |expected, actual|
+          Comparison.new(reference_radius: expected, etassia_radius: actual,
                          error: analog_error(actual, expected))
         end
       end

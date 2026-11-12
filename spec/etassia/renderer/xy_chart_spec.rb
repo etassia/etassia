@@ -1,0 +1,84 @@
+# frozen_string_literal: true
+
+require "spec_helper"
+require "etassia/parser/xy_chart"
+require "etassia/layout/xy_chart"
+require "etassia/renderer/xy_chart"
+
+RSpec.describe Etassia::Renderer::XyChart do
+  subject(:renderer) { described_class.new }
+
+  let(:source) do
+    <<~MERMAID
+      xychart-beta
+        title "Sales Revenue"
+        x-axis "Month" [jan, feb, mar]
+        y-axis "Revenue" 0 --> 100
+        line [10, 20, 30]
+        bar [15, 25, 35]
+    MERMAID
+  end
+  let(:diagram) { Etassia::Parser::XyChart.new.parse(source) }
+  let(:scene) { Etassia::Layout::XyChart.new.call(diagram) }
+
+  def scene_summary
+    [scene.class, scene.series.map(&:class).uniq,
+     scene.lines.map(&:class).uniq, scene.view_box]
+  end
+
+  def position_summary
+    line, bar = scene.series
+    [*line_position_summary(line), bar.bars.map(&:x).min >= minimum_x]
+  end
+
+  def line_position_summary(line)
+    first_point = "#{line.points.first.x},#{line.points.first.y}"
+    [line.points.map(&:x).min >= minimum_x,
+     line.polyline.include?(first_point)]
+  end
+
+  def minimum_x
+    Etassia::Layout::XyChart::MARGIN_LEFT
+  end
+
+  def render_summary
+    svg = renderer.render(scene)
+    counts = rendered_counts(svg)
+    [counts[0], counts[1], counts[2] >= 5, expected_labels?(svg)]
+  end
+
+  def rendered_counts(svg)
+    [Etassia::Svg::Polyline, Etassia::Svg::Circle, Etassia::Svg::Rect]
+      .map { |type| svg.children.grep(type).length }
+  end
+
+  def expected_labels?(svg)
+    texts = svg.children.grep(Etassia::Svg::Text).map do |text|
+      Array(text.content).join
+    end
+    labels = ["Sales Revenue", "Month", "Revenue", "Line", "Bar"]
+    labels.all? { |label| texts.include?(label) }
+  end
+
+  it "returns typed final chart geometry" do
+    expected = [Etassia::Layout::XyChart::Scene,
+                [Etassia::Layout::XyChart::Series],
+                [Etassia::Layout::XyChart::Line], "0 0 700 500"]
+    expect(scene_summary).to eq(expected)
+  end
+
+  it "positions line points and bars in canvas coordinates" do
+    expect(position_summary).to eq([true, true, true])
+  end
+
+  it "renders axes, both series, labels, and legends" do
+    expect(render_summary).to eq([1, 3, true, true])
+  end
+
+  it "uses Scene canvas dimensions verbatim" do
+    svg = renderer.render(scene)
+
+    expect([svg.width, svg.height, svg.view_box])
+      .to eq([scene.width, scene.height, scene.view_box])
+  end
+end

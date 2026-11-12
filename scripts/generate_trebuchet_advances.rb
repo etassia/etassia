@@ -1,12 +1,12 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Regenerates lib/sirena/text_measurement/trebuchet_advances.rb from the
+# Regenerates lib/etassia/text_measurement/trebuchet_advances.rb from the
 # hmtx table of Trebuchet MS Regular, the face mmdc measured timeline
 # cards with. Development-only: `gem install ttfunk`, then plain `ruby`:
 #
 #   ruby scripts/generate_trebuchet_advances.rb "Trebuchet MS.ttf" \
-#     lib/sirena/text_measurement/trebuchet_advances.rb
+#     lib/etassia/text_measurement/trebuchet_advances.rb
 require "ttfunk"
 
 RANGES = [0x20..0x7E, 0xA0..0x24F].freeze
@@ -55,7 +55,7 @@ def render(runs)
     # Horizontal advance widths in per-mille em of Trebuchet MS Regular,
     # for Basic Latin and Latin-1 through Latin Extended-B. Advances are
     # numeric facts about a glyph, not a copy of any font.
-    module Sirena
+    module Etassia
       class TextMeasurement
         module TrebuchetAdvances
           # Same layout as ArialAdvances::DATA.

@@ -4,7 +4,7 @@
 # Release preflight: is there a changelog entry for the version about to ship?
 #
 #   ruby scripts/check_changelog.rb <next_version> [CHANGELOG.md]
-#     [lib/sirena/version.rb]
+#     [lib/etassia/version.rb]
 #
 # <next_version> is the release workflow's input: x.y.z, major, minor, patch
 # or skip (release the version already in version.rb). pre/rc/etc are refused,
@@ -12,7 +12,7 @@
 #
 # Releasable means: a `## [X.Y.Z] - YYYY-MM-DD` section exists for the target
 # version and holds at least one bullet under an allowed category heading.
-module Sirena
+module Etassia
   module ChangelogCheck
     CATEGORIES = %w[Added Changed Deprecated Removed Fixed Security].freeze
     SECTION = Regexp.new(
@@ -120,11 +120,11 @@ if __FILE__ == $PROGRAM_NAME
   end
 
   begin
-    current = Sirena::ChangelogCheck.current_version(
-      version_path || "lib/sirena/version.rb",
+    current = Etassia::ChangelogCheck.current_version(
+      version_path || "lib/etassia/version.rb",
     )
-    target = Sirena::ChangelogCheck.target_version(next_version, current)
-    found = Sirena::ChangelogCheck.problems(
+    target = Etassia::ChangelogCheck.target_version(next_version, current)
+    found = Etassia::ChangelogCheck.problems(
       File.read(changelog_path || "CHANGELOG.md"), target
     )
   rescue ArgumentError, SystemCallError => e

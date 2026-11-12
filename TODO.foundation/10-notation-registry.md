@@ -1,13 +1,13 @@
 # 10 — Notation registry (two-level), fast-tracked
 
 Status (2026-10-10): **complete.** The owner-approved
-Reading A contract is committed in [`10a-notation-contract.md`](https://github.com/claricle/sirena/blob/d011db95329072bc318d22cfa59c3dbead79731b/TODO.foundation/10a-notation-contract.md).
+Reading A contract is committed in [`10a-notation-contract.md`](https://github.com/claricle/etassia/blob/d011db95329072bc318d22cfa59c3dbead79731b/TODO.foundation/10a-notation-contract.md).
 It makes one unambiguous choice for API placement, identifiers, precedence,
 mismatch/unknown errors, stdin, built-in discovery, external discovery, CLI
 behavior, and the interim IR boundary. The 10b truth-table, fake-notation,
 cold-subprocess discovery, boundary, and CLI contracts are on `main`.
 `scoreboard/corpus-output.json` closes the remaining byte-output gate with a
-path-keyed SHA-256 baseline for all 1,161 current oracle-valid Sirena-passing
+path-keyed SHA-256 baseline for all 1,161 current oracle-valid Etassia-passing
 cases; `scripts/corpus_output_manifest.rb --check` reports zero added,
 deleted, or changed outputs against that committed baseline.
 
@@ -19,10 +19,10 @@ fast-tracked, not why others wait.)
 
 ## Problem
 
-- `DiagramRegistry` is a flat Mermaid-type map; `lib/sirena.rb` is ~330
+- `DiagramRegistry` is a flat Mermaid-type map; `lib/etassia.rb` is ~330
   lines of copy-pasted require+register; detection is hardcoded in the
   engine. Issue #2 demands: adding a notation = adding a renderer.
-- Latent bug to delete by name: `lib/sirena.rb:38` defines a stray
+- Latent bug to delete by name: `lib/etassia.rb:38` defines a stray
   top-level `def self.render` on `main`, referencing bare `Engine`
   (NameError if ever called).
 
@@ -30,7 +30,7 @@ fast-tracked, not why others wait.)
 
 Two-level registry: notation → notation plugin → (diagram type →
 parser/transform/renderer). No flat tuple map; no type-switch inside a
-renderer object. `Sirena::Notation::Mermaid` owns detection rules and
+renderer object. `Etassia::Notation::Mermaid` owns detection rules and
 its type table; the engine holds no notation constants.
 
 **IR boundary (interim, and it has a successor).** The owner ruled on
@@ -71,7 +71,7 @@ decided by whoever types fastest. The split is what makes it real.
   boot code, and a built-in manifest cannot satisfy that. So 10a must
   ALSO pick an external mechanism: a RubyGems plugin hook, a directory
   loader, or an explicit "the consumer requires it" contract. Today
-  everything is an explicit `require_relative` at `lib/sirena.rb:42`,
+  everything is an explicit `require_relative` at `lib/etassia.rb:42`,
   which satisfies neither.
 
 ## Do
@@ -90,7 +90,7 @@ decided by whoever types fastest. The split is what makes it real.
      `.mmd`-only batch; update it.
    - Specs: `render` and `batch` have NO coverage at all and need it
      from scratch; `types` and `help` already have behavioral specs
-     (`spec/sirena/cli_spec.rb:15`) that need extending for the
+     (`spec/etassia/cli_spec.rb:15`) that need extending for the
      multi-notation output.
 4. Coordinate the canonical type-name table with item 02 step 6 — 02
    publishes it, 10 relocates the registry that holds it. Settle the
@@ -107,7 +107,7 @@ decided by whoever types fastest. The split is what makes it real.
 answers every question above with a single unambiguous choice. No
 "either/or" survives into 10b.
 
-Complete: [`10a-notation-contract.md`](https://github.com/claricle/sirena/blob/d011db95329072bc318d22cfa59c3dbead79731b/TODO.foundation/10a-notation-contract.md) is marked approved and
+Complete: [`10a-notation-contract.md`](https://github.com/claricle/etassia/blob/d011db95329072bc318d22cfa59c3dbead79731b/TODO.foundation/10a-notation-contract.md) is marked approved and
 records the owner decision for every listed contract question.
 
 **10b** — a truth-table spec covers the precedence rules (explicit vs
@@ -122,12 +122,12 @@ item 18 relies on — "model" here means a notation's own parse output,
 which stays private; the typed IR is deliberately shared, and item 18
 step 6 moves this boundary); a **cold-subprocess CLI spec** renders a fake
 external notation without editing central boot code, proving the
-discovery mechanism actually works out of process; `lib/sirena.rb` ≤ 40
+discovery mechanism actually works out of process; `lib/etassia.rb` ≤ 40
 lines; scoreboard unchanged; CLI extended with specs.
 
 ## Files
 
-`lib/sirena/notation{,/mermaid}.rb`, `lib/sirena.rb`,
-`lib/sirena/engine.rb`, `lib/sirena/diagram_registry.rb`,
-`lib/sirena/cli.rb`, `lib/sirena/commands/{render,batch,types}.rb`,
-`spec/sirena/notation_spec.rb`.
+`lib/etassia/notation{,/mermaid}.rb`, `lib/etassia.rb`,
+`lib/etassia/engine.rb`, `lib/etassia/diagram_registry.rb`,
+`lib/etassia/cli.rb`, `lib/etassia/commands/{render,batch,types}.rb`,
+`spec/etassia/notation_spec.rb`.
