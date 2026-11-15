@@ -36,5 +36,7 @@ module Etassia
   # @return [String] SVG output
   # @see Runtime for the optional Rust runtime (ETASSIA_RUNTIME)
   def self.render(source, options = {}) = Runtime.or_ruby(source, options)
+
+  autoload :Dim, "etassia/dim"
 end
 require_relative "etassia/notation/builtin"
