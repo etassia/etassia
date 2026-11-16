@@ -169,7 +169,7 @@ module Etassia
 
           def rule(x_one, y_one, x_two, y_two)
             Etassia::Layout::Gantt::Line.new(x1: x_one, y1: y_one,
-                                            x2: x_two, y2: y_two)
+                                             x2: x_two, y2: y_two)
           end
 
           def place_task(task, cells, widths)

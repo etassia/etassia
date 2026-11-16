@@ -6,7 +6,7 @@ require "etassia/diagram/c4"
 RSpec.describe Etassia::Diagram::C4 do
   def element(id, **attrs)
     Etassia::Diagram::C4Element.new(id: id, label: id.upcase,
-                                   element_type: "System", **attrs)
+                                    element_type: "System", **attrs)
   end
 
   def relationship(from, to, **attrs)
@@ -39,7 +39,7 @@ RSpec.describe Etassia::Diagram::C4 do
 
     it "rejects elements with a missing or empty id" do
       missing = Etassia::Diagram::C4Element.new(label: "A",
-                                               element_type: "System")
+                                                element_type: "System")
       empty = element("")
       elements = [missing, empty]
 
