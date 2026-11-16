@@ -263,7 +263,7 @@ jobs:
       - run: bundle exec rspec spec/plantuml/toolchain_probe_spec.rb --tag toolchain
 
   native-runtime:
-    # The optional Rust runtime (claricle/etassia-rs, `etassia-native` gem). The
+    # The optional Rust runtime (etassia/etassia-rs, `etassia-native` gem). The
     # shared library is built from a pinned etassia-rs commit and loaded through
     # its Ruby binding; every other job runs without it and so proves the
     # pure-Ruby path. Linux only: Ruby and Rust must share a libm.
@@ -276,7 +276,7 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4
         with:
-          repository: claricle/etassia-rs
+          repository: etassia/etassia-rs
           ref: ${{ env.ETASSIA_RS_REF }}
           path: etassia-rs
       - uses: ruby/setup-ruby@a0102e0972be65f351c307e2d64b9314a57c8073  # v1
