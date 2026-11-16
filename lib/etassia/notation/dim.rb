@@ -19,7 +19,7 @@ module Etassia
 
       NOT_FOUND = "Unable to detect diagram type from source. " \
                   "Source must start with a JSON object carrying a " \
-                  "`dim` version and a `graph`"
+                  "`dim` version"
       private_constant :NOT_FOUND
 
       def id
@@ -44,7 +44,8 @@ module Etassia
       end
 
       def parse(source)
-        raise Engine::DiagramTypeError, NOT_FOUND unless claims?(source)
+        document = claimed_document(source)
+        raise Engine::DiagramTypeError, NOT_FOUND unless dim_source?(document)
 
         Etassia::Dim::Document.parse(source)
         raise Engine::PipelineError,
@@ -53,6 +54,15 @@ module Etassia
       end
 
       private
+
+      # DIM-notation territory, which parse judges: any JSON object naming
+      # a `dim`. Wider than claims? on purpose -- a partial document (a
+      # bare version, say) belongs to the model's validator, which raises
+      # UnsupportedError before parse declines, while plain JSON and
+      # non-JSON stay the registry contract's DiagramTypeError.
+      def dim_source?(document)
+        document.is_a?(Hash) && document.key?("dim")
+      end
 
       # The parsed document, or nil for anything that is not ours:
       # non-strings, invalid encodings, non-JSON, non-objects.
