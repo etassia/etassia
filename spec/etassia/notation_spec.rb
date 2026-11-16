@@ -56,8 +56,8 @@ RSpec.describe Etassia::Notation do
       described_class.register(other)
 
       expect(described_class.ids.map(&:to_s)).to eq(%w[mermaid plantuml_salt
-                                                       plantuml_data fake
-                                                       other])
+                                                       plantuml_data dim
+                                                       fake other])
     end
 
     {
@@ -331,11 +331,11 @@ RSpec.describe Etassia::Notation do
 
       it "records no id" do
         expect(described_class.ids.map(&:to_s))
-          .to eq(%w[mermaid plantuml_salt plantuml_data])
+          .to eq(%w[mermaid plantuml_salt plantuml_data dim])
       end
 
       it "records no extension" do
-        expect(described_class.extensions).to eq(%w[.mmd .salt])
+        expect(described_class.extensions).to eq(%w[.mmd .salt .dim])
       end
     end
 
@@ -392,8 +392,8 @@ RSpec.describe Etassia::Notation do
     it "names the given id and every valid one, sorted" do
       described_class.register(other)
 
-      message = "Unknown notation: nope. Valid notations: fake, mermaid, " \
-                "other, plantuml_data, plantuml_salt"
+      message = "Unknown notation: nope. Valid notations: dim, fake, " \
+                "mermaid, other, plantuml_data, plantuml_salt"
       expect { described_class.fetch(:nope) }
         .to raise_error(pipeline_error, message)
     end

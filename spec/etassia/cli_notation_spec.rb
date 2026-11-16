@@ -104,7 +104,7 @@ RSpec.describe Etassia::Cli do
 
       expect([status, err]).to eq(
         [1, "Error: Unknown notation: nope. " \
-            "Valid notations: mermaid, plantuml_data, plantuml_salt\n"],
+            "Valid notations: dim, mermaid, plantuml_data, plantuml_salt\n"],
       )
     end
 
