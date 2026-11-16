@@ -134,7 +134,8 @@ module DocMermaidSpec
     "docs/_diagram_types/state-diagram.adoc" => {
       "Diagram declaration #1" => [:placeholder, PARSE],
       "Scale #1" => [:etassia_gap, PARSE],
-      "Complex state machine with multiple features #1" => [:etassia_gap, PARSE],
+      "Complex state machine with multiple features #1" => [:etassia_gap,
+                                                            PARSE],
     },
     "docs/_diagram_types/timeline.adoc" => {
       "Event syntax #1" => [:fragment, DETECT],
