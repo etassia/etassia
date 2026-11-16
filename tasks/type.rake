@@ -19,3 +19,12 @@ namespace :type do
     abort "type:new failed: #{e.message}"
   end
 end
+
+namespace :notations do
+  desc "Build the diagram-type coverage matrix (scoreboard/coverage.json + docs/COVERAGE.md)"
+  task :coverage do
+    require_relative "../scripts/coverage_matrix"
+    paths = CoverageMatrix.write!
+    puts "coverage matrix written: #{paths.join(', ')}"
+  end
+end

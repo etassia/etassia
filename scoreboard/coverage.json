@@ -1,0 +1,326 @@
+{
+  "mermaid": [
+    {
+      "type": "flowchart",
+      "keyword": "graph, flowchart, or flowchart-elk",
+      "carried": true,
+      "corpus_cases": 331,
+      "corpus_passing": 219,
+      "status": "219/331 passing"
+    },
+    {
+      "type": "sequence",
+      "keyword": "sequenceDiagram",
+      "carried": true,
+      "corpus_cases": 126,
+      "corpus_passing": 107,
+      "status": "107/126 passing"
+    },
+    {
+      "type": "class_diagram",
+      "keyword": "classDiagram",
+      "carried": true,
+      "corpus_cases": 465,
+      "corpus_passing": 327,
+      "status": "327/465 passing"
+    },
+    {
+      "type": "state_diagram",
+      "keyword": "stateDiagram or stateDiagram-v2",
+      "carried": true,
+      "corpus_cases": 234,
+      "corpus_passing": 52,
+      "status": "52/234 passing"
+    },
+    {
+      "type": "er_diagram",
+      "keyword": "erDiagram",
+      "carried": true,
+      "corpus_cases": 161,
+      "corpus_passing": 15,
+      "status": "15/161 passing"
+    },
+    {
+      "type": "user_journey",
+      "keyword": "journey",
+      "carried": true,
+      "corpus_cases": 35,
+      "corpus_passing": 27,
+      "status": "27/35 passing"
+    },
+    {
+      "type": "gantt",
+      "keyword": "gantt",
+      "carried": true,
+      "corpus_cases": 26,
+      "corpus_passing": 22,
+      "status": "22/26 passing"
+    },
+    {
+      "type": "pie",
+      "keyword": "pie",
+      "carried": true,
+      "corpus_cases": 49,
+      "corpus_passing": 41,
+      "status": "41/49 passing"
+    },
+    {
+      "type": "timeline",
+      "keyword": "timeline",
+      "carried": true,
+      "corpus_cases": 17,
+      "corpus_passing": 16,
+      "status": "16/17 passing"
+    },
+    {
+      "type": "quadrant",
+      "keyword": "quadrantChart",
+      "carried": true,
+      "corpus_cases": 10,
+      "corpus_passing": 9,
+      "status": "9/10 passing"
+    },
+    {
+      "type": "git_graph",
+      "keyword": "gitGraph",
+      "carried": true,
+      "corpus_cases": 0,
+      "corpus_passing": 0,
+      "status": "no corpus cases"
+    },
+    {
+      "type": "mindmap",
+      "keyword": "mindmap",
+      "carried": true,
+      "corpus_cases": 55,
+      "corpus_passing": 45,
+      "status": "45/55 passing"
+    },
+    {
+      "type": "kanban",
+      "keyword": "kanban",
+      "carried": true,
+      "corpus_cases": 41,
+      "corpus_passing": 39,
+      "status": "39/41 passing"
+    },
+    {
+      "type": "radar",
+      "keyword": "radar-beta",
+      "carried": true,
+      "corpus_cases": 42,
+      "corpus_passing": 14,
+      "status": "14/42 passing"
+    },
+    {
+      "type": "block",
+      "keyword": "block-beta",
+      "carried": true,
+      "corpus_cases": 13,
+      "corpus_passing": 6,
+      "status": "6/13 passing"
+    },
+    {
+      "type": "requirement",
+      "keyword": "requirementDiagram",
+      "carried": true,
+      "corpus_cases": 25,
+      "corpus_passing": 24,
+      "status": "24/25 passing"
+    },
+    {
+      "type": "xychart",
+      "keyword": "xychart-beta",
+      "carried": true,
+      "corpus_cases": 2,
+      "corpus_passing": 2,
+      "status": "corpus parity"
+    },
+    {
+      "type": "architecture",
+      "keyword": "architecture-beta",
+      "carried": true,
+      "corpus_cases": 32,
+      "corpus_passing": 19,
+      "status": "19/32 passing"
+    },
+    {
+      "type": "sankey",
+      "keyword": "sankey-beta",
+      "carried": true,
+      "corpus_cases": 1,
+      "corpus_passing": 0,
+      "status": "0/1 passing"
+    },
+    {
+      "type": "packet",
+      "keyword": "packet-beta",
+      "carried": true,
+      "corpus_cases": 4,
+      "corpus_passing": 4,
+      "status": "corpus parity"
+    },
+    {
+      "type": "treemap",
+      "keyword": "treemap or treemap-beta",
+      "carried": true,
+      "corpus_cases": 10,
+      "corpus_passing": 9,
+      "status": "9/10 passing"
+    },
+    {
+      "type": "c4",
+      "keyword": "C4Context, C4Container, C4Component, C4Dynamic, C4Deployment, or a C4 diagram",
+      "carried": true,
+      "corpus_cases": 47,
+      "corpus_passing": 28,
+      "status": "28/47 passing"
+    },
+    {
+      "type": "info",
+      "keyword": "info",
+      "carried": true,
+      "corpus_cases": 14,
+      "corpus_passing": 11,
+      "status": "11/14 passing"
+    },
+    {
+      "type": "error",
+      "keyword": "error",
+      "carried": true,
+      "corpus_cases": 4,
+      "corpus_passing": 3,
+      "status": "3/4 passing"
+    }
+  ],
+  "plantuml": [
+    {
+      "type": "class_diagram",
+      "carried": true,
+      "corpus_cases": 37,
+      "oracle_valid": 35,
+      "corpus_passing": 35,
+      "status": "35/35 oracle-valid cases pass; 2/37 cases are rejected by the pinned oracle"
+    },
+    {
+      "type": "sequence_diagram",
+      "carried": true,
+      "corpus_cases": 95,
+      "oracle_valid": 93,
+      "corpus_passing": 93,
+      "status": "93/93 oracle-valid cases pass; 2/95 cases are rejected by the pinned oracle"
+    },
+    {
+      "type": "activity_diagram",
+      "carried": true,
+      "corpus_cases": 0,
+      "status": "declared; no corpus yet"
+    },
+    {
+      "type": "usecase_diagram",
+      "carried": true,
+      "corpus_cases": 0,
+      "status": "declared; no corpus yet"
+    },
+    {
+      "type": "component_diagram",
+      "carried": true,
+      "corpus_cases": 0,
+      "status": "declared; no corpus yet"
+    },
+    {
+      "type": "state_diagram",
+      "carried": true,
+      "corpus_cases": 0,
+      "status": "declared; no corpus yet"
+    },
+    {
+      "type": "entity_diagram",
+      "carried": true,
+      "corpus_cases": 0,
+      "status": "declared; no corpus yet"
+    },
+    {
+      "type": "network_diagram",
+      "carried": true,
+      "corpus_cases": 0,
+      "status": "declared; no corpus yet"
+    },
+    {
+      "type": "timing_diagram",
+      "carried": true,
+      "corpus_cases": 0,
+      "status": "declared; no corpus yet"
+    },
+    {
+      "type": "ebnf_diagram",
+      "carried": true,
+      "corpus_cases": 0,
+      "status": "declared; no corpus yet"
+    },
+    {
+      "type": "mindmap",
+      "carried": true,
+      "corpus_cases": 0,
+      "status": "declared; no corpus yet"
+    },
+    {
+      "type": "gantt",
+      "carried": true,
+      "corpus_cases": 0,
+      "status": "declared; no corpus yet"
+    },
+    {
+      "type": "object_diagram",
+      "carried": true,
+      "corpus_cases": 0,
+      "status": "declared; no corpus yet"
+    }
+  ],
+  "reference-gaps": {
+    "plantuml-jar": [
+      {
+        "type": "archimate",
+        "carried": false
+      },
+      {
+        "type": "bpmn",
+        "carried": false
+      },
+      {
+        "type": "deployment",
+        "carried": false
+      },
+      {
+        "type": "ditaa",
+        "carried": false
+      },
+      {
+        "type": "git",
+        "carried": false
+      },
+      {
+        "type": "json",
+        "carried": false
+      },
+      {
+        "type": "salt",
+        "carried": false
+      },
+      {
+        "type": "wbs",
+        "carried": false
+      },
+      {
+        "type": "yaml",
+        "carried": false
+      }
+    ],
+    "mermaid-cli": [
+      {
+        "type": "flowchart-elk",
+        "carried": false
+      }
+    ]
+  }
+}
