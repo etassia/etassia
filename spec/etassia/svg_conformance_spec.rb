@@ -97,7 +97,7 @@ CONFORMANCE_EXAMPLE_THEME = "default"
 
 module SvgConformanceSpecHelpers
   def validate(svg)
-    SvgConform.validate(svg, profile: Etassia::Svg::CONFORMANCE_PROFILE)
+    SvgConform.validate(svg, profile: SpecSupport::ConformanceProfile.call)
   end
 
   # Needed alongside svg_conform, not redundant with it: svg_conform never

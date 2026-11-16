@@ -17,29 +17,3 @@ require_relative "svg/polyline"
 require_relative "svg/tspan"
 require_relative "svg/text"
 require_relative "svg/ellipse"
-
-module Etassia
-  # The SVG document model. Everything Etassia writes into an SVG goes
-  # through these classes.
-  module Svg
-    # The svg_conform profile Etassia's output is built to satisfy.
-    #
-    # Requires a viewBox, rejects @import/<link>/external images, and
-    # enforces the SVG Tiny 1.2 element/attribute table -- but does not
-    # by itself guarantee self-containment: an external
-    # <?xml-stylesheet?> PI still validates clean under it. Nothing
-    # Etassia emits produces one; spec/etassia/svg_conformance_spec.rb holds
-    # that line -- don't drop it assuming the profile alone covers it.
-    #
-    # :svg_1_2_rfc restricts colour/fonts and would erase themes -- not
-    # a drop-in equivalent.
-    #
-    # The profile is OWNED here now: svg_conform 0.2.10 renamed its
-    # bundled copy to metanorma-sample.yml (a sample, deliberately
-    # failing the bare name with ProfileError) because consumers ship
-    # their operative profiles themselves. This file lives at
-    # config/svg_conform/metanorma.yml and loads by path -- the
-    # validator prefers a .yml path that exists on disk.
-    CONFORMANCE_PROFILE = File.expand_path("../../config/svg_conform/metanorma.yml", __dir__).freeze
-  end
-end

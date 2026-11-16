@@ -112,7 +112,7 @@ RSpec.describe Etassia::Renderer::Flowchart do
 
       it "emits conformant XML" do
         report = SvgConform.validate(
-          document.to_s, profile: Etassia::Svg::CONFORMANCE_PROFILE
+          document.to_s, profile: SpecSupport::ConformanceProfile.call
         )
         expect(report).to be_valid
       end

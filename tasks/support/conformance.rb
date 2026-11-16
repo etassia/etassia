@@ -14,7 +14,7 @@ require "etassia"
 module Etassia
   # The conformance column of the scoreboard: one row per corpus case that
   # renders to an SVG document, saying whether that SVG is well-formed XML
-  # and valid under Etassia::Svg::CONFORMANCE_PROFILE. A case that does not
+  # and valid under the profile at PROFILE_PATH. A case that does not
   # render has no document to judge and no row; its status is
   # scoreboard/corpus.json's.
   #
@@ -26,6 +26,15 @@ module Etassia
     ROOT = File.expand_path("../..", __dir__)
     CORPUS_ROOT = File.join(ROOT, "spec", "mermaid")
     SCOREBOARD_PATH = File.join(ROOT, "scoreboard", "conformance.json")
+
+    # The operative profile, owned by this repo at config/svg_conform/:
+    # svg_conform 0.2.10 renamed its bundled metanorma.yml to a sample on
+    # purpose -- each consumer owns its profile. lib/ cannot name
+    # svg_conform at all (the no-runtime-remediation gate), so the path and
+    # the load live here, in the dev-only task layer.
+    PROFILE_PATH = File.expand_path(
+      "../../config/svg_conform/metanorma.yml", __dir__
+    ).freeze
 
     CONFORMANT = "conformant"
     NONCONFORMANT = "nonconformant"
@@ -51,12 +60,16 @@ module Etassia
     def status_for(svg)
       return NONCONFORMANT unless svg_document?(svg)
 
-      if SvgConform.validate(svg,
-                             profile: Svg::CONFORMANCE_PROFILE).valid?
+      if SvgConform.validate(svg, profile: conformance_profile).valid?
         CONFORMANT
       else
         NONCONFORMANT
       end
+    end
+
+    def conformance_profile
+      @conformance_profile ||=
+        SvgConform::Profile.load_from_file(PROFILE_PATH)
     end
 
     def svg_document?(svg)
