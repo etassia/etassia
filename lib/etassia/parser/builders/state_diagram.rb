@@ -73,9 +73,12 @@ module Etassia
 
         # Floating notes and styles remain unsupported. A direction nested in
         # a composite also falls through; it cannot be attached to the model's
-        # flattened state collection.
+        # flattened state collection. Directive statements (scale, hide,
+        # classDef, accDescr, // comments) are accepted and dropped: mmdc
+        # honors them, none of them add states or transitions.
         def handle_ignored_statement?(stmt)
-          return false unless stmt[:note_keyword] || stmt[:style_keyword]
+          return false unless stmt[:note_keyword] || stmt[:style_keyword] ||
+            stmt[:directive_keyword]
 
           process_note(stmt) if attached_note?(stmt)
           true
