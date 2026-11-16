@@ -27,4 +27,4 @@ If you're new to Etassia, we recommend starting with:
 
 * See link:../../tutorials/index/[Tutorials] for step-by-step guides
 * Check link:../../references/index/[References] for the CLI reference
-* Visit our https://github.com/claricle/etassia/issues[GitHub Issues] for support
+* Visit our https://github.com/etassia/etassia/issues[GitHub Issues] for support

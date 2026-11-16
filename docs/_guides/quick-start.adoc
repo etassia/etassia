@@ -106,7 +106,7 @@ This renders all `.mmd` files in `diagrams/` directory to SVG files in `output/`
 
 * link:../cli-reference/[CLI Reference] - Learn all available commands and options
 * link:../../diagram_types/index/[Diagram Types Reference] - Explore all 24 diagram types
-* https://github.com/claricle/etassia/tree/main/examples[Examples] - Browse the example diagrams for every type
+* https://github.com/etassia/etassia/tree/main/examples[Examples] - Browse the example diagrams for every type
 
 == Getting Help
 

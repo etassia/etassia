@@ -261,4 +261,4 @@ so it exits 0 rather than 1.
 
 * link:../../diagram_types/index/[Diagram Types Reference] - Syntax for all 24 types
 * link:../quick-start/[Quick Start Guide] - Get started quickly
-* https://github.com/claricle/etassia/tree/main/examples[Examples] - Browse working examples
+* https://github.com/etassia/etassia/tree/main/examples[Examples] - Browse working examples

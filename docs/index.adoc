@@ -170,8 +170,8 @@ Etassia reads Mermaid.js syntax in a pure Ruby implementation; how much of each 
 
 == Getting Help
 
-* **Report Issues**: https://github.com/claricle/etassia/issues[GitHub Issues]
-* **Source Code**: https://github.com/claricle/etassia[GitHub Repository]
+* **Report Issues**: https://github.com/etassia/etassia/issues[GitHub Issues]
+* **Source Code**: https://github.com/etassia/etassia[GitHub Repository]
 * **RubyGems**: https://rubygems.org/gems/etassia[Etassia Gem]
 
 == License

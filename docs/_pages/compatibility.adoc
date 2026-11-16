@@ -359,8 +359,8 @@ Etassia aims for syntax parity with Mermaid.js; the table above is the measured 
 
 === Getting Help
 
-* **Issues**: https://github.com/claricle/etassia/issues[Report compatibility issues]
-* **Examples**: https://github.com/claricle/etassia/tree/main/examples[Example Diagrams]
+* **Issues**: https://github.com/etassia/etassia/issues[Report compatibility issues]
+* **Examples**: https://github.com/etassia/etassia/tree/main/examples[Example Diagrams]
 
 === Related Documentation
 

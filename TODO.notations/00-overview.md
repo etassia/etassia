@@ -1,7 +1,7 @@
 # Etassia notation roadmap
 
 This roadmap starts after the foundation phase closes. It carries the notation
-list from [issue #2](https://github.com/claricle/etassia/issues/2) forward without
+list from [issue #2](https://github.com/etassia/etassia/issues/2) forward without
 scheduling it inside the foundation plan.
 
 The first implementation is **Graphviz / DOT**. The typed intermediate

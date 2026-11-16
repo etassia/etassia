@@ -301,7 +301,7 @@ kanban
 
 == See Also
 
-* https://github.com/claricle/etassia/blob/main/README.adoc[Etassia Documentation]
+* https://github.com/etassia/etassia/blob/main/README.adoc[Etassia Documentation]
 * link:../user-journey/[User Journey Diagrams]
 * link:../gantt-chart/[Gantt Charts]
 * link:../timeline/[Timeline Diagrams]
