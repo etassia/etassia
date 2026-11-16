@@ -166,7 +166,7 @@ module SpecSupport
         explicit_kind = explicit_label_kind(text)
         kind = explicit_kind ||
           etassia_label_kind(entry[:box], marker.bbox, markers,
-                            orientation, text)
+                             orientation, text)
         return unless explicit_kind ||
           recognized_label_position?(kind, entry[:box], marker)
 

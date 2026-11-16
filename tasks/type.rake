@@ -21,7 +21,8 @@ namespace :type do
 end
 
 namespace :notations do
-  desc "Build the diagram-type coverage matrix (scoreboard/coverage.json + docs/COVERAGE.md)"
+  desc "Build the diagram-type coverage matrix " \
+       "(scoreboard/coverage.json + docs/COVERAGE.md)"
   task :coverage do
     require_relative "../scripts/coverage_matrix"
     paths = CoverageMatrix.write!

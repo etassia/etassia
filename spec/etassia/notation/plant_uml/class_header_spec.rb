@@ -78,7 +78,7 @@ RSpec.describe Etassia::Notation::PlantUML::ClassHeader do
   it "leaves a class without a spot under `hide circle`" do
     hidden = REXML::Document.new(
       Etassia.render("@startuml\nhide circle\nclass C1\n@enduml\n",
-                    notation: :plantuml),
+                     notation: :plantuml),
     )
 
     expect(REXML::XPath.match(hidden, "//circle")).to be_empty
@@ -106,7 +106,7 @@ RSpec.describe Etassia::Notation::PlantUML::ClassHeader do
   it "leaves an empty class no compartments under `hide empty members`" do
     hidden = REXML::Document.new(
       Etassia.render("@startuml\nhide empty members\nclass C1\nclass C2\n" \
-                    "@enduml\n", notation: :plantuml),
+                     "@enduml\n", notation: :plantuml),
     )
 
     expect(REXML::XPath.match(hidden, "//line")).to be_empty
@@ -123,7 +123,7 @@ RSpec.describe Etassia::Notation::PlantUML::ClassHeader do
 
   it "draws members in the sans-serif face the reference uses" do
     svg = Etassia.render("@startuml\nclass D {\n  String data\n}\n@enduml\n",
-                        notation: :plantuml)
+                         notation: :plantuml)
 
     expect(svg).not_to include("monospace")
   end

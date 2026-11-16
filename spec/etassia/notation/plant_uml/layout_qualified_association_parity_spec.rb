@@ -20,7 +20,7 @@ RSpec.describe Etassia::Notation::PlantUML::Layout do
       case_id: id, type: "plantuml_class", reference: reference,
       reference_svg: File.read(reference),
       etassia_svg: Etassia.render(File.read("#{root}/class/#{id}.puml"),
-                                notation: :plantuml),
+                                  notation: :plantuml),
       reproduce: __FILE__,
       recognizer: SpecSupport::LayoutParity::PlantumlClassRecognizer.new,
       spatial_kinds: [:class]

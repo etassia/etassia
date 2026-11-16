@@ -73,7 +73,7 @@ RSpec.describe Etassia::Notation::PlantUMLSalt do
 
       it "sends @startsalt to the salt notation" do
         expect(Etassia::Notation.resolve(explicit: nil, path: nil,
-                                        source: "@startsalt\n"))
+                                         source: "@startsalt\n"))
           .to eq(described_class)
       end
     end

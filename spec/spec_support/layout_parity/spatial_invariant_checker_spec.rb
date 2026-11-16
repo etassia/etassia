@@ -20,7 +20,7 @@ RSpec.describe SpecSupport::LayoutParity::SpatialInvariantChecker do
         bbox_reference: [[0.0, 0.0, 20.0, 20.0],
                          [5.0, 5.0, 10.0, 10.0]],
         bbox_etassia: [[0.0, 0.0, 5.0, 5.0],
-                      [20.0, 20.0, 25.0, 25.0]],
+                       [20.0, 20.0, 25.0, 25.0]],
       },
       introduced_pairs: [
         pair("peer-a", box(0, 0, 5, 5), box(0, 0, 20, 20)),

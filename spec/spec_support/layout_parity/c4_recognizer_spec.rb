@@ -28,6 +28,13 @@ RSpec.describe SpecSupport::LayoutParity::C4Recognizer do
     summary.to_h { |_kind, key, parent| [key, parent] }
   end
 
+  def empty_name_pair
+    name = "c4/should_parse_the_description-82dca309"
+    reference = reference_svg("#{name}.svg")
+    etassia = Etassia.render(corpus_source("#{name}.mmd"))
+    [identities(summaries(reference)), identities(summaries(etassia))]
+  end
+
   it "matches boundary and element labels" do
     reference_summary, etassia_summary = real_pair
 
@@ -43,10 +50,8 @@ RSpec.describe SpecSupport::LayoutParity::C4Recognizer do
   end
 
   it "keys an element declared with an empty name by its description" do
-    name = "c4/should_parse_the_description-82dca309"
     key = "A customer of the bank, with personal bank accounts."
-    expect([identities(summaries(reference_svg("#{name}.svg"))),
-            identities(summaries(Etassia.render(corpus_source("#{name}.mmd"))))])
-      .to all(eq([[:c4_element, key]]))
+
+    expect(empty_name_pair).to all(eq([[:c4_element, key]]))
   end
 end

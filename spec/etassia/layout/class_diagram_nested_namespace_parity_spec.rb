@@ -18,7 +18,8 @@ RSpec.describe Etassia::Layout::ClassDiagram do
   end
   let(:namespace_identity) do
     boxes = scene.namespaces.map { |box| [box.id, box.title] }
-    group_ids = Etassia.render(source).scan(/<g id="namespace-([^"]+)">/).flatten
+    pattern = %r{<g id="namespace-([^"]+)">}
+    group_ids = Etassia.render(source).scan(pattern).flatten
     [boxes, group_ids]
   end
   let(:result) do

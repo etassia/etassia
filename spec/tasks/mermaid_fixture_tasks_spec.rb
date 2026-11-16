@@ -145,7 +145,8 @@ RSpec.describe MermaidFixtureTasks do
         allow(Etassia).to receive(:render).with("match").and_return("<svg/>")
         allow(Etassia).to receive(:render).with("different")
           .and_return("<svg><path/><path/></svg>")
-        allow(Etassia).to receive(:render).with("broken").and_raise("bad source")
+        allow(Etassia).to receive(:render).with("broken")
+          .and_raise("bad source")
       end
 
       it "counts failures and differences while skipping absent references" do

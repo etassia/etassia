@@ -14,7 +14,7 @@ module PlantumlEndTextHelpers
   def render(body, engine: :smetana)
     pragma = engine == :smetana ? "!pragma layout smetana\n" : ""
     Etassia.render("@startuml\n#{pragma}#{body}\n@enduml\n",
-                  notation: :plantuml)
+                   notation: :plantuml)
   end
 
   def document(svg)
@@ -90,7 +90,7 @@ module PlantumlEndTextHelpers
       case_id: id, type: "plantuml_class", reference: reference,
       reference_svg: File.read(reference),
       etassia_svg: Etassia.render(File.read("spec/plantuml/class/#{id}.puml"),
-                                notation: :plantuml),
+                                  notation: :plantuml),
       reproduce: __FILE__,
       recognizer: SpecSupport::LayoutParity::PlantumlClassRecognizer.new,
       spatial_kinds: [:class]

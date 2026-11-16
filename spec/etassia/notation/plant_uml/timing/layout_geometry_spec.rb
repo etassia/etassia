@@ -39,7 +39,7 @@ RSpec.describe Etassia::Notation::PlantUML::Timing::Layout,
 
   def render(body)
     REXML::Document.new(Etassia.render("@startuml\n#{body}\n@enduml",
-                                      notation: :plantuml))
+                                       notation: :plantuml))
   end
 
   def numbers(doc, path, attribute)

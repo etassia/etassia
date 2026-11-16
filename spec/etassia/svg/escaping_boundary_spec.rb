@@ -33,7 +33,7 @@ ELEMENT_ATTRIBUTES = {
   Etassia::Svg::Ellipse => [],
   Etassia::Svg::Rect => [:stroke_dasharray],
   Etassia::Svg::Text => %i[text_anchor font_family font_size font_weight
-                          font_style],
+                           font_style],
 }.freeze
 
 # Four renderers set marker-end, marker-start is set directly (Path.from_xml

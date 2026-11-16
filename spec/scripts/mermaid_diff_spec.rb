@@ -205,9 +205,10 @@ RSpec.describe MermaidDiff, :aggregate_failures do
     # regression fails this example instead of wedging the suite.
     it "gives up on a source etassia cannot finish" do
       stub_const("HardenedMmdc::CASE_TIMEOUT", 0.5)
-      source = "packet-beta\n0-2000000: \"x\"\n"
 
-      verdict = Timeout.timeout(guard) { harness.send(:etassia_verdict, source) }
+      verdict = Timeout.timeout(guard) do
+        harness.send(:etassia_verdict, "packet-beta\n0-2000000: \"x\"\n")
+      end
 
       expect(verdict).to be(:rejects)
     end

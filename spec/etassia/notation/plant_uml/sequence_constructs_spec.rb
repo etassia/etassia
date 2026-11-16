@@ -23,7 +23,7 @@ RSpec.describe Etassia::Notation::PlantUML::Sequence do
 
   def svg_of(*lines)
     Nokogiri::XML(Etassia.render("@startuml\n#{lines.join("\n")}\n@enduml\n",
-                                notation: :plantuml)).tap(&:remove_namespaces!)
+                                 notation: :plantuml)).tap(&:remove_namespaces!)
   end
 
   def arrow_ys(svg)

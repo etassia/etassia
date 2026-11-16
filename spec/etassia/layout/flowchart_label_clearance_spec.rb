@@ -5,9 +5,8 @@ RSpec.describe Etassia::Layout::Flowchart do
 
   def scene_for(text, font_size = 16)
     layout = described_class.new
-    layout.theme = Etassia::Theme.new(
-      typography: Etassia::Theme::Typography.new(flowchart_font_size: font_size),
-    )
+    type = Etassia::Theme::Typography.new(flowchart_font_size: font_size)
+    layout.theme = Etassia::Theme.new(typography: type)
     layout.call(Etassia::Parser::Flowchart.new.parse(text))
   end
 

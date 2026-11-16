@@ -90,7 +90,8 @@ RSpec.describe Etassia::Diagram::KanbanColumn do
     end
 
     it "is invalid when a column is invalid" do
-      board.add_column(Etassia::Diagram::KanbanColumn.new(id: "", title: "Todo"))
+      board.add_column(Etassia::Diagram::KanbanColumn.new(id: "",
+                                                          title: "Todo"))
       expect(board.valid?).to be(false)
     end
 

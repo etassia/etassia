@@ -73,8 +73,8 @@ RSpec.describe SpecSupport::LayoutParity::StateDiagramRecognizer do
   def simple_terminal_match
     name = "state-5753bc25"
     reference = extract(reference_svg("state_diagram/#{name}.svg"), recognizer)
-    etassia = extract(Etassia.render(corpus_source("state_diagram/#{name}.mmd")),
-                     recognizer)
+    source = corpus_source("state_diagram/#{name}.mmd")
+    etassia = extract(Etassia.render(source), recognizer)
 
     SpecSupport::LayoutParity::ElementMatcher.match(
       reference: reference,

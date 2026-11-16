@@ -831,7 +831,8 @@ module ExampleTasks
   end
 
   def generate_source_svg(mmd_file, svg_file, theme, examples_dir)
-    svg = Etassia.render(File.read(mmd_file), theme: theme, today: EXAMPLE_TODAY)
+    svg = Etassia.render(File.read(mmd_file), theme: theme,
+                                              today: EXAMPLE_TODAY)
     write_svg(svg_file, svg, examples_dir)
   end
 

@@ -23,7 +23,7 @@ module NodeGraphHelpers
 
   def render_fixture(name)
     Etassia.render(File.read(File.join(FIXTURES, "#{name}.puml")),
-                  notation: :plantuml)
+                   notation: :plantuml)
   end
 
   def svg_root(svg)

@@ -85,9 +85,9 @@ RSpec.describe Etassia::Renderer::Architecture, :aggregate_failures do
       diagram = Etassia::Diagram::Architecture.new(
         services: [
           Etassia::Diagram::Architecture::Service.new(id: "a", label: "A",
-                                                     icon: "server"),
+                                                      icon: "server"),
           Etassia::Diagram::Architecture::Service.new(id: "b", label: "B",
-                                                     icon: "server"),
+                                                      icon: "server"),
         ],
         groups: [], junctions: [],
         edges: [Etassia::Diagram::Architecture::Edge.new(

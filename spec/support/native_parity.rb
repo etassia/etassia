@@ -67,7 +67,7 @@ module NativeParity
     with_native(true) do
       fixtures(directory).count do |path|
         Etassia::Parser::Native.parse(parser_class(directory).native.first,
-                                     File.read(path))
+                                      File.read(path))
       end
     end
   end

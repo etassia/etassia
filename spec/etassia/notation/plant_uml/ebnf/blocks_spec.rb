@@ -14,7 +14,7 @@ RSpec.describe Etassia::Notation::PlantUML::Ebnf::Blocks do
 
   def render(rule)
     Etassia::Engine.new.render("@startebnf\n#{rule}\n@endebnf\n",
-                              notation: :plantuml)
+                               notation: :plantuml)
   end
 
   before { Etassia::Notation.register(Etassia::Notation::PlantUML) }

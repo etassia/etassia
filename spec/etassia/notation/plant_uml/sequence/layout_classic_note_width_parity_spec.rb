@@ -93,7 +93,7 @@ RSpec.describe Etassia::Notation::PlantUML::Sequence::Layout do
     it "measures an undecoded image as monospace text" do
       width = note_width(over_both("<img missing.png>"))
       mono = Etassia::TextMeasurement.measure_mono("(Cannot decode)",
-                                                  font_size: 13)
+                                                   font_size: 13)
 
       expect(width).to eq(mono[:width] + (2 * pad))
     end

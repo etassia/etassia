@@ -1143,7 +1143,8 @@ RSpec.describe Etassia::Parser::Sequence, :aggregate_failures do
       source = "sequenceDiagram\ndestroy Bob\nA->>C: hi\n"
 
       expect { parser.parse(source) }
-        .to raise_error(Etassia::Parser::ParseError, /destroyed participant Bob/)
+        .to raise_error(Etassia::Parser::ParseError,
+                        /destroyed participant Bob/)
     end
 
     it "accepts a destroy resolved by the following message naming it " \
@@ -1212,7 +1213,8 @@ RSpec.describe Etassia::Parser::Sequence, :aggregate_failures do
 
     it "rejects an unresolved destroy declared outside a loop it spans into" do
       expect { parser.parse(SequenceSpecHelpers::DESTROY_ACROSS_LOOP) }
-        .to raise_error(Etassia::Parser::ParseError, /destroyed participant Bob/)
+        .to raise_error(Etassia::Parser::ParseError,
+                        /destroyed participant Bob/)
     end
 
     it "clears a pending destroy between diagrams on a reused builder" do

@@ -105,7 +105,7 @@ RSpec.describe Etassia::Notation::Mermaid do
     let(:invalid_diagram) do
       Etassia::Diagram::Kanban.new.tap do |kanban|
         kanban.columns = [Etassia::Diagram::KanbanColumn.new(id: nil,
-                                                            title: nil)]
+                                                             title: nil)]
       end
     end
     let(:stub_parser) do

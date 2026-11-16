@@ -13,7 +13,7 @@ RSpec.shared_examples "a diagram type" do |type, gaps = {}|
   end
   let(:model) do
     Etassia::Notation::Mermaid.layer_class(Etassia::Diagram, type,
-                                          Etassia::Error)
+                                           Etassia::Error)
   end
   let(:diagram) { Etassia::Parser.for(type).parse(fixture) }
   let(:header_only) do

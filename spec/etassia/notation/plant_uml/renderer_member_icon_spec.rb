@@ -13,8 +13,8 @@ RSpec.describe Etassia::Notation::PlantUML::Renderer do
 
   let(:svg) do
     Etassia.render("@startuml\nclass Dummy {\n  -f1\n  #f2\n  ~f3\n  +f4\n  " \
-                  "-m1()\n  #m2()\n  ~m3()\n  +m4()\n}\n@enduml\n",
-                  notation: :plantuml)
+                   "-m1()\n  #m2()\n  ~m3()\n  +m4()\n}\n@enduml\n",
+                   notation: :plantuml)
   end
   let(:document) { REXML::Document.new(svg) }
 
