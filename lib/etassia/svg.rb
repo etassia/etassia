@@ -33,6 +33,13 @@ module Etassia
     #
     # :svg_1_2_rfc restricts colour/fonts and would erase themes -- not
     # a drop-in equivalent.
-    CONFORMANCE_PROFILE = :metanorma
+    #
+    # The profile is OWNED here now: svg_conform 0.2.10 renamed its
+    # bundled copy to metanorma-sample.yml (a sample, deliberately
+    # failing the bare name with ProfileError) because consumers ship
+    # their operative profiles themselves. This file lives at
+    # config/svg_conform/metanorma.yml and loads by path -- the
+    # validator prefers a .yml path that exists on disk.
+    CONFORMANCE_PROFILE = File.expand_path("../../config/svg_conform/metanorma.yml", __dir__).freeze
   end
 end
