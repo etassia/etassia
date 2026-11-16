@@ -43,7 +43,8 @@ module PlantUmlConformanceHelpers
   end
 
   def profile_problem(svg)
-    result = SvgConform.validate(svg, profile: Etassia::Svg::CONFORMANCE_PROFILE)
+    result = SvgConform.validate(svg,
+                                 profile: SpecSupport::ConformanceProfile.call)
     return nil if result.valid?
 
     (result.errors + result.validity_errors).map(&:message).uniq.first(3)

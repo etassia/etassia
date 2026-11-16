@@ -101,7 +101,7 @@ RSpec.describe "svg_conform apply_fixes", :aggregate_failures, type: :task do
     # a document raises, so a call by any spelling (`fix: true`, Fixer, send)
     # fails here instead of hiding from the token scan.
     let(:fixes_called) { Class.new(StandardError) }
-    let(:profile) { Etassia::Svg::CONFORMANCE_PROFILE }
+    let(:profile) { SpecSupport::ConformanceProfile.call }
     let(:broken_svg) { '<svg xmlns="http://www.w3.org/2000/svg"><rect/></svg>' }
     let(:conformant_validation_files) do
       directory = Dir.mktmpdir
