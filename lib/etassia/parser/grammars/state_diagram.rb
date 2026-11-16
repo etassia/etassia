@@ -58,6 +58,7 @@ module Etassia
         rule(:statement) do
           direction_statement |
             style_statement |
+            directive_statement |
             empty_state_statement |
             state_declaration |
             note_block |
@@ -65,6 +66,51 @@ module Etassia
             note_statement |
             transition |
             standalone_state
+        end
+
+        # Config directives that describe or style the diagram without
+        # adding states: `scale <n> width|height`, `hide empty description`,
+        # `classDef <name> <styles>`, the accessibility description in
+        # block or one-line form, and JS-style // comment lines. Each
+        # keyword demands trailing whitespace, so a state named scaleX
+        # still reaches `standalone_state`. None of them reach the state
+        # model yet (recorded loss; mmdc accepts every form).
+        rule(:directive_statement) do
+          scale_statement | hide_statement | class_def_statement |
+            acc_description | slash_comment
+        end
+
+        rule(:scale_statement) do
+          str("scale").as(:directive_keyword) >> spaces >>
+            line_char.repeat(0) >> line_end
+        end
+
+        rule(:hide_statement) do
+          str("hide").as(:directive_keyword) >> spaces >>
+            line_char.repeat(0) >> line_end
+        end
+
+        rule(:class_def_statement) do
+          str("classDef").as(:directive_keyword) >> spaces >>
+            line_char.repeat(0) >> line_end
+        end
+
+        rule(:acc_description) do
+          str("accDescr").as(:directive_keyword) >>
+            (
+              (spaces >> str("{") >> line_end >> acc_description_body >>
+                 space.repeat(0) >> str("}") >> line_end) |
+                (space? >> str(":") >> space? >> line_char.repeat(0) >>
+                   line_end)
+            )
+        end
+
+        rule(:acc_description_body) do
+          ((space.repeat(0) >> str("}") >> line_end).absent? >> any).repeat(0)
+        end
+
+        rule(:slash_comment) do
+          str("//").as(:directive_keyword) >> line_char.repeat(0) >> line_end
         end
 
         # Mermaid lexes a bare `state` as an empty statement. Capturing the

@@ -29,8 +29,8 @@
       "keyword": "stateDiagram or stateDiagram-v2",
       "carried": true,
       "corpus_cases": 234,
-      "corpus_passing": 159,
-      "status": "159/234 passing"
+      "corpus_passing": 228,
+      "status": "228/234 passing"
     },
     {
       "type": "er_diagram",
