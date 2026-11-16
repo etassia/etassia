@@ -287,7 +287,17 @@ class MermaidTestExtractor
     return callback_source(source) if options[:callback]
 
     source = source.strip
-    options[:html] ? decode_html(source) : source
+    return decode_html(source) if options[:html]
+
+    # Template literals and quoted strings carry \n and friends as
+    # two-character escapes; the runtime unescapes them before mermaid
+    # ever sees the source, so the corpus must too.
+    decode_js_escapes(source)
+  end
+
+  def decode_js_escapes(source)
+    source.gsub("\\\\", "\0").gsub("\\n", "\n").gsub("\\t", "\t")
+      .gsub('\\"', '"').gsub("\\'", "'").gsub("\0", "\\")
   end
 
   def callback_source(body)
