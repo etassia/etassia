@@ -48,6 +48,9 @@ module Etassia
 
       # SVG from the Rust runtime, or nil when the caller should render in Ruby.
       #
+      # A DIM document has no Ruby renderer at all: it goes to the native
+      # engine or refuses with the reason, in every mode.
+      #
       # @param source [String]
       # @param options [Hash] Engine#render options; any key rules Rust out
       # @return [String, nil]
@@ -56,6 +59,9 @@ module Etassia
         return nil if selected == "ruby"
 
         strict = selected == "rust"
+        if dim_source?(source, options)
+          return dim_render(source)
+        end
         if native_eligible?(source, options)
           return native_render(source, strict: strict)
         end
@@ -104,6 +110,23 @@ module Etassia
 
         notation = Notation.resolve(explicit: nil, path: nil, source: source)
         notation.id == :mermaid
+      end
+
+      def dim_source?(source, options)
+        return false unless options.empty? && source.is_a?(String)
+
+        notation = Notation.resolve(explicit: nil, path: nil, source: source)
+        notation.id == :dim
+      end
+
+      # DIM renders native-only; without the gem there is no fallback to
+      # decline into, so both modes refuse with the same clear reason.
+      def dim_render(source)
+        lib = library
+        return lib.render_dim(source) unless lib.nil?
+
+        raise Engine::PipelineError,
+              "rendering a DIM document requires the etassia-native gem"
       end
 
       # The Native::Library, or nil. Probed once: `require` of an absent gem

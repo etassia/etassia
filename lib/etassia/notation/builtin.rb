@@ -37,3 +37,5 @@ end
 Etassia::Notation.register(Etassia::Notation::Mermaid)
 require_relative "plantuml_salt"
 require_relative "plantuml_data"
+require_relative "dim"
+Etassia::Notation.register(Etassia::Notation::Dim)
