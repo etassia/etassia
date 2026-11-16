@@ -654,7 +654,7 @@ any object answering `id`, `extensions`, `claims?(source)`, `parse(source)`
 Etassia itself: `require "etassia"; require "my_notation"`. `register` raises
 `NotationRegistrationError` for a malformed member, a duplicate id or a
 duplicate extension. The contract is
-[`10a-notation-contract.md`](https://github.com/claricle/etassia/blob/d011db95329072bc318d22cfa59c3dbead79731b/TODO.foundation/10a-notation-contract.md).
+[`10a-notation-contract.md`](https://github.com/etassia/etassia/blob/d011db95329072bc318d22cfa59c3dbead79731b/TODO.foundation/10a-notation-contract.md).
 
 ### Strategy Pattern (Layout/Renderer)
 

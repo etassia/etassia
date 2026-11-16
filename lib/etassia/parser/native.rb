@@ -3,7 +3,7 @@
 module Etassia
   module Parser
     # The native parse path: Mermaid grammars compiled from PARG
-    # (claricle/etassia-mermaid-parg) and run by the parsanol engine.
+    # (etassia/etassia-grammar) and run by the parsanol engine.
     #
     # It is strictly an accelerator. It answers only for input it accepts;
     # on a missing engine, an unreadable encoding or any rejection it

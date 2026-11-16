@@ -47,7 +47,7 @@ Clone the repository and install locally:
 
 [source,shell]
 ----
-git clone https://github.com/claricle/etassia.git
+git clone https://github.com/etassia/etassia.git
 cd etassia
 bundle install
 bundle exec rake install

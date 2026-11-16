@@ -83,9 +83,9 @@ logo: false
 # Aux links for the upper right navigation
 aux_links:
   "Etassia on GitHub":
-    - "https://github.com/claricle/etassia"
+    - "https://github.com/etassia/etassia"
   "Report Issue":
-    - "https://github.com/claricle/etassia/issues"
+    - "https://github.com/etassia/etassia/issues"
   "RubyGems":
     - "https://rubygems.org/gems/etassia"
 

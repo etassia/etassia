@@ -128,5 +128,5 @@ xychart-beta
 == See Also
 
 * link:../index/[Documentation Index]
-* https://github.com/claricle/etassia/blob/main/lib/etassia/diagram/xy_chart.rb[XY Chart Diagram Model]
-* https://github.com/claricle/etassia/blob/main/lib/etassia/renderer/xy_chart.rb[XY Chart Renderer]
+* https://github.com/etassia/etassia/blob/main/lib/etassia/diagram/xy_chart.rb[XY Chart Diagram Model]
+* https://github.com/etassia/etassia/blob/main/lib/etassia/renderer/xy_chart.rb[XY Chart Renderer]

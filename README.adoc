@@ -1,8 +1,8 @@
 = Etassia
 
 image:https://img.shields.io/gem/v/etassia.svg[RubyGems Version,link=https://rubygems.org/gems/etassia]
-image:https://img.shields.io/github/license/claricle/etassia.svg[License,link=https://github.com/claricle/etassia/blob/main/LICENSE]
-image:https://github.com/claricle/etassia/actions/workflows/rake.yml/badge.svg["Build",link=https://github.com/claricle/etassia/actions/workflows/rake.yml]
+image:https://img.shields.io/github/license/etassia/etassia.svg[License,link=https://github.com/etassia/etassia/blob/main/LICENSE]
+image:https://github.com/etassia/etassia/actions/workflows/rake.yml/badge.svg["Build",link=https://github.com/etassia/etassia/actions/workflows/rake.yml]
 
 == Purpose
 
@@ -215,7 +215,7 @@ svg = Etassia.render(mermaid_code, theme: 'dark')
 ==== Optional Rust runtime
 
 When the optional `etassia-native` gem (the Rust runtime from
-https://github.com/claricle/etassia-rs[claricle/etassia-rs]) is installed,
+https://github.com/etassia/etassia-rs[etassia/etassia-rs]) is installed,
 `Etassia.render` with no options renders Mermaid sources through it. The SVG
 bytes are the same as the Ruby pipeline's. Without the gem, for an
 option-bearing render, for a diagram type the Rust runtime has not ported, or

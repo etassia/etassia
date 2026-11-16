@@ -17,7 +17,7 @@ module DocSnippets
     "gem install etassia" => "installs the published gem",
     "Mermaid Syntax Input (String)" => "ASCII-art pipeline diagram",
     "Etassia (Root Module)" => "ASCII-art component tree",
-    "git clone https://github.com/claricle/etassia.git" =>
+    "git clone https://github.com/etassia/etassia.git" =>
       "clones the repository",
     %(echo 'export PATH="$HOME/.gem/ruby/X.X.0/bin:$PATH"' >> ~/.bashrc) =>
       "edits the reader's shell profile",
