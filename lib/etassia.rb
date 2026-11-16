@@ -4,6 +4,7 @@ require_relative "etassia/version"
 require_relative "etassia/error"
 require_relative "etassia/error_report"
 require_relative "etassia/runtime"
+require_relative "etassia/notation/builtin"
 
 module Etassia
   # Faults a hostile DOCUMENT can provoke that are not `StandardError`, so
@@ -20,8 +21,7 @@ module Etassia
   # `Timeout.timeout` stop working. That is why this is an allowlist of two
   # and not a `rescue Exception` with a list of exemptions.
   #
-  # `spec/etassia/engine_exhaustion_errors_spec.rb` enumerates the
-  # loaded hierarchy
+  # `spec/etassia/engine_exhaustion_errors_spec.rb` lists the loaded hierarchy
   # and holds this list against it in the two directions a machine can
   # decide: every name here really is outside `StandardError`, and no
   # control-flow class is here. Whether a NEW class is exhaustion is a
@@ -36,7 +36,5 @@ module Etassia
   # @return [String] SVG output
   # @see Runtime for the optional Rust runtime (ETASSIA_RUNTIME)
   def self.render(source, options = {}) = Runtime.or_ruby(source, options)
-
   autoload :Dim, "etassia/dim"
 end
-require_relative "etassia/notation/builtin"

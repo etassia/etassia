@@ -17,6 +17,11 @@ module Etassia
     module Dim
       extend self
 
+      NOT_FOUND = "Unable to detect diagram type from source. " \
+                  "Source must start with a JSON object carrying a " \
+                  "`dim` version and a `graph`"
+      private_constant :NOT_FOUND
+
       def id
         :dim
       end
@@ -39,6 +44,8 @@ module Etassia
       end
 
       def parse(source)
+        raise Engine::DiagramTypeError, NOT_FOUND unless claims?(source)
+
         Etassia::Dim::Document.parse(source)
         raise Engine::PipelineError,
               "rendering a DIM document requires the etassia-native gem; " \
