@@ -5,40 +5,40 @@
       "keyword": "graph, flowchart, or flowchart-elk",
       "carried": true,
       "corpus_cases": 331,
-      "corpus_passing": 219,
-      "status": "219/331 passing"
+      "corpus_passing": 258,
+      "status": "258/331 passing"
     },
     {
       "type": "sequence",
       "keyword": "sequenceDiagram",
       "carried": true,
       "corpus_cases": 126,
-      "corpus_passing": 107,
-      "status": "107/126 passing"
+      "corpus_passing": 122,
+      "status": "122/126 passing"
     },
     {
       "type": "class_diagram",
       "keyword": "classDiagram",
       "carried": true,
       "corpus_cases": 465,
-      "corpus_passing": 327,
-      "status": "327/465 passing"
+      "corpus_passing": 398,
+      "status": "398/465 passing"
     },
     {
       "type": "state_diagram",
       "keyword": "stateDiagram or stateDiagram-v2",
       "carried": true,
       "corpus_cases": 234,
-      "corpus_passing": 52,
-      "status": "52/234 passing"
+      "corpus_passing": 159,
+      "status": "159/234 passing"
     },
     {
       "type": "er_diagram",
       "keyword": "erDiagram",
       "carried": true,
       "corpus_cases": 161,
-      "corpus_passing": 15,
-      "status": "15/161 passing"
+      "corpus_passing": 60,
+      "status": "60/161 passing"
     },
     {
       "type": "user_journey",
@@ -61,8 +61,8 @@
       "keyword": "pie",
       "carried": true,
       "corpus_cases": 49,
-      "corpus_passing": 41,
-      "status": "41/49 passing"
+      "corpus_passing": 44,
+      "status": "44/49 passing"
     },
     {
       "type": "timeline",
@@ -84,9 +84,9 @@
       "type": "git_graph",
       "keyword": "gitGraph",
       "carried": true,
-      "corpus_cases": 0,
-      "corpus_passing": 0,
-      "status": "no corpus cases"
+      "corpus_cases": 168,
+      "corpus_passing": 146,
+      "status": "146/168 passing"
     },
     {
       "type": "mindmap",
@@ -141,8 +141,8 @@
       "keyword": "architecture-beta",
       "carried": true,
       "corpus_cases": 32,
-      "corpus_passing": 19,
-      "status": "19/32 passing"
+      "corpus_passing": 20,
+      "status": "20/32 passing"
     },
     {
       "type": "sankey",

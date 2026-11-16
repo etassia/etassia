@@ -80,6 +80,14 @@ module ExtractMermaidTestsHelpers
     end
   end
 
+  def extracted_files(tests)
+    Dir.mktmpdir do |dir|
+      write_upstream("#{dir}/mermaid-js", tests)
+      run_extractor("#{dir}/mermaid-js", "#{dir}/out")
+      Dir.glob("#{dir}/out/pie/*.mmd").map { File.read(_1).strip }
+    end
+  end
+
   def extracted_meta(tests, **options)
     Dir.mktmpdir do |dir|
       write_upstream("#{dir}/mermaid-js", tests)
@@ -109,6 +117,13 @@ RSpec.describe MermaidTestExtractor do
 
   it "extracts one stable id per seeded upstream test" do
     expect(base_ids.keys).to match_array(titles)
+  end
+
+  it "unescapes JS escapes in a template-literal source" do
+    escaped = ["handles escapes", "pie title A\\n  \"x\" : 1"]
+
+    expect(extracted_files([escaped]))
+      .to eq(["pie title A\n  \"x\" : 1"])
   end
 
   it "keeps every other id when an upstream test is inserted" do

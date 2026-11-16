@@ -61,11 +61,13 @@ module CoverageMatrix
   end
 
   def count_into(by_type, row)
-    family = row["case"].to_s.split("/").first
-    return if family.nil? || family.empty?
+    require "etassia"
+    directory = row["case"].to_s.split("/").first
+    family = Etassia::CorpusTypeNames.registry_type(directory)
+    return if family.nil?
 
-    by_type[family][:cases] += 1
-    by_type[family][:passing] += 1 if row["pass"]
+    by_type[family.to_s][:cases] += 1
+    by_type[family.to_s][:passing] += 1 if row["pass"]
   end
 
   def mermaid_row(key, keyword, stats)

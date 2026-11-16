@@ -107,9 +107,7 @@
   {
     "case": "architecture/architecture_test-280f9309.mmd",
     "verdict": "invalid",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "architecture/architecture_test-42e45099.mmd",
@@ -631,9 +629,7 @@
   {
     "case": "class_diagram/classdiagram_spec-01fd0edb.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-033a40d3.mmd",
@@ -663,16 +659,12 @@
   {
     "case": "class_diagram/classdiagram_spec-0a93d562.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-0b63114e.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-0d81a776.mmd",
@@ -704,9 +696,7 @@
   {
     "case": "class_diagram/classdiagram_spec-1011b382.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-10548117.mmd",
@@ -721,9 +711,7 @@
   {
     "case": "class_diagram/classdiagram_spec-11949457.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-11ce0652.mmd",
@@ -762,9 +750,7 @@
   {
     "case": "class_diagram/classdiagram_spec-1770eb2f.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-18dd269e.mmd",
@@ -789,9 +775,7 @@
   {
     "case": "class_diagram/classdiagram_spec-1c074d15.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-1c925020.mmd",
@@ -806,9 +790,7 @@
   {
     "case": "class_diagram/classdiagram_spec-20125696.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-20717dd9.mmd",
@@ -818,9 +800,7 @@
   {
     "case": "class_diagram/classdiagram_spec-22a4c599.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-23ae07fe.mmd",
@@ -830,23 +810,17 @@
   {
     "case": "class_diagram/classdiagram_spec-23bfb709.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-248ca556.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-24ce281d.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-25b880aa.mmd",
@@ -871,9 +845,7 @@
   {
     "case": "class_diagram/classdiagram_spec-2db03dc0.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-2e9d375c.mmd",
@@ -903,9 +875,7 @@
   {
     "case": "class_diagram/classdiagram_spec-3162c1fb.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-36b2b0e0.mmd",
@@ -935,9 +905,7 @@
   {
     "case": "class_diagram/classdiagram_spec-3ba9d355.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-3cabe205.mmd",
@@ -947,9 +915,7 @@
   {
     "case": "class_diagram/classdiagram_spec-3df1a532.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-3e2c2aa1.mmd",
@@ -993,9 +959,7 @@
   {
     "case": "class_diagram/classdiagram_spec-46111c63.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-4655a881.mmd",
@@ -1005,9 +969,7 @@
   {
     "case": "class_diagram/classdiagram_spec-46de0459.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-47a1ab30.mmd",
@@ -1022,9 +984,7 @@
   {
     "case": "class_diagram/classdiagram_spec-49230672.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-4c7f5ff4.mmd",
@@ -1034,16 +994,12 @@
   {
     "case": "class_diagram/classdiagram_spec-4cc37c65.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-4e84fabe.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-4ed372fc.mmd",
@@ -1080,9 +1036,7 @@
   {
     "case": "class_diagram/classdiagram_spec-5928c7db.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-59c4e642.mmd",
@@ -1101,16 +1055,12 @@
   {
     "case": "class_diagram/classdiagram_spec-5d7a075e.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-5ed6b4d9.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-5fcf0a71.mmd",
@@ -1130,9 +1080,7 @@
   {
     "case": "class_diagram/classdiagram_spec-64f0497b.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-6556a77b.mmd",
@@ -1174,9 +1122,7 @@
   {
     "case": "class_diagram/classdiagram_spec-6e31fd51.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-6fd26ade.mmd",
@@ -1191,9 +1137,7 @@
   {
     "case": "class_diagram/classdiagram_spec-707ca1b6.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-710a0308.mmd",
@@ -1223,9 +1167,7 @@
   {
     "case": "class_diagram/classdiagram_spec-78aa7ceb.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-7ceae3ee.mmd",
@@ -1235,9 +1177,7 @@
   {
     "case": "class_diagram/classdiagram_spec-7d6a0ae0.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-7f7323f5.mmd",
@@ -1274,9 +1214,7 @@
   {
     "case": "class_diagram/classdiagram_spec-83d6d7d0.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-8545a3f2.mmd",
@@ -1301,23 +1239,17 @@
   {
     "case": "class_diagram/classdiagram_spec-882bceb7.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-8910adc4.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-89847e28.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-898d7d99.mmd",
@@ -1327,9 +1259,7 @@
   {
     "case": "class_diagram/classdiagram_spec-89ce3621.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-8c66ee58.mmd",
@@ -1339,9 +1269,7 @@
   {
     "case": "class_diagram/classdiagram_spec-8c8ef44a.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-8d773562.mmd",
@@ -1378,16 +1306,12 @@
   {
     "case": "class_diagram/classdiagram_spec-8faa09e5.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-8fb6838d.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-91391049.mmd",
@@ -1397,9 +1321,7 @@
   {
     "case": "class_diagram/classdiagram_spec-91d2dca6.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-9229606e.mmd",
@@ -1414,9 +1336,7 @@
   {
     "case": "class_diagram/classdiagram_spec-93fd5dd4.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-94a391e5.mmd",
@@ -1443,23 +1363,17 @@
   {
     "case": "class_diagram/classdiagram_spec-993711e5.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-99935c8c.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-9b7740f8.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-9b9272c6.mmd",
@@ -1511,9 +1425,7 @@
   {
     "case": "class_diagram/classdiagram_spec-a220c8c8.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-a2994e3e.mmd",
@@ -1523,9 +1435,7 @@
   {
     "case": "class_diagram/classdiagram_spec-a5a3ca4d.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-a7e92165.mmd",
@@ -1547,9 +1457,7 @@
   {
     "case": "class_diagram/classdiagram_spec-aaa315f8.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-aabea7c5.mmd",
@@ -1561,9 +1469,7 @@
   {
     "case": "class_diagram/classdiagram_spec-aafd9409.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-ab0cc3b6.mmd",
@@ -1585,9 +1491,7 @@
   {
     "case": "class_diagram/classdiagram_spec-acf6f03d.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-ae3022ac.mmd",
@@ -1614,9 +1518,7 @@
   {
     "case": "class_diagram/classdiagram_spec-b5b05534.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-b5e96550.mmd",
@@ -1631,16 +1533,12 @@
   {
     "case": "class_diagram/classdiagram_spec-b832406f.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-b8608261.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-b9b4b9c7.mmd",
@@ -1667,16 +1565,12 @@
   {
     "case": "class_diagram/classdiagram_spec-bc16b2f5.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-bcf14374.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-bcf92af6.mmd",
@@ -1696,9 +1590,7 @@
   {
     "case": "class_diagram/classdiagram_spec-be23b67b.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-be4e15a3.mmd",
@@ -1713,9 +1605,7 @@
   {
     "case": "class_diagram/classdiagram_spec-c071c93e.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-c1910d20.mmd",
@@ -1745,9 +1635,7 @@
   {
     "case": "class_diagram/classdiagram_spec-ce80c05a.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-d0c7516d.mmd",
@@ -1757,16 +1645,12 @@
   {
     "case": "class_diagram/classdiagram_spec-d52f200c.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-d55aa7df.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-d56ebd89.mmd",
@@ -1776,9 +1660,7 @@
   {
     "case": "class_diagram/classdiagram_spec-d6cceedd.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-d7130dfa.mmd",
@@ -1807,9 +1689,7 @@
   {
     "case": "class_diagram/classdiagram_spec-d985c318.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-db377a28.mmd",
@@ -1819,9 +1699,7 @@
   {
     "case": "class_diagram/classdiagram_spec-db5b1ab5.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-dbc2cc41.mmd",
@@ -1833,16 +1711,12 @@
   {
     "case": "class_diagram/classdiagram_spec-dd7337b2.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-ddf34467.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-ddfcc6a0.mmd",
@@ -1852,9 +1726,7 @@
   {
     "case": "class_diagram/classdiagram_spec-de3e6170.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-de606d76.mmd",
@@ -1869,9 +1741,7 @@
   {
     "case": "class_diagram/classdiagram_spec-e0fe1916.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-e2283033.mmd",
@@ -1920,9 +1790,7 @@
   {
     "case": "class_diagram/classdiagram_spec-e94dfee9.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-eb1e4596.mmd",
@@ -1934,9 +1802,7 @@
   {
     "case": "class_diagram/classdiagram_spec-ecb265e7.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-ecb64073.mmd",
@@ -1960,16 +1826,12 @@
   {
     "case": "class_diagram/classdiagram_spec-ed7199c6.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-efbfea2b.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-f0bc7096.mmd",
@@ -1979,9 +1841,7 @@
   {
     "case": "class_diagram/classdiagram_spec-f1e5ff4e.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-f25b0880.mmd",
@@ -2015,9 +1875,7 @@
   {
     "case": "class_diagram/classdiagram_spec-f5041ce0.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-f5d7e979.mmd",
@@ -2066,9 +1924,7 @@
   {
     "case": "class_diagram/classdiagram_spec-ff2fe224.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_styles_spec-098ab77f.mmd",
@@ -3169,23 +3025,17 @@
   {
     "case": "er_diagram/cannot_contain_because_it_could_start_and_escape-eb5c05ca.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/cannot_contain_because_it_interferes_with_parsin-98f2b505.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/cannot_newline_backspace_or_vertical_characters-c6cf992f.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/diagram_orchestration_spec-0b6a4661.mmd",
@@ -3268,9 +3118,7 @@
   {
     "case": "er_diagram/erdiagram_spec-111c698f.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-14ad0a37.mmd",
@@ -3287,23 +3135,17 @@
   {
     "case": "er_diagram/erdiagram_spec-1622430a.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-16508afb.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-16fbb123.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-1a8b7719.mmd",
@@ -3369,16 +3211,12 @@
   {
     "case": "er_diagram/erdiagram_spec-39b996ea.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-3a39117b.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-3ba80a22.mmd",
@@ -3397,9 +3235,7 @@
   {
     "case": "er_diagram/erdiagram_spec-3c8a4cbd.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-3d10f4ef.mmd",
@@ -3425,9 +3261,7 @@
   {
     "case": "er_diagram/erdiagram_spec-4aabf3e3.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-4ab60472.mmd",
@@ -3439,9 +3273,7 @@
   {
     "case": "er_diagram/erdiagram_spec-4eb49b63.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-4fb39e72.mmd",
@@ -3451,16 +3283,12 @@
   {
     "case": "er_diagram/erdiagram_spec-50d759c6.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-572ba53b.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-575d46af.mmd",
@@ -3514,16 +3342,12 @@
   {
     "case": "er_diagram/erdiagram_spec-75d45fa9.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-7997ef63.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-7b6a17de.mmd",
@@ -3535,16 +3359,12 @@
   {
     "case": "er_diagram/erdiagram_spec-870ded69.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-8819d6bc.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-8a7b96fa.mmd",
@@ -3563,9 +3383,7 @@
   {
     "case": "er_diagram/erdiagram_spec-8cb87484.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-8cc5e254.mmd",
@@ -3577,9 +3395,7 @@
   {
     "case": "er_diagram/erdiagram_spec-8cc99c4c.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-90ee7a35.mmd",
@@ -3596,9 +3412,7 @@
   {
     "case": "er_diagram/erdiagram_spec-9899efcb.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-9ad814d1.mmd",
@@ -3610,9 +3424,7 @@
   {
     "case": "er_diagram/erdiagram_spec-9b4fc14a.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-9e149a5e.mmd",
@@ -3624,23 +3436,17 @@
   {
     "case": "er_diagram/erdiagram_spec-9e6311f2.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-a1241e76.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-a5ca0b8c.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-a6a71959.mmd",
@@ -3673,23 +3479,17 @@
   {
     "case": "er_diagram/erdiagram_spec-a955ce67.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-acb29fce.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-b2bb4486.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-b31cf34f.mmd",
@@ -3715,9 +3515,7 @@
   {
     "case": "er_diagram/erdiagram_spec-cfe6339e.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-d00cb184.mmd",
@@ -3748,37 +3546,27 @@
   {
     "case": "er_diagram/erdiagram_spec-d921f55c.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-d944f1d1.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-d9e80d35.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-da862bac.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-da955898.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-db53fe0a.mmd",
@@ -3825,9 +3613,7 @@
   {
     "case": "er_diagram/erdiagram_spec-f06cacb7.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-f6a21083.mmd",
@@ -3844,44 +3630,32 @@
   {
     "case": "er_diagram/journey_spec-2a260e89.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/journey_spec-33008e29.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/journey_spec-5b9e6912.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/journey_spec-b8d8e64a.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/journey_spec-bfa0e3fa.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/journey_spec-d55f22a2.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/mermaidapi_spec-28c33f18.mmd",
@@ -4024,23 +3798,17 @@
   {
     "case": "er_diagram/should_allow_decimal_numbers_as_entity_names_wit-31b7bfa7.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/should_allow_decimal_numbers_as_standalone_entit-1bcf6f49.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/should_allow_decimal_numbers_in_relationships-fb5bd4ad.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/should_allow_more_than_one_relationship_between-faee6d96.mmd",
@@ -4059,9 +3827,7 @@
   {
     "case": "er_diagram/should_allow_numbers_in_relationships-f5668c4e.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "er_diagram/should_allow_recursive_relationships-cda7f220.mmd",
@@ -4439,9 +4205,7 @@
   {
     "case": "flowchart/flow_arrows_spec-3b54e50e.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_arrows_spec-5101f768.mmd",
@@ -4451,9 +4215,7 @@
   {
     "case": "flowchart/flow_arrows_spec-58e1c972.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_arrows_spec-65b5d3dc.mmd",
@@ -4478,58 +4240,42 @@
   {
     "case": "flowchart/flow_comments_spec-618a71ea.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_comments_spec-631bd216.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_comments_spec-68ea59e2.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_comments_spec-699c136c.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_comments_spec-9fa70e30.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_comments_spec-ae4455cb.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_comments_spec-b1966b65.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_comments_spec-e69bdfb5.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_direction_spec-009cc616.mmd",
@@ -4781,16 +4527,12 @@
   {
     "case": "flowchart/flow_lines_spec-25cf71c8.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_lines_spec-2a085816.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_lines_spec-54257981.mmd",
@@ -4800,37 +4542,27 @@
   {
     "case": "flowchart/flow_lines_spec-5506f485.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_lines_spec-583e2273.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_lines_spec-94e5b622.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_lines_spec-d08cedbe.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_lines_spec-da0876d2.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_lines_spec-e3996fcc.mmd",
@@ -4840,16 +4572,12 @@
   {
     "case": "flowchart/flow_lines_spec-e5d88fce.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_lines_spec-e808e1f8.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_lines_spec-f9d9d138.mmd",
@@ -5377,9 +5105,7 @@
   {
     "case": "flowchart/flow_spec-5c5025fc.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_spec-604c37df.mmd",
@@ -5391,9 +5117,7 @@
   {
     "case": "flowchart/flow_spec-666b641c.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_spec-911e8567.mmd",
@@ -5408,9 +5132,7 @@
   {
     "case": "flowchart/flow_spec-f1aa1d42.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_style_spec-0982e1ee.mmd",
@@ -5425,9 +5147,7 @@
   {
     "case": "flowchart/flow_style_spec-0ce324c2.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_style_spec-31a9a1ed.mmd",
@@ -5454,9 +5174,7 @@
   {
     "case": "flowchart/flow_style_spec-78a9b3c4.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_style_spec-791b70ef.mmd",
@@ -5483,9 +5201,7 @@
   {
     "case": "flowchart/flow_style_spec-9bd50570.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_style_spec-a47c90c5.mmd",
@@ -5495,16 +5211,12 @@
   {
     "case": "flowchart/flow_style_spec-ad32b111.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_style_spec-b1f4d487.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_style_spec-b8dfc420.mmd",
@@ -5516,9 +5228,7 @@
   {
     "case": "flowchart/flow_style_spec-dcf1f3be.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_style_spec-e007306c.mmd",
@@ -5540,9 +5250,7 @@
   {
     "case": "flowchart/flow_text_spec-0b25e2d1.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_text_spec-0dcd010a.mmd",
@@ -5697,9 +5405,7 @@
   {
     "case": "flowchart/flow_text_spec-a33448ba.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/flow_text_spec-a3dfee92.mmd",
@@ -5940,9 +5646,7 @@
   {
     "case": "flowchart/subgraph_spec-079ae241.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/subgraph_spec-0baf7511.mmd",
@@ -5952,9 +5656,7 @@
   {
     "case": "flowchart/subgraph_spec-0fd49976.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/subgraph_spec-244414d5.mmd",
@@ -5969,16 +5671,12 @@
   {
     "case": "flowchart/subgraph_spec-38097244.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/subgraph_spec-4d850c95.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/subgraph_spec-4eae2e41.mmd",
@@ -5993,9 +5691,7 @@
   {
     "case": "flowchart/subgraph_spec-57f55756.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/subgraph_spec-625d449b.mmd",
@@ -6012,9 +5708,7 @@
   {
     "case": "flowchart/subgraph_spec-7cf044cd.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/subgraph_spec-8379ab1d.mmd",
@@ -6029,9 +5723,7 @@
   {
     "case": "flowchart/subgraph_spec-8cb5efe3.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/subgraph_spec-9c30646c.mmd",
@@ -6073,9 +5765,7 @@
   {
     "case": "flowchart/subgraph_spec-eb979727.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/subgraph_spec-f0825d5b.mmd",
@@ -6085,9 +5775,7 @@
   {
     "case": "flowchart/subgraph_spec-f500a75b.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "flowchart/subgraph_spec-ff8fbe0c.mmd",
@@ -6601,23 +6289,17 @@
   {
     "case": "gitgraph/gitgraph_test-0b25d816.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-0de8a536.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-2991199d.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-33d2e733.mmd",
@@ -6629,16 +6311,12 @@
   {
     "case": "gitgraph/gitgraph_test-3c2299be.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-46039f98.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-51c5ba48.mmd",
@@ -6650,9 +6328,7 @@
   {
     "case": "gitgraph/gitgraph_test-5fd422d2.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-604dad9c.mmd",
@@ -6664,23 +6340,17 @@
   {
     "case": "gitgraph/gitgraph_test-618ca788.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-6dbacd8b.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-7331cd25.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-885f13f6.mmd",
@@ -6706,16 +6376,12 @@
   {
     "case": "gitgraph/gitgraph_test-b498c8db.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-b88a55d1.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-bc09a6fb.mmd",
@@ -6727,9 +6393,7 @@
   {
     "case": "gitgraph/gitgraph_test-c80f6b5f.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-c890a62b.mmd",
@@ -6741,9 +6405,7 @@
   {
     "case": "gitgraph/gitgraph_test-d7ff8f0d.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-e632fe0f.mmd",
@@ -6755,9 +6417,7 @@
   {
     "case": "gitgraph/gitgraph_test-f027449f.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-f33d4324.mmd",
@@ -6769,9 +6429,7 @@
   {
     "case": "gitgraph/gitgraph_test-f71b441d.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-f9858e92.mmd",
@@ -6917,9 +6575,7 @@
   {
     "case": "gitgraph/should_handle_a_gitgraph_definition-4acb9709.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "gitgraph/should_handle_a_title_and_a_description_accdescr-e3f19c3c.mmd",
@@ -7932,16 +7588,12 @@
   {
     "case": "pie/pie_test-993abc75.mmd",
     "verdict": "invalid",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "pie/pie_test-9ab8dc76.mmd",
     "verdict": "invalid",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "pie/pie_test-aa5adfc7.mmd",
@@ -7956,9 +7608,7 @@
   {
     "case": "pie/pie_test-c695eeb1.mmd",
     "verdict": "invalid",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "pie/pie_test-cc825265.mmd",
@@ -8563,16 +8213,12 @@
   {
     "case": "sequence/mermaid_spec-b8d5b6a5.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "sequence/mermaid_spec-dddb40c5.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "sequence/mermaidapi_spec-0f6b2553.mmd",
@@ -8709,9 +8355,7 @@
   {
     "case": "sequence/sequencediagram_spec-329e1a14.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "sequence/sequencediagram_spec-32f90a6d.mmd",
@@ -8980,9 +8624,7 @@
   {
     "case": "sequence/sequencediagram_spec-b9874dbc.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "sequence/sequencediagram_spec-bc90811c.mmd",
@@ -9017,9 +8659,7 @@
   {
     "case": "sequence/sequencediagram_spec-cd10ed7b.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "sequence/sequencediagram_spec-ce97d13c.mmd",
@@ -9054,9 +8694,7 @@
   {
     "case": "sequence/sequencediagram_spec-f856f3c3.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "sequence/sequencediagram_spec-ff05eb91.mmd",
@@ -9066,9 +8704,7 @@
   {
     "case": "sequence/sequencediagram_v2_spec-0210f13f.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "sequence/sequencediagram_v2_spec-22024e01.mmd",
@@ -9093,16 +8729,12 @@
   {
     "case": "sequence/sequencediagram_v2_spec-66119c12.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "sequence/sequencediagram_v2_spec-71163691.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "sequence/sequencediagram_v2_spec-7bd17012.mmd",
@@ -9112,23 +8744,17 @@
   {
     "case": "sequence/sequencediagram_v2_spec-8092a233.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "sequence/sequencediagram_v2_spec-80dea164.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "sequence/sequencediagram_v2_spec-8e0b6671.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "sequence/sequencediagram_v2_spec-904559a9.mmd",
@@ -9143,9 +8769,7 @@
   {
     "case": "sequence/sequencediagram_v2_spec-c98f02f7.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "sequence/sequencediagram_v2_spec-c9b61e4d.mmd",
@@ -9155,16 +8779,12 @@
   {
     "case": "sequence/sequencediagram_v2_spec-dffb9d43.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "sequence/sequencediagram_v2_spec-f3efa956.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "sequence/xss_spec-c01ed3ad.mmd",
@@ -9292,37 +8912,27 @@
   {
     "case": "state_diagram/should_handle_concurrent_state-4c57bf32.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/should_handle_concurrent_state-545e37dd.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/should_handle_concurrent_state-caa6f9c3.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/should_handle_concurrent_state-ed5380cd.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/should_handle_floating_notes-08758173.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/should_handle_floating_notes-6e33ecc6.mmd",
@@ -9342,16 +8952,12 @@
   {
     "case": "state_diagram/should_handle_fork_statements-c74cc180.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/should_handle_fork_statements-d0371472.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/should_handle_multiline_notes_with_different_lin-90d75e03.mmd",
@@ -9380,16 +8986,12 @@
   {
     "case": "state_diagram/should_handle_note_statements-4e5720a4.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/should_handle_note_statements-5c689b43.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/should_handle_notes_for_composite_nested_states-0033e4b1.mmd",
@@ -9399,51 +9001,37 @@
   {
     "case": "state_diagram/should_handle_notes_for_composite_states-314eb3bf.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/should_handle_recursive_state_definitions-23d7165f.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/should_handle_recursive_state_definitions-a63be1cd.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/should_handle_relation_definitions-c1ead2b4.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/should_handle_relation_definitions-c1f16759.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/should_handle_state_definitions_with_separation-14dcd785.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/should_handle_state_definitions_with_separation-66a2d433.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/should_handle_state_definitions_with_separation-a4e9be66.mmd",
@@ -9458,16 +9046,12 @@
   {
     "case": "state_diagram/should_handle_state_statements-02bc3364.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/should_handle_state_statements-e7035600.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/should_state_definition_with_quotes-985ee25e.mmd",
@@ -9493,16 +9077,12 @@
   {
     "case": "state_diagram/simple_with_accdescription-9a4b81f0.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/simple_with_accdescription_accdescr-ddcfd6c8.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/simple_with_multiline_accdescription_accdescr-0768b11b.mmd",
@@ -9514,16 +9094,12 @@
   {
     "case": "state_diagram/simple_with_title-e9583ab3.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/simple_with_title_accdescr-c49268e9.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/space_before_and_after_the_colon-2648f9df.mmd",
@@ -9599,16 +9175,12 @@
   {
     "case": "state_diagram/statediagram_spec-012c4472.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-045c4d98.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-061d556a.mmd",
@@ -9618,9 +9190,7 @@
   {
     "case": "state_diagram/statediagram_spec-0ba06b23.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-0c8aca4c.mmd",
@@ -9639,9 +9209,7 @@
   {
     "case": "state_diagram/statediagram_spec-12544018.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-128d4533.mmd",
@@ -9651,9 +9219,7 @@
   {
     "case": "state_diagram/statediagram_spec-13ef7f56.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-14b793e6.mmd",
@@ -9686,9 +9252,7 @@
   {
     "case": "state_diagram/statediagram_spec-1a4f8bd0.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-1acdbd7b.mmd",
@@ -9698,9 +9262,7 @@
   {
     "case": "state_diagram/statediagram_spec-1e00895c.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-1f69379f.mmd",
@@ -9710,9 +9272,7 @@
   {
     "case": "state_diagram/statediagram_spec-29608c39.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-2ff68e17.mmd",
@@ -9724,16 +9284,12 @@
   {
     "case": "state_diagram/statediagram_spec-31fa3ee4.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-3365865c.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-35e88baf.mmd",
@@ -9750,9 +9306,7 @@
   {
     "case": "state_diagram/statediagram_spec-36d7b1dc.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-39278024.mmd",
@@ -9771,9 +9325,7 @@
   {
     "case": "state_diagram/statediagram_spec-3ef2dcfb.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-3fdaec54.mmd",
@@ -9790,37 +9342,27 @@
   {
     "case": "state_diagram/statediagram_spec-41efc655.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-47771e5f.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-49419133.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-4965a9af.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-4a7caf18.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-4df2ff67.mmd",
@@ -9858,9 +9400,7 @@
   {
     "case": "state_diagram/statediagram_spec-5e8d05fd.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-5f322c1b.mmd",
@@ -9872,16 +9412,12 @@
   {
     "case": "state_diagram/statediagram_spec-61c1054b.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-6217abb2.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-62e1c7b7.mmd",
@@ -9900,23 +9436,17 @@
   {
     "case": "state_diagram/statediagram_spec-74261a4f.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-74b96cc5.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-7e13c74d.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-836e165c.mmd",
@@ -9956,23 +9486,17 @@
   {
     "case": "state_diagram/statediagram_spec-8f5295b8.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-93d0ca3f.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-94d5618c.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-9517b78d.mmd",
@@ -9984,30 +9508,22 @@
   {
     "case": "state_diagram/statediagram_spec-98fc6bd3.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-9e899a40.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-a32dbda1.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-a8b1c3b6.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-aa563385.mmd",
@@ -10024,9 +9540,7 @@
   {
     "case": "state_diagram/statediagram_spec-acbd6157.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-ae578725.mmd",
@@ -10036,23 +9550,17 @@
   {
     "case": "state_diagram/statediagram_spec-b6bfaac5.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-b74059e8.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-b7fd6ad9.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-bdd17264.mmd",
@@ -10062,37 +9570,27 @@
   {
     "case": "state_diagram/statediagram_spec-c00a2d32.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-cf0e21bf.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-d1364199.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-d1fb1fa0.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-d2b5972f.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-d70d0aa6.mmd",
@@ -10104,16 +9602,12 @@
   {
     "case": "state_diagram/statediagram_spec-d87f6672.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-d8edbae8.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-dbd153b9.mmd",
@@ -10125,9 +9619,7 @@
   {
     "case": "state_diagram/statediagram_spec-e1fe2228.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-e3f6dcf6.mmd",
@@ -10139,16 +9631,12 @@
   {
     "case": "state_diagram/statediagram_spec-e57ada98.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-e9671157.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-eb1689cb.mmd",
@@ -10160,9 +9648,7 @@
   {
     "case": "state_diagram/statediagram_spec-ef8fcf01.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-f0225465.mmd",
@@ -10188,9 +9674,7 @@
   {
     "case": "state_diagram/statediagram_spec-f4256d44.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-f4d3f144.mmd",
@@ -10207,37 +9691,27 @@
   {
     "case": "state_diagram/statediagram_spec-f99cfef6.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-f9c80b24.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-fcdb21ad.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-fdf6c5aa.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-fe48a130.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-ffd2d953.mmd",
@@ -10249,16 +9723,12 @@
   {
     "case": "state_diagram/statediagram_v2_spec-0ff11835.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-12f07330.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-13333783.mmd",
@@ -10275,9 +9745,7 @@
   {
     "case": "state_diagram/statediagram_v2_spec-14a3be7b.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-1703a0f2.mmd",
@@ -10296,9 +9764,7 @@
   {
     "case": "state_diagram/statediagram_v2_spec-1e88919f.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-26254e43.mmd",
@@ -10315,9 +9781,7 @@
   {
     "case": "state_diagram/statediagram_v2_spec-2f81c3b1.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-3055d1ed.mmd",
@@ -10339,9 +9803,7 @@
   {
     "case": "state_diagram/statediagram_v2_spec-33a14d16.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-3505bc62.mmd",
@@ -10381,9 +9843,7 @@
   {
     "case": "state_diagram/statediagram_v2_spec-589fc294.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-5f17d693.mmd",
@@ -10393,9 +9853,7 @@
   {
     "case": "state_diagram/statediagram_v2_spec-5f2476b5.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-61539d5d.mmd",
@@ -10407,16 +9865,12 @@
   {
     "case": "state_diagram/statediagram_v2_spec-622dc71f.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-62551c6b.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-63fb1797.mmd",
@@ -10435,9 +9889,7 @@
   {
     "case": "state_diagram/statediagram_v2_spec-6a2ad467.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-6aad18a9.mmd",
@@ -10447,16 +9899,12 @@
   {
     "case": "state_diagram/statediagram_v2_spec-6afb5e8d.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-6e0d9ef0.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-6ec5fc36.mmd",
@@ -10468,9 +9916,7 @@
   {
     "case": "state_diagram/statediagram_v2_spec-701d145f.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-70d748dc.mmd",
@@ -10480,30 +9926,22 @@
   {
     "case": "state_diagram/statediagram_v2_spec-768cc984.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-77fa5130.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-7c0af12d.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-7d2ffdd4.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-7f54c592.mmd",
@@ -10513,9 +9951,7 @@
   {
     "case": "state_diagram/statediagram_v2_spec-832a9306.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-8caf701e.mmd",
@@ -10527,9 +9963,7 @@
   {
     "case": "state_diagram/statediagram_v2_spec-8e52b8cb.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-907b0443.mmd",
@@ -10551,30 +9985,22 @@
   {
     "case": "state_diagram/statediagram_v2_spec-a3eb7f21.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-a4f41ba5.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-a9fa4e8f.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-aea9ccdf.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-c351b77a.mmd",
@@ -10612,23 +10038,17 @@
   {
     "case": "state_diagram/statediagram_v2_spec-d5b0460d.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-d6232e7e.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-df15b06f.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-e333ffe5.mmd",
@@ -10640,16 +10060,12 @@
   {
     "case": "state_diagram/statediagram_v2_spec-e67480a3.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-eb42ee32.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-ed4440fd.mmd",
@@ -10659,16 +10075,12 @@
   {
     "case": "state_diagram/statediagram_v2_spec-f6b3bf00.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-f799c529.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-fa817cac.mmd",
@@ -10687,23 +10099,17 @@
   {
     "case": "state_diagram/statediagram_v2_spec-fb978528.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/super_simple-118f2a7e.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "state_diagram/super_simple-d28d6357.mmd",
     "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "pass": true
   },
   {
     "case": "timeline/diagram_orchestration_spec-74efe05c.mmd",
