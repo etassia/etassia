@@ -71,7 +71,8 @@ RSpec.describe Rake::DSL, :aggregate_failures do
         FileUtils.mkdir_p(File.join(dir, "tasks"))
         File.write(File.join(dir, "tasks/benchmark.rake"), without_require)
         FileUtils.ln_s(File.join(repo_root, "lib"), File.join(dir, "lib"))
-        run_against_bare_etassia_module(dir, 'Etassia.render("graph TD\\nA-->B")')
+        run_against_bare_etassia_module(dir,
+                                        'Etassia.render("graph TD\\nA-->B")')
       end
     end
 
@@ -171,7 +172,8 @@ RSpec.describe Rake::DSL, :aggregate_failures do
           cpu_info: "x",
           timestamp: Time.now.iso8601
         },
-        single_diagram: { flowchart: { etassia_time: 0.01, mermaid_time: nil } },
+        single_diagram: { flowchart: { etassia_time: 0.01,
+                                       mermaid_time: nil } },
         batch_rendering: {
           diagram_count: 50,
           etassia_total: 0.5,

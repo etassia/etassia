@@ -4,7 +4,8 @@ require "spec_helper"
 
 RSpec.describe Etassia::Renderer::Sequence do
   let(:xml) do
-    Etassia.render("sequenceDiagram\nactor D as dee\nparticipant A\nD->>A: hi\n")
+    Etassia.render("sequenceDiagram\nactor D as dee\nparticipant A\n" \
+                   "D->>A: hi\n")
   end
   let(:group) { xml[%r{<g id="participant-D".*?</g>}m] }
   let(:label_y) { group[/<text[^>]* y="([\d.]+)"/, 1].to_f }

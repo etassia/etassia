@@ -252,7 +252,8 @@ RSpec.describe Etassia::Renderer::Base do
 
   describe "#reserved_text_width" do
     it "is the measured width plus 20 percent for a substituted font" do
-      measured = Etassia::TextMeasurement.measure("Hello", font_size: 14)[:width]
+      measured = Etassia::TextMeasurement.measure("Hello",
+                                                  font_size: 14)[:width]
 
       expect(renderer.reserved_text_width("Hello", 14))
         .to be_within(0.001).of(measured * 1.2)

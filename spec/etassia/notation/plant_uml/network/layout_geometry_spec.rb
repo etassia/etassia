@@ -37,7 +37,7 @@ RSpec.describe Etassia::Notation::PlantUML::Network::Layout,
 
   def parse(body)
     REXML::Document.new(Etassia.render("@startuml\n#{body}\n@enduml",
-                                      notation: :plantuml))
+                                       notation: :plantuml))
   end
 
   def rects(doc)

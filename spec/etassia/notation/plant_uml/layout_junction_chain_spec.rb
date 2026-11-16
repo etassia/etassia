@@ -12,7 +12,7 @@ module PlantumlJunctionChainHelpers
 
   def render(body)
     Etassia.render("@startuml\n!pragma layout smetana\n#{body}\n@enduml\n",
-                  notation: :plantuml)
+                   notation: :plantuml)
   end
 
   def boxes(svg)
@@ -77,7 +77,7 @@ module PlantumlJunctionChainHelpers
       case_id: id, type: "plantuml_class", reference: reference,
       reference_svg: File.read(reference),
       etassia_svg: Etassia.render(File.read("spec/plantuml/class/#{id}.puml"),
-                                notation: :plantuml),
+                                  notation: :plantuml),
       reproduce: __FILE__,
       recognizer: SpecSupport::LayoutParity::PlantumlClassRecognizer.new,
       spatial_kinds: [:class]

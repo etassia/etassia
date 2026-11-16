@@ -4,7 +4,8 @@ require "spec_helper"
 
 RSpec.describe Etassia::Renderer::Kanban, "#render" do
   let(:scene) do
-    diagram = Etassia::Parser::Kanban.new.parse("kanban\n  todo\n    t1[task]\n")
+    source = "kanban\n  todo\n    t1[task]\n"
+    diagram = Etassia::Parser::Kanban.new.parse(source)
     Etassia::Layout::Kanban.new.call(diagram)
   end
   let(:rects) { described_class.new.render(scene).children.grep(Etassia::Svg::Rect) }

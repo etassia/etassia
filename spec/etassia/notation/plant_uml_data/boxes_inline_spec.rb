@@ -25,7 +25,7 @@ RSpec.describe Etassia::Notation::PlantUMLData::Boxes do
 
   def mixed(head, json)
     Etassia.render("@startuml\n#{head}\njson JSON #{json}\n@enduml",
-                  notation: :plantuml)
+                   notation: :plantuml)
   end
 
   def standalone(json)

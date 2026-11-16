@@ -266,7 +266,7 @@ RSpec.describe Etassia::Notation::PlantUML::Activity do
     let(:steps) { boxes(root).sort_by { |b| num(b, "x") }.first(3) }
     let(:label_width) do
       Etassia::TextMeasurement.measure_in(:dejavu, "cond C",
-                                         font_size: 11)[:width]
+                                          font_size: 11)[:width]
     end
 
     # JAR 6-4: the decision stands 19 right of the middle of the outer

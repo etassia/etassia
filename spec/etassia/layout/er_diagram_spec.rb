@@ -6,7 +6,8 @@ RSpec.describe Etassia::Layout::ErDiagram, :aggregate_failures do
   let(:layout) { described_class.new }
   let(:diagram) do
     Etassia::Diagram::ErDiagram.new.tap do |value|
-      customer = Etassia::Diagram::ErEntity.new(id: "CUSTOMER", name: "CUSTOMER")
+      customer = Etassia::Diagram::ErEntity.new(id: "CUSTOMER",
+                                                name: "CUSTOMER")
       customer.attributes << Etassia::Diagram::ErAttribute.new(
         name: "id", attribute_type: "int", key_type: "PK",
       )

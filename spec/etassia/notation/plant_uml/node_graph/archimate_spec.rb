@@ -81,7 +81,7 @@ RSpec.describe Etassia::Notation::PlantUML::NodeGraph::Archimate do
 
     it "still reads a lone start or stop as an activity" do
       expect(Etassia::Notation::PlantUML.parse("@startuml\nstart\n:a;\nstop\n" \
-                                              "@enduml\n").type)
+                                               "@enduml\n").type)
         .to eq(:activity_diagram)
     end
   end

@@ -744,7 +744,7 @@ RSpec.describe Etassia::Renderer::Flowchart do
     context "when the theme paints no line" do
       let(:group) do
         edge_body(Etassia.render("flowchart TD\n  A --> B\n",
-                                theme: { colors: { node_fill: "#eeeeee" } }))
+                                 theme: { colors: { node_fill: "#eeeeee" } }))
       end
 
       it "leaves the line unstroked" do
@@ -764,7 +764,7 @@ RSpec.describe Etassia::Renderer::Flowchart do
       context "with a #{link} head when the theme paints no line" do
         let(:group) do
           edge_body(Etassia.render("flowchart TD\n  A #{link} B\n",
-                                  theme: { colors: { node_fill: "#eeeeee" } }))
+                                   theme: { colors: { node_fill: "#eeeeee" } }))
         end
 
         it "draws the head" do
@@ -816,7 +816,7 @@ RSpec.describe Etassia::Renderer::Flowchart do
     # `none` being dropped.
     it "leaves a circle head unfilled when the theme paints no line" do
       xml = Etassia.render("flowchart TD\n  A --o B\n",
-                          theme: { colors: { node_fill: "#eeeeee" } })
+                           theme: { colors: { node_fill: "#eeeeee" } })
 
       expect(edge_body(xml)[/<circle[^>]*fill="([^"]*)"/, 1]).to eq("none")
     end

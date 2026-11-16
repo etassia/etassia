@@ -347,7 +347,7 @@ RSpec.describe Etassia::Notation::PlantUML do
 
     it "draws a method written without parentheses without them" do
       svg = Etassia.render(wrap("class A {\n{method} run\n}"),
-                          notation: :plantuml)
+                           notation: :plantuml)
 
       expect(svg).to include(">run<")
     end
@@ -404,7 +404,7 @@ RSpec.describe Etassia::Notation::PlantUML do
       let(:svg) do
         REXML::Document.new(
           Etassia.render(wrap("class A\nnote right of A #yellow : hi"),
-                        notation: :plantuml),
+                         notation: :plantuml),
         )
       end
 
@@ -498,7 +498,7 @@ RSpec.describe Etassia::Notation::PlantUML do
 
     it "draws no box for the hidden class" do
       svg = Etassia.render(wrap("class A\nclass B $x\nA --> B\nhide $x"),
-                          notation: :plantuml)
+                           notation: :plantuml)
 
       expect(svg).not_to include("class-B")
     end

@@ -9,8 +9,8 @@ require "digest"
 # TODO.foundation/03-coverage-gate.md item 1: the corpus fixture sweeps
 # (examples tagged :corpus -- spec/etassia/parser/{error,info,quadrant}_spec.rb,
 # spec/etassia/engine_spec.rb's treemap context, and
-# spec/etassia/engine_determinism_spec.rb's "never changes whether a diagram type
-# renders at all") assert only that etassia doesn't raise, that its output
+# spec/etassia/engine_determinism_spec.rb's "never changes whether a diagram
+# type renders at all") assert only that etassia doesn't raise, that its output
 # looks SVG-shaped, or (engine_determinism_spec.rb) that two rescued outcome
 # strings match -- lines they merely exercise would count as "covered"
 # without ever being asserted against if SimpleCov instrumented them. So

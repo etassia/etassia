@@ -170,7 +170,8 @@ RSpec.describe Etassia::Parser::Flowchart do
       # A corpus case quotes this message, so the two refusals have to stay
       # different sentences.
       expect { node_for("graph TD\nD@{ shape: multi-rect }\n") }
-        .to raise_error(Etassia::Parser::ParseError, /No such shape: multi-rect/)
+        .to raise_error(Etassia::Parser::ParseError,
+                        /No such shape: multi-rect/)
     end
 
     it "raises for an internal-only name" do

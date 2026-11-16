@@ -8,7 +8,7 @@ RSpec.describe Etassia::Layout::Base do
     Class.new(described_class) do
       def scene(_diagram)
         Etassia::Layout::Scene.new(width: theme.typography.font_size_normal,
-                                  height: today.year)
+                                   height: today.year)
       end
     end.new
   end
@@ -101,7 +101,7 @@ RSpec.describe Etassia::Layout::Base do
     it "passes the layout result through and hands the layout " \
        "the theme and date" do
       result = Etassia::Engine.new.send(:transform_diagram, diagram,
-                                       converted_layout.class, day, theme)
+                                        converted_layout.class, day, theme)
 
       expect(result).to have_attributes(width: 16.0, height: 2001)
     end

@@ -12,7 +12,8 @@ RSpec.describe Etassia::Renderer::Base, "#render" do
     Etassia::Renderer::Radar => "radar-beta\n axis a,b,c\n curve c1{1,2,3}",
     Etassia::Renderer::Timeline => "timeline\n 2020 : x",
     Etassia::Renderer::Treemap => "treemap-beta\n \"A\"\n  \"B\": 5",
-    Etassia::Renderer::UserJourney => "journey\n title T\n section S\n T: 5: Me",
+    Etassia::Renderer::UserJourney =>
+      "journey\n title T\n section S\n T: 5: Me",
     Etassia::Renderer::Kanban => "kanban\n col\n  t1[task]",
     Etassia::Renderer::StateDiagram =>
       "stateDiagram-v2\n [*] --> A\n A --> B: go\n B --> [*]",

@@ -42,7 +42,8 @@ RSpec.describe Etassia do
   include ComponentRequireHelper
 
   describe "component files, required standalone" do
-    %w[etassia/parser etassia/layout etassia/renderer etassia/engine].each do |path|
+    %w[etassia/parser etassia/layout etassia/renderer
+       etassia/engine].each do |path|
       it "loads #{path} without first requiring the top-level " \
          "etassia entry point" do
         out, status = require_standalone(path)

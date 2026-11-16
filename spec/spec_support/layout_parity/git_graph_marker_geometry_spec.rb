@@ -71,7 +71,8 @@ RSpec.describe SpecSupport::LayoutParity::GitGraphMarkerGeometry do
     reference = [measurement("commit-1", 0.0)]
     [0, 5].map do |radius|
       etassia = [measurement("commit-1", radius.to_f)]
-      described_class.compare(reference: reference, etassia: etassia).first.error
+      described_class.compare(reference: reference,
+                              etassia: etassia).first.error
     end
   end
 

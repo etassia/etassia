@@ -91,7 +91,7 @@ module Plantuml
         case_id: "plantuml/class/#{id}", type: "plantuml_class",
         reference: reference, reference_svg: File.read(reference),
         etassia_svg: Etassia.render(File.read(source_path(id)),
-                                  notation: :plantuml),
+                                    notation: :plantuml),
         reproduce: "bundle exec rspec #{REPRODUCE}",
         recognizer: SpecSupport::LayoutParity::PlantumlClassRecognizer.new,
         spatial_kinds: [:class]

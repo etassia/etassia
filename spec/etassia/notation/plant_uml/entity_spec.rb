@@ -133,8 +133,8 @@ RSpec.describe Etassia::Notation::PlantUML::Entity do
   describe "rendering" do
     let(:svg) do
       Etassia.render(File.read(File.join(fixture_dir,
-                                        "entity_card_accounts.puml")),
-                    notation: :plantuml)
+                                         "entity_card_accounts.puml")),
+                     notation: :plantuml)
     end
 
     it "draws the whole fixture", :aggregate_failures do

@@ -20,7 +20,7 @@ RSpec.describe Etassia::Notation::PlantUML::Sequence do
 
   it "renders a sequence diagram through the shared graph" do
     svg = Etassia.render("@startuml\nA -> B : hi\n@enduml\n",
-                        notation: :plantuml)
+                         notation: :plantuml)
 
     expect(svg).to include("hi")
   end

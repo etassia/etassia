@@ -6,7 +6,8 @@ RSpec.describe Etassia::Layout::PieLegend do
   let(:scene) do
     diagram = Etassia::Diagram::Pie.new
     diagram.slices = [Etassia::Diagram::PieSlice.new(label: "Bandy", value: 40),
-                      Etassia::Diagram::PieSlice.new(label: "Hockey", value: 80)]
+                      Etassia::Diagram::PieSlice.new(label: "Hockey",
+                                                     value: 80)]
     Etassia::Layout::Pie.new.to_graph(diagram)
   end
   let(:caption_tags) do

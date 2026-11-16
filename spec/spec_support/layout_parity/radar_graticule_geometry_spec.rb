@@ -61,7 +61,8 @@ RSpec.describe SpecSupport::LayoutParity::RadarGraticuleGeometry do
   def mismatch_action
     etassia = circle_svg('r="10"', reference: false)
     lambda do
-      described_class.compare(reference: mismatched_graticules, etassia: etassia)
+      described_class.compare(reference: mismatched_graticules,
+                              etassia: etassia)
     end
   end
 

@@ -5,9 +5,9 @@ require "spec_helper"
 module SequenceRendererClosureBranchesSpecHelpers
   def drawn_note_size(font_size)
     label = Etassia::Layout::Sequence::Label.new(text: "t", x: 1, y: 2,
-                                                font_size: font_size)
+                                                 font_size: font_size)
     note = Etassia::Layout::Sequence::Note.new(x: 0, y: 0, width: 10,
-                                              height: 10, lines: [label])
+                                               height: 10, lines: [label])
     Etassia::Renderer::Sequence::NoteDrawing.new(note).group.children
       .grep(Etassia::Svg::Text).first.font_size
   end

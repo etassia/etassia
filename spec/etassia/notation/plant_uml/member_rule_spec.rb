@@ -17,7 +17,7 @@ RSpec.describe Etassia::Notation::PlantUML::MemberRule do
   # empty method compartment, so no rule closes the fields.
   def rules(separator)
     svg = Etassia.render("@startuml\nclass K {\n a\n #{separator}\n b\n}\n" \
-                        "@enduml\n", notation: :plantuml)
+                         "@enduml\n", notation: :plantuml)
     REXML::XPath.match(REXML::Document.new(svg), "//g[@id='class-K']/line")
       .drop(1).map do |line|
       [line.attributes["stroke-width"],
@@ -47,7 +47,7 @@ RSpec.describe Etassia::Notation::PlantUML::MemberRule do
 
   it "draws the two lines of `==` two pixels apart" do
     svg = Etassia.render("@startuml\nclass K {\n a\n ==\n b\n}\n@enduml\n",
-                        notation: :plantuml)
+                         notation: :plantuml)
     ys = REXML::XPath.match(REXML::Document.new(svg), "//g[@id='class-K']/line")
       .drop(1).map { |line| line.attributes["y1"].to_f }
 

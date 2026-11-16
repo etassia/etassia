@@ -36,12 +36,12 @@ RSpec.describe Etassia::Notation::PlantUML::Activity do
 
   def dejavu(text, size)
     Etassia::TextMeasurement.measure_in(:dejavu, text,
-                                       font_size: size)[:width]
+                                        font_size: size)[:width]
   end
 
   def trebuchet(text, size)
     Etassia::TextMeasurement.measure_in(:trebuchet, text,
-                                       font_size: size)[:width]
+                                        font_size: size)[:width]
   end
 
   def actions(root)

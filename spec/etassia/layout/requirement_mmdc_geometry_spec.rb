@@ -16,7 +16,7 @@ RSpec.describe Etassia::Layout::Requirement do
         ],
         elements: [
           Etassia::Diagram::RequirementElement.new(name: "test_entity",
-                                                  type: "simulation"),
+                                                   type: "simulation"),
         ],
         relationships: [
           Etassia::Diagram::RequirementRelationship.new(

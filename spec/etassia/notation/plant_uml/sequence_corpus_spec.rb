@@ -104,7 +104,7 @@ RSpec.describe Etassia::Notation::PlantUML::Sequence do
 
   it "fills a coloured note, folded corner included" do
     svg = Etassia.render("@startuml\nA -> B\nnote right #red: x\n@enduml\n",
-                        notation: :plantuml)
+                         notation: :plantuml)
 
     expect(matches(svg, "//path/@fill").map(&:value).count("#FF0000")).to eq(2)
   end

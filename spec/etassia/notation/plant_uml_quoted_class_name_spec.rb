@@ -57,7 +57,7 @@ RSpec.describe Etassia::Notation::PlantUML do
 
     it "keeps an emoji in the name" do
       svg = Etassia.render("@startuml\nclass \"A\u{1F600}\"\n@enduml\n",
-                          notation: :plantuml)
+                           notation: :plantuml)
 
       expect(svg).to include("A\u{1F600}")
     end

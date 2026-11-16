@@ -111,7 +111,7 @@ RSpec.describe Etassia::Layout::ElkPlacement do
 
     it "retains a self-loop for Flowchart to route after elkrb placement" do
       svg = Etassia::Engine.new.render("flowchart TD\n A --> A\n",
-                                      layout_engine: :elk)
+                                       layout_engine: :elk)
       group = svg[%r{<g id="edge-A_to_A".*?</g>}m]
       path = group[/<path\b[^>]*\bd="([^"]+)"/, 1]
 
