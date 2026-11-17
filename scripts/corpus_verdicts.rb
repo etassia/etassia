@@ -279,6 +279,14 @@ end
 # call at a fake mmdc that only sleeps, and without the deadline/process-group
 # handling below it did not return on its own.
 def local_mmdc_verdict(path)
+  # One retry on an :error: a kill is the deadline landing on a loaded
+  # machine — tool noise, not mermaid's opinion of the source. Two
+  # consecutive errors stay :error and count as verification failures.
+  first = MmdcOracle.verdict(path) do |input, output|
+    HardenedMmdc.run_mmdc(input, output)
+  end.verdict
+  return first unless first == :error
+
   MmdcOracle.verdict(path) do |input, output|
     HardenedMmdc.run_mmdc(input, output)
   end.verdict

@@ -5,192 +5,216 @@
       "keyword": "graph, flowchart, or flowchart-elk",
       "carried": true,
       "corpus_cases": 331,
-      "corpus_passing": 258,
-      "status": "258/331 passing"
+      "scoreable_cases": 244,
+      "corpus_passing": 244,
+      "status": "244/244 scoreable passing; 87 damaged or rejected"
     },
     {
       "type": "sequence",
       "keyword": "sequenceDiagram",
       "carried": true,
       "corpus_cases": 126,
+      "scoreable_cases": 122,
       "corpus_passing": 122,
-      "status": "122/126 passing"
+      "status": "122/122 scoreable passing; 4 damaged or rejected"
     },
     {
       "type": "class_diagram",
       "keyword": "classDiagram",
       "carried": true,
       "corpus_cases": 465,
-      "corpus_passing": 398,
-      "status": "398/465 passing"
+      "scoreable_cases": 306,
+      "corpus_passing": 306,
+      "status": "306/306 scoreable passing; 159 damaged or rejected"
     },
     {
       "type": "state_diagram",
       "keyword": "stateDiagram or stateDiagram-v2",
       "carried": true,
       "corpus_cases": 234,
-      "corpus_passing": 228,
-      "status": "228/234 passing"
+      "scoreable_cases": 219,
+      "corpus_passing": 219,
+      "status": "219/219 scoreable passing; 15 damaged or rejected"
     },
     {
       "type": "er_diagram",
       "keyword": "erDiagram",
       "carried": true,
       "corpus_cases": 161,
-      "corpus_passing": 60,
-      "status": "60/161 passing"
+      "scoreable_cases": 49,
+      "corpus_passing": 49,
+      "status": "49/49 scoreable passing; 112 damaged or rejected"
     },
     {
       "type": "user_journey",
       "keyword": "journey",
       "carried": true,
       "corpus_cases": 35,
+      "scoreable_cases": 27,
       "corpus_passing": 27,
-      "status": "27/35 passing"
+      "status": "27/27 scoreable passing; 8 damaged or rejected"
     },
     {
       "type": "gantt",
       "keyword": "gantt",
       "carried": true,
       "corpus_cases": 26,
+      "scoreable_cases": 22,
       "corpus_passing": 22,
-      "status": "22/26 passing"
+      "status": "22/22 scoreable passing; 4 damaged or rejected"
     },
     {
       "type": "pie",
       "keyword": "pie",
       "carried": true,
       "corpus_cases": 49,
-      "corpus_passing": 44,
-      "status": "44/49 passing"
+      "scoreable_cases": 40,
+      "corpus_passing": 40,
+      "status": "40/40 scoreable passing; 9 damaged or rejected"
     },
     {
       "type": "timeline",
       "keyword": "timeline",
       "carried": true,
       "corpus_cases": 17,
+      "scoreable_cases": 16,
       "corpus_passing": 16,
-      "status": "16/17 passing"
+      "status": "16/16 scoreable passing; 1 damaged or rejected"
     },
     {
       "type": "quadrant",
       "keyword": "quadrantChart",
       "carried": true,
       "corpus_cases": 10,
+      "scoreable_cases": 9,
       "corpus_passing": 9,
-      "status": "9/10 passing"
+      "status": "9/9 scoreable passing; 1 damaged or rejected"
     },
     {
       "type": "git_graph",
       "keyword": "gitGraph",
       "carried": true,
       "corpus_cases": 168,
-      "corpus_passing": 146,
-      "status": "146/168 passing"
+      "scoreable_cases": 144,
+      "corpus_passing": 144,
+      "status": "144/144 scoreable passing; 24 damaged or rejected"
     },
     {
       "type": "mindmap",
       "keyword": "mindmap",
       "carried": true,
       "corpus_cases": 55,
+      "scoreable_cases": 45,
       "corpus_passing": 45,
-      "status": "45/55 passing"
+      "status": "45/45 scoreable passing; 10 damaged or rejected"
     },
     {
       "type": "kanban",
       "keyword": "kanban",
       "carried": true,
       "corpus_cases": 41,
+      "scoreable_cases": 39,
       "corpus_passing": 39,
-      "status": "39/41 passing"
+      "status": "39/39 scoreable passing; 2 damaged or rejected"
     },
     {
       "type": "radar",
       "keyword": "radar-beta",
       "carried": true,
       "corpus_cases": 42,
+      "scoreable_cases": 14,
       "corpus_passing": 14,
-      "status": "14/42 passing"
+      "status": "14/14 scoreable passing; 28 damaged or rejected"
     },
     {
       "type": "block",
       "keyword": "block-beta",
       "carried": true,
       "corpus_cases": 13,
+      "scoreable_cases": 6,
       "corpus_passing": 6,
-      "status": "6/13 passing"
+      "status": "6/6 scoreable passing; 7 damaged or rejected"
     },
     {
       "type": "requirement",
       "keyword": "requirementDiagram",
       "carried": true,
       "corpus_cases": 25,
+      "scoreable_cases": 24,
       "corpus_passing": 24,
-      "status": "24/25 passing"
+      "status": "24/24 scoreable passing; 1 damaged or rejected"
     },
     {
       "type": "xychart",
       "keyword": "xychart-beta",
       "carried": true,
       "corpus_cases": 2,
-      "corpus_passing": 2,
-      "status": "corpus parity"
+      "scoreable_cases": 1,
+      "corpus_passing": 1,
+      "status": "1/1 scoreable passing; 1 damaged or rejected"
     },
     {
       "type": "architecture",
       "keyword": "architecture-beta",
       "carried": true,
       "corpus_cases": 32,
-      "corpus_passing": 20,
-      "status": "20/32 passing"
+      "scoreable_cases": 19,
+      "corpus_passing": 19,
+      "status": "19/19 scoreable passing; 13 damaged or rejected"
     },
     {
       "type": "sankey",
       "keyword": "sankey-beta",
       "carried": true,
       "corpus_cases": 1,
+      "scoreable_cases": 0,
       "corpus_passing": 0,
-      "status": "0/1 passing"
+      "status": "all 1 cases damaged or rejected"
     },
     {
       "type": "packet",
       "keyword": "packet-beta",
       "carried": true,
       "corpus_cases": 4,
+      "scoreable_cases": 4,
       "corpus_passing": 4,
-      "status": "corpus parity"
+      "status": "4/4 scoreable passing"
     },
     {
       "type": "treemap",
       "keyword": "treemap or treemap-beta",
       "carried": true,
       "corpus_cases": 10,
+      "scoreable_cases": 9,
       "corpus_passing": 9,
-      "status": "9/10 passing"
+      "status": "9/9 scoreable passing; 1 damaged or rejected"
     },
     {
       "type": "c4",
       "keyword": "C4Context, C4Container, C4Component, C4Dynamic, C4Deployment, or a C4 diagram",
       "carried": true,
       "corpus_cases": 47,
-      "corpus_passing": 28,
-      "status": "28/47 passing"
+      "scoreable_cases": 11,
+      "corpus_passing": 11,
+      "status": "11/11 scoreable passing; 36 damaged or rejected"
     },
     {
       "type": "info",
       "keyword": "info",
       "carried": true,
       "corpus_cases": 14,
+      "scoreable_cases": 11,
       "corpus_passing": 11,
-      "status": "11/14 passing"
+      "status": "11/11 scoreable passing; 3 damaged or rejected"
     },
     {
       "type": "error",
       "keyword": "error",
       "carried": true,
       "corpus_cases": 4,
+      "scoreable_cases": 3,
       "corpus_passing": 3,
-      "status": "3/4 passing"
+      "status": "3/3 scoreable passing; 1 damaged or rejected"
     }
   ],
   "plantuml": [

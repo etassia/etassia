@@ -16,9 +16,15 @@ require "fileutils"
 module CoverageMatrix
   ROOT = File.expand_path("..", __dir__)
   MERMAID_CORPUS = File.join(ROOT, "scoreboard/corpus.json")
+  MERMAID_VERDICTS = File.join(ROOT, "spec/mermaid/corpus-verdicts.yml")
   PLANTUML_SCOREBOARD = File.join(ROOT, "scoreboard/plantuml.json")
   MATRIX_JSON = File.join(ROOT, "scoreboard/coverage.json")
   MATRIX_MD = File.join(ROOT, "docs/COVERAGE.md")
+
+  # Verdicts that mark a case un-scoreable: the pinned oracle rejects the
+  # source, or the source is known extraction damage (an uninterpolated
+  # template, a truncation). Neither can be held against the renderer.
+  UNSCOREABLE_VERDICTS = %w[invalid artifact].freeze
 
   # The reference tools' diagram kinds beyond what the notations carry.
   # Updating these lists is a deliberate act: each addition is a row
@@ -54,31 +60,64 @@ module CoverageMatrix
   end
 
   def accumulate_corpus
-    empty = Hash.new { |h, k| h[k] = { cases: 0, passing: 0 } }
+    empty = Hash.new do |h, k|
+      h[k] = { cases: 0, scoreable: 0, scoreable_passing: 0 }
+    end
     corpus_rows.each_with_object(empty) do |row, by_type|
       count_into(by_type, row)
     end
   end
 
   def count_into(by_type, row)
+    stats = stats_for(by_type, row)
+    return unless stats
+
+    stats[:cases] += 1
+    return if unscoreable?(row["case"])
+
+    stats[:scoreable] += 1
+    stats[:scoreable_passing] += 1 if row["pass"]
+  end
+
+  def stats_for(by_type, row)
     require "etassia"
     directory = row["case"].to_s.split("/").first
     family = Etassia::CorpusTypeNames.registry_type(directory)
-    return if family.nil?
+    family && by_type[family.to_s]
+  end
 
-    by_type[family.to_s][:cases] += 1
-    by_type[family.to_s][:passing] += 1 if row["pass"]
+  def unscoreable?(case_path)
+    UNSCOREABLE_VERDICTS.include?(verdicts[case_path])
+  end
+
+  def verdicts
+    require "yaml"
+    @verdicts ||=
+      YAML.load_file(MERMAID_VERDICTS).to_h { |v| [v["case"], v["verdict"]] }
   end
 
   def mermaid_row(key, keyword, stats)
+    damaged = stats[:cases] - stats[:scoreable]
     {
       "type" => key.to_s,
       "keyword" => keyword,
       "carried" => true,
       "corpus_cases" => stats[:cases],
-      "corpus_passing" => stats[:passing],
-      "status" => status_for(stats[:cases], stats[:passing]),
+      "scoreable_cases" => stats[:scoreable],
+      "corpus_passing" => stats[:scoreable_passing],
+      "status" => mermaid_status(stats, damaged),
     }
+  end
+
+  def mermaid_status(stats, damaged)
+    return "no corpus cases" if stats[:cases].zero?
+    if stats[:scoreable].zero?
+      return "all #{stats[:cases]} cases damaged or rejected"
+    end
+
+    base = format("%<p>d/%<s>d scoreable passing",
+                  p: stats[:scoreable_passing], s: stats[:scoreable])
+    damaged.positive? ? "#{base}; #{damaged} damaged or rejected" : base
   end
 
   def corpus_rows
@@ -131,13 +170,6 @@ module CoverageMatrix
     }
   end
 
-  def status_for(cases, passing)
-    return "no corpus cases" if cases.zero?
-    return "corpus parity" if passing == cases
-
-    format("%<passing>d/%<cases>d passing", passing: passing, cases: cases)
-  end
-
   def markdown(matrix)
     table_rows(matrix) + gap_lines(matrix)
   end
@@ -156,7 +188,7 @@ module CoverageMatrix
 
   def mermaid_line(row)
     cells = [row["type"], escape(row["keyword"]), row["corpus_cases"],
-             row["corpus_passing"], row["status"]]
+             row["scoreable_cases"], row["corpus_passing"], row["status"]]
     "| #{cells.join(' | ')} |"
   end
 
@@ -177,8 +209,8 @@ module CoverageMatrix
       "",
       "## Mermaid (#{matrix['mermaid'].size} carried)",
       "",
-      "| Type | Keyword | Corpus | Passing | Status |",
-      "|---|---|---|---|---|",
+      "| Type | Keyword | Corpus | Scoreable | Passing | Status |",
+      "|---|---|---|---|---|---|",
     ]
   end
 

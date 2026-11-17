@@ -108,17 +108,32 @@ module CorpusOracle
   end
 
   # judge plus the bytes of the SVG mmdc rendered (nil for a rejection).
+  #
+  # A killed run is the deadline landing on a loaded machine — tool noise,
+  # not mermaid's opinion of the source — so each run retries once. Two
+  # consecutive kills still refuse: the deadline cannot be met.
   def judge_rendering(path, &runner)
-    killed = []
     rendered = {}
-    watched = watching(runner, killed, rendered)
-    first = MmdcOracle.verdict(path, &watched)
+    first = judged_attempt(path, runner, rendered)
+    refuse!(path, "mmdc was killed before it answered") if first.nil?
     return ["accepts", nil, rendered[path]] if first.verdict == :accepts
 
-    second = MmdcOracle.verdict(path, &watched)
-    refuse!(path, "mmdc was killed before it answered") if killed.any?
+    second = judged_attempt(path, runner, rendered)
+    refuse!(path, "mmdc was killed before it answered") if second.nil?
     reason = reproduced_reason(path, first, second)
     ["rejects", reason.empty? ? "mermaid error page" : reason[0, 120], nil]
+  end
+
+  # One attempt: the verdict, or nil when the run was killed even after
+  # its one retry.
+  def judged_attempt(path, runner, rendered)
+    killed = []
+    result = MmdcOracle.verdict(path, &watching(runner, killed, rendered))
+    return result if killed.empty?
+
+    killed.clear
+    retried = MmdcOracle.verdict(path, &watching(runner, killed, rendered))
+    killed.empty? ? retried : nil
   end
 
   # A run mmdc never finished (nil status) proves nothing about the source,

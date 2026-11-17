@@ -1,8 +1,19 @@
 ---
 provenance:
+  node: 22.23.1
+  npm: 10.9.8
   mmdc: 11.12.0
   mermaid: 11.16.1
-  note: toolchain not pinned (TODO.foundation/02a)
+  puppeteer: 23.11.1
+  chromium: 131.0.6778.204
+  font:
+    package: "@fontsource/noto-sans"
+    version: 5.3.0
+    integrity: sha512-fBCog2PY7DiVVTEEqtI/Qdinx/knobHYfoGpjFXdfBX5RoJaBp1Prw2G75p0OIsdlMZg3cLo0c+YbIUYOxnQJw==
+    family: Noto Sans
+    files:
+      noto-sans-latin-400-normal.woff2: '09aee8065d25508f23a4c3d92cd777ac869c52d93fd868a88f025d888a7937d6'
+      noto-sans-latin-700-normal.woff2: e77bfe1db912f687b0319b60de158cfada67f89c8ee4f8e2bd6020f970accbfb
 cases:
 - sha256: 8eb412d817c7762cbd93dd64982b163e9b75ab1e4b584052b2c675247a7a9c22
   verdict: rejects
@@ -13,6 +24,22 @@ cases:
   - block/a_diagram_with_column_statements-f159d8bc.mmd
   - block/a_diagram_without_column_statements-d1b86af5.mmd
   - block/arrow_blocks-b1e05b5e.mmd
+  source_sha256: 8eb412d817c7762cbd93dd64982b163e9b75ab1e4b584052b2c675247a7a9c22
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 7ff8da6f56d4b2dbcef018b0f835b0ba0b29368226ef0d43b4c3754441de2add
+  verdict: rejects
+  reason: 'UnknownDiagramError: No diagram type detected matching given configuration
+    for text: Block 1Block 2Block 3'
+  cases:
+  - block/blocks_mixed_with_compound_blocks-4df30c9b.mmd
+  source_sha256: 7ff8da6f56d4b2dbcef018b0f835b0ba0b29368226ef0d43b4c3754441de2add
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 204a531c432be7eccfb0869f6a0920d01bdf3a7b0e5d882cb169e729fc8105b0
   verdict: rejects
   reason: 'UnknownDiagramError: No diagram type detected matching given configuration
@@ -20,184 +47,245 @@ cases:
   cases:
   - block/blocks_next_to_each_other-d6e34980.mmd
   - block/blocks_on_top_of_each_other-742a6cd3.mmd
-- sha256: 7ff8da6f56d4b2dbcef018b0f835b0ba0b29368226ef0d43b4c3754441de2add
+  source_sha256: 204a531c432be7eccfb0869f6a0920d01bdf3a7b0e5d882cb169e729fc8105b0
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: ecf545321a489c68ff2149f9df38763fe587e2a8df78e8b8a90f2e17a1cf3784
   verdict: rejects
-  reason: 'UnknownDiagramError: No diagram type detected matching given configuration
-    for text: Block 1Block 2Block 3'
+  reason: 'Error: Lexical error on line 1. Unrecognized text.'
   cases:
-  - block/blocks_mixed_with_compound_blocks-4df30c9b.mmd
+  - c4/c4_spec-40e418b1.mmd
+  source_sha256: ecf545321a489c68ff2149f9df38763fe587e2a8df78e8b8a90f2e17a1cf3784
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 7851917390599dbf5ec5fd4fefe96e43614ed222906420b77408f9e7afe10b12
   verdict: rejects
   reason: 'UnknownDiagramError: No diagram type detected matching given configuration
     for text: C4 diagram'
   cases:
   - c4/c4_spec-46768dc6.mmd
+  source_sha256: 7851917390599dbf5ec5fd4fefe96e43614ed222906420b77408f9e7afe10b12
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 85de48a3f1515208c92ae149b2e129f83f4e6f26ec6ed8cd82c8c86a6fd2631c
+  verdict: rejects
+  reason: 'Error: Lexical error on line 1. Unrecognized text.'
+  cases:
+  - c4/c4_spec-5cb5349f.mmd
+  source_sha256: 85de48a3f1515208c92ae149b2e129f83f4e6f26ec6ed8cd82c8c86a6fd2631c
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: aa18f098f342e92512917f4a97830bb5d852b496ec1f39f01851b02722540e05
+  verdict: rejects
+  reason: 'Error: Lexical error on line 1. Unrecognized text.'
+  cases:
+  - c4/c4_spec-a35c3c27.mmd
+  source_sha256: aa18f098f342e92512917f4a97830bb5d852b496ec1f39f01851b02722540e05
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 16bdaded80d0d85dfcb0128a43decb3625def5ee4ef5f77dc522a59cceceecfc
+  verdict: rejects
+  reason: 'Error: Lexical error on line 1. Unrecognized text.'
+  cases:
+  - c4/c4_spec-b1338343.mmd
+  source_sha256: 16bdaded80d0d85dfcb0128a43decb3625def5ee4ef5f77dc522a59cceceecfc
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 261ec949152801115a16a816e1908e96c294c048ccfc981d78f13425ac1fd6bd
   verdict: rejects
   reason: 'UnknownDiagramError: No diagram type detected matching given configuration
     for text: C4.1 should render a simple C4Conte'
   cases:
   - c4/c4_spec-ec059fa6.mmd
-- sha256: aa18f098f342e92512917f4a97830bb5d852b496ec1f39f01851b02722540e05
-  verdict: rejects
-  reason: 'Error: Lexical error on line 1. Unrecognized text.'
-  cases:
-  - c4/c4_spec-a35c3c27.mmd
-- sha256: 85de48a3f1515208c92ae149b2e129f83f4e6f26ec6ed8cd82c8c86a6fd2631c
-  verdict: rejects
-  reason: 'Error: Lexical error on line 1. Unrecognized text.'
-  cases:
-  - c4/c4_spec-5cb5349f.mmd
-- sha256: 16bdaded80d0d85dfcb0128a43decb3625def5ee4ef5f77dc522a59cceceecfc
-  verdict: rejects
-  reason: 'Error: Lexical error on line 1. Unrecognized text.'
-  cases:
-  - c4/c4_spec-b1338343.mmd
-- sha256: ecf545321a489c68ff2149f9df38763fe587e2a8df78e8b8a90f2e17a1cf3784
-  verdict: rejects
-  reason: 'Error: Lexical error on line 1. Unrecognized text.'
-  cases:
-  - c4/c4_spec-40e418b1.mmd
-- sha256: 7ddb8a152490908b14e76c30a58bac475e5c2b4bed0c83256d97eecb3b5e9a69
-  verdict: rejects
-  reason: 'TypeError: c4Shape[textType].text.split is not a function'
-  cases:
-  - c4/should_parse_a_sprite-5edd570a.mmd
-- sha256: fb9d843852771bf579365262783b8e2039d6bfaaeeaf22c77ac91fac653f3fb1
-  verdict: rejects
-  reason: 'TypeError: c4Shape[textType].text.split is not a function'
-  cases:
-  - c4/should_parse_a_link-f27631de.mmd
-- sha256: 7cbb425f9e2635955552746506f179c07830387f3a3f6ee54ee7d49db33a6606
-  verdict: rejects
-  reason: 'TypeError: c4Shape[textType].text.split is not a function'
-  cases:
-  - c4/should_parse_tags-810b5561.mmd
-- sha256: dea72a2aa6af26f141bf0b0f0c69986ddeeebe73cc5c0cdf3b0c042ee127fbe3
-  verdict: rejects
-  reason: 'TypeError: c4Shape[textType].text.split is not a function'
-  cases:
-  - c4/should_parse_a_sprite-f6920fba.mmd
-- sha256: 8bf8e3f17a81c4e85f2ce3f2280a67a310b1391289cae921afa855f320c5d94a
-  verdict: rejects
-  reason: 'TypeError: c4Shape[textType].text.split is not a function'
-  cases:
-  - c4/should_parse_a_link-c5af83ba.mmd
-- sha256: 428d87101a25d08b69bd8f97627f7dad7c0ab61563b0e1853e0dde8e81f946c0
-  verdict: rejects
-  reason: 'TypeError: c4Shape[textType].text.split is not a function'
-  cases:
-  - c4/should_parse_tags-616e2fc3.mmd
+  source_sha256: 261ec949152801115a16a816e1908e96c294c048ccfc981d78f13425ac1fd6bd
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: f9eb9771cdaf24e8acf984d4468a46192290813388f45b8824c8ec8772d4a37e
   verdict: rejects
   reason: 'Error: Lexical error on line 1. Unrecognized text.'
   cases:
   - c4/diagram_orchestration_spec-de6f44eb.mmd
+  source_sha256: f9eb9771cdaf24e8acf984d4468a46192290813388f45b8824c8ec8772d4a37e
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 63c49ecc612d6fc8eccbd15a1dbb54394ec280a34d963759c3d96f3c660bad03
   verdict: rejects
   reason: 'Error: Parse error on line 2:'
   cases:
   - c4/mermaidapi_spec-eb6da39c.mmd
-- sha256: 77ef6f927572fed6abdfe20eb2964a5378117a6e697648cf7cac317223fd6364
+  source_sha256: 63c49ecc612d6fc8eccbd15a1dbb54394ec280a34d963759c3d96f3c660bad03
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 8bf8e3f17a81c4e85f2ce3f2280a67a310b1391289cae921afa855f320c5d94a
   verdict: rejects
-  reason: 'Error: Parse error on line 1:'
+  reason: 'TypeError: c4Shape[textType].text.split is not a function'
   cases:
-  - class_diagram/yari-afc4579e.mmd
-- sha256: 92c3a8659d258a646d6860af0e07cc618fe76ff5478eab96b4db18e73a921ee0
+  - c4/should_parse_a_link-c5af83ba.mmd
+  source_sha256: 8bf8e3f17a81c4e85f2ce3f2280a67a310b1391289cae921afa855f320c5d94a
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: fb9d843852771bf579365262783b8e2039d6bfaaeeaf22c77ac91fac653f3fb1
   verdict: rejects
-  reason: 'Error: Parse error on line 1:'
+  reason: 'TypeError: c4Shape[textType].text.split is not a function'
   cases:
-  - class_diagram/yari-705947a2.mmd
-- sha256: 9da39232e69da53b4ade28b34c791ee8e19675eda0703faddd20242079ec773c
+  - c4/should_parse_a_link-f27631de.mmd
+  source_sha256: fb9d843852771bf579365262783b8e2039d6bfaaeeaf22c77ac91fac653f3fb1
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 7ddb8a152490908b14e76c30a58bac475e5c2b4bed0c83256d97eecb3b5e9a69
+  verdict: rejects
+  reason: 'TypeError: c4Shape[textType].text.split is not a function'
+  cases:
+  - c4/should_parse_a_sprite-5edd570a.mmd
+  source_sha256: 7ddb8a152490908b14e76c30a58bac475e5c2b4bed0c83256d97eecb3b5e9a69
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: dea72a2aa6af26f141bf0b0f0c69986ddeeebe73cc5c0cdf3b0c042ee127fbe3
+  verdict: rejects
+  reason: 'TypeError: c4Shape[textType].text.split is not a function'
+  cases:
+  - c4/should_parse_a_sprite-f6920fba.mmd
+  source_sha256: dea72a2aa6af26f141bf0b0f0c69986ddeeebe73cc5c0cdf3b0c042ee127fbe3
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 428d87101a25d08b69bd8f97627f7dad7c0ab61563b0e1853e0dde8e81f946c0
+  verdict: rejects
+  reason: 'TypeError: c4Shape[textType].text.split is not a function'
+  cases:
+  - c4/should_parse_tags-616e2fc3.mmd
+  source_sha256: 428d87101a25d08b69bd8f97627f7dad7c0ab61563b0e1853e0dde8e81f946c0
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 7cbb425f9e2635955552746506f179c07830387f3a3f6ee54ee7d49db33a6606
+  verdict: rejects
+  reason: 'TypeError: c4Shape[textType].text.split is not a function'
+  cases:
+  - c4/should_parse_tags-810b5561.mmd
+  source_sha256: 7cbb425f9e2635955552746506f179c07830387f3a3f6ee54ee7d49db33a6606
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 8da6afbe80d816b5a6715a8ed5214727a9535bfc4a3637ce49c2d82c1273160f
+  verdict: rejects
+  reason: 'Error: Parse error on line 2:'
+  cases:
+  - class_diagram/class_spec-cc39a334.mmd
+  - class_diagram/class_spec-e20de430.mmd
+  - class_diagram/class_spec-e35a838d.mmd
+  - class_diagram/should_handle_backtick_quoted_namespace_names-8274b0b7.mmd
+  source_sha256: 8da6afbe80d816b5a6715a8ed5214727a9535bfc4a3637ce49c2d82c1273160f
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 7dff4cf5285a1605efbc009f9624ca55314121008aa9d8168d971c91af66e7e6
   verdict: rejects
   reason: 'Error: Parse error on line 3:'
   cases:
-  - class_diagram/classdiagram_styles_spec-bf7e8658.mmd
-  - class_diagram/should_be_possible_to_apply_a_css_class_to_a_cla-95c9521c.mmd
-- sha256: '0608bd970948649a2b71f974befa7da6df57a3d92650802716cd625c9c044036'
-  verdict: rejects
-  reason: 'Error: Parse error on line 3:'
-  cases:
-  - class_diagram/classdiagram_styles_spec-e2427a19.mmd
-  - class_diagram/should_be_possible_to_apply_a_cssclass_to_a_clas-97fdecbd.mmd
-- sha256: 86c99cc8d461559c90a3296382880ec3522cdc4d7fbef2bd6e09fd9beb028224
-  verdict: rejects
-  reason: 'Error: Parse error on line 4:'
-  cases:
-  - class_diagram/classdiagram_styles_spec-a7127f80.mmd
-  - class_diagram/should_be_possible_to_apply_a_cssclass_to_a_comm-3ba4969f.mmd
-- sha256: a2509fb07dc121c1ea986989949a494e071d69a05304a6a6423a95c892a572b1
-  verdict: rejects
-  reason: 'Error: Parse error on line 3:'
-  cases:
-  - class_diagram/classdiagram_styles_spec-945bb347.mmd
-  - class_diagram/should_be_possible_to_define_and_assign_a_class-74f55631.mmd
-- sha256: 797ee2f3e765f8b49f500617e6978f47142ef96104fa171c93b31da0ba7d7c9e
-  verdict: rejects
-  reason: 'Error: Parse error on line 3:'
-  cases:
-  - class_diagram/classdiagram_styles_spec-cb235322.mmd
-  - class_diagram/should_properly_assign_multiple_classes_and_styl-b6145455.mmd
-- sha256: f44168c74e98cf8a885b28546bbe4f85997d881bfe2733d6bc715364bf8e0942
-  verdict: rejects
-  reason: 'Error: Parse error on line 2:'
-  cases:
-  - class_diagram/classdiagram_spec-5814b765.mmd
-  - class_diagram/should_parse_a_class_with_a_text_label-2f9e7ad8.mmd
-- sha256: a1f56cbd99098d857ed04a279f1cf5123f7f72dc489c237317a2fef91a024af6
-  verdict: rejects
-  reason: 'Error: Parse error on line 2:'
-  cases:
-  - class_diagram/classdiagram_spec-d7d7c49d.mmd
-  - class_diagram/should_parse_two_classes_with_text_labels-cc0be03b.mmd
-- sha256: 1364a0b71ef28def67b5f25137fafcecc2f066bf1d0fdad79f1fc81b8bb5c385
-  verdict: rejects
-  reason: 'Error: Parse error on line 2:'
-  cases:
-  - class_diagram/classdiagram_spec-15b3a3f4.mmd
-  - class_diagram/should_parse_a_class_with_a_text_label_and_membe-4eaf8011.mmd
-- sha256: ec60cf7f74bd4a83f398de65fcfae4ff5c5d129560ce663a2bdc2c0a0f84d12d
-  verdict: rejects
-  reason: 'Error: Parse error on line 2:'
-  cases:
-  - class_diagram/classdiagram_spec-ed4d936c.mmd
-  - class_diagram/should_parse_a_class_with_a_text_label_member_an-b91887c4.mmd
-- sha256: fcd738fa530894a0cf6fa6133ad0b26847e8a061350da5897f045427a481f296
-  verdict: rejects
-  reason: 'Error: Parse error on line 2:'
-  cases:
-  - class_diagram/classdiagram_spec-f417697f.mmd
-  - class_diagram/should_parse_a_class_with_text_label_and_css_cla-3f8cc6fc.mmd
-- sha256: 2fb19059e4b4ada77cad6905350ef4bc58bfc7541e3f61ecb5f0346762a79d5f
-  verdict: rejects
-  reason: 'Error: Parse error on line 2:'
-  cases:
-  - class_diagram/classdiagram_spec-9b9272c6.mmd
-  - class_diagram/should_parse_a_class_with_text_label_and_css_cla-0f9dc731.mmd
-- sha256: 287dc4b018c8da0e86fe4d2fe0b6a8627550a73078deb989e7bb23b40c9de76e
-  verdict: rejects
-  reason: 'Error: Parse error on line 2:'
-  cases:
-  - class_diagram/classdiagram_spec-f25b0880.mmd
-  - class_diagram/should_parse_two_classes_with_text_labels_and_cs-751f3ca7.mmd
-- sha256: c53289ee8e3a4f7ab74351ea05fc6f893bbd3c32f82fff68e5a8ccd91c220316
-  verdict: rejects
-  reason: 'Error: Parse error on line 2:'
-  cases:
-  - class_diagram/classdiagram_spec-bbb83d9d.mmd
-  - class_diagram/should_parse_two_classes_with_text_labels_and_cs-041a1e8d.mmd
-- sha256: 3f7af8ddb9985330a365cc983bf798e2cf84745aaed27936e649855e91d36e28
-  verdict: rejects
-  reason: 'Error: Parse error on line 2:'
-  cases:
-  - class_diagram/classdiagram_spec-a7e92165.mmd
-  - class_diagram/should_parse_a_class_with_a_text_label_and_membe-4851bc73.mmd
-- sha256: 0b2b214483dcf7c70d8e0d5d07eb6bc79ab08a8bfd0e351b43b021ebc0ebab76
-  verdict: rejects
-  reason: 'Error: Parse error on line 2:'
-  cases:
-  - class_diagram/classdiagram_spec-13ef4e54.mmd
-  - class_diagram/should_parse_a_class_with_a_text_label_members_a-0e2292d1.mmd
+  - class_diagram/classdiagram_spec-01fd0edb.mmd
+  - class_diagram/classdiagram_spec-0a93d562.mmd
+  - class_diagram/classdiagram_spec-0b63114e.mmd
+  - class_diagram/classdiagram_spec-1011b382.mmd
+  - class_diagram/classdiagram_spec-11949457.mmd
+  - class_diagram/classdiagram_spec-1770eb2f.mmd
+  - class_diagram/classdiagram_spec-1c074d15.mmd
+  - class_diagram/classdiagram_spec-20125696.mmd
+  - class_diagram/classdiagram_spec-22a4c599.mmd
+  - class_diagram/classdiagram_spec-23bfb709.mmd
+  - class_diagram/classdiagram_spec-248ca556.mmd
+  - class_diagram/classdiagram_spec-24ce281d.mmd
+  - class_diagram/classdiagram_spec-2db03dc0.mmd
+  - class_diagram/classdiagram_spec-3162c1fb.mmd
+  - class_diagram/classdiagram_spec-3df1a532.mmd
+  - class_diagram/classdiagram_spec-46111c63.mmd
+  - class_diagram/classdiagram_spec-46de0459.mmd
+  - class_diagram/classdiagram_spec-49230672.mmd
+  - class_diagram/classdiagram_spec-4cc37c65.mmd
+  - class_diagram/classdiagram_spec-4e84fabe.mmd
+  - class_diagram/classdiagram_spec-5928c7db.mmd
+  - class_diagram/classdiagram_spec-5d7a075e.mmd
+  - class_diagram/classdiagram_spec-5ed6b4d9.mmd
+  - class_diagram/classdiagram_spec-64f0497b.mmd
+  - class_diagram/classdiagram_spec-6e31fd51.mmd
+  - class_diagram/classdiagram_spec-707ca1b6.mmd
+  - class_diagram/classdiagram_spec-78aa7ceb.mmd
+  - class_diagram/classdiagram_spec-7d6a0ae0.mmd
+  - class_diagram/classdiagram_spec-83d6d7d0.mmd
+  - class_diagram/classdiagram_spec-882bceb7.mmd
+  - class_diagram/classdiagram_spec-8910adc4.mmd
+  - class_diagram/classdiagram_spec-89847e28.mmd
+  - class_diagram/classdiagram_spec-89ce3621.mmd
+  - class_diagram/classdiagram_spec-8c8ef44a.mmd
+  - class_diagram/classdiagram_spec-8faa09e5.mmd
+  - class_diagram/classdiagram_spec-8fb6838d.mmd
+  - class_diagram/classdiagram_spec-91d2dca6.mmd
+  - class_diagram/classdiagram_spec-93fd5dd4.mmd
+  - class_diagram/classdiagram_spec-993711e5.mmd
+  - class_diagram/classdiagram_spec-99935c8c.mmd
+  - class_diagram/classdiagram_spec-9b7740f8.mmd
+  - class_diagram/classdiagram_spec-a220c8c8.mmd
+  - class_diagram/classdiagram_spec-a5a3ca4d.mmd
+  - class_diagram/classdiagram_spec-aaa315f8.mmd
+  - class_diagram/classdiagram_spec-aafd9409.mmd
+  - class_diagram/classdiagram_spec-acf6f03d.mmd
+  - class_diagram/classdiagram_spec-b5b05534.mmd
+  - class_diagram/classdiagram_spec-b832406f.mmd
+  - class_diagram/classdiagram_spec-b8608261.mmd
+  - class_diagram/classdiagram_spec-bc16b2f5.mmd
+  - class_diagram/classdiagram_spec-bcf14374.mmd
+  - class_diagram/classdiagram_spec-be23b67b.mmd
+  - class_diagram/classdiagram_spec-c071c93e.mmd
+  - class_diagram/classdiagram_spec-ce80c05a.mmd
+  - class_diagram/classdiagram_spec-d52f200c.mmd
+  - class_diagram/classdiagram_spec-d55aa7df.mmd
+  - class_diagram/classdiagram_spec-d6cceedd.mmd
+  - class_diagram/classdiagram_spec-d985c318.mmd
+  - class_diagram/classdiagram_spec-db5b1ab5.mmd
+  - class_diagram/classdiagram_spec-dd7337b2.mmd
+  - class_diagram/classdiagram_spec-ddf34467.mmd
+  - class_diagram/classdiagram_spec-de3e6170.mmd
+  - class_diagram/classdiagram_spec-e0fe1916.mmd
+  - class_diagram/classdiagram_spec-e94dfee9.mmd
+  - class_diagram/classdiagram_spec-ecb265e7.mmd
+  - class_diagram/classdiagram_spec-ed7199c6.mmd
+  - class_diagram/classdiagram_spec-efbfea2b.mmd
+  - class_diagram/classdiagram_spec-f1e5ff4e.mmd
+  - class_diagram/classdiagram_spec-f5041ce0.mmd
+  - class_diagram/classdiagram_spec-ff2fe224.mmd
+  source_sha256: 7dff4cf5285a1605efbc009f9624ca55314121008aa9d8168d971c91af66e7e6
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 24f7b1c4cd4aeb6a1a79c412deabba22f3d379d58e8b3cf21c81630430898aac
   verdict: rejects
   reason: 'Error: Parse error on line 3:'
@@ -206,14 +294,11 @@ cases:
   - class_diagram/classdiagram_spec-8e451dc2.mmd
   - class_diagram/should_handle_href_link-099a0e24.mmd
   - class_diagram/should_handle_href_link_with_tooltip-883cfcfa.mmd
-- sha256: 671372d2b993a5080731c800d203cbae2500b6dbf40381485827ceacebcfcff2
-  verdict: rejects
-  reason: 'Error: Parse error on line 4:'
-  cases:
-  - class_diagram/classdiagram_spec-6ff21fb7.mmd
-  - class_diagram/classdiagram_spec-898d7d99.mmd
-  - class_diagram/should_associate_click_and_href_link_with_toolti-b4ea09a5.mmd
-  - class_diagram/should_handle_href_link_with_tooltip_and_target-b0eacf7c.mmd
+  source_sha256: 24f7b1c4cd4aeb6a1a79c412deabba22f3d379d58e8b3cf21c81630430898aac
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 3bb752d8903371eb593a2a04280c9b110fad9fa70b1a130b2672983cb7a590f4
   verdict: rejects
   reason: 'Error: Parse error on line 4:'
@@ -222,6 +307,11 @@ cases:
   - class_diagram/classdiagram_spec-8f72dc14.mmd
   - class_diagram/should_associate_link_and_css_appropriately-aa7968b8.mmd
   - class_diagram/should_associate_link_with_tooltip-f90aa790.mmd
+  source_sha256: 3bb752d8903371eb593a2a04280c9b110fad9fa70b1a130b2672983cb7a590f4
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: fc7ff5e1995430cde5c9b3d2f275d578315711e832b9730228e314768d139fb1
   verdict: rejects
   reason: 'Error: Parse error on line 4:'
@@ -232,24 +322,68 @@ cases:
   - class_diagram/should_associate_click_and_href_link_and_css_app-8dff4b11.mmd
   - class_diagram/should_associate_click_and_href_link_appropriate-edf1c9b5.mmd
   - class_diagram/should_associate_click_and_href_link_with_toolti-292bfb95.mmd
+  source_sha256: fc7ff5e1995430cde5c9b3d2f275d578315711e832b9730228e314768d139fb1
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 0b2b214483dcf7c70d8e0d5d07eb6bc79ab08a8bfd0e351b43b021ebc0ebab76
+  verdict: rejects
+  reason: 'Error: Parse error on line 2:'
+  cases:
+  - class_diagram/classdiagram_spec-13ef4e54.mmd
+  - class_diagram/should_parse_a_class_with_a_text_label_members_a-0e2292d1.mmd
+  source_sha256: 0b2b214483dcf7c70d8e0d5d07eb6bc79ab08a8bfd0e351b43b021ebc0ebab76
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 1364a0b71ef28def67b5f25137fafcecc2f066bf1d0fdad79f1fc81b8bb5c385
+  verdict: rejects
+  reason: 'Error: Parse error on line 2:'
+  cases:
+  - class_diagram/classdiagram_spec-15b3a3f4.mmd
+  - class_diagram/should_parse_a_class_with_a_text_label_and_membe-4eaf8011.mmd
+  source_sha256: 1364a0b71ef28def67b5f25137fafcecc2f066bf1d0fdad79f1fc81b8bb5c385
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: f44168c74e98cf8a885b28546bbe4f85997d881bfe2733d6bc715364bf8e0942
+  verdict: rejects
+  reason: 'Error: Parse error on line 2:'
+  cases:
+  - class_diagram/classdiagram_spec-5814b765.mmd
+  - class_diagram/should_parse_a_class_with_a_text_label-2f9e7ad8.mmd
+  source_sha256: f44168c74e98cf8a885b28546bbe4f85997d881bfe2733d6bc715364bf8e0942
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: c216ff396f6e47181daf613bc4424b6f299667d91937d27365e8212f68dc7dd2
   verdict: rejects
   reason: 'Error: Parse error on line 4:'
   cases:
   - class_diagram/classdiagram_spec-6556a77b.mmd
   - class_diagram/should_associate_click_and_href_link_with_target-b9ae3219.mmd
-- sha256: 9bce187b8da202e5a696dabb5a9e100ff874f645944c5ec5e44b49c6dbe3c7f3
+  source_sha256: c216ff396f6e47181daf613bc4424b6f299667d91937d27365e8212f68dc7dd2
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 671372d2b993a5080731c800d203cbae2500b6dbf40381485827ceacebcfcff2
   verdict: rejects
   reason: 'Error: Parse error on line 4:'
   cases:
-  - class_diagram/classdiagram_spec-ed1c046c.mmd
-  - class_diagram/should_associate_link_appropriately-d52d2ef0.mmd
-- sha256: f5c7538789666e9f222b6479f016634028829975b46cc9f2e691d14e4fb71122
-  verdict: rejects
-  reason: 'Error: Parse error on line 4:'
-  cases:
-  - class_diagram/classdiagram_spec-ac76b282.mmd
-  - class_diagram/should_associate_callback_appropriately-caa3412c.mmd
+  - class_diagram/classdiagram_spec-6ff21fb7.mmd
+  - class_diagram/classdiagram_spec-898d7d99.mmd
+  - class_diagram/should_associate_click_and_href_link_with_toolti-b4ea09a5.mmd
+  - class_diagram/should_handle_href_link_with_tooltip_and_target-b0eacf7c.mmd
+  source_sha256: 671372d2b993a5080731c800d203cbae2500b6dbf40381485827ceacebcfcff2
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 88cdfc5c153146c798bd9231cc7fb3c92198905c74a2193028977a0a6150825e
   verdict: rejects
   reason: 'Error: svg element not in render tree'
@@ -260,6 +394,165 @@ cases:
   - class_diagram/classdiagram_spec-f8d72790.mmd
   - class_diagram/should_parse_classes_with_different_text_labels-3b6eef91.mmd
   - class_diagram/should_parse_classes_with_different_text_labels-ef4861fc.mmd
+  source_sha256: 88cdfc5c153146c798bd9231cc7fb3c92198905c74a2193028977a0a6150825e
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 2fb19059e4b4ada77cad6905350ef4bc58bfc7541e3f61ecb5f0346762a79d5f
+  verdict: rejects
+  reason: 'Error: Parse error on line 2:'
+  cases:
+  - class_diagram/classdiagram_spec-9b9272c6.mmd
+  - class_diagram/should_parse_a_class_with_text_label_and_css_cla-0f9dc731.mmd
+  source_sha256: 2fb19059e4b4ada77cad6905350ef4bc58bfc7541e3f61ecb5f0346762a79d5f
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 3f7af8ddb9985330a365cc983bf798e2cf84745aaed27936e649855e91d36e28
+  verdict: rejects
+  reason: 'Error: Parse error on line 2:'
+  cases:
+  - class_diagram/classdiagram_spec-a7e92165.mmd
+  - class_diagram/should_parse_a_class_with_a_text_label_and_membe-4851bc73.mmd
+  source_sha256: 3f7af8ddb9985330a365cc983bf798e2cf84745aaed27936e649855e91d36e28
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: f5c7538789666e9f222b6479f016634028829975b46cc9f2e691d14e4fb71122
+  verdict: rejects
+  reason: 'Error: Parse error on line 4:'
+  cases:
+  - class_diagram/classdiagram_spec-ac76b282.mmd
+  - class_diagram/should_associate_callback_appropriately-caa3412c.mmd
+  source_sha256: f5c7538789666e9f222b6479f016634028829975b46cc9f2e691d14e4fb71122
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: c53289ee8e3a4f7ab74351ea05fc6f893bbd3c32f82fff68e5a8ccd91c220316
+  verdict: rejects
+  reason: 'Error: Parse error on line 2:'
+  cases:
+  - class_diagram/classdiagram_spec-bbb83d9d.mmd
+  - class_diagram/should_parse_two_classes_with_text_labels_and_cs-041a1e8d.mmd
+  source_sha256: c53289ee8e3a4f7ab74351ea05fc6f893bbd3c32f82fff68e5a8ccd91c220316
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: a1f56cbd99098d857ed04a279f1cf5123f7f72dc489c237317a2fef91a024af6
+  verdict: rejects
+  reason: 'Error: Parse error on line 2:'
+  cases:
+  - class_diagram/classdiagram_spec-d7d7c49d.mmd
+  - class_diagram/should_parse_two_classes_with_text_labels-cc0be03b.mmd
+  source_sha256: a1f56cbd99098d857ed04a279f1cf5123f7f72dc489c237317a2fef91a024af6
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 9bce187b8da202e5a696dabb5a9e100ff874f645944c5ec5e44b49c6dbe3c7f3
+  verdict: rejects
+  reason: 'Error: Parse error on line 4:'
+  cases:
+  - class_diagram/classdiagram_spec-ed1c046c.mmd
+  - class_diagram/should_associate_link_appropriately-d52d2ef0.mmd
+  source_sha256: 9bce187b8da202e5a696dabb5a9e100ff874f645944c5ec5e44b49c6dbe3c7f3
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: ec60cf7f74bd4a83f398de65fcfae4ff5c5d129560ce663a2bdc2c0a0f84d12d
+  verdict: rejects
+  reason: 'Error: Parse error on line 2:'
+  cases:
+  - class_diagram/classdiagram_spec-ed4d936c.mmd
+  - class_diagram/should_parse_a_class_with_a_text_label_member_an-b91887c4.mmd
+  source_sha256: ec60cf7f74bd4a83f398de65fcfae4ff5c5d129560ce663a2bdc2c0a0f84d12d
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 287dc4b018c8da0e86fe4d2fe0b6a8627550a73078deb989e7bb23b40c9de76e
+  verdict: rejects
+  reason: 'Error: Parse error on line 2:'
+  cases:
+  - class_diagram/classdiagram_spec-f25b0880.mmd
+  - class_diagram/should_parse_two_classes_with_text_labels_and_cs-751f3ca7.mmd
+  source_sha256: 287dc4b018c8da0e86fe4d2fe0b6a8627550a73078deb989e7bb23b40c9de76e
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: fcd738fa530894a0cf6fa6133ad0b26847e8a061350da5897f045427a481f296
+  verdict: rejects
+  reason: 'Error: Parse error on line 2:'
+  cases:
+  - class_diagram/classdiagram_spec-f417697f.mmd
+  - class_diagram/should_parse_a_class_with_text_label_and_css_cla-3f8cc6fc.mmd
+  source_sha256: fcd738fa530894a0cf6fa6133ad0b26847e8a061350da5897f045427a481f296
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: a2509fb07dc121c1ea986989949a494e071d69a05304a6a6423a95c892a572b1
+  verdict: rejects
+  reason: 'Error: Parse error on line 3:'
+  cases:
+  - class_diagram/classdiagram_styles_spec-945bb347.mmd
+  - class_diagram/should_be_possible_to_define_and_assign_a_class-74f55631.mmd
+  source_sha256: a2509fb07dc121c1ea986989949a494e071d69a05304a6a6423a95c892a572b1
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 86c99cc8d461559c90a3296382880ec3522cdc4d7fbef2bd6e09fd9beb028224
+  verdict: rejects
+  reason: 'Error: Parse error on line 4:'
+  cases:
+  - class_diagram/classdiagram_styles_spec-a7127f80.mmd
+  - class_diagram/should_be_possible_to_apply_a_cssclass_to_a_comm-3ba4969f.mmd
+  source_sha256: 86c99cc8d461559c90a3296382880ec3522cdc4d7fbef2bd6e09fd9beb028224
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 9da39232e69da53b4ade28b34c791ee8e19675eda0703faddd20242079ec773c
+  verdict: rejects
+  reason: 'Error: Parse error on line 3:'
+  cases:
+  - class_diagram/classdiagram_styles_spec-bf7e8658.mmd
+  - class_diagram/should_be_possible_to_apply_a_css_class_to_a_cla-95c9521c.mmd
+  source_sha256: 9da39232e69da53b4ade28b34c791ee8e19675eda0703faddd20242079ec773c
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 797ee2f3e765f8b49f500617e6978f47142ef96104fa171c93b31da0ba7d7c9e
+  verdict: rejects
+  reason: 'Error: Parse error on line 3:'
+  cases:
+  - class_diagram/classdiagram_styles_spec-cb235322.mmd
+  - class_diagram/should_properly_assign_multiple_classes_and_styl-b6145455.mmd
+  source_sha256: 797ee2f3e765f8b49f500617e6978f47142ef96104fa171c93b31da0ba7d7c9e
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: '0608bd970948649a2b71f974befa7da6df57a3d92650802716cd625c9c044036'
+  verdict: rejects
+  reason: 'Error: Parse error on line 3:'
+  cases:
+  - class_diagram/classdiagram_styles_spec-e2427a19.mmd
+  - class_diagram/should_be_possible_to_apply_a_cssclass_to_a_clas-97fdecbd.mmd
+  source_sha256: '0608bd970948649a2b71f974befa7da6df57a3d92650802716cd625c9c044036'
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 417505ab8c45275b4cc90eba0216e14698bfc9b3d27c19b32ee7b322d99a7867
   verdict: rejects
   reason: 'Error: Parse error on line 2:'
@@ -268,31 +561,331 @@ cases:
   - class_diagram/diagram_orchestration_spec-474e1474.mmd
   - class_diagram/mermaidapi_spec-8d45cf3c.mmd
   - class_diagram/mermaidapi_spec-fbb2fb84.mmd
+  source_sha256: 417505ab8c45275b4cc90eba0216e14698bfc9b3d27c19b32ee7b322d99a7867
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 3efe59b37c432602a522d873541c22b948dd1c06c0e86e659004735b7c97859d
   verdict: rejects
   reason: 'Error: Parse error on line 2:'
   cases:
   - class_diagram/diagram_orchestration_spec-8f88f684.mmd
   - class_diagram/mermaidapi_spec-81af1ca1.mmd
-- sha256: dc52e24f2511b59957008ad8044c2385741380f6f849c4e82627d3e5ad9e5262
+  source_sha256: 3efe59b37c432602a522d873541c22b948dd1c06c0e86e659004735b7c97859d
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 92c3a8659d258a646d6860af0e07cc618fe76ff5478eab96b4db18e73a921ee0
+  verdict: rejects
+  reason: 'Error: Parse error on line 1:'
+  cases:
+  - class_diagram/yari-705947a2.mmd
+  source_sha256: 92c3a8659d258a646d6860af0e07cc618fe76ff5478eab96b4db18e73a921ee0
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 77ef6f927572fed6abdfe20eb2964a5378117a6e697648cf7cac317223fd6364
+  verdict: rejects
+  reason: 'Error: Parse error on line 1:'
+  cases:
+  - class_diagram/yari-afc4579e.mmd
+  source_sha256: 77ef6f927572fed6abdfe20eb2964a5378117a6e697648cf7cac317223fd6364
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: a49c73a06a8178b01395de527011ad14f090e92d07b68df92e208fd05cf442d4
+  verdict: rejects
+  reason: 'Error: Parse error on line 2:'
+  cases:
+  - er_diagram/cannot_contain_because_it_could_start_and_escape-eb5c05ca.mmd
+  - er_diagram/erdiagram_spec-1622430a.mmd
+  source_sha256: a49c73a06a8178b01395de527011ad14f090e92d07b68df92e208fd05cf442d4
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: c0a2be4512f80df8c7b96d209653e3631dc208bf37dc5e2544c4736fb9220340
+  verdict: rejects
+  reason: 'Error: Parse error on line 2:'
+  cases:
+  - er_diagram/cannot_contain_because_it_interferes_with_parsin-98f2b505.mmd
+  - er_diagram/erdiagram_spec-4eb49b63.mmd
+  source_sha256: c0a2be4512f80df8c7b96d209653e3631dc208bf37dc5e2544c4736fb9220340
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: ce8bd7b5706951e00971a43214f0473b5380d60c81c1996c875517a15e09ac18
   verdict: accepts
   cases:
-  - class_diagram/classdiagram_spec-6a1e8d0c.mmd
-- sha256: e11b57641879fc8212e5fcd483fd1384a51dac90b09c6b1064b8cb98b23a2b4d
+  - er_diagram/cannot_newline_backspace_or_vertical_characters-c6cf992f.mmd
+  - er_diagram/erdiagram_spec-da862bac.mmd
+  source_sha256: ce8bd7b5706951e00971a43214f0473b5380d60c81c1996c875517a15e09ac18
+  svg_sha256: 26e0f34149c587b6419df9564ba026463299ee9c77f1db98e85900011434e673
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 50ea982d87a702ca980f4bfc371053ed723d44d6614971fba9c3dd0458283283
   verdict: accepts
   cases:
-  - er_diagram/erdiagram_spec-4fb39e72.mmd
-- sha256: a6a45ca72b8598cd356014afb4036cdbc634cfbb173b2711c75bfdfc098a066a
+  - er_diagram/erdiagram_spec-111c698f.mmd
+  source_sha256: 50ea982d87a702ca980f4bfc371053ed723d44d6614971fba9c3dd0458283283
+  svg_sha256: 4d5182c39c4953c81684b9d8637686fcd1b808912c3461028883e4824a2fda35
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: c4c202c0c27fa0cef4e65320414318d75d0b68833af851455c1c1ca6c776cfb3
   verdict: accepts
   cases:
-  - er_diagram/erdiagram_spec-2f91223b.mmd
-  - er_diagram/should_handle_complex_diagram_with_special_entit-af26ddf3.mmd
-- sha256: 3513d29dbbadc8f0322e84379c1b0821b9068ac92aa65ea8a77fe27f9bafb9ef
+  - er_diagram/erdiagram_spec-16508afb.mmd
+  source_sha256: c4c202c0c27fa0cef4e65320414318d75d0b68833af851455c1c1ca6c776cfb3
+  svg_sha256: eebb09de6f6b837d03b029f5dc2cfb0e4010c947f760cf37fb28cbca357e9856
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: c457e959865a649866f832130e24e036c3ced6629c3bae6bc4943635b04191d8
   verdict: accepts
   cases:
-  - er_diagram/erdiagram_spec-d8eaebdd.mmd
-  source_sha256: 3513d29dbbadc8f0322e84379c1b0821b9068ac92aa65ea8a77fe27f9bafb9ef
-  svg_sha256: f568c13604635a56a86d282e1a452a7c5b7c826047f719b69214e9017ca60190
+  - er_diagram/erdiagram_spec-16fbb123.mmd
+  source_sha256: c457e959865a649866f832130e24e036c3ced6629c3bae6bc4943635b04191d8
+  svg_sha256: b3ecfa8e887b80a6ce43d898a1ebda93720e9805ecc409bd0905368c162af40d
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: ac1a1fde1725218569aa31d0c10f6c60a25977189e016b5e72ca820a7d81946d
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-39b996ea.mmd
+  source_sha256: ac1a1fde1725218569aa31d0c10f6c60a25977189e016b5e72ca820a7d81946d
+  svg_sha256: c92e9a025d299d2c448f40ec22ce70365f93fb162ab2272dfbc50dcde2e8f799
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 43096736d6cb9a18136b2c54aa1203674b4c5c9a1c986bc1f8916df5b5c274cd
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-3a39117b.mmd
+  source_sha256: 43096736d6cb9a18136b2c54aa1203674b4c5c9a1c986bc1f8916df5b5c274cd
+  svg_sha256: bb4332bcab438a93109face50357dfb8e78dd56884194f89f9ff7734a5604e9d
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 727ed20aaf2b7b7f0b656dc3ae5a6f3cf69b5fc2956214f7f507b28509ada1ea
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-4aabf3e3.mmd
+  source_sha256: 727ed20aaf2b7b7f0b656dc3ae5a6f3cf69b5fc2956214f7f507b28509ada1ea
+  svg_sha256: c25a9b6f5ef616ee145ddb7524a61a7d583864202e390f1909ff5e3689006278
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: '0116497ddb8feee1bc5bed135b39ae1f554e913e41a5f58d27de97ad23be47ae'
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-50d759c6.mmd
+  - er_diagram/erdiagram_spec-8cc99c4c.mmd
+  - er_diagram/should_allow_numbers_in_relationships-f5668c4e.mmd
+  source_sha256: '0116497ddb8feee1bc5bed135b39ae1f554e913e41a5f58d27de97ad23be47ae'
+  svg_sha256: 424253de12650251217f2c587fb641f332b8582d8b1fe83c5310d3345661f947
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 7b5988ee6e7400a3468ccf48741000fb9ab3b55a7154dc03c7a279d09551c92e
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-572ba53b.mmd
+  source_sha256: 7b5988ee6e7400a3468ccf48741000fb9ab3b55a7154dc03c7a279d09551c92e
+  svg_sha256: 1634176c683fd66aa93874e58174ad603f9c3fa2d0de041708bd0de3a59a3961
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: b63a44ad61c4724221be1cabdc029a9e89fe5ce9656508ef91e045e61c915c18
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-7997ef63.mmd
+  source_sha256: b63a44ad61c4724221be1cabdc029a9e89fe5ce9656508ef91e045e61c915c18
+  svg_sha256: 5fc291788c594782186c2a5d5cde486a5f70f4722ec0a81416bf33b4bc3fcf47
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 283f22821da0d5d705561f85865719ee5b9587d3c903050df5af49f58e5df1cf
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-870ded69.mmd
+  source_sha256: 283f22821da0d5d705561f85865719ee5b9587d3c903050df5af49f58e5df1cf
+  svg_sha256: 32c101462398e53fe660de457a2e608e1ff9f040c2a1b099df5574e28030f66f
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 92c5c273744578a06f5ce44d6ef2222a4ab33d66cdb008dfae1684858867347e
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-8819d6bc.mmd
+  source_sha256: 92c5c273744578a06f5ce44d6ef2222a4ab33d66cdb008dfae1684858867347e
+  svg_sha256: 89e0a3e29e1a6c75329224ec0b0da17b8d4501ecf010180e1b3d1e080ceed942
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 5a175eed9a91d9b7e765d84296aff26d16b6d449b8609381b90f126de2aa053d
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-8cb87484.mmd
+  source_sha256: 5a175eed9a91d9b7e765d84296aff26d16b6d449b8609381b90f126de2aa053d
+  svg_sha256: de161b6b4a746a9ba101ef4ab1e9e8b259e729295f19db3313d235c9b8706d20
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: ba31e6e6dc7e828d74746c6e133463e18972db550b4f81a07005e9a929edc62b
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-9899efcb.mmd
+  - er_diagram/erdiagram_spec-b2bb4486.mmd
+  - er_diagram/should_allow_decimal_numbers_as_entity_names_wit-31b7bfa7.mmd
+  source_sha256: ba31e6e6dc7e828d74746c6e133463e18972db550b4f81a07005e9a929edc62b
+  svg_sha256: f4e50c7c2c8379d8a41bec58da87eb761a18adc5fbc6ac5c0ed3944e35068f35
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: bf9971af326e0a21e428795b005cf8807b4adaf0e917567268f48044e4649da1
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-9b4fc14a.mmd
+  - er_diagram/erdiagram_spec-cfe6339e.mmd
+  - er_diagram/should_allow_decimal_numbers_in_relationships-fb5bd4ad.mmd
+  source_sha256: bf9971af326e0a21e428795b005cf8807b4adaf0e917567268f48044e4649da1
+  svg_sha256: 96aa669efbf88cb057c44e58db5cdf823069af0b167c6e66ff941b1fb74ac839
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: cf44dbcc8b3e2ea0819e238c3b76e92a6cd9ae89e816fe31300385c50136037f
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-9e6311f2.mmd
+  source_sha256: cf44dbcc8b3e2ea0819e238c3b76e92a6cd9ae89e816fe31300385c50136037f
+  svg_sha256: def91c0ca7c3d512259adb9ad9672a6c1798024172256365d64e54e36eb0c01a
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 071471fe4806eba017e4b39c7f99d514d8bbba3d033d25055e86214520c6e521
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-a1241e76.mmd
+  source_sha256: 071471fe4806eba017e4b39c7f99d514d8bbba3d033d25055e86214520c6e521
+  svg_sha256: 144638123fe25e603271c99c4c9fb0f9c1c8f90cdc731b18052c937072b12d3b
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 6a674ef9fc0037dea357a09d2731e341432422197cd5e91a4cb0917e0c853484
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-a5ca0b8c.mmd
+  - er_diagram/erdiagram_spec-d944f1d1.mmd
+  - er_diagram/should_allow_decimal_numbers_as_standalone_entit-1bcf6f49.mmd
+  source_sha256: 6a674ef9fc0037dea357a09d2731e341432422197cd5e91a4cb0917e0c853484
+  svg_sha256: 14042f33db2770472eab25c5e301e7f83ba1fb5e144e8a8a88f78145b62aaf17
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 2aba6d76be61f087347ef33c7ede34a6c71ab4ba065985e268e4359ecc0f1a71
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-a955ce67.mmd
+  source_sha256: 2aba6d76be61f087347ef33c7ede34a6c71ab4ba065985e268e4359ecc0f1a71
+  svg_sha256: c4200db56847136231484e68e157b50a2ce378f521f0d68fa24b3b16aaae4019
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 477e85d1fb8c40d8fec0aad9c11138462a75d3e3cc5a02c05e05a5cec193d7b0
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-acb29fce.mmd
+  source_sha256: 477e85d1fb8c40d8fec0aad9c11138462a75d3e3cc5a02c05e05a5cec193d7b0
+  svg_sha256: d3194263d578db71a7f514d0862fe111384828b4ec0972d705190f2636d35c7c
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 165a5d6170e47b487bf4ef4f967f360dbc07e35a83ed3bedc752c5024f032a27
+  verdict: rejects
+  reason: 'Error: Parse error on line 2:'
+  cases:
+  - er_diagram/erdiagram_spec-d3d7fc8e.mmd
+  source_sha256: 165a5d6170e47b487bf4ef4f967f360dbc07e35a83ed3bedc752c5024f032a27
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 35630f5f2cf1188e1d8a4d24446f8175334e17978e660361040409ee979d1610
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-d921f55c.mmd
+  source_sha256: 35630f5f2cf1188e1d8a4d24446f8175334e17978e660361040409ee979d1610
+  svg_sha256: 40db666cf868123fa8ff484e3d204d888fbccd1d7af6edcf0234144eb58344b2
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 9feed60cedc4ff5bf63375c6909768c230459e6e0971b8b5117d11fa8de27b71
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-d9e80d35.mmd
+  source_sha256: 9feed60cedc4ff5bf63375c6909768c230459e6e0971b8b5117d11fa8de27b71
+  svg_sha256: ee5bd4b8dfd28e3bf475075781377921edfda04f52ecef4a413b194cb04dec1c
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 83db77bdffa4789af100b0a33de453662120cab59251c6f48ccac8e140d67b41
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-da955898.mmd
+  source_sha256: 83db77bdffa4789af100b0a33de453662120cab59251c6f48ccac8e140d67b41
+  svg_sha256: 3d6892546650c3bc53e5870b37a36a83f85d56a52ee744a69df7cd62e4b657af
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 7a7d77388dbb435f5d11b8f8ad1443463a9df334c9c9179a26c3135d0935a8c6
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-f06cacb7.mmd
+  source_sha256: 7a7d77388dbb435f5d11b8f8ad1443463a9df334c9c9179a26c3135d0935a8c6
+  svg_sha256: f3a37160ffccb3fddb8ad1bd9aead949c3c583df275d8a657c4ef815237e3c68
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: ca00fccfb408989eddc401062c4d1219a6aceb6b9b55412357f1790862e8f178
+  verdict: accepts
+  cases:
+  - error/diagram_orchestration_spec-8666f6ad.mmd
+  - error/diagram_orchestration_spec-e3b8ea03.mmd
+  - error/errordiagram_spec-3a94a3a8.mmd
+  source_sha256: ca00fccfb408989eddc401062c4d1219a6aceb6b9b55412357f1790862e8f178
+  svg_sha256: ebe6f89e865cc33254a5f313f45236a50c7b9104ebb22a0f9137e09b347dde6d
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -303,594 +896,899 @@ cases:
     for text: Error Diagrams'
   cases:
   - error/errordiagram_spec-34805ce6.mmd
-- sha256: ca00fccfb408989eddc401062c4d1219a6aceb6b9b55412357f1790862e8f178
-  verdict: accepts
-  cases:
-  - error/diagram_orchestration_spec-8666f6ad.mmd
-  - error/diagram_orchestration_spec-e3b8ea03.mmd
-  - error/errordiagram_spec-3a94a3a8.mmd
-- sha256: 03b56b1b1a952e5f04278088a1b589f1b8929cffe5776a7b9d3ad0152fe263b7
-  verdict: rejects
-  reason: 'Error: Parse error on line 1:'
-  cases:
-  - flowchart/current-e94c77cd.mmd
+  source_sha256: 41b6fbea2acd668002cdb4503fe9c6d3dc8b290711919c3ab5344203f3d20a8f
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: e50654635f0375b4b81b37df8c3c477b821f40d172c634782a33dc87aab0755a
   verdict: rejects
   reason: 'Error: Parse error on line 1:'
   cases:
   - flowchart/current-74651a3c.mmd
-- sha256: 5acf138815177e7d3bbfb47b1b81c885ef5ab238305882cb371ec99e8cb868a3
+  source_sha256: e50654635f0375b4b81b37df8c3c477b821f40d172c634782a33dc87aab0755a
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 03b56b1b1a952e5f04278088a1b589f1b8929cffe5776a7b9d3ad0152fe263b7
+  verdict: rejects
+  reason: 'Error: Parse error on line 1:'
+  cases:
+  - flowchart/current-e94c77cd.mmd
+  source_sha256: 03b56b1b1a952e5f04278088a1b589f1b8929cffe5776a7b9d3ad0152fe263b7
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 52b5c4e5accc54ce3fb1a7b4981e37df208b22bf1b308c73b2970087cbb58bf5
+  verdict: accepts
+  cases:
+  - flowchart/flow_arrows_spec-3b54e50e.mmd
+  source_sha256: 52b5c4e5accc54ce3fb1a7b4981e37df208b22bf1b308c73b2970087cbb58bf5
+  svg_sha256: 725d175c871894dfbaedb7fd6afba16d3ff11af95512bdbdf1cb1359a38a1cdc
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: e4bf23ad4a26b0c6534afe5713f60502b4b7c3b8b0f6e5b8ad0fbf197dd0ae23
+  verdict: accepts
+  cases:
+  - flowchart/flow_arrows_spec-58e1c972.mmd
+  source_sha256: e4bf23ad4a26b0c6534afe5713f60502b4b7c3b8b0f6e5b8ad0fbf197dd0ae23
+  svg_sha256: 45433929931aaee9b624af34b9046bd2c7a778390c9e2a2d09b63062a8c2d1d8
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 2eaeaf1481386d47a46074db3fab5f5686ff4cbe4d9076b00922ffcba6fa15ce
+  verdict: accepts
+  cases:
+  - flowchart/flow_comments_spec-618a71ea.mmd
+  source_sha256: 2eaeaf1481386d47a46074db3fab5f5686ff4cbe4d9076b00922ffcba6fa15ce
+  svg_sha256: 9f94a6732568c04bb319caa666cc11b4e26deba7defe8a933fa6f0eaefd36c34
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: d8d7a183011a4049f12d436de0a42358c2228158f6d2b277e985d694c292ff03
+  verdict: accepts
+  cases:
+  - flowchart/flow_comments_spec-631bd216.mmd
+  source_sha256: d8d7a183011a4049f12d436de0a42358c2228158f6d2b277e985d694c292ff03
+  svg_sha256: 9f94a6732568c04bb319caa666cc11b4e26deba7defe8a933fa6f0eaefd36c34
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: ce7122ea1692d249abc3023beeafb2b66aaf1cd90e0a40151df60c0b14bb1010
+  verdict: accepts
+  cases:
+  - flowchart/flow_comments_spec-68ea59e2.mmd
+  source_sha256: ce7122ea1692d249abc3023beeafb2b66aaf1cd90e0a40151df60c0b14bb1010
+  svg_sha256: 9f94a6732568c04bb319caa666cc11b4e26deba7defe8a933fa6f0eaefd36c34
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 6312c100bfd5b5c6b6954e84bfb4b295a74859d2bd96c3bac2312f8cc47aff74
+  verdict: accepts
+  cases:
+  - flowchart/flow_comments_spec-699c136c.mmd
+  source_sha256: 6312c100bfd5b5c6b6954e84bfb4b295a74859d2bd96c3bac2312f8cc47aff74
+  svg_sha256: 9f94a6732568c04bb319caa666cc11b4e26deba7defe8a933fa6f0eaefd36c34
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 026d3487e23f44714def1d087e093b37b66a8792e0e35aae33907b972e81cb9c
+  verdict: accepts
+  cases:
+  - flowchart/flow_comments_spec-9fa70e30.mmd
+  source_sha256: 026d3487e23f44714def1d087e093b37b66a8792e0e35aae33907b972e81cb9c
+  svg_sha256: 9f94a6732568c04bb319caa666cc11b4e26deba7defe8a933fa6f0eaefd36c34
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: cefec1cdd497b0011e2ae54f6c53d9c25acb40bf203b7d9998e72ea806946944
+  verdict: accepts
+  cases:
+  - flowchart/flow_comments_spec-ae4455cb.mmd
+  source_sha256: cefec1cdd497b0011e2ae54f6c53d9c25acb40bf203b7d9998e72ea806946944
+  svg_sha256: 9f94a6732568c04bb319caa666cc11b4e26deba7defe8a933fa6f0eaefd36c34
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: f64f4d3e988aac1520730c0ac9d690b444923beec38a48993ee8ac6750fd03f1
+  verdict: accepts
+  cases:
+  - flowchart/flow_comments_spec-b1966b65.mmd
+  source_sha256: f64f4d3e988aac1520730c0ac9d690b444923beec38a48993ee8ac6750fd03f1
+  svg_sha256: 9f94a6732568c04bb319caa666cc11b4e26deba7defe8a933fa6f0eaefd36c34
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 1baec575ccdbe42570d241e2fe46b1f063f65b0d78fb03243210ecaf4800488a
+  verdict: accepts
+  cases:
+  - flowchart/flow_comments_spec-e69bdfb5.mmd
+  source_sha256: 1baec575ccdbe42570d241e2fe46b1f063f65b0d78fb03243210ecaf4800488a
+  svg_sha256: 9f94a6732568c04bb319caa666cc11b4e26deba7defe8a933fa6f0eaefd36c34
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 879f32668141dfc714d2d9b395316a03575ca9ea465d79929ec7bf102cc0c452
+  verdict: rejects
+  reason: 'Error: Parse error on line 2:'
+  cases:
+  - flowchart/flow_edges_spec-2ef8a6c9.mmd
+  - flowchart/flow_edges_spec-583c7e70.mmd
+  source_sha256: 879f32668141dfc714d2d9b395316a03575ca9ea465d79929ec7bf102cc0c452
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 380eee4bb303a3802ee95def97732e9c5dab2d7f1014c92c7de92702d8628b8c
+  verdict: rejects
+  reason: 'Error: Parse error on line 2:'
+  cases:
+  - flowchart/flow_edges_spec-32896ba1.mmd
+  source_sha256: 380eee4bb303a3802ee95def97732e9c5dab2d7f1014c92c7de92702d8628b8c
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 2036d61b8fb0ebcd7c0b6bf1a5664e04746ae90962cb5a533e252cf01c199ab4
   verdict: rejects
   reason: 'Error: Parse error on line 3:'
   cases:
-  - flowchart/flow_md_string_spec-26e1e470.mmd
+  - flowchart/flow_edges_spec-46b08efa.mmd
+  - flowchart/flow_edges_spec-af4b7d73.mmd
+  source_sha256: 2036d61b8fb0ebcd7c0b6bf1a5664e04746ae90962cb5a533e252cf01c199ab4
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 74ceaf74cd059b74dbe0582d380ec88a21d47ae19084213054f793a13d6a3262
+  verdict: rejects
+  reason: 'Error: Parse error on line 3:'
+  cases:
+  - flowchart/flow_edges_spec-63cdf91f.mmd
+  source_sha256: 74ceaf74cd059b74dbe0582d380ec88a21d47ae19084213054f793a13d6a3262
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: cdf90451ccadaf799bb73bc840ec58bf6bf66f7a2b8309fe94186be03781d6bc
+  verdict: rejects
+  reason: 'Error: Parse error on line 3:'
+  cases:
+  - flowchart/flow_edges_spec-654bb12e.mmd
+  - flowchart/flow_edges_spec-e329ef4e.mmd
+  source_sha256: cdf90451ccadaf799bb73bc840ec58bf6bf66f7a2b8309fe94186be03781d6bc
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: a356a1062a0de3e04328e4883f45c8262d166524a31a17e810d373bb3ff70724
+  verdict: rejects
+  reason: 'Error: Parse error on line 2:'
+  cases:
+  - flowchart/flow_edges_spec-6e63c5a5.mmd
+  - flowchart/flow_edges_spec-8f385abc.mmd
+  - flowchart/flow_edges_spec-9467a8e6.mmd
+  - flowchart/flow_edges_spec-b6872d29.mmd
+  source_sha256: a356a1062a0de3e04328e4883f45c8262d166524a31a17e810d373bb3ff70724
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 4fd6502effbe41c0197d738bcdf82ec1bb5456da30c6035138a5d94ee5b8e71c
+  verdict: rejects
+  reason: 'Error: Parse error on line 3:'
+  cases:
+  - flowchart/flow_edges_spec-7d0a328b.mmd
+  source_sha256: 4fd6502effbe41c0197d738bcdf82ec1bb5456da30c6035138a5d94ee5b8e71c
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: eff655e9bf0ca2567668dbbd26281f768a5f8984c57396ca8eabb0f196572aa9
   verdict: rejects
   reason: 'Error: Parse error on line 4:'
   cases:
   - flowchart/flow_md_string_spec-04a25622.mmd
-- sha256: b3b07a9a0ff0c37317448f853899da596d555d3b27c3fc231048622d4aa2a539
+  source_sha256: eff655e9bf0ca2567668dbbd26281f768a5f8984c57396ca8eabb0f196572aa9
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 5acf138815177e7d3bbfb47b1b81c885ef5ab238305882cb371ec99e8cb868a3
   verdict: rejects
-  reason: 'Error: No such shape: this-shape-does-not-exist.'
+  reason: 'Error: Parse error on line 3:'
   cases:
-  - flowchart/flow_node_data_spec-875ce0c5.mmd
-- sha256: aef960230e1af9d2d8ace5b2e0ded01fe2e72374d2566ac3679bc96bea8c52da
-  verdict: rejects
-  reason: 'Error: No such shape: rect_left_inv_arrow. Shape names should be lowercase.'
-  cases:
-  - flowchart/flow_node_data_spec-e81505dd.mmd
+  - flowchart/flow_md_string_spec-26e1e470.mmd
+  source_sha256: 5acf138815177e7d3bbfb47b1b81c885ef5ab238305882cb371ec99e8cb868a3
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: cc23840ba35d65dfe4896ed52a167f9bf4dd3cf29ec07fdf8ed4433b44b28768
   verdict: rejects
   reason: 'Error: Parse error on line 3:'
   cases:
   - flowchart/flow_node_data_spec-385d64c0.mmd
+  source_sha256: cc23840ba35d65dfe4896ed52a167f9bf4dd3cf29ec07fdf8ed4433b44b28768
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: b3b07a9a0ff0c37317448f853899da596d555d3b27c3fc231048622d4aa2a539
+  verdict: rejects
+  reason: 'Error: No such shape: this-shape-does-not-exist.'
+  cases:
+  - flowchart/flow_node_data_spec-875ce0c5.mmd
+  source_sha256: b3b07a9a0ff0c37317448f853899da596d555d3b27c3fc231048622d4aa2a539
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: aef960230e1af9d2d8ace5b2e0ded01fe2e72374d2566ac3679bc96bea8c52da
+  verdict: rejects
+  reason: 'Error: No such shape: rect_left_inv_arrow. Shape names should be lowercase.'
+  cases:
+  - flowchart/flow_node_data_spec-e81505dd.mmd
+  source_sha256: aef960230e1af9d2d8ace5b2e0ded01fe2e72374d2566ac3679bc96bea8c52da
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: faef4dad892b638761b0675ec2a79e78509979a1ed6118f9daff4e666731599f
+  verdict: accepts
+  cases:
+  - flowchart/flow_spec-5c5025fc.mmd
+  source_sha256: faef4dad892b638761b0675ec2a79e78509979a1ed6118f9daff4e666731599f
+  svg_sha256: 21a6f34d5771c423fc3336f52db199aeac95a58bb57f43567857d1c6d234cfb6
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 1ca1425bfabc5aefefbc33c71529edc1f49704c99e6448d33454c6c270b76ddc
+  verdict: accepts
+  cases:
+  - flowchart/flow_spec-666b641c.mmd
+  source_sha256: 1ca1425bfabc5aefefbc33c71529edc1f49704c99e6448d33454c6c270b76ddc
+  svg_sha256: f1f42873c886db21326f3bf2ce44bbdccb8bfd992acd7ecad55c70f760da6074
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 40d1d72456857d7d41b32f08a8fee3215377b7d8936e8d86454302c13d132ff8
+  verdict: accepts
+  cases:
+  - flowchart/flow_spec-f1aa1d42.mmd
+  source_sha256: 40d1d72456857d7d41b32f08a8fee3215377b7d8936e8d86454302c13d132ff8
+  svg_sha256: 725d175c871894dfbaedb7fd6afba16d3ff11af95512bdbdf1cb1359a38a1cdc
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 792ae05a31e80204eb1ef41c6d388cc24e113425f8d8a226f3b0a0b5c11a5494
   verdict: rejects
   reason: 'Error: Parse error on line 1:'
   cases:
   - flowchart/flow_style_spec-8cd2d0bf.mmd
-- sha256: e6a584f44162bbd92added5cbacc9e7da855e0ee0f8365fb1a46c1672a3adacf
+  source_sha256: 792ae05a31e80204eb1ef41c6d388cc24e113425f8d8a226f3b0a0b5c11a5494
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 3c8a83adb53ff41bf43fe35cdabdb5b66cd16e8f9e89dbe773ed869c3c0f78a9
   verdict: accepts
   cases:
-  - gantt/gantt_spec-54a41452.mmd
+  - flowchart/flow_style_spec-9bd50570.mmd
+  source_sha256: 3c8a83adb53ff41bf43fe35cdabdb5b66cd16e8f9e89dbe773ed869c3c0f78a9
+  svg_sha256: 78e23bd0bee1ca8a5f8fed6d1afeeb3b99cdb690bd5aacd60c8d3341092fb284
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 69944f1eb501b8a4c799ed20b858238b61c250f2caa6a9d576281ca6471f91e5
+  verdict: accepts
+  cases:
+  - flowchart/flow_style_spec-ad32b111.mmd
+  source_sha256: 69944f1eb501b8a4c799ed20b858238b61c250f2caa6a9d576281ca6471f91e5
+  svg_sha256: 76b005dd400745072043400677963dc8203b85fd72e09dcab985fdf71d299dc3
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: df8b4b4a3c465c5003dbc996709b2a0a15f51253c0073173a560d15f2ccf3916
+  verdict: accepts
+  cases:
+  - flowchart/flow_style_spec-b1f4d487.mmd
+  source_sha256: df8b4b4a3c465c5003dbc996709b2a0a15f51253c0073173a560d15f2ccf3916
+  svg_sha256: 74923a09056f0027a87306d178ac4b8753582f9f1edac69ba9aaf839f906b2c0
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 828c5409e71d4c9646e1548ce416e4e91380c9a4fe08e94a57c10a6c14dd0cdc
+  verdict: accepts
+  cases:
+  - flowchart/flow_style_spec-dcf1f3be.mmd
+  source_sha256: 828c5409e71d4c9646e1548ce416e4e91380c9a4fe08e94a57c10a6c14dd0cdc
+  svg_sha256: 9f94a6732568c04bb319caa666cc11b4e26deba7defe8a933fa6f0eaefd36c34
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 81277400370ddcb638da865a903e0875273b946f7ef3a2d23b8cf39f0de25e75
+  verdict: rejects
+  reason: 'Error: No such shape: ellipse. Please check your syntax.'
+  cases:
+  - flowchart/flow_text_spec-0b25e2d1.mmd
+  source_sha256: 81277400370ddcb638da865a903e0875273b946f7ef3a2d23b8cf39f0de25e75
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 6ee54edd0e0d4f453a46d7fb01dbdc41f6cc2d6676305d7589d6d8d1bb9849cf
+  verdict: accepts
+  cases:
+  - flowchart/flow_text_spec-a33448ba.mmd
+  source_sha256: 6ee54edd0e0d4f453a46d7fb01dbdc41f6cc2d6676305d7589d6d8d1bb9849cf
+  svg_sha256: 816df9ba199f2555eca6ee8f2d4658e05112900b638b2f97a127707f7d67c22a
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: b35eb03986d273d0dd2702652d426cb9cae0eadb7264853d59402cc6755d8feb
+  verdict: rejects
+  reason: 'Error: Parse error on line 2:'
+  cases:
+  - flowchart/subgraph_spec-02811144.mmd
+  source_sha256: b35eb03986d273d0dd2702652d426cb9cae0eadb7264853d59402cc6755d8feb
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 61d770ff28203e04ca52fb284a1b7766f0b1a9d9a850480755ce51068600f231
+  verdict: accepts
+  cases:
+  - flowchart/subgraph_spec-079ae241.mmd
+  source_sha256: 61d770ff28203e04ca52fb284a1b7766f0b1a9d9a850480755ce51068600f231
+  svg_sha256: 56fef9202ceda92596a9db9177b35cbf4fb0ca4a9c39403dd76dfc15b806f9e8
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 392a39970048f677f40e6cbd861a4b9c2f42698c31e72ff9540dc22ab21780ac
+  verdict: accepts
+  cases:
+  - flowchart/subgraph_spec-0fd49976.mmd
+  source_sha256: 392a39970048f677f40e6cbd861a4b9c2f42698c31e72ff9540dc22ab21780ac
+  svg_sha256: 6398060152e9593e7a443f6ca5aad9c928ce34bb0bb994e52fe46319ec88cfa7
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: a19d5436f723ec8b818998e0c20fe496669a5721e6f3436d89a46a9eca083a60
+  verdict: accepts
+  cases:
+  - flowchart/subgraph_spec-38097244.mmd
+  source_sha256: a19d5436f723ec8b818998e0c20fe496669a5721e6f3436d89a46a9eca083a60
+  svg_sha256: 6398060152e9593e7a443f6ca5aad9c928ce34bb0bb994e52fe46319ec88cfa7
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 6f230d678bfbc470e5d417adcaebef538e6032f7fdb99228285863114a322c10
+  verdict: accepts
+  cases:
+  - flowchart/subgraph_spec-57f55756.mmd
+  source_sha256: 6f230d678bfbc470e5d417adcaebef538e6032f7fdb99228285863114a322c10
+  svg_sha256: ecf54d15faed6ca3d1d36d5d001c471a880058ac92a91e9f19c5c044465b856a
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: a5d63b04af44f2584aefacba2a4a91052cc7700e7025e97255574ac5296fe192
+  verdict: accepts
+  cases:
+  - flowchart/subgraph_spec-7cf044cd.mmd
+  source_sha256: a5d63b04af44f2584aefacba2a4a91052cc7700e7025e97255574ac5296fe192
+  svg_sha256: 956cfb39e6291ee699e1fd7eab6e72b62398ca8a5bf4b1ba459d085ebfbe6b2d
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 12fb0c695410b6884614eed402f4d3ca0dc90afe39154378154ee3b988735fcc
+  verdict: accepts
+  cases:
+  - flowchart/subgraph_spec-8cb5efe3.mmd
+  source_sha256: 12fb0c695410b6884614eed402f4d3ca0dc90afe39154378154ee3b988735fcc
+  svg_sha256: a5dfcf389c26d98f5af7e218be10ac496933db8a1d3f703ca988691660e40603
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 1b7ec032b23d3622ada64eb43bde13c9bac55bddf47f038307c0ce0cf8339c5a
+  verdict: accepts
+  cases:
+  - flowchart/subgraph_spec-eb979727.mmd
+  source_sha256: 1b7ec032b23d3622ada64eb43bde13c9bac55bddf47f038307c0ce0cf8339c5a
+  svg_sha256: '0033057668977e9f047ec75aadffa7f8717173ff1a8ea330b7e0a311e3598dd5'
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 8b9a7ceb27f0ae2043488770cc315595fbe21b0206a3ddd7347569781d4033ec
+  verdict: accepts
+  cases:
+  - flowchart/subgraph_spec-f500a75b.mmd
+  source_sha256: 8b9a7ceb27f0ae2043488770cc315595fbe21b0206a3ddd7347569781d4033ec
+  svg_sha256: 1f2849155a1bdc3b4645c85c09dcf9a7e10acf0cd30929bf192be5890b922c26
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 7b93aa3cfd3f0827d5df58ad803056842069cdd35dad615389138e1159896ddb
   verdict: rejects
   reason: 'UnknownDiagramError: No diagram type detected matching given configuration
     for text: Gantt diagram'
   cases:
   - gantt/gantt_spec-5d8671fe.mmd
-- sha256: df9f9092cf85e6548e2d1efa30bbad47f91c35fd22919f750cca139dd7023b13
-  verdict: rejects
-  reason: 'Error: Parse error on line 7:'
-  cases:
-  - gantt/should_parse_callback_specifier_with_no_args-d3b867a2.mmd
+  source_sha256: 7b93aa3cfd3f0827d5df58ad803056842069cdd35dad615389138e1159896ddb
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 48975b8341a6a3c28ca11bb40e27e4d093ba8f4f7b89d54cf2ff5cd40382b676
   verdict: rejects
   reason: 'Error: Parse error on line 7:'
   cases:
   - gantt/should_parse_callback_specifier_with_arbitrary_n-6f9e4b3f.mmd
-- sha256: 75c66aba355528e6a52b8dd5ad5c944635089d76988d86b3562873088e0f915a
-  verdict: accepts
-  cases:
-  - gitgraph/appli_spec-9896cabe.mmd
-  - gitgraph/gitgraph_spec-e1c6c758.mmd
-- sha256: 8600a1521453cd214021566c6e39423f243eed397cfc23fd9fd5365ff31d06e2
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-28053fe8.mmd
-- sha256: d4aa03f7a3a6933344b4f8afda4a1002e95bd584237a4062dd2c98e52d910275
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-ef884d70.mmd
-- sha256: b7f5cb102ae1bae97c04448bac14415646009195b0b204be660a457459be4f61
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-4f488ecd.mmd
-- sha256: 0b15d55943e7b129b842cbc90734e719eee90bc5aae3ecd322bf8c1006a6105b
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-10b01f23.mmd
-- sha256: 9a182d9b375ee987ce026354ba7327ba21f76a8ee7a425cf610fd0c34f334864
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-114a946d.mmd
-- sha256: 3107af3bfa60a8b21db3549b7fa1bcb44a0b0609d772a4276ac36377759c1a46
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-3c6bb236.mmd
-- sha256: b3e35b05d8fde39567514eeadf041202b436c34afcf68f3bd34e35d4426016f1
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-48bd68ea.mmd
-- sha256: b3fd6ad545cc9e394bbe79b16479a05e6eda01af65b66cb4a46669f4fe241aa0
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-b81d6654.mmd
-- sha256: 270deb060249853f59a37dacac2386f91a5400b57db2e67b13b3cb36973cca2f
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-2624f69c.mmd
-- sha256: e1787523fb1d7d6ccf1abe76ecedf8dfd4c91b84b103604c6bba8ae6a0740555
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-8a6b8cc3.mmd
-- sha256: 4a618b5055f2ae7280518cfa2ae0eaaa5d5246d4a793816b97c37e371e7f734c
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-fcc2f0dd.mmd
-- sha256: a64b10eb2956bafd6e9e5538a62531a783900ed31330102f2f2a8556b3646a5b
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-88f6da03.mmd
-- sha256: 07176aae8215a422dc500d23ceac51fec45837be0170d6443b02b636f673bcbf
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-ca73a116.mmd
-- sha256: 44355723017fa5e81f172c96cb1ce74c5a4fb5d68ab3e17755805181ca89b72d
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-b766651e.mmd
-- sha256: 3d1db76950c944b9d8aec84f5a68c896ed4c8539153f171584d00e89dbfe1e5a
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-27965d7e.mmd
-- sha256: c8c85defc492f495a56934cd1c437b29a0ae5d22f04247944e5fa038d6dc3d3c
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-1f279738.mmd
-- sha256: e8d69706307f2305df1e0435c4a2a55144f714fa8cce5959518935b3ec99817c
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-fbfbfcbd.mmd
-- sha256: 18485fc2af16201da59ffe0dbebd8c9c8d9007009627e0016021f8097cd4a248
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-c9730706.mmd
-- sha256: 3f0ae95ace9a1c048e64e8a389d62cca1229b58e58ab924ac9ef00f969c66abf
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-87a15537.mmd
-- sha256: e66d97a9a0fb341878acaad9fadff031ea7f553c3a2dfe23faec49107361857d
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-3a0ec594.mmd
-- sha256: b33f6f67239876adb10f7af0ee50ae0a178ca552e13f5d4f26ad60f4afc8245c
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-efafa38a.mmd
-- sha256: 5f695f1677f2577f8485c5d32c2360035d4e381e35b247b223b11df3746d71ab
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-44d278b2.mmd
-- sha256: 494f0892a7a38f43d9b35923d7d73f3ab54ad06805abf7fcaaa6739f20eed475
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-f2a04b5e.mmd
-- sha256: dc574c309f49a3423a152697ecb37e43ad9a4b1646d037208540b9996dbb75c9
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-6dbfa6a3.mmd
-- sha256: 74d99e88ffd7e8802b3cd55fb79ff4e6c1050cfa2b8ddf7f2c45fdd9fbe07be2
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-85d8094a.mmd
-  - gitgraph/gitgraph_spec-a3fd0bd6.mmd
-- sha256: 6b19e540defdba2883d9a6aa4e3a82ccf5bf1546ca83c921d955b9a1a5919e9d
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-b187a403.mmd
-- sha256: 42619ae0698275ecce1111cbdef3ce063418ee14243730375050d2fefe987c37
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-0b6593b9.mmd
-  - gitgraph/gitgraph_spec-5ec00071.mmd
-- sha256: 110a84ff8facff86ecdb18ecd7743b097c421c588cb037eac929c79b1a0359df
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-8ec1ba43.mmd
-- sha256: f1035d0e9862d92d9ea03bb8825ef87b7e9d31d724146382de7a87656d8e6076
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-302c1b10.mmd
-- sha256: 1f46192556b0dcdc9b8c3ccfd58831cb9a3e6d0a501fffa7ffb4d5886cc05613
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-7d932392.mmd
-- sha256: 28cc532810ed2cd57e1e41ee9f4f53772f386d3fcc9b82117bee13fe64a1fa58
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-215c1704.mmd
-- sha256: 3aa70f482d12001dda0c75f64a4a36bac340cc898346b709d148d433049fbe9b
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-076af5a8.mmd
-- sha256: ffb7d42ec9bfa20b78c78a3f6c6ebb351e333ebab96aa8dbd4178799c2c37fa7
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-4ecf8c56.mmd
-- sha256: b351ae4ec519b08b6879a8d06b95664957cb08705139c9b361bd3fafe7409e30
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-fdc1c9db.mmd
-- sha256: '097179223531b64cd397c05547e7a4e253ab6207d31068e23620a4db81f1d662'
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-85c9fffd.mmd
-- sha256: 559e01a29ef5060da5a835285c41fc8166ba198485425c0b53dc43c8135636e8
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-a80be08a.mmd
-- sha256: 336954c5c6f9dd742c6d1863a37f94c7e2c21a17d41708e9ae6fa6e5e709c318
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-a2c9fdfa.mmd
-- sha256: 9bdcf306e9db7c396981396cd62cb9ab6cb69705fe58ebce51da2e199ea20ac4
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-92393861.mmd
-- sha256: 75ec2d78f09b44e215e2dda14cf5a864f55089163e00a7b222f87b0509de3277
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-7601eeee.mmd
-- sha256: 8930d7ae27e634e0882995e08f82e2f767bec44924eb7f5a0e84ac16380bb8a8
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-ecc8f1ae.mmd
-- sha256: 0f85d22ee8fad08ad9c413056dcd4df369939a95bfd591abe9e2a87f157391ef
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-f4bbbafe.mmd
-- sha256: 2f05ba36873cc6d5dcd68fcd7890c210b4b14809fe9a462fec11ec061ab2fd26
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-2a707d2a.mmd
-- sha256: bde1612ce498ababd51eb33134aa1124285846886a811982c03ff9174f0ce020
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-ff5daf60.mmd
-- sha256: cc80ec429c44e9eb9021ee4bc713d0256448752ab0e31a1cea3aa7a713f74d85
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-72370fac.mmd
-- sha256: c7ea0314946df9063c867949ae6b782848b1a0e7713712c15562c17fc38a6ec9
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-d0791e6a.mmd
-- sha256: ff110266567f71ad09d72b6379311d0b70c1f916c31088ea53d38c4970d74fbd
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-f45d7013.mmd
-- sha256: 22062fba31065d2e22eb057c6dca4d1ca04e80c405388f93e6306c4039a4f10c
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-d77717c8.mmd
-- sha256: e1c321944b7a07afd1d90fafffb50859ec6ca5fe141fdb1a376f500aee6d86d8
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-6422a3f5.mmd
-- sha256: 4859800dd1a01211ea2e02d64986a9f1a686c42a37d00fb8a2bd1e3d14298934
-  verdict: accepts
-  cases:
-  - gitgraph/gitgraph_spec-72051fc1.mmd
-- sha256: a0655f0ceb954df5ace678113540df69d72898311d00edefa56ba2bfa13fff8a
-  verdict: accepts
-  cases:
-  - gitgraph/diagram_orchestration_spec-7e74931b.mmd
-  - gitgraph/diagram_orchestration_spec-f91adec1.mmd
-  - gitgraph/gitgraph_spec-62bd2181.mmd
-  - gitgraph/gitgraph_spec-6fdae8bb.mmd
-  - gitgraph/gitgraph_spec-785ef1ea.mmd
-  - gitgraph/gitgraph_spec-833c0b64.mmd
-  - gitgraph/gitgraph_spec-a8592bb3.mmd
-  - gitgraph/gitgraph_spec-e720bcf2.mmd
-  - gitgraph/mermaidapi_spec-36f7251d.mmd
-  - gitgraph/mermaidapi_spec-3bb9b8eb.mmd
-  - gitgraph/utils_spec-111f4a6d.mmd
-  - gitgraph/utils_spec-b464f46c.mmd
-- sha256: f010132560ae6c6d24eee86596b221a775a17a9fac4e7075db83a3ee47f507b0
-  verdict: accepts
-  cases:
-  - gitgraph/git-c330ba11.mmd
-- sha256: aca7ffc677b5c4c043c83efe6726269ef272b8f722684f84f9b7892483c15d1f
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_set_direction_top_to_bottom-c32dbd08.mmd
-- sha256: 5b97bac461ed898666775c6b6d6b2a680522ba53f5546cbf17ed418bedb30ba5
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_set_direction_bottom_to_top-cf21a460.mmd
-- sha256: 9ea54948e255f09ab3128ebd89d5132538bc40a931a3cac933bfb9e534083228
-  verdict: accepts
-  cases:
-  - gitgraph/should_checkout_a_branch-d808eabf.mmd
-- sha256: 972e803b67db39900fe620bba2392093bef557c7a9266dcc94dad5ba1a8eb51a
-  verdict: accepts
-  cases:
-  - gitgraph/should_switch_a_branch-e178f181.mmd
-- sha256: d11873975c3f2fd2d5040f7ea250e582b6cd77a7a07ba4cb8c8fcdf975c3f057
-  verdict: accepts
-  cases:
-  - gitgraph/should_add_commits_to_checked_out_branch-13325e2c.mmd
-- sha256: 15a4281485c6706b45a3b19d3bc2daf146a3d4d9a8583017e8fc9a97e86b21ab
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_commit_with_args-8c4669e7.mmd
-- sha256: ce2d505d22d32aaed0eb823910789cefd0f414791f58bf0fecb0c6a28cce10fd
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_cases_when_merge_is_a_noop-9267428e.mmd
-- sha256: 4bfffa7e27f842f0c0067ddc109fa809238928edbd3162ad5672933067d535c8
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_merge_with_2_parents-c9d72600.mmd
-- sha256: a82fc9e1cbf02a7a6d1404183307c83d9c01dde04f4a1ce213ab062607b8d498
-  verdict: accepts
-  cases:
-  - gitgraph/should_generate_an_array_of_known_branches-24cef136.mmd
-- sha256: df2f4348a2daf7dc4b0949a54936d1a92c732fb91278410de23400fb7541eae5
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_set_direction_top_to_bottom-b57546e7.mmd
-- sha256: fe19de42c25bee679ec2c1f0959ae521bc3d2a2cc6dca05140bec0c4851ac62a
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_a_gitgraph_commit_with_custom_comm-dc4a307a.mmd
-- sha256: 3f95e5eeb40cb7f6d796f7823eeed541c65b88b18bdc49dadb4aa67fca90439b
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_a_gitgraph_commit_with_custom_comm-24c19935.mmd
-- sha256: 80a3418f7cdb452df78318a40210d3e3b92947cee76d4e437b0ea6c572683231
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_a_gitgraph_commit_with_custom_comm-e7cef3b4.mmd
-- sha256: 7139ad4438124095f310ad1cf2b22e7f0e11d9528aa53d02570ef15c89a97511
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_a_gitgraph_commit_with_custom_comm-38466754.mmd
-- sha256: 11d0a8237818d5db44ccbbe388d1f3ca906e4bcf35cc7a6508767d4fc27055e6
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_a_gitgraph_commit_with_custom_comm-ed6bce28.mmd
-- sha256: c031e848e586ab1c238d18aee16496942e65db34039625c3767809e22bc3b113
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_a_gitgraph_commit_with_custom_comm-4c1a5d63.mmd
-- sha256: 87b8004ff88fd7579df443cc11b286cfb875936d5b13387ac79a847684ca627d
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_a_gitgraph_commit_with_custom_comm-e548d918.mmd
-- sha256: 97619ca8e41c170c3cc57716f1f831a9a3f060b7e6857e354f6894ed221b227a
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_a_gitgraph_commit_with_custom_comm-319cfc9c.mmd
-- sha256: 884d8b64b570e11e33b39abdb6a4d01372d51c0630ab5dc916656b4bdd9e906b
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_a_gitgraph_commit_with_custom_comm-5f8425ba.mmd
-- sha256: a47ff1b44ba8eac12d8da68e78e1b52c55b990beac973061d10c16afa5c6cb3d
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_a_gitgraph_commit_with_custom_comm-4fcb935d.mmd
-- sha256: 0f197744ecd8c0cc10dbc26ffe8718d71700fd01da0a3b1bb04b2272c4d7cba0
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_a_gitgraph_commit_with_custom_comm-3a7948d6.mmd
-- sha256: c6f41e84b3bda01a46cc58e120f5243f8617a3831592ef6b1e61b097a54cc405
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_a_gitgraph_commit_with_custom_type-bce4b490.mmd
-- sha256: e2006f3acf1b43300f6b5f9ed44f028645aa43c95e7e743abb397aa2a6f8e679
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_a_gitgraph_commit_with_custom_tag-f23d9a2b.mmd
-- sha256: f1bbf38613d8f4a342c8ddd95610e13fd7dea299d27c27a2ba63a5468d4004c0
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_a_gitgraph_commit_with_custom_msg-1e0c305c.mmd
-- sha256: 28590753a3e3975761ced063274d40f2c912be50f1c65095d5e5f734738e5d04
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_3_straight_commits-a0c3914d.mmd
-- sha256: 14210328ae15337ad3af477df2a04f244192495deaaebd752cb90e3bcc52b29e
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_new_branch_creation-a0536f42.mmd
-- sha256: 0f8f0b5c552b85d2a614335eb0f7a8cb3ef3f5a41de405db55ae99ca46a0133c
-  verdict: accepts
-  cases:
-  - gitgraph/should_allow_quoted_branch_names-175db699.mmd
-- sha256: cad6f6b8ecc72191bbc0f258df126bd72bedd67975e7bf29b259b0ed440131fa
-  verdict: accepts
-  cases:
-  - gitgraph/should_allow_characters_in_branch_names-c1db8816.mmd
-- sha256: b61605aa91c1860e7a41e2228f8d6bea23d8222213c5b7f13e19d378b074f38a
-  verdict: accepts
-  cases:
-  - gitgraph/should_allow_branch_names_starting_with_numbers-45bc9820.mmd
-- sha256: 1456d71294dfbf435e1ab7f6c2e9839d9f4475f0b93799655d1abc172af6bc50
-  verdict: accepts
-  cases:
-  - gitgraph/should_allow_branch_names_starting_with_unusual-2dd0cf15.mmd
-- sha256: b22cd1e0b2eeac927fb836f60bc8205603dc482c9b97c314c10e83ae736d093b
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_new_branch_checkout-70c26a6c.mmd
-- sha256: 331356bee46fd2a8323d2401c188b16eef30fb9224cd87a1a7d23fa306c24dd9
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_new_branch_checkout_with_order-c0607086.mmd
-- sha256: 1dd548b4c78bbd5b78d6bcbed918533105fe3e18f036b5e9a368c5f902a8bc46
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_new_branch_checkout_with_and_witho-322aea60.mmd
-- sha256: 0124dcf6b078c3383accbbda238c4d526e9dbe0186bf7fd8876cc4039e9019ec
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_new_branch_checkout_commit-cbfbd32c.mmd
-- sha256: a6ee58058deb627ab030ea7cb01d610df21a000c9927741753a3112b37414dea
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_new_branch_checkout_commit_and_mer-6fba64e9.mmd
-- sha256: 95cd445e9cfa1f6d1a91c36c5882ddac348efb0bd5d48a6168acdce32a624038
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_new_branch_switch-e225c4e6.mmd
-- sha256: 318af6216cf32589cffe01a82b3b2e977d5aabe1dd0b0b84d0fe9f17dda9a19f
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_new_branch_switch_commit-0648b447.mmd
-- sha256: 1a4f26667d454dc3522791df6d84a32cca8fb3377d657d60fb9b5cc72f852a11
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_new_branch_switch_commit_and_merge-97bd3f84.mmd
-- sha256: 1733b98187eb1ddd8e627a406cb4b834ae5b59f3fcc75f3c60c4b643be4b8347
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_merge_tags-7d11784d.mmd
-- sha256: 3e2947b8a4e2286133598f7fa77e52db9d06d5fea1dad7986adbd1ef2e0b98cc
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_merge_with_custom_ids_tags_and_typ-2e8ba4b5.mmd
-- sha256: 63de2744330ee128b7c68df274409fa684b737af74498f460138895794da91b9
-  verdict: accepts
-  cases:
-  - gitgraph/should_support_cherry_picking_commits-ecf31fda.mmd
-- sha256: 375c296e8bfec68ce134fb69278e2918934af0b55410b75e67c78f257b7eb381
-  verdict: accepts
-  cases:
-  - gitgraph/should_support_cherry_picking_commits_with_custo-7bafb75f.mmd
-- sha256: e33bb8be119df9089bba7b590e8eb039c5f4bbe359e3e355b58cc389e359cb23
-  verdict: accepts
-  cases:
-  - gitgraph/should_support_cherry_picking_commits_with_no_ta-0234be84.mmd
-- sha256: fdbaa3ff4e5b17540d76b04033620b7a66b4712910b873106d095b1e5e732c0f
-  verdict: accepts
-  cases:
-  - gitgraph/should_support_cherry_picking_of_merge_commits-e48959ff.mmd
-- sha256: '098da655848f7070d71b1c8b02cf4a68567daf4ad262713994e156e0414c2c15'
-  verdict: accepts
-  cases:
-  - gitgraph/should_support_cherry_picking_of_merge_commits_w-29165ad9.mmd
-- sha256: 2d6bc863dd0b2c55da596a38d683fe6109c4829328d8415a2e13383e94c230e1
-  verdict: accepts
-  cases:
-  - gitgraph/should_support_cherry_picking_of_merge_commits_w-a7e851e5.mmd
-- sha256: 0f9ff6ea9875a311d26395bdf756a16d5e2976ea84e52277839c78c553cbeb23
-  verdict: accepts
-  cases:
-  - gitgraph/should_support_cherry_picking_of_merge_commits_w-670f4b6c.mmd
+  source_sha256: 48975b8341a6a3c28ca11bb40e27e4d093ba8f4f7b89d54cf2ff5cd40382b676
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: df9f9092cf85e6548e2d1efa30bbad47f91c35fd22919f750cca139dd7023b13
+  verdict: rejects
+  reason: 'Error: Parse error on line 7:'
+  cases:
+  - gantt/should_parse_callback_specifier_with_no_args-d3b867a2.mmd
+  source_sha256: df9f9092cf85e6548e2d1efa30bbad47f91c35fd22919f750cca139dd7023b13
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 578bb77f782c7de15d1f56ffb2e780c863d92ae70421ae708a0c9ad6c777596a
+  verdict: accepts
+  cases:
+  - gitgraph/gitgraph_test-0b25d816.mmd
+  source_sha256: 578bb77f782c7de15d1f56ffb2e780c863d92ae70421ae708a0c9ad6c777596a
+  svg_sha256: a60cf2021f54179740166d9dd9bf2457e0ac18729271c413c20482465450d8fd
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: ef1c46d9b052034b88328efa55f9b33313a897f02fc48a11ec713c9e34d6975b
+  verdict: accepts
+  cases:
+  - gitgraph/gitgraph_test-0de8a536.mmd
+  source_sha256: ef1c46d9b052034b88328efa55f9b33313a897f02fc48a11ec713c9e34d6975b
+  svg_sha256: 2c5b24d3b1ef8a3023a30c962d7b7f1766fa13cdab80b63ce753ea0b30b880f8
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 45062b339aaf537a231bde8aa777356f103717b92223e060dc96d35f7b4ca374
+  verdict: accepts
+  cases:
+  - gitgraph/gitgraph_test-2991199d.mmd
+  source_sha256: 45062b339aaf537a231bde8aa777356f103717b92223e060dc96d35f7b4ca374
+  svg_sha256: 26087560371f65ea14c0ea5c9eb4e0b7ebd94c81905d44a155f4efd4ee3674f6
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 7585b53bc62cbfdfa5303548f1d3b417bc4e3aed95442f69884c7dc0fcf5d6cf
+  verdict: rejects
+  reason: mermaid error page
+  cases:
+  - gitgraph/gitgraph_test-33d2e733.mmd
+  source_sha256: 7585b53bc62cbfdfa5303548f1d3b417bc4e3aed95442f69884c7dc0fcf5d6cf
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: b2c614cf183bb8cb7310e4751f5481c41bc098c276188626eeef78ce1da01a6a
+  verdict: accepts
+  cases:
+  - gitgraph/gitgraph_test-3c2299be.mmd
+  source_sha256: b2c614cf183bb8cb7310e4751f5481c41bc098c276188626eeef78ce1da01a6a
+  svg_sha256: 63331b5d8fef965817af52dbc8da8fd19a051b9dd52a7ae21c30381a1a69e1f5
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: fe4831fc3fe7f7cdd2939c07ef6cab194447786f41be68d8ba41627ec57df3f6
+  verdict: accepts
+  cases:
+  - gitgraph/gitgraph_test-46039f98.mmd
+  source_sha256: fe4831fc3fe7f7cdd2939c07ef6cab194447786f41be68d8ba41627ec57df3f6
+  svg_sha256: f127e244853f87263110ff9cd74dd203a97f1cd67953794719a40b912e55bae7
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: bcf2db5848a3ca39fb313c09901b7b675077823df3665086a791c1b6ee05ac5f
+  verdict: rejects
+  reason: 'Error: Incorrect usage of "merge". Current branch (main)has no commits'
+  cases:
+  - gitgraph/gitgraph_test-51c5ba48.mmd
+  source_sha256: bcf2db5848a3ca39fb313c09901b7b675077823df3665086a791c1b6ee05ac5f
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: b05c4c88c15e782bc3b161e6307798e053e675c588c7b43ea5817ae713b47e16
+  verdict: accepts
+  cases:
+  - gitgraph/gitgraph_test-5fd422d2.mmd
+  source_sha256: b05c4c88c15e782bc3b161e6307798e053e675c588c7b43ea5817ae713b47e16
+  svg_sha256: 9157b0ff2458decb849741ca0df5a304f3d39553047d1e28180cf45beb5ff66a
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 439c4eb7b5ae2a3a212ae2782b2ba0328c7490ae9a6b824e449e1427949f9601
+  verdict: rejects
+  reason: mermaid error page
+  cases:
+  - gitgraph/gitgraph_test-604dad9c.mmd
+  source_sha256: 439c4eb7b5ae2a3a212ae2782b2ba0328c7490ae9a6b824e449e1427949f9601
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: b9cb53821f13f237a1e3ad2615aff7448e0cd16cf0371ad57f80322b679ff6cf
+  verdict: accepts
+  cases:
+  - gitgraph/gitgraph_test-618ca788.mmd
+  source_sha256: b9cb53821f13f237a1e3ad2615aff7448e0cd16cf0371ad57f80322b679ff6cf
+  svg_sha256: 04e1409915e62b4cd85256b0cddcef69663cbf39bf80a9ef03bf2371175e1657
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 134ba8557e3261f354216a6ccbb0ed3214f5b48230859b7325b144f3382cb8df
+  verdict: accepts
+  cases:
+  - gitgraph/gitgraph_test-6dbacd8b.mmd
+  source_sha256: 134ba8557e3261f354216a6ccbb0ed3214f5b48230859b7325b144f3382cb8df
+  svg_sha256: ef8a677c222bc741cb9059ae70b2a16449942f9bc6fedee1904eca9b60710a52
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 329fdad18548d692812d6a69f9476b3c3ea19e5963650dd1575e348dfa5b3e38
+  verdict: accepts
+  cases:
+  - gitgraph/gitgraph_test-7331cd25.mmd
+  source_sha256: 329fdad18548d692812d6a69f9476b3c3ea19e5963650dd1575e348dfa5b3e38
+  svg_sha256: 2d826950ffca30410cd2fdeb15bb5a07c19fcca4ab9f3c145ec625f8cc6b2025
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 85efbbcafb8d67f9caa0a0a15eb27c5b13dcb1a68f4ffb3165ee6c007b193a1d
+  verdict: rejects
+  reason: 'Error: Incorrect usage of "merge". Current branch (main)has no commits'
+  cases:
+  - gitgraph/gitgraph_test-885f13f6.mmd
+  source_sha256: 85efbbcafb8d67f9caa0a0a15eb27c5b13dcb1a68f4ffb3165ee6c007b193a1d
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 82fbd73d3f8abf80ffe1edb0642f79d38e90fb9d2aac7bee375602dce14bf0ab
+  verdict: rejects
+  reason: mermaid error page
+  cases:
+  - gitgraph/gitgraph_test-91c1c4ae.mmd
+  source_sha256: 82fbd73d3f8abf80ffe1edb0642f79d38e90fb9d2aac7bee375602dce14bf0ab
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 40e319261ca087795de6c25b6bf1831a5d03736dc6d03b164d420a42a571cc9a
+  verdict: rejects
+  reason: 'Error: Trying to checkout branch which is not yet created. (Help try using
+    "branch release-2021")'
+  cases:
+  - gitgraph/gitgraph_test-b38ba7bb.mmd
+  source_sha256: 40e319261ca087795de6c25b6bf1831a5d03736dc6d03b164d420a42a571cc9a
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: e16271bce7a29f5f9d96b26c6f671a7dc52f59f70811082089ab817a7d9e8ee3
+  verdict: accepts
+  cases:
+  - gitgraph/gitgraph_test-b498c8db.mmd
+  source_sha256: e16271bce7a29f5f9d96b26c6f671a7dc52f59f70811082089ab817a7d9e8ee3
+  svg_sha256: 3bebdc5c1dae9e52f11637e63daaec3850bd45f0e4475916e9bdc0f10b6b1469
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 2dc5951d1617480c2601716b4fb89163ff5b4f47a4b4007b452bac16166a1d24
+  verdict: accepts
+  cases:
+  - gitgraph/gitgraph_test-b88a55d1.mmd
+  source_sha256: 2dc5951d1617480c2601716b4fb89163ff5b4f47a4b4007b452bac16166a1d24
+  svg_sha256: 502726b076e2fddf7c118c83387a61d187d029d651447bb694b676d131885e36
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 1ba858b0aa7368e1e0c9fb03b1cddde52cef03196668253710fc946a94159412
+  verdict: rejects
+  reason: 'Error: Incorrect usage of "cherryPick". Source commit id should exist and
+    provided'
+  cases:
+  - gitgraph/gitgraph_test-bc09a6fb.mmd
+  source_sha256: 1ba858b0aa7368e1e0c9fb03b1cddde52cef03196668253710fc946a94159412
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: a2c2ed146a91e1550b4d7507f04b70d7fb25640662313209eb3b661ce1164af7
+  verdict: accepts
+  cases:
+  - gitgraph/gitgraph_test-c80f6b5f.mmd
+  source_sha256: a2c2ed146a91e1550b4d7507f04b70d7fb25640662313209eb3b661ce1164af7
+  svg_sha256: 17fdf9abaf52810856ecbd2ec69d1c577ebedd51169e9391374af440acfee7f0
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 248a8bde768b095b96476be75ed2215774371eba92d99015671b69b5979c5a68
+  verdict: rejects
+  reason: mermaid error page
+  cases:
+  - gitgraph/gitgraph_test-c890a62b.mmd
+  source_sha256: 248a8bde768b095b96476be75ed2215774371eba92d99015671b69b5979c5a68
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 173c5a01bab869e4453b82fc081864cc0ff6b74f76986d615c89e42360ba93f5
+  verdict: accepts
+  cases:
+  - gitgraph/gitgraph_test-d7ff8f0d.mmd
+  source_sha256: 173c5a01bab869e4453b82fc081864cc0ff6b74f76986d615c89e42360ba93f5
+  svg_sha256: 2566d0528b5f500803f6a85f7d97c5fbb107188e7992c3badee630e788b72e74
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: c756318cde938b7ba710191bd41cdddf6ea2b11e4bd645aa4164703e49899377
+  verdict: rejects
+  reason: 'Error: Incorrect usage of "merge". Current branch (main)has no commits'
+  cases:
+  - gitgraph/gitgraph_test-e632fe0f.mmd
+  source_sha256: c756318cde938b7ba710191bd41cdddf6ea2b11e4bd645aa4164703e49899377
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: b9e5cf1eecc71d9f72725b8e1ef2d5127f57f5a8b7e432c3efe9f9e4cf295923
+  verdict: accepts
+  cases:
+  - gitgraph/gitgraph_test-f027449f.mmd
+  source_sha256: b9e5cf1eecc71d9f72725b8e1ef2d5127f57f5a8b7e432c3efe9f9e4cf295923
+  svg_sha256: fd80dcf00999c8e46a728ee8e331c1df577ce2321b31da81b0bda7607bd18509
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 1ee60a0d7e3b73084c6f40a0e04cee3043b121c93372c2906a7ab815c1d5bd50
+  verdict: rejects
+  reason: mermaid error page
+  cases:
+  - gitgraph/gitgraph_test-f33d4324.mmd
+  source_sha256: 1ee60a0d7e3b73084c6f40a0e04cee3043b121c93372c2906a7ab815c1d5bd50
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 477a4b4de38aeeececd3736aaf0b306d23fd4bdb3f84488f9f17da37aa6a1adb
+  verdict: accepts
+  cases:
+  - gitgraph/gitgraph_test-f71b441d.mmd
+  source_sha256: 477a4b4de38aeeececd3736aaf0b306d23fd4bdb3f84488f9f17da37aa6a1adb
+  svg_sha256: 3238119140b918a17c9a14a7b57b8d58754e33b3c321fc47f915315a356ac1e2
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 780a6b73dcfe585e4caa5236f738f0b17ab65e828c36f0e5a131b9978dfe615c
+  verdict: rejects
+  reason: 'Error: Trying to checkout branch which is not yet created. (Help try using
+    "branch hotfix-123")'
+  cases:
+  - gitgraph/gitgraph_test-f9858e92.mmd
+  source_sha256: 780a6b73dcfe585e4caa5236f738f0b17ab65e828c36f0e5a131b9978dfe615c
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 4c307f4ab853568175a570ed6f4fcd71ef907d04e1b455d931f59c3f387fe81f
   verdict: rejects
   reason: 'Error: Incorrect usage of cherry-pick: If the source commit is a merge
     commit, an immediate parent commit must be specif'
   cases:
   - gitgraph/should_fail_cherry_picking_of_merge_commits_if_t-c9fa8ebb.mmd
+  source_sha256: 4c307f4ab853568175a570ed6f4fcd71ef907d04e1b455d931f59c3f387fe81f
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 151cff5e914e09cb472455842aab5aa501b1b5042392314b7ab569d7a08ddfe6
   verdict: rejects
   reason: 'Error: Invalid operation: The specified parent commit is not an immediate
     parent of the cherry-picked commit.'
   cases:
   - gitgraph/should_fail_cherry_picking_of_merge_commits_when-9f5b53c4.mmd
+  source_sha256: 151cff5e914e09cb472455842aab5aa501b1b5042392314b7ab569d7a08ddfe6
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 80a35f059d40c524c0c6c6116c85c4a6b67c303b36e357c37f88455b95c2ffd8
+  verdict: accepts
+  cases:
+  - gitgraph/should_handle_a_gitgraph_definition-4acb9709.mmd
+  source_sha256: 80a35f059d40c524c0c6c6116c85c4a6b67c303b36e357c37f88455b95c2ffd8
+  svg_sha256: 28f485c33a0294b36fdd1fab2678fd165fd1dbf097ebb9a3cae9de349852cf22
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 98e3e171b7d03ad0b25fd46871114c45cf45856848b6c7042ffe4301520d005a
   verdict: rejects
   reason: 'Error: Trying to create an existing branch. (Help: Either use a new name
     if you want create a new branch or try using "c'
   cases:
   - gitgraph/should_throw_error_when_try_to_branch_existing_b-0bda3635.mmd
+  source_sha256: 98e3e171b7d03ad0b25fd46871114c45cf45856848b6c7042ffe4301520d005a
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 7d5472cb4b499b5e8fd862c43a726d440d60e2c1a7c070e85fdf70967cfb011b
   verdict: rejects
   reason: 'Error: Trying to create an existing branch. (Help: Either use a new name
     if you want create a new branch or try using "c'
   cases:
   - gitgraph/should_throw_error_when_try_to_branch_existing_b-2132fd92.mmd
+  source_sha256: 7d5472cb4b499b5e8fd862c43a726d440d60e2c1a7c070e85fdf70967cfb011b
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 68dd8b1a7d75af4fab1776c32de5c193b64df96d37de9e77044a7da3a220c996
   verdict: rejects
   reason: 'Error: Trying to checkout branch which is not yet created. (Help try using
     "branch testBranch")'
   cases:
   - gitgraph/should_throw_error_when_try_to_checkout_unknown-3e3b849e.mmd
-- sha256: 553fd96803c0f0b201c84bae2edc0d0ec22821b7864ece26825b5ce98a3fe000
+  source_sha256: 68dd8b1a7d75af4fab1776c32de5c193b64df96d37de9e77044a7da3a220c996
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: ef76c36a77806c1a6958217c33d033733bbcf294465399d3c67e056c0474d984
   verdict: rejects
-  reason: 'Error: Incorrect usage of "merge". Current branch (main)has no commits'
+  reason: 'Error: Incorrect usage of "merge". Cannot merge a branch to itself'
   cases:
-  - gitgraph/should_throw_error_when_trying_to_merge_when_cur-4bb16d06.mmd
+  - gitgraph/should_throw_error_when_trying_to_merge_branch_t-950f4997.mmd
+  source_sha256: ef76c36a77806c1a6958217c33d033733bbcf294465399d3c67e056c0474d984
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 62146cf7c22cd7dc1c069a6924577b27524ad1cd0ea4d5a16ae0f7417e585cc8
+  verdict: rejects
+  reason: 'Error: Incorrect usage of "merge". Branch to be merged (test1) has no commits'
+  cases:
+  - gitgraph/should_throw_error_when_trying_to_merge_branch_w-93bba635.mmd
+  source_sha256: 62146cf7c22cd7dc1c069a6924577b27524ad1cd0ea4d5a16ae0f7417e585cc8
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: f2934fe9d98ccb198e7faaf97b608d89711a450103b3275ca82c54a3f2e6b4d7
+  verdict: rejects
+  reason: 'Error: Incorrect usage of "merge". Both branches have same head'
+  cases:
+  - gitgraph/should_throw_error_when_trying_to_merge_branches-fde8e313.mmd
+  source_sha256: f2934fe9d98ccb198e7faaf97b608d89711a450103b3275ca82c54a3f2e6b4d7
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 8e66a4c1f24988e82da5a9f1496acad4f735047b7ad23e4ad9363fafbf529b76
   verdict: rejects
   reason: 'Error: Incorrect usage of "merge". Branch to be merged (testBranch) does
     not exist'
   cases:
   - gitgraph/should_throw_error_when_trying_to_merge_unknown-36f2e03b.mmd
-- sha256: ef76c36a77806c1a6958217c33d033733bbcf294465399d3c67e056c0474d984
+  source_sha256: 8e66a4c1f24988e82da5a9f1496acad4f735047b7ad23e4ad9363fafbf529b76
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 553fd96803c0f0b201c84bae2edc0d0ec22821b7864ece26825b5ce98a3fe000
   verdict: rejects
-  reason: 'Error: Incorrect usage of "merge". Cannot merge a branch to itself'
+  reason: 'Error: Incorrect usage of "merge". Current branch (main)has no commits'
   cases:
-  - gitgraph/should_throw_error_when_trying_to_merge_branch_t-950f4997.mmd
+  - gitgraph/should_throw_error_when_trying_to_merge_when_cur-4bb16d06.mmd
+  source_sha256: 553fd96803c0f0b201c84bae2edc0d0ec22821b7864ece26825b5ce98a3fe000
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: ec59357e2a1f63ada1e133d202d47847a13565615b8b94fe4e8f9e7c31fe2306
   verdict: rejects
   reason: 'Error: Incorrect usage of "merge". Commit with id:1-111 already exists,
     use different custom id'
   cases:
   - gitgraph/should_throw_error_when_using_existing_id_as_mer-5ee3b619.mmd
-- sha256: f2934fe9d98ccb198e7faaf97b608d89711a450103b3275ca82c54a3f2e6b4d7
-  verdict: rejects
-  reason: 'Error: Incorrect usage of "merge". Both branches have same head'
-  cases:
-  - gitgraph/should_throw_error_when_trying_to_merge_branches-fde8e313.mmd
-- sha256: 62146cf7c22cd7dc1c069a6924577b27524ad1cd0ea4d5a16ae0f7417e585cc8
-  verdict: rejects
-  reason: 'Error: Incorrect usage of "merge". Branch to be merged (test1) has no commits'
-  cases:
-  - gitgraph/should_throw_error_when_trying_to_merge_branch_w-93bba635.mmd
-- sha256: 49c4cba9dd739fa5beb9ad0e1aa3642151901872f8e54171132ab5d316fbe722
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_a_title_and_a_description_accdescr-e3f19c3c.mmd
-- sha256: 2f94c81c12942619affc70a6d8a62a6d71f0f0855262174a56beb018848894b2
-  verdict: accepts
-  cases:
-  - gitgraph/should_handle_a_title_and_a_multiline_descriptio-a10aeee6.mmd
-- sha256: a433dc4a1a7e7645e96cd9d649c7625e8725905bdf3a26d50085abb40da794e4
-  verdict: accepts
-  cases:
-  - gitgraph/should_log_a_warning_when_two_commits_have_the_s-8c8c51d0.mmd
+  source_sha256: ec59357e2a1f63ada1e133d202d47847a13565615b8b94fe4e8f9e7c31fe2306
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 8058248e502d51dd6d53e7a2e111631d5b7842b4e90ded1f10ff8c456f3597b1
   verdict: rejects
   reason: 'UnknownDiagramError: No diagram type detected matching given configuration
     for text: Kanban diagram'
   cases:
   - kanban/kanban_spec-ae0565ea.mmd
+  source_sha256: 8058248e502d51dd6d53e7a2e111631d5b7842b4e90ded1f10ff8c456f3597b1
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: fd001ab28189874747f142133622c57e8ca80aafa6614a1e82bbd53fd1f17f37
   verdict: rejects
   reason: 'Error: Items without section detected, found section ("fakeRoot")'
   cases:
   - kanban/knbn_6_real_root_in_wrong_place-7a57fb5a.mmd
-- sha256: ce4f19e4506a9211e94a7925ad4c90eab9963ccb2634b3f79dd4dc7379e20424
-  verdict: rejects
-  reason: 'UnknownDiagramError: No diagram type detected matching given configuration
-    for text: Mindmap Tidy Tree'
-  cases:
-  - mindmap/mindmap_tidy_tree_spec-5b5c6442.mmd
-- sha256: c33612697164ea1a7feec8a4c9c899a7a3b17cf84528c1d4e36c464528fa1286
-  verdict: rejects
-  reason: 'Error: Parse error on line 3:'
-  cases:
-  - mindmap/mindmap_spec-57ff3c5e.mmd
-- sha256: e213a933ace30b1fd9df79dbd265a7936bb40c5c69f95528ef58db10ea7a4bb2
-  verdict: rejects
-  reason: 'UnknownDiagramError: No diagram type detected matching given configuration
-    for text: Mindmaps'
-  cases:
-  - mindmap/mindmap_spec-074c143a.mmd
+  source_sha256: fd001ab28189874747f142133622c57e8ca80aafa6614a1e82bbd53fd1f17f37
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 53c495263506154605cf92494288d2625eda08f53c0ab6dae35a2333210bef3a
   verdict: rejects
   reason: 'Error: There can be only one root. No parent could be found for ("fakeRoot")'
   cases:
   - mindmap/5_multiple_roots_are_illegal-4fbe4e9a.mmd
-- sha256: bc95ec978b95d2f711b1d33ae4462da8260145b7d2cd00fdd265e13c54d9e917
-  verdict: rejects
-  reason: 'Error: There can be only one root. No parent could be found for ("fakeRoot")'
-  cases:
-  - mindmap/mmp_6_real_root_in_wrong_place-226e3b49.mmd
+  source_sha256: 53c495263506154605cf92494288d2625eda08f53c0ab6dae35a2333210bef3a
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 0e8309dff245264cfe5854f8184c2ed1e98dcb3fa6a4f69b99fd29e0689f62d4
   verdict: rejects
   reason: 'Error: Parse error on line 2:'
@@ -900,99 +1798,1173 @@ cases:
   - mindmap/diagram_orchestration_spec-2a42239f.mmd
   - mindmap/diagram_orchestration_spec-8382c44f.mmd
   - mindmap/diagram_orchestration_spec-956735de.mmd
-- sha256: 6639db37852c6feff511412f896e26069a3c005aa87df5c40206a21298ca5dee
+  source_sha256: 0e8309dff245264cfe5854f8184c2ed1e98dcb3fa6a4f69b99fd29e0689f62d4
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: e213a933ace30b1fd9df79dbd265a7936bb40c5c69f95528ef58db10ea7a4bb2
   verdict: rejects
   reason: 'UnknownDiagramError: No diagram type detected matching given configuration
-    for text: Pie Chart'
+    for text: Mindmaps'
   cases:
-  - pie/theme_spec-a9670f7e.mmd
+  - mindmap/mindmap_spec-074c143a.mmd
+  source_sha256: e213a933ace30b1fd9df79dbd265a7936bb40c5c69f95528ef58db10ea7a4bb2
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: c33612697164ea1a7feec8a4c9c899a7a3b17cf84528c1d4e36c464528fa1286
+  verdict: rejects
+  reason: 'Error: Parse error on line 3:'
+  cases:
+  - mindmap/mindmap_spec-57ff3c5e.mmd
+  source_sha256: c33612697164ea1a7feec8a4c9c899a7a3b17cf84528c1d4e36c464528fa1286
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: ce4f19e4506a9211e94a7925ad4c90eab9963ccb2634b3f79dd4dc7379e20424
+  verdict: rejects
+  reason: 'UnknownDiagramError: No diagram type detected matching given configuration
+    for text: Mindmap Tidy Tree'
+  cases:
+  - mindmap/mindmap_tidy_tree_spec-5b5c6442.mmd
+  source_sha256: ce4f19e4506a9211e94a7925ad4c90eab9963ccb2634b3f79dd4dc7379e20424
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: bc95ec978b95d2f711b1d33ae4462da8260145b7d2cd00fdd265e13c54d9e917
+  verdict: rejects
+  reason: 'Error: There can be only one root. No parent could be found for ("fakeRoot")'
+  cases:
+  - mindmap/mmp_6_real_root_in_wrong_place-226e3b49.mmd
+  source_sha256: bc95ec978b95d2f711b1d33ae4462da8260145b7d2cd00fdd265e13c54d9e917
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 4196aa988446d609b9b6e7dd2196408d178659d3c0585de103dd32e1e078b105
   verdict: rejects
   reason: 'Error: "ash" has invalid value: -60.67. Negative values are not allowed
     in pie charts. All slice values must be >= 0.'
   cases:
   - pie/should_handle_simple_pie_with_negative_decimal-4d099601.mmd
+  source_sha256: 4196aa988446d609b9b6e7dd2196408d178659d3c0585de103dd32e1e078b105
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 6639db37852c6feff511412f896e26069a3c005aa87df5c40206a21298ca5dee
+  verdict: rejects
+  reason: 'UnknownDiagramError: No diagram type detected matching given configuration
+    for text: Pie Chart'
+  cases:
+  - pie/theme_spec-a9670f7e.mmd
+  source_sha256: 6639db37852c6feff511412f896e26069a3c005aa87df5c40206a21298ca5dee
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 79b4171873e75c426dc80a2a4d93ce027098351a31ea6971579b875c77fd8790
   verdict: rejects
   reason: 'Error: style named fill is not supported.'
   cases:
   - quadrant/should_be_able_to_handle_constructor_as_a_classn-0901aef7.mmd
-- sha256: 0a68e6e001b3575218981b0bc537acd6ab06ad6063b5234bf74c9c786073d20b
-  verdict: rejects
-  reason: 'UnknownDiagramError: No diagram type detected matching given configuration
-    for text: radar structure'
-  cases:
-  - radar/radar_spec-b3810df7.mmd
-- sha256: 932d1d3d5b1485f8c7ffa2a8d5c289d8fd2191f34b0e4876211d0a0f4c8e19d0
-  verdict: rejects
-  reason: 'UnknownDiagramError: No diagram type detected matching given configuration
-    for text: radarmarginTopaxisLabelFactor'
-  cases:
-  - radar/should_handle_radar_diagram_with_config_override-b1b9f111.mmd
+  source_sha256: 79b4171873e75c426dc80a2a4d93ce027098351a31ea6971579b875c77fd8790
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: ff2e963ff6d0c33aae94a7f823b6e2bf7358004063f4275ba525539cb6ec6734
   verdict: rejects
   reason: 'UnknownDiagramError: No diagram type detected matching given configuration
     for text: radar'
   cases:
   - radar/mermaidapi_spec-c79047d3.mmd
+  source_sha256: ff2e963ff6d0c33aae94a7f823b6e2bf7358004063f4275ba525539cb6ec6734
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 0a68e6e001b3575218981b0bc537acd6ab06ad6063b5234bf74c9c786073d20b
+  verdict: rejects
+  reason: 'UnknownDiagramError: No diagram type detected matching given configuration
+    for text: radar structure'
+  cases:
+  - radar/radar_spec-b3810df7.mmd
+  source_sha256: 0a68e6e001b3575218981b0bc537acd6ab06ad6063b5234bf74c9c786073d20b
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 932d1d3d5b1485f8c7ffa2a8d5c289d8fd2191f34b0e4876211d0a0f4c8e19d0
+  verdict: rejects
+  reason: 'UnknownDiagramError: No diagram type detected matching given configuration
+    for text: radarmarginTopaxisLabelFactor'
+  cases:
+  - radar/should_handle_radar_diagram_with_config_override-b1b9f111.mmd
+  source_sha256: 932d1d3d5b1485f8c7ffa2a8d5c289d8fd2191f34b0e4876211d0a0f4c8e19d0
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: c3e1a17ecab5bfa7baf0d4364ab8ba8c61d9c89a34fbe2c3ce79e9ece0459e40
   verdict: rejects
   reason: 'Error: circular link'
   cases:
   - sankey/parses_csv_with_sankey_beta_syntax-ac5bf38a.mmd
+  source_sha256: c3e1a17ecab5bfa7baf0d4364ab8ba8c61d9c89a34fbe2c3ce79e9ece0459e40
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 4b754b171f63e66bbe57a262bd999af74fc1bfdc72c46f40add28bae25112e55
+  verdict: rejects
+  reason: 'Error: Parse error on line 1:'
+  cases:
+  - sequence/diagram_spec-0ee43be7.mmd
+  source_sha256: 4b754b171f63e66bbe57a262bd999af74fc1bfdc72c46f40add28bae25112e55
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 5da24f8a276eceb9f0e982a294c6a09c4e67f7e95b38553c3671445ac9a7c16b
+  verdict: accepts
+  cases:
+  - sequence/mermaid_spec-b8d5b6a5.mmd
+  - sequence/mermaid_spec-dddb40c5.mmd
+  - sequence/sequencediagram_spec-329e1a14.mmd
+  - sequence/sequencediagram_spec-b9874dbc.mmd
+  - sequence/sequencediagram_spec-cd10ed7b.mmd
+  - sequence/sequencediagram_spec-f856f3c3.mmd
+  - sequence/sequencediagram_v2_spec-0210f13f.mmd
+  - sequence/sequencediagram_v2_spec-66119c12.mmd
+  - sequence/sequencediagram_v2_spec-71163691.mmd
+  - sequence/sequencediagram_v2_spec-8092a233.mmd
+  - sequence/sequencediagram_v2_spec-80dea164.mmd
+  - sequence/sequencediagram_v2_spec-8e0b6671.mmd
+  - sequence/sequencediagram_v2_spec-c98f02f7.mmd
+  - sequence/sequencediagram_v2_spec-dffb9d43.mmd
+  - sequence/sequencediagram_v2_spec-f3efa956.mmd
+  source_sha256: 5da24f8a276eceb9f0e982a294c6a09c4e67f7e95b38553c3671445ac9a7c16b
+  svg_sha256: 47693170440a64d7367a7f847bcc5e403b82f298dd854f30334c52266d94b233
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 3d61bc954cdbf53ef80b94cc27a65a004853a7f5da70821e7665fa73c6fac838
   verdict: rejects
   reason: 'Error: The destroyed participant undefined does not have an associated
     destroying message after its declaration. Please '
   cases:
   - sequence/sequencediagram_spec-178a8c78.mmd
+  source_sha256: 3d61bc954cdbf53ef80b94cc27a65a004853a7f5da70821e7665fa73c6fac838
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 3ec6b464d16d1b0375fde87fe2e0bffb4043186303b2442518a139e19e3791c2
   verdict: rejects
   reason: 'Error: Parse error on line 2:'
   cases:
   - sequence/sequencediagram_spec-97601112.mmd
-- sha256: 4b754b171f63e66bbe57a262bd999af74fc1bfdc72c46f40add28bae25112e55
-  verdict: rejects
-  reason: 'Error: Parse error on line 1:'
+  source_sha256: 3ec6b464d16d1b0375fde87fe2e0bffb4043186303b2442518a139e19e3791c2
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 61c06cde13bddcf4ea7fc42afdcc26dc86f43c1309cc029e8d3ec881c66b45a4
+  verdict: accepts
   cases:
-  - sequence/diagram_spec-0ee43be7.mmd
+  - state_diagram/description_after_second_state-2d50be4d.mmd
+  - state_diagram/statediagram_v2_spec-1703a0f2.mmd
+  - state_diagram/statediagram_v2_spec-fa817cac.mmd
+  source_sha256: 61c06cde13bddcf4ea7fc42afdcc26dc86f43c1309cc029e8d3ec881c66b45a4
+  svg_sha256: dc36a376711a4cbecf208db5e30c51158a2b21aa6bc66c8da42860657b614908
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 8482535e096ea400f440cd4a88c0111c2c56857981a397e71f51a2b0d3017520
+  verdict: accepts
+  cases:
+  - state_diagram/description_after_second_state-c3197e5d.mmd
+  - state_diagram/statediagram_spec-40c9ac01.mmd
+  - state_diagram/statediagram_spec-84fa7b42.mmd
+  - state_diagram/statediagram_spec-f062c24e.mmd
+  source_sha256: 8482535e096ea400f440cd4a88c0111c2c56857981a397e71f51a2b0d3017520
+  svg_sha256: dc36a376711a4cbecf208db5e30c51158a2b21aa6bc66c8da42860657b614908
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 2c5f07f894fa864b9f2c887258508795cf266eadfe77f6897fa6a5cbc908c301
+  verdict: accepts
+  cases:
+  - state_diagram/hide_empty_description-37cf5cc6.mmd
+  - state_diagram/statediagram_v2_spec-63fb1797.mmd
+  - state_diagram/statediagram_v2_spec-99875eb0.mmd
+  source_sha256: 2c5f07f894fa864b9f2c887258508795cf266eadfe77f6897fa6a5cbc908c301
+  svg_sha256: 703aaa2210298e15818882dd137deb6ca35ae5b2f089a559076e06de5a54fd67
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 2305700d7b3e0ba166ad3cc60b0323c3cf93aaeba3eed4ff92e4c106e642df13
+  verdict: accepts
+  cases:
+  - state_diagram/hide_empty_description-a4b92738.mmd
+  - state_diagram/statediagram_spec-159429ef.mmd
+  - state_diagram/statediagram_spec-540c3972.mmd
+  - state_diagram/statediagram_spec-d70d0aa6.mmd
+  source_sha256: 2305700d7b3e0ba166ad3cc60b0323c3cf93aaeba3eed4ff92e4c106e642df13
+  svg_sha256: 703aaa2210298e15818882dd137deb6ca35ae5b2f089a559076e06de5a54fd67
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 4ea10fc10d81e393946bd8adcad73d223f4182958c58c1bdf19a45af79f16339
+  verdict: accepts
+  cases:
+  - state_diagram/scale-0b695e96.mmd
+  - state_diagram/statediagram_spec-1190322a.mmd
+  - state_diagram/statediagram_spec-1653f622.mmd
+  - state_diagram/statediagram_spec-e3f6dcf6.mmd
+  source_sha256: 4ea10fc10d81e393946bd8adcad73d223f4182958c58c1bdf19a45af79f16339
+  svg_sha256: 98366c5583cc6c58d8a5648b792029bdf3c6f5da0e62a85bfb055bbf7f51e774
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: a2a6d410e49e0b0dbbc40ead3047f11aefb43bbc788535c4ca18ce0b89b14dfc
+  verdict: accepts
+  cases:
+  - state_diagram/shall_handle_descriptions_including_minus_signs-2f544dbb.mmd
+  - state_diagram/statediagram_v2_spec-417e559c.mmd
+  - state_diagram/statediagram_v2_spec-c7fc7503.mmd
+  source_sha256: a2a6d410e49e0b0dbbc40ead3047f11aefb43bbc788535c4ca18ce0b89b14dfc
+  svg_sha256: 8832db556f46b57c631ae8fae980459558ebc48c1648a727cd262e530de896ec
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 1a24f7cc0b8d256f48df4645d4362b54d93873e8366dc0593caae7aca84764ce
+  verdict: accepts
+  cases:
+  - state_diagram/shall_handle_descriptions_including_minus_signs-fb78c1ac.mmd
+  - state_diagram/statediagram_spec-3b90489b.mmd
+  - state_diagram/statediagram_spec-9517b78d.mmd
+  - state_diagram/statediagram_spec-f4d3f144.mmd
+  source_sha256: 1a24f7cc0b8d256f48df4645d4362b54d93873e8366dc0593caae7aca84764ce
+  svg_sha256: 8832db556f46b57c631ae8fae980459558ebc48c1648a727cd262e530de896ec
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: c10c252e3b01c828c994775d1f1a908f13ef84c5bf7596b321eadb23fe0cc4c1
+  verdict: rejects
+  reason: 'Error: Parse error on line 3:'
+  cases:
+  - state_diagram/should_handle_arrow_directions_definitions-709776e9.mmd
+  - state_diagram/statediagram_spec-14b793e6.mmd
+  - state_diagram/statediagram_spec-2ff68e17.mmd
+  - state_diagram/statediagram_spec-aa563385.mmd
+  source_sha256: c10c252e3b01c828c994775d1f1a908f13ef84c5bf7596b321eadb23fe0cc4c1
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: e76e43853c0a85850ef01e6a60ec03bb00eb09186c450d2f5472bb13d3249671
+  verdict: rejects
+  reason: 'Error: Parse error on line 3:'
+  cases:
+  - state_diagram/should_handle_arrow_directions_definitions-a45fec2b.mmd
+  - state_diagram/statediagram_v2_spec-13333783.mmd
+  - state_diagram/statediagram_v2_spec-ca7bd330.mmd
+  source_sha256: e76e43853c0a85850ef01e6a60ec03bb00eb09186c450d2f5472bb13d3249671
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: f954a207d268156db9ef4fa03bc2bd337a7b450431a17881d8340afaf7907ee1
+  verdict: accepts
+  cases:
+  - state_diagram/should_handle_concurrent_state-4c57bf32.mmd
+  - state_diagram/statediagram_spec-31fa3ee4.mmd
+  - state_diagram/statediagram_spec-5e8d05fd.mmd
+  - state_diagram/statediagram_spec-74b96cc5.mmd
+  source_sha256: f954a207d268156db9ef4fa03bc2bd337a7b450431a17881d8340afaf7907ee1
+  svg_sha256: 668cfcaf327b194314d151c9875c54a52746963b5ed8608e73f474a11148e067
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: ac81202351080519abd3be47136693b1923d3545daae4c38a9ae9f8a56dd4bcb
+  verdict: accepts
+  cases:
+  - state_diagram/should_handle_concurrent_state-545e37dd.mmd
+  - state_diagram/statediagram_v2_spec-df15b06f.mmd
+  source_sha256: ac81202351080519abd3be47136693b1923d3545daae4c38a9ae9f8a56dd4bcb
+  svg_sha256: b89031beffa1b594bf1295d24bf227d4f2cde7a610572b45da9c4d9be8994fc0
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 3cdc5b33610ac9fa78b47c7d848e92c479dba2d869846a5079696d6dbbe6a34e
+  verdict: accepts
+  cases:
+  - state_diagram/should_handle_concurrent_state-caa6f9c3.mmd
+  - state_diagram/statediagram_v2_spec-12f07330.mmd
+  - state_diagram/statediagram_v2_spec-a4f41ba5.mmd
+  source_sha256: 3cdc5b33610ac9fa78b47c7d848e92c479dba2d869846a5079696d6dbbe6a34e
+  svg_sha256: 713c184962c79b97948f6dd1d9031bb7f548c0cf44565b0e17b164ac4f67d80c
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 7d170e7e057b50d816bb1feeaa7cfb956f54693e46f566795f190976c22d1516
+  verdict: accepts
+  cases:
+  - state_diagram/should_handle_concurrent_state-ed5380cd.mmd
+  - state_diagram/statediagram_spec-36d7b1dc.mmd
+  - state_diagram/statediagram_spec-d87f6672.mmd
+  - state_diagram/statediagram_spec-e9671157.mmd
+  source_sha256: 7d170e7e057b50d816bb1feeaa7cfb956f54693e46f566795f190976c22d1516
+  svg_sha256: d3233a1d84d626148cdc9d2382640e3893685e7ea5a47cb97a7c67e7068f5cc1
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 5d081d0ac922aa7d56dac723a696bd525b3e87842977e35babc362e21bebb568
+  verdict: accepts
+  cases:
+  - state_diagram/should_handle_floating_notes-08758173.mmd
+  - state_diagram/statediagram_spec-49419133.mmd
+  - state_diagram/statediagram_spec-61c1054b.mmd
+  - state_diagram/statediagram_spec-f99cfef6.mmd
+  source_sha256: 5d081d0ac922aa7d56dac723a696bd525b3e87842977e35babc362e21bebb568
+  svg_sha256: 9440cf2ad2b29397bdb09632a3b02b93c31feb98bc7517edf486d6c757d1eda2
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: fdd59cc948f3fb09b36f6505e49b2d080d8b3f807e55a3984c4485781ff30f60
+  verdict: accepts
+  cases:
+  - state_diagram/should_handle_fork_statements-c74cc180.mmd
+  - state_diagram/statediagram_spec-045c4d98.mmd
+  - state_diagram/statediagram_spec-29608c39.mmd
+  - state_diagram/statediagram_spec-d1fb1fa0.mmd
+  source_sha256: fdd59cc948f3fb09b36f6505e49b2d080d8b3f807e55a3984c4485781ff30f60
+  svg_sha256: e793485cce5a2371bf5c992b858f3acf7d90cece1b4a43c82b9f7035201f77cd
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: bf4b9616ae56d6f34081743f7fd46cb2a59972b97f3ed344ae6ffa96b32ec448
+  verdict: accepts
+  cases:
+  - state_diagram/should_handle_fork_statements-d0371472.mmd
+  - state_diagram/statediagram_v2_spec-7c0af12d.mmd
+  - state_diagram/statediagram_v2_spec-e67480a3.mmd
+  source_sha256: bf4b9616ae56d6f34081743f7fd46cb2a59972b97f3ed344ae6ffa96b32ec448
+  svg_sha256: 4bb67ba75184c0f9aafd8e0c5611474e2e1329a9825014e11119e05d336da9a7
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 7a004d19651a163875e4f8e3316f05b8dcce0bb4b9d02ad7b14d44258a9e188b
+  verdict: accepts
+  cases:
+  - state_diagram/should_handle_multiple_recursive_state_definitio-47c620c6.mmd
+  - state_diagram/statediagram_v2_spec-45362b6d.mmd
+  - state_diagram/statediagram_v2_spec-d55cf668.mmd
+  source_sha256: 7a004d19651a163875e4f8e3316f05b8dcce0bb4b9d02ad7b14d44258a9e188b
+  svg_sha256: c8967c986dd5de289ba831f5c7acbb8752ac0b5ded2a989c67054f3c8163104e
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 75da9c0684bf5444faf286e8168fdd1905d2247bf985a5c299324dcba338c09d
+  verdict: accepts
+  cases:
+  - state_diagram/should_handle_multiple_recursive_state_definitio-f9748e4d.mmd
+  - state_diagram/statediagram_spec-39278024.mmd
+  - state_diagram/statediagram_spec-85a8f832.mmd
+  - state_diagram/statediagram_spec-f0225465.mmd
+  source_sha256: 75da9c0684bf5444faf286e8168fdd1905d2247bf985a5c299324dcba338c09d
+  svg_sha256: c8967c986dd5de289ba831f5c7acbb8752ac0b5ded2a989c67054f3c8163104e
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 513745f42137ffa787ecc14c1235dbdc583943d4557dff6e4c9f2d7a2c7228fd
+  verdict: accepts
+  cases:
+  - state_diagram/should_handle_note_statements-4e5720a4.mmd
+  - state_diagram/statediagram_spec-cf0e21bf.mmd
+  - state_diagram/statediagram_spec-d2b5972f.mmd
+  - state_diagram/statediagram_spec-fdf6c5aa.mmd
+  source_sha256: 513745f42137ffa787ecc14c1235dbdc583943d4557dff6e4c9f2d7a2c7228fd
+  svg_sha256: f7186cc10c7cb1efd273d269decda900006b2576ee1c2d23b5f05211f3f0899e
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: ab22096408462008823fd90a0a1b147a3a446629c683b22b639cc2cd654ebdda
+  verdict: accepts
+  cases:
+  - state_diagram/should_handle_note_statements-5c689b43.mmd
+  - state_diagram/statediagram_v2_spec-1e88919f.mmd
+  - state_diagram/statediagram_v2_spec-eb42ee32.mmd
+  source_sha256: ab22096408462008823fd90a0a1b147a3a446629c683b22b639cc2cd654ebdda
+  svg_sha256: 279eb1efe4a8ef2f11fbe1f04332d4263664e5e3f028abc45d47f6a731e57220
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: f219383c9ad6e110a24c6165e1a8c836aea8c455a201d64637b8bacc339f5640
+  verdict: accepts
+  cases:
+  - state_diagram/should_handle_notes_for_composite_states-314eb3bf.mmd
+  - state_diagram/statediagram_spec-1e00895c.mmd
+  - state_diagram/statediagram_spec-74261a4f.mmd
+  - state_diagram/statediagram_spec-93d0ca3f.mmd
+  source_sha256: f219383c9ad6e110a24c6165e1a8c836aea8c455a201d64637b8bacc339f5640
+  svg_sha256: d60a2e55c80df9827f5037b47b5bf3373642d9bd0159d20d096ccf1c1958af8f
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 5577b4c4a39b05ed98662152583b3e9c7fbdb785f0c293eee62ea55cae118994
+  verdict: accepts
+  cases:
+  - state_diagram/should_handle_recursive_state_definitions-23d7165f.mmd
+  - state_diagram/statediagram_spec-13ef7f56.mmd
+  - state_diagram/statediagram_spec-6217abb2.mmd
+  - state_diagram/statediagram_spec-a32dbda1.mmd
+  source_sha256: 5577b4c4a39b05ed98662152583b3e9c7fbdb785f0c293eee62ea55cae118994
+  svg_sha256: '02952aada85083dd4e65e97d38caa30cd84afc18a633109e31c4bf925040f37a'
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 411686a0c2e8e41531386606e20701a5997b8517ca84220c1650f217956b3041
+  verdict: accepts
+  cases:
+  - state_diagram/should_handle_recursive_state_definitions-a63be1cd.mmd
+  - state_diagram/statediagram_v2_spec-622dc71f.mmd
+  - state_diagram/statediagram_v2_spec-77fa5130.mmd
+  source_sha256: 411686a0c2e8e41531386606e20701a5997b8517ca84220c1650f217956b3041
+  svg_sha256: '02952aada85083dd4e65e97d38caa30cd84afc18a633109e31c4bf925040f37a'
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 4b028670799f2be8e1bae364755d99e70a341cb22da9c8a39d4cc376c7d22724
+  verdict: accepts
+  cases:
+  - state_diagram/should_handle_relation_definitions-c1ead2b4.mmd
+  - state_diagram/statediagram_v2_spec-8e52b8cb.mmd
+  - state_diagram/statediagram_v2_spec-a3eb7f21.mmd
+  source_sha256: 4b028670799f2be8e1bae364755d99e70a341cb22da9c8a39d4cc376c7d22724
+  svg_sha256: 703aaa2210298e15818882dd137deb6ca35ae5b2f089a559076e06de5a54fd67
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 59b7297db4c26c0e03d6b08a019ba39b60252929f3f7d415470c470b6305f8ae
+  verdict: accepts
+  cases:
+  - state_diagram/should_handle_relation_definitions-c1f16759.mmd
+  - state_diagram/statediagram_spec-94d5618c.mmd
+  - state_diagram/statediagram_spec-b7fd6ad9.mmd
+  - state_diagram/statediagram_spec-e57ada98.mmd
+  source_sha256: 59b7297db4c26c0e03d6b08a019ba39b60252929f3f7d415470c470b6305f8ae
+  svg_sha256: 703aaa2210298e15818882dd137deb6ca35ae5b2f089a559076e06de5a54fd67
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 178ec74d70bc23574148214f9b60f1ed7920aea5d15eb7627b3b27d0f887bc84
+  verdict: accepts
+  cases:
+  - state_diagram/should_handle_state_definitions_with_separation-14dcd785.mmd
+  - state_diagram/statediagram_spec-4a7caf18.mmd
+  - state_diagram/statediagram_spec-f9c80b24.mmd
+  - state_diagram/statediagram_spec-fe48a130.mmd
+  source_sha256: 178ec74d70bc23574148214f9b60f1ed7920aea5d15eb7627b3b27d0f887bc84
+  svg_sha256: b75b1f6763d4c31b97a7c528ce177dedc533528bfa87e53697e7ba32868df3fc
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 7a489b154fe522d085a57c57ed901377895749dc0084b85a0708d4aa9f588608
+  verdict: accepts
+  cases:
+  - state_diagram/should_handle_state_definitions_with_separation-66a2d433.mmd
+  - state_diagram/statediagram_v2_spec-6e0d9ef0.mmd
+  - state_diagram/statediagram_v2_spec-aea9ccdf.mmd
+  source_sha256: 7a489b154fe522d085a57c57ed901377895749dc0084b85a0708d4aa9f588608
+  svg_sha256: b75b1f6763d4c31b97a7c528ce177dedc533528bfa87e53697e7ba32868df3fc
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: a30c3dc55198980b73af99dfefb61ee5f7e26569f1ace50fba2417be036a25bc
+  verdict: accepts
+  cases:
+  - state_diagram/should_handle_state_statements-02bc3364.mmd
+  - state_diagram/statediagram_spec-3ef2dcfb.mmd
+  - state_diagram/statediagram_spec-47771e5f.mmd
+  - state_diagram/statediagram_spec-d1364199.mmd
+  source_sha256: a30c3dc55198980b73af99dfefb61ee5f7e26569f1ace50fba2417be036a25bc
+  svg_sha256: 8a191f4345824006ecf8253ea7327978370a5d044de2e212b4b07378b5c03d29
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 87b3ac26d9b213fbcbaf5301584d7f1dea50712d313fec500030152624c61422
+  verdict: accepts
+  cases:
+  - state_diagram/should_handle_state_statements-e7035600.mmd
+  - state_diagram/statediagram_v2_spec-0ff11835.mmd
+  - state_diagram/statediagram_v2_spec-a9fa4e8f.mmd
+  source_sha256: 87b3ac26d9b213fbcbaf5301584d7f1dea50712d313fec500030152624c61422
+  svg_sha256: 8a191f4345824006ecf8253ea7327978370a5d044de2e212b4b07378b5c03d29
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: ee17f6c9190b92c93979f16f2db9d34ea88979223cd2bc877b5f4512f622d123
+  verdict: accepts
+  cases:
+  - state_diagram/should_state_definition_with_quotes-985ee25e.mmd
+  - state_diagram/statediagram_v2_spec-26254e43.mmd
+  - state_diagram/statediagram_v2_spec-6ec5fc36.mmd
+  source_sha256: ee17f6c9190b92c93979f16f2db9d34ea88979223cd2bc877b5f4512f622d123
+  svg_sha256: 868e0d3445df4b21293358ac54da4563918001f1f715ded7a9076fd2a6690235
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 85d1ae4da49c4db68a11663e5bea910e914badb0daae30a6da04efce47568f5a
+  verdict: accepts
+  cases:
+  - state_diagram/should_state_definition_with_quotes-e965972a.mmd
+  - state_diagram/statediagram_spec-5db6f683.mmd
+  - state_diagram/statediagram_spec-62e1c7b7.mmd
+  - state_diagram/statediagram_spec-8a719c09.mmd
+  source_sha256: 85d1ae4da49c4db68a11663e5bea910e914badb0daae30a6da04efce47568f5a
+  svg_sha256: 868e0d3445df4b21293358ac54da4563918001f1f715ded7a9076fd2a6690235
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 831400205eaa734511c300d073e79773979e6d5930add73881cabff687ad0c6e
+  verdict: accepts
+  cases:
+  - state_diagram/simple_states_with_labels-503668e1.mmd
+  - state_diagram/statediagram_v2_spec-61539d5d.mmd
+  - state_diagram/statediagram_v2_spec-d49fc4c4.mmd
+  source_sha256: 831400205eaa734511c300d073e79773979e6d5930add73881cabff687ad0c6e
+  svg_sha256: 98366c5583cc6c58d8a5648b792029bdf3c6f5da0e62a85bfb055bbf7f51e774
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: c938ed261157e9659c2889a1cb01f6d35ac68ec5a60d95abd98373596b2181ff
+  verdict: accepts
+  cases:
+  - state_diagram/simple_with_accdescription-9a4b81f0.mmd
+  - state_diagram/statediagram_v2_spec-7d2ffdd4.mmd
+  - state_diagram/statediagram_v2_spec-832a9306.mmd
+  source_sha256: c938ed261157e9659c2889a1cb01f6d35ac68ec5a60d95abd98373596b2181ff
+  svg_sha256: ecdb8c89b83da719f4530a04f09767040451dddecdd26fd9dc75542d28550237
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 13a2379d25e887efbd1ad7b5137bec77a29afddbf440f643ec8e404a24e11fae
+  verdict: accepts
+  cases:
+  - state_diagram/simple_with_accdescription_accdescr-ddcfd6c8.mmd
+  - state_diagram/statediagram_spec-41efc655.mmd
+  - state_diagram/statediagram_spec-c00a2d32.mmd
+  - state_diagram/statediagram_spec-d8edbae8.mmd
+  source_sha256: 13a2379d25e887efbd1ad7b5137bec77a29afddbf440f643ec8e404a24e11fae
+  svg_sha256: ecdb8c89b83da719f4530a04f09767040451dddecdd26fd9dc75542d28550237
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 4d4b4cf78a46bb342cb2f66b9892ab618125d23b143385cd4bc3e11cbd94ffba
+  verdict: accepts
+  cases:
+  - state_diagram/simple_with_multiline_accdescription_accdescr-0768b11b.mmd
+  - state_diagram/statediagram_spec-0c8aca4c.mmd
+  - state_diagram/statediagram_spec-15ec6ff2.mmd
+  - state_diagram/statediagram_spec-35e88baf.mmd
+  source_sha256: 4d4b4cf78a46bb342cb2f66b9892ab618125d23b143385cd4bc3e11cbd94ffba
+  svg_sha256: c56d0b8eb822e5e43bae4f7aec25f96bb1eb8c5c80a0ac48af4a35729e5b5e7c
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 05b2ea7afddd2b7358b8575d1145b6624be1784c7b6f2ab5388c3a00fcaf0481
+  verdict: accepts
+  cases:
+  - state_diagram/simple_with_title-e9583ab3.mmd
+  - state_diagram/statediagram_v2_spec-768cc984.mmd
+  - state_diagram/statediagram_v2_spec-f799c529.mmd
+  source_sha256: 05b2ea7afddd2b7358b8575d1145b6624be1784c7b6f2ab5388c3a00fcaf0481
+  svg_sha256: 844dafdff6fb2642e64b09e8767513f3f2d9563e843d6d92c637e9be58f10504
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 0b0ba3e0a27be50134e1fe3a77c6f50478e347d981664f352e768061ac9f1352
+  verdict: accepts
+  cases:
+  - state_diagram/simple_with_title_accdescr-c49268e9.mmd
+  - state_diagram/statediagram_spec-012c4472.mmd
+  - state_diagram/statediagram_spec-4965a9af.mmd
+  - state_diagram/statediagram_spec-9e899a40.mmd
+  source_sha256: 0b0ba3e0a27be50134e1fe3a77c6f50478e347d981664f352e768061ac9f1352
+  svg_sha256: 844dafdff6fb2642e64b09e8767513f3f2d9563e843d6d92c637e9be58f10504
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 9709665de78ccff6f2dce59c12e032dc5da8d9cf820d5d1db002c0f23a4d19c8
+  verdict: accepts
+  cases:
+  - state_diagram/state_style_spec-1793e7e9.mmd
+  source_sha256: 9709665de78ccff6f2dce59c12e032dc5da8d9cf820d5d1db002c0f23a4d19c8
+  svg_sha256: fb3e039cec6fc6173e08d378627cb1328791ecf42a9a390fb2a1b5f77e653dc4
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: c218af593912597dc0087c44545ad141dfc6c23b490d1a80fb0430b7d278c4af
+  verdict: accepts
+  cases:
+  - state_diagram/state_style_spec-5f7364eb.mmd
+  source_sha256: c218af593912597dc0087c44545ad141dfc6c23b490d1a80fb0430b7d278c4af
+  svg_sha256: bda0e9ade7c8911ca98c2a7f3f2caed9e48e7efdf7ef6b75d08788165f3e945e
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 9f8492b3bb3c024b0e4620a186c14584ab12a2d362e340672d5749b37895c654
+  verdict: accepts
+  cases:
+  - state_diagram/state_style_spec-aa26de07.mmd
+  source_sha256: 9f8492b3bb3c024b0e4620a186c14584ab12a2d362e340672d5749b37895c654
+  svg_sha256: bda0e9ade7c8911ca98c2a7f3f2caed9e48e7efdf7ef6b75d08788165f3e945e
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: b98d0ac344103ad31ea04ca55dea129a70f270c7bdf09d6063e787d165832a26
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_spec-0ba06b23.mmd
+  source_sha256: b98d0ac344103ad31ea04ca55dea129a70f270c7bdf09d6063e787d165832a26
+  svg_sha256: '02952aada85083dd4e65e97d38caa30cd84afc18a633109e31c4bf925040f37a'
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 5ff8e4379bcc2f99c758d800e1b76a95d3f629ce7afe4cc27957ca7a95e97e05
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_spec-12544018.mmd
+  source_sha256: 5ff8e4379bcc2f99c758d800e1b76a95d3f629ce7afe4cc27957ca7a95e97e05
+  svg_sha256: 3281bbedbca1c9f6d14daf53f0b201ba9871768215446f20fed9090de4fe66f6
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 6078b997ba0686804d5cc703857cfb8b1c051d75d858651cc9e7355a9031ba50
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_spec-1a4f8bd0.mmd
+  - state_diagram/statediagram_spec-acbd6157.mmd
+  - state_diagram/statediagram_spec-b74059e8.mmd
+  - state_diagram/super_simple-d28d6357.mmd
+  source_sha256: 6078b997ba0686804d5cc703857cfb8b1c051d75d858651cc9e7355a9031ba50
+  svg_sha256: 8d3bffbc1681bacd5b429a9e2cb61808600f8e72241fcdf5b4dee030b134c556
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 518a4bf57b77c06a26b68da239b348b13b52565ca672fdf13ff279a49890ebed
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_spec-3365865c.mmd
+  source_sha256: 518a4bf57b77c06a26b68da239b348b13b52565ca672fdf13ff279a49890ebed
+  svg_sha256: 9440cf2ad2b29397bdb09632a3b02b93c31feb98bc7517edf486d6c757d1eda2
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 480eb00e0a5351a0f659ef4f2d989f82fe65a694aa8393af493b28835fcde1b8
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_spec-5091d085.mmd
+  source_sha256: 480eb00e0a5351a0f659ef4f2d989f82fe65a694aa8393af493b28835fcde1b8
+  svg_sha256: c56d0b8eb822e5e43bae4f7aec25f96bb1eb8c5c80a0ac48af4a35729e5b5e7c
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 8262510fc6b5db863fbb3e54ac19bf986770239aa6fd6ab61a72acd26b8c8d77
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_spec-5823c948.mmd
+  source_sha256: 8262510fc6b5db863fbb3e54ac19bf986770239aa6fd6ab61a72acd26b8c8d77
+  svg_sha256: 8832db556f46b57c631ae8fae980459558ebc48c1648a727cd262e530de896ec
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: d1c384f40daaa943f175c970e5abb62b911e51671aa86a4868e086e4cc25a8e7
+  verdict: rejects
+  reason: 'Error: Parse error on line 3:'
+  cases:
+  - state_diagram/statediagram_spec-6da990d3.mmd
+  source_sha256: d1c384f40daaa943f175c970e5abb62b911e51671aa86a4868e086e4cc25a8e7
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 834f30b9a80be3485ad5620ec973e2c9d0c0c4ada2365d74fbc1e592ca316f3a
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_spec-7e13c74d.mmd
+  source_sha256: 834f30b9a80be3485ad5620ec973e2c9d0c0c4ada2365d74fbc1e592ca316f3a
+  svg_sha256: '008de54f34179d41454f7b5c4a76d1cdccee7ddcf07b7537bdedd1d3dbf258b0'
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: a8c24f19e05705d385dd894fa3eb1068de10d3154f57d920823296ff57c20825
+  verdict: rejects
+  reason: 'Error: Parse error on line 5:'
+  cases:
+  - state_diagram/statediagram_spec-836e165c.mmd
+  source_sha256: a8c24f19e05705d385dd894fa3eb1068de10d3154f57d920823296ff57c20825
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 71692557e521e1c93b70e184e590572a5fcdbe254f2a125e17ef04de746f47dc
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_spec-89322a90.mmd
+  source_sha256: 71692557e521e1c93b70e184e590572a5fcdbe254f2a125e17ef04de746f47dc
+  svg_sha256: dc36a376711a4cbecf208db5e30c51158a2b21aa6bc66c8da42860657b614908
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 811db6d06e6c426ae243f4e0aeaf4c961463573912bd442dedc8f840bbc8523f
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_spec-8f5295b8.mmd
+  source_sha256: 811db6d06e6c426ae243f4e0aeaf4c961463573912bd442dedc8f840bbc8523f
+  svg_sha256: 135ed089861ca861405f788f639ddf8242d102e7d4205f7cc56b7423a419a50c
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 4837d6ed6d01e62e90c93c6fda15bea7db9519ee3625cf6d86002660717faeac
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_spec-98fc6bd3.mmd
+  source_sha256: 4837d6ed6d01e62e90c93c6fda15bea7db9519ee3625cf6d86002660717faeac
+  svg_sha256: cc31c72ee8c96ed36fa76a5c7e4060dafcb1dd214bdf85e43fec281703714ce3
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: a41119a3c477e5dcf7b288142d9bff2aebf967f5b8ce6121b706c92ddea23bab
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_spec-a8b1c3b6.mmd
+  source_sha256: a41119a3c477e5dcf7b288142d9bff2aebf967f5b8ce6121b706c92ddea23bab
+  svg_sha256: 8d3bffbc1681bacd5b429a9e2cb61808600f8e72241fcdf5b4dee030b134c556
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 01a8d62024c788e606370fd719120389338d17199c5faa7e94a5c45c5ea47cc7
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_spec-b6bfaac5.mmd
+  source_sha256: 01a8d62024c788e606370fd719120389338d17199c5faa7e94a5c45c5ea47cc7
+  svg_sha256: 844dafdff6fb2642e64b09e8767513f3f2d9563e843d6d92c637e9be58f10504
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 3cd3e99842e30dc982379b385e02761569513a5ffb0a377f85e5ac7014772b1a
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_spec-dbd153b9.mmd
+  source_sha256: 3cd3e99842e30dc982379b385e02761569513a5ffb0a377f85e5ac7014772b1a
+  svg_sha256: 98366c5583cc6c58d8a5648b792029bdf3c6f5da0e62a85bfb055bbf7f51e774
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 82071bcb7ef1e8f4478b35a5690b58e55e0b0eabce614443511bdb082a5b9e84
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_spec-e1fe2228.mmd
+  source_sha256: 82071bcb7ef1e8f4478b35a5690b58e55e0b0eabce614443511bdb082a5b9e84
+  svg_sha256: ecdb8c89b83da719f4530a04f09767040451dddecdd26fd9dc75542d28550237
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 43c3b5b7f0a99dfa99437751ec29aa41aa898016c6a9a47b836db4fedcfbe69f
+  verdict: rejects
+  reason: 'Error: Parse error on line 10:'
+  cases:
+  - state_diagram/statediagram_spec-eb1689cb.mmd
+  source_sha256: 43c3b5b7f0a99dfa99437751ec29aa41aa898016c6a9a47b836db4fedcfbe69f
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 5d853eb39917fb672c31b2dfebb645b53f7f0d5fd0613962af841eb37fda2586
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_spec-ef8fcf01.mmd
+  source_sha256: 5d853eb39917fb672c31b2dfebb645b53f7f0d5fd0613962af841eb37fda2586
+  svg_sha256: 8a191f4345824006ecf8253ea7327978370a5d044de2e212b4b07378b5c03d29
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: d00d9ff6d01a839493ee3bcd1948e0cc4a1d81c87e170792df943489967a8819
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_spec-f08b5c70.mmd
+  source_sha256: d00d9ff6d01a839493ee3bcd1948e0cc4a1d81c87e170792df943489967a8819
+  svg_sha256: 703aaa2210298e15818882dd137deb6ca35ae5b2f089a559076e06de5a54fd67
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 60746965a4e4f5048e36f05e179305a9cd1a8eca78eca9d13acabcbcbedba3f4
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_spec-f4256d44.mmd
+  source_sha256: 60746965a4e4f5048e36f05e179305a9cd1a8eca78eca9d13acabcbcbedba3f4
+  svg_sha256: 0b6953794ac75a3ebc8bf56a5c9254a0661e4a94a7c4401f2f85345b787c7f59
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: d8142cbc2fc5b4dfb27aa63070fb9ad000cf9d41b68dd105c4ca10582f5913d4
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_spec-fcdb21ad.mmd
+  source_sha256: d8142cbc2fc5b4dfb27aa63070fb9ad000cf9d41b68dd105c4ca10582f5913d4
+  svg_sha256: 703aaa2210298e15818882dd137deb6ca35ae5b2f089a559076e06de5a54fd67
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 23b3422171d2c1ba633477e6285ea5d9b18b4102f160570b8396f7b2b6011192
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_spec-ffd2d953.mmd
+  source_sha256: 23b3422171d2c1ba633477e6285ea5d9b18b4102f160570b8396f7b2b6011192
+  svg_sha256: c8967c986dd5de289ba831f5c7acbb8752ac0b5ded2a989c67054f3c8163104e
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: b595ad5cb0847d5e75d2a13309259c75f37bfb4796fb6565171c67c27c897fca
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_v2_spec-14a3be7b.mmd
+  source_sha256: b595ad5cb0847d5e75d2a13309259c75f37bfb4796fb6565171c67c27c897fca
+  svg_sha256: 844dafdff6fb2642e64b09e8767513f3f2d9563e843d6d92c637e9be58f10504
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: a8d2163d82e4df6bf8799fcb2d9e188fdaa48488f4d80b2c00ae070e5a668edf
+  verdict: rejects
+  reason: 'Error: Parse error on line 3:'
+  cases:
+  - state_diagram/statediagram_v2_spec-1d66f488.mmd
+  source_sha256: a8d2163d82e4df6bf8799fcb2d9e188fdaa48488f4d80b2c00ae070e5a668edf
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 43ad4a07f80ce5dfddbcc4ac90322e23f312098e1ed7af13937a28f923c65757
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_v2_spec-2f81c3b1.mmd
+  source_sha256: 43ad4a07f80ce5dfddbcc4ac90322e23f312098e1ed7af13937a28f923c65757
+  svg_sha256: 7a886940067c61f5376fd48869234961269687dbf953deb84ea8e6792163d6ff
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 33625e66f52ebeb39257a0d8f9be027d16293b4a6608c83d0501880f5e7c2e92
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_v2_spec-3055d1ed.mmd
+  source_sha256: 33625e66f52ebeb39257a0d8f9be027d16293b4a6608c83d0501880f5e7c2e92
+  svg_sha256: 8832db556f46b57c631ae8fae980459558ebc48c1648a727cd262e530de896ec
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 6aca611b6b4157cded91e52dc56a5856e007b2d9eabed5e8e07c24790207a2c9
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_v2_spec-33a14d16.mmd
+  - state_diagram/statediagram_v2_spec-f6b3bf00.mmd
+  - state_diagram/super_simple-118f2a7e.mmd
+  source_sha256: 6aca611b6b4157cded91e52dc56a5856e007b2d9eabed5e8e07c24790207a2c9
+  svg_sha256: 8d3bffbc1681bacd5b429a9e2cb61808600f8e72241fcdf5b4dee030b134c556
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: d1e81ffebb84c9dbce649a7055a6b970e6331f8395c31763600f043a16879b9d
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_v2_spec-3505bc62.mmd
+  source_sha256: d1e81ffebb84c9dbce649a7055a6b970e6331f8395c31763600f043a16879b9d
+  svg_sha256: c8967c986dd5de289ba831f5c7acbb8752ac0b5ded2a989c67054f3c8163104e
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 7a2578f6eed480a9b13c166fe1242253d3ec70240ce913acda337f496a6618c9
+  verdict: rejects
+  reason: 'Error: Parse error on line 10:'
+  cases:
+  - state_diagram/statediagram_v2_spec-3e96b8eb.mmd
+  source_sha256: 7a2578f6eed480a9b13c166fe1242253d3ec70240ce913acda337f496a6618c9
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 7da23db0adee1edcbcfeb1da18657702665b3a6bc680bb67518cdad999152709
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_v2_spec-589fc294.mmd
+  source_sha256: 7da23db0adee1edcbcfeb1da18657702665b3a6bc680bb67518cdad999152709
+  svg_sha256: ecdb8c89b83da719f4530a04f09767040451dddecdd26fd9dc75542d28550237
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 48dd9bc1c27ed7ae3effa549a79e1283c6def3694b8b0f7d43616f71c83d96a7
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_v2_spec-5f2476b5.mmd
+  source_sha256: 48dd9bc1c27ed7ae3effa549a79e1283c6def3694b8b0f7d43616f71c83d96a7
+  svg_sha256: 703aaa2210298e15818882dd137deb6ca35ae5b2f089a559076e06de5a54fd67
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 5408a33897ebfc0be15f4cacf05ca079cc26b1f79aaccb1528a37a3a3096a558
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_v2_spec-62551c6b.mmd
+  source_sha256: 5408a33897ebfc0be15f4cacf05ca079cc26b1f79aaccb1528a37a3a3096a558
+  svg_sha256: cf8fda2f6d95ee55c312f499588ed605eab96d18ad97982b422a32a0166650be
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 00fb0d0263dfb95b1331bf8f00c6c07bc26cc2f604e85bfffa3828cb24fed9bb
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_v2_spec-6a2ad467.mmd
+  source_sha256: 00fb0d0263dfb95b1331bf8f00c6c07bc26cc2f604e85bfffa3828cb24fed9bb
+  svg_sha256: db4185cb66bfa01a69739a1f49c5d9abe176b86ac8911ff0953145bcc9541363
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: cef973b25e6f2872ec7206ecbea7e9fa11a64de425a9e79d445796d3def65db3
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_v2_spec-6afb5e8d.mmd
+  source_sha256: cef973b25e6f2872ec7206ecbea7e9fa11a64de425a9e79d445796d3def65db3
+  svg_sha256: 8a191f4345824006ecf8253ea7327978370a5d044de2e212b4b07378b5c03d29
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: b83cf2ae1348b41c79d471f81696bf937acb3bfc9cf4ca48e631fd6b8bf6a4fe
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_v2_spec-701d145f.mmd
+  source_sha256: b83cf2ae1348b41c79d471f81696bf937acb3bfc9cf4ca48e631fd6b8bf6a4fe
+  svg_sha256: 8d3bffbc1681bacd5b429a9e2cb61808600f8e72241fcdf5b4dee030b134c556
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: f545271a7a5bc55e256e3f0952a3f050a3414b77465c70f82f381fced1a3e47f
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_v2_spec-8caf701e.mmd
+  source_sha256: f545271a7a5bc55e256e3f0952a3f050a3414b77465c70f82f381fced1a3e47f
+  svg_sha256: 98366c5583cc6c58d8a5648b792029bdf3c6f5da0e62a85bfb055bbf7f51e774
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 7b876bdff46da9e6e5c4cdc0883c6c6c5451f09d575476d87b9b6925909f4168
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_v2_spec-d5b0460d.mmd
+  source_sha256: 7b876bdff46da9e6e5c4cdc0883c6c6c5451f09d575476d87b9b6925909f4168
+  svg_sha256: 9440cf2ad2b29397bdb09632a3b02b93c31feb98bc7517edf486d6c757d1eda2
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: d910d476abffd28edd483f0041c770506ac552bdc7e74774133cdc07a907eb0a
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_v2_spec-d6232e7e.mmd
+  source_sha256: d910d476abffd28edd483f0041c770506ac552bdc7e74774133cdc07a907eb0a
+  svg_sha256: f44c130b336354bc01b36eee417d7c212a8371e04041fa083319016e5064e581
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 2debb210dd24d2af4be9d44982ad09ba1c2adf83abf698d0d37c8da21af510ab
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_v2_spec-e333ffe5.mmd
+  source_sha256: 2debb210dd24d2af4be9d44982ad09ba1c2adf83abf698d0d37c8da21af510ab
+  svg_sha256: dc36a376711a4cbecf208db5e30c51158a2b21aa6bc66c8da42860657b614908
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 5b5f136aff081fd3ddd6366eb045fbaa6ce4ccad8b45f50e5c8ef6f2aaf36927
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_v2_spec-fb640eeb.mmd
+  source_sha256: 5b5f136aff081fd3ddd6366eb045fbaa6ce4ccad8b45f50e5c8ef6f2aaf36927
+  svg_sha256: 703aaa2210298e15818882dd137deb6ca35ae5b2f089a559076e06de5a54fd67
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 3deb2fc2c95f25e5f8e4aef222963d02f65190682e096a6eda903ee059d27853
+  verdict: accepts
+  cases:
+  - state_diagram/statediagram_v2_spec-fb978528.mmd
+  source_sha256: 3deb2fc2c95f25e5f8e4aef222963d02f65190682e096a6eda903ee059d27853
+  svg_sha256: '02952aada85083dd4e65e97d38caa30cd84afc18a633109e31c4bf925040f37a'
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 7b2a150daf86769f62ba611207dc0ba4047ea395719e23030919d7a1cdf657d0
   verdict: rejects
   reason: 'UnknownDiagramError: No diagram type detected matching given configuration
     for text: Timeline diagram'
   cases:
   - timeline/timeline_spec-4b48f463.mmd
+  source_sha256: 7b2a150daf86769f62ba611207dc0ba4047ea395719e23030919d7a1cdf657d0
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: ef232588d04b6f5466a6fdc5454283b6249614aefe2c3aef3c1a43c994b1ae6f
   verdict: rejects
   reason: 'UnknownDiagramError: No diagram type detected matching given configuration
     for text: Treemap Diagram'
   cases:
   - treemap/treemap_spec-da322cba.mmd
+  source_sha256: ef232588d04b6f5466a6fdc5454283b6249614aefe2c3aef3c1a43c994b1ae6f
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 83653e933e97291c9489c956a73e2619780160bbe8ee8c454d320b6ad3c6f967
   verdict: accepts
   cases:
   - unknown/classdiagram_spec-cce899ec.mmd
+  source_sha256: 83653e933e97291c9489c956a73e2619780160bbe8ee8c454d320b6ad3c6f967
+  svg_sha256: e9ac3f7af23717045109701c33eac29f6c98c1585e975adad31a16e3aba69fe1
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 358f9b0eb57ce53d6d5df9d2e651f461e3f34dba2a630f17673fef2a855356c2
   verdict: accepts
   cases:
   - unknown/classdiagram_spec-f3ac0001.mmd
+  source_sha256: 358f9b0eb57ce53d6d5df9d2e651f461e3f34dba2a630f17673fef2a855356c2
+  svg_sha256: 3c193978ad9f65289c80a5ec5a3fa41384c87856b0f67c9c723a631c440d84ed
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: a32287c69e5861543651668ca3c5970d278e9b6908ede671221eeb22f1d6616e
   verdict: rejects
   reason: 'Error: Trying to inactivate an inactive participant (Server)'
   cases:
   - unknown/sequencediagram_spec-24900033.mmd
+  source_sha256: a32287c69e5861543651668ca3c5970d278e9b6908ede671221eeb22f1d6616e
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 7243d398502846e14a9b8949b4a46c82dcbe1e47a5dd2534c8f3f40ac6e12c26
   verdict: accepts
   cases:
   - unknown/sequencediagram_spec-6559020b.mmd
-- sha256: 8abbbf821b384aaa13a1a099fedca2316b3aa3838231e82f87543547c3c30bf2
-  verdict: accepts
-  cases:
-  - unknown/statediagram_v2_spec-4d71f460.mmd
+  source_sha256: 7243d398502846e14a9b8949b4a46c82dcbe1e47a5dd2534c8f3f40ac6e12c26
+  svg_sha256: 6cfbc481a3183671748b11e59b57dd33c1516f4eb40599b90914933583bafa6b
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 466b16847a4d2af096b1bbe65befe792732fbe0dec18f1f1dc244ee38ad369bd
   verdict: accepts
   cases:
   - unknown/statediagram_spec-9b9b640a.mmd
+  source_sha256: 466b16847a4d2af096b1bbe65befe792732fbe0dec18f1f1dc244ee38ad369bd
+  svg_sha256: d2a33c3780fbb5231f28d1575a9787d3b7cc2b1c7ec83401331840b963f76466
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 8abbbf821b384aaa13a1a099fedca2316b3aa3838231e82f87543547c3c30bf2
+  verdict: accepts
+  cases:
+  - unknown/statediagram_v2_spec-4d71f460.mmd
+  source_sha256: 8abbbf821b384aaa13a1a099fedca2316b3aa3838231e82f87543547c3c30bf2
+  svg_sha256: d2a33c3780fbb5231f28d1575a9787d3b7cc2b1c7ec83401331840b963f76466
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: db17015d0b16c93df60bbf43579a47134720d63e4ec68eb1dcf83a526f29fcd9
   verdict: rejects
   reason: 'UnknownDiagramError: No diagram type detected matching given configuration
@@ -1006,8 +2978,18 @@ cases:
   - user_journey/journeydb_spec-b64c5201.mmd
   - user_journey/journeydb_spec-f4695b34.mmd
   - user_journey/journeydb_spec-f7bc5c73.mmd
+  source_sha256: db17015d0b16c93df60bbf43579a47134720d63e4ec68eb1dcf83a526f29fcd9
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: d472ad23f33f382d72fffb7df4267122dfcc30540357b790581fb513663643ce
   verdict: rejects
   reason: 'TypeError: Cannot read properties of undefined (reading ''data'')'
   cases:
   - xychart/mermaidapi_spec-9a7b1e16.mmd
+  source_sha256: d472ad23f33f382d72fffb7df4267122dfcc30540357b790581fb513663643ce
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
