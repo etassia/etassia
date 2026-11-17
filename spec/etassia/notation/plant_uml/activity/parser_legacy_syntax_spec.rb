@@ -60,10 +60,10 @@ RSpec.describe Etassia::Notation::PlantUML::Activity::Parser do
     expect(edge(diagram, "One", "Three")).not_to be_nil
   end
 
-  it "refuses an alias that was never defined" do
-    expect do
-      parse(%((*) --> "One"\nNOPE --> "Two"))
-    end.to raise_unsupported("undefined activity")
+  it "creates an activity a transition names without declaring" do
+    diagram = parse(%((*) --> "One"\nNOPE --> "Two"))
+
+    expect(diagram.nodes.map(&:text)).to include("NOPE")
   end
 
   it "shares one bar between every arrow that names it" do

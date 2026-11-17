@@ -132,9 +132,7 @@ module Etassia
             when /\A\(\*(?:top)?\)\z/ then @builder.node(:start)
             when /\A"/ then activity(source)
             when BAR then bar(Regexp.last_match(1))
-            else @names.fetch(source) do
-                   refuse("undefined activity #{source}", @line)
-                 end
+            else @names.fetch(source) { implicit_activity(source) }
             end
           end
 
@@ -144,7 +142,13 @@ module Etassia
             return bar(Regexp.last_match(1)) if text.match(BAR)
             return activity(text) if text.start_with?('"')
 
-            @names.fetch(text) { refuse("undefined activity #{text}", @line) }
+            @names.fetch(text) { implicit_activity(text) }
+          end
+
+          # A name a transition mentions but no line declared is an activity
+          # with that name, as PlantUML draws it.
+          def implicit_activity(name)
+            @names[name] = action(name)
           end
 
           def activity(text)

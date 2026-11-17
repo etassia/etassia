@@ -531,7 +531,6 @@ RSpec.describe Etassia::Notation::PlantUML do
     {
       "package p {\npackage q {\n}\nclass A\n}" => /empty package/,
       "package p {\n}" => /empty package/,
-      "package p <<Cloud>> {\nclass A\n}" => /package stereotype/,
       "package p {\nclass A\n}\npackage p {\nclass B\n}" => /twice/,
       "A --> B\npackage p {\nclass A\n}" => /more than one place/,
       "package p {\nA --> B\n}" => /first mentioned in a package/,

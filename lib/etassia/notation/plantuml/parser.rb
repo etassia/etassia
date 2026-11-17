@@ -48,10 +48,10 @@ module Etassia
            [ \t]+(#{NAME})
            (?:<([^<>]+)>)?((?:[ \t]*#{STEREOTYPE})*)
            ((?:[ \t]+\$#{NAME})*)(?:[ \t]+\#\S+)?(?:[ \t]*(\{))?\z/xo
-        PACKAGE = /\A(\+)?package[ \t]+
-                   (?:"([^"]+)"[ \t]+as[ \t]+(#{NAME})|
+        PACKAGE = /\A(\+)?(package|rectangle)[ \t]+
+                   (?:"([^"]+)"(?:[ \t]+as[ \t]+(#{NAME}))?|
                       (#{NAME}(?:\.#{NAME})*))
-                   (?:[ \t]*<<([^<>]+)>>)?(?:[ \t]+(\#[A-Za-z0-9]+))?
+                   ((?:[ \t]*<<[^<>]+>>)*)?(?:[ \t]+(\#[A-Za-z0-9]+))?
                    [ \t]*\{\z/xio
         QUOTED_DECLARATION =
           /\A(abstract[ \t]+class|static[ \t]+class|class|interface)
@@ -225,18 +225,16 @@ module Etassia
         end
 
         def package_from(match, text, number)
-          shape = package_shape(match[5])
-          raise refusal(text, number, "package stereotype") unless shape
-
-          Package.new(id: match[3] || match[4], title: package_title(match),
-                      shape: shape, icon: !match[1].nil?,
-                      color: package_color(match[6], text, number))
+          Package.new(id: match[4] || match[5] || match[3],
+                      title: package_title(match),
+                      shape: package_shape(match), icon: !match[1].nil?,
+                      color: package_color(match[7], text, number))
         end
 
         # A dotted name is drawn as its last part, inside a frame for each
         # part before it.
         def package_title(match)
-          match[2] || match[4].split(".").last
+          match[3] || match[5].split(".").last
         end
 
         def package_color(written, text, number)
@@ -246,10 +244,14 @@ module Etassia
             raise(refusal(text, number, "package colour name"))
         end
 
-        def package_shape(stereotype)
-          return :folder unless stereotype
+        # A `rectangle` container or a `<<frame>>` stereotype draws as a
+        # frame; every other package draws as PlantUML's folder, whatever
+        # stereotype labels it carries.
+        def package_shape(match)
+          return :frame if match[2].casecmp?("rectangle")
+          return :frame if match[6].to_s.match?(/<<[ \t]*frame[ \t]*>>/i)
 
-          :frame if stereotype.casecmp?("frame")
+          :folder
         end
 
         def hide_tag(builder, text, number)

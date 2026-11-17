@@ -18,7 +18,7 @@ module Etassia
               [/\Awhile\s*\((?<cond>.*?)\)\s*(?:is\s*\((?<is>.*?)\))?\z/i,
                :on_while],
               [/\Aend\s*while\s*(?:\((?<label>.*)\))?\z/i, :on_endwhile],
-              [/\Arepeat\z/i, :on_repeat],
+              [/\Arepeat(?:[ \t]*:(?<text>.*))?\z/mi, :on_repeat],
               [/\Arepeat\s+while\s*\((?<cond>.*?)\)\s*
                 (?:is\s*\((?<is>.*?)\)\s*)?
                 (?:not\s*\((?<not>.*?)\))?\z/xi, :on_repeat_while],
@@ -79,8 +79,13 @@ module Etassia
               @ends = [[decision, label_text(match[:label])]]
             end
 
-            def on_repeat(_match)
+            def on_repeat(match)
               @frames << { kind: "repeat", start: add(@builder.node(:merge)) }
+              return unless match[:text]
+
+              # `repeat :action;` puts the action on the loop's backward
+              # path; the flow enters it right after the loop's head.
+              add(@builder.node(:action, text: clean(collect(match[:text]))))
             end
 
             def on_repeat_while(match)

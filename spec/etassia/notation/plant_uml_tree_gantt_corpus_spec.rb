@@ -440,7 +440,7 @@ RSpec.describe Etassia::Notation::PlantUML do
   end
 
   context "with a gantt clause outside the subset" do
-    let(:source) { "@startgantt\n[A] starts at [B]'s start\n@endgantt\n" }
+    let(:source) { "@startgantt\n[A] frobnicates 3 days\n@endgantt\n" }
 
     it "refuses it by name" do
       expect { svg }.to raise_error(

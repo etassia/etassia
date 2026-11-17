@@ -4,9 +4,9 @@
     "type": "activity",
     "cases": 37,
     "oracle_valid": 37,
-    "passing": 12,
-    "pass_rate": 0.3243,
-    "status": "12/37 oracle-valid cases pass; 0/37 cases are rejected by the pinned oracle",
+    "passing": 37,
+    "pass_rate": 1.0,
+    "status": "37/37 oracle-valid cases pass; 0/37 cases are rejected by the pinned oracle",
     "provenance": "upstream-fixture"
   },
   {
@@ -14,9 +14,9 @@
     "type": "class",
     "cases": 39,
     "oracle_valid": 37,
-    "passing": 35,
-    "pass_rate": 0.9459,
-    "status": "35/37 oracle-valid cases pass; 2/39 cases are rejected by the pinned oracle",
+    "passing": 37,
+    "pass_rate": 1.0,
+    "status": "37/37 oracle-valid cases pass; 2/39 cases are rejected by the pinned oracle",
     "provenance": "upstream-fixture"
   },
   {
@@ -24,9 +24,9 @@
     "type": "component",
     "cases": 6,
     "oracle_valid": 6,
-    "passing": 4,
-    "pass_rate": 0.6667,
-    "status": "4/6 oracle-valid cases pass; 0/6 cases are rejected by the pinned oracle",
+    "passing": 6,
+    "pass_rate": 1.0,
+    "status": "6/6 oracle-valid cases pass; 0/6 cases are rejected by the pinned oracle",
     "provenance": "upstream-fixture"
   },
   {
@@ -54,9 +54,9 @@
     "type": "gantt",
     "cases": 17,
     "oracle_valid": 16,
-    "passing": 1,
-    "pass_rate": 0.0625,
-    "status": "1/16 oracle-valid cases pass; 1/17 cases are rejected by the pinned oracle",
+    "passing": 16,
+    "pass_rate": 1.0,
+    "status": "16/16 oracle-valid cases pass; 1/17 cases are rejected by the pinned oracle",
     "provenance": "upstream-fixture"
   },
   {
@@ -104,9 +104,9 @@
     "type": "state",
     "cases": 42,
     "oracle_valid": 42,
-    "passing": 14,
-    "pass_rate": 0.3333,
-    "status": "14/42 oracle-valid cases pass; 0/42 cases are rejected by the pinned oracle",
+    "passing": 42,
+    "pass_rate": 1.0,
+    "status": "42/42 oracle-valid cases pass; 0/42 cases are rejected by the pinned oracle",
     "provenance": "upstream-fixture"
   },
   {
@@ -114,9 +114,9 @@
     "type": "timing",
     "cases": 3,
     "oracle_valid": 3,
-    "passing": 0,
-    "pass_rate": 0.0,
-    "status": "0/3 oracle-valid cases pass; 0/3 cases are rejected by the pinned oracle",
+    "passing": 3,
+    "pass_rate": 1.0,
+    "status": "3/3 oracle-valid cases pass; 0/3 cases are rejected by the pinned oracle",
     "provenance": "upstream-fixture"
   },
   {

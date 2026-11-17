@@ -49,8 +49,8 @@ RSpec.describe Etassia::Notation::PlantUML do
       expect(offenders).to be_empty, -> { offenders.join("\n") }
     end
 
-    it "refuses the pinned number of cases at parse; parity work shrinks it" do
-      expect(failures.size).to eq(75), -> { failures.join("\n") }
+    it "refuses no case at parse; new constructs join the readers" do
+      expect(failures).to be_empty, -> { failures.join("\n") }
     end
   end
 end

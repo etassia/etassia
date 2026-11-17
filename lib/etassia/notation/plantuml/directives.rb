@@ -14,7 +14,8 @@ module Etassia
         TARGET = '(?:[A-Za-z_][A-Za-z0-9_]*[ \t]+|<<[^<>\s]+>>[ \t]+)'
         PATTERNS = [
           /\A!pragma[ \t]+(?:layout[ \t]+(?:smetana|dot)|
-            svginteractive[ \t]+(?:true|false))\z/ix,
+            svginteractive[ \t]+(?:true|false)|
+            svgparser[ \t]+(?:sax|stax))\z/ix,
           /\A(?:hide|show)[ \t]+(?:empty[ \t]+)?#{TARGET}?
             (?:members|attributes|methods|fields|circle|stereotype)\z/ix,
           /\Askinparam[ \t]+[A-Za-z0-9_.]+(?:<<[^<>\s]+>>)?[ \t]+
