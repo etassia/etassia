@@ -16,6 +16,36 @@ RSpec.describe LayoutParity do
 
   after { FileUtils.remove_entry(directory) }
 
+  # The ledger reads results through to_h plus the hard_failure? predicate.
+  def fake_result_class
+    Class.new do
+      def initialize(data)
+        @data = data
+      end
+
+      def to_h
+        @data
+      end
+
+      def hard_failure? = false
+    end
+  end
+
+  def infinite_metric_result
+    geometry = SpecSupport::LayoutParity::CaseLedger::METRICS.to_h do |m|
+      [m, m == "worst_e_w" ? Float::INFINITY : 0.0]
+    end
+    fake_result_class.new("case" => "g/1.mmd", "geometry" => geometry)
+  end
+
+  it "normalizes an infinite ledger metric to nil, the " \
+     "no-comparable-metric value" do
+    row = SpecSupport::LayoutParity::CaseLedger
+      .build([infinite_metric_result]).first
+
+    expect(row.fetch("summary").fetch("metrics").fetch("worst_e_w")).to be_nil
+  end
+
   it "atomically records the complete fresh ledger" do
     fresh = [row("b", hard_failure: true), row("a")]
     expect(record_summary(fresh))

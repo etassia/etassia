@@ -57956,10 +57956,10 @@
         }
       ],
       "worst_analog": null,
-      "worst_e_a": "Infinity",
+      "worst_e_a": null,
       "worst_e_c": 11.738728,
       "worst_e_h": 0.0,
-      "worst_e_w": "Infinity",
+      "worst_e_w": null,
       "worst_keys": {
         "analog": null,
         "e_a": [
@@ -58248,9 +58248,9 @@
       "hard_failure": true,
       "metrics": {
         "worst_e_c": 11.738728,
-        "worst_e_w": "Infinity",
+        "worst_e_w": null,
         "worst_e_h": 0.0,
-        "worst_e_a": "Infinity",
+        "worst_e_a": null,
         "worst_analog": null
       }
     }
