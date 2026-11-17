@@ -70,6 +70,13 @@ RSpec.describe ScoreboardBaseline, :aggregate_failures do
     expect(JSON.parse(out).fetch("errors")).to include(/verdict changed/)
   end
 
+  it "accepts the ledger's infinity encoding for incomparable geometry" do
+    repo.metrics(data)["worst_e_w"] = "Infinity"
+    out, _err, status = repo.record_and_run(data, "push", repo.event("push"))
+
+    expect(status.exitstatus).to eq(0)
+  end
+
   it "rejects a newly recorded layout hard failure" do
     data.fetch("layout-parity").first.fetch("summary")["hard_failure"] = true
     out, _err, status = repo.record_and_run(data, "merge_group",
