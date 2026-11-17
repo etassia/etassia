@@ -1550,7 +1550,7 @@ RSpec.describe ExampleTasks, :aggregate_failures do
     it "raises instead of exiting when an example fails to render" do
       # Bracket gibberish, not a near-miss: the parsers grew tolerant enough
       # that a dangling arrow parses under fresh engine generations.
-      write("flowchart/01-broken.mmd", "A --> B\n")
+      write("flowchart/01-broken.mmd", "flowchart TD\n A --> B -->\n")
 
       expect { described_class.validate_examples(examples_dir) }
         .to raise_error(ExampleTasks::ValidationFailed, /validation failed/)
@@ -1580,7 +1580,7 @@ RSpec.describe ExampleTasks, :aggregate_failures do
       source_path = synthetic_unrenderable_source
       # Bracket gibberish (a bare title now renders; see the fixture note on
       # the gantt example below).
-      write(source_path, "title Broken\n")
+      write(source_path, "gantt\n :broken\n")
       write(source_path.sub(/\.mmd\z/, ".yml"), "theme: [\n")
 
       expect { described_class.validate_examples(examples_dir) }
@@ -1621,7 +1621,7 @@ RSpec.describe ExampleTasks, :aggregate_failures do
         broken_theme
         File.write(broken_theme, "colors: [\n")
 
-        write(source_path, "title Broken\n")
+        write(source_path, "gantt\n :broken\n")
         write(source_path.sub(/\.mmd\z/, ".yml"),
               "theme: #{broken_theme}\n")
 
@@ -1647,7 +1647,7 @@ RSpec.describe ExampleTasks, :aggregate_failures do
     it "counts a real render failure on an expected-unrenderable source as " \
        "known, not failed" do
       source_path = synthetic_unrenderable_source
-      write(source_path, "A --> B\n")
+      write(source_path, "flowchart TD\n A --> B -->\n")
 
       output = capture { described_class.validate_examples(examples_dir) }
 
