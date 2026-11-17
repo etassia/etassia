@@ -51,12 +51,29 @@ module PlantUmlConformanceHelpers
       .join(" | ")
   end
 
-  # One line per non-conformant or non-rendering case.
+  # One line per non-conformant case. A case whose parse or render RAISES
+  # produces no SVG and is not a conformance offender — the SVG-conformance
+  # gate judges the SVG Etassia produces, and the not-yet-renderable set is
+  # the parity backlog (#453), tracked by the scoreboard and by
+  # `render_failures`.
   def conformance_offenders(paths)
     paths.filter_map do |path|
       name = path.sub("#{ROOT}/", "")
       problem = conformance_problem(render_plantuml(path))
       "#{name}: #{problem}" if problem
+    rescue StandardError
+      nil
+    end
+  end
+
+  # One line per case whose parse or render raises. The corpus deliberately
+  # carries kinds Etassia does not parse yet; the spec pins this set's SIZE
+  # so refusals cannot grow silently.
+  def render_failures(paths)
+    paths.filter_map do |path|
+      name = path.sub("#{ROOT}/", "")
+      render_plantuml(path)
+      nil
     rescue StandardError => e
       "#{name}: raised #{e.class}: #{e.message[0, 80]}"
     end

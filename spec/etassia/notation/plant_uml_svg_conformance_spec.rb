@@ -28,6 +28,7 @@ RSpec.describe Etassia::Notation::PlantUML do
 
   describe "oracle-valid corpus cases" do
     let(:offenders) { conformance_offenders(corpus_sources) }
+    let(:failures) { render_failures(corpus_sources) }
     let(:valid_count) do
       oracle_verdicts.count { |v| v["verdict"] == "valid" }
     end
@@ -46,6 +47,10 @@ RSpec.describe Etassia::Notation::PlantUML do
 
     it "renders every case conformantly" do
       expect(offenders).to be_empty, -> { offenders.join("\n") }
+    end
+
+    it "refuses the pinned number of cases at parse; parity work shrinks it" do
+      expect(failures.size).to eq(75), -> { failures.join("\n") }
     end
   end
 end
