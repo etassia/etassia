@@ -547,21 +547,21 @@
   },
   {
     "case": "class_diagram/class_spec-cc39a334.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "class_diagram/class_spec-e20de430.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "class_diagram/class_spec-e35a838d.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -628,7 +628,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-01fd0edb.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -658,12 +658,12 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-0a93d562.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-0b63114e.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -695,7 +695,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-1011b382.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -710,7 +710,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-11949457.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -749,7 +749,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-1770eb2f.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -774,7 +774,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-1c074d15.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -789,7 +789,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-20125696.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -799,7 +799,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-22a4c599.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -809,17 +809,17 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-23bfb709.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-248ca556.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-24ce281d.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -844,7 +844,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-2db03dc0.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -874,7 +874,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-3162c1fb.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -904,7 +904,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-3ba9d355.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -914,7 +914,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-3df1a532.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -958,7 +958,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-46111c63.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -968,7 +968,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-46de0459.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -983,7 +983,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-49230672.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -993,12 +993,12 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-4cc37c65.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-4e84fabe.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1035,7 +1035,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-5928c7db.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1054,12 +1054,12 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-5d7a075e.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-5ed6b4d9.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1079,7 +1079,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-64f0497b.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1121,7 +1121,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-6e31fd51.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1136,7 +1136,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-707ca1b6.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1166,7 +1166,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-78aa7ceb.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1176,7 +1176,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-7d6a0ae0.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1213,7 +1213,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-83d6d7d0.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1238,17 +1238,17 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-882bceb7.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-8910adc4.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-89847e28.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1258,7 +1258,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-89ce3621.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1268,7 +1268,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-8c8ef44a.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1305,12 +1305,12 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-8faa09e5.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-8fb6838d.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1320,7 +1320,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-91d2dca6.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1335,7 +1335,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-93fd5dd4.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1362,17 +1362,17 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-993711e5.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-99935c8c.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-9b7740f8.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1424,7 +1424,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-a220c8c8.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1434,7 +1434,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-a5a3ca4d.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1456,7 +1456,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-aaa315f8.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1468,7 +1468,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-aafd9409.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1490,7 +1490,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-acf6f03d.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1517,7 +1517,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-b5b05534.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1532,12 +1532,12 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-b832406f.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-b8608261.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1564,12 +1564,12 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-bc16b2f5.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-bcf14374.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1589,7 +1589,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-be23b67b.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1604,7 +1604,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-c071c93e.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1634,7 +1634,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-ce80c05a.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1644,12 +1644,12 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-d52f200c.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-d55aa7df.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1659,7 +1659,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-d6cceedd.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1688,7 +1688,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-d985c318.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1698,7 +1698,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-db5b1ab5.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1710,12 +1710,12 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-dd7337b2.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-ddf34467.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1725,7 +1725,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-de3e6170.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1740,7 +1740,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-e0fe1916.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1789,7 +1789,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-e94dfee9.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1801,7 +1801,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-ecb265e7.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1825,12 +1825,12 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-ed7199c6.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-efbfea2b.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1840,7 +1840,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-f1e5ff4e.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1874,7 +1874,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-f5041ce0.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -1923,7 +1923,7 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-ff2fe224.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -2314,7 +2314,7 @@
   },
   {
     "case": "class_diagram/should_handle_backtick_quoted_namespace_names-8274b0b7.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -3024,17 +3024,17 @@
   },
   {
     "case": "er_diagram/cannot_contain_because_it_could_start_and_escape-eb5c05ca.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "er_diagram/cannot_contain_because_it_interferes_with_parsin-98f2b505.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "er_diagram/cannot_newline_backspace_or_vertical_characters-c6cf992f.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -3117,7 +3117,7 @@
   },
   {
     "case": "er_diagram/erdiagram_spec-111c698f.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -3134,17 +3134,17 @@
   },
   {
     "case": "er_diagram/erdiagram_spec-1622430a.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-16508afb.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-16fbb123.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -3210,12 +3210,12 @@
   },
   {
     "case": "er_diagram/erdiagram_spec-39b996ea.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-3a39117b.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -3234,7 +3234,7 @@
   },
   {
     "case": "er_diagram/erdiagram_spec-3c8a4cbd.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -3260,7 +3260,7 @@
   },
   {
     "case": "er_diagram/erdiagram_spec-4aabf3e3.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -3272,7 +3272,7 @@
   },
   {
     "case": "er_diagram/erdiagram_spec-4eb49b63.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -3282,12 +3282,12 @@
   },
   {
     "case": "er_diagram/erdiagram_spec-50d759c6.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-572ba53b.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -3341,12 +3341,12 @@
   },
   {
     "case": "er_diagram/erdiagram_spec-75d45fa9.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-7997ef63.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -3358,12 +3358,12 @@
   },
   {
     "case": "er_diagram/erdiagram_spec-870ded69.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-8819d6bc.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -3382,7 +3382,7 @@
   },
   {
     "case": "er_diagram/erdiagram_spec-8cb87484.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -3394,7 +3394,7 @@
   },
   {
     "case": "er_diagram/erdiagram_spec-8cc99c4c.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -3411,7 +3411,7 @@
   },
   {
     "case": "er_diagram/erdiagram_spec-9899efcb.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -3423,7 +3423,7 @@
   },
   {
     "case": "er_diagram/erdiagram_spec-9b4fc14a.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -3435,17 +3435,17 @@
   },
   {
     "case": "er_diagram/erdiagram_spec-9e6311f2.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-a1241e76.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-a5ca0b8c.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -3478,17 +3478,17 @@
   },
   {
     "case": "er_diagram/erdiagram_spec-a955ce67.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-acb29fce.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-b2bb4486.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -3514,7 +3514,7 @@
   },
   {
     "case": "er_diagram/erdiagram_spec-cfe6339e.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -3526,7 +3526,7 @@
   },
   {
     "case": "er_diagram/erdiagram_spec-d3d7fc8e.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -3545,27 +3545,27 @@
   },
   {
     "case": "er_diagram/erdiagram_spec-d921f55c.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-d944f1d1.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-d9e80d35.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-da862bac.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-da955898.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -3612,7 +3612,7 @@
   },
   {
     "case": "er_diagram/erdiagram_spec-f06cacb7.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -3629,32 +3629,32 @@
   },
   {
     "case": "er_diagram/journey_spec-2a260e89.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "er_diagram/journey_spec-33008e29.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "er_diagram/journey_spec-5b9e6912.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "er_diagram/journey_spec-b8d8e64a.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "er_diagram/journey_spec-bfa0e3fa.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "er_diagram/journey_spec-d55f22a2.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -3797,17 +3797,17 @@
   },
   {
     "case": "er_diagram/should_allow_decimal_numbers_as_entity_names_wit-31b7bfa7.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "er_diagram/should_allow_decimal_numbers_as_standalone_entit-1bcf6f49.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "er_diagram/should_allow_decimal_numbers_in_relationships-fb5bd4ad.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -3826,7 +3826,7 @@
   },
   {
     "case": "er_diagram/should_allow_numbers_in_relationships-f5668c4e.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -4204,7 +4204,7 @@
   },
   {
     "case": "flowchart/flow_arrows_spec-3b54e50e.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -4214,7 +4214,7 @@
   },
   {
     "case": "flowchart/flow_arrows_spec-58e1c972.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -4239,42 +4239,42 @@
   },
   {
     "case": "flowchart/flow_comments_spec-618a71ea.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "flowchart/flow_comments_spec-631bd216.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "flowchart/flow_comments_spec-68ea59e2.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "flowchart/flow_comments_spec-699c136c.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "flowchart/flow_comments_spec-9fa70e30.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "flowchart/flow_comments_spec-ae4455cb.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "flowchart/flow_comments_spec-b1966b65.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "flowchart/flow_comments_spec-e69bdfb5.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -4341,7 +4341,7 @@
   },
   {
     "case": "flowchart/flow_edges_spec-17d5ab91.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -4355,7 +4355,7 @@
   },
   {
     "case": "flowchart/flow_edges_spec-21315efc.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -4376,7 +4376,7 @@
   },
   {
     "case": "flowchart/flow_edges_spec-2ef8a6c9.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -4388,35 +4388,35 @@
   },
   {
     "case": "flowchart/flow_edges_spec-32896ba1.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "flowchart/flow_edges_spec-32cecbac.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "flowchart/flow_edges_spec-46b08efa.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "flowchart/flow_edges_spec-501fbbb0.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "flowchart/flow_edges_spec-583c7e70.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -4430,28 +4430,28 @@
   },
   {
     "case": "flowchart/flow_edges_spec-63cdf91f.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "flowchart/flow_edges_spec-654bb12e.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "flowchart/flow_edges_spec-6e63c5a5.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "flowchart/flow_edges_spec-7d0a328b.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -4465,28 +4465,28 @@
   },
   {
     "case": "flowchart/flow_edges_spec-8f385abc.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "flowchart/flow_edges_spec-9467a8e6.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "flowchart/flow_edges_spec-af4b7d73.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "flowchart/flow_edges_spec-b6872d29.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -4500,14 +4500,14 @@
   },
   {
     "case": "flowchart/flow_edges_spec-e329ef4e.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "flowchart/flow_edges_spec-e38339b9.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -4526,12 +4526,12 @@
   },
   {
     "case": "flowchart/flow_lines_spec-25cf71c8.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "flowchart/flow_lines_spec-2a085816.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -4541,27 +4541,27 @@
   },
   {
     "case": "flowchart/flow_lines_spec-5506f485.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "flowchart/flow_lines_spec-583e2273.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "flowchart/flow_lines_spec-94e5b622.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "flowchart/flow_lines_spec-d08cedbe.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "flowchart/flow_lines_spec-da0876d2.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -4571,12 +4571,12 @@
   },
   {
     "case": "flowchart/flow_lines_spec-e5d88fce.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "flowchart/flow_lines_spec-e808e1f8.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -5104,7 +5104,7 @@
   },
   {
     "case": "flowchart/flow_spec-5c5025fc.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -5116,7 +5116,7 @@
   },
   {
     "case": "flowchart/flow_spec-666b641c.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -5131,7 +5131,7 @@
   },
   {
     "case": "flowchart/flow_spec-f1aa1d42.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -5146,7 +5146,7 @@
   },
   {
     "case": "flowchart/flow_style_spec-0ce324c2.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -5173,7 +5173,7 @@
   },
   {
     "case": "flowchart/flow_style_spec-78a9b3c4.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -5200,7 +5200,7 @@
   },
   {
     "case": "flowchart/flow_style_spec-9bd50570.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -5210,12 +5210,12 @@
   },
   {
     "case": "flowchart/flow_style_spec-ad32b111.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "flowchart/flow_style_spec-b1f4d487.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -5227,7 +5227,7 @@
   },
   {
     "case": "flowchart/flow_style_spec-dcf1f3be.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -5249,7 +5249,7 @@
   },
   {
     "case": "flowchart/flow_text_spec-0b25e2d1.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -5404,7 +5404,7 @@
   },
   {
     "case": "flowchart/flow_text_spec-a33448ba.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -5628,7 +5628,7 @@
   },
   {
     "case": "flowchart/subgraph_spec-02811144.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -5645,7 +5645,7 @@
   },
   {
     "case": "flowchart/subgraph_spec-079ae241.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -5655,7 +5655,7 @@
   },
   {
     "case": "flowchart/subgraph_spec-0fd49976.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -5670,12 +5670,12 @@
   },
   {
     "case": "flowchart/subgraph_spec-38097244.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "flowchart/subgraph_spec-4d850c95.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -5690,7 +5690,7 @@
   },
   {
     "case": "flowchart/subgraph_spec-57f55756.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -5707,7 +5707,7 @@
   },
   {
     "case": "flowchart/subgraph_spec-7cf044cd.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -5722,7 +5722,7 @@
   },
   {
     "case": "flowchart/subgraph_spec-8cb5efe3.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -5764,7 +5764,7 @@
   },
   {
     "case": "flowchart/subgraph_spec-eb979727.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -5774,7 +5774,7 @@
   },
   {
     "case": "flowchart/subgraph_spec-f500a75b.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -6288,152 +6288,152 @@
   },
   {
     "case": "gitgraph/gitgraph_test-0b25d816.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-0de8a536.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-2991199d.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-33d2e733.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "gitgraph/gitgraph_test-3c2299be.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-46039f98.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-51c5ba48.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "gitgraph/gitgraph_test-5fd422d2.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-604dad9c.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "gitgraph/gitgraph_test-618ca788.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-6dbacd8b.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-7331cd25.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-885f13f6.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "gitgraph/gitgraph_test-91c1c4ae.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "gitgraph/gitgraph_test-b38ba7bb.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "gitgraph/gitgraph_test-b498c8db.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-b88a55d1.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-bc09a6fb.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "gitgraph/gitgraph_test-c80f6b5f.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-c890a62b.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "gitgraph/gitgraph_test-d7ff8f0d.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-e632fe0f.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "gitgraph/gitgraph_test-f027449f.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-f33d4324.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "gitgraph/gitgraph_test-f71b441d.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "gitgraph/gitgraph_test-f9858e92.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -6574,7 +6574,7 @@
   },
   {
     "case": "gitgraph/should_handle_a_gitgraph_definition-4acb9709.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -8212,12 +8212,12 @@
   },
   {
     "case": "sequence/mermaid_spec-b8d5b6a5.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "sequence/mermaid_spec-dddb40c5.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -8354,7 +8354,7 @@
   },
   {
     "case": "sequence/sequencediagram_spec-329e1a14.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -8623,7 +8623,7 @@
   },
   {
     "case": "sequence/sequencediagram_spec-b9874dbc.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -8658,7 +8658,7 @@
   },
   {
     "case": "sequence/sequencediagram_spec-cd10ed7b.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -8693,7 +8693,7 @@
   },
   {
     "case": "sequence/sequencediagram_spec-f856f3c3.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -8703,7 +8703,7 @@
   },
   {
     "case": "sequence/sequencediagram_v2_spec-0210f13f.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -8728,12 +8728,12 @@
   },
   {
     "case": "sequence/sequencediagram_v2_spec-66119c12.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "sequence/sequencediagram_v2_spec-71163691.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -8743,17 +8743,17 @@
   },
   {
     "case": "sequence/sequencediagram_v2_spec-8092a233.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "sequence/sequencediagram_v2_spec-80dea164.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "sequence/sequencediagram_v2_spec-8e0b6671.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -8768,7 +8768,7 @@
   },
   {
     "case": "sequence/sequencediagram_v2_spec-c98f02f7.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -8778,12 +8778,12 @@
   },
   {
     "case": "sequence/sequencediagram_v2_spec-dffb9d43.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "sequence/sequencediagram_v2_spec-f3efa956.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -8808,12 +8808,12 @@
   },
   {
     "case": "state_diagram/description_after_second_state-2d50be4d.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/description_after_second_state-c3197e5d.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -8833,12 +8833,12 @@
   },
   {
     "case": "state_diagram/hide_empty_description-37cf5cc6.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/hide_empty_description-a4b92738.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -8868,52 +8868,52 @@
   },
   {
     "case": "state_diagram/scale-0b695e96.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/shall_handle_descriptions_including_minus_signs-2f544dbb.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/shall_handle_descriptions_including_minus_signs-fb78c1ac.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/should_handle_arrow_directions_definitions-709776e9.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "state_diagram/should_handle_arrow_directions_definitions-a45fec2b.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "state_diagram/should_handle_concurrent_state-4c57bf32.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/should_handle_concurrent_state-545e37dd.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/should_handle_concurrent_state-caa6f9c3.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/should_handle_concurrent_state-ed5380cd.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/should_handle_floating_notes-08758173.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -8933,12 +8933,12 @@
   },
   {
     "case": "state_diagram/should_handle_fork_statements-c74cc180.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/should_handle_fork_statements-d0371472.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -8953,22 +8953,22 @@
   },
   {
     "case": "state_diagram/should_handle_multiple_recursive_state_definitio-47c620c6.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/should_handle_multiple_recursive_state_definitio-f9748e4d.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/should_handle_note_statements-4e5720a4.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/should_handle_note_statements-5c689b43.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -8978,37 +8978,37 @@
   },
   {
     "case": "state_diagram/should_handle_notes_for_composite_states-314eb3bf.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/should_handle_recursive_state_definitions-23d7165f.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/should_handle_recursive_state_definitions-a63be1cd.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/should_handle_relation_definitions-c1ead2b4.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/should_handle_relation_definitions-c1f16759.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/should_handle_state_definitions_with_separation-14dcd785.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/should_handle_state_definitions_with_separation-66a2d433.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9023,52 +9023,52 @@
   },
   {
     "case": "state_diagram/should_handle_state_statements-02bc3364.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/should_handle_state_statements-e7035600.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/should_state_definition_with_quotes-985ee25e.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/should_state_definition_with_quotes-e965972a.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/simple_states_with_labels-503668e1.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/simple_with_accdescription-9a4b81f0.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/simple_with_accdescription_accdescr-ddcfd6c8.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/simple_with_multiline_accdescription_accdescr-0768b11b.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/simple_with_title-e9583ab3.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/simple_with_title_accdescr-c49268e9.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9108,7 +9108,7 @@
   },
   {
     "case": "state_diagram/state_style_spec-1793e7e9.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9118,7 +9118,7 @@
   },
   {
     "case": "state_diagram/state_style_spec-5f7364eb.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9128,7 +9128,7 @@
   },
   {
     "case": "state_diagram/state_style_spec-aa26de07.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9138,12 +9138,12 @@
   },
   {
     "case": "state_diagram/statediagram_spec-012c4472.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-045c4d98.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9153,22 +9153,22 @@
   },
   {
     "case": "state_diagram/statediagram_spec-0ba06b23.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-0c8aca4c.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-1190322a.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-12544018.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9178,32 +9178,32 @@
   },
   {
     "case": "state_diagram/statediagram_spec-13ef7f56.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-14b793e6.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-159429ef.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-15ec6ff2.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-1653f622.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-1a4f8bd0.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9213,7 +9213,7 @@
   },
   {
     "case": "state_diagram/statediagram_spec-1e00895c.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9223,27 +9223,27 @@
   },
   {
     "case": "state_diagram/statediagram_spec-29608c39.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-2ff68e17.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-31fa3ee4.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-3365865c.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-35e88baf.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9253,22 +9253,22 @@
   },
   {
     "case": "state_diagram/statediagram_spec-36d7b1dc.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-39278024.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-3b90489b.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-3ef2dcfb.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9278,32 +9278,32 @@
   },
   {
     "case": "state_diagram/statediagram_spec-40c9ac01.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-41efc655.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-47771e5f.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-49419133.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-4965a9af.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-4a7caf18.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9313,27 +9313,27 @@
   },
   {
     "case": "state_diagram/statediagram_spec-5091d085.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-540c3972.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-5823c948.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-5db6f683.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-5e8d05fd.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9345,109 +9345,109 @@
   },
   {
     "case": "state_diagram/statediagram_spec-61c1054b.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-6217abb2.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-62e1c7b7.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-6da990d3.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-74261a4f.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-74b96cc5.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-7e13c74d.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-836e165c.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "state_diagram/statediagram_spec-84fa7b42.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-85a8f832.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-89322a90.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-8a719c09.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-8f5295b8.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-93d0ca3f.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-94d5618c.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-9517b78d.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-98fc6bd3.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-9e899a40.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-a32dbda1.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-a8b1c3b6.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-aa563385.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -9457,7 +9457,7 @@
   },
   {
     "case": "state_diagram/statediagram_spec-acbd6157.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9467,17 +9467,17 @@
   },
   {
     "case": "state_diagram/statediagram_spec-b6bfaac5.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-b74059e8.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-b7fd6ad9.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9487,104 +9487,104 @@
   },
   {
     "case": "state_diagram/statediagram_spec-c00a2d32.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-cf0e21bf.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-d1364199.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-d1fb1fa0.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-d2b5972f.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-d70d0aa6.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-d87f6672.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-d8edbae8.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-dbd153b9.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-e1fe2228.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-e3f6dcf6.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-e57ada98.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-e9671157.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-eb1689cb.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "state_diagram/statediagram_spec-ef8fcf01.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-f0225465.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-f062c24e.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-f08b5c70.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-f4256d44.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-f4d3f144.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9594,47 +9594,47 @@
   },
   {
     "case": "state_diagram/statediagram_spec-f99cfef6.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-f9c80b24.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-fcdb21ad.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-fdf6c5aa.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-fe48a130.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_spec-ffd2d953.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-0ff11835.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-12f07330.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-13333783.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
@@ -9644,27 +9644,27 @@
   },
   {
     "case": "state_diagram/statediagram_v2_spec-14a3be7b.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-1703a0f2.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-1d66f488.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-1e88919f.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-26254e43.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9674,12 +9674,12 @@
   },
   {
     "case": "state_diagram/statediagram_v2_spec-2f81c3b1.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-3055d1ed.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9694,12 +9694,12 @@
   },
   {
     "case": "state_diagram/statediagram_v2_spec-33a14d16.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-3505bc62.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9711,24 +9711,24 @@
   },
   {
     "case": "state_diagram/statediagram_v2_spec-3e96b8eb.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "state_diagram/statediagram_v2_spec-417e559c.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-45362b6d.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-589fc294.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9738,27 +9738,27 @@
   },
   {
     "case": "state_diagram/statediagram_v2_spec-5f2476b5.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-61539d5d.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-622dc71f.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-62551c6b.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-63fb1797.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9770,7 +9770,7 @@
   },
   {
     "case": "state_diagram/statediagram_v2_spec-6a2ad467.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9780,22 +9780,22 @@
   },
   {
     "case": "state_diagram/statediagram_v2_spec-6afb5e8d.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-6e0d9ef0.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-6ec5fc36.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-701d145f.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9805,22 +9805,22 @@
   },
   {
     "case": "state_diagram/statediagram_v2_spec-768cc984.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-77fa5130.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-7c0af12d.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-7d2ffdd4.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9830,17 +9830,17 @@
   },
   {
     "case": "state_diagram/statediagram_v2_spec-832a9306.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-8caf701e.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-8e52b8cb.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9850,7 +9850,7 @@
   },
   {
     "case": "state_diagram/statediagram_v2_spec-99875eb0.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9860,22 +9860,22 @@
   },
   {
     "case": "state_diagram/statediagram_v2_spec-a3eb7f21.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-a4f41ba5.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-a9fa4e8f.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-aea9ccdf.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9885,52 +9885,52 @@
   },
   {
     "case": "state_diagram/statediagram_v2_spec-c7fc7503.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-ca7bd330.mmd",
-    "verdict": "artifact",
+    "verdict": "invalid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-d49fc4c4.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-d55cf668.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-d5b0460d.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-d6232e7e.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-df15b06f.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-e333ffe5.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-e67480a3.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-eb42ee32.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -9940,37 +9940,37 @@
   },
   {
     "case": "state_diagram/statediagram_v2_spec-f6b3bf00.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-f799c529.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-fa817cac.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-fb640eeb.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/statediagram_v2_spec-fb978528.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/super_simple-118f2a7e.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "state_diagram/super_simple-d28d6357.mmd",
-    "verdict": "artifact",
+    "verdict": "valid",
     "pass": true
   },
   {
