@@ -38,12 +38,12 @@ RSpec.describe LayoutParity do
     fake_result_class.new("case" => "g/1.mmd", "geometry" => geometry)
   end
 
-  it "normalizes an infinite ledger metric to nil, the " \
-     "no-comparable-metric value" do
+  it "preserves an infinite ledger metric as the infinity encoding" do
     row = SpecSupport::LayoutParity::CaseLedger
       .build([infinite_metric_result]).first
 
-    expect(row.fetch("summary").fetch("metrics").fetch("worst_e_w")).to be_nil
+    expect(row.fetch("summary").fetch("metrics").fetch("worst_e_w"))
+      .to eq("Infinity")
   end
 
   it "atomically records the complete fresh ledger" do
