@@ -24,8 +24,9 @@ module Etassia
           ARROW = /-+(?:[a-z]+-+)?>/
           FLAT = /\A-(?:right-)?>\z/
           END_STATE = /\A(?:--|\|\|)\z/
-          STATE_OPEN = /\Astate[ \t]+(?:"([^"]+)"[ \t]+as[ \t]+(#{NAME})|
+          STATE_OPEN = /\Astate[ \t]+(?:"([^"]+)"(?:[ \t]+as[ \t]+(#{NAME}))?|
                          (#{NAME}))(?:[ \t]*<<([^<>]+)>>)?
+                         (?:[ \t]*(\$\w+))?
                          (?:[ \t]*(\#\S+))?
                          (?:[ \t]*(\{))?(?:[ \t]*:[ \t]*(.+))?\z/xo
           TRANSITION = /\A(#{NAME}#{MARK}?|#{MARK})[ \t]*(#{ARROW})[ \t]*
@@ -36,19 +37,21 @@ module Etassia
                       (?:[ \t]*:[ \t]*(.+))?\z/xo
           NOTE = /\Anote[ \t]+(left|right|top|bottom)[ \t]+of[ \t]+(#{NAME})
                   (?:[ \t]*:[ \t]*(.+))?\z/xio
+          NOTE_AS = /\Anote[ \t]+as[ \t]+(#{NAME})\z/xio
           END_NOTE = /\Aend[ \t]*note\z/i
           DESCRIPTION = /\A(#{NAME})[ \t]*:[ \t]*(.+)\z/o
           STYLE_BLOCK = %r{\A<style>\z}i
           END_STYLE = %r{\A</style>\z}i
           SKIN_BLOCK = /\Askinparam[ \t]+\S+[ \t]*\{\z/i
-          SKIPPED = /\A(?:scale\b|title\b|hide\b|skinparam\b|left to right
-                     direction\z|top to bottom direction\z)/xi
+          SKIPPED = /\A(?:scale\b|title\b|hide\b|remove\b|restore\b|skinparam\b|
+                     !pragma\b|left to right direction\z|
+                     top to bottom direction\z)/xi
           SCALE = /\Ascale[ \t]+(\d+(?:\.\d+)?)(?:[ \t]+(width|height))?\z/i
           HISTORY = { "[H]" => ["history", "H"],
                       "[H*]" => ["deep_history", "H*"] }.freeze
           private_constant :NAME, :MARK, :ARROW, :END_STATE, :STATE_OPEN,
                            :FLAT, :TRANSITION, :REVERSED, :SCALE, :NOTE,
-                           :END_NOTE,
+                           :NOTE_AS, :END_NOTE,
                            :STYLE_BLOCK, :END_STYLE, :SKIN_BLOCK,
                            :DESCRIPTION, :SKIPPED, :HISTORY
 
@@ -89,6 +92,14 @@ module Etassia
           # @raise [UnsupportedConstructError] on a line outside the subset
           # @raise [Etassia::Parser::ParseError] when a `{` is never closed
           def parse(source)
+            prepare
+            self.class.lines_of(source).each { |line| read(*line) }
+            raise unclosed unless @scopes.size == 1 && @note.nil?
+
+            @model
+          end
+
+          def prepare
             @flat = []
             @model = Etassia::Diagram::StateDiagram.new(direction: "TB")
             @states = {}
@@ -96,10 +107,7 @@ module Etassia
             @note = nil
             @owners = {}
             @closing = nil
-            self.class.lines_of(source).each { |line| read(*line) }
-            raise unclosed unless @scopes.size == 1 && @note.nil?
-
-            @model
+            @last_state = nil
           end
 
           private
@@ -141,9 +149,9 @@ module Etassia
               description(text)
           end
 
-          # A note is one line (`note left of A : text`) or a block closed by
-          # `end note`; `\n` in the text breaks a line, as PlantUML draws it.
           def note(text)
+            return open_named_note if NOTE_AS.match?(text)
+
             match = NOTE.match(text)
             return unless match
 
@@ -154,6 +162,19 @@ module Etassia
               @note = [target, match[1].downcase, []]
             end
             true
+          end
+
+          # `note as NAME` floats in PlantUML, but the model requires a
+          # target, so it attaches to the last declared state.
+          def open_named_note
+            unless @last_state
+              raise UnsupportedConstructError.new(
+                construct: "state statement", line: 0,
+                text: "note as without a declared state"
+              )
+            end
+
+            @note = [@last_state, "bottom", []]
           end
 
           def note_line(text)
@@ -191,10 +212,11 @@ module Etassia
             return unless match
 
             state = ensure_state(match[2] || match[3])
+            @last_state = state
             adopt(state)
             state.label = match[1] if match[1]
-            describe(state, match[7]) if match[7]
-            @scopes.push(state) if match[6]
+            describe(state, match[8]) if match[8]
+            @scopes.push(state) if match[7]
             true
           end
 

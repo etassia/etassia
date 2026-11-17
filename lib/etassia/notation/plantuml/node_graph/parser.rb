@@ -30,12 +30,13 @@ module Etassia
                    (?<tail>(?:\s*<<.*?>>)?(?:\s+\#\w+)?)\z/x
           BARE = /\A(?<id>#{IDENT})\s*(?<tail><<.*>>)\z/
           LOLLIPOP = /\A\(\)\s+(?<rest>.+)\z/
-          SKIPPED = /\A(?:skinparam|hide|show|allow_?mixing|scale)\b/i
+          SKIPPED = /\A(?:skinparam|hide|show|allow_?mixing|scale|!pragma)\b/i
           SHAPES = /\A(?:queue|stack|agent|boundary|control|collections|
                     hexagon|label|person)\s/xi
           KEYWORDS_REFUSED = /\A(?:legend|header|footer|sprite|mainframe|
                               together)\b/xi
-          REFUSED = { /\A<style>/i => "style block", /\A!/ => "preprocessor",
+          REFUSED = { /\A<style>/i => "style block",
+                      /\A!(?!pragma\b)/ => "preprocessor",
                       KEYWORDS_REFUSED => "keyword",
                       /\Afloating\s+note/i => "floating note",
                       SHAPES => "shape" }.freeze
@@ -71,12 +72,22 @@ module Etassia
           def statement(text, number)
             @number = number
             @text = text
+            return skip_sprite if SPRITE.match?(text)
             return if skip?(text)
 
             handlers = %i[close container note short lollipop data entity leaf
                           bare er_edge edge]
             handlers.any? { |name| send(:"take_#{name}", text) } ||
               refuse("statement")
+          end
+
+          # A `sprite $name <svg ...>...</svg>` defines an icon over several
+          # lines; icons are dropped, the rest renders.
+          SPRITE = /\Asprite[ \t]+\S+[ \t]*<svg/i
+          private_constant :SPRITE
+
+          def skip_sprite
+            @index += 1 until @entries[@index - 1][0].include?("</svg>")
           end
 
           def skip?(text)

@@ -20,15 +20,21 @@ module Etassia
           ID = /[A-Za-z_]\w*/
           KINDS = "robust|concise|clock|binary|analog"
           TIME = %r{\+?\d+(?:\.\d+)?|\d{4}/\d{2}/\d{2}}
-          CLOCK = /(?:[ \t]+with[ \t]+period[ \t]+(?<period>\d+)
-                   (?:[ \t]+pulse[ \t]+(?<pulse>\d+))?
-                   (?:[ \t]+offset[ \t]+(?<offset>\d+))?)?/x
+          NUMBER = /\d+(?:\.\d+)?/
+          CLOCK =
+            /(?:[ \t]+with[ \t]+period[ \t]+(?<period>#{NUMBER})
+              (?:[ \t]+pulse[ \t]+(?<pulse>#{NUMBER}))?
+              (?:[ \t]+(?:and[ \t]+)?offset[ \t]+(?<offset>#{NUMBER}))?)?/xo
+          STYLE_OPEN = %r{\A<style>\z}i
+          STYLE_CLOSE = %r{\A</style>\z}i
           RULES = [
             [/\A(?<kind>#{KINDS})[ \t]+(?:"(?<title>[^"]+)"[ \t]+as[ \t]+
               (?<id>#{ID})|(?<bare>#{ID}))#{CLOCK}\z/xio, :participant],
             [/\A@(?<time>#{TIME})\z/o, :at],
+            [/\A@(?<anchor>#{ID})\z/o, :at_participant],
             [/\A(?<id>#{ID})[ \t]+is[ \t]+(?<state>.+)\z/o, :change],
-            [/\A(?<from>#{ID})[ \t]*->[ \t]*(?<to>#{ID})(?:@(?<arrives>\d+))?
+            [/\A(?<from>#{ID})[ \t]*->[ \t]*(?<to>#{ID})
+              (?:@(?<arrives>#{TIME}))?
               (?:[ \t]*:[ \t]*(?<label>.*))?\z/xo, :message],
             [/\Ahighlight[ \t]+(?<from>#{TIME})[ \t]+to[ \t]+(?<to>#{TIME})
               (?:[ \t]+(?<colour>\#\S+))?
@@ -36,8 +42,12 @@ module Etassia
             [/\Ascale[ \t]+(?<units>\d+)[ \t]+as[ \t]+(?<pixels>\d+)[ \t]+
               pixels\z/xi, :scale],
           ].freeze
+          # `@T <-> @+N : {..}` states a duration constraint between two
+          # anchors; the model has no slot for it, so the line steps over.
+          CONSTRAINT = /\A@#{TIME}[ \t]*<->/xo
           SKIPPED = /\A(?:title|hide|skinparam|header|footer|caption)\b/i
-          private_constant :Line, :ID, :KINDS, :TIME, :CLOCK, :RULES,
+          private_constant :Line, :ID, :KINDS, :TIME, :NUMBER, :CLOCK,
+                           :STYLE_OPEN, :STYLE_CLOSE, :RULES, :CONSTRAINT,
                            :SKIPPED
 
           # @param source [String] PlantUML source
@@ -47,6 +57,7 @@ module Etassia
             @diagram = Diagram.new(participants: {}, changes: [],
                                    messages: [], highlights: [], dated: false)
             @now = 0
+            @closing = nil
             State::Reader.lines_of(source).each do |text, number|
               read(Line.new(number, text))
             end
@@ -56,16 +67,39 @@ module Etassia
           private
 
           def read(line)
-            return if SKIPPED.match?(line.text)
+            return close_style(line.text) if @closing
+            return open_style(line.text) if STYLE_OPEN.match?(line.text)
+            return if skippable?(line)
 
+            rule = match_rule(line)
+            raise refused(line) unless rule
+
+            send(rule.first, line, rule.last)
+          end
+
+          def skippable?(line)
+            SKIPPED.match?(line.text) || CONSTRAINT.match?(line.text)
+          end
+
+          def match_rule(line)
             RULES.each do |pattern, handler|
               match = pattern.match(line.text)
-              next unless match
-
-              return send(handler, line,
-                          match.named_captures.transform_keys(&:to_sym))
+              if match
+                return [handler,
+                        match.named_captures.transform_keys(&:to_sym)]
+              end
             end
-            raise refused(line)
+            nil
+          end
+
+          # A `<style>` body carries presentation only; the reader steps
+          # over it.
+          def open_style(_text)
+            @closing = STYLE_CLOSE
+          end
+
+          def close_style(text)
+            @closing = nil if STYLE_CLOSE.match?(text)
           end
 
           def refused(line)
@@ -91,6 +125,14 @@ module Etassia
 
           def at(_line, fields)
             @now = moment(fields[:time], @now)
+          end
+
+          # `@WU` anchors time where WU last changed, or 0 before that.
+          def at_participant(line, fields)
+            id = fields[:anchor]
+            known(line, id)
+            @now = @diagram.changes.select { |change| change.id == id }
+              .map(&:time).max || 0
           end
 
           def change(line, fields)

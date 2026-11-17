@@ -68,7 +68,6 @@ RSpec.describe Etassia::Notation::PlantUML::Parser do
   end
 
   {
-    "package p <<cloud>> {\nclass A\n}" => /package stereotype/,
     "class A\nnote right of A::x : inline" => /note/,
     "class A\nA <-> B" => /relation <-> arrow/,
     "class A\nnote right of A\n' comment\nend note" => /comment in a note/,

@@ -19,10 +19,10 @@ module Etassia
         PROPERTIES = { "backgroundcolor" => :background,
                        "fontcolor" => :colour, "fontsize" => :size }.freeze
         OPENING = /\A(\.?\w+)[ \t]*\{\z/
-        # Element rules (`state { ... }`, `.hot { ... }`) belong to
-        # {Style::Reader}; this reader steps over them.
+        # Element rules (`state { ... }`, `.hot { ... }`, PlantUML's `root`)
+        # belong to {Style::Reader}; this reader steps over them.
         ELEMENTS = %w[classdiagram statediagram activitydiagram class state
-                      activity note arrow].freeze
+                      activity note arrow root].freeze
         PROPERTY = /\A(\w+)[ \t]+(\S+)\z/
         CLOSING_TAG = %r{\A</style>\z}i
         private_constant :DOCUMENT, :PROPERTIES, :ELEMENTS, :OPENING, :PROPERTY,

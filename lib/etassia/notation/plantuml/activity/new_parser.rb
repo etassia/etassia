@@ -20,14 +20,17 @@ module Etassia
             [/\Astart\z/i, :on_start],
             [/\Astop\z/i, :on_stop],
             [/\Aend\z/i, :on_end],
+            [/\Aend\s*group\z/i, :on_close_partition],
             [/\Akill\z/i, :on_kill],
             [/\Atitle\s+(.+)\z/i, :on_title],
             [/\A(?<colour>#\w+)?:(?<text>.*)\z/m, :on_action],
             [/\A-+(?:\[(?<spec>[^\]]*)\])?-*>\s*(?<text>.*)\z/m, :on_arrow],
             [/\A\|(?:(?<colour>#\w+)\|)?(?<name>[^|]+)\|\z/, :on_lane],
-            [/\Anote\s+(?<side>left|right)\s*(?:of\s+\S+\s*)?
-             (?::(?<text>.*))?\z/xi, :on_note],
-            [/\Apartition\s+(?<name>.*?)\s*\{\z/i, :on_partition],
+            [/\A(?:floating[ \t]+)?note[ \t]+(?:floating[ \t]+)?
+              (?<side>left|right)[ \t]*(?:of[ \t]+\S+[ \t]*)?
+              (?::(?<text>.*))?\z/xi, :on_note],
+            [/\A(?:partition|group)\s+(?<name>.*?)(?:\s*\{)?\z/i,
+             :on_partition],
             [/\A\}\z/, :on_close_partition],
           ].freeze
           STATEMENTS = (SIMPLE + Blocks::PATTERNS).freeze
@@ -51,11 +54,61 @@ module Etassia
           def statement(line, number)
             @line = line
             @number = number
+            construct = decoloured_construct(line)
+            return send(*construct) if construct
+            return skip_sprite(line) if SPRITE.match?(line)
+            return if pragma?(line)
+
+            match_statement(line) || match_statement(undecorated(line)) ||
+              refuse("statement", line)
+          end
+
+          def pragma?(line)
+            line.match?(/\A!pragma\b/)
+          end
+
+          # A `sprite $name <svg ...>...</svg>` defines an icon; its body
+          # runs over several lines. Icons are dropped, the rest renders.
+          SPRITE = /\Asprite[ \t]+\S+[ \t]*<svg/i
+          SPRITE_REF = /<\$\w+>/
+          private_constant :SPRITE, :SPRITE_REF
+
+          def skip_sprite(line)
+            until line.include?("</svg>")
+              line = next_line
+            end
+          end
+
+          def match_statement(line)
             STATEMENTS.each do |pattern, handler|
               match = pattern.match(line)
-              return send(handler, match) if match
+              next unless match
+
+              send(handler, match)
+              return true
             end
-            refuse("statement", line)
+            nil
+          end
+
+          # The deprecated `#colour:` prefix on a construct line colours the
+          # construct's node; the structure is what matters, so a coloured
+          # construct gets its block handler with the colour dropped.
+          def decoloured_construct(line)
+            rest = line.match(/\A#\w+:[ \t]*(.*)\z/m)&.captures&.first
+            return unless rest
+
+            Blocks::PATTERNS.each do |pattern, handler|
+              match = pattern.match(rest)
+              return [handler, match] if match
+            end
+            nil
+          end
+
+          # A trailing `<<colour>>` on a branching line colours the arm's
+          # arrow; it carries no structure, so decorated lines get a second
+          # match without it.
+          def undecorated(line)
+            line.sub(/(?:[ \t]*<<[^<>]*>>)+\z/, "")
           end
 
           def on_start(_match)
@@ -117,7 +170,8 @@ module Etassia
           end
 
           def on_partition(match)
-            title = match[:name].gsub(/#\w+/, "").delete('"').strip
+            title = match[:name].gsub(/#\w+/, "").gsub(/<<.*?>>/, "")
+              .delete('"').strip
             @builder.partition(title, line: @number, text: @line)
           end
 
@@ -125,11 +179,15 @@ module Etassia
             @builder.partition(nil)
           end
 
-          # Text that runs to the next line ending in `;`.
+          # Text that runs to the next line ending in `;`. A deprecated
+          # `<<colour>>` decoration may follow the semicolon.
+          TERMINATOR = /;[ \t]*(?:<<[^<>]*>>)*\z/
+          private_constant :TERMINATOR
+
           def collect(first)
             text = first.dup
-            text << "\n" << next_line until text.end_with?(";")
-            text.chomp(";")
+            text << "\n" << next_line until text.match?(TERMINATOR)
+            text.sub(TERMINATOR, "")
           end
 
           def collect_note
@@ -163,7 +221,10 @@ module Etassia
           end
 
           def clean(text)
-            Text.clean(text, line: @number)
+            stripped = text.gsub(SPRITE_REF, "")
+            @builder.warn("sprite dropped from the label") if
+              stripped != text
+            Text.clean(stripped, line: @number)
           end
 
           def refuse(construct, text)
