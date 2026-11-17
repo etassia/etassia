@@ -28,6 +28,9 @@ RSpec.describe Etassia::Layout::Gantt do
   it "ticks the axis every two days across the span" do
     expect(scene.timeline.labels.map(&:text).first(3))
       .to eq(["2014-01-01", "2014-01-03", "2014-01-05"])
+  end
+
+  it "ends the axis at the task's last day" do
     expect(scene.timeline.labels.map(&:text).last).to eq("2014-01-31")
   end
 end
