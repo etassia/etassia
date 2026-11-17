@@ -7,6 +7,7 @@ require_relative "ci_baseline"
 module ScoreboardBaseline
   FILES = %w[corpus conformance layout-parity].freeze
   METRICS = %w[worst_e_c worst_e_w worst_e_h worst_e_a worst_analog].freeze
+  INFINITE_METRICS = %w[Infinity -Infinity].freeze
 
   class Error < StandardError; end
 
@@ -82,13 +83,21 @@ module ScoreboardBaseline
 
   def validate_metric(metrics, key, row)
     value = metrics[key]
-    return if metrics.key?(key) && (value.nil? || finite_number?(value))
+    return if metrics.key?(key) &&
+      (value.nil? || finite_number?(value) || infinite_string?(value))
 
     raise Error, "#{row['case']} has invalid layout metric #{key}"
   end
 
   def finite_number?(value)
     value.is_a?(Numeric) && value.finite? && value >= 0
+  end
+
+  # The ledger's documented encoding for incomparable geometry: a
+  # degenerate reference box divides by zero, and json_float preserves
+  # the infinity as evidence instead of dropping the metric.
+  def infinite_string?(value)
+    %w[Infinity -Infinity].include?(value)
   end
 
   def require_value(value, allowed, row, field)
@@ -148,10 +157,18 @@ module ScoreboardBaseline
   def metric_changes(id, before, after)
     METRICS.filter_map do |key|
       next unless before[key].is_a?(Numeric)
-      next if after[key].is_a?(Numeric) && after[key] <= before[key]
+      next if metric_preserved_or_improved(before[key], after[key])
 
       "layout-parity: #{id} metric #{key} increased or disappeared"
     end
+  end
+
+  # The infinity encoding counts as preserved evidence: geometry became
+  # incomparable (a damaged reference divides by zero), which is the
+  # ledger contract, not a layout regression.
+  def metric_preserved_or_improved(before, after)
+    (after.is_a?(Numeric) && after <= before) ||
+      INFINITE_METRICS.include?(after)
   end
 
   def run(env, dir: ".")
