@@ -106,15 +106,15 @@ module SpecSupport
         raise ArgumentError, "#{key.class} is not a JSON object key"
       end
 
-      # A non-finite metric is incomparable geometry -- a degenerate
-      # reference box divides by zero -- and nil is the row shape's
-      # "no comparable metric" value. Infinity and NaN are not JSON-safe
-      # and the scoreboard validator rejects them.
       def json_float(value)
-        return nil unless value.finite?
+        if value.finite?
+          rounded = value.round(SCOREBOARD_DECIMAL_PLACES)
+          return rounded.zero? ? 0.0 : rounded
+        end
+        return "Infinity" if value.infinite? == 1
+        return "-Infinity" if value.infinite? == -1
 
-        rounded = value.round(SCOREBOARD_DECIMAL_PLACES)
-        rounded.zero? ? 0.0 : rounded
+        raise ArgumentError, "NaN is not a JSON value"
       end
 
       def normalized_metric(value)
