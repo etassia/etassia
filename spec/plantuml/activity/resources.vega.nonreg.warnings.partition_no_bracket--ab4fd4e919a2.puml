@@ -1,0 +1,11 @@
+@startuml
+partition "My part"
+:A;
+}
+partition #pink P2
+:B;
+}
+partition P3 #cyan <<s>>
+:C;
+}
+@enduml

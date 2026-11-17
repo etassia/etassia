@@ -1,0 +1,12 @@
+{
+  "id": "resources.svg-sprites.svgTransformScale--765d7ceef948",
+  "type": "activity",
+  "upstream_path": "src/test/resources/svg-sprites/svgTransformScale.puml",
+  "test": "svgTransformScale",
+  "origin": "resource",
+  "line_number": 1,
+  "source_sha256": "765d7ceef94894d36108b977e28ff9d582376c4d2d58a241ff052fabdb1e0fda",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

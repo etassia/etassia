@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.state.concurrent-with-internal-transitions--e3aca9e00cfa",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/state/concurrent-with-internal-transitions.puml",
+  "test": "concurrent-with-internal-transitions",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "e3aca9e00cfa900614bfd09ba0194327f1924cb1bb69a8e04b9302826b695cb8",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

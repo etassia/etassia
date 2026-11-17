@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.state.concurrent-pipe-two-regions--a175de3aac5c",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/state/concurrent-pipe-two-regions.puml",
+  "test": "concurrent-pipe-two-regions",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "a175de3aac5cbe017d54a3afc36a46a2f6246397010b0e7e6fb3279a93d63fb5",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

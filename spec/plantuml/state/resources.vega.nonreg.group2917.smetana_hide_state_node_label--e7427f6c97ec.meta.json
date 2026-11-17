@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.group2917.smetana_hide_state_node_label--e7427f6c97ec",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/nonreg/group2917/smetana_hide_state_node_label.puml",
+  "test": "smetana_hide_state_node_label",
+  "origin": "resource",
+  "line_number": 5,
+  "source_sha256": "e7427f6c97ec1f7daa5d38748ca24742dd60d9786dace2933a6e634a4ec99324",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

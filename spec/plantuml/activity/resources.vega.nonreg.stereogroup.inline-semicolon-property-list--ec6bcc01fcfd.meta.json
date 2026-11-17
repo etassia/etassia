@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.stereogroup.inline-semicolon-property-list--ec6bcc01fcfd",
+  "type": "activity",
+  "upstream_path": "src/test/resources/vega/nonreg/stereogroup/inline-semicolon-property-list.puml",
+  "test": "inline-semicolon-property-list",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "ec6bcc01fcfd91b9f3d01e7c8665d416b0fd8416d8956ef04610e021d2909f0f",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

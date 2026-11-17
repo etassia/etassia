@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.state.concurrent-pipe-with-nested-composite-region--ea0ea05e9906",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/state/concurrent-pipe-with-nested-composite-region.puml",
+  "test": "concurrent-pipe-with-nested-composite-region",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "ea0ea05e9906359c3f426196087fb6ecf6673e4b32056f2434965b45297bcc8e",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

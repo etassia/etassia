@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.activity-deprecated-color.if_is_stereo--065d92cda34a",
+  "type": "activity",
+  "upstream_path": "src/test/resources/vega/nonreg/activity-deprecated-color/if_is_stereo.puml",
+  "test": "if_is_stereo",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "065d92cda34a25fd2ec6e7d871da3fd7d926fcfd171fb36efb0e5aa7600a4c52",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

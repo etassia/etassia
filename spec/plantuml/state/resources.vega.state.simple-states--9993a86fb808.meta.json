@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.state.simple-states--9993a86fb808",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/state/simple-states.puml",
+  "test": "simple-states",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "9993a86fb80828b9fa78d43a6662762904ccd50982467e953dec776d2bda4f73",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

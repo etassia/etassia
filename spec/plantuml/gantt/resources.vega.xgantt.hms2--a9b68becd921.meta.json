@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.xgantt.hms2--a9b68becd921",
+  "type": "gantt",
+  "upstream_path": "src/test/resources/vega/xgantt/hms2.puml",
+  "test": "hms2",
+  "origin": "resource",
+  "line_number": 6,
+  "source_sha256": "a9b68becd9210437e44d0f15865bd76b2f4060f30ab80075d7cda758b0c1d902",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

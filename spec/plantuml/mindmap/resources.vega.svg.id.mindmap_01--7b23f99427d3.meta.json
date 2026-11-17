@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.svg.id.mindmap_01--7b23f99427d3",
+  "type": "mindmap",
+  "upstream_path": "src/test/resources/vega/svg/id/mindmap_01.puml",
+  "test": "mindmap_01",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "7b23f99427d34f46805e0efbd2b6b86b9c71556418fb7d0d004a27f05eb425a2",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

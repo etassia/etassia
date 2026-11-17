@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.svg.interactive.SVG0005_Svek--048648e8007e",
+  "type": "component",
+  "upstream_path": "src/test/resources/vega/svg/interactive/SVG0005_Svek.puml",
+  "test": "SVG0005_Svek",
+  "origin": "resource",
+  "line_number": 5,
+  "source_sha256": "048648e8007e5bd1593162ebf0cf551ad087a855543949a221c92ca29ccaeb09",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

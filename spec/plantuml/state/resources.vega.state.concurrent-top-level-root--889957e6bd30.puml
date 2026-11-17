@@ -1,0 +1,8 @@
+@startuml
+!pragma layout smetana
+state A
+A --> A : evt1
+--
+state B
+B --> B : evt2
+@enduml

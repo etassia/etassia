@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.warnings.end_group--c7e1c5f66dd6",
+  "type": "activity",
+  "upstream_path": "src/test/resources/vega/nonreg/warnings/end_group.puml",
+  "test": "end_group",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "c7e1c5f66dd68b66858f2c8e108c3694bce6d65e8274ba38b90e0a924a6fae93",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

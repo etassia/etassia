@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.scxml.state5--5f7b0a94d845",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/scxml/state5.puml",
+  "test": "state5",
+  "origin": "resource",
+  "line_number": 5,
+  "source_sha256": "5f7b0a94d8457e672940dbd70bfa4fa1516c6d494153e430228431ab1411ba84",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

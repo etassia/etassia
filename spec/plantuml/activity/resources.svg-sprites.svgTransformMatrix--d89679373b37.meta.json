@@ -1,0 +1,12 @@
+{
+  "id": "resources.svg-sprites.svgTransformMatrix--d89679373b37",
+  "type": "activity",
+  "upstream_path": "src/test/resources/svg-sprites/svgTransformMatrix.puml",
+  "test": "svgTransformMatrix",
+  "origin": "resource",
+  "line_number": 1,
+  "source_sha256": "d89679373b3752d9161815ca9705b06cf579a23002eb65e37c748d31c7168dbe",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

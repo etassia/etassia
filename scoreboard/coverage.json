@@ -221,10 +221,10 @@
     {
       "type": "class_diagram",
       "carried": true,
-      "corpus_cases": 37,
-      "oracle_valid": 35,
+      "corpus_cases": 39,
+      "oracle_valid": 37,
       "corpus_passing": 35,
-      "status": "35/35 oracle-valid cases pass; 2/37 cases are rejected by the pinned oracle"
+      "status": "35/37 oracle-valid cases pass; 2/39 cases are rejected by the pinned oracle"
     },
     {
       "type": "sequence_diagram",
@@ -237,68 +237,90 @@
     {
       "type": "activity_diagram",
       "carried": true,
-      "corpus_cases": 0,
-      "status": "declared; no corpus yet"
+      "corpus_cases": 37,
+      "oracle_valid": 37,
+      "corpus_passing": 12,
+      "status": "12/37 oracle-valid cases pass; 0/37 cases are rejected by the pinned oracle"
     },
     {
       "type": "usecase_diagram",
       "carried": true,
-      "corpus_cases": 0,
-      "status": "declared; no corpus yet"
+      "corpus_cases": 2,
+      "oracle_valid": 2,
+      "corpus_passing": 2,
+      "status": "2/2 oracle-valid cases pass; 0/2 cases are rejected by the pinned oracle"
     },
     {
       "type": "component_diagram",
       "carried": true,
-      "corpus_cases": 0,
-      "status": "declared; no corpus yet"
+      "corpus_cases": 6,
+      "oracle_valid": 6,
+      "corpus_passing": 4,
+      "status": "4/6 oracle-valid cases pass; 0/6 cases are rejected by the pinned oracle"
     },
     {
       "type": "state_diagram",
       "carried": true,
-      "corpus_cases": 0,
-      "status": "declared; no corpus yet"
+      "corpus_cases": 42,
+      "oracle_valid": 42,
+      "corpus_passing": 14,
+      "status": "14/42 oracle-valid cases pass; 0/42 cases are rejected by the pinned oracle"
     },
     {
       "type": "entity_diagram",
       "carried": true,
       "corpus_cases": 0,
-      "status": "declared; no corpus yet"
+      "oracle_valid": 0,
+      "corpus_passing": 0,
+      "status": "0/0 oracle-valid cases pass; 0/0 cases are rejected by the pinned oracle"
     },
     {
       "type": "network_diagram",
       "carried": true,
       "corpus_cases": 0,
-      "status": "declared; no corpus yet"
+      "oracle_valid": 0,
+      "corpus_passing": 0,
+      "status": "0/0 oracle-valid cases pass; 0/0 cases are rejected by the pinned oracle"
     },
     {
       "type": "timing_diagram",
       "carried": true,
-      "corpus_cases": 0,
-      "status": "declared; no corpus yet"
+      "corpus_cases": 3,
+      "oracle_valid": 3,
+      "corpus_passing": 0,
+      "status": "0/3 oracle-valid cases pass; 0/3 cases are rejected by the pinned oracle"
     },
     {
       "type": "ebnf_diagram",
       "carried": true,
       "corpus_cases": 0,
-      "status": "declared; no corpus yet"
+      "oracle_valid": 0,
+      "corpus_passing": 0,
+      "status": "0/0 oracle-valid cases pass; 0/0 cases are rejected by the pinned oracle"
     },
     {
       "type": "mindmap",
       "carried": true,
-      "corpus_cases": 0,
-      "status": "declared; no corpus yet"
+      "corpus_cases": 4,
+      "oracle_valid": 4,
+      "corpus_passing": 4,
+      "status": "4/4 oracle-valid cases pass; 0/4 cases are rejected by the pinned oracle"
     },
     {
       "type": "gantt",
       "carried": true,
-      "corpus_cases": 0,
-      "status": "declared; no corpus yet"
+      "corpus_cases": 17,
+      "oracle_valid": 16,
+      "corpus_passing": 1,
+      "status": "1/16 oracle-valid cases pass; 1/17 cases are rejected by the pinned oracle"
     },
     {
       "type": "object_diagram",
       "carried": true,
       "corpus_cases": 0,
-      "status": "declared; no corpus yet"
+      "oracle_valid": 0,
+      "corpus_passing": 0,
+      "status": "0/0 oracle-valid cases pass; 0/0 cases are rejected by the pinned oracle"
     }
   ],
   "reference-gaps": {

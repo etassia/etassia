@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.state.composite-two-levels-nested--1e3e287a2c91",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/state/composite-two-levels-nested.puml",
+  "test": "composite-two-levels-nested",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "1e3e287a2c91bfd3ebaf6986823daee9f1eabcf8f8d6c48215cd39500024f855",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

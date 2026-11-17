@@ -1,0 +1,12 @@
+{
+  "id": "resources.svg-sprites.svgTransformRotate--17809190493c",
+  "type": "activity",
+  "upstream_path": "src/test/resources/svg-sprites/svgTransformRotate.puml",
+  "test": "svgTransformRotate",
+  "origin": "resource",
+  "line_number": 1,
+  "source_sha256": "17809190493cd9c9cb00fdc32da0c5cd83a986541558bbff3dac690cd18a32e4",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

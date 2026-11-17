@@ -87,15 +87,29 @@ module Plantuml
 
     def result_for(id)
       reference = reference_path(id)
+      etassia_svg, render_error = render_source(id)
       SpecSupport::LayoutParity::CaseComparator.compare(
         case_id: "plantuml/class/#{id}", type: "plantuml_class",
         reference: reference, reference_svg: File.read(reference),
-        etassia_svg: Etassia.render(File.read(source_path(id)),
-                                    notation: :plantuml),
+        etassia_svg: etassia_svg, render_error: render_error,
         reproduce: "bundle exec rspec #{REPRODUCE}",
         recognizer: SpecSupport::LayoutParity::PlantumlClassRecognizer.new,
         spatial_kinds: [:class]
       )
+    end
+
+    def render_source(id)
+      [Etassia.render(File.read(source_path(id)), notation: :plantuml), nil]
+    rescue StandardError => e
+      [nil, render_error(e)]
+    end
+
+    def render_error(error)
+      {
+        error_stage: "unknown",
+        exception_class: error.class.name,
+        message: error.message.to_s.each_line.first.to_s.chomp,
+      }
     end
 
     def measured_rows
@@ -150,7 +164,7 @@ RSpec.describe Plantuml::ClassLayoutParity do
   before { Etassia::Notation.register(Etassia::Notation::PlantUML) }
 
   it "has pinned provenance for every oracle-valid class case" do
-    expect([case_ids.size, evidence_failures]).to eq([35, []])
+    expect([case_ids.size, evidence_failures]).to eq([37, []])
   end
 
   it "records exactly the oracle-valid class cases in the ledger" do

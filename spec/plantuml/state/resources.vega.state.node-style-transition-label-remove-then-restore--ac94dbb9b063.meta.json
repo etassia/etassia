@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.state.node-style-transition-label-remove-then-restore--ac94dbb9b063",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/state/node-style-transition-label-remove-then-restore.puml",
+  "test": "node-style-transition-label-remove-then-restore",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "ac94dbb9b063e3e6b1335bfa10ec15fa5ef0d2fc47fe1bddaedce18d4456a83e",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

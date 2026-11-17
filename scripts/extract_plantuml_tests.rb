@@ -1,9 +1,9 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Extracts PlantUML class and sequence diagram sources from PlantUML's own
-# test resources into spec/plantuml/<type>/, one `.puml` + `.meta.json` per
-# case, modeled on scripts/extract_mermaid_tests.rb.
+# Extracts PlantUML diagram sources (the declared kinds, see TYPES) from
+# PlantUML's own test resources into spec/plantuml/<type>/, one `.puml` +
+# `.meta.json` per case, modeled on scripts/extract_mermaid_tests.rb.
 #
 #   ruby scripts/extract_plantuml_tests.rb --upstream /path/to/plantuml/checkout
 #
@@ -19,7 +19,12 @@ require "open3"
 require "optparse"
 
 module PlantumlExtractor
-  TYPES = %w[class sequence].freeze
+  # The declared PlantUML kinds (Etassia::Notation::PlantUML.types sans the
+  # _diagram suffix, matching the corpus directory names). json, yaml, ditaa
+  # and wbs are deliberately absent: they are in the reference-gap list
+  # (issue #455), not carried.
+  TYPES = %w[activity usecase component state entity network timing ebnf
+             mindmap gantt object class sequence].freeze
 
   class CaseIdCollision < StandardError; end
 
@@ -32,44 +37,90 @@ module PlantumlExtractor
   # only on an explicit declaration, because PlantUML itself infers the type
   # and a bare `A -> B : hi` is valid in several diagram types.
   module Selection
-    CLASS_MARKER = %r{
-      ^\s*
-      (?:abstract\s+class|abstract|class|interface|enum|annotation|protocol|
-         struct|exception|metaclass|stereotype|circle|diamond)
-      \s+["\w<]
-    }x
-    SEQUENCE_MARKER = %r{
-      ^\s*(?:participant|actor|boundary|control|collections|queue)\s+["\w]
-      |^\s*(?:activate|deactivate|autonumber|ref\s+over|return)\b
-      |^\s*(?:alt|loop|opt|par|critical|break)\b.*$
-      |^\s*==[^=].*==\s*$
-      |^\s*newpage\b
-    }x
-    # Declarations that make the block belong to another diagram type or to
-    # no UML type at all; any of these disqualifies it.
-    OTHER_MARKER = %r{
-      ^\s*(?:usecase|component|node|cloud|artifact|folder|frame|rectangle|
-             state|start|stop|partition|mainframe|salt|gantt|mindmap|wbs|
-             json|yaml|nwdiag|ditaa|ebnf|regex|chen|ER|map|object)\b
-      |^\s*:.*;\s*$
-      |^\s*@start(?!uml)
-    }x
-    # `entity` and `database` are not markers: use-case, deployment and
-    # entity diagrams share them. `actor` is a marker only when no OTHER_MARKER
-    # line is present.
+    # One explicit-declaration marker per kind. A block classifies as `kind`
+    # only when exactly one kind's marker matches: PlantUML itself infers the
+    # type, and a bare `A -> B : hi` is valid in several diagram types, so
+    # ambiguous blocks stay out of the corpus rather than land in the wrong
+    # directory.
+    MARKERS = {
+      "activity" => %r{
+        ^\s*:(?!\s*$)[^;]*;\s*$
+        |^\s*(?:start|stop|kill|detach)\s*$
+        |^\s*->\s
+        |^\s*(?:partition|fork|split|repeat|backward|floating)\b
+        |^\s*(?:if|while|switch|foreach)\s*\(
+      }x,
+      "state" => %r{
+        ^\s*state\s+["\w\{]
+        |^\s*\[\*\]\s*(?:-->|-down->|-right->|-up->|-left->)
+      }x,
+      "object" => %r{^\s*object\s+["\w<]},
+      "usecase" => %r{
+        ^\s*usecase\s+["\w(]
+        |^\s*["\w)]\s*\(\([^)]*\)\)       # stadium (use ...) shape
+        |^\s*\(\([^)]*\)\)\s*["\w)]
+      }x,
+      "component" => %r{
+        ^\s*(?:component|node|cloud|artifact|folder|frame|storage)\s+["\w(]
+        |^\s*(?:port|edge)\s+["\w]
+      }x,
+      "timing" => %r{^\s*(?:concise|robust|clock)\s+["\w]},
+      "ebnf" => %r{^\s*ebnf\b},
+      "network" => %r{^\s*(?:network|server|router)\s+["\w]},
+      "class" => %r{
+        ^\s*
+        (?:abstract\s+class|abstract|class|interface|enum|annotation|protocol|
+           struct|exception|metaclass|stereotype|circle|diamond)
+        \s+["\w<]
+      }x,
+      "sequence" => %r{
+        ^\s*(?:participant|boundary|control|collections)\s+["\w]
+        |^\s*(?:activate|deactivate|autonumber|ref\s+over|return)\b
+        |^\s*(?:alt|loop|opt|par|critical|break)\b.*$
+        |^\s*==[^=].*==\s*$
+        |^\s*newpage\b
+      }x,
+    }.freeze
+
+    # Wrappers carry their kind unambiguously. Wrappers for kinds that are
+    # not carried (json, yaml, ditaa, wbs, salt, chen, crash, packetdiag)
+    # map to nothing and stay out.
+    WRAPPER_KINDS = {
+      "mindmap" => "mindmap", "gantt" => "gantt", "nwdiag" => "network"
+    }.freeze
+
+    # Element keywords that several kinds share: participant types (`actor`,
+    # `queue`, `entity`, `database` exist in sequence, use-case, deployment
+    # and ER contexts alike) and the `package` grouping, which is both a
+    # class-diagram nesting and a deployment element. A weak keyword decides
+    # the kind only when no explicit marker fired; beside an explicit marker
+    # it is a participant type or grouping inside that kind's diagram.
+    WEAK = {
+      "sequence" => %r{^\s*(?:actor|queue)\s+["\w]},
+      "entity" => %r{^\s*(?:entity|database)\s+["\w]},
+      "component" => %r{^\s*package\s+["\w(]},
+    }.freeze
 
     module_function
 
-    # @return [String, nil] "class", "sequence", or nil when unclassified
-    def type_of(source)
-      return nil if source.match?(OTHER_MARKER)
+    # @param wrapper [String, nil] the @start<name> wrapper's name, when the
+    #   block came from a per-kind wrapper rather than @startuml
+    # @return [String, nil] the corpus type, or nil when unclassified
+    def type_of(source, wrapper: nil)
+      return WRAPPER_KINDS[wrapper] if WRAPPER_KINDS.key?(wrapper)
+      return nil if wrapper
 
-      klass = source.match?(CLASS_MARKER)
-      seq = source.match?(SEQUENCE_MARKER)
-      return "class" if klass && !seq
-      return "sequence" if seq && !klass
+      kinds = explicit_kinds(source)
+      kinds = weak_kinds(source) if kinds.empty?
+      kinds.one? ? kinds.first : nil
+    end
 
-      nil
+    def explicit_kinds(source)
+      MARKERS.filter_map { |kind, marker| kind if source.match?(marker) }
+    end
+
+    def weak_kinds(source)
+      WEAK.filter_map { |kind, marker| kind if source.match?(marker) }
     end
   end
 
@@ -99,12 +150,15 @@ module PlantumlExtractor
     end
   end
 
-  Block = Struct.new(:path, :test, :origin, :source, :line, keyword_init: true)
+  Block = Struct.new(:path, :test, :origin, :source, :line, :wrapper,
+                     keyword_init: true)
 
-  # Pulls @startuml..@enduml blocks out of upstream files.
+  # Pulls @start<kind>..@end<kind> blocks out of upstream files. @startuml is
+  # the shared wrapper: its blocks classify through Selection markers, every
+  # per-kind wrapper carries its kind directly.
   module Blocks
-    BLOCK = /^[ \t]*@startuml\b[^\n]*\n.*?^[ \t]*@enduml\b[^\n]*$/m
-    INDENT_BEFORE_MARKER = /^[ \t]+(?=@(?:start|end)uml)/
+    BLOCK = /^[ \t]*@start(\w+)\b[^\n]*\n.*?^[ \t]*@end\1\b[^\n]*$/m
+    INDENT_BEFORE_MARKER = /^[ \t]+(?=@(?:start|end)\w+)/
 
     module_function
 
@@ -125,14 +179,34 @@ module PlantumlExtractor
       blocks = []
       text.scan(BLOCK) do
         match = Regexp.last_match
-        line = text[0...match.begin(0)].count("\n") + 1
-        blocks << Block.new(path: path, test: test, origin: origin,
-                            source: match[0].gsub(INDENT_BEFORE_MARKER, ""),
-                            line: line)
+        blocks << new_block(path, test, origin, match, text)
       end
       blocks
     end
+
+    def new_block(path, test, origin, match, text)
+      Block.new(path: path, test: test, origin: origin,
+                source: match[0].gsub(INDENT_BEFORE_MARKER, ""),
+                line: text[0...match.begin(0)].count("\n") + 1,
+                wrapper: match[1] == "uml" ? nil : match[1])
+    end
   end
+
+  # Fixtures the pinned oracle cannot judge — not valid, not rejected: the
+  # pinned PlantUML crashes mid-export on them, so no verdict can exist and
+  # the corpus cannot carry them. Keyed by upstream path; revisit when the
+  # pinned jar moves.
+  UNJUDGEABLE = {
+    "src/test/resources/vega/state/concurrent-empty-first-region.puml" =>
+      "pinned 1.2026.6 crashes mid-export on smetana + empty first region " \
+      "(IllegalArgumentException; exit 0, no data-diagram-type)",
+    "src/test/resources/vega/timing/clock-message-from-binary.puml" =>
+      "pinned 1.2026.6 crashes on clock messages to/from binary " \
+      "(UnsupportedOperationException; exit 0, no data-diagram-type)",
+    "src/test/resources/vega/timing/clock-message-to-binary.puml" =>
+      "pinned 1.2026.6 crashes on clock messages to/from binary " \
+      "(UnsupportedOperationException; exit 0, no data-diagram-type)",
+  }.freeze
 
   # Walks a checkout and returns every block, unsorted.
   class Walker
@@ -141,7 +215,9 @@ module PlantumlExtractor
     end
 
     def blocks
-      resource_blocks + java_blocks
+      (resource_blocks + java_blocks).reject do |block|
+        UNJUDGEABLE.key?(block.path)
+      end
     end
 
     private
@@ -177,7 +253,7 @@ module PlantumlExtractor
     end
 
     def add(cases, block)
-      type = Selection.type_of(block.source)
+      type = Selection.type_of(block.source, wrapper: block.wrapper)
       return unless TYPES.include?(type)
 
       id = CaseId.call(path: block.path, test: block.test, source: block.source)

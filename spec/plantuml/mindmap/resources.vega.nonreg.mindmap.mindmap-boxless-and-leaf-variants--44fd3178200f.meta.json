@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.mindmap.mindmap-boxless-and-leaf-variants--44fd3178200f",
+  "type": "mindmap",
+  "upstream_path": "src/test/resources/vega/nonreg/mindmap/mindmap-boxless-and-leaf-variants.puml",
+  "test": "mindmap-boxless-and-leaf-variants",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "44fd3178200f746e21b0a18effc87bcb47adaec4a227d35447f2d6484a435406",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

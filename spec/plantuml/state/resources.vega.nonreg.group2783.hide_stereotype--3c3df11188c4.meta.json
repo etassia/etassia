@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.group2783.hide_stereotype--3c3df11188c4",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/nonreg/group2783/hide_stereotype.puml",
+  "test": "hide_stereotype",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "3c3df11188c4e51f4567d3fec1843ae0c25310399555523a41517deb4729cf03",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

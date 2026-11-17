@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.state.junction-pseudostate--d0ba53c8774b",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/state/junction-pseudostate.puml",
+  "test": "junction-pseudostate",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "d0ba53c8774ba77594ca962c7ad4b2d5f889b750b80dd36e4182bfd60ca6f3ec",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

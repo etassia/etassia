@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.xgantt.gantt3--2cc7a7abc6c9",
+  "type": "gantt",
+  "upstream_path": "src/test/resources/vega/xgantt/gantt3.puml",
+  "test": "gantt3",
+  "origin": "resource",
+  "line_number": 6,
+  "source_sha256": "2cc7a7abc6c954f8f73944d416b78747a4fe9140c62094d0e4b94f26d3578cd7",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.tikz.tikz-scale-down--f8416a40f77a",
+  "type": "usecase",
+  "upstream_path": "src/test/resources/vega/tikz/tikz-scale-down.puml",
+  "test": "tikz-scale-down",
+  "origin": "resource",
+  "line_number": 5,
+  "source_sha256": "f8416a40f77a202c601b0388fb23a2e38ce80ee3e1e77e158f00173e908aeda8",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

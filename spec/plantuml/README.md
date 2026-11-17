@@ -1,7 +1,7 @@
 # spec/plantuml
 
-PlantUML class and sequence diagram sources extracted from PlantUML's own
-test suite by `scripts/extract_plantuml_tests.rb`
+PlantUML diagram sources (the declared kinds) extracted from PlantUML's
+own test suite by `scripts/extract_plantuml_tests.rb`
 (TODO.foundation/12, "Do" step 1). Layout mirrors `spec/mermaid/`:
 `<type>/<case id>.puml` plus `<type>/<case id>.meta.json`.
 
@@ -22,31 +22,57 @@ different value and a source URL, and none exists yet.
    `*.java` under `src/test/java/` of the pinned upstream checkout.
    `tools/perf-bench/` is a benchmark corpus, not test resources, and is
    excluded.
-2. A case is one `@startuml` ... `@enduml` block. `.puml` front matter
-   (`expected-*` test directives) is dropped. In Java files only text
-   inside `"""` blocks is read, verbatim; Java escape sequences are NOT
-   processed (`origin: java-text-block` in the meta).
-3. A block is `class` only if it has an explicit class-family
-   declaration (`class`, `abstract class`, `interface`, `enum`,
-   `annotation`, ...) and no sequence marker. It is `sequence` only if it
-   has an explicit sequence marker (`participant`, `actor`, `boundary`,
-   `control`, `collections`, `queue`, `activate`, `deactivate`,
-   `autonumber`, `alt`/`loop`/`opt`/`par`/`critical`/`break`, `ref over`,
-   `== divider ==`, `newpage`) and no class declaration.
-4. A block with a marker of another type (`usecase`, `component`, `node`,
-   `state`, `start`, `object`, `map`, ...) or an `@start` other than
-   `@startuml` is excluded. A block with both class and sequence markers,
-   or with neither, is excluded.
-5. Bare message diagrams (`A -> B : hi` with no declaration) are excluded
-   on purpose: PlantUML infers the type itself, and the same line is valid
-   in several diagram types. This under-selects sequence diagrams; it
+2. A case is one `@start<kind>` ... `@end<kind>` block. `@startuml` is the
+   shared wrapper; its blocks classify through the marker rules below.
+   A per-kind wrapper carries its kind directly: `@startgantt` → gantt,
+   `@startmindmap` → mindmap, `@startnwdiag` → network. Wrappers whose
+   kind is not carried (`@startwbs`, `@startjson`, `@startyaml`,
+   `@startditaa`, `@startsalt`, `@startchen`, `@startcrash`,
+   `@startpacketdiag`) are excluded — they are reference-gap candidates,
+   not corpus types. `.puml` front matter (`expected-*` test directives)
+   is dropped. In Java files only text inside `"""` blocks is read,
+   verbatim; Java escape sequences are NOT processed
+   (`origin: java-text-block` in the meta).
+3. Inside an `@startuml` block, an *explicit marker* is an unambiguous
+   declaration of one kind: activity (`:action;`, `start`/`stop`, `-> `,
+   `partition`, `fork`/`split`/`repeat`, `if`/`while`/`switch`), state
+   (`state X`, `[*] -->`), object (`object X`), usecase (`usecase X`,
+   stadium `(X)` shapes), component (`component`/`node`/`cloud`/
+   `artifact`/`folder`/`frame`/`storage`, `port`/`edge`), timing
+   (`concise`/`robust`/`clock`), ebnf (`ebnf`), network (`network`/
+   `server`/`router`), class (`class`, `interface`, `enum`, ...) and
+   sequence (`participant`, `boundary`, `control`, `collections`,
+   `activate`/`deactivate`, `autonumber`, `alt`/`loop`/`opt`/`par`/
+   `critical`/`break`, `ref over`, `== divider ==`, `newpage`).
+4. A *weak keyword* is an element declaration several kinds share:
+   `actor`/`queue` (sequence participants), `entity`/`database`
+   (entity rows and sequence participant types), `package` (class-diagram
+   grouping and deployment element). A weak keyword decides the kind only
+   when no explicit marker fired; beside an explicit marker it is an
+   element inside that kind's diagram (a `database` line in a
+   `participant`-bearing block is a sequence participant type, not an
+   entity diagram).
+5. A block classifies only when exactly one kind results. Blocks with
+   markers of several kinds, or with neither an explicit nor a weak
+   declaration, are excluded — bare message diagrams (`A -> B : hi` with
+   no declaration) on purpose: PlantUML infers the type itself, and the
+   same line is valid in several diagram types. This under-selects; it
    never mislabels one. The type is a heuristic, not an oracle verdict;
    step 2 may find a case PlantUML renders as a different type.
+6. A fixture the pinned oracle cannot judge — not valid, not rejected:
+   the pinned PlantUML crashes mid-export on it, so no verdict can exist —
+   is excluded at extraction (`UNJUDGEABLE` in the extractor, each entry
+   documenting the crash). Revisit when the pinned jar moves.
 
-Result at the pinned SHA: 37 class, 79 sequence. The sequence directory
-also holds 13 `etassia.*` ledger cases (no `.meta.json`, so outside the
-manifest checksum) that count in `pin.json` and the scoreboard. `!include`/`!define`
-blocks are kept and flagged `uses_preprocessor: true`.
+Result at the pinned SHA (cases, not files): 37 activity, 39 class,
+6 component, 17 gantt, 4 mindmap, 42 state, 3 timing, 2 usecase — and
+entity/network/ebnf/object stay empty: PlantUML's test resources carry no
+`@startuml` text fixtures for them (its ER coverage lives behind the
+uncarried `@startchen` wrapper). Three fixtures (one state, two timing)
+are excluded by rule 6. The sequence directory also holds 16
+`etassia.*` ledger cases (no `.meta.json`, so outside the manifest
+checksum) that count in `pin.json` and the scoreboard. `!include`/
+`!define` blocks are kept and flagged `uses_preprocessor: true`.
 
 ## Case IDs
 
@@ -74,12 +100,12 @@ four cases stay recorded rather than disappearing from the source corpus.
     git -C <dir> checkout <sha from pin.json>
     ruby scripts/extract_plantuml_tests.rb --upstream <dir>
 
-The committed oracle verdicts were generated atomically with the Homebrew
-PlantUML wrapper's Java first on `PATH` so the probed Java version is the
-runtime that actually renders the diagrams:
+The committed oracle verdicts are generated atomically with the pinned
+toolchain first on `PATH` (the `tools/bin/plantuml` shim pins the jar;
+Java and Graphviz come from the same pinned trio as `pin.json`):
 
-    PATH=/opt/homebrew/opt/openjdk/bin:/opt/homebrew/bin:$PATH \
-      ruby scripts/plantuml_oracle.rb \
+    PATH="$HOME/src/etassia/tools/bin:$HOME/src/etassia/tools/graphviz-15.1.1/bin:$PATH" \
+      mise exec java@26.0.2 -- ruby scripts/plantuml_oracle.rb \
       --write spec/plantuml/oracle-verdicts.yml spec/plantuml
 
 Scoreboard rows live in `scoreboard/plantuml.json`. `bundle exec rake plantuml`

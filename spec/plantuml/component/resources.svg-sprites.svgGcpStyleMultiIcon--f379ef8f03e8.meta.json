@@ -1,0 +1,12 @@
+{
+  "id": "resources.svg-sprites.svgGcpStyleMultiIcon--f379ef8f03e8",
+  "type": "component",
+  "upstream_path": "src/test/resources/svg-sprites/svgGcpStyleMultiIcon.puml",
+  "test": "svgGcpStyleMultiIcon",
+  "origin": "resource",
+  "line_number": 1,
+  "source_sha256": "f379ef8f03e83325f748c86622961d06bcddbc66b1c7ae0767ff6817b797a6d0",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

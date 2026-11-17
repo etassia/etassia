@@ -1,0 +1,12 @@
+{
+  "id": "resources.svg-sprites.svgTransformTranslate--a8ff9523d6bd",
+  "type": "activity",
+  "upstream_path": "src/test/resources/svg-sprites/svgTransformTranslate.puml",
+  "test": "svgTransformTranslate",
+  "origin": "resource",
+  "line_number": 1,
+  "source_sha256": "a8ff9523d6bd2f479a35eafb988b7fdd1687f841d6403e64cab2ae3c8d51d284",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.state.composite-two-levels-non-autarkic--59973592d243",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/state/composite-two-levels-non-autarkic.puml",
+  "test": "composite-two-levels-non-autarkic",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "59973592d243fcd75861085c6fa930ccd05f8d40d40ac2292bc702123eb30dc9",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

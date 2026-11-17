@@ -1,0 +1,12 @@
+{
+  "id": "java.nonreg.simple.A0002_Test--039b7ec4551e",
+  "type": "activity",
+  "upstream_path": "src/test/java/nonreg/simple/A0002_Test.java",
+  "test": "A0002_Test",
+  "origin": "java-text-block",
+  "line_number": 2,
+  "source_sha256": "039b7ec4551eceb032133d8c22d86eab3d576b38d2a600c033b9fdfa570cd50d",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

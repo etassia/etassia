@@ -1,0 +1,8 @@
+@startuml
+state A {
+    [*] -> B
+    B -> [*]
+}
+[*] --> A
+A --> [*]
+@enduml

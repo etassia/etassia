@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.activity-color-prefix.color_before_switch_three_cases--ff6198824ce0",
+  "type": "activity",
+  "upstream_path": "src/test/resources/vega/nonreg/activity-color-prefix/color_before_switch_three_cases.puml",
+  "test": "color_before_switch_three_cases",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "ff6198824ce094b9565e1be32f4848d93792f21057e2e327cecd8eeed1a6a965",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

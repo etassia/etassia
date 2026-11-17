@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.state.node-style-transition-label-orphaned-by-remove-both-sides--88c3dd7b08d2",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/state/node-style-transition-label-orphaned-by-remove-both-sides.puml",
+  "test": "node-style-transition-label-orphaned-by-remove-both-sides",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "88c3dd7b08d23b5f375412a715cb1f126ea669084772079c5a705fec3a503658",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

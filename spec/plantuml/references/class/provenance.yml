@@ -10,6 +10,12 @@ cases:
   resources.vega.migration.HideShow001_Test--9be85612e170:
     source_sha256: afce9b8011422e95778b8355e91038a85cb2ef169459657f4930ea0423e448bb
     reference_sha256: d296e27790404af2f8bd36616986edf39f6ba3e4542c525271cbe724907d35e0
+  resources.vega.migration.HideShow002_Test--e022b1a868dd:
+    source_sha256: d8b67f9fe7aa0e61c0f96b1fe3f8a254cdd1026d96479110a7b6ed492236772f
+    reference_sha256: 9c03796c836fb07b3e1a6ce4412bfc7482b240c8b8854b1d551787ee66e427c4
+  resources.vega.migration.HideShow003_Test--291a3bd4ffc3:
+    source_sha256: 52e37d2372dfe51c13e1ac724327dea243da97c23c0f323e60da676b6ba2176a
+    reference_sha256: bfee3ce99703d1c3e4164917fe101ef2e067484f7647835482b767af01d354c3
   resources.vega.migration.HideShow004_Test--16625d433c68:
     source_sha256: 0e37b89ecf77ab32527fc73ec038d9b823963ed1dad2b0a2fe571db2ac655cc0
     reference_sha256: 4d183b41cd50e42b3a9c62c326cd9f82ff6e66ff32899df1c0720b7b1a33243c

@@ -1,0 +1,12 @@
+{
+  "id": "java.nonreg.simple.TimingMessageArrowFont_0001_Test--33abd6c86b15",
+  "type": "timing",
+  "upstream_path": "src/test/java/nonreg/simple/TimingMessageArrowFont_0001_Test.java",
+  "test": "TimingMessageArrowFont_0001_Test",
+  "origin": "java-text-block",
+  "line_number": 2,
+  "source_sha256": "33abd6c86b15aeb9793239d90de992bb66b5240cf607e66016e72de1d139fe99",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

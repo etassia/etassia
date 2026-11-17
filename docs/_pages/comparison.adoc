@@ -254,7 +254,7 @@ A migration guide is planned.
 ==== From PlantUML to Etassia
 
 // BEGIN GENERATED: rake docs:compatibility plantuml
-**Syntax Compatibility:** Etassia renders PlantUML class and sequence diagrams when started with `--require etassia/notation/plantuml` (`scoreboard/plantuml.json`: class 35/35, sequence 93/93 oracle-valid cases). Other PlantUML diagram types are not supported.
+**Syntax Compatibility:** Etassia renders PlantUML diagrams when started with `--require etassia/notation/plantuml` (`scoreboard/plantuml.json`: activity 12/37, class 35/37, component 4/6, gantt 1/16, mindmap 4/4, sequence 93/93, state 14/42, timing 0/3, usecase 2/2 oracle-valid cases; the per-type pass rates track the remaining parity work).
 // END GENERATED: rake docs:compatibility plantuml
 
 **Migration Strategy:**

@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.xmi.component.xmi0000--2f0c63fa3c08",
+  "type": "component",
+  "upstream_path": "src/test/resources/vega/xmi/component/xmi0000.puml",
+  "test": "xmi0000",
+  "origin": "resource",
+  "line_number": 5,
+  "source_sha256": "2f0c63fa3c08145b80ac6074fc968fda95b146d74b905bdc6879e1af67c669c1",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

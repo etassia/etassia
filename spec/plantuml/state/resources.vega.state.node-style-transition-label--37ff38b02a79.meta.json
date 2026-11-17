@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.state.node-style-transition-label--37ff38b02a79",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/state/node-style-transition-label.puml",
+  "test": "node-style-transition-label",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "37ff38b02a79cf3b7fbf5c913707f1c8cd7990000f18ef05e5325b624089e9ee",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}
