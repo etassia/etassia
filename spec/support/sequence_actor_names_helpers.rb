@@ -33,9 +33,11 @@ module SequenceActorNamesHelpers
   end
 
   def multiline_labels
+    # The fourth label's tab is real: the corpus unescape turned the
+    # fixture's JS \t escape into the character mermaid actually saw.
     [
       "multiline<br>text", "multiline<br/>text",
-      "multiline<br />text", "multiline<br \\t/>text"
+      "multiline<br />text", "multiline<br \t/>text"
     ]
   end
 

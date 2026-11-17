@@ -102,12 +102,12 @@ artifacts and cases mmdc rejects are excluded from the denominator.
 
 |Class Diagram
 |`classDiagram`
-|305/305
+|306/306
 |100.0%
 
 |ER Diagram
 |`erDiagram`
-|15/15
+|49/49
 |100.0%
 
 |Error Diagram
@@ -117,7 +117,7 @@ artifacts and cases mmdc rejects are excluded from the denominator.
 
 |Flowchart
 |`graph, flowchart`
-|218/218
+|244/244
 |100.0%
 
 |Gantt Chart
@@ -127,7 +127,7 @@ artifacts and cases mmdc rejects are excluded from the denominator.
 
 |Git Graph
 |`gitGraph`
-|128/128
+|144/144
 |100.0%
 
 |Info Diagram
@@ -177,12 +177,12 @@ artifacts and cases mmdc rejects are excluded from the denominator.
 
 |Sequence Diagram
 |`sequenceDiagram`
-|107/107
+|122/122
 |100.0%
 
 |State Diagram
 |`stateDiagram-v2`
-|52/52
+|219/219
 |100.0%
 
 |Timeline

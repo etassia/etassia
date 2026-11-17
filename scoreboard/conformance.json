@@ -28,6 +28,10 @@
     "status": "conformant"
   },
   {
+    "case": "architecture/architecture_test-280f9309.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "architecture/architecture_test-42e45099.mmd",
     "status": "conformant"
   },
@@ -268,6 +272,10 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-01fd0edb.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-033a40d3.mmd",
     "status": "conformant"
   },
@@ -288,6 +296,14 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-0a93d562.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-0b63114e.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-0df8b35b.mmd",
     "status": "conformant"
   },
@@ -304,11 +320,19 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-1011b382.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-10548117.mmd",
     "status": "conformant"
   },
   {
     "case": "class_diagram/classdiagram_spec-1140eb47.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-11949457.mmd",
     "status": "conformant"
   },
   {
@@ -328,6 +352,10 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-1770eb2f.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-18dd269e.mmd",
     "status": "conformant"
   },
@@ -344,6 +372,10 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-1c074d15.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-1c925020.mmd",
     "status": "conformant"
   },
@@ -352,11 +384,31 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-20125696.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-20717dd9.mmd",
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-22a4c599.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-23ae07fe.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-23bfb709.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-248ca556.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-24ce281d.mmd",
     "status": "conformant"
   },
   {
@@ -373,6 +425,10 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-2a26d9d9.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-2db03dc0.mmd",
     "status": "conformant"
   },
   {
@@ -396,6 +452,10 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-3162c1fb.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-36b2b0e0.mmd",
     "status": "conformant"
   },
@@ -416,7 +476,15 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-3ba9d355.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-3cabe205.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-3df1a532.mmd",
     "status": "conformant"
   },
   {
@@ -440,7 +508,15 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-46111c63.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-4655a881.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-46de0459.mmd",
     "status": "conformant"
   },
   {
@@ -452,7 +528,19 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-49230672.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-4c7f5ff4.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-4cc37c65.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-4e84fabe.mmd",
     "status": "conformant"
   },
   {
@@ -476,6 +564,18 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-5928c7db.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-5d7a075e.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-5ed6b4d9.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-5fcf0a71.mmd",
     "status": "conformant"
   },
@@ -485,6 +585,10 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-62896016.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-64f0497b.mmd",
     "status": "conformant"
   },
   {
@@ -512,11 +616,19 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-6e31fd51.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-6fd26ade.mmd",
     "status": "conformant"
   },
   {
     "case": "class_diagram/classdiagram_spec-6ff21fb7.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-707ca1b6.mmd",
     "status": "conformant"
   },
   {
@@ -540,7 +652,15 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-78aa7ceb.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-7ceae3ee.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-7d6a0ae0.mmd",
     "status": "conformant"
   },
   {
@@ -564,6 +684,10 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-83d6d7d0.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-8545a3f2.mmd",
     "status": "conformant"
   },
@@ -580,11 +704,31 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-882bceb7.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-8910adc4.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-89847e28.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-898d7d99.mmd",
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-89ce3621.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-8c66ee58.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-8c8ef44a.mmd",
     "status": "conformant"
   },
   {
@@ -608,7 +752,19 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-8faa09e5.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-8fb6838d.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-91391049.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-91d2dca6.mmd",
     "status": "conformant"
   },
   {
@@ -617,6 +773,10 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-9337565e.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-93fd5dd4.mmd",
     "status": "conformant"
   },
   {
@@ -629,6 +789,18 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-986ff01d.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-993711e5.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-99935c8c.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-9b7740f8.mmd",
     "status": "conformant"
   },
   {
@@ -664,7 +836,15 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-a220c8c8.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-a2994e3e.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-a5a3ca4d.mmd",
     "status": "conformant"
   },
   {
@@ -676,11 +856,23 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-aaa315f8.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-aafd9409.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-ab0cc3b6.mmd",
     "status": "conformant"
   },
   {
     "case": "class_diagram/classdiagram_spec-ac40f050.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-acf6f03d.mmd",
     "status": "conformant"
   },
   {
@@ -696,11 +888,23 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-b5b05534.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-b5e96550.mmd",
     "status": "conformant"
   },
   {
     "case": "class_diagram/classdiagram_spec-b7e4f265.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-b832406f.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-b8608261.mmd",
     "status": "conformant"
   },
   {
@@ -716,6 +920,14 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-bc16b2f5.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-bcf14374.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-bcf92af6.mmd",
     "status": "conformant"
   },
@@ -728,11 +940,19 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-be23b67b.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-be4e15a3.mmd",
     "status": "conformant"
   },
   {
     "case": "class_diagram/classdiagram_spec-be8da2f2.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-c071c93e.mmd",
     "status": "conformant"
   },
   {
@@ -756,11 +976,27 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-ce80c05a.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-d0c7516d.mmd",
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-d52f200c.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-d55aa7df.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-d56ebd89.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-d6cceedd.mmd",
     "status": "conformant"
   },
   {
@@ -772,11 +1008,31 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-d985c318.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-db377a28.mmd",
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-db5b1ab5.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-dd7337b2.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-ddf34467.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-ddfcc6a0.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-de3e6170.mmd",
     "status": "conformant"
   },
   {
@@ -785,6 +1041,10 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-e047c702.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-e0fe1916.mmd",
     "status": "conformant"
   },
   {
@@ -812,11 +1072,31 @@
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-e94dfee9.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-ecb265e7.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-ecb64073.mmd",
     "status": "conformant"
   },
   {
+    "case": "class_diagram/classdiagram_spec-ed7199c6.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-efbfea2b.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "class_diagram/classdiagram_spec-f0bc7096.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-f1e5ff4e.mmd",
     "status": "conformant"
   },
   {
@@ -829,6 +1109,10 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-f4cfe37f.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-f5041ce0.mmd",
     "status": "conformant"
   },
   {
@@ -853,6 +1137,10 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-fcc9adaf.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-ff2fe224.mmd",
     "status": "conformant"
   },
   {
@@ -1520,6 +1808,18 @@
     "status": "conformant"
   },
   {
+    "case": "er_diagram/cannot_contain_because_it_could_start_and_escape-eb5c05ca.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/cannot_contain_because_it_interferes_with_parsin-98f2b505.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/cannot_newline_backspace_or_vertical_characters-c6cf992f.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "er_diagram/diagram_orchestration_spec-0b6a4661.mmd",
     "status": "conformant"
   },
@@ -1532,7 +1832,23 @@
     "status": "conformant"
   },
   {
+    "case": "er_diagram/erdiagram_spec-111c698f.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "er_diagram/erdiagram_spec-1537270c.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-1622430a.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-16508afb.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-16fbb123.mmd",
     "status": "conformant"
   },
   {
@@ -1540,7 +1856,59 @@
     "status": "conformant"
   },
   {
+    "case": "er_diagram/erdiagram_spec-39b996ea.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-3a39117b.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-3c8a4cbd.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-4aabf3e3.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-4eb49b63.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "er_diagram/erdiagram_spec-4fb39e72.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-50d759c6.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-572ba53b.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-75d45fa9.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-7997ef63.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-870ded69.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-8819d6bc.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-8cb87484.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-8cc99c4c.mmd",
     "status": "conformant"
   },
   {
@@ -1548,7 +1916,67 @@
     "status": "conformant"
   },
   {
+    "case": "er_diagram/erdiagram_spec-9899efcb.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-9b4fc14a.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-9e6311f2.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-a1241e76.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-a5ca0b8c.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-a955ce67.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-acb29fce.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-b2bb4486.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-cfe6339e.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "er_diagram/erdiagram_spec-d8eaebdd.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-d921f55c.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-d944f1d1.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-d9e80d35.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-da862bac.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-da955898.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-f06cacb7.mmd",
     "status": "conformant"
   },
   {
@@ -1556,7 +1984,47 @@
     "status": "conformant"
   },
   {
+    "case": "er_diagram/journey_spec-2a260e89.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/journey_spec-33008e29.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/journey_spec-5b9e6912.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/journey_spec-b8d8e64a.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/journey_spec-bfa0e3fa.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/journey_spec-d55f22a2.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "er_diagram/mermaidapi_spec-28c33f18.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/should_allow_decimal_numbers_as_entity_names_wit-31b7bfa7.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/should_allow_decimal_numbers_as_standalone_entit-1bcf6f49.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/should_allow_decimal_numbers_in_relationships-fb5bd4ad.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "er_diagram/should_allow_numbers_in_relationships-f5668c4e.mmd",
     "status": "conformant"
   },
   {
@@ -1724,7 +2192,15 @@
     "status": "conformant"
   },
   {
+    "case": "flowchart/flow_arrows_spec-3b54e50e.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "flowchart/flow_arrows_spec-5101f768.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_arrows_spec-58e1c972.mmd",
     "status": "conformant"
   },
   {
@@ -1741,6 +2217,38 @@
   },
   {
     "case": "flowchart/flow_arrows_spec-97d41529.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_comments_spec-618a71ea.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_comments_spec-631bd216.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_comments_spec-68ea59e2.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_comments_spec-699c136c.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_comments_spec-9fa70e30.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_comments_spec-ae4455cb.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_comments_spec-b1966b65.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_comments_spec-e69bdfb5.mmd",
     "status": "conformant"
   },
   {
@@ -1796,11 +2304,47 @@
     "status": "conformant"
   },
   {
+    "case": "flowchart/flow_lines_spec-25cf71c8.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_lines_spec-2a085816.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "flowchart/flow_lines_spec-54257981.mmd",
     "status": "conformant"
   },
   {
+    "case": "flowchart/flow_lines_spec-5506f485.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_lines_spec-583e2273.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_lines_spec-94e5b622.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_lines_spec-d08cedbe.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_lines_spec-da0876d2.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "flowchart/flow_lines_spec-e3996fcc.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_lines_spec-e5d88fce.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_lines_spec-e808e1f8.mmd",
     "status": "conformant"
   },
   {
@@ -2088,6 +2632,14 @@
     "status": "conformant"
   },
   {
+    "case": "flowchart/flow_spec-5c5025fc.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_spec-666b641c.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "flowchart/flow_spec-911e8567.mmd",
     "status": "conformant"
   },
@@ -2096,11 +2648,19 @@
     "status": "conformant"
   },
   {
+    "case": "flowchart/flow_spec-f1aa1d42.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "flowchart/flow_style_spec-0982e1ee.mmd",
     "status": "conformant"
   },
   {
     "case": "flowchart/flow_style_spec-0a9a30d4.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_style_spec-0ce324c2.mmd",
     "status": "conformant"
   },
   {
@@ -2116,6 +2676,10 @@
     "status": "conformant"
   },
   {
+    "case": "flowchart/flow_style_spec-78a9b3c4.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "flowchart/flow_style_spec-791b70ef.mmd",
     "status": "conformant"
   },
@@ -2128,7 +2692,23 @@
     "status": "conformant"
   },
   {
+    "case": "flowchart/flow_style_spec-9bd50570.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "flowchart/flow_style_spec-a47c90c5.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_style_spec-ad32b111.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_style_spec-b1f4d487.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_style_spec-dcf1f3be.mmd",
     "status": "conformant"
   },
   {
@@ -2137,6 +2717,10 @@
   },
   {
     "case": "flowchart/flow_text_spec-029d76aa.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_text_spec-0b25e2d1.mmd",
     "status": "conformant"
   },
   {
@@ -2229,6 +2813,10 @@
   },
   {
     "case": "flowchart/flow_text_spec-995c9dc8.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/flow_text_spec-a33448ba.mmd",
     "status": "conformant"
   },
   {
@@ -2376,7 +2964,15 @@
     "status": "conformant"
   },
   {
+    "case": "flowchart/subgraph_spec-079ae241.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "flowchart/subgraph_spec-0baf7511.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/subgraph_spec-0fd49976.mmd",
     "status": "conformant"
   },
   {
@@ -2388,6 +2984,14 @@
     "status": "conformant"
   },
   {
+    "case": "flowchart/subgraph_spec-38097244.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/subgraph_spec-4d850c95.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "flowchart/subgraph_spec-4eae2e41.mmd",
     "status": "conformant"
   },
@@ -2396,7 +3000,15 @@
     "status": "conformant"
   },
   {
+    "case": "flowchart/subgraph_spec-57f55756.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "flowchart/subgraph_spec-625d449b.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/subgraph_spec-7cf044cd.mmd",
     "status": "conformant"
   },
   {
@@ -2405,6 +3017,10 @@
   },
   {
     "case": "flowchart/subgraph_spec-89dfa04b.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/subgraph_spec-8cb5efe3.mmd",
     "status": "conformant"
   },
   {
@@ -2432,7 +3048,15 @@
     "status": "conformant"
   },
   {
+    "case": "flowchart/subgraph_spec-eb979727.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "flowchart/subgraph_spec-f0825d5b.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "flowchart/subgraph_spec-f500a75b.mmd",
     "status": "conformant"
   },
   {
@@ -2804,6 +3428,66 @@
     "status": "conformant"
   },
   {
+    "case": "gitgraph/gitgraph_test-0b25d816.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "gitgraph/gitgraph_test-0de8a536.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "gitgraph/gitgraph_test-2991199d.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "gitgraph/gitgraph_test-3c2299be.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "gitgraph/gitgraph_test-46039f98.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "gitgraph/gitgraph_test-5fd422d2.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "gitgraph/gitgraph_test-618ca788.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "gitgraph/gitgraph_test-6dbacd8b.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "gitgraph/gitgraph_test-7331cd25.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "gitgraph/gitgraph_test-b498c8db.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "gitgraph/gitgraph_test-b88a55d1.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "gitgraph/gitgraph_test-c80f6b5f.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "gitgraph/gitgraph_test-d7ff8f0d.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "gitgraph/gitgraph_test-f027449f.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "gitgraph/gitgraph_test-f71b441d.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "gitgraph/mermaidapi_spec-36f7251d.mmd",
     "status": "conformant"
   },
@@ -2897,6 +3581,10 @@
   },
   {
     "case": "gitgraph/should_handle_a_gitgraph_commit_with_custom_type-bce4b490.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "gitgraph/should_handle_a_gitgraph_definition-4acb9709.mmd",
     "status": "conformant"
   },
   {
@@ -3572,11 +4260,23 @@
     "status": "conformant"
   },
   {
+    "case": "pie/pie_test-993abc75.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "pie/pie_test-9ab8dc76.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "pie/pie_test-aa5adfc7.mmd",
     "status": "conformant"
   },
   {
     "case": "pie/pie_test-ab56dfdf.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "pie/pie_test-c695eeb1.mmd",
     "status": "conformant"
   },
   {
@@ -3864,6 +4564,14 @@
     "status": "conformant"
   },
   {
+    "case": "sequence/mermaid_spec-b8d5b6a5.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "sequence/mermaid_spec-dddb40c5.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "sequence/mermaidapi_spec-0f6b2553.mmd",
     "status": "conformant"
   },
@@ -3961,6 +4669,10 @@
   },
   {
     "case": "sequence/sequencediagram_spec-311983f7.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "sequence/sequencediagram_spec-329e1a14.mmd",
     "status": "conformant"
   },
   {
@@ -4164,6 +4876,10 @@
     "status": "conformant"
   },
   {
+    "case": "sequence/sequencediagram_spec-b9874dbc.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "sequence/sequencediagram_spec-bc90811c.mmd",
     "status": "conformant"
   },
@@ -4185,6 +4901,10 @@
   },
   {
     "case": "sequence/sequencediagram_spec-cc96f3ba.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "sequence/sequencediagram_spec-cd10ed7b.mmd",
     "status": "conformant"
   },
   {
@@ -4212,7 +4932,15 @@
     "status": "conformant"
   },
   {
+    "case": "sequence/sequencediagram_spec-f856f3c3.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "sequence/sequencediagram_spec-ff05eb91.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "sequence/sequencediagram_v2_spec-0210f13f.mmd",
     "status": "conformant"
   },
   {
@@ -4232,7 +4960,27 @@
     "status": "conformant"
   },
   {
+    "case": "sequence/sequencediagram_v2_spec-66119c12.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "sequence/sequencediagram_v2_spec-71163691.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "sequence/sequencediagram_v2_spec-7bd17012.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "sequence/sequencediagram_v2_spec-8092a233.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "sequence/sequencediagram_v2_spec-80dea164.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "sequence/sequencediagram_v2_spec-8e0b6671.mmd",
     "status": "conformant"
   },
   {
@@ -4244,7 +4992,19 @@
     "status": "conformant"
   },
   {
+    "case": "sequence/sequencediagram_v2_spec-c98f02f7.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "sequence/sequencediagram_v2_spec-c9b61e4d.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "sequence/sequencediagram_v2_spec-dffb9d43.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "sequence/sequencediagram_v2_spec-f3efa956.mmd",
     "status": "conformant"
   },
   {
@@ -4264,6 +5024,14 @@
     "status": "conformant"
   },
   {
+    "case": "state_diagram/description_after_second_state-2d50be4d.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/description_after_second_state-c3197e5d.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "state_diagram/diagram_orchestration_spec-367b369a.mmd",
     "status": "conformant"
   },
@@ -4273,6 +5041,14 @@
   },
   {
     "case": "state_diagram/diagram_orchestration_spec-db85424e.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/hide_empty_description-37cf5cc6.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/hide_empty_description-a4b92738.mmd",
     "status": "conformant"
   },
   {
@@ -4296,6 +5072,46 @@
     "status": "conformant"
   },
   {
+    "case": "state_diagram/scale-0b695e96.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/shall_handle_descriptions_including_minus_signs-2f544dbb.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/shall_handle_descriptions_including_minus_signs-fb78c1ac.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_handle_arrow_directions_definitions-709776e9.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_handle_arrow_directions_definitions-a45fec2b.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_handle_concurrent_state-4c57bf32.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_handle_concurrent_state-545e37dd.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_handle_concurrent_state-caa6f9c3.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_handle_concurrent_state-ed5380cd.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_handle_floating_notes-08758173.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "state_diagram/should_handle_floating_notes-6e33ecc6.mmd",
     "status": "conformant"
   },
@@ -4308,6 +5124,14 @@
     "status": "conformant"
   },
   {
+    "case": "state_diagram/should_handle_fork_statements-c74cc180.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_handle_fork_statements-d0371472.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "state_diagram/should_handle_multiline_notes_with_different_lin-90d75e03.mmd",
     "status": "conformant"
   },
@@ -4316,7 +5140,51 @@
     "status": "conformant"
   },
   {
+    "case": "state_diagram/should_handle_multiple_recursive_state_definitio-47c620c6.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_handle_multiple_recursive_state_definitio-f9748e4d.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_handle_note_statements-4e5720a4.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_handle_note_statements-5c689b43.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "state_diagram/should_handle_notes_for_composite_nested_states-0033e4b1.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_handle_notes_for_composite_states-314eb3bf.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_handle_recursive_state_definitions-23d7165f.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_handle_recursive_state_definitions-a63be1cd.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_handle_relation_definitions-c1ead2b4.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_handle_relation_definitions-c1f16759.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_handle_state_definitions_with_separation-14dcd785.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_handle_state_definitions_with_separation-66a2d433.mmd",
     "status": "conformant"
   },
   {
@@ -4325,6 +5193,46 @@
   },
   {
     "case": "state_diagram/should_handle_state_definitions_with_separation-cd10456b.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_handle_state_statements-02bc3364.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_handle_state_statements-e7035600.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_state_definition_with_quotes-985ee25e.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/should_state_definition_with_quotes-e965972a.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/simple_states_with_labels-503668e1.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/simple_with_accdescription-9a4b81f0.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/simple_with_accdescription_accdescr-ddcfd6c8.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/simple_with_multiline_accdescription_accdescr-0768b11b.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/simple_with_title-e9583ab3.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/simple_with_title_accdescr-c49268e9.mmd",
     "status": "conformant"
   },
   {
@@ -4356,7 +5264,15 @@
     "status": "conformant"
   },
   {
+    "case": "state_diagram/state_style_spec-1793e7e9.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "state_diagram/state_style_spec-32e99892.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/state_style_spec-5f7364eb.mmd",
     "status": "conformant"
   },
   {
@@ -4364,7 +5280,19 @@
     "status": "conformant"
   },
   {
+    "case": "state_diagram/state_style_spec-aa26de07.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "state_diagram/state_style_spec-c53cfe2e.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-012c4472.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-045c4d98.mmd",
     "status": "conformant"
   },
   {
@@ -4372,7 +5300,47 @@
     "status": "conformant"
   },
   {
+    "case": "state_diagram/statediagram_spec-0ba06b23.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-0c8aca4c.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-1190322a.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-12544018.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "state_diagram/statediagram_spec-128d4533.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-13ef7f56.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-14b793e6.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-159429ef.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-15ec6ff2.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-1653f622.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-1a4f8bd0.mmd",
     "status": "conformant"
   },
   {
@@ -4380,7 +5348,31 @@
     "status": "conformant"
   },
   {
+    "case": "state_diagram/statediagram_spec-1e00895c.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "state_diagram/statediagram_spec-1f69379f.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-29608c39.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-2ff68e17.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-31fa3ee4.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-3365865c.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-35e88baf.mmd",
     "status": "conformant"
   },
   {
@@ -4388,7 +5380,47 @@
     "status": "conformant"
   },
   {
+    "case": "state_diagram/statediagram_spec-36d7b1dc.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-39278024.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-3b90489b.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-3ef2dcfb.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "state_diagram/statediagram_spec-3fdaec54.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-40c9ac01.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-41efc655.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-47771e5f.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-49419133.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-4965a9af.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-4a7caf18.mmd",
     "status": "conformant"
   },
   {
@@ -4396,7 +5428,111 @@
     "status": "conformant"
   },
   {
+    "case": "state_diagram/statediagram_spec-5091d085.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-540c3972.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-5823c948.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-5db6f683.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-5e8d05fd.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-61c1054b.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-6217abb2.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-62e1c7b7.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-6da990d3.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-74261a4f.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-74b96cc5.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-7e13c74d.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-84fa7b42.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-85a8f832.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-89322a90.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-8a719c09.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-8f5295b8.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-93d0ca3f.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-94d5618c.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-9517b78d.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-98fc6bd3.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-9e899a40.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-a32dbda1.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-a8b1c3b6.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-aa563385.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "state_diagram/statediagram_spec-ac7e4b11.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-acbd6157.mmd",
     "status": "conformant"
   },
   {
@@ -4404,7 +5540,95 @@
     "status": "conformant"
   },
   {
+    "case": "state_diagram/statediagram_spec-b6bfaac5.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-b74059e8.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-b7fd6ad9.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "state_diagram/statediagram_spec-bdd17264.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-c00a2d32.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-cf0e21bf.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-d1364199.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-d1fb1fa0.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-d2b5972f.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-d70d0aa6.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-d87f6672.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-d8edbae8.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-dbd153b9.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-e1fe2228.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-e3f6dcf6.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-e57ada98.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-e9671157.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-ef8fcf01.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-f0225465.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-f062c24e.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-f08b5c70.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-f4256d44.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-f4d3f144.mmd",
     "status": "conformant"
   },
   {
@@ -4412,11 +5636,75 @@
     "status": "conformant"
   },
   {
+    "case": "state_diagram/statediagram_spec-f99cfef6.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-f9c80b24.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-fcdb21ad.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-fdf6c5aa.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-fe48a130.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_spec-ffd2d953.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-0ff11835.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-12f07330.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-13333783.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "state_diagram/statediagram_v2_spec-13deff6f.mmd",
     "status": "conformant"
   },
   {
+    "case": "state_diagram/statediagram_v2_spec-14a3be7b.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-1703a0f2.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-1d66f488.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-1e88919f.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-26254e43.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "state_diagram/statediagram_v2_spec-2d12b6d7.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-2f81c3b1.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-3055d1ed.mmd",
     "status": "conformant"
   },
   {
@@ -4428,7 +5716,51 @@
     "status": "conformant"
   },
   {
+    "case": "state_diagram/statediagram_v2_spec-33a14d16.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-3505bc62.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-417e559c.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-45362b6d.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-589fc294.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "state_diagram/statediagram_v2_spec-5f17d693.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-5f2476b5.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-61539d5d.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-622dc71f.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-62551c6b.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-63fb1797.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-6a2ad467.mmd",
     "status": "conformant"
   },
   {
@@ -4436,7 +5768,39 @@
     "status": "conformant"
   },
   {
+    "case": "state_diagram/statediagram_v2_spec-6afb5e8d.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-6e0d9ef0.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-6ec5fc36.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-701d145f.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "state_diagram/statediagram_v2_spec-70d748dc.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-768cc984.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-77fa5130.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-7c0af12d.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-7d2ffdd4.mmd",
     "status": "conformant"
   },
   {
@@ -4444,7 +5808,23 @@
     "status": "conformant"
   },
   {
+    "case": "state_diagram/statediagram_v2_spec-832a9306.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-8caf701e.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-8e52b8cb.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "state_diagram/statediagram_v2_spec-907b0443.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-99875eb0.mmd",
     "status": "conformant"
   },
   {
@@ -4452,11 +5832,95 @@
     "status": "conformant"
   },
   {
+    "case": "state_diagram/statediagram_v2_spec-a3eb7f21.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-a4f41ba5.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-a9fa4e8f.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-aea9ccdf.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "state_diagram/statediagram_v2_spec-c351b77a.mmd",
     "status": "conformant"
   },
   {
+    "case": "state_diagram/statediagram_v2_spec-c7fc7503.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-ca7bd330.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-d49fc4c4.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-d55cf668.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-d5b0460d.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-d6232e7e.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-df15b06f.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-e333ffe5.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-e67480a3.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-eb42ee32.mmd",
+    "status": "conformant"
+  },
+  {
     "case": "state_diagram/statediagram_v2_spec-ed4440fd.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-f6b3bf00.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-f799c529.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-fa817cac.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-fb640eeb.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/statediagram_v2_spec-fb978528.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/super_simple-118f2a7e.mmd",
+    "status": "conformant"
+  },
+  {
+    "case": "state_diagram/super_simple-d28d6357.mmd",
     "status": "conformant"
   },
   {

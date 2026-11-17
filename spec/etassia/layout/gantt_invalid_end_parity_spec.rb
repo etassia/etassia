@@ -8,6 +8,9 @@ RSpec.describe Etassia::Layout::Gantt do
     described_class.new.call(diagram, today: Date.new(2026, 10, 11))
   end
 
+  # The fixture's JS-template damage (${expectedTitle} and friends) sits in
+  # its accessibility lines and does not touch the task; the date lines
+  # survived the corpus unescape, so the layout reads the real 30-day span.
   let(:source) do
     File.read(
       File.join(__dir__, "../../mermaid/gantt/" \
@@ -15,13 +18,16 @@ RSpec.describe Etassia::Layout::Gantt do
     )
   end
 
-  it "collapses the malformed explicit end onto the task start" do
+  it "reads the task's 30-day span" do
     task = scene.sections.first.tasks.first
 
-    expect([task.start_date, task.end_date]).to eq([Date.new(2014, 1, 1)] * 2)
+    expect([task.start_date, task.end_date])
+      .to eq([Date.new(2014, 1, 1), Date.new(2014, 1, 31)])
   end
 
-  it "does not invent yearly ticks through the injected current date" do
-    expect(scene.timeline.labels.map(&:text)).to eq(["2014-01-01"])
+  it "ticks the axis every two days across the span" do
+    expect(scene.timeline.labels.map(&:text).first(3))
+      .to eq(["2014-01-01", "2014-01-03", "2014-01-05"])
+    expect(scene.timeline.labels.map(&:text).last).to eq("2014-01-31")
   end
 end
