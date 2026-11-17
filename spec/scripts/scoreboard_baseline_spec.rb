@@ -72,7 +72,7 @@ RSpec.describe ScoreboardBaseline, :aggregate_failures do
 
   it "accepts the ledger's infinity encoding for incomparable geometry" do
     repo.metrics(data)["worst_e_w"] = "Infinity"
-    out, _err, status = repo.record_and_run(data, "push", repo.event("push"))
+    _out, _err, status = repo.record_and_run(data, "push", repo.event("push"))
 
     expect(status.exitstatus).to eq(0)
   end
