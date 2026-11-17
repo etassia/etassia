@@ -415,8 +415,8 @@ RSpec.describe Etassia::Parser::StateDiagram, :aggregate_failures do
     # behaviour. A same-count swap slips past it, which is recorded as a Low
     # rather than fixed, because per-case identity belongs to the scoreboard
     # (TODO.foundation item 02), not here.
-    it "still finds the 52 cases the examples below were generated from" do
-      expect(StateDiagramOracleCases.oracle_valid_cases.length).to eq(52)
+    it "still finds the 219 cases the examples below were generated from" do
+      expect(StateDiagramOracleCases.oracle_valid_cases.length).to eq(219)
     end
 
     mermaid_root = "#{SpecSupport::RepositoryPaths.path('spec/mermaid')}/"
