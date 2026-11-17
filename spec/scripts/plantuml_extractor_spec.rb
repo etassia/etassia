@@ -52,18 +52,23 @@ module PlantumlExtractorSpecSupport
   def inconsistent_rates(root)
     JSON.parse(File.read(File.join(root, "scoreboard/plantuml.json")))
       .reject do |row|
-        row["passing"].between?(0, row["oracle_valid"]) &&
-          row["pass_rate"] == row["passing"].fdiv(row["oracle_valid"]).round(4)
+        row["pass_rate"] == measured_rate(row) &&
+          row["passing"].between?(0, row["oracle_valid"])
       end
       .map { |row| row["type"] }
   end
 
+  def measured_rate(row)
+    return 0.0 if row["oracle_valid"].zero?
+
+    row["passing"].fdiv(row["oracle_valid"]).round(4)
+  end
+
   def expected_scoreboard_counts(pin, valid)
     counts = pin.dig("corpus", "cases")
-    {
-      "class" => [counts["class"], valid["class"]],
-      "sequence" => [counts["sequence"], valid["sequence"]],
-    }
+    counts.keys.to_h do |type|
+      [type, [counts[type], valid[type] || 0]]
+    end
   end
 end
 
@@ -149,11 +154,44 @@ RSpec.describe PlantumlExtractor do
       end
     end
 
-    it "drops .puml front matter and non-uml blocks" do
-      gantt = "@startgantt\n[T] lasts 1 day\n@endgantt\n"
-      blocks = block("---\nexpected: x\n---\n#{diagram_a}\n#{gantt}")
+    it "keeps non-carried wrapper blocks in Blocks" do
+      wbs = "@startwbs\n* root\n** leaf\n@endwbs\n"
+      blocks = block("---\nexpected: x\n---\n#{diagram_a}\n#{wbs}")
 
-      expect(blocks.map(&:source)).to eq([diagram_a])
+      expect(blocks.map(&:source)).to eq([diagram_a, wbs.chomp])
+    end
+
+    it "drops non-carried wrapper blocks in Cases" do
+      wbs = "@startwbs\n* root\n** leaf\n@endwbs\n"
+      blocks = block("---\nexpected: x\n---\n#{diagram_a}\n#{wbs}")
+
+      expect(ids_for(blocks)).to eq(ids_for(block(diagram_a)))
+    end
+
+    describe "wrapper classification" do
+      def wrapper_block(text)
+        PlantumlExtractor::Blocks.from_resource(
+          "src/test/resources/a/b.puml", text, test: "b"
+        ).first
+      end
+
+      {
+        "@startgantt" => ["@startgantt\n[T] lasts 1 day\n@endgantt", "gantt"],
+        "@startmindmap" =>
+          ["@startmindmap\n* root\n@endmindmap", "mindmap"],
+        "@startnwdiag" =>
+          ["@startnwdiag\nnetwork lan\n@endnwdiag", "network"],
+        "@startwbs (not carried)" => ["@startwbs\n* root\n@endwbs", nil],
+        "@startuml (marker path)" =>
+          ["@startuml\nclass Foo\nFoo --> Bar\n@enduml", "class"],
+      }.each do |label, (source, type)|
+        it "classifies #{label} as #{type.inspect}" do
+          found = wrapper_block("#{source}\n")
+
+          expect(described_class::Selection
+            .type_of(found.source, wrapper: found.wrapper)).to eq(type)
+        end
+      end
     end
 
     context "with a Java text block" do
@@ -205,6 +243,21 @@ RSpec.describe PlantumlExtractor do
       expect(Dir.children(File.join(out_dir, "sequence")))
         .to eq(["etassia.create.basic.puml"])
     end
+  end
+
+  describe "exclusions" do
+    it "drops unjudgeable fixtures from the walk" do
+      expect(walker_over_unjudgeable_fixture.blocks).to be_empty
+    end
+  end
+
+  def walker_over_unjudgeable_fixture
+    path = PlantumlExtractor::UNJUDGEABLE.keys.first
+    root = Dir.mktmpdir
+    abs = File.join(root, path)
+    FileUtils.mkdir_p(File.dirname(abs))
+    File.write(abs, "#{diagram_a}\n")
+    PlantumlExtractor::Walker.new(root)
   end
 
   describe "the committed corpus" do

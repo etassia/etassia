@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.warnings.partition_no_bracket--ab4fd4e919a2",
+  "type": "activity",
+  "upstream_path": "src/test/resources/vega/nonreg/warnings/partition_no_bracket.puml",
+  "test": "partition_no_bracket",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "ab4fd4e919a2b1862a479b61e9d482b0caa0655f0c8336769f2f14bde1de1091",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

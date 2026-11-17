@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.state.composite-autarkic-simple--3530aaf547f2",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/state/composite-autarkic-simple.puml",
+  "test": "composite-autarkic-simple",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "3530aaf547f27c8c138571168fcbd45e140db9b9e93e97e2fde5ee5de655d8a7",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

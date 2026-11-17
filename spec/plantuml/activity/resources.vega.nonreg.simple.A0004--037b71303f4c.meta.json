@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.simple.A0004--037b71303f4c",
+  "type": "activity",
+  "upstream_path": "src/test/resources/vega/nonreg/simple/A0004.puml",
+  "test": "A0004",
+  "origin": "resource",
+  "line_number": 5,
+  "source_sha256": "037b71303f4c2f1ad86ca4a0e9cac9c4875d6e18399f623361965d6eb0ea1cb2",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

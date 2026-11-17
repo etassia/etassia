@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.state.concurrent-top-level-root--889957e6bd30",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/state/concurrent-top-level-root.puml",
+  "test": "concurrent-top-level-root",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "889957e6bd30d6cf8e956b7e293a377ead92d16205c5321c5716ee7c5b2aed7b",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

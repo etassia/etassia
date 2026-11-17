@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.state.concurrent-dash-two-regions--bc74b16f65e0",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/state/concurrent-dash-two-regions.puml",
+  "test": "concurrent-dash-two-regions",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "bc74b16f65e00f9e42c50844c9262e9aa336c2115b33c693464fade946192c57",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

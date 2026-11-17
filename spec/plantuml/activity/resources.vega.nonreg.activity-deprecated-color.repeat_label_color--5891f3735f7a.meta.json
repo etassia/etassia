@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.activity-deprecated-color.repeat_label_color--5891f3735f7a",
+  "type": "activity",
+  "upstream_path": "src/test/resources/vega/nonreg/activity-deprecated-color/repeat_label_color.puml",
+  "test": "repeat_label_color",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "5891f3735f7a1b5109a0ff798c7ab6c1383f19b79c50e600d3f3c6879c064649",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

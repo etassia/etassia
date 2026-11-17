@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.activity-color-prefix.color_inside_case--94b163c8b357",
+  "type": "activity",
+  "upstream_path": "src/test/resources/vega/nonreg/activity-color-prefix/color_inside_case.puml",
+  "test": "color_inside_case",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "94b163c8b35792033094de572fb6b8a4214937140eee8ed4bd4776bdcbb5462f",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

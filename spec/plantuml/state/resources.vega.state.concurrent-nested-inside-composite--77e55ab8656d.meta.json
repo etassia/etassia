@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.state.concurrent-nested-inside-composite--77e55ab8656d",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/state/concurrent-nested-inside-composite.puml",
+  "test": "concurrent-nested-inside-composite",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "77e55ab8656d8a0459e4fa6f32d71bc2d057f63ca2a7010dd59bf22746cc5445",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

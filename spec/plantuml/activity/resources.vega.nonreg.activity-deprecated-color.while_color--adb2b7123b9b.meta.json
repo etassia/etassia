@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.activity-deprecated-color.while_color--adb2b7123b9b",
+  "type": "activity",
+  "upstream_path": "src/test/resources/vega/nonreg/activity-deprecated-color/while_color.puml",
+  "test": "while_color",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "adb2b7123b9b10d877905d040efc045047aa63c34d8f5738a6a75cbd4c9b5005",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

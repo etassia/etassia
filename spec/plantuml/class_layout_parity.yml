@@ -24,6 +24,28 @@ rows:
       worst_analog:
   matched: 2
   status: pass
+- case: resources.vega.migration.HideShow002_Test--e022b1a868dd
+  summary:
+    hard_failure: true
+    metrics:
+      worst_e_c:
+      worst_e_w:
+      worst_e_h:
+      worst_e_a:
+      worst_analog:
+  matched: 0
+  status: hard-failure
+- case: resources.vega.migration.HideShow003_Test--291a3bd4ffc3
+  summary:
+    hard_failure: true
+    metrics:
+      worst_e_c:
+      worst_e_w:
+      worst_e_h:
+      worst_e_a:
+      worst_analog:
+  matched: 0
+  status: hard-failure
 - case: resources.vega.migration.HideShow004_Test--16625d433c68
   summary:
     hard_failure: false

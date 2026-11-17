@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.activity-color-prefix.color_before_while--2b9877c198ad",
+  "type": "activity",
+  "upstream_path": "src/test/resources/vega/nonreg/activity-color-prefix/color_before_while.puml",
+  "test": "color_before_while",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "2b9877c198ad67ea687c84d82236013f118d624e0adc1ab57f812f2139e95e24",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

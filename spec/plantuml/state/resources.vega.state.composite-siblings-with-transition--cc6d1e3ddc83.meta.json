@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.state.composite-siblings-with-transition--cc6d1e3ddc83",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/state/composite-siblings-with-transition.puml",
+  "test": "composite-siblings-with-transition",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "cc6d1e3ddc8309e2ab2b644bc1eb996b6078afcb89122021e1fbf721e502b0c0",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

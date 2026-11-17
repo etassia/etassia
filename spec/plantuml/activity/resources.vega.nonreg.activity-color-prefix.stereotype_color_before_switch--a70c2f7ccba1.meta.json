@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.activity-color-prefix.stereotype_color_before_switch--a70c2f7ccba1",
+  "type": "activity",
+  "upstream_path": "src/test/resources/vega/nonreg/activity-color-prefix/stereotype_color_before_switch.puml",
+  "test": "stereotype_color_before_switch",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "a70c2f7ccba1748708e9b8317dad8a8fbe25cfc2a1017f363c6cc6dff0a1a51a",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

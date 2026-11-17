@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.state.composite-non-autarkic-start-end--9763f95eade3",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/state/composite-non-autarkic-start-end.puml",
+  "test": "composite-non-autarkic-start-end",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "9763f95eade3f0e50930ca5c8025a82f33b7a4267bc12dc5f517d8a02be04142",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

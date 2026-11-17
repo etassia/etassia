@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.activity.style-block-unclosed-at-eof--cc20c570afc2",
+  "type": "activity",
+  "upstream_path": "src/test/resources/vega/nonreg/activity/style-block-unclosed-at-eof.puml",
+  "test": "style-block-unclosed-at-eof",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "cc20c570afc2868da3c78bef74315a565aab82118f8f666d66c2a025b15b86f2",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

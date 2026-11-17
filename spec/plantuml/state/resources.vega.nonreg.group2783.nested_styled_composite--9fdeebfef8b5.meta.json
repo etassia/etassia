@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.group2783.nested_styled_composite--9fdeebfef8b5",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/nonreg/group2783/nested_styled_composite.puml",
+  "test": "nested_styled_composite",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "9fdeebfef8b592a4133fc217f0760ede6250d64a23e85f04e1475f458fdd71d7",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

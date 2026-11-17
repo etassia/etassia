@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.state.composite-non-autarkic-outgoing-only--e37edbffc86a",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/state/composite-non-autarkic-outgoing-only.puml",
+  "test": "composite-non-autarkic-outgoing-only",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "e37edbffc86a554af2a87c19da31a757cbc1e53d7c88b7263e65a5a89d756302",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

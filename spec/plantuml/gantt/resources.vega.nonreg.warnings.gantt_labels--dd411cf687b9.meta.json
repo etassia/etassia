@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.warnings.gantt_labels--dd411cf687b9",
+  "type": "gantt",
+  "upstream_path": "src/test/resources/vega/nonreg/warnings/gantt_labels.puml",
+  "test": "gantt_labels",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "dd411cf687b90cfa742755f17ab623bbba7927aa7c890bb3a1af8e67bfd365de",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

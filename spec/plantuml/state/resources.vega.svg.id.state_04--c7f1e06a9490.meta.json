@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.svg.id.state_04--c7f1e06a9490",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/svg/id/state_04.puml",
+  "test": "state_04",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "c7f1e06a9490c2abab63d964bfce86d98cf33dc112d4339a3a7cfd0965aa08db",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

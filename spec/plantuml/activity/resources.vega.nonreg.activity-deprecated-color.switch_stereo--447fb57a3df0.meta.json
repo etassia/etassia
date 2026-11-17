@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.activity-deprecated-color.switch_stereo--447fb57a3df0",
+  "type": "activity",
+  "upstream_path": "src/test/resources/vega/nonreg/activity-deprecated-color/switch_stereo.puml",
+  "test": "switch_stereo",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "447fb57a3df06a404f6b0367f65b86a57f774c6c9cd630885e2939bb4773a330",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

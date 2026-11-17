@@ -22,7 +22,7 @@
   },
   "oracle": {
     "command": "plantuml --svg --pipe --charset UTF-8",
-    "path_prefix": "/opt/homebrew/opt/openjdk/bin:/opt/homebrew/bin",
+    "path_prefix": "tools/bin (pinned jar shim) + tools/graphviz-15.1.1/bin + mise java@26.0.2",
     "contract": 1,
     "verdicts_file": "oracle-verdicts.yml",
     "toolchain": {
@@ -31,13 +31,35 @@
       "graphviz": "15.1.1"
     },
     "verdicts": {
+      "activity": {
+        "valid": 37
+      },
       "class": {
-        "valid": 35,
+        "valid": 37,
         "rejected": 2
       },
+      "component": {
+        "valid": 6
+      },
+      "gantt": {
+        "valid": 16,
+        "rejected": 1
+      },
+      "mindmap": {
+        "valid": 4
+      },
       "sequence": {
-        "valid": 90,
+        "valid": 93,
         "rejected": 2
+      },
+      "state": {
+        "valid": 42
+      },
+      "timing": {
+        "valid": 3
+      },
+      "usecase": {
+        "valid": 2
       }
     }
   },
@@ -45,9 +67,20 @@
   "provenance": "upstream-fixture: none of these cases is a real-world file; see spec/plantuml/README.md",
   "corpus": {
     "cases": {
-      "class": 37,
+      "activity": 37,
+      "usecase": 2,
+      "component": 6,
+      "state": 42,
+      "entity": 0,
+      "network": 0,
+      "timing": 3,
+      "ebnf": 0,
+      "mindmap": 4,
+      "gantt": 17,
+      "object": 0,
+      "class": 39,
       "sequence": 95
     },
-    "manifest_sha256": "1ad072b88fb211367b5d12eb5d18d239bce84113b3bab6b7de45a319a22ccc69"
+    "manifest_sha256": "500ad880356c3902de934b02ae27550ed2e95e0a61a35e19744b049f98cc157c"
   }
 }

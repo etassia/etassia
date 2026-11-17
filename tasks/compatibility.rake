@@ -154,21 +154,21 @@ module Etassia
 
     def plantuml_region(scoreboard_path = PLANTUML_SCOREBOARD_PATH)
       counts = plantuml_counts(JSON.parse(File.read(scoreboard_path)))
-      claim = "**Syntax Compatibility:** Etassia renders PlantUML class and " \
-              "sequence diagrams when started with `--require " \
-              "etassia/notation/plantuml` (`scoreboard/plantuml.json`: " \
-              "#{counts.join(', ')} oracle-valid cases). Other PlantUML " \
-              "diagram types are not supported."
+      claim = "**Syntax Compatibility:** Etassia renders PlantUML diagrams " \
+              "when started with `--require etassia/notation/plantuml` " \
+              "(`scoreboard/plantuml.json`: #{counts.join(', ')} " \
+              "oracle-valid cases; the per-type pass rates track the " \
+              "remaining parity work)."
       [PLANTUML_BEGIN_MARKER, claim, PLANTUML_END_MARKER].join("\n")
     end
 
     def plantuml_counts(rows)
-      %w[class sequence].map do |type|
-        row = rows.find { |candidate| candidate["type"] == type }
-        raise "no PlantUML #{type} scoreboard row" unless row
-
-        "#{type} #{row.fetch('passing')}/#{row.fetch('oracle_valid')}"
-      end
+      rows.reject { |row| row["cases"].to_i.zero? }
+        .sort_by { |row| row["type"] }
+        .map do |row|
+          "#{row.fetch('type')} " \
+            "#{row.fetch('passing')}/#{row.fetch('oracle_valid')}"
+        end
     end
 
     def splice(text, new_region)

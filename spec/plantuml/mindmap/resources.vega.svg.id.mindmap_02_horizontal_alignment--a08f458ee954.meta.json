@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.svg.id.mindmap_02_horizontal_alignment--a08f458ee954",
+  "type": "mindmap",
+  "upstream_path": "src/test/resources/vega/svg/id/mindmap_02_horizontal_alignment.puml",
+  "test": "mindmap_02_horizontal_alignment",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "a08f458ee95457b65012d1a22a162d329684851e7632accf430b3a96742c9687",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

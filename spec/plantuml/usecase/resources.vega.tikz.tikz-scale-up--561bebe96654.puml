@@ -1,0 +1,15 @@
+@startuml
+title Embedded with scale 2
+Bob -> Alice : request
+note right
+{{
+scale 2
+actor User
+usecase Login
+usecase Logout
+User --> Login
+User --> Logout
+}}
+end note
+Alice -> Bob : response
+@enduml

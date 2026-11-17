@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.state.concurrent-composite-non-autarkic-sibling-link--7250f3fe5b27",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/state/concurrent-composite-non-autarkic-sibling-link.puml",
+  "test": "concurrent-composite-non-autarkic-sibling-link",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "7250f3fe5b270285e4a4ce5141172b1dbf72a2649645f32fdc781eaca99992f5",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

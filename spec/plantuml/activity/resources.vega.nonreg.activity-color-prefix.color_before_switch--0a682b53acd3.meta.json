@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.activity-color-prefix.color_before_switch--0a682b53acd3",
+  "type": "activity",
+  "upstream_path": "src/test/resources/vega/nonreg/activity-color-prefix/color_before_switch.puml",
+  "test": "color_before_switch",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "0a682b53acd3a8deb2af2ef96e05a23e89af6f13569fb17a99a01d9f059cead2",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

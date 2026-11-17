@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.group2917.smetana_hide_state_plain_edges--50d75fee3f24",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/nonreg/group2917/smetana_hide_state_plain_edges.puml",
+  "test": "smetana_hide_state_plain_edges",
+  "origin": "resource",
+  "line_number": 5,
+  "source_sha256": "50d75fee3f24ac127ddce2e4877ecb74b8bd10861c570e7df2f5c3d66ce08bcb",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

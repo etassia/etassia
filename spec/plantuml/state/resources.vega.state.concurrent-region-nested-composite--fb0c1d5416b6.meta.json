@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.state.concurrent-region-nested-composite--fb0c1d5416b6",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/state/concurrent-region-nested-composite.puml",
+  "test": "concurrent-region-nested-composite",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "fb0c1d5416b63a721104adfbf2bdfb122176c95cc431cca09a07e3220f2686d2",
+  "uses_preprocessor": true,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

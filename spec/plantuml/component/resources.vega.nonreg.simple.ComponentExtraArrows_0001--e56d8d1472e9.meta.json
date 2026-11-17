@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.simple.ComponentExtraArrows_0001--e56d8d1472e9",
+  "type": "component",
+  "upstream_path": "src/test/resources/vega/nonreg/simple/ComponentExtraArrows_0001.puml",
+  "test": "ComponentExtraArrows_0001",
+  "origin": "resource",
+  "line_number": 5,
+  "source_sha256": "e56d8d1472e96223b71c3f746f69d81f90b6b7e181e6004f0bb229c843b638d6",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

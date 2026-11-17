@@ -63,8 +63,8 @@ RSpec.describe Etassia::DocsCompatibility do
   context "with measured PlantUML rows" do
     let(:scoreboard_rows) do
       [
-        { type: "class", oracle_valid: 4, passing: 3 },
-        { type: "sequence", oracle_valid: 7, passing: 5 },
+        { type: "class", cases: 4, oracle_valid: 4, passing: 3 },
+        { type: "sequence", cases: 7, oracle_valid: 7, passing: 5 },
       ]
     end
 

@@ -1,0 +1,8 @@
+@startuml
+!pragma layout smetana
+[*] --> A
+A --> [*]
+state A {
+  state B
+}
+@enduml

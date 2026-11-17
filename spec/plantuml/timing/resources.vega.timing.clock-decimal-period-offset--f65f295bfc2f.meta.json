@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.timing.clock-decimal-period-offset--f65f295bfc2f",
+  "type": "timing",
+  "upstream_path": "src/test/resources/vega/timing/clock-decimal-period-offset.puml",
+  "test": "clock-decimal-period-offset",
+  "origin": "resource",
+  "line_number": 5,
+  "source_sha256": "f65f295bfc2f4749fbe061c9d01a4a03beaf75b26a972bf8545e09f99c36faff",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

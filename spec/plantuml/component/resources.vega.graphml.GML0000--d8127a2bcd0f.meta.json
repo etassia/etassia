@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.graphml.GML0000--d8127a2bcd0f",
+  "type": "component",
+  "upstream_path": "src/test/resources/vega/graphml/GML0000.puml",
+  "test": "GML0000",
+  "origin": "resource",
+  "line_number": 5,
+  "source_sha256": "d8127a2bcd0f9b8ee69321c5c9aa3d49632b5839cc33e4080763af4755f5a481",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

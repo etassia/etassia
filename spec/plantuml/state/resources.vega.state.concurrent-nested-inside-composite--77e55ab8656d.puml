@@ -1,0 +1,10 @@
+@startuml
+!pragma layout smetana
+state Outer {
+  state Inner {
+    state C
+    --
+    state D
+  }
+}
+@enduml

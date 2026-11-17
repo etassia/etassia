@@ -1,10 +1,380 @@
 ---
-generated_at: '2026-11-16T08:58:49Z'
+generated_at: '2026-11-17T16:18:24Z'
 toolchain:
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
 verdicts:
+- id: activity/java.nonreg.simple.A0002_Test--039b7ec4551e
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: f5df14cb3c62835505b0f2000d652f0ea9b956f0c7fb3e53fa50fc65bbdc645d
+  svg_sha256: b1e075d421dd892f3b172d7339263a3b2db9a0b2ba20c1ece0bb4a534b98d8fe
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.svg-sprites.svgTransformGroup--c1f4121ee890
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 75196978c7f97999ed8bc796045354e9c338bc14ad1e4911e391a33624b6e178
+  svg_sha256: b8a3e409fa54465e2d15a8017b7b9ad2283f60fe49bd8c397df4974821e309f6
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.svg-sprites.svgTransformMatrix--d89679373b37
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 47d0a97ce328100138e61f014cb65a011133572c262b339559105eb7b8ac3319
+  svg_sha256: d76ccc9f5f6a738e11aaa778869713e3414708d4b6d07f22251c4ce3ed0509f9
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.svg-sprites.svgTransformRotate--17809190493c
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 88314b55ef33dead0db2d0e22491d34fa5c931be6dcb8805283354c53808efe2
+  svg_sha256: 4ac863da846699ccc3e55f3ebb7b99dd2805dfe56a9511fc76b96e6ca845eef5
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.svg-sprites.svgTransformScale--765d7ceef948
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: cd70ebf0bdb3839f094b3d138fdfea25a7f974c64218080646dec1d25b6cd1c8
+  svg_sha256: ccb16ef1f2848f46f055e92ba165b70f730e965f6df35f628ea42c55062851b1
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.svg-sprites.svgTransformTranslate--a8ff9523d6bd
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 8e598b0bfd78bf2d43bbc1ce6e6903c8cd8835af6daef1704f51a52495838c2b
+  svg_sha256: 487d6da7cd049cfb98aac380e24a5000dcfc494832c3a6b8d29f426157ea0722
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-color-prefix.color_before_fork--197ef4e854f1
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 2ec19b642e18a682ba2d2d5f47a136a7e295deef67e0f26e9e9a7307495d8df7
+  svg_sha256: aa5aca2c5f95776c6aa7923ed2228eeacbf1e919c23d1e208573b5ecddef2fb7
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-color-prefix.color_before_if--d8df0863f7c1
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 0fc8347da77dae51062c14455b24ce24ed3624d4d312469ee97c072e6768bf3e
+  svg_sha256: eab2843fffdf3b05115b5b6533bdfd9d4fff8bb9d42834517ab627310d330936
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-color-prefix.color_before_switch--0a682b53acd3
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 5c411ed3703b315c211a16677ce533a850e47b082b7436f8dec581985d4d4812
+  svg_sha256: a4c96e5fbce44c6b2e7556ee6904eb6c510532b635779e6d72578837a7330bfd
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-color-prefix.color_before_switch_three_cases--ff6198824ce0
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 20e31d445f451e61427d2d68814c2cfb5242bb9a657a53f0eb5b74bd2549586a
+  svg_sha256: 0dfa17c6138334929539080853014e7ae6d8d959c9e4374184874ef24d19b3ff
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-color-prefix.color_before_while--2b9877c198ad
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 8b3d7fefa633b34e7ae397f7c9855e0e613f3f3672018131b4900c93bcc424bf
+  svg_sha256: 1d9d415847279330067af7b23b5ff2ce0474d7b3c8d99def4c1b9835539f5f66
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-color-prefix.color_inside_case--94b163c8b357
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: fe7fef51bc378d8ca173bf66d85117816e49821ae4f56c5a2f326c9dc62023e2
+  svg_sha256: 75bdb33ec62a23a60c4339edfb026ce8c52eb5cd5de934bbf68ab9cdf43b0293
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-color-prefix.color_multiline_activity--6d602f47b05b
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 462a2b62e32965fd950016a847289739ab2b7a55a46981add28f259337d2394d
+  svg_sha256: ec21dbd11a6e433e62d1cab68410548d3dd9d450541641e96f6e4134943eec87
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-color-prefix.color_then_action--821d37aa6d97
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 6f9a64aaf71a23601934f4bddd11846d1a4d1c09c6ba77cce39d45f141a474e8
+  svg_sha256: 6ff0584afa8fdd8c9473b53cf0bf52665e57acec202f5947f67ae35bf2a86d32
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-color-prefix.stereotype_color_before_switch--a70c2f7ccba1
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 1db9a84109fa669c2aba6327cf1422342ecd936d6f9e3c6c0e43ac2448a14793
+  svg_sha256: 38d312a9c72d43dc4f2516945848e0cd8dcd0735d6359d240ab1d55e2ea9dc9c
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-deprecated-color.elseif_color--1058341ae93f
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 510ba8b5769e7100ae4cc0bd16b6bfd3c800fb2c709ba4491221fc8dbadc8d66
+  svg_sha256: 7e9467cf67311504bed01a49ffe222bb02db9758cb3beb9146b58d297e0e6b3c
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-deprecated-color.elseif_is_color--fc52027de770
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 557514c5ebe0cc1bdc842d69a8a3bc3e330180485ef0179071c4f1fd63cddc7c
+  svg_sha256: b1c9d2977f45ea09fd538ceb7ee984874059130126f9c7abaf1c4bca5f1f9d13
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-deprecated-color.elseif_is_stereo--97ab1eb92931
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 2e19f628c183378b6dcdc197059d1865cb301eadba0ac75487242bbef478af1c
+  svg_sha256: 2e10943e4446df7daabfd3cb05d63e0dd6f73b629805c4e20c91bd2cf0975090
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-deprecated-color.elseif_stereo--fc509815755a
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 40b53ea993cf2b7f9df6725fbfb5683a8011e9bc87027ec410c5ac5ce3ce3a5f
+  svg_sha256: d582e11f805d9329e803201fc0e2e6a8d4d81fcf8eb40f8cca42125fbf4ddbdb
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-deprecated-color.if_color--5b91b6f55ba0
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 293302493730f8fb3bdbc8fda3d3fa1cae013934ba9cd5d872fcd16f05c222ab
+  svg_sha256: b46af853c35bf981358ee502d8951f1b6880d9bfad570237f8c7b027f021f048
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-deprecated-color.if_is_color--72a6e7dfea05
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: ce77f3cb037e6e1e4502d09fefac11137314950113b7c396c31caf2c7dcfda96
+  svg_sha256: 6b642c0869bd91fad86d1a5c6e55cbfc754d3ac27cfa46e50eb9fca3ee6859c6
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-deprecated-color.if_is_stereo--065d92cda34a
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: f5cef421579f6be290447dd3e483da70e0f903f151c9af8e25d81e2763f20476
+  svg_sha256: '088d7e66cba987506711a23aea4cb96e1d41cbc28e48c8764342300a0c239049'
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-deprecated-color.if_stereo--0a7a1b943c61
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: f10acda96aa64ebdfaaec4dfd5e07eb85d03c4bcc2cb8c0fcca4b423f317831e
+  svg_sha256: d911a25ada50280c6a73cd997543026f2e6e6de37cb742ae3045e38a67c24034
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-deprecated-color.repeat_color--d76b92f6ed65
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: d21b70bd42a158b0c6d799e81eb74cc3870219e45b9149cc94b77572a493f1a6
+  svg_sha256: 329ef5c173981557f3a2ebbdcdb3651adfb6a6b25d70807d71924a2bb0fab319
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-deprecated-color.repeat_label_color--5891f3735f7a
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 4d7a97ff1970d0224da4ce1c427ea1314f39cc74292d70df3884d1155f185412
+  svg_sha256: e04adab00bf738c73039f3ba1f9bdb9490e10ab32a704ab3dc00a117ca878b0e
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-deprecated-color.repeat_stereo--6afd691aa1fa
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 51cbe32771af8e20157ffcfb097b30247bb0f987e75a08598016ee9decdcf18a
+  svg_sha256: af401fc7a6fc7285f54e3348aedd2e299502104061918288e204a04bc6c680a6
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-deprecated-color.switch_color--81372b583001
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 44e2980794bcbb755a7a531abc8a23b47701b681535d776e00bdbd9ab61869c2
+  svg_sha256: a71a28e75c643b20d8c9d9a58984b1eede1114fe5d9035bc52681e20a62b834a
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-deprecated-color.switch_stereo--447fb57a3df0
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 4532641d19ffbb0a1b41b692f1cb072197a95d5f4771beeefd6458c57f1c69da
+  svg_sha256: 2728ce2bfb8e8792619780446922e932b441ac1efb452d9afd8c073a1020112f
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-deprecated-color.while_color--adb2b7123b9b
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: '0858c064420482b1fff6492f4490962955eaf9b3de436ee514d5bc12ad6ccf63'
+  svg_sha256: d89bb9c4f03b5672d81b565aae5cb925434b74ab8bf0e198dadb36e86b6273a3
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity-deprecated-color.while_stereo--0a35e768158d
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: e575ea56be7c7d99a8350ecbc9b0043a76d199b27eb4a6729a96d22de078485b
+  svg_sha256: ef7e38e14ba5b229e11c3a5f04e4804f82b3cd1a943cfa724ca2a6342e439963
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.activity.style-block-unclosed-at-eof--cc20c570afc2
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 557f5a8d673b07767080e1b6c794b2439214fb1bcf38ba75a221ee5c9f1486ac
+  svg_sha256: 0dbb41776ccdd904bcb0bec04c301355335c3fe00ad6bb6b4c8d20d778155268
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.simple.A0004--037b71303f4c
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: a103730164c22f2a0e9204b995f4626193071a19b1119f691571d72464b9c34a
+  svg_sha256: 13c4530381c10d563744a9d235c83f9fdcc350bf78cc452205776b9ae44007ac
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.stereogroup.inline-semicolon-property-list--ec6bcc01fcfd
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: d2c93c391ec90511ddc16b45575cf98eff9f98d2f48a9b65eb27b7b8fe4237e4
+  svg_sha256: b34a0c0807a385e2f72fb4ee1da8ed7c1f0f16243caf2b400d50a449b184c1d9
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.warnings.end_group--c7e1c5f66dd6
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 05d59710fa9ab1846412dd425a21b4151f79ffa020e8eb5f91823ea2f120a1e0
+  svg_sha256: 20587ae5db366e06966cee743b57ccfc5e39856bfa9f0b8f89c4d2ab60406c63
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.warnings.partition_no_bracket--ab4fd4e919a2
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: '09e43be8ffaeeba3433f9f2a5894cc4983f8fc1dc14ddb95dc8c7fec6bbe3617'
+  svg_sha256: 1519ca61e19847772d38924d7042f9cf55342e136f21c2e5909b25a24ff43189
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.warnings.repeat_color--d76b92f6ed65
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: d21b70bd42a158b0c6d799e81eb74cc3870219e45b9149cc94b77572a493f1a6
+  svg_sha256: 329ef5c173981557f3a2ebbdcdb3651adfb6a6b25d70807d71924a2bb0fab319
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: activity/resources.vega.nonreg.warnings.repeat_label_color--5891f3735f7a
+  verdict: valid
+  reason: rendered ACTIVITY
+  source_sha256: 4d7a97ff1970d0224da4ce1c427ea1314f39cc74292d70df3884d1155f185412
+  svg_sha256: e04adab00bf738c73039f3ba1f9bdb9490e10ab32a704ab3dc00a117ca878b0e
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
 - id: class/java.net.sourceforge.plantuml.explain.DiagramExplainerTest--d715317341a6
   verdict: valid
   reason: rendered CLASS
@@ -20,6 +390,26 @@ verdicts:
   reason: rendered CLASS
   source_sha256: afce9b8011422e95778b8355e91038a85cb2ef169459657f4930ea0423e448bb
   svg_sha256: d296e27790404af2f8bd36616986edf39f6ba3e4542c525271cbe724907d35e0
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: class/resources.vega.migration.HideShow002_Test--e022b1a868dd
+  verdict: valid
+  reason: rendered CLASS
+  source_sha256: d8b67f9fe7aa0e61c0f96b1fe3f8a254cdd1026d96479110a7b6ed492236772f
+  svg_sha256: 9c03796c836fb07b3e1a6ce4412bfc7482b240c8b8854b1d551787ee66e427c4
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: class/resources.vega.migration.HideShow003_Test--291a3bd4ffc3
+  verdict: valid
+  reason: rendered CLASS
+  source_sha256: 52e37d2372dfe51c13e1ac724327dea243da97c23c0f323e60da676b6ba2176a
+  svg_sha256: bfee3ce99703d1c3e4164917fe101ef2e067484f7647835482b767af01d354c3
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
@@ -139,7 +529,7 @@ verdicts:
   verdict: rejected
   reason: 'Syntax Error? (Assumed diagram type: sequence)'
   source_sha256: ece6bcd48bec3197c5b3eb885d7bda9419d7931887bd93f195af0fd4e95c441e
-  svg_sha256: fcc7c628f54b30e5bf39b81658346785ba13c098b3a578a04016109a7008e34b
+  svg_sha256: 512afaef43421243b055cdcc567affb0c3c674372d91e2cba4344bcf2d66fc5d
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
@@ -299,7 +689,7 @@ verdicts:
   verdict: rejected
   reason: 'Syntax Error? (Assumed diagram type: sequence)'
   source_sha256: d8815942b6670cf7d6aeac1fffbb8b2b0aa106ecc9b009afa21173f62b8bc2c0
-  svg_sha256: b6d88a6876d42bbaf63b0ee754c322427210b162b66da997f0343cebb5663e91
+  svg_sha256: 74f9f94ed08fb40fe50c80633b386bd36cc328f7fb5d83974bbb1c401fa9a588
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
@@ -370,6 +760,276 @@ verdicts:
   reason: rendered CLASS
   source_sha256: f4234c162bfe0f3ab09954fb80acf434b47e04a614b71d410f2f66786b4613b6
   svg_sha256: 58a9114e5a5a832913cb2a050c0d309e4a1d1311b15685db858bd6342a9fc8b6
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: component/resources.svg-sprites.svgGcpStyleMultiIcon--f379ef8f03e8
+  verdict: valid
+  reason: rendered DESCRIPTION
+  source_sha256: 42d9cc3461856ffa2de2516766bad20a69113014cacd113fee51910fdf5987c7
+  svg_sha256: 3fcb0a341f7fd90afb7f07fc9f1e0a4a004d56098562b42b9576d5c227f9909d
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: component/resources.vega.graphml.GML0000--d8127a2bcd0f
+  verdict: valid
+  reason: rendered DESCRIPTION
+  source_sha256: '092cc85626eebbff9fb0d493c59b1792e63e98068e34c26cb22412fcfc33c4b6'
+  svg_sha256: b79330869e1af868caa9034305c3494715b90496a1a8ab244650e85d7553f7a9
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: component/resources.vega.graphml.GML0001--b79265dd904f
+  verdict: valid
+  reason: rendered DESCRIPTION
+  source_sha256: 79974105e0c566f4e8c8db980df0d543dca322f55b6a2652cd9f258fbc431fa2
+  svg_sha256: 01605c024e48702679fb9c367a063a80dca5c15a4ad684e6242c0e5b71920515
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: component/resources.vega.nonreg.simple.ComponentExtraArrows_0001--e56d8d1472e9
+  verdict: valid
+  reason: rendered DESCRIPTION
+  source_sha256: 1bfec180b97e28bdaa5e1a8f4c02afb376ca7c59c734565259f7287ad22f06b2
+  svg_sha256: c0abef6873f08452c536f2b3f6cc207f3ed545f1b6d7ce7fa1d8dcfb5ed47cc0
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: component/resources.vega.svg.interactive.SVG0005_Svek--048648e8007e
+  verdict: valid
+  reason: rendered DESCRIPTION
+  source_sha256: 185bf7163bf951cbd75e893011f3beecc967b8457736acb9cfaf03ae431c1811
+  svg_sha256: 148a2818da139ee7c12e80c04e467f7e79c48743c08eeca974730f8fe22bb377
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: component/resources.vega.xmi.component.xmi0000--2f0c63fa3c08
+  verdict: valid
+  reason: rendered DESCRIPTION
+  source_sha256: fdfa9f6e844b26e6cc51157cff9c142b0b06bb4e4b727c8580c74d01d78a3996
+  svg_sha256: 589d13f21d74ee8cf551c3c4b16a32d5dbd27ddb47ce2ad9f5843be5cf3427fe
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: gantt/resources.vega.nonreg.warnings.gantt_labels--dd411cf687b9
+  verdict: valid
+  reason: rendered GANTT
+  source_sha256: bb91953ed5fab11a41f17d5722aaa11e42bb0ab3c2b6d332f67a32e3e61fd9ea
+  svg_sha256: 3328d0595864fa539deb9051a4ef77ee8e1b2b5cb90292a04ed2036b97dabd6c
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: gantt/resources.vega.xgantt.gantt0--2ba578c56243
+  verdict: valid
+  reason: rendered GANTT
+  source_sha256: 871ce927747eeec5e3eb13741805c670b4800eabbc089fdc0a1b57659e1a8b92
+  svg_sha256: 8023ae37d316dd9598cc29ce5180134127de5f14a204f16bcc58baba36b22a88
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: gantt/resources.vega.xgantt.gantt1--cc3de958a95c
+  verdict: valid
+  reason: rendered GANTT
+  source_sha256: 28dcf9f9d04dfae855ba11cf77b00fd1d75975905ddbb7dcd27ba675456d4616
+  svg_sha256: 37b2579f1c21b97c8695fc71ad1143f972a7265ab2accf6861a4931ed1ba012f
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: gantt/resources.vega.xgantt.gantt10--1abd88ba4293
+  verdict: valid
+  reason: rendered GANTT
+  source_sha256: 6c09d372a63b0940093a9909279e85ef5d9bd2888a60ffb1fb59c2f4dea8a4cc
+  svg_sha256: 3bbbfdf8df19fe80cbb4d822c77b48c3f9aa6103e07a0272623b093b9dd13733
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: gantt/resources.vega.xgantt.gantt11--d732b74d07a9
+  verdict: valid
+  reason: rendered GANTT
+  source_sha256: 95c019bf801f2ad8ada23ae516403d3dd2b0ef04fdf8ea9a27dc0894efe268ed
+  svg_sha256: a61e2736833f41fda9cd0a35efa55382253a9240d936974644737fdee4bf49fb
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: gantt/resources.vega.xgantt.gantt2--e5ccf8ad316d
+  verdict: rejected
+  reason: 'No matching verb phrase (Assumed diagram type: gantt)'
+  source_sha256: eb07207cf61e6091c03c09571b5d4ca9f6d68364f847ff8532681b2e0407d795
+  svg_sha256: e4b97367af0cd9f78c10a48d4462b48bf6e0cee62837e6ea0e280f07748d7f24
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: gantt/resources.vega.xgantt.gantt3--2cc7a7abc6c9
+  verdict: valid
+  reason: rendered GANTT
+  source_sha256: bbd8e8834ca6b0ee2b8c699401e4dd1d50c7d7639a686ee9e45949336bc98343
+  svg_sha256: c1bb47e84c4af7357e143b5be0c339ed147e688458dc8e6ee4a35c5f7284fc72
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: gantt/resources.vega.xgantt.gantt4--6a88ff47a430
+  verdict: valid
+  reason: rendered GANTT
+  source_sha256: 773c7f26561cb4fa319f7164e6e73a36dd11cbe3eb232aeea23d8b9c69196028
+  svg_sha256: 8a802d9cbf0460cecea2c83e19edf24fa7e54ac34db598dc87baf873ae14886c
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: gantt/resources.vega.xgantt.gantt5--ae2f10a10012
+  verdict: valid
+  reason: rendered GANTT
+  source_sha256: 3a883d7e4fe602ad9ff428c35ea4ba777181e93e7c2ed0a104ed8788b0492b36
+  svg_sha256: 4f95b4ab3def297eee9dc74511ac08c533a2719540da88eab9965dfbdd42c940
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: gantt/resources.vega.xgantt.gantt6--77251fc4d16c
+  verdict: valid
+  reason: rendered GANTT
+  source_sha256: 175ff34e6f58ed42ac587e55d42c2c1597a25bcd6fbedc20c540520e3c3ba8d9
+  svg_sha256: 2452e424dbcf782b5ddb2e45cdbc66cc43747d2e42a16d752ddf75ef3fac6977
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: gantt/resources.vega.xgantt.gantt7--78f19d7a639b
+  verdict: valid
+  reason: rendered GANTT
+  source_sha256: 541c60124b3e2b6b1f4a96a9f695d20990c4cc4ecbf1caeb5b1c1a3cd7fc46ba
+  svg_sha256: 0617d6145e6200dc21a2ea3e5e03cb50cc78e3012b7494b983d1164e4876b7a3
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: gantt/resources.vega.xgantt.gantt8--b4b0c8cc4efe
+  verdict: valid
+  reason: rendered GANTT
+  source_sha256: 05aac251107c70f3844891fe4204bb6f5fe8a39b36802e587a0bc5db8b51691e
+  svg_sha256: be5700dd2c6e38e9cebcb11b1023e5c76dbc5bcd4adebc4063ecf873e198c404
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: gantt/resources.vega.xgantt.gantt9--15a304ea0dfd
+  verdict: valid
+  reason: rendered GANTT
+  source_sha256: d6d1b998a0ce275dad71b1133ebc6f3221fc3f0778c5636d280b7b8319dab49a
+  svg_sha256: d8e7b924a4c42cda4f37e6111dbf7053a911bbff9a0218f4902eea8f681da343
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: gantt/resources.vega.xgantt.hms0--57ffa010e3e4
+  verdict: valid
+  reason: rendered GANTT
+  source_sha256: c9e9ac0950187b9e2f89ad756852f95c3fd9c7c542feed93041c3b3e51cfb2ab
+  svg_sha256: 97109dc1a5f26f655c3daf6302d683bcfa8798e96a0e7c33cb8e1eddeb93eb5a
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: gantt/resources.vega.xgantt.hms1--35b7cd3f66fe
+  verdict: valid
+  reason: rendered GANTT
+  source_sha256: 345fcfe3f76ff66baac3e3fb253b59ffd0e82cc65c9686aa5008163a7cdd7a56
+  svg_sha256: 127b52c13f0d6e203d713e8b276abbb15d40590790c27399294287ea99e2738e
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: gantt/resources.vega.xgantt.hms2--a9b68becd921
+  verdict: valid
+  reason: rendered GANTT
+  source_sha256: 162400ca2f016c8e44c0ca010f5d7e428650edb03c305a6b2fd8114ecbffcd68
+  svg_sha256: b30980fc88af2b716cc83f40df77f063f214523cdfbdbb1e4a434fbf1904d823
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: gantt/resources.vega.xgantt.hms3--462e83f3c37a
+  verdict: valid
+  reason: rendered GANTT
+  source_sha256: 7c6598a7f78f3939cb8e3bf09405c78d81441811d97012107691eefdbdfd6fc3
+  svg_sha256: ece497c97042ad7acbeb6d2349365c6c60d10287422efb1c315dba68dd4ae344
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: mindmap/resources.vega.nonreg.mindmap.mindmap-boxless-and-leaf-variants--44fd3178200f
+  verdict: valid
+  reason: rendered MINDMAP
+  source_sha256: 17e89b77e22dc40641a3f1f16824fbf0864c4dd69a999d2cbb45874b53ab57b2
+  svg_sha256: 200b19fe12d851b4d556cc73da3a402461d798ac54a86b362f02d18073e512d7
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: mindmap/resources.vega.nonreg.mindmap.mindmap-deep-ancestor-cascade-with-stereotype--699c990a2c5f
+  verdict: valid
+  reason: rendered MINDMAP
+  source_sha256: bb2f12825358b656c0fe81580874714b8672613709e16969852e12febffbf758
+  svg_sha256: 31a99ad66fd83f6a9b790c1f949e8733b2fd2fa1f72a863a3887c9693ff74c28
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: mindmap/resources.vega.svg.id.mindmap_01--7b23f99427d3
+  verdict: valid
+  reason: rendered MINDMAP
+  source_sha256: b2a57a64fbe072424ddf4b1ffb46643048e5c3bab3e96fcc0a60fda180d733df
+  svg_sha256: 8d8952fe47254fc2d684a4ce93e8f35c58c8155085d4bdfde47ec982fe8e3a46
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: mindmap/resources.vega.svg.id.mindmap_02_horizontal_alignment--a08f458ee954
+  verdict: valid
+  reason: rendered MINDMAP
+  source_sha256: d920917f97f0271845ba4cd682177b28e67283a8a14afd1e9722c05e9061faae
+  svg_sha256: 2b8fd83c44d5a16e97ef6995aced498c7bbbd64410163fdf550c38cfc5553a5a
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
@@ -869,7 +1529,7 @@ verdicts:
   verdict: rejected
   reason: 'Activate/Deactivate already done on OEM (Assumed diagram type: sequence)'
   source_sha256: 3516a1c59547fb833ef17f85f3e0387f81112dad7a5f5912ad076e737cc10306
-  svg_sha256: de03a5b9144b642a66e3c74511cc475469390e2fa3df961064bbc21073c0608b
+  svg_sha256: 90a532653fa6160c18e4216df0340b95202ce44ccdb1bbfc2ae6fd0e20430f72
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
@@ -889,7 +1549,7 @@ verdicts:
   verdict: rejected
   reason: 'Activate/Deactivate already done on OEM (Assumed diagram type: sequence)'
   source_sha256: c16d1b6335c487c8f95600bf122e933bad9764e4b2d3cffa22a40a3cf3b2ccf7
-  svg_sha256: 17593b0744461d669a40c6487bf6daa611e95a4a61207e7da697dbf5f1134a8f
+  svg_sha256: f78ab70aa66aeab661b8f11aed7f7be627476dc47ec6d7bf187985b7b73566a2
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
@@ -1320,6 +1980,476 @@ verdicts:
   reason: rendered SEQUENCE
   source_sha256: 4c569a8f83ef8a0a10e891568e9bda04941ec674f72ea8233bdc46bf40266efe
   svg_sha256: e58286564695afaa39f0c5a962ff0844155509c296a004ad0226a966493c43b6
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.nonreg.group2783.composite_with_usymbol_unaffected--9ff8438d6389
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: a71df38b8ccec5f6f0c654b82dc4ecd093c37ac860b3c2df8d03e374562a004d
+  svg_sha256: e83b0db194316381148b69d506f8f60ca0c4df953c5d270273fa60c52dbd21d6
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.nonreg.group2783.hide_stereotype--3c3df11188c4
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 2a53f55b00ce3b4e9e295f85e359723ff6b867df47e39d74825d136aa45da0fe
+  svg_sha256: 05d79598c8bbf9bf1b53f6a7b0ea529c724bb3541011263bddb58b4d14e759ed
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.nonreg.group2783.nested_styled_composite--9fdeebfef8b5
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 3b5f72a0c46b7115eb3a99761ea95a2cf7366e1f0a5535477a8a5eca3dfde3a5
+  svg_sha256: c2cd98d734cd5569a963c7b1902c17bf14533225990971c522876d693023a314
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.nonreg.group2783.reported_case--b751c664b1e5
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 1b00129f133e96325d81e36548281e71369014a283827d746f53f095a7d83447
+  svg_sha256: 11cc0ff52263dc4da2b0f481fc206100b7c4a0333f602d48faf0311f1f279685
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.nonreg.group2917.smetana_hide_state_node_label--e7427f6c97ec
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: a505768fabfb001892dd0852120e2628c2346d6376feeec58fe83eeaffda75ee
+  svg_sha256: 1d1f8247da1914cb97890186b5db43b517eb5498e5b97ab07757aef1a394ed50
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.nonreg.group2917.smetana_hide_state_plain_edges--50d75fee3f24
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 4b57c3a4c1b3e8a1cf7ef480fb8e07b095e8bd23606c4b713d062a9f3835092d
+  svg_sha256: 8b544662b6576c274dfd2ffdf86da4fd32ffa3182fa72656b6bfcb0f3ac26258
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.scxml.junction-pseudostate--d0ba53c8774b
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 725e7b9b2b05c04ea6ee6f02009ab4d95cf48f5f15f39ee24451be2f2ea54756
+  svg_sha256: 32b7dec7ef2c51dd96623f7413b12d4fdc04d72d02aade27eebda8079786bd81
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.scxml.state1--2a9cdaf97ed2
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: c24c89190ffa708ab358eb2a91dabc0ee547fe3c22850884e71a5f4c5dbc57a7
+  svg_sha256: 76524fbab2fffb439e9ef06ce915fd4f054553280d4660be0969fed850007520
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.scxml.state2--fb703429167c
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 0c1d153595c76afd255c20b13037e1ae6e7a56ace76705d8672e5bd8f9af9909
+  svg_sha256: 661155b716657ab1d3a72164a57fdc5b9f1aeebca4fec532503c8c18dc175d58
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.scxml.state3--961ba65368ac
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 0adc96106456db939d7446d19e75570b16af25a363d7a83f60bd516ba5f35d4d
+  svg_sha256: 56f69b9b7048bc17b1a63b3fbb165126325a812977c8a5345c945877085ecaa6
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.scxml.state4--5966b349b1be
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 0ba8375f5e857ac555fee9e436598bb91838cc396dd258fc3a573fe5ca13d0de
+  svg_sha256: 0224114cf9feda8251ea32c176212451dee5bd19145a785827b4decd369e81c9
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.scxml.state5--5f7b0a94d845
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 8118fad03eec6d8e7d4a41589479d779cb318ee7025be6ba87a8c88f3409d82e
+  svg_sha256: 44133c85a8ef6eed44f372d68f6a540c9da3c11778d13e2153841bda317d65d0
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.composite-autarkic-simple--3530aaf547f2
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 7d17b065f9c3f3244d7e1597ec53a4e61b30ef8c31ed607bbf67b3eec5d53f46
+  svg_sha256: 04753c04fc4fe432f5617727f1fe710224682914c2976a5df4b4a6016beca984
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.composite-non-autarkic-outgoing-only--e37edbffc86a
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 838b5c11348e84812b17a1bea4e4920778791d780f3f5945d879a08220d4a93c
+  svg_sha256: 768e1ef0670c996721f1c21bc736d3bbd6fc0e42dfc484188fb396e601d1be91
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.composite-non-autarkic-start-end--9763f95eade3
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 53a1b5a68a47f69c57b244950558046263b9ed6b7fe6d1cb4e5dff34666c4918
+  svg_sha256: 802e5d55572f71d33537bf41d3a399ef51f2f5891088f3255d62c8ffe9ed4221
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.composite-siblings-with-transition--cc6d1e3ddc83
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: b42d84c503985b0fa62818bf65fd386f922399cf2adccde8ca77e5261ce6dbcc
+  svg_sha256: 4ab598b2a21768b2e1078cccfc9d631de08fb893b0265549162d48d580572ffb
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.composite-two-levels-nested--1e3e287a2c91
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 123573933de72473c2370388252ebfc83e0731e854ad9ce14df5624807300a68
+  svg_sha256: d1f95d05c801f7a0797f9732ea2ed7fefa0c924446f27b05b3273ac1077a8a5f
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.composite-two-levels-non-autarkic--59973592d243
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: d9cd41f1a5e2cc299b9e99dc606725d991f069051f15699cde6cfeec51e2ce17
+  svg_sha256: c4f963b52953c5151dd7ff1933a325b529a259ca509477f07c802bd8e30de77b
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.concurrent-composite-non-autarkic-sibling-link--7250f3fe5b27
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 380bbf25c2a81927ab5ccad5c9e88ea700d6dcddb20878c4a8e0ec0a2f3d05e4
+  svg_sha256: 0c698a020042dcfd3cf0cb9d7d84bd445196ccc5391ce8ab33fc37b026633a1f
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.concurrent-composite-non-autarkic-start-end--488e0d41947d
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: c67ddaeff932aa503df5288a8c37babf3affd1f977770d67415d6660d5be409e
+  svg_sha256: b93a8632871e7aa5c9d6089c44e6f5543a661b280fb83317cf078486b14722cc
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.concurrent-dash-three-regions--25752522be1a
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 86a4391c075d32233a018a3824a3b013e6c14ef6ca3fb5269f351cc7afc9944a
+  svg_sha256: 668937fae7f362eb97ef3a9046d8a4f1ae5e66eb7a3071d9d545a59ddc7c87d0
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.concurrent-dash-two-regions--bc74b16f65e0
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 814cd9e049dfeffb0a3a38fa48e97c7471f8fd34d6f2d4e181712ba8803e8372
+  svg_sha256: e24a49b188ffd4bda89eaafa863ab53257bdc7721a000a4968d7dba939a32a3d
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.concurrent-nested-inside-composite--77e55ab8656d
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 060dbac46a1f62a361d12c66732394f7d2d50f3db4e762e2cd3b2d81ffd037aa
+  svg_sha256: 02afffdc2d5a9cd3da6b150627fabe72f17be5e88b94c9e4a5a6633f8b0cdb86
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.concurrent-pipe-three-regions--9462476a0d07
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 01eedf6decd9136ecaf56dc562e13830e9d86181b8600c0c37128c84e70d3b87
+  svg_sha256: 6ea20f8ad333f7657cb063f05e24af2076965c8c84daa8c2a18a477d7e69f3b5
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.concurrent-pipe-two-regions--a175de3aac5c
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: dc620a015ecda6c9ade0812b4bc6e92271aae3713fcbf1275f1e736f906377ce
+  svg_sha256: 5a0b5129e341f70015cae94ae701b59e387b7a188cde49af5bc95b3f0395c7a7
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.concurrent-pipe-with-nested-composite-region--ea0ea05e9906
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 147e8a5a82cbc712809605e2a90ab9b8af028cb50b3ed33acee9df7d29165da0
+  svg_sha256: 02bf6937d60d92446bbfb67e6422c480d036435c45346a3612b4decfad02a276
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.concurrent-region-nested-composite--fb0c1d5416b6
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 7f6e55e6b9b2985b03aa35e768f9f6fdf6eadf6a9dd8b3ddcbb05adad2937ad9
+  svg_sha256: 65943465962f9317159a756ebeb75a15427172e709195beb61952e3d7259449c
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.concurrent-top-level-root--889957e6bd30
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 0f5b594c787d18982bf607a17949670afe28321a725d2dd2b8476dca375e009d
+  svg_sha256: 6c9b56c07dc34068741c49a9d3f38f1d33a38d267b95e29e01af35f382dfc053
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.concurrent-with-internal-transitions--e3aca9e00cfa
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 42defdad7f5eb880b581835262a6e0ef835c7ff3a1cb002c3b5d8b055bf0de91
+  svg_sha256: 8fc1f9fcbc57de8d6ade5328bedcf0dcb506ede68d73005ed279fc38df001d7b
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.junction-pseudostate--d0ba53c8774b
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 725e7b9b2b05c04ea6ee6f02009ab4d95cf48f5f15f39ee24451be2f2ea54756
+  svg_sha256: 32b7dec7ef2c51dd96623f7413b12d4fdc04d72d02aade27eebda8079786bd81
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.node-style-transition-label--37ff38b02a79
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 2d51a08413ec0a943d0c4a75a725a0d06400085a0847f485e11ac2d272131918
+  svg_sha256: 8d24753fedde5a08a9d94313875d49564724405fb50036af4b75b5d214d74210
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.node-style-transition-label-orphaned-by-hide--63c66affc39f
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 5c2401271cf3e3f010d3514200e71ae76fd547a8dcd555fd2e7dff4aae0a8f1d
+  svg_sha256: c62ec2c998a3dca41140ee58eba7e70789c2f4f671f21caad2d956919f7f254b
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.node-style-transition-label-orphaned-by-remove--da7c69389e6a
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: fca17bf33817844d6ec010de4ae7598770172f14261a3399d5508aff3d3d6f1a
+  svg_sha256: d361e01c16942509a113b09d01e7cca1b9cb9ade8e2247bb9e20db81c85cf8ec
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.node-style-transition-label-orphaned-by-remove-both-sides--88c3dd7b08d2
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: d4b819ede6e6bf17f71dd7733018a7f90ce996b15665099ee9335f5b29d04069
+  svg_sha256: aeea0d0d2c96d09829032c1ca6f190bf068b5ffa0fcf08b7037cf0c7f7a246ff
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.node-style-transition-label-orphaned-by-remove-source--a43e8d630760
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: a7b4ef95b257e6fccb07f38d67f97e85d6d3ac44cdae90fd2cbb682fd1329d99
+  svg_sha256: 4ee00a35426a24aaf1f982703b6cb66ecf9588e10bb2011376ffb3e0cee15c25
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.node-style-transition-label-remove-then-restore--ac94dbb9b063
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: ad6d3050447fa771f9cd2d5edc948c2300178deb79184d87f3f187562d3f421e
+  svg_sha256: 0b71bc5e17853d26268c6af0029b513772e02217a57182ed6f9a7bfb230cd997
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.state.simple-states--9993a86fb808
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: dc065bda075d4318fa431b0789e1c1359331cdebee50861168e49b4d11993d08
+  svg_sha256: 1e3d49d9797eae2773c6a7c953534ab8a06458998a87bf647236f431c4e09d01
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.svg.id.state_01--a67f2384e511
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: c4154729399901b3a07bc2413709f7c3391d9b28920e371b14e8f7b9e7d43018
+  svg_sha256: 37f277d38badb28da593f6c3ed240af72ffe20768ecc60b469da54c1e548e87c
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.svg.id.state_02--d798639bbd3d
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: e8c8ec1393bccb4e470a2c47153db6cc58b26a6c8789088c9166c1b9be40209d
+  svg_sha256: b42c508b69994f29318060a010fe76e879f88ea1a43b265bc5f7ee5623c72fc7
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.svg.id.state_03--2dca792e834f
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 199b708d4741616632df766d02af261b32b64b6168ed08a3bb1eaebd21bbf811
+  svg_sha256: 4be79e6cb360903aec66f6a4c04c523c530f9b438bd091a22ad755b23c812fed
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.svg.id.state_04--c7f1e06a9490
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 7a57eb39666aaa0a1f7b986821091458f09bdb80da68339322e5d56332cc355e
+  svg_sha256: 3090a7645382d3c9464ecc8c3149b55c0cce23aab39e886685f64c800ac46213
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: state/resources.vega.svg.id.state_05--8a6f5d22b598
+  verdict: valid
+  reason: rendered STATE
+  source_sha256: 56d0c6be50df79dcea6b27f9617b2aa6f87bdd256c9991e22cb1189b012676ad
+  svg_sha256: d17cfc16cf8ebee357b17e49ac09def890544aed07987df90794cf82ec9a77e7
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: timing/java.nonreg.simple.TimingMessageArrowFont_0001_Test--33abd6c86b15
+  verdict: valid
+  reason: rendered TIMING
+  source_sha256: '010583bd812868f97b9ffa66219d9fe1acc3028cadc722f9f5992c6d2f629f34'
+  svg_sha256: c5aad51fc2594ed803f7f7074b05e4e879c62a093ec822303acf07ebb9d4e9ea
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: timing/java.nonreg.simple.TimingMessageArrowFont_0002_Test--6774e515bf88
+  verdict: valid
+  reason: rendered TIMING
+  source_sha256: d9e3f7df3efc898a5cd7345f6689ea87f15298c186913392e0a9d60deff9fba3
+  svg_sha256: 7cb860e883d6b0ecbc68b333476c46ba542efd41be3f945110aafeb696b6d556
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: timing/resources.vega.timing.clock-decimal-period-offset--f65f295bfc2f
+  verdict: valid
+  reason: rendered TIMING
+  source_sha256: 94065dabb9b734b7dfc1a7e1a269179a47c5ac0ab58f67513c0a67af8a54e7eb
+  svg_sha256: df7369c1d0efcba226b3208220875459377f1030e99cb64113665b1f56ecccd0
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: usecase/resources.vega.tikz.tikz-scale-down--f8416a40f77a
+  verdict: valid
+  reason: rendered SEQUENCE
+  source_sha256: 4f66a6977b49ca6ee02120039de34110d0a7c33fa3916c173ea3b57c1b32460d
+  svg_sha256: 67730760a0073c411cf2f5f52a348919b0e5c814d7df0498270895277fbe7790
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 1
+- id: usecase/resources.vega.tikz.tikz-scale-up--561bebe96654
+  verdict: valid
+  reason: rendered SEQUENCE
+  source_sha256: 99a59ed01645422d753517aebdfd42901e7d59a44775ddeec767ad53e64ddd01
+  svg_sha256: c2a32dd034d0f8723a5ceed9ae27eb7f35e9b21f5435bb784e9231181f0f97e4
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1

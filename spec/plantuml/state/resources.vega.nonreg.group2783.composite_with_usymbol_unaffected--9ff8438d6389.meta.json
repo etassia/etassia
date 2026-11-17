@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.group2783.composite_with_usymbol_unaffected--9ff8438d6389",
+  "type": "state",
+  "upstream_path": "src/test/resources/vega/nonreg/group2783/composite_with_usymbol_unaffected.puml",
+  "test": "composite_with_usymbol_unaffected",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "9ff8438d638965d007f79cc24bf5731389c4e21ae382ea294550b5f5f65a1786",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

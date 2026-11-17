@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.mindmap.mindmap-deep-ancestor-cascade-with-stereotype--699c990a2c5f",
+  "type": "mindmap",
+  "upstream_path": "src/test/resources/vega/nonreg/mindmap/mindmap-deep-ancestor-cascade-with-stereotype.puml",
+  "test": "mindmap-deep-ancestor-cascade-with-stereotype",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "699c990a2c5f18bf871d365abe0408a5f1d61f124d4b5a85667101737b4cd557",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}

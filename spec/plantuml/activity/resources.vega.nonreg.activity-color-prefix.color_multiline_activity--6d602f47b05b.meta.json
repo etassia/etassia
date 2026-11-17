@@ -1,0 +1,12 @@
+{
+  "id": "resources.vega.nonreg.activity-color-prefix.color_multiline_activity--6d602f47b05b",
+  "type": "activity",
+  "upstream_path": "src/test/resources/vega/nonreg/activity-color-prefix/color_multiline_activity.puml",
+  "test": "color_multiline_activity",
+  "origin": "resource",
+  "line_number": 4,
+  "source_sha256": "6d602f47b05bc0f17c6f9bf8b203c2ac9f2ba13c0b162ad95a317daf29a9fc53",
+  "uses_preprocessor": false,
+  "provenance": "upstream-fixture",
+  "occurrences": 1
+}
