@@ -131,7 +131,24 @@ module HardenedMmdc
   # Measured — a live leader with a live child signals fine and the child dies,
   # a reaped leader gives ESRCH, and a leader that is still an unreaped zombie
   # gives EPERM.
+  # A non-Integer pid here once crashed whole oracle runs with
+  # "TypeError: false can't be coerced into Integer" (#456). Six hundred
+  # instrumented sequential runs could not reproduce it and no code path
+  # produces one, so instead of guessing at a fix the sites record the value
+  # and its caller — the next occurrence becomes a captured trace instead of
+  # an aborted run. The kill itself is skipped: signalling a non-Integer is
+  # meaningless by definition.
+  def signalable?(pid, site)
+    return true if pid.is_a?(Integer)
+
+    warn "#{site}: refusing a non-Integer pid (#{pid.inspect}) from " \
+         "#{caller_locations(1, 2).filter_map(&:label).first}"
+    false
+  end
+
   def kill_group_id(pid)
+    return unless signalable?(pid, "kill_group_id")
+
     Process.kill("KILL", -pid)
   rescue Errno::ESRCH, Errno::EPERM
     nil
@@ -139,6 +156,8 @@ module HardenedMmdc
 
   def kill_each(pids)
     pids.each do |child|
+      next unless signalable?(child, "kill_each")
+
       Process.kill("KILL", child)
     rescue Errno::ESRCH
       nil

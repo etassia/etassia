@@ -343,4 +343,29 @@ RSpec.describe HardenedMmdc, :aggregate_failures do
       end
     end
   end
+
+  describe "the non-Integer pid diagnostic (#456)" do
+    it "refuses a non-Integer pid with a warning instead of raising" do
+      allow(described_class).to receive(:warn)
+
+      expect { described_class.send(:kill_each, [false, nil, "9"]) }
+        .not_to raise_error
+      expect(described_class).to have_received(:warn).exactly(3).times
+    end
+
+    it "refuses a non-Integer group id" do
+      allow(described_class).to receive(:warn).and_call_original
+
+      expect { described_class.send(:kill_group_id, false) }.not_to raise_error
+    end
+
+    it "still kills Integer pids" do
+      pid = Process.spawn("/bin/sleep 5", pgroup: true)
+      spawned << pid
+
+      described_class.send(:kill_each, [pid])
+      Process.wait(pid)
+      expect(dies?(pid)).to be(true)
+    end
+  end
 end
