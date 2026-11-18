@@ -175,19 +175,27 @@ module UserJourneySpecHelpers
     end
   end
 
-  def expect_unicode_results(results)
-    expect(results.map(&:last)).to eq([[["S", ["T"]]], [["S", ["T"]]]])
-    expect(results.first.first).to be < results.last.first * 15
+  def unicode_pair_ratio(separator_source, control_source)
+    separator = wall_time { parser.parse(separator_source) }
+    control = wall_time { parser.parse(control_source) }
+    separator / control
+  end
+
+  def expect_unicode_results(sources)
+    results = sources.map { |source| section_names_and_tasks(source) }
+    expect(results).to eq([[["S", ["T"]]], [["S", ["T"]]]])
   end
 
   def expect_unicode_line_separator_linear
-    sources = unicode_block_sources
-    expect(sources.first).not_to eq(sources.last)
+    separator_source, control_source = unicode_block_sources
+    expect(separator_source).not_to eq(control_source)
+    expect_unicode_results([separator_source, control_source])
 
-    results = sources.map do |source|
-      [best_parse_time(source), section_names_and_tasks(source)]
+    ratios = Array.new(3) do
+      unicode_pair_ratio(separator_source,
+                         control_source)
     end
-    expect_unicode_results(results)
+    expect(ratios.min).to be < 15
   end
 
   def journey_fixture(filename)
