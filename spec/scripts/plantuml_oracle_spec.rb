@@ -40,11 +40,16 @@ module PlantumlOracleSpecSupport
   def timed_out_run = run_of(status: nil, timed_out: true)
 
   def error_image_exit0_run = run_of(stdout: error_svg)
+
   def diagram_exit200_run = run_of(status: 200, stdout: diagram_svg)
+
   # A minimal PNG: magic + IHDR length/type + width 150, height 98.
   def png_bytes
-    (PlantumlOracle::PNG_MAGIC.b + [13].pack("N") + "IHDR" +
-      [150, 98, 8, 2, 0, 0, 0].pack("N N C C C C C")).b
+    png = PlantumlOracle::PNG_MAGIC.b
+    png << [13].pack("N")
+    png << "IHDR"
+    png << [150, 98, 8, 2, 0, 0, 0].pack("N N C C C C C")
+    png.b
   end
 
   def png_run = run_of(stdout: png_bytes)
