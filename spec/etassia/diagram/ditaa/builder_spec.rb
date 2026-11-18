@@ -61,6 +61,21 @@ RSpec.describe Etassia::Diagram::Ditaa::Builder do
     expect(metrics.smaller_size("ab", 100)).to be > 12.0
   end
 
+  it "exhausts the ascent walk at a degenerate height" do
+    expect(metrics.font_for(0)).to eq(0)
+  end
+
+  it "exhausts the width walk at a degenerate width" do
+    expect(metrics.smaller_size("x", 0)).to eq(0)
+  end
+
+  it "refuses a point on a cell that carries no shape type" do
+    blank = Etassia::Diagram::Ditaa::Grid.from_lines(["   ", "   ", "   "])
+
+    expect { metrics.point_for_cell(blank, 1, 1) }
+      .to raise_error(ArgumentError, /cannot make point for cell 1,1/)
+  end
+
   it "accepts a fit exactly at the limit" do
     expect(metrics.string_fits?("abcdefgh", 12.0, 52.801)).to be(true)
   end

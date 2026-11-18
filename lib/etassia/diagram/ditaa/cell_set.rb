@@ -168,9 +168,8 @@ module Etassia
 
           fill = type_by_fill(grid)
           return TYPE_MIXED if fill == TYPE_HAS_CLOSED_AREA
-          return fill if fill == TYPE_OPEN
 
-          TYPE_UNDETERMINED
+          fill
         end
 
         def type_by_trace(grid)
@@ -225,7 +224,6 @@ module Etassia
               return [col, row] if buffer.blank_cell?(col, row)
             end
           end
-          nil
         end
 
         def abstraction_buffer(source_grid, cell_set)

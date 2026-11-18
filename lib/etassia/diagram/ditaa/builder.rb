@@ -540,10 +540,8 @@ module Etassia
             add_horizontal_points(shape, cell.first, cell.last)
           elsif grid.vertical_line?(*cell)
             add_vertical_points(shape, cell.first, cell.last)
-          else
-            return nil
           end
-          shape
+          shape.points.empty? ? nil : shape
         end
 
         def cell_point(at_x, at_y)
@@ -1012,8 +1010,9 @@ module Etassia
           channels.max < 200
         end
 
-        # The pure jar-metric walks, public for the unit pins.
-        public :font_for, :smaller_size, :string_fits?
+        # The pure jar-metric walks and the point invariant, public for the
+        # unit pins.
+        public :font_for, :smaller_size, :string_fits?, :point_for_cell
       end
     end
   end
