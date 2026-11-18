@@ -90,6 +90,7 @@ module Etassia
             @last = nil
             @start = nil
             @closing = nil
+            @deferred = []
             lines(source).each { |text, number| read(text, number) }
             [finish, !@start.nil?]
           end
@@ -202,6 +203,12 @@ module Etassia
             end
           end
 
+          # A point clause naming a task that has no date yet resolves after
+          # the defaults are in, or not at all.
+          def defer_point(task, kind, match)
+            @deferred << [task, kind, match]
+          end
+
           # @return [String] the ISO date a captured stamp holds: `2020-10-15`
           #   or `29th of September 2018`
           def stamp(match)
@@ -217,17 +224,18 @@ module Etassia
           # `happens at [A]'s end`: the milestone sits where A finishes.
           def happen_at(task, match)
             point = lookup(match[1], nil)
-            return unless point.start_date
+            return defer_point(task, :happens_ref, match) unless
+              point.start_date
 
-            finish_on(task, (Date.iso8601(point.start_date) +
-                             point.duration.to_i).iso8601)
+            happen(task, (Date.iso8601(point.start_date) +
+                          point.duration.to_i).iso8601)
           end
 
           # `happens 150 days after [A]'s end` or `happens 150 days after
           # start`.
           def happen_offset(task, match)
             date = offset_date(match)
-            return unless date
+            return defer_point(task, :happens_offset, match) unless date
 
             task.start_date = date
             task.duration = "0d"
@@ -235,9 +243,9 @@ module Etassia
           end
 
           def offset_date(match)
-            return from_project_start(match) unless match[3]
+            return from_project_start(match) unless match[5]
 
-            point = lookup(match[3], nil)
+            point = lookup(match[5], nil)
             return unless point.start_date
 
             (shifted(point, match) + span_days(match[1], match[2])).iso8601
@@ -251,7 +259,7 @@ module Etassia
 
           def shifted(point, match)
             date = Date.iso8601(point.start_date)
-            match[4].casecmp?("end") ? date + point.duration.to_i : date
+            match[6].casecmp?("end") ? date + point.duration.to_i : date
           end
 
           # `[A] occurs from [P_start] to [P_end]`: the task spans between
@@ -260,7 +268,9 @@ module Etassia
           def occurs(task, match)
             from = lookup(match[1], nil)
             to = lookup(match[2], nil)
-            return unless from.start_date && to.start_date
+            unless from.start_date && to.start_date
+              return defer_point(task, :occurs, match)
+            end
 
             task.start_date = from.start_date
             task.duration = "#{span_between(from, to)}d"
@@ -331,13 +341,22 @@ module Etassia
             end
           end
 
-          # A task with nothing to follow starts on the project's first day.
+          # A task with nothing to follow starts on the project's first day;
+          # then the point clauses that referenced a dateless task get their
+          # best-effort resolution.
           def finish
+            apply_defaults
+            @deferred.each do |task, kind, match|
+              apply_point(task, kind, match)
+            end
+            @model
+          end
+
+          def apply_defaults
             first = @start || ANCHOR
             @model.sections.flat_map(&:tasks).each do |task|
               task.start_date ||= first unless task.after_task
             end
-            @model
           end
         end
       end
