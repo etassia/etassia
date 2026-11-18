@@ -80,7 +80,8 @@
    "object": 0,
    "class": 39,
    "sequence": 95,
-   "ditaa": 15
+   "ditaa": 15,
+   "git": 10
   },
   "manifest_sha256": "500ad880356c3902de934b02ae27550ed2e95e0a61a35e19744b049f98cc157c"
  }

@@ -1,0 +1,10 @@
+@startgit
+* c6 tip
+| * b2 b tip
+|/
+* c5 merged b
+| * a2 a tip
+|/
+* c4 root
+* c3 earlier
+@endgit
