@@ -1,0 +1,7 @@
+---
+cop: Lint/UnusedMethodArgument
+rows:
+- file: lib/etassia/notation/plantuml/ditaa.rb
+  count: 2
+- file: lib/etassia/notation/plantuml/git.rb
+  count: 2
