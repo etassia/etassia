@@ -108,6 +108,25 @@ Java and Graphviz come from the same pinned trio as `pin.json`):
       mise exec java@26.0.2 -- ruby scripts/plantuml_oracle.rb \
       --write spec/plantuml/oracle-verdicts.yml spec/plantuml
 
+## The ditaa ledger cohort
+
+`ditaa/` is a LEDGER cohort: Etassia's own `etassia.*` cases, not upstream
+fixtures — PlantUML's test resources carry no `@startditaa` text (the
+wrapper was an excluded reference-gap candidate before Etassia implemented
+the kind natively). Each case is hand-written to one ditaa feature (boxes,
+nesting, colour codes, dashed lines, the seven markup shapes, arrowheads,
+point markers, bullets, open connectors and the `-S -r -E -T scale=`
+flags). They carry no `.meta.json`, so they sit outside the manifest
+checksum like the sequence ledger cases, and count in `pin.json` and the
+scoreboard.
+
+The pinned jar renders ditaa as PNG bytes even under `--svg`, so the
+oracle judges them through the raster lane of contract v2
+(TODO.foundation/12): valid means "the binary accepted the source", and
+the PNG dimensions recorded in the verdict reason are the canvas-parity
+observable — Etassia's SVG canvas must equal the jar's PNG size for the
+same source.
+
 Scoreboard rows live in `scoreboard/plantuml.json`. `bundle exec rake plantuml`
 measures them: a case passes when the committed oracle verdict is `valid` and
 Etassia renders it to well-formed SVG. `bundle exec rake plantuml:check` fails

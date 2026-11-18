@@ -218,7 +218,8 @@ RSpec.describe Etassia::Notation::PlantUML do
     let(:expected_types) do
       %i[class_diagram sequence_diagram activity_diagram usecase_diagram
          component_diagram state_diagram entity_diagram network_diagram
-         timing_diagram ebnf_diagram mindmap gantt object_diagram git_diagram]
+         timing_diagram ebnf_diagram mindmap gantt object_diagram git_diagram
+         ditaa_diagram]
     end
 
     it "identifies as :plantuml" do
