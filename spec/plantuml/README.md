@@ -132,3 +132,24 @@ measures them: a case passes when the committed oracle verdict is `valid` and
 Etassia renders it to well-formed SVG. `bundle exec rake plantuml:check` fails
 CI when the committed file differs from a fresh measurement. The current
 counts live in that file; oracle-rejected cases are not in its denominators.
+
+## The git ledger cohort
+
+`git/` is a LEDGER cohort like `ditaa/`: Etassia's own hand-written cases,
+not upstream fixtures — PlantUML's test resources carry no `@startgit`
+text. Each case is one git-log drawing feature: a linear history, a fork,
+a merge with the `\` rail switch, sequential branches, hash-style names,
+a tag line, rails without commits, an empty body, a single commit and a
+realistic `git log --graph` excerpt. They carry no `.meta.json`, so they
+sit outside the manifest checksum like the ditaa and sequence ledger
+cases, and count in `pin.json` and the scoreboard.
+
+The pinned jar renders git as SVG (`data-diagram-type="GIT"`), so the
+oracle judges them through the ordinary SVG lane. Two rails is the jar's
+ceiling: its gitlog engine dies with a fatal-crash error image on any
+three-rail graph, so no such case is in the cohort — a source the pinned
+oracle cannot render cannot be oracle-valid.
+
+Scoreboard rows live in `scoreboard/plantuml.json` and are measured the
+same way as every other row: `bundle exec rake plantuml`, checked by
+`bundle exec rake plantuml:check`.

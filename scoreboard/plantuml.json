@@ -138,5 +138,15 @@
     "pass_rate": 1.0,
     "status": "2/2 oracle-valid cases pass; 0/2 cases are rejected by the pinned oracle",
     "provenance": "upstream-fixture"
+  },
+  {
+    "notation": "plantuml",
+    "type": "git",
+    "cases": 10,
+    "oracle_valid": 10,
+    "passing": 10,
+    "pass_rate": 1.0,
+    "status": "10/10 oracle-valid cases pass; 0/10 cases are rejected by the pinned oracle",
+    "provenance": "ledger"
   }
 ]

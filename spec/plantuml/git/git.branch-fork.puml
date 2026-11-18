@@ -1,0 +1,10 @@
+@startgit
+* c4 tip
+| * f2 branch tip
+|/
+| * f1 branch start
+|/
+* c3 base
+* c2 earlier
+* c1 root
+@endgit

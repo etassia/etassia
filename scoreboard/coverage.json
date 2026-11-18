@@ -325,8 +325,10 @@
     {
       "type": "git_diagram",
       "carried": true,
-      "corpus_cases": 0,
-      "status": "declared; no corpus yet"
+      "corpus_cases": 10,
+      "oracle_valid": 10,
+      "corpus_passing": 10,
+      "status": "10/10 oracle-valid cases pass; 0/10 cases are rejected by the pinned oracle"
     },
     {
       "type": "ditaa_diagram",

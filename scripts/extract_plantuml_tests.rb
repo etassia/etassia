@@ -20,11 +20,12 @@ require "optparse"
 
 module PlantumlExtractor
   # The declared PlantUML kinds (Etassia::Notation::PlantUML.types sans the
-  # _diagram suffix, matching the corpus directory names). json, yaml, ditaa
-  # and wbs are deliberately absent: they are in the reference-gap list
-  # (issue #455), not carried.
+  # _diagram suffix, matching the corpus directory names). json, yaml and
+  # wbs are absent: per the #455 audit they are carried through their own
+  # notations (plantuml_data, plantuml_salt, Tree) rather than upstream
+  # fixture extraction.
   TYPES = %w[activity usecase component state entity network timing ebnf
-             mindmap gantt object class sequence ditaa].freeze
+             mindmap gantt object class sequence ditaa git].freeze
 
   class CaseIdCollision < StandardError; end
 

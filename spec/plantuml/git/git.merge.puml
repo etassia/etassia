@@ -1,0 +1,9 @@
+@startgit
+*   m2 merge back
+|\
+| * f2 feature done
+| * f1 feature start
+|/
+* m1 mainline
+* m0 root
+@endgit

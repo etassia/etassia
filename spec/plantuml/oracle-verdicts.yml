@@ -1,5 +1,5 @@
 ---
-generated_at: '2026-11-18T14:38:26Z'
+generated_at: '2026-11-18T23:28:02Z'
 toolchain:
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
@@ -1140,6 +1140,106 @@ verdicts:
   reason: rendered GANTT
   source_sha256: 7c6598a7f78f3939cb8e3bf09405c78d81441811d97012107691eefdbdfd6fc3
   svg_sha256: ece497c97042ad7acbeb6d2349365c6c60d10287422efb1c315dba68dd4ae344
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: git/git.branch-fork
+  verdict: valid
+  reason: rendered GIT
+  source_sha256: 7ece28082a9672cbfd695916ba360240bab1f610ad758766d470df8e691e2580
+  svg_sha256: 37a52920a23638f60e8d71a8bfaea47d0aa1f16836da1f3aa6339a8757f63acc
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: git/git.branches
+  verdict: valid
+  reason: rendered GIT
+  source_sha256: 3f8ed75725bcf02b978006527a4881c72e381c783936d1aa7fac34ed8922898e
+  svg_sha256: 627e8ef479666dc44bf7fe1ac8db38011878c6c5ac344ab08994c7ebcdac13a0
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: git/git.empty
+  verdict: valid
+  reason: rendered GIT
+  source_sha256: ede5ab4c5215fd63bba72e8e4c1bf5b465e461b3b4f540be42813e2623377b5b
+  svg_sha256: 3f7b617fded1d2850a328399b232fad5259f49bd63770d6aea527ec5fa88a04b
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: git/git.linear
+  verdict: valid
+  reason: rendered GIT
+  source_sha256: d70cd6fbf279872de26e849dd9dab70b775d827858a62d9a2202ede692bc9ba4
+  svg_sha256: 5633dfc414ebd4fb026c9bb19807a196f48a53cf8fa1eb8bc15545921444ae22
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: git/git.log-graph
+  verdict: valid
+  reason: rendered GIT
+  source_sha256: 708e088af15af79b097a6f2c3230b941ad12d12928b05803b9c9b7ec833cfa0d
+  svg_sha256: 9442a58cb09598592320756350f39d97a0bd8df97e9a9cb81a593c694ca02139
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: git/git.merge
+  verdict: valid
+  reason: rendered GIT
+  source_sha256: e4fbb24e33a1d3edb3bc96c2fdcbf40bb9b69fc7657c499b2e5d488b7673e8b6
+  svg_sha256: 60b7393f436ac848da9907d072c88c407b77a33fd6f0b21236e1365e3e3e75f1
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: git/git.names
+  verdict: valid
+  reason: rendered GIT
+  source_sha256: b7c42bf1718ec47aad9cd410f6bb3e6774569c8b8e6c83100df7f4cbf9b4b43f
+  svg_sha256: da5fae5717112bc79544beade9a1af6105261364064201e1037ccb1ff1ebd60b
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: git/git.rails-only
+  verdict: valid
+  reason: rendered GIT
+  source_sha256: 6db78602fed431eae61b74e228f83cdd335332b80bc8c2cae78e4535e502783a
+  svg_sha256: ecc8613ee023e452b8522b71fa522f10fe891e465ed6920f8e6770d9ea98ba2b
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: git/git.single
+  verdict: valid
+  reason: rendered GIT
+  source_sha256: bdfe7272877d1db8177b092ca1bde7f844f953cfbdbfe06c0484e905e0a43d9f
+  svg_sha256: d2113a8a82387ba3e58413416190bdd25dd56d5388dbc18b2b24e7f2d8784615
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: git/git.tag
+  verdict: valid
+  reason: rendered GIT
+  source_sha256: 56caf28ac6e044cadeafad31fc18002c0ecaba1d05b88fb311d5fbd7323bda37
+  svg_sha256: fc3d69d743aa9e82bd0b6e0e232a637d0594b000f25b50300eee19133dd7133e
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
@@ -2439,7 +2539,7 @@ verdicts:
   verdict: valid
   reason: rendered STATE
   source_sha256: 2d51a08413ec0a943d0c4a75a725a0d06400085a0847f485e11ac2d272131918
-  svg_sha256: cfc5cac25f11abd2596e63e887cacd6bd84faf46f97384f3a999172b824dc107
+  svg_sha256: f7e362e0171f12a8135a1ab35b9ae30f472a58d92bb7444eee6454a76e80fb56
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
@@ -2449,7 +2549,7 @@ verdicts:
   verdict: valid
   reason: rendered STATE
   source_sha256: 5c2401271cf3e3f010d3514200e71ae76fd547a8dcd555fd2e7dff4aae0a8f1d
-  svg_sha256: e868f8ac0479054d909e473f76e359045a137c2749c1247a95851d680db841f0
+  svg_sha256: 3c20151fca08039b864baee06d90887b05962f5304736e42ff4d23fe29fc7a20
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
@@ -2459,7 +2559,7 @@ verdicts:
   verdict: valid
   reason: rendered STATE
   source_sha256: fca17bf33817844d6ec010de4ae7598770172f14261a3399d5508aff3d3d6f1a
-  svg_sha256: e730c0d54ad37fb35bf21a094d6581e6a1bd95d40bcc9d56e558081ffeadb5a0
+  svg_sha256: 0fe0bda8bf6670e125e7e454589991ac096212c0a39c1fc113d3669c43c1c3f5
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
@@ -2469,7 +2569,7 @@ verdicts:
   verdict: valid
   reason: rendered STATE
   source_sha256: d4b819ede6e6bf17f71dd7733018a7f90ce996b15665099ee9335f5b29d04069
-  svg_sha256: 2b3a5816948046288a8b4d2ef04a184db080fc22a885359af303c658f68ed039
+  svg_sha256: 238793ea1350a952c3607b7a724224b788675dba6fe5e7a50773804da2322f83
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
@@ -2479,7 +2579,7 @@ verdicts:
   verdict: valid
   reason: rendered STATE
   source_sha256: a7b4ef95b257e6fccb07f38d67f97e85d6d3ac44cdae90fd2cbb682fd1329d99
-  svg_sha256: 9340b10abde5e62c8a3ffbb390443a77b1195a23452a77c063abe4f151c20e19
+  svg_sha256: bba5e7e358dc274c201a4241d7b4177013ac89a027c4e2ce26a454f05bc8fc8a
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
@@ -2489,7 +2589,7 @@ verdicts:
   verdict: valid
   reason: rendered STATE
   source_sha256: ad6d3050447fa771f9cd2d5edc948c2300178deb79184d87f3f187562d3f421e
-  svg_sha256: 4e04677a4ce877833ac6486a0ef415149ea30e4911f4dd0361adc0daa9d9234d
+  svg_sha256: e416377839b72a5c37331cc62dbfa78faef4d14363bc35179876b47bc4c151db
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
