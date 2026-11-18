@@ -108,13 +108,6 @@ module Etassia
           @rows[row][col] = char
         end
 
-        # Java distinguishes isBlank(Cell): out of bounds is NOT blank, from
-        # isBlank(int, int): out of bounds IS blank. Both are load-bearing.
-        def blank_at?(col, row)
-          char = get(col, row)
-          char.nil? || char == " "
-        end
-
         def blank_cell?(col, row)
           char = get(col, row)
           !char.nil? && char == " "
@@ -541,10 +534,6 @@ module Etassia
           new(Array.new(other.height) { " " * other.width })
         end
 
-        def ==(other)
-          other.is_a?(Grid) && @rows == other.rows
-        end
-
         def entry_point?(col, row, id)
           ENTRY_POINTS.fetch(id).include?(get(col, row))
         end
@@ -644,10 +633,6 @@ module Etassia
 
         def horizontal_cross_on_line?(col, row)
           matches_any?(col, row, PatternGroup::HORIZONTAL_CROSS_ON_LINE)
-        end
-
-        def vertical_cross_on_line?(col, row)
-          matches_any?(col, row, PatternGroup::VERTICAL_CROSS_ON_LINE)
         end
 
         def normal_corner?(col, row)
