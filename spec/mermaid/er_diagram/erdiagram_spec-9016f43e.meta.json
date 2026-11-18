@@ -1,0 +1,9 @@
+{
+  "name": "parser_should_be_possible_to_apply_multiple_styles_to_an_entity_at_the_same_time_36",
+  "type": "er_diagram",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 777,
+  "id": "er_diagram/erdiagram_spec-9016f43e",
+  "source_sha256": "4ff7f91de4195f4d27b015afcc72ccfa01227882cb4f7262528c7f88819fa0c5",
+  "recovered": true
+}

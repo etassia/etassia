@@ -1,0 +1,9 @@
+{
+  "name": "parser_should be possible to add multiple properties on the same line_97",
+  "type": "flowchart",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/flowchart/parser/flow-node-data.spec.js",
+  "line_number": 0,
+  "id": "flowchart/flow_node_data_spec-d192246a",
+  "source_sha256": "963e18fc2cb8be9b947655347ca7c33ae502d17d7a6cf8b5e1165e06fe5f3668",
+  "recovered": true
+}

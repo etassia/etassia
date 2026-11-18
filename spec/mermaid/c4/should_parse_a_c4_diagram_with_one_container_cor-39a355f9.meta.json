@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_parse_a_C4_diagram_with_one_Container_correctly_13",
+  "type": "c4",
+  "source_file": "/packages/mermaid/src/diagrams/c4/parser/c4Container.spec.js",
+  "line_number": 21,
+  "metadata": {
+    "test_name": "should parse a C4 diagram with one Container correctly"
+  },
+  "id": "c4/should_parse_a_c4_diagram_with_one_container_cor-39a355f9",
+  "source_sha256": "bbf08ef2465ee919c7e585e8e6ac64d8b3ab2631c9c43f21e58becfd42a95d12",
+  "recovered": true
+}

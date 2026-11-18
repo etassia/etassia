@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_be_possible_to_assign_a_class_using_the_shorthand_syntax_just_by_itself_45",
+  "type": "er_diagram",
+  "source_file": "/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 909,
+  "metadata": {
+    "test_name": "should be possible to assign a class using the shorthand syntax just by itself"
+  },
+  "id": "er_diagram/should_be_possible_to_assign_a_class_using_the_s-f4ef0685",
+  "source_sha256": "3279ae9517ac1209d01c565e2cdee5e655e774e69918d448a6b0708b89f0dbbf",
+  "recovered": true
+}

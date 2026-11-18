@@ -1,0 +1,9 @@
+{
+  "name": "parser_should_allow_an_attribute_block_to_start_immediately_after_the_entity_name_26",
+  "type": "er_diagram",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 383,
+  "id": "er_diagram/erdiagram_spec-49493d88",
+  "source_sha256": "33d1d69214057cf99e83007e3da18747f0db975869d058475966a8d016e05d9d",
+  "recovered": true
+}

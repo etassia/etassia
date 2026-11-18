@@ -1,0 +1,9 @@
+{
+  "name": "parser_should handle normal edges where you also have a node with metadata_48",
+  "type": "flowchart",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/flowchart/parser/flow-edges.spec.js",
+  "line_number": 0,
+  "id": "flowchart/flow_edges_spec-e74f4113",
+  "source_sha256": "f2cf7c201ef652f4e037b150e08cf4554a31138154eecb248d7487c7afd2d5ee",
+  "recovered": true
+}

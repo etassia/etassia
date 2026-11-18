@@ -1,0 +1,9 @@
+{
+  "name": "parser_should represent parent-child relationship correctly_31",
+  "type": "er_diagram",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 0,
+  "id": "er_diagram/erdiagram_spec-fe04133b",
+  "source_sha256": "131b881bddb2c054d548df01f554fe89f69f96701b9ce5d0121bff0a0e4e677d",
+  "recovered": true
+}

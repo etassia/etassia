@@ -1,0 +1,9 @@
+{
+  "name": "parser_should_be_possible_to_assign_classes_using_the_shorthand_syntax_while_defining_a_relationship_49",
+  "type": "er_diagram",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 952,
+  "id": "er_diagram/erdiagram_spec-8f33e689",
+  "source_sha256": "7e776d72d7e0ea1205f8c4c7b4f6a1b3b8c3cf0eacedb7d5dc2dd7062d2ac096",
+  "recovered": true
+}

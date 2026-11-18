@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_be_possible_to_configure_the_default_class_and_have_it_apply_to_each_entity_42",
+  "type": "er_diagram",
+  "source_file": "/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 827,
+  "metadata": {
+    "test_name": "should be possible to configure the default class and have it apply to each entity"
+  },
+  "id": "er_diagram/should_be_possible_to_configure_the_default_clas-d09c328e",
+  "source_sha256": "48852860d22ac1abbfeed40c18a190d48d808eabb867ebbcaa63a83413eff2c4",
+  "recovered": true
+}

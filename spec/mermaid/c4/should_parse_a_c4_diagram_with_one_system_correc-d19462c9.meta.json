@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_parse_a_C4_diagram_with_one_System_correctly_38",
+  "type": "c4",
+  "source_file": "/packages/mermaid/src/diagrams/c4/parser/c4System.spec.js",
+  "line_number": 21,
+  "metadata": {
+    "test_name": "should parse a C4 diagram with one System correctly"
+  },
+  "id": "c4/should_parse_a_c4_diagram_with_one_system_correc-d19462c9",
+  "source_sha256": "cb5e70a4c201b9531f15a9eca91e8d992192b34258418adc06f330ee3045d640",
+  "recovered": true
+}

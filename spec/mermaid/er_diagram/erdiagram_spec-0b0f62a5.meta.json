@@ -1,0 +1,9 @@
+{
+  "name": "parser_should_be_possible_to_assign_multiple_classes_to_an_entity_at_the_same_time_39",
+  "type": "er_diagram",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 809,
+  "id": "er_diagram/erdiagram_spec-0b0f62a5",
+  "source_sha256": "47d9b2af7a3d665dbaed674fd168c5b385fe133f56e4520ac02ce94a2697d0bd",
+  "recovered": true
+}

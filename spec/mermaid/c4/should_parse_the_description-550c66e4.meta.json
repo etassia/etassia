@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_parse_the_description_17",
+  "type": "c4",
+  "source_file": "/packages/mermaid/src/diagrams/c4/parser/c4Container.spec.js",
+  "line_number": 85,
+  "metadata": {
+    "test_name": "should parse the description"
+  },
+  "id": "c4/should_parse_the_description-550c66e4",
+  "source_sha256": "a5b8512612249711a9ed15bc970f7f40456ab0c274333025ef7c0d0c1f9fa782",
+  "recovered": true
+}

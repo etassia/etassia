@@ -1,0 +1,9 @@
+{
+  "name": "parser_should_allow_no_whitespace_before_and_after_attribute_definitions_29",
+  "type": "er_diagram",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 411,
+  "id": "er_diagram/erdiagram_spec-4763e192",
+  "source_sha256": "9b2919a37a5d1dd38e863b39d066219cc89d437f091144ae5fe24cd6b708a4dc",
+  "recovered": true
+}

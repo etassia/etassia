@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_allow_an_entity_with_attributes_that_have_many_constraints_and_comments_20",
+  "type": "er_diagram",
+  "source_file": "/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 288,
+  "metadata": {
+    "test_name": "should allow an entity with attributes that have many constraints and comments"
+  },
+  "id": "er_diagram/should_allow_an_entity_with_attributes_that_have-e5c668af",
+  "source_sha256": "eb2bf158f5e82b53bc6e334d112694634c52944b5e78d0d14c123cf47f2c125a",
+  "recovered": true
+}

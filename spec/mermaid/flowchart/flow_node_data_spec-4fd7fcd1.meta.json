@@ -1,0 +1,9 @@
+{
+  "name": "parser_should be possible to use @ in strings_106",
+  "type": "flowchart",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/flowchart/parser/flow-node-data.spec.js",
+  "line_number": 0,
+  "id": "flowchart/flow_node_data_spec-4fd7fcd1",
+  "source_sha256": "9fa6e6fe62ab61c8cbc8df2d45b0525391189fb16cdc12aec073da405de69456",
+  "recovered": true
+}

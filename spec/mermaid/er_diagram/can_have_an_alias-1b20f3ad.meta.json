@@ -1,0 +1,12 @@
+{
+  "name": "parser_can_have_an_alias_7",
+  "type": "er_diagram",
+  "source_file": "/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 137,
+  "metadata": {
+    "test_name": "can have an alias"
+  },
+  "id": "er_diagram/can_have_an_alias-1b20f3ad",
+  "source_sha256": "3ff8fd2952ac1f5e5c8006c5bfb6c8a0ce04920d78e83d06bcbc9adac80568f3",
+  "recovered": true
+}

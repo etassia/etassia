@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_allow_whitespace_before_and_after_attribute_definitions_29",
+  "type": "er_diagram",
+  "source_file": "/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 401,
+  "metadata": {
+    "test_name": "should allow whitespace before and after attribute definitions"
+  },
+  "id": "er_diagram/should_allow_whitespace_before_and_after_attribu-e81c580d",
+  "source_sha256": "dd5ac7682ef045ce82bd2f08a3a105b641e76ea8c926305347df716040d83434",
+  "recovered": true
+}

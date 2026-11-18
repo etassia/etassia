@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_handle_a_trailing_whitespaces_after_statements_21",
+  "type": "c4",
+  "source_file": "/packages/mermaid/src/diagrams/c4/parser/c4Diagram.spec.js",
+  "line_number": 14,
+  "metadata": {
+    "test_name": "should handle a trailing whitespaces after statements"
+  },
+  "id": "c4/should_handle_a_trailing_whitespaces_after_state-06397574",
+  "source_sha256": "a95fd4b0700b55be84cb918787eaddaf9f466608aeaae34b1ac22d49697b634a",
+  "recovered": true
+}

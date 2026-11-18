@@ -1,0 +1,9 @@
+{
+  "name": "parser_should be possible to link to a node with more data_98",
+  "type": "flowchart",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/flowchart/parser/flow-node-data.spec.js",
+  "line_number": 0,
+  "id": "flowchart/flow_node_data_spec-06c34df5",
+  "source_sha256": "d7e3d1a46f2043573dcf4795197446e6c3e664e43ef83614f879ef9207103c20",
+  "recovered": true
+}

@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_be_possible_to_apply_multiple_styles_to_an_entity_at_the_same_time_37",
+  "type": "er_diagram",
+  "source_file": "/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 777,
+  "metadata": {
+    "test_name": "should be possible to apply multiple styles to an entity at the same time"
+  },
+  "id": "er_diagram/should_be_possible_to_apply_multiple_styles_to_a-0b961ca0",
+  "source_sha256": "4ff7f91de4195f4d27b015afcc72ccfa01227882cb4f7262528c7f88819fa0c5",
+  "recovered": true
+}

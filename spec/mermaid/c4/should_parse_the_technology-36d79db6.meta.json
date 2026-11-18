@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_parse_the_technology_16",
+  "type": "c4",
+  "source_file": "/packages/mermaid/src/diagrams/c4/parser/c4Container.spec.js",
+  "line_number": 74,
+  "metadata": {
+    "test_name": "should parse the technology"
+  },
+  "id": "c4/should_parse_the_technology-36d79db6",
+  "source_sha256": "eae6e364c27557fe73d07d2a2f51de53d638c62e468aa4fde55c7615223af62c",
+  "recovered": true
+}

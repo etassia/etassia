@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_allow_for_a_accessibility_title_and_multiline_description_accDescr__21",
+  "type": "gantt",
+  "source_file": "/packages/mermaid/src/diagrams/gantt/parser/gantt.spec.js",
+  "line_number": 231,
+  "metadata": {
+    "test_name": "should allow for a accessibility title and multiline description (accDescr)"
+  },
+  "id": "gantt/should_allow_for_a_accessibility_title_and_multi-3e73c61d",
+  "source_sha256": "5fe2634074dba7816d921c1159d347b88e041465386fbddccd09423987d53096",
+  "recovered": true
+}

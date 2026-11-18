@@ -1,0 +1,9 @@
+{
+  "name": "parser_should_be_possible_to_configure_the_default_class_and_have_it_apply_to_each_entity_41",
+  "type": "er_diagram",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 827,
+  "id": "er_diagram/erdiagram_spec-97d667d8",
+  "source_sha256": "48852860d22ac1abbfeed40c18a190d48d808eabb867ebbcaa63a83413eff2c4",
+  "recovered": true
+}

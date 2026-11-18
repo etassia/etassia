@@ -1,0 +1,9 @@
+{
+  "name": "parser_should_be_possible_to_apply_multiple_separately_defined_styles_37",
+  "type": "er_diagram",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 789,
+  "id": "er_diagram/erdiagram_spec-ebf76e86",
+  "source_sha256": "d5e334e01af64931fc9e876b278037ad6566c11e22dbb576c570780a323e8b34",
+  "recovered": true
+}

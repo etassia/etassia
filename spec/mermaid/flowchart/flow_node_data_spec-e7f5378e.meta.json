@@ -1,0 +1,9 @@
+{
+  "name": "parser_should be possible to use @  syntax to add labels on multi nodes_108",
+  "type": "flowchart",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/flowchart/parser/flow-node-data.spec.js",
+  "line_number": 0,
+  "id": "flowchart/flow_node_data_spec-e7f5378e",
+  "source_sha256": "999b67304ef3b24d7067579c4bf3f39c70b8e06f4b511bd6b819190d39e8bdcd",
+  "recovered": true
+}

@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_be_possible_to_assign_multiple_separately_defined_classes_to_an_entity_41",
+  "type": "er_diagram",
+  "source_file": "/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 818,
+  "metadata": {
+    "test_name": "should be possible to assign multiple separately defined classes to an entity"
+  },
+  "id": "er_diagram/should_be_possible_to_assign_multiple_separately-78058bfd",
+  "source_sha256": "3b4f14b1930acb63c810b4ee8561b522f7b409cd860914f19e857ad768b3e376",
+  "recovered": true
+}

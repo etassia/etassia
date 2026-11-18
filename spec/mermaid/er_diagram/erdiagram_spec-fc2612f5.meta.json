@@ -1,0 +1,9 @@
+{
+  "name": "parser_should_be_possible_to_assign_multiple_classes_using_the_shorthand_syntax_47",
+  "type": "er_diagram",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 933,
+  "id": "er_diagram/erdiagram_spec-fc2612f5",
+  "source_sha256": "d3e9a1194a37aeb89be33709ad5e27760a5c797b3cee1444b2203035a1833e41",
+  "recovered": true
+}

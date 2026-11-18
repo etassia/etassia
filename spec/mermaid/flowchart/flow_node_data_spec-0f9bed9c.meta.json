@@ -1,0 +1,9 @@
+{
+  "name": "parser_Multi line strings should be supported_103",
+  "type": "flowchart",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/flowchart/parser/flow-node-data.spec.js",
+  "line_number": 0,
+  "id": "flowchart/flow_node_data_spec-0f9bed9c",
+  "source_sha256": "79b64b95df82809223d3710d4a76d72d37b91c48b59d0639be9360e74f8b5789",
+  "recovered": true
+}

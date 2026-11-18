@@ -327,8 +327,8 @@
     "pass": true
   },
   {
-    "case": "c4/should_handle_a_trailing_whitespaces_after_state-877c92b7.mmd",
-    "verdict": "artifact",
+    "case": "c4/should_handle_a_trailing_whitespaces_after_state-06397574.mmd",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -337,13 +337,13 @@
     "pass": true
   },
   {
-    "case": "c4/should_parse_a_c4_diagram_with_one_boundary_corr-9623cf02.mmd",
-    "verdict": "artifact",
+    "case": "c4/should_parse_a_c4_diagram_with_one_boundary_corr-b1ebe483.mmd",
+    "verdict": "valid",
     "pass": true
   },
   {
-    "case": "c4/should_parse_a_c4_diagram_with_one_container_cor-cbec52ad.mmd",
-    "verdict": "artifact",
+    "case": "c4/should_parse_a_c4_diagram_with_one_container_cor-39a355f9.mmd",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -357,8 +357,8 @@
     "pass": true
   },
   {
-    "case": "c4/should_parse_a_c4_diagram_with_one_system_correc-f5e574a8.mmd",
-    "verdict": "artifact",
+    "case": "c4/should_parse_a_c4_diagram_with_one_system_correc-d19462c9.mmd",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -456,13 +456,8 @@
     "pass": true
   },
   {
-    "case": "c4/should_parse_the_alias-29838bf2.mmd",
-    "verdict": "artifact",
-    "pass": true
-  },
-  {
-    "case": "c4/should_parse_the_alias-369a31f4.mmd",
-    "verdict": "artifact",
+    "case": "c4/should_parse_the_alias-00f387d7.mmd",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -471,8 +466,13 @@
     "pass": true
   },
   {
-    "case": "c4/should_parse_the_alias-97840a80.mmd",
-    "verdict": "artifact",
+    "case": "c4/should_parse_the_alias-49e1079d.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "c4/should_parse_the_alias-4caa65bc.mmd",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -486,32 +486,27 @@
     "pass": true
   },
   {
+    "case": "c4/should_parse_the_description-550c66e4.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
     "case": "c4/should_parse_the_description-82dca309.mmd",
     "verdict": "valid",
     "pass": true
   },
   {
-    "case": "c4/should_parse_the_description-99b88c85.mmd",
-    "verdict": "artifact",
-    "pass": true
-  },
-  {
-    "case": "c4/should_parse_the_description-a4de25bb.mmd",
-    "verdict": "artifact",
-    "pass": true
-  },
-  {
-    "case": "c4/should_parse_the_label-2338b1e1.mmd",
-    "verdict": "artifact",
-    "pass": true
-  },
-  {
-    "case": "c4/should_parse_the_label-95b81e5a.mmd",
-    "verdict": "artifact",
+    "case": "c4/should_parse_the_description-e90c085c.mmd",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "c4/should_parse_the_label-9e43210b.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "c4/should_parse_the_label-b6cfa327.mmd",
     "verdict": "valid",
     "pass": true
   },
@@ -521,18 +516,23 @@
     "pass": true
   },
   {
-    "case": "c4/should_parse_the_label-e140e8bd.mmd",
-    "verdict": "artifact",
+    "case": "c4/should_parse_the_label-d91da1ec.mmd",
+    "verdict": "valid",
     "pass": true
   },
   {
-    "case": "c4/should_parse_the_technology-ba27a196.mmd",
-    "verdict": "artifact",
+    "case": "c4/should_parse_the_label-ea96ef58.mmd",
+    "verdict": "valid",
     "pass": true
   },
   {
-    "case": "c4/should_parse_the_type-f34ebf1f.mmd",
-    "verdict": "artifact",
+    "case": "c4/should_parse_the_technology-36d79db6.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "c4/should_parse_the_type-356086d1.mmd",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -848,6 +848,11 @@
     "pass": true
   },
   {
+    "case": "class_diagram/classdiagram_spec-2e88c886.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
     "case": "class_diagram/classdiagram_spec-2e9d375c.mmd",
     "verdict": "valid",
     "pass": true
@@ -864,6 +869,11 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-2fe166c9.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-300b79b8.mmd",
     "verdict": "valid",
     "pass": true
   },
@@ -894,6 +904,11 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-39ecacfc.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-3a9dd2e3.mmd",
     "verdict": "valid",
     "pass": true
   },
@@ -933,23 +948,9 @@
     "pass": true
   },
   {
-    "case": "class_diagram/classdiagram_spec-4209fde5.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "class_diagram/classdiagram_spec-430ba411.mmd",
     "verdict": "valid",
     "pass": true
-  },
-  {
-    "case": "class_diagram/classdiagram_spec-43797016.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "class_diagram/classdiagram_spec-4440fcd7.mmd",
@@ -984,6 +985,11 @@
   {
     "case": "class_diagram/classdiagram_spec-49230672.mmd",
     "verdict": "invalid",
+    "pass": true
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-4bf09e3e.mmd",
+    "verdict": "valid",
     "pass": true
   },
   {
@@ -1039,20 +1045,6 @@
     "pass": true
   },
   {
-    "case": "class_diagram/classdiagram_spec-59c4e642.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "class_diagram/classdiagram_spec-5a88cf38.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "class_diagram/classdiagram_spec-5d7a075e.mmd",
     "verdict": "invalid",
     "pass": true
@@ -1083,21 +1075,24 @@
     "pass": true
   },
   {
+    "case": "class_diagram/classdiagram_spec-653b7d93.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
     "case": "class_diagram/classdiagram_spec-6556a77b.mmd",
     "verdict": "invalid",
+    "pass": true
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-684a7f4f.mmd",
+    "verdict": "valid",
     "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-688a8e03.mmd",
     "verdict": "valid",
     "pass": true
-  },
-  {
-    "case": "class_diagram/classdiagram_spec-68f539ee.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "class_diagram/classdiagram_spec-6a1e8d0c.mmd",
@@ -1185,6 +1180,11 @@
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-7fb9bd59.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "class_diagram/classdiagram_spec-7fe746b8.mmd",
@@ -1354,13 +1354,6 @@
     "pass": true
   },
   {
-    "case": "class_diagram/classdiagram_spec-9903067a.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "class_diagram/classdiagram_spec-993711e5.mmd",
     "verdict": "invalid",
     "pass": true
@@ -1423,6 +1416,11 @@
     "pass": true
   },
   {
+    "case": "class_diagram/classdiagram_spec-a1c9edb1.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
     "case": "class_diagram/classdiagram_spec-a220c8c8.mmd",
     "verdict": "invalid",
     "pass": true
@@ -1458,13 +1456,6 @@
     "case": "class_diagram/classdiagram_spec-aaa315f8.mmd",
     "verdict": "invalid",
     "pass": true
-  },
-  {
-    "case": "class_diagram/classdiagram_spec-aabea7c5.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "class_diagram/classdiagram_spec-aafd9409.mmd",
@@ -1504,13 +1495,6 @@
     "pass": true
   },
   {
-    "case": "class_diagram/classdiagram_spec-b2df4b5b.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "class_diagram/classdiagram_spec-b2e3a129.mmd",
     "verdict": "valid",
     "pass": true
@@ -1547,6 +1531,11 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-ba9343cb.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-bacaf421.mmd",
     "verdict": "valid",
     "pass": true
   },
@@ -1614,6 +1603,11 @@
   },
   {
     "case": "class_diagram/classdiagram_spec-c1c1749e.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-c4b2bb4d.mmd",
     "verdict": "valid",
     "pass": true
   },
@@ -1702,13 +1696,6 @@
     "pass": true
   },
   {
-    "case": "class_diagram/classdiagram_spec-dbc2cc41.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "class_diagram/classdiagram_spec-dd7337b2.mmd",
     "verdict": "invalid",
     "pass": true
@@ -1749,13 +1736,6 @@
     "pass": true
   },
   {
-    "case": "class_diagram/classdiagram_spec-e2a923b1.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "class_diagram/classdiagram_spec-e44e716b.mmd",
     "verdict": "valid",
     "pass": true
@@ -1778,6 +1758,11 @@
     "pass": true
   },
   {
+    "case": "class_diagram/classdiagram_spec-e7575c8e.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
     "case": "class_diagram/classdiagram_spec-e820f9e7.mmd",
     "verdict": "valid",
     "pass": true
@@ -1791,13 +1776,6 @@
     "case": "class_diagram/classdiagram_spec-e94dfee9.mmd",
     "verdict": "invalid",
     "pass": true
-  },
-  {
-    "case": "class_diagram/classdiagram_spec-eb1e4596.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "class_diagram/classdiagram_spec-ecb265e7.mmd",
@@ -1878,6 +1856,11 @@
     "pass": true
   },
   {
+    "case": "class_diagram/classdiagram_spec-f50fcc43.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
     "case": "class_diagram/classdiagram_spec-f5d7e979.mmd",
     "verdict": "valid",
     "pass": true
@@ -1898,13 +1881,6 @@
     "case": "class_diagram/classdiagram_spec-f9b0f05a.mmd",
     "verdict": "valid",
     "pass": true
-  },
-  {
-    "case": "class_diagram/classdiagram_spec-fb53320f.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "class_diagram/classdiagram_spec-fc1b2cd8.mmd",
@@ -2793,13 +2769,6 @@
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "class_diagram/yari-0cf92995.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "class_diagram/yari-1cc8defb.mmd",
     "verdict": "valid",
     "pass": true
@@ -2820,6 +2789,11 @@
     "pass": true
   },
   {
+    "case": "class_diagram/yari-351e9277.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
     "case": "class_diagram/yari-39779cee.mmd",
     "verdict": "valid",
     "pass": true
@@ -2832,13 +2806,6 @@
   {
     "case": "class_diagram/yari-46730858.mmd",
     "verdict": "invalid",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "class_diagram/yari-4f367a07.mmd",
-    "verdict": "artifact",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -2901,13 +2868,6 @@
     "pass": true
   },
   {
-    "case": "class_diagram/yari-9370c2b9.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "class_diagram/yari-9d713ead.mmd",
     "verdict": "valid",
     "pass": true
@@ -2960,6 +2920,16 @@
     "pass": true
   },
   {
+    "case": "class_diagram/yari-ce275ecb.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "class_diagram/yari-cec674cb.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
     "case": "class_diagram/yari-db0e5178.mmd",
     "verdict": "valid",
     "pass": true
@@ -2995,32 +2965,30 @@
     "pass": true
   },
   {
-    "case": "er_diagram/can_have_an_alias-541ee85a.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/can_have_an_alias-1b20f3ad.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "er_diagram/can_have_an_alias_even_if_the_relationship_is_de-2836bbee.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/can_have_an_alias_even_if_the_relationship_is_de-174fe763.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "er_diagram/can_have_an_alias_even_if_the_relationship_is_de-a32cda75.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/can_have_an_alias_even_if_the_relationship_is_de-cadf88cc.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "er_diagram/can_start_with_an_underscore-bfafb496.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/can_start_with_an_underscore-cf87bd6b.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "er_diagram/cannot_contain_because_it_could_start_and_escape-eb5c05ca.mmd",
@@ -3053,67 +3021,28 @@
     "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-00573624.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/erdiagram_spec-0345e799.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-067ddc36.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "er_diagram/erdiagram_spec-0285f630.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/erdiagram_spec-0b0f62a5.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "er_diagram/erdiagram_spec-038a5baf.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-03ecc8fb.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-05527a01.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-0a02195e.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-0a9ec4e7.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-0e6594ee.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-0eebf99d.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/erdiagram_spec-0e528ed9.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-111c698f.mmd",
@@ -3121,14 +3050,29 @@
     "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-14ad0a37.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/erdiagram_spec-13961c38.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-1537270c.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-155a02f0.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-15eb058f.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "er_diagram/erdiagram_spec-1537270c.mmd",
+    "case": "er_diagram/erdiagram_spec-15f4d4f0.mmd",
     "verdict": "valid",
     "pass": true
   },
@@ -3148,65 +3092,28 @@
     "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-1a8b7719.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/erdiagram_spec-1b43e890.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "er_diagram/erdiagram_spec-1b815eed.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/erdiagram_spec-1c5729ab.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "er_diagram/erdiagram_spec-2b37cd71.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-2efe54dc.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-2f15ca44.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/erdiagram_spec-2534d7cc.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-2f91223b.mmd",
     "verdict": "valid",
     "pass": true
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-346c8a84.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-36265fda.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-37f7ef3e.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "er_diagram/erdiagram_spec-39b996ea.mmd",
@@ -3219,18 +3126,9 @@
     "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-3ba80a22.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-3c43409a.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/erdiagram_spec-3c05a670.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-3c8a4cbd.mmd",
@@ -3238,37 +3136,24 @@
     "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-3d10f4ef.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/erdiagram_spec-4475845d.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-4053e4b9.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/erdiagram_spec-4763e192.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-46454a3a.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/erdiagram_spec-49493d88.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-4aabf3e3.mmd",
     "verdict": "valid",
     "pass": true
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-4ab60472.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "er_diagram/erdiagram_spec-4eb49b63.mmd",
@@ -3286,58 +3171,61 @@
     "pass": true
   },
   {
+    "case": "er_diagram/erdiagram_spec-5154c96c.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-53f1e9c4.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
     "case": "er_diagram/erdiagram_spec-572ba53b.mmd",
     "verdict": "valid",
     "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-575d46af.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/erdiagram_spec-5d432351.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-5f6b7672.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-60d5cd2a.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-612d0507.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-62144dcf.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-677888ef.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "er_diagram/erdiagram_spec-594ff7e6.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/erdiagram_spec-71888748.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-5b8ee872.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-5f25750b.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-63c477ed.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-6d67c1f6.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-72b4989f.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/erdiagram_spec-759afb41.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-75d45fa9.mmd",
@@ -3350,11 +3238,19 @@
     "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-7b6a17de.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/erdiagram_spec-7a1c5801.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-7b131748.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-7f7a1948.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-870ded69.mmd",
@@ -3367,15 +3263,8 @@
     "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-8a7b96fa.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-8c8dd033.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/erdiagram_spec-8bd35b3d.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -3386,23 +3275,38 @@
     "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-8cc5e254.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "er_diagram/erdiagram_spec-8cc99c4c.mmd",
     "verdict": "valid",
     "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-90ee7a35.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/erdiagram_spec-8d9e5aa8.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-8f33e689.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-9016f43e.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-972f998a.mmd",
+    "verdict": "valid",
+    "pass": false,
+    "stage": "parse",
+    "exception_class": "Etassia::Parser::ParseError"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-97d667d8.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-982da1fb.mmd",
@@ -3415,23 +3319,14 @@
     "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-9ad814d1.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "er_diagram/erdiagram_spec-9b4fc14a.mmd",
     "verdict": "valid",
     "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-9e149a5e.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/erdiagram_spec-9c6cc600.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-9e6311f2.mmd",
@@ -3449,35 +3344,12 @@
     "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-a6a71959.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-a8233d84.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-a837a6ac.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-a909abd3.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "er_diagram/erdiagram_spec-a955ce67.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-aa3ef48f.mmd",
     "verdict": "valid",
     "pass": true
   },
@@ -3487,30 +3359,43 @@
     "pass": true
   },
   {
+    "case": "er_diagram/erdiagram_spec-ae7b54b2.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-b0200028.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
     "case": "er_diagram/erdiagram_spec-b2bb4486.mmd",
     "verdict": "valid",
     "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-b31cf34f.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/erdiagram_spec-b3064d60.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-c24a3e99.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "er_diagram/erdiagram_spec-c2e21145.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/erdiagram_spec-c7a4a4a3.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "er_diagram/erdiagram_spec-c5282c1f.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/erdiagram_spec-cb9b20d1.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-cfe6339e.mmd",
@@ -3518,22 +3403,13 @@
     "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-d00cb184.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/erdiagram_spec-d3ad6826.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "er_diagram/erdiagram_spec-d3d7fc8e.mmd",
     "verdict": "invalid",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-d61c1a73.mmd",
-    "verdict": "artifact",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -3569,43 +3445,28 @@
     "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-db53fe0a.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/erdiagram_spec-dec90227.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-dd9083d6.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/erdiagram_spec-e349dc49.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-deabda36.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/erdiagram_spec-e5edee2c.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-e541a7e1.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/erdiagram_spec-eb93b040.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-e802f712.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/erdiagram_spec-eba72fa7.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/erdiagram_spec-ebf76e86.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -3616,11 +3477,35 @@
     "pass": true
   },
   {
-    "case": "er_diagram/erdiagram_spec-f6a21083.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/erdiagram_spec-f7724545.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-f9d92a86.mmd",
+    "verdict": "valid",
+    "pass": false,
+    "stage": "parse",
+    "exception_class": "Etassia::Parser::ParseError"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-fc2612f5.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-fe04133b.mmd",
+    "verdict": "valid",
+    "pass": false,
+    "stage": "parse",
+    "exception_class": "Etassia::Parser::ParseError"
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-fea32886.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "er_diagram/journey_spec-1f8d17b6.mmd",
@@ -3663,137 +3548,101 @@
     "pass": true
   },
   {
-    "case": "er_diagram/parses_a_multi_line_description_accdescr-e2a71e42.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/parses_a_multi_line_description_accdescr-c5daca2b.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "er_diagram/should_allow_alphanumeric_characters_dashes_unde-9ca4122f.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_allow_alphanumeric_characters_dashes_unde-e9b54b86.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/should_allow_an_attribute_block_to_be_separated-c8aee6b7.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_allow_an_attribute_block_to_be_separated-0168fb66.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/should_allow_an_attribute_block_to_start_immedia-72cd4400.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_allow_an_attribute_block_to_start_immedia-93f4b333.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/should_allow_an_empty_attribute_block-c3800c19.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_allow_an_empty_attribute_block-faaafeba.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/should_allow_an_empty_quoted_label-2e09a1b3.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_allow_an_empty_quoted_label-3dc6b5bf.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/should_allow_an_entity_with_a_single_attribute_t-4ac20c2c.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_allow_an_entity_with_a_single_attribute_t-108ca721.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/should_allow_an_entity_with_a_single_attribute_t-7e19bc34.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_allow_an_entity_with_a_single_attribute_t-495e39be.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/should_allow_an_entity_with_a_single_attribute_t-a3a33536.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_allow_an_entity_with_a_single_attribute_t-5793e0e6.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/should_allow_an_entity_with_a_single_attribute_t-eb12494a.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_allow_an_entity_with_a_single_attribute_t-63c835c4.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/should_allow_an_entity_with_attribute_starting_w-2c466233.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_allow_an_entity_with_attribute_starting_w-4a001044.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/should_allow_an_entity_with_attribute_that_has_a-52e306e2.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_allow_an_entity_with_attribute_that_has_a-854f23e8.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/should_allow_an_entity_with_attribute_that_is_a-8a3e5732.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_allow_an_entity_with_attribute_that_is_a-97cdd0a4.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/should_allow_an_entity_with_attribute_that_is_an-08442ad0.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_allow_an_entity_with_attribute_that_is_an-238bb687.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/should_allow_an_entity_with_attributes_that_have-88078892.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_allow_an_entity_with_attributes_that_have-e5c668af.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/should_allow_an_entity_with_multiple_attributes-64b7db08.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_allow_an_entity_with_multiple_attributes-70cc79a0.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/should_allow_asterisk_at_the_start_of_attribute-30954a02.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_allow_asterisk_at_the_start_of_attribute-c077427c.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/should_allow_asterisks_at_the_start_of_attribute-0e131448.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_allow_asterisks_at_the_start_of_attribute-90d52f18.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/should_allow_attribute_definitions_to_be_split_i-a2753201.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_allow_attribute_definitions_to_be_split_i-10f6ef77.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "er_diagram/should_allow_decimal_numbers_as_entity_names_wit-31b7bfa7.mmd",
@@ -3811,18 +3660,14 @@
     "pass": true
   },
   {
-    "case": "er_diagram/should_allow_more_than_one_relationship_between-faee6d96.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_allow_more_than_one_relationship_between-41c882c7.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/should_allow_no_whitespace_before_and_after_attr-4177c5c2.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_allow_no_whitespace_before_and_after_attr-f282244f.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "er_diagram/should_allow_numbers_in_relationships-f5668c4e.mmd",
@@ -3830,137 +3675,113 @@
     "pass": true
   },
   {
-    "case": "er_diagram/should_allow_recursive_relationships-cda7f220.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/should_allow_recursive_relationships-19be24b1.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "er_diagram/should_allow_stand_alone_entities_with_no_relati-feb7c214.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/should_allow_stand_alone_entities_with_no_relati-07af9b29.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/should_allow_whitespace_before_and_after_attribu-e81c580d.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/should_associate_two_entities_correctly-086e79cb.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/should_be_possible_to_apply_multiple_separately-d7b74f0d.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "er_diagram/should_allow_whitespace_before_and_after_attribu-859ddb36.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/should_be_possible_to_apply_multiple_styles_to_a-0b961ca0.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "er_diagram/should_associate_two_entities_correctly-f8126a99.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/should_be_possible_to_assign_a_class_to_an_entit-0e7057a7.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "er_diagram/should_be_possible_to_apply_multiple_separately-f36a9d6c.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/should_be_possible_to_assign_a_class_using_the_s-92eecb0d.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/should_be_possible_to_assign_a_class_using_the_s-9fc10dec.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/should_be_possible_to_assign_a_class_using_the_s-f4ef0685.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/should_be_possible_to_assign_classes_using_the_s-784d9f9d.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/should_be_possible_to_assign_classes_using_the_s-989000e1.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "er_diagram/should_be_possible_to_apply_multiple_styles_to_a-94ac2e5d.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/should_be_possible_to_assign_multiple_classes_to-150f2be6.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "er_diagram/should_be_possible_to_assign_a_class_to_an_entit-128aa6a7.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/should_be_possible_to_assign_multiple_classes_us-4452dbfe.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "er_diagram/should_be_possible_to_assign_multiple_separately-78058bfd.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "er_diagram/should_be_possible_to_assign_a_class_using_the_s-69f7bc9b.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_be_possible_to_configure_the_default_clas-d09c328e.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/should_be_possible_to_assign_a_class_using_the_s-923d4a00.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_be_possible_to_define_a_class_with_styles-e6beaf8f.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/should_be_possible_to_assign_a_class_using_the_s-f609955c.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_be_possible_to_define_multiple_class_with-601f276e.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "er_diagram/should_be_possible_to_assign_classes_using_the_s-a4fa913a.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/should_be_possible_to_assign_classes_using_the_s-b355ebfa.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/should_be_possible_to_assign_multiple_classes_to-f39e92da.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/should_be_possible_to_assign_multiple_classes_us-d5d0abc2.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/should_be_possible_to_assign_multiple_separately-85f80ce7.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/should_be_possible_to_configure_the_default_clas-3cc61531.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/should_be_possible_to_define_a_class_with_styles-8e5af522.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/should_be_possible_to_define_multiple_class_with-1a2be1c5.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "er_diagram/should_create_the_role_specified-b918decf.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_create_the_role_specified-5b421329.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "er_diagram/should_handle_attributes_with_numbers_in_names_b-9966ce0b.mmd",
@@ -3973,18 +3794,16 @@
     "pass": true
   },
   {
-    "case": "er_diagram/should_limit_the_number_of_relationships_between-4f41bb6a.mmd",
-    "verdict": "artifact",
+    "case": "er_diagram/should_limit_the_number_of_relationships_between-94f1532d.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "er_diagram/should_not_allow_leading_numbers_dashes_or_brack-c1766b9e.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "er_diagram/should_not_allow_leading_numbers_dashes_or_brack-11932686.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "er_diagram/xss_spec-8e4f16ee.mmd",
@@ -4333,13 +4152,6 @@
     "pass": true
   },
   {
-    "case": "flowchart/flow_edges_spec-169ad093.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "flowchart/flow_edges_spec-17d5ab91.mmd",
     "verdict": "invalid",
     "pass": false,
@@ -4347,29 +4159,8 @@
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "flowchart/flow_edges_spec-18bff702.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "flowchart/flow_edges_spec-21315efc.mmd",
     "verdict": "invalid",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "flowchart/flow_edges_spec-2896ba9e.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "flowchart/flow_edges_spec-28cd06fb.mmd",
-    "verdict": "artifact",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -4387,6 +4178,11 @@
     "pass": true
   },
   {
+    "case": "flowchart/flow_edges_spec-303dd1b5.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
     "case": "flowchart/flow_edges_spec-32896ba1.mmd",
     "verdict": "invalid",
     "pass": false,
@@ -4399,6 +4195,11 @@
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
+  },
+  {
+    "case": "flowchart/flow_edges_spec-4275a472.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "flowchart/flow_edges_spec-46b08efa.mmd",
@@ -4422,13 +4223,6 @@
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "flowchart/flow_edges_spec-611fcd10.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "flowchart/flow_edges_spec-63cdf91f.mmd",
     "verdict": "invalid",
     "pass": false,
@@ -4441,6 +4235,11 @@
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
+  },
+  {
+    "case": "flowchart/flow_edges_spec-6d8bd21d.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "flowchart/flow_edges_spec-6e63c5a5.mmd",
@@ -4457,18 +4256,16 @@
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "flowchart/flow_edges_spec-8297a4cd.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "flowchart/flow_edges_spec-8f385abc.mmd",
     "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
+  },
+  {
+    "case": "flowchart/flow_edges_spec-93a08cac.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "flowchart/flow_edges_spec-9467a8e6.mmd",
@@ -4485,15 +4282,13 @@
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "flowchart/flow_edges_spec-b6872d29.mmd",
-    "verdict": "invalid",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "flowchart/flow_edges_spec-b2135331.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "flowchart/flow_edges_spec-cc52f417.mmd",
-    "verdict": "artifact",
+    "case": "flowchart/flow_edges_spec-b6872d29.mmd",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -4513,16 +4308,24 @@
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
+    "case": "flowchart/flow_edges_spec-e74f4113.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
     "case": "flowchart/flow_edges_spec-e8f460a3.mmd",
     "verdict": "valid",
     "pass": true
   },
   {
-    "case": "flowchart/flow_edges_spec-fa253a8a.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "flowchart/flow_edges_spec-ea3a6b4d.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "flowchart/flow_edges_spec-ea4ba2ef.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "flowchart/flow_lines_spec-25cf71c8.mmd",
@@ -4599,6 +4402,11 @@
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
+    "case": "flowchart/flow_md_string_spec-203f03d7.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
     "case": "flowchart/flow_md_string_spec-26e1e470.mmd",
     "verdict": "invalid",
     "pass": false,
@@ -4606,14 +4414,17 @@
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "flowchart/flow_md_string_spec-be3fa521.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "flowchart/flow_node_data_spec-06c34df5.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "flowchart/flow_node_data_spec-0ba46f9c.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "flowchart/flow_node_data_spec-0f9bed9c.mmd",
     "verdict": "valid",
     "pass": true
   },
@@ -4628,14 +4439,12 @@
     "pass": true
   },
   {
-    "case": "flowchart/flow_node_data_spec-1ce5356a.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "flowchart/flow_node_data_spec-21e74a2a.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "flowchart/flow_node_data_spec-21e74a2a.mmd",
+    "case": "flowchart/flow_node_data_spec-28571c8d.mmd",
     "verdict": "valid",
     "pass": true
   },
@@ -4665,13 +4474,6 @@
     "pass": true
   },
   {
-    "case": "flowchart/flow_node_data_spec-3743a064.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "flowchart/flow_node_data_spec-385d64c0.mmd",
     "verdict": "invalid",
     "pass": false,
@@ -4686,42 +4488,19 @@
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "flowchart/flow_node_data_spec-4154483e.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "flowchart/flow_node_data_spec-42630695.mmd",
     "verdict": "valid",
     "pass": true
   },
   {
-    "case": "flowchart/flow_node_data_spec-52436231.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "flowchart/flow_node_data_spec-53d4ad6e.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "flowchart/flow_node_data_spec-4fd7fcd1.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "flowchart/flow_node_data_spec-5682e1bd.mmd",
     "verdict": "valid",
     "pass": true
-  },
-  {
-    "case": "flowchart/flow_node_data_spec-5a516a4a.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "flowchart/flow_node_data_spec-5b40b7fb.mmd",
@@ -4732,13 +4511,6 @@
     "case": "flowchart/flow_node_data_spec-5c4421d0.mmd",
     "verdict": "valid",
     "pass": true
-  },
-  {
-    "case": "flowchart/flow_node_data_spec-64c9dc2b.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "flowchart/flow_node_data_spec-65204278.mmd",
@@ -4756,14 +4528,12 @@
     "pass": true
   },
   {
-    "case": "flowchart/flow_node_data_spec-75482361.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "flowchart/flow_node_data_spec-7c9fd0dc.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
-    "case": "flowchart/flow_node_data_spec-7c9fd0dc.mmd",
+    "case": "flowchart/flow_node_data_spec-7e4b9630.mmd",
     "verdict": "valid",
     "pass": true
   },
@@ -4773,22 +4543,8 @@
     "pass": true
   },
   {
-    "case": "flowchart/flow_node_data_spec-820f5798.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "flowchart/flow_node_data_spec-875ce0c5.mmd",
     "verdict": "invalid",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "flowchart/flow_node_data_spec-88ef0461.mmd",
-    "verdict": "artifact",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -4839,23 +4595,29 @@
     "pass": true
   },
   {
-    "case": "flowchart/flow_node_data_spec-a1a3e8f8.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "flowchart/flow_node_data_spec-a394e7fa.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "flowchart/flow_node_data_spec-a3b82ba2.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "flowchart/flow_node_data_spec-aa1926ba.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "flowchart/flow_node_data_spec-b5764998.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "flowchart/flow_node_data_spec-b671d90d.mmd",
     "verdict": "valid",
     "pass": true
-  },
-  {
-    "case": "flowchart/flow_node_data_spec-b7ee0379.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "flowchart/flow_node_data_spec-c5d7f1df.mmd",
@@ -4878,6 +4640,11 @@
     "pass": true
   },
   {
+    "case": "flowchart/flow_node_data_spec-d192246a.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
     "case": "flowchart/flow_node_data_spec-d4e8256b.mmd",
     "verdict": "valid",
     "pass": true
@@ -4888,7 +4655,17 @@
     "pass": true
   },
   {
+    "case": "flowchart/flow_node_data_spec-d82861ba.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
     "case": "flowchart/flow_node_data_spec-dcd14ebd.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "flowchart/flow_node_data_spec-e7f5378e.mmd",
     "verdict": "valid",
     "pass": true
   },
@@ -4940,6 +4717,11 @@
     "pass": true
   },
   {
+    "case": "flowchart/flow_singlenode_spec-03de5034.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
     "case": "flowchart/flow_singlenode_spec-03efe19e.mmd",
     "verdict": "valid",
     "pass": true
@@ -4975,6 +4757,11 @@
     "pass": true
   },
   {
+    "case": "flowchart/flow_singlenode_spec-4a265fd6.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
     "case": "flowchart/flow_singlenode_spec-65a3eaeb.mmd",
     "verdict": "valid",
     "pass": true
@@ -4993,20 +4780,6 @@
     "case": "flowchart/flow_singlenode_spec-9bf7d40e.mmd",
     "verdict": "valid",
     "pass": true
-  },
-  {
-    "case": "flowchart/flow_singlenode_spec-aacb222a.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "flowchart/flow_singlenode_spec-af1ad8a6.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "flowchart/flow_singlenode_spec-b1dd915a.mmd",
@@ -5066,11 +4839,6 @@
     "pass": true
   },
   {
-    "case": "flowchart/flow_spec-01e5bfce.mmd",
-    "verdict": "artifact",
-    "pass": true
-  },
-  {
     "case": "flowchart/flow_spec-01f138f2.mmd",
     "verdict": "valid",
     "pass": true
@@ -5116,6 +4884,11 @@
   },
   {
     "case": "flowchart/flow_spec-666b641c.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "flowchart/flow_spec-6cfda390.mmd",
     "verdict": "valid",
     "pass": true
   },
@@ -5248,6 +5021,11 @@
     "pass": true
   },
   {
+    "case": "flowchart/flow_text_spec-0828367a.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
     "case": "flowchart/flow_text_spec-0b25e2d1.mmd",
     "verdict": "invalid",
     "pass": true
@@ -5280,13 +5058,6 @@
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "flowchart/flow_text_spec-264a7bf1.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "flowchart/flow_text_spec-2ba8a9cf.mmd",
     "verdict": "valid",
     "pass": true
@@ -5308,6 +5079,16 @@
   },
   {
     "case": "flowchart/flow_text_spec-390cba7b.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "flowchart/flow_text_spec-3e23a705.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "flowchart/flow_text_spec-3f2228b5.mmd",
     "verdict": "valid",
     "pass": true
   },
@@ -5354,13 +5135,6 @@
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "flowchart/flow_text_spec-6bf06ed4.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "flowchart/flow_text_spec-6c2697c9.mmd",
     "verdict": "invalid",
     "pass": false,
@@ -5399,6 +5173,11 @@
   },
   {
     "case": "flowchart/flow_text_spec-995c9dc8.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
+    "case": "flowchart/flow_text_spec-9b0f921f.mmd",
     "verdict": "valid",
     "pass": true
   },
@@ -5491,13 +5270,6 @@
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "flowchart/flow_text_spec-d0d0f751.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "flowchart/flow_text_spec-d0d4f590.mmd",
     "verdict": "valid",
     "pass": true
@@ -5531,13 +5303,6 @@
     "case": "flowchart/flow_text_spec-da8bc7d8.mmd",
     "verdict": "valid",
     "pass": true
-  },
-  {
-    "case": "flowchart/flow_text_spec-dbcba2c5.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "flowchart/flow_text_spec-df3d28ae.mmd",
@@ -5674,6 +5439,11 @@
     "pass": true
   },
   {
+    "case": "flowchart/subgraph_spec-3c153b6c.mmd",
+    "verdict": "valid",
+    "pass": true
+  },
+  {
     "case": "flowchart/subgraph_spec-4d850c95.mmd",
     "verdict": "invalid",
     "pass": true
@@ -5729,13 +5499,6 @@
     "case": "flowchart/subgraph_spec-9c30646c.mmd",
     "verdict": "valid",
     "pass": true
-  },
-  {
-    "case": "flowchart/subgraph_spec-a33751ee.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "flowchart/subgraph_spec-a480f9d3.mmd",
@@ -5808,11 +5571,9 @@
     "pass": true
   },
   {
-    "case": "flowchart/xss22-4465e9ea.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "flowchart/xss22-4d17431a.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "flowchart/yari-abee9d67.mmd",
@@ -5892,11 +5653,9 @@
     "pass": true
   },
   {
-    "case": "gantt/should_allow_for_a_accessibility_title_and_multi-20a4238e.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "gantt/should_allow_for_a_accessibility_title_and_multi-3e73c61d.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "gantt/should_handle_a_dateformat_definition-0b0cc3f2.mmd",
@@ -7454,9 +7213,11 @@
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "pie/diagram_orchestration_spec-bea79c10.mmd",
-    "verdict": "artifact",
-    "pass": true
+    "case": "pie/diagram_orchestration_spec-efffba9d.mmd",
+    "verdict": "invalid",
+    "pass": false,
+    "stage": "parse",
+    "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "pie/pie-c6f9f28a.mmd",
@@ -7810,8 +7571,15 @@
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "radar/radar_test-224223d4.mmd",
-    "verdict": "artifact",
+    "case": "radar/radar_test-0d9703ea.mmd",
+    "verdict": "valid",
+    "pass": false,
+    "stage": "parse",
+    "exception_class": "Etassia::Parser::ParseError"
+  },
+  {
+    "case": "radar/radar_test-2d83d8bf.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -7819,20 +7587,6 @@
   {
     "case": "radar/radar_test-2e8ae8c0.mmd",
     "verdict": "invalid",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "radar/radar_test-380afad2.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "radar/radar_test-38735805.mmd",
-    "verdict": "artifact",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -7852,8 +7606,8 @@
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "radar/radar_test-60ce1e6e.mmd",
-    "verdict": "artifact",
+    "case": "radar/radar_test-3e1b309e.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -7866,22 +7620,29 @@
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "radar/radar_test-6db703c5.mmd",
-    "verdict": "artifact",
+    "case": "radar/radar_test-68bd0563.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "radar/radar_test-761f0bd3.mmd",
-    "verdict": "artifact",
+    "case": "radar/radar_test-74b7506b.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "radar/radar_test-83ba5537.mmd",
-    "verdict": "artifact",
+    "case": "radar/radar_test-759f8a97.mmd",
+    "verdict": "invalid",
+    "pass": false,
+    "stage": "parse",
+    "exception_class": "Etassia::Parser::ParseError"
+  },
+  {
+    "case": "radar/radar_test-86154c51.mmd",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -7908,13 +7669,6 @@
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "radar/radar_test-92388b87.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
     "case": "radar/radar_test-991fbb2e.mmd",
     "verdict": "invalid",
     "pass": false,
@@ -7922,29 +7676,15 @@
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "radar/radar_test-9943b82b.mmd",
-    "verdict": "artifact",
+    "case": "radar/radar_test-a954d1da.mmd",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "radar/radar_test-a0060614.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "radar/radar_test-b2b1735c.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
-  },
-  {
-    "case": "radar/radar_test-be00dd54.mmd",
-    "verdict": "artifact",
+    "case": "radar/radar_test-b7f9c5a6.mmd",
+    "verdict": "invalid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -7971,8 +7711,29 @@
     "exception_class": "Etassia::Parser::ParseError"
   },
   {
-    "case": "radar/radar_test-dd39c47f.mmd",
-    "verdict": "artifact",
+    "case": "radar/radar_test-dc54dea2.mmd",
+    "verdict": "valid",
+    "pass": false,
+    "stage": "parse",
+    "exception_class": "Etassia::Parser::ParseError"
+  },
+  {
+    "case": "radar/radar_test-e80cf717.mmd",
+    "verdict": "valid",
+    "pass": false,
+    "stage": "parse",
+    "exception_class": "Etassia::Parser::ParseError"
+  },
+  {
+    "case": "radar/radar_test-e8f66a82.mmd",
+    "verdict": "invalid",
+    "pass": false,
+    "stage": "parse",
+    "exception_class": "Etassia::Parser::ParseError"
+  },
+  {
+    "case": "radar/radar_test-ea83e1fa.mmd",
+    "verdict": "valid",
     "pass": false,
     "stage": "parse",
     "exception_class": "Etassia::Parser::ParseError"
@@ -8140,11 +7901,9 @@
     "pass": true
   },
   {
-    "case": "requirement/will_use_a_accessibility_title_and_multiline_des-507c090d.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "parse",
-    "exception_class": "Etassia::Parser::ParseError"
+    "case": "requirement/will_use_a_accessibility_title_and_multiline_des-78dce4af.mmd",
+    "verdict": "valid",
+    "pass": true
   },
   {
     "case": "sankey/parses_csv_with_sankey_beta_syntax-ac5bf38a.mmd",
@@ -10533,13 +10292,6 @@
     "exception_class": "Etassia::Engine::DiagramTypeError"
   },
   {
-    "case": "unknown/yari-6a962f3b.mmd",
-    "verdict": "artifact",
-    "pass": false,
-    "stage": "detect",
-    "exception_class": "Etassia::Engine::DiagramTypeError"
-  },
-  {
     "case": "unknown/yari-7a4c7d02.mmd",
     "verdict": "artifact",
     "pass": false,
@@ -10585,6 +10337,13 @@
     "case": "unknown/yari-ba2f13c4.mmd",
     "verdict": "valid",
     "pass": true
+  },
+  {
+    "case": "unknown/yari-ea799bdc.mmd",
+    "verdict": "valid",
+    "pass": false,
+    "stage": "parse",
+    "exception_class": "Etassia::Parser::ParseError"
   },
   {
     "case": "unknown/yari2-2207c6f1.mmd",

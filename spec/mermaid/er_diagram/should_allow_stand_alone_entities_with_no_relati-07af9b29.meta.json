@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_allow_stand-alone_entities_with_no_relationships_3",
+  "type": "er_diagram",
+  "source_file": "/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 15,
+  "metadata": {
+    "test_name": "should allow stand-alone entities with no relationships"
+  },
+  "id": "er_diagram/should_allow_stand_alone_entities_with_no_relati-07af9b29",
+  "source_sha256": "7cd8568750c913666a95463190011287e1b134a1e5f61c4701ff5a5a016ecd13",
+  "recovered": true
+}
