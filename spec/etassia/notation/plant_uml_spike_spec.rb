@@ -215,6 +215,12 @@ RSpec.describe Etassia::Notation::PlantUML do
   before { Etassia::Notation.register(plantuml) }
 
   describe "the notation's public surface" do
+    let(:expected_types) do
+      %i[class_diagram sequence_diagram activity_diagram usecase_diagram
+         component_diagram state_diagram entity_diagram network_diagram
+         timing_diagram ebnf_diagram mindmap gantt object_diagram git_diagram]
+    end
+
     it "identifies as :plantuml" do
       expect(plantuml.id).to eq(:plantuml)
     end
@@ -224,11 +230,7 @@ RSpec.describe Etassia::Notation::PlantUML do
     end
 
     it "lists the diagram types it reads" do
-      expect(plantuml.types)
-        .to eq(%i[class_diagram sequence_diagram activity_diagram
-                  usecase_diagram component_diagram
-                  state_diagram entity_diagram network_diagram timing_diagram
-                  ebnf_diagram mindmap gantt object_diagram]).and be_frozen
+      expect(plantuml.types).to eq(expected_types).and be_frozen
     end
   end
 

@@ -16,6 +16,7 @@ require_relative "plantuml/state"
 require_relative "plantuml/objects"
 require_relative "plantuml/tree"
 require_relative "plantuml/gantt"
+require_relative "plantuml/git"
 require_relative "plantuml/further"
 require_relative "plantuml/style"
 
@@ -44,7 +45,7 @@ module Etassia
       # not, can make it raise.
       OPENER = /\A(?:\xEF\xBB\xBF)?
                 (?:#{PAD}*(?:'[^\r\n]*)?(?:\r\n|\r|\n))*
-                #{PAD}*@start(?:uml|ebnf|nwdiag|mindmap|wbs|gantt)
+                #{PAD}*@start(?:uml|ebnf|nwdiag|mindmap|wbs|gantt|git)
                 (?![A-Za-z0-9_])/xn
       # The families tried in order; the first whose query claims the source
       # reads it, and the class diagram is what is left.
@@ -56,7 +57,7 @@ module Etassia
       # `@start` tag that opens them.
       TAGGED = /\A(?:\xEF\xBB\xBF)?
                 (?:#{PAD}*(?:'[^\r\n]*)?(?:\r\n|\r|\n))*
-                #{PAD}*@start(mindmap|wbs|gantt)(?![A-Za-z0-9_])/xn
+                #{PAD}*@start(mindmap|wbs|gantt|git)(?![A-Za-z0-9_])/xn
       # Stands in for the JAR's `-Dplantuml.<dir>.path` system property.
       INCLUDE_PATH_ENV = "PLANTUML_INCLUDE_PATH"
       private_constant :PAD, :OPENER, :FAMILIES, :TAGGED, :INCLUDE_PATH_ENV
@@ -76,7 +77,7 @@ module Etassia
         %i[class_diagram sequence_diagram activity_diagram usecase_diagram
            component_diagram state_diagram entity_diagram
            network_diagram timing_diagram ebnf_diagram mindmap gantt
-           object_diagram].freeze
+           object_diagram git_diagram].freeze
       end
 
       # @param source [String] any String, including binary or invalid UTF-8
@@ -107,14 +108,25 @@ module Etassia
       private
 
       def read(source)
-        tag = TAGGED.match(source.b)&.[](1)
-        return Gantt.parse(source) if tag == "gantt"
-        return Tree.parse(source, tag) if tag
+        tag, front = tagged_family(source)
+        return front.parse(source, tag) if front == Tree
+        return front.parse(source) if front
 
         family = FAMILIES.find do |klass, query|
           klass.public_send(query, source)
         end
         family ? family.first.parse(source) : parse_class(source)
+      end
+
+      # @return [Array(String, Class), nil] the `@start` tag and the front
+      #   end that reads it
+      def tagged_family(source)
+        tag = TAGGED.match(source.b)&.[](1)
+        case tag
+        when "gantt" then [tag, Gantt]
+        when "mindmap", "wbs" then [tag, Tree]
+        when "git" then [tag, Git]
+        end
       end
 
       def parse_class(source)
