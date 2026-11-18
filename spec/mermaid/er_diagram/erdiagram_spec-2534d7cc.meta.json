@@ -1,0 +1,9 @@
+{
+  "name": "parser_should_allow_an_empty_quoted_label_50",
+  "type": "er_diagram",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 965,
+  "id": "er_diagram/erdiagram_spec-2534d7cc",
+  "source_sha256": "da857974dd7c0d990de74e8a7ef5e575179d3a8664e7dd931cb845f390d784b3",
+  "recovered": true
+}

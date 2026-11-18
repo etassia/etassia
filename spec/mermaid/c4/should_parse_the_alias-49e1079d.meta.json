@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_parse_the_alias_8",
+  "type": "c4",
+  "source_file": "/packages/mermaid/src/diagrams/c4/parser/c4Boundary.spec.js",
+  "line_number": 45,
+  "metadata": {
+    "test_name": "should parse the alias"
+  },
+  "id": "c4/should_parse_the_alias-49e1079d",
+  "source_sha256": "8c562ee44a411469c27decc1d37a213bedbee55c52a12b733a05d2d820116556",
+  "recovered": true
+}

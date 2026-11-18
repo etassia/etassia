@@ -2204,6 +2204,53 @@
     }
   },
   {
+    "case": "c4/should_handle_a_trailing_whitespaces_after_state-06397574.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/c4/should_handle_a_trailing_whitespaces_after_state-06397574.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "c4/should_handle_a_trailing_whitespaces_after_state-06397574.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/c4/should_handle_a_trailing_whitespaces_after_state-06397574.svg",
+    "reproduce": "bundle exec rake 'corpus[c4,valid]'",
+    "type": "c4",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "c4/should_handle_parameter_names_that_are_keywords-1edb5b2a.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -2272,6 +2319,100 @@
         "worst_e_w": 0.0,
         "worst_e_h": 0.0,
         "worst_e_a": 0.0,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "c4/should_parse_a_c4_diagram_with_one_boundary_corr-b1ebe483.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/c4/should_parse_a_c4_diagram_with_one_boundary_corr-b1ebe483.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "c4/should_parse_a_c4_diagram_with_one_boundary_corr-b1ebe483.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/c4/should_parse_a_c4_diagram_with_one_boundary_corr-b1ebe483.svg",
+    "reproduce": "bundle exec rake 'corpus[c4,valid]'",
+    "type": "c4",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "c4/should_parse_a_c4_diagram_with_one_container_cor-39a355f9.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/c4/should_parse_a_c4_diagram_with_one_container_cor-39a355f9.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "c4/should_parse_a_c4_diagram_with_one_container_cor-39a355f9.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/c4/should_parse_a_c4_diagram_with_one_container_cor-39a355f9.svg",
+    "reproduce": "bundle exec rake 'corpus[c4,valid]'",
+    "type": "c4",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
         "worst_analog": null
       }
     }
@@ -2423,6 +2564,100 @@
     }
   },
   {
+    "case": "c4/should_parse_a_c4_diagram_with_one_system_correc-d19462c9.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/c4/should_parse_a_c4_diagram_with_one_system_correc-d19462c9.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "c4/should_parse_a_c4_diagram_with_one_system_correc-d19462c9.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/c4/should_parse_a_c4_diagram_with_one_system_correc-d19462c9.svg",
+    "reproduce": "bundle exec rake 'corpus[c4,valid]'",
+    "type": "c4",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "c4/should_parse_the_alias-00f387d7.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/c4/should_parse_the_alias-00f387d7.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "c4/should_parse_the_alias-00f387d7.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/c4/should_parse_the_alias-00f387d7.svg",
+    "reproduce": "bundle exec rake 'corpus[c4,valid]'",
+    "type": "c4",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "c4/should_parse_the_alias-421743a5.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -2491,6 +2726,100 @@
         "worst_e_w": 0.0,
         "worst_e_h": 0.0,
         "worst_e_a": 0.0,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "c4/should_parse_the_alias-49e1079d.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/c4/should_parse_the_alias-49e1079d.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "c4/should_parse_the_alias-49e1079d.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/c4/should_parse_the_alias-49e1079d.svg",
+    "reproduce": "bundle exec rake 'corpus[c4,valid]'",
+    "type": "c4",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "c4/should_parse_the_alias-4caa65bc.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/c4/should_parse_the_alias-4caa65bc.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "c4/should_parse_the_alias-4caa65bc.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/c4/should_parse_the_alias-4caa65bc.svg",
+    "reproduce": "bundle exec rake 'corpus[c4,valid]'",
+    "type": "c4",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
         "worst_analog": null
       }
     }
@@ -2642,6 +2971,53 @@
     }
   },
   {
+    "case": "c4/should_parse_the_description-550c66e4.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/c4/should_parse_the_description-550c66e4.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "c4/should_parse_the_description-550c66e4.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/c4/should_parse_the_description-550c66e4.svg",
+    "reproduce": "bundle exec rake 'corpus[c4,valid]'",
+    "type": "c4",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "c4/should_parse_the_description-82dca309.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -2710,6 +3086,53 @@
         "worst_e_w": 0.0,
         "worst_e_h": 0.0,
         "worst_e_a": 0.0,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "c4/should_parse_the_description-e90c085c.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/c4/should_parse_the_description-e90c085c.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "c4/should_parse_the_description-e90c085c.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/c4/should_parse_the_description-e90c085c.svg",
+    "reproduce": "bundle exec rake 'corpus[c4,valid]'",
+    "type": "c4",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
         "worst_analog": null
       }
     }
@@ -2788,6 +3211,53 @@
     }
   },
   {
+    "case": "c4/should_parse_the_label-b6cfa327.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/c4/should_parse_the_label-b6cfa327.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "c4/should_parse_the_label-b6cfa327.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/c4/should_parse_the_label-b6cfa327.svg",
+    "reproduce": "bundle exec rake 'corpus[c4,valid]'",
+    "type": "c4",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "c4/should_parse_the_label-c70ff595.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -2856,6 +3326,194 @@
         "worst_e_w": 0.0,
         "worst_e_h": 0.0,
         "worst_e_a": 0.0,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "c4/should_parse_the_label-d91da1ec.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/c4/should_parse_the_label-d91da1ec.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "c4/should_parse_the_label-d91da1ec.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/c4/should_parse_the_label-d91da1ec.svg",
+    "reproduce": "bundle exec rake 'corpus[c4,valid]'",
+    "type": "c4",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "c4/should_parse_the_label-ea96ef58.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/c4/should_parse_the_label-ea96ef58.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "c4/should_parse_the_label-ea96ef58.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/c4/should_parse_the_label-ea96ef58.svg",
+    "reproduce": "bundle exec rake 'corpus[c4,valid]'",
+    "type": "c4",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "c4/should_parse_the_technology-36d79db6.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/c4/should_parse_the_technology-36d79db6.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "c4/should_parse_the_technology-36d79db6.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/c4/should_parse_the_technology-36d79db6.svg",
+    "reproduce": "bundle exec rake 'corpus[c4,valid]'",
+    "type": "c4",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "c4/should_parse_the_type-356086d1.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/c4/should_parse_the_type-356086d1.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "c4/should_parse_the_type-356086d1.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/c4/should_parse_the_type-356086d1.svg",
+    "reproduce": "bundle exec rake 'corpus[c4,valid]'",
+    "type": "c4",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
         "worst_analog": null
       }
     }
@@ -6344,6 +7002,53 @@
     }
   },
   {
+    "case": "class_diagram/classdiagram_spec-2e88c886.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-2e88c886.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "class_diagram/classdiagram_spec-2e88c886.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-2e88c886.svg",
+    "reproduce": "bundle exec rake 'corpus[class_diagram,valid]'",
+    "type": "class_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "class_diagram/classdiagram_spec-2e9d375c.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -6707,6 +7412,53 @@
         "worst_e_w": 0.001225,
         "worst_e_h": 0.0,
         "worst_e_a": 0.001225,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-300b79b8.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-300b79b8.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "class_diagram/classdiagram_spec-300b79b8.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-300b79b8.svg",
+    "reproduce": "bundle exec rake 'corpus[class_diagram,valid]'",
+    "type": "class_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
         "worst_analog": null
       }
     }
@@ -7167,6 +7919,53 @@
         "worst_e_w": 0.000221,
         "worst_e_h": 0.0,
         "worst_e_a": 0.000221,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-3a9dd2e3.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-3a9dd2e3.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "class_diagram/classdiagram_spec-3a9dd2e3.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-3a9dd2e3.svg",
+    "reproduce": "bundle exec rake 'corpus[class_diagram,valid]'",
+    "type": "class_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
         "worst_analog": null
       }
     }
@@ -8051,6 +8850,53 @@
     }
   },
   {
+    "case": "class_diagram/classdiagram_spec-4bf09e3e.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-4bf09e3e.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "class_diagram/classdiagram_spec-4bf09e3e.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-4bf09e3e.svg",
+    "reproduce": "bundle exec rake 'corpus[class_diagram,valid]'",
+    "type": "class_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "class_diagram/classdiagram_spec-4c7f5ff4.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -8727,6 +9573,100 @@
         "worst_e_w": 0.087885,
         "worst_e_h": 0.0,
         "worst_e_a": 0.087885,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-653b7d93.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-653b7d93.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "class_diagram/classdiagram_spec-653b7d93.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-653b7d93.svg",
+    "reproduce": "bundle exec rake 'corpus[class_diagram,valid]'",
+    "type": "class_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-684a7f4f.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-684a7f4f.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "class_diagram/classdiagram_spec-684a7f4f.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-684a7f4f.svg",
+    "reproduce": "bundle exec rake 'corpus[class_diagram,valid]'",
+    "type": "class_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
         "worst_analog": null
       }
     }
@@ -9776,6 +10716,53 @@
         "worst_e_w": 0.002545,
         "worst_e_h": 0.0,
         "worst_e_a": 0.002545,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-7fb9bd59.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-7fb9bd59.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "class_diagram/classdiagram_spec-7fb9bd59.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-7fb9bd59.svg",
+    "reproduce": "bundle exec rake 'corpus[class_diagram,valid]'",
+    "type": "class_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
         "worst_analog": null
       }
     }
@@ -12207,6 +13194,53 @@
     }
   },
   {
+    "case": "class_diagram/classdiagram_spec-a1c9edb1.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-a1c9edb1.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "class_diagram/classdiagram_spec-a1c9edb1.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-a1c9edb1.svg",
+    "reproduce": "bundle exec rake 'corpus[class_diagram,valid]'",
+    "type": "class_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "class_diagram/classdiagram_spec-a2994e3e.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -13254,6 +14288,53 @@
     }
   },
   {
+    "case": "class_diagram/classdiagram_spec-bacaf421.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-bacaf421.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "class_diagram/classdiagram_spec-bacaf421.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-bacaf421.svg",
+    "reproduce": "bundle exec rake 'corpus[class_diagram,valid]'",
+    "type": "class_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "class_diagram/classdiagram_spec-bc09f83d.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -13890,6 +14971,53 @@
         "worst_e_w": 0.00023,
         "worst_e_h": 0.0,
         "worst_e_a": 0.00023,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-c4b2bb4d.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-c4b2bb4d.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "class_diagram/classdiagram_spec-c4b2bb4d.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-c4b2bb4d.svg",
+    "reproduce": "bundle exec rake 'corpus[class_diagram,valid]'",
+    "type": "class_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
         "worst_analog": null
       }
     }
@@ -15163,6 +16291,53 @@
     }
   },
   {
+    "case": "class_diagram/classdiagram_spec-e7575c8e.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-e7575c8e.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "class_diagram/classdiagram_spec-e7575c8e.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-e7575c8e.svg",
+    "reproduce": "bundle exec rake 'corpus[class_diagram,valid]'",
+    "type": "class_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "class_diagram/classdiagram_spec-e820f9e7.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -15709,6 +16884,53 @@
         "worst_e_w": 0.001339,
         "worst_e_h": 0.0,
         "worst_e_a": 0.001339,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "class_diagram/classdiagram_spec-f50fcc43.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-f50fcc43.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "class_diagram/classdiagram_spec-f50fcc43.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/class_diagram/classdiagram_spec-f50fcc43.svg",
+    "reproduce": "bundle exec rake 'corpus[class_diagram,valid]'",
+    "type": "class_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
         "worst_analog": null
       }
     }
@@ -27167,6 +28389,53 @@
     }
   },
   {
+    "case": "class_diagram/yari-351e9277.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/class_diagram/yari-351e9277.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "class_diagram/yari-351e9277.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/class_diagram/yari-351e9277.svg",
+    "reproduce": "bundle exec rake 'corpus[class_diagram,valid]'",
+    "type": "class_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "class_diagram/yari-39779cee.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -29080,6 +30349,100 @@
     }
   },
   {
+    "case": "class_diagram/yari-ce275ecb.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/class_diagram/yari-ce275ecb.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "class_diagram/yari-ce275ecb.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/class_diagram/yari-ce275ecb.svg",
+    "reproduce": "bundle exec rake 'corpus[class_diagram,valid]'",
+    "type": "class_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "class_diagram/yari-cec674cb.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/class_diagram/yari-cec674cb.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "class_diagram/yari-cec674cb.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/class_diagram/yari-cec674cb.svg",
+    "reproduce": "bundle exec rake 'corpus[class_diagram,valid]'",
+    "type": "class_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "class_diagram/yari-db0e5178.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -29629,6 +30992,53 @@
     }
   },
   {
+    "case": "er_diagram/can_start_with_an_underscore-cf87bd6b.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/can_start_with_an_underscore-cf87bd6b.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/can_start_with_an_underscore-cf87bd6b.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/can_start_with_an_underscore-cf87bd6b.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "er_diagram/cannot_newline_backspace_or_vertical_characters-c6cf992f.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -29973,6 +31383,100 @@
     }
   },
   {
+    "case": "er_diagram/erdiagram_spec-0345e799.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-0345e799.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-0345e799.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-0345e799.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-0e528ed9.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-0e528ed9.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-0e528ed9.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-0e528ed9.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "er_diagram/erdiagram_spec-111c698f.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -30006,6 +31510,53 @@
       }
     ],
     "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-111c698f.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-13961c38.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-13961c38.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-13961c38.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-13961c38.svg",
     "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
     "type": "er_diagram",
     "summary": {
@@ -30093,6 +31644,100 @@
     }
   },
   {
+    "case": "er_diagram/erdiagram_spec-155a02f0.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-155a02f0.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-155a02f0.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-155a02f0.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-15f4d4f0.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-15f4d4f0.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-15f4d4f0.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-15f4d4f0.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "er_diagram/erdiagram_spec-16508afb.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -30173,6 +31818,53 @@
       }
     ],
     "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-16fbb123.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-2534d7cc.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-2534d7cc.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-2534d7cc.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-2534d7cc.svg",
     "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
     "type": "er_diagram",
     "summary": {
@@ -30430,6 +32122,194 @@
     }
   },
   {
+    "case": "er_diagram/erdiagram_spec-3c05a670.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-3c05a670.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-3c05a670.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-3c05a670.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-4475845d.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-4475845d.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-4475845d.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-4475845d.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-4763e192.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-4763e192.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-4763e192.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-4763e192.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-49493d88.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-49493d88.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-49493d88.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-49493d88.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "er_diagram/erdiagram_spec-4aabf3e3.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -30673,6 +32553,100 @@
     }
   },
   {
+    "case": "er_diagram/erdiagram_spec-5154c96c.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-5154c96c.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-5154c96c.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-5154c96c.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-53f1e9c4.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-53f1e9c4.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-53f1e9c4.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-53f1e9c4.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "er_diagram/erdiagram_spec-572ba53b.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -30720,6 +32694,335 @@
     }
   },
   {
+    "case": "er_diagram/erdiagram_spec-5d432351.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-5d432351.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-5d432351.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-5d432351.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-5f6b7672.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-5f6b7672.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-5f6b7672.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-5f6b7672.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-60d5cd2a.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-60d5cd2a.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-60d5cd2a.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-60d5cd2a.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-612d0507.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-612d0507.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-612d0507.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-612d0507.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-62144dcf.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-62144dcf.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-62144dcf.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-62144dcf.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-71888748.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-71888748.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-71888748.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-71888748.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-759afb41.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-759afb41.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-759afb41.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-759afb41.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "er_diagram/erdiagram_spec-7997ef63.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -30753,6 +33056,147 @@
       }
     ],
     "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-7997ef63.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-7a1c5801.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-7a1c5801.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-7a1c5801.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-7a1c5801.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-7b131748.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-7b131748.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-7b131748.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-7b131748.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-7f7a1948.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-7f7a1948.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-7f7a1948.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-7f7a1948.svg",
     "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
     "type": "er_diagram",
     "summary": {
@@ -30955,6 +33399,147 @@
     }
   },
   {
+    "case": "er_diagram/erdiagram_spec-8d9e5aa8.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-8d9e5aa8.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-8d9e5aa8.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-8d9e5aa8.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-8f33e689.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-8f33e689.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-8f33e689.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-8f33e689.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-97d667d8.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-97d667d8.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-97d667d8.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-97d667d8.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "er_diagram/erdiagram_spec-982da1fb.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -31108,6 +33693,53 @@
       }
     ],
     "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-9b4fc14a.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-9c6cc600.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-9c6cc600.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-9c6cc600.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-9c6cc600.svg",
     "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
     "type": "er_diagram",
     "summary": {
@@ -31310,6 +33942,53 @@
     }
   },
   {
+    "case": "er_diagram/erdiagram_spec-aa3ef48f.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-aa3ef48f.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-aa3ef48f.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-aa3ef48f.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "er_diagram/erdiagram_spec-acb29fce.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -31343,6 +34022,100 @@
       }
     ],
     "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-acb29fce.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-ae7b54b2.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-ae7b54b2.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-ae7b54b2.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-ae7b54b2.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-b0200028.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-b0200028.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-b0200028.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-b0200028.svg",
     "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
     "type": "er_diagram",
     "summary": {
@@ -31404,6 +34177,100 @@
     }
   },
   {
+    "case": "er_diagram/erdiagram_spec-b3064d60.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-b3064d60.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-b3064d60.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-b3064d60.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-cb9b20d1.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-cb9b20d1.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-cb9b20d1.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-cb9b20d1.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "er_diagram/erdiagram_spec-cfe6339e.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -31437,6 +34304,53 @@
       }
     ],
     "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-cfe6339e.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-d3ad6826.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-d3ad6826.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-d3ad6826.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-d3ad6826.svg",
     "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
     "type": "er_diagram",
     "summary": {
@@ -31797,6 +34711,194 @@
     }
   },
   {
+    "case": "er_diagram/erdiagram_spec-dec90227.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-dec90227.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-dec90227.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-dec90227.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-e349dc49.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-e349dc49.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-e349dc49.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-e349dc49.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-e5edee2c.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-e5edee2c.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-e5edee2c.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-e5edee2c.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-eb93b040.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-eb93b040.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-eb93b040.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-eb93b040.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "er_diagram/erdiagram_spec-f06cacb7.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -31830,6 +34932,100 @@
       }
     ],
     "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-f06cacb7.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-fc2612f5.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-fc2612f5.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-fc2612f5.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-fc2612f5.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/erdiagram_spec-fea32886.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-fea32886.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/erdiagram_spec-fea32886.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/erdiagram_spec-fea32886.svg",
     "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
     "type": "er_diagram",
     "summary": {
@@ -31945,6 +35141,852 @@
     "type": "er_diagram",
     "summary": {
       "hard_failure": false,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_allow_alphanumeric_characters_dashes_unde-e9b54b86.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_alphanumeric_characters_dashes_unde-e9b54b86.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_alphanumeric_characters_dashes_unde-e9b54b86.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_alphanumeric_characters_dashes_unde-e9b54b86.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_allow_an_attribute_block_to_be_separated-0168fb66.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_an_attribute_block_to_be_separated-0168fb66.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_an_attribute_block_to_be_separated-0168fb66.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_an_attribute_block_to_be_separated-0168fb66.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_allow_an_attribute_block_to_start_immedia-93f4b333.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_an_attribute_block_to_start_immedia-93f4b333.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_an_attribute_block_to_start_immedia-93f4b333.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_an_attribute_block_to_start_immedia-93f4b333.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_allow_an_empty_attribute_block-faaafeba.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_an_empty_attribute_block-faaafeba.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_an_empty_attribute_block-faaafeba.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_an_empty_attribute_block-faaafeba.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_allow_an_empty_quoted_label-3dc6b5bf.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_an_empty_quoted_label-3dc6b5bf.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_an_empty_quoted_label-3dc6b5bf.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_an_empty_quoted_label-3dc6b5bf.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_allow_an_entity_with_a_single_attribute_t-108ca721.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_an_entity_with_a_single_attribute_t-108ca721.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_an_entity_with_a_single_attribute_t-108ca721.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_an_entity_with_a_single_attribute_t-108ca721.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_allow_an_entity_with_a_single_attribute_t-495e39be.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_an_entity_with_a_single_attribute_t-495e39be.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_an_entity_with_a_single_attribute_t-495e39be.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_an_entity_with_a_single_attribute_t-495e39be.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_allow_an_entity_with_a_single_attribute_t-5793e0e6.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_an_entity_with_a_single_attribute_t-5793e0e6.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_an_entity_with_a_single_attribute_t-5793e0e6.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_an_entity_with_a_single_attribute_t-5793e0e6.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_allow_an_entity_with_a_single_attribute_t-63c835c4.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_an_entity_with_a_single_attribute_t-63c835c4.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_an_entity_with_a_single_attribute_t-63c835c4.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_an_entity_with_a_single_attribute_t-63c835c4.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_allow_an_entity_with_attribute_starting_w-4a001044.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_an_entity_with_attribute_starting_w-4a001044.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_an_entity_with_attribute_starting_w-4a001044.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_an_entity_with_attribute_starting_w-4a001044.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_allow_an_entity_with_attribute_that_has_a-854f23e8.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_an_entity_with_attribute_that_has_a-854f23e8.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_an_entity_with_attribute_that_has_a-854f23e8.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_an_entity_with_attribute_that_has_a-854f23e8.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_allow_an_entity_with_attribute_that_is_a-97cdd0a4.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_an_entity_with_attribute_that_is_a-97cdd0a4.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_an_entity_with_attribute_that_is_a-97cdd0a4.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_an_entity_with_attribute_that_is_a-97cdd0a4.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_allow_an_entity_with_attribute_that_is_an-238bb687.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_an_entity_with_attribute_that_is_an-238bb687.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_an_entity_with_attribute_that_is_an-238bb687.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_an_entity_with_attribute_that_is_an-238bb687.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_allow_an_entity_with_attributes_that_have-e5c668af.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_an_entity_with_attributes_that_have-e5c668af.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_an_entity_with_attributes_that_have-e5c668af.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_an_entity_with_attributes_that_have-e5c668af.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_allow_an_entity_with_multiple_attributes-70cc79a0.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_an_entity_with_multiple_attributes-70cc79a0.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_an_entity_with_multiple_attributes-70cc79a0.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_an_entity_with_multiple_attributes-70cc79a0.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_allow_asterisk_at_the_start_of_attribute-c077427c.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_asterisk_at_the_start_of_attribute-c077427c.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_asterisk_at_the_start_of_attribute-c077427c.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_asterisk_at_the_start_of_attribute-c077427c.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_allow_asterisks_at_the_start_of_attribute-90d52f18.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_asterisks_at_the_start_of_attribute-90d52f18.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_asterisks_at_the_start_of_attribute-90d52f18.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_asterisks_at_the_start_of_attribute-90d52f18.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_allow_attribute_definitions_to_be_split_i-10f6ef77.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_attribute_definitions_to_be_split_i-10f6ef77.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_attribute_definitions_to_be_split_i-10f6ef77.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_attribute_definitions_to_be_split_i-10f6ef77.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
       "metrics": {
         "worst_e_c": null,
         "worst_e_w": null,
@@ -32096,6 +36138,100 @@
     }
   },
   {
+    "case": "er_diagram/should_allow_more_than_one_relationship_between-41c882c7.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_more_than_one_relationship_between-41c882c7.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_more_than_one_relationship_between-41c882c7.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_more_than_one_relationship_between-41c882c7.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_allow_no_whitespace_before_and_after_attr-f282244f.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_no_whitespace_before_and_after_attr-f282244f.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_no_whitespace_before_and_after_attr-f282244f.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_no_whitespace_before_and_after_attr-f282244f.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "er_diagram/should_allow_numbers_in_relationships-f5668c4e.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -32129,6 +36265,570 @@
       }
     ],
     "reference": "spec/fixtures_mermaid/er_diagram/should_allow_numbers_in_relationships-f5668c4e.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_allow_stand_alone_entities_with_no_relati-07af9b29.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_stand_alone_entities_with_no_relati-07af9b29.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_stand_alone_entities_with_no_relati-07af9b29.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_stand_alone_entities_with_no_relati-07af9b29.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_allow_whitespace_before_and_after_attribu-e81c580d.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_allow_whitespace_before_and_after_attribu-e81c580d.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_allow_whitespace_before_and_after_attribu-e81c580d.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_allow_whitespace_before_and_after_attribu-e81c580d.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_associate_two_entities_correctly-086e79cb.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_associate_two_entities_correctly-086e79cb.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_associate_two_entities_correctly-086e79cb.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_associate_two_entities_correctly-086e79cb.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_be_possible_to_assign_a_class_using_the_s-92eecb0d.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_be_possible_to_assign_a_class_using_the_s-92eecb0d.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_be_possible_to_assign_a_class_using_the_s-92eecb0d.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_be_possible_to_assign_a_class_using_the_s-92eecb0d.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_be_possible_to_assign_a_class_using_the_s-9fc10dec.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_be_possible_to_assign_a_class_using_the_s-9fc10dec.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_be_possible_to_assign_a_class_using_the_s-9fc10dec.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_be_possible_to_assign_a_class_using_the_s-9fc10dec.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_be_possible_to_assign_a_class_using_the_s-f4ef0685.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_be_possible_to_assign_a_class_using_the_s-f4ef0685.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_be_possible_to_assign_a_class_using_the_s-f4ef0685.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_be_possible_to_assign_a_class_using_the_s-f4ef0685.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_be_possible_to_assign_classes_using_the_s-784d9f9d.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_be_possible_to_assign_classes_using_the_s-784d9f9d.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_be_possible_to_assign_classes_using_the_s-784d9f9d.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_be_possible_to_assign_classes_using_the_s-784d9f9d.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_be_possible_to_assign_multiple_classes_us-4452dbfe.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_be_possible_to_assign_multiple_classes_us-4452dbfe.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_be_possible_to_assign_multiple_classes_us-4452dbfe.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_be_possible_to_assign_multiple_classes_us-4452dbfe.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_be_possible_to_configure_the_default_clas-d09c328e.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_be_possible_to_configure_the_default_clas-d09c328e.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_be_possible_to_configure_the_default_clas-d09c328e.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_be_possible_to_configure_the_default_clas-d09c328e.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_be_possible_to_define_a_class_with_styles-e6beaf8f.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_be_possible_to_define_a_class_with_styles-e6beaf8f.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_be_possible_to_define_a_class_with_styles-e6beaf8f.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_be_possible_to_define_a_class_with_styles-e6beaf8f.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_be_possible_to_define_multiple_class_with-601f276e.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_be_possible_to_define_multiple_class_with-601f276e.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_be_possible_to_define_multiple_class_with-601f276e.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_be_possible_to_define_multiple_class_with-601f276e.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_create_the_role_specified-5b421329.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_create_the_role_specified-5b421329.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_create_the_role_specified-5b421329.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_create_the_role_specified-5b421329.svg",
     "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
     "type": "er_diagram",
     "summary": {
@@ -32360,6 +37060,53 @@
         "worst_e_w": 0.120122,
         "worst_e_h": 0.0,
         "worst_e_a": 0.120122,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "er_diagram/should_not_allow_leading_numbers_dashes_or_brack-11932686.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/er_diagram/should_not_allow_leading_numbers_dashes_or_brack-11932686.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "er_diagram/should_not_allow_leading_numbers_dashes_or_brack-11932686.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/er_diagram/should_not_allow_leading_numbers_dashes_or_brack-11932686.svg",
+    "reproduce": "bundle exec rake 'corpus[er_diagram,valid]'",
+    "type": "er_diagram",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
         "worst_analog": null
       }
     }
@@ -39127,6 +43874,396 @@
     }
   },
   {
+    "case": "flowchart/flow_edges_spec-303dd1b5.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_edges_spec-303dd1b5.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_edges_spec-303dd1b5.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_edges_spec-303dd1b5.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "flowchart/flow_edges_spec-4275a472.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "etassia_elements": 2,
+      "matched": 2,
+      "reference_elements": 3,
+      "top5": [
+        {
+          "bbox_etassia": [
+            8.192,
+            136.0,
+            77.248,
+            190.0
+          ],
+          "bbox_reference": [
+            137.042969,
+            136.0,
+            206.105469,
+            190.0
+          ],
+          "key": [
+            "node",
+            null,
+            "B"
+          ]
+        },
+        {
+          "bbox_etassia": [
+            8.0,
+            8.0,
+            77.44,
+            62.0
+          ],
+          "bbox_reference": [
+            47.835938,
+            8.0,
+            117.273438,
+            62.0
+          ],
+          "key": [
+            "node",
+            null,
+            "A"
+          ]
+        }
+      ],
+      "worst_analog": null,
+      "worst_e_a": 0.000094,
+      "worst_e_c": 0.369077,
+      "worst_e_h": 0.0,
+      "worst_e_w": 0.000094,
+      "worst_keys": {
+        "analog": null,
+        "e_a": [
+          "node",
+          null,
+          "B"
+        ],
+        "e_c": [
+          "node",
+          null,
+          "B"
+        ],
+        "e_h": [
+          "node",
+          null,
+          "A"
+        ],
+        "e_w": [
+          "node",
+          null,
+          "B"
+        ]
+      }
+    },
+    "invariants": [
+      {
+        "actual": 0,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": 1,
+        "normalized": {
+          "count": 1,
+          "difference": "missing",
+          "match_by": "id"
+        },
+        "rule": "element-presence",
+        "subject_keys": [
+          "node",
+          null,
+          "\\nA"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_edges_spec-e8f460a3.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": 0.369077,
+        "worst_e_w": 0.000094,
+        "worst_e_h": 0.0,
+        "worst_e_a": 0.000094,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "flowchart/flow_edges_spec-6d8bd21d.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "etassia_elements": 2,
+      "matched": 2,
+      "reference_elements": 2,
+      "top5": [
+        {
+          "bbox_etassia": [
+            8.192,
+            112.0,
+            77.248,
+            166.0
+          ],
+          "bbox_reference": [
+            8.1875,
+            112.0,
+            77.25,
+            166.0
+          ],
+          "key": [
+            "node",
+            null,
+            "B"
+          ]
+        },
+        {
+          "bbox_etassia": [
+            8.0,
+            8.0,
+            77.44,
+            62.0
+          ],
+          "bbox_reference": [
+            8.0,
+            8.0,
+            77.4375,
+            62.0
+          ],
+          "key": [
+            "node",
+            null,
+            "A"
+          ]
+        }
+      ],
+      "worst_analog": null,
+      "worst_e_a": 0.000094,
+      "worst_e_c": 0.000007,
+      "worst_e_h": 0.0,
+      "worst_e_w": 0.000094,
+      "worst_keys": {
+        "analog": null,
+        "e_a": [
+          "node",
+          null,
+          "B"
+        ],
+        "e_c": [
+          "node",
+          null,
+          "A"
+        ],
+        "e_h": [
+          "node",
+          null,
+          "A"
+        ],
+        "e_w": [
+          "node",
+          null,
+          "B"
+        ]
+      }
+    },
+    "invariants": [],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_edges_spec-015d2891.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": false,
+      "metrics": {
+        "worst_e_c": 0.000007,
+        "worst_e_w": 0.000094,
+        "worst_e_h": 0.0,
+        "worst_e_a": 0.000094,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "flowchart/flow_edges_spec-93a08cac.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_edges_spec-93a08cac.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_edges_spec-93a08cac.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_edges_spec-93a08cac.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "flowchart/flow_edges_spec-b2135331.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_edges_spec-b2135331.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_edges_spec-b2135331.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_edges_spec-b2135331.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "flowchart/flow_edges_spec-e74f4113.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_edges_spec-e74f4113.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_edges_spec-e74f4113.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_edges_spec-e74f4113.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "flowchart/flow_edges_spec-e8f460a3.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -39232,6 +44369,100 @@
         "worst_e_w": 0.000094,
         "worst_e_h": 0.0,
         "worst_e_a": 0.000094,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "flowchart/flow_edges_spec-ea3a6b4d.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_edges_spec-ea3a6b4d.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_edges_spec-ea3a6b4d.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_edges_spec-ea3a6b4d.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "flowchart/flow_edges_spec-ea4ba2ef.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_edges_spec-ea4ba2ef.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_edges_spec-ea4ba2ef.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_edges_spec-ea4ba2ef.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
         "worst_analog": null
       }
     }
@@ -39513,6 +44744,100 @@
     }
   },
   {
+    "case": "flowchart/flow_md_string_spec-203f03d7.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_md_string_spec-203f03d7.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_md_string_spec-203f03d7.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_md_string_spec-203f03d7.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "flowchart/flow_node_data_spec-06c34df5.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-06c34df5.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_node_data_spec-06c34df5.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-06c34df5.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "flowchart/flow_node_data_spec-0ba46f9c.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -39581,6 +44906,53 @@
         "worst_e_w": 0.000241,
         "worst_e_h": 0.000241,
         "worst_e_a": 0.0,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "flowchart/flow_node_data_spec-0f9bed9c.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-0f9bed9c.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_node_data_spec-0f9bed9c.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-0f9bed9c.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
         "worst_analog": null
       }
     }
@@ -39876,6 +45248,53 @@
         "worst_e_w": 0.000113,
         "worst_e_h": 0.0,
         "worst_e_a": 0.000113,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "flowchart/flow_node_data_spec-28571c8d.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-28571c8d.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_node_data_spec-28571c8d.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-28571c8d.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
         "worst_analog": null
       }
     }
@@ -40504,6 +45923,53 @@
         "worst_e_w": 0.000113,
         "worst_e_h": 0.0,
         "worst_e_a": 0.000113,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "flowchart/flow_node_data_spec-4fd7fcd1.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-4fd7fcd1.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_node_data_spec-4fd7fcd1.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-4fd7fcd1.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
         "worst_analog": null
       }
     }
@@ -41357,6 +46823,53 @@
         "worst_e_w": 0.000215,
         "worst_e_h": 0.0,
         "worst_e_a": 0.000215,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "flowchart/flow_node_data_spec-7e4b9630.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-7e4b9630.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_node_data_spec-7e4b9630.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-7e4b9630.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
         "worst_analog": null
       }
     }
@@ -42339,6 +47852,194 @@
     }
   },
   {
+    "case": "flowchart/flow_node_data_spec-a394e7fa.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-a394e7fa.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_node_data_spec-a394e7fa.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-a394e7fa.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "flowchart/flow_node_data_spec-a3b82ba2.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-a3b82ba2.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_node_data_spec-a3b82ba2.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-a3b82ba2.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "flowchart/flow_node_data_spec-aa1926ba.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-aa1926ba.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_node_data_spec-aa1926ba.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-aa1926ba.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "flowchart/flow_node_data_spec-b5764998.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-b5764998.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_node_data_spec-b5764998.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-b5764998.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "flowchart/flow_node_data_spec-b671d90d.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -42799,6 +48500,79 @@
     }
   },
   {
+    "case": "flowchart/flow_node_data_spec-d192246a.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "etassia_elements": 1,
+      "matched": 1,
+      "reference_elements": 1,
+      "top5": [
+        {
+          "bbox_etassia": [
+            8.0,
+            8.0,
+            57.616,
+            62.0
+          ],
+          "bbox_reference": [
+            8.0,
+            8.0,
+            57.625,
+            62.0
+          ],
+          "key": [
+            "node",
+            null,
+            "D"
+          ]
+        }
+      ],
+      "worst_analog": null,
+      "worst_e_a": 0.000181,
+      "worst_e_c": 0.000061,
+      "worst_e_h": 0.0,
+      "worst_e_w": 0.000181,
+      "worst_keys": {
+        "analog": null,
+        "e_a": [
+          "node",
+          null,
+          "D"
+        ],
+        "e_c": [
+          "node",
+          null,
+          "D"
+        ],
+        "e_h": [
+          "node",
+          null,
+          "D"
+        ],
+        "e_w": [
+          "node",
+          null,
+          "D"
+        ]
+      }
+    },
+    "invariants": [],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-5b40b7fb.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": false,
+      "metrics": {
+        "worst_e_c": 0.000061,
+        "worst_e_w": 0.000181,
+        "worst_e_h": 0.0,
+        "worst_e_a": 0.000181,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "flowchart/flow_node_data_spec-d4e8256b.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -42945,6 +48719,53 @@
     }
   },
   {
+    "case": "flowchart/flow_node_data_spec-d82861ba.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-d82861ba.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_node_data_spec-d82861ba.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-d82861ba.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "flowchart/flow_node_data_spec-dcd14ebd.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -43070,6 +48891,53 @@
         "worst_e_w": 0.000297,
         "worst_e_h": 0.0,
         "worst_e_a": 0.000297,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "flowchart/flow_node_data_spec-e7f5378e.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-e7f5378e.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_node_data_spec-e7f5378e.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_node_data_spec-e7f5378e.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
         "worst_analog": null
       }
     }
@@ -43849,6 +49717,53 @@
     }
   },
   {
+    "case": "flowchart/flow_singlenode_spec-03de5034.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_singlenode_spec-03de5034.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_singlenode_spec-03de5034.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_singlenode_spec-03de5034.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "flowchart/flow_singlenode_spec-03efe19e.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -44355,6 +50270,53 @@
         "worst_e_w": 0.000217,
         "worst_e_h": 0.000217,
         "worst_e_a": 0.0,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "flowchart/flow_singlenode_spec-4a265fd6.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_singlenode_spec-4a265fd6.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_singlenode_spec-4a265fd6.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_singlenode_spec-4a265fd6.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
         "worst_analog": null
       }
     }
@@ -46164,6 +52126,53 @@
     }
   },
   {
+    "case": "flowchart/flow_spec-6cfda390.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_spec-6cfda390.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_spec-6cfda390.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_spec-6cfda390.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "flowchart/flow_spec-911e8567.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -47432,6 +53441,53 @@
     }
   },
   {
+    "case": "flowchart/flow_text_spec-0828367a.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_text_spec-0828367a.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_text_spec-0828367a.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_text_spec-0828367a.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "flowchart/flow_text_spec-0dcd010a.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -48255,6 +54311,145 @@
         "worst_e_w": 0.000094,
         "worst_e_h": 0.0,
         "worst_e_a": 0.000094,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "flowchart/flow_text_spec-3e23a705.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "etassia_elements": 2,
+      "matched": 2,
+      "reference_elements": 2,
+      "top5": [
+        {
+          "bbox_etassia": [
+            8.0,
+            8.0,
+            207.072,
+            62.0
+          ],
+          "bbox_reference": [
+            8.0,
+            8.0,
+            207.125,
+            62.0
+          ],
+          "key": [
+            "node",
+            null,
+            "A"
+          ]
+        },
+        {
+          "bbox_etassia": [
+            72.752,
+            112.0,
+            142.32,
+            166.0
+          ],
+          "bbox_reference": [
+            72.773438,
+            112.0,
+            142.351563,
+            166.0
+          ],
+          "key": [
+            "node",
+            null,
+            "C"
+          ]
+        }
+      ],
+      "worst_analog": null,
+      "worst_e_a": 0.000266,
+      "worst_e_c": 0.000104,
+      "worst_e_h": 0.0,
+      "worst_e_w": 0.000266,
+      "worst_keys": {
+        "analog": null,
+        "e_a": [
+          "node",
+          null,
+          "A"
+        ],
+        "e_c": [
+          "node",
+          null,
+          "A"
+        ],
+        "e_h": [
+          "node",
+          null,
+          "A"
+        ],
+        "e_w": [
+          "node",
+          null,
+          "A"
+        ]
+      }
+    },
+    "invariants": [],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_text_spec-a8498f7e.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": false,
+      "metrics": {
+        "worst_e_c": 0.000104,
+        "worst_e_w": 0.000266,
+        "worst_e_h": 0.0,
+        "worst_e_a": 0.000266,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "flowchart/flow_text_spec-3f2228b5.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/flow_text_spec-3f2228b5.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/flow_text_spec-3f2228b5.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_text_spec-3f2228b5.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
         "worst_analog": null
       }
     }
@@ -49543,6 +55738,98 @@
         "worst_e_w": 0.025519,
         "worst_e_h": 0.0,
         "worst_e_a": 0.025519,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "flowchart/flow_text_spec-9b0f921f.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "etassia_elements": 2,
+      "matched": 2,
+      "reference_elements": 2,
+      "top5": [
+        {
+          "bbox_etassia": [
+            8.0,
+            8.0,
+            207.072,
+            62.0
+          ],
+          "bbox_reference": [
+            8.0,
+            8.0,
+            207.125,
+            62.0
+          ],
+          "key": [
+            "node",
+            null,
+            "A"
+          ]
+        },
+        {
+          "bbox_etassia": [
+            72.752,
+            112.0,
+            142.32,
+            166.0
+          ],
+          "bbox_reference": [
+            72.773438,
+            112.0,
+            142.351563,
+            166.0
+          ],
+          "key": [
+            "node",
+            null,
+            "C"
+          ]
+        }
+      ],
+      "worst_analog": null,
+      "worst_e_a": 0.000266,
+      "worst_e_c": 0.000104,
+      "worst_e_h": 0.0,
+      "worst_e_w": 0.000266,
+      "worst_keys": {
+        "analog": null,
+        "e_a": [
+          "node",
+          null,
+          "A"
+        ],
+        "e_c": [
+          "node",
+          null,
+          "A"
+        ],
+        "e_h": [
+          "node",
+          null,
+          "A"
+        ],
+        "e_w": [
+          "node",
+          null,
+          "A"
+        ]
+      }
+    },
+    "invariants": [],
+    "reference": "spec/fixtures_mermaid/flowchart/flow_text_spec-a8498f7e.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": false,
+      "metrics": {
+        "worst_e_c": 0.000104,
+        "worst_e_w": 0.000266,
+        "worst_e_h": 0.0,
+        "worst_e_a": 0.000266,
         "worst_analog": null
       }
     }
@@ -53799,6 +60086,53 @@
     }
   },
   {
+    "case": "flowchart/subgraph_spec-3c153b6c.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/subgraph_spec-3c153b6c.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/subgraph_spec-3c153b6c.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/subgraph_spec-3c153b6c.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "flowchart/subgraph_spec-4eae2e41.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -56355,6 +62689,53 @@
     }
   },
   {
+    "case": "flowchart/xss22-4d17431a.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/flowchart/xss22-4d17431a.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "flowchart/xss22-4d17431a.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/flowchart/xss22-4d17431a.svg",
+    "reproduce": "bundle exec rake 'corpus[flowchart,valid]'",
+    "type": "flowchart",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
     "case": "flowchart/yari-abee9d67.mmd",
     "etassia_status": "rendered",
     "geometry": {
@@ -57861,6 +64242,53 @@
     "type": "gantt",
     "summary": {
       "hard_failure": false,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "gantt/should_allow_for_a_accessibility_title_and_multi-3e73c61d.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/gantt/should_allow_for_a_accessibility_title_and_multi-3e73c61d.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "gantt/should_allow_for_a_accessibility_title_and_multi-3e73c61d.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/gantt/should_allow_for_a_accessibility_title_and_multi-3e73c61d.svg",
+    "reproduce": "bundle exec rake 'corpus[gantt,valid]'",
+    "type": "gantt",
+    "summary": {
+      "hard_failure": true,
       "metrics": {
         "worst_e_c": null,
         "worst_e_w": null,
@@ -92556,6 +98984,53 @@
         "worst_e_w": 0.0,
         "worst_e_h": 0.0,
         "worst_e_a": 0.0,
+        "worst_analog": null
+      }
+    }
+  },
+  {
+    "case": "requirement/will_use_a_accessibility_title_and_multiline_des-78dce4af.mmd",
+    "etassia_status": "rendered",
+    "geometry": {
+      "ambiguous": 0,
+      "matched": 0,
+      "top5": [],
+      "worst_analog": null,
+      "worst_e_a": null,
+      "worst_e_c": null,
+      "worst_e_h": null,
+      "worst_e_w": null,
+      "worst_keys": {
+        "analog": null,
+        "e_a": null,
+        "e_c": null,
+        "e_h": null,
+        "e_w": null
+      }
+    },
+    "invariants": [
+      {
+        "actual": null,
+        "bbox_etassia": null,
+        "bbox_reference": null,
+        "expected": "spec/fixtures_mermaid/requirement/will_use_a_accessibility_title_and_multiline_des-78dce4af.svg",
+        "normalized": null,
+        "rule": "reference-presence",
+        "subject_keys": [
+          "requirement/will_use_a_accessibility_title_and_multiline_des-78dce4af.mmd"
+        ]
+      }
+    ],
+    "reference": "spec/fixtures_mermaid/requirement/will_use_a_accessibility_title_and_multiline_des-78dce4af.svg",
+    "reproduce": "bundle exec rake 'corpus[requirement,valid]'",
+    "type": "requirement",
+    "summary": {
+      "hard_failure": true,
+      "metrics": {
+        "worst_e_c": null,
+        "worst_e_w": null,
+        "worst_e_h": null,
+        "worst_e_a": null,
         "worst_analog": null
       }
     }

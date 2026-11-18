@@ -1,0 +1,12 @@
+{
+  "name": "parser_parses_a_multi_line_description_accDescr__34",
+  "type": "er_diagram",
+  "source_file": "/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 472,
+  "metadata": {
+    "test_name": "parses a multi line description (accDescr)"
+  },
+  "id": "er_diagram/parses_a_multi_line_description_accdescr-c5daca2b",
+  "source_sha256": "a7d79f88a74d6110b50c84dcc53241f302a9b14af78ddd58e3e1e334d3665a27",
+  "recovered": true
+}

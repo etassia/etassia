@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_allow_asterisks_at_the_start_of_attribute_declared_with_type_and_name_13",
+  "type": "er_diagram",
+  "source_file": "/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 211,
+  "metadata": {
+    "test_name": "should allow asterisks at the start of attribute declared with type and name"
+  },
+  "id": "er_diagram/should_allow_asterisks_at_the_start_of_attribute-90d52f18",
+  "source_sha256": "2cbc832345e4f4320df9d4a27e4dac34ae7d35f18ab15e1e6c1307dfe8cf7a2d",
+  "recovered": true
+}

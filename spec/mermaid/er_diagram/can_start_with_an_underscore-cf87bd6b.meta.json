@@ -1,0 +1,12 @@
+{
+  "name": "parser_can_start_with_an_underscore_10",
+  "type": "er_diagram",
+  "source_file": "/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 174,
+  "metadata": {
+    "test_name": "can start with an underscore"
+  },
+  "id": "er_diagram/can_start_with_an_underscore-cf87bd6b",
+  "source_sha256": "51522e179bcf8addfb2d8fa57afc9b93879ad3d53de366b891729b21a166d860",
+  "recovered": true
+}

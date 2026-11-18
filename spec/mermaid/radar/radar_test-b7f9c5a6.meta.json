@@ -1,0 +1,10 @@
+{
+  "name": "parsertest_radar.test_16",
+  "type": "radar",
+  "source_file": "/packages/parser/tests/radar.test.ts",
+  "line_number": 44,
+  "metadata": {},
+  "id": "radar/radar_test-b7f9c5a6",
+  "source_sha256": "d37fa47f6ddd4304d1fe778ce90d81862367f167199cdf1fe15f55c15591699a",
+  "recovered": true
+}

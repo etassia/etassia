@@ -1,0 +1,9 @@
+{
+  "name": "parser_should handle quoted text in vertices _195",
+  "type": "flowchart",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/flowchart/parser/flow-text.spec.js",
+  "line_number": 0,
+  "id": "flowchart/flow_text_spec-9b0f921f",
+  "source_sha256": "ee83970a44b2858dddd6559c727faf8105f4a32f217119f03ee3b8d6f0bf0ded",
+  "recovered": true
+}

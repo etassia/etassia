@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_parse_the_type_10",
+  "type": "c4",
+  "source_file": "/packages/mermaid/src/diagrams/c4/parser/c4Boundary.spec.js",
+  "line_number": 69,
+  "metadata": {
+    "test_name": "should parse the type"
+  },
+  "id": "c4/should_parse_the_type-356086d1",
+  "source_sha256": "086862987f64de006bec8e925294a10a13ad06b2f8a78f64bfbaf31178341e1e",
+  "recovered": true
+}

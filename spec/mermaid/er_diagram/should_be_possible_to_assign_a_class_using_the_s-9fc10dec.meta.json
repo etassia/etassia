@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_be_possible_to_assign_a_class_using_the_shorthand_syntax_with_empty_block_46",
+  "type": "er_diagram",
+  "source_file": "/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 917,
+  "metadata": {
+    "test_name": "should be possible to assign a class using the shorthand syntax with empty block"
+  },
+  "id": "er_diagram/should_be_possible_to_assign_a_class_using_the_s-9fc10dec",
+  "source_sha256": "834761ae26d4bca2d01107018512748f945124d3c243249ba4b2f032951c5980",
+  "recovered": true
+}

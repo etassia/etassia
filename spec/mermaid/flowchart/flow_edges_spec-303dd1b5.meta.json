@@ -1,0 +1,9 @@
+{
+  "name": "parser_should handle ${edgeType.stroke} ${edgeType.type} with  text_49",
+  "type": "flowchart",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/flowchart/parser/flow-edges.spec.js",
+  "line_number": 0,
+  "id": "flowchart/flow_edges_spec-303dd1b5",
+  "source_sha256": "394aa3e43fa6fcef81d155609e554ee7b376ff9d4ec7883230ec5e927dbaf6ee",
+  "recovered": true
+}

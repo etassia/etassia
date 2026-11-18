@@ -134,6 +134,46 @@ cases:
     mmdc: 11.12.0
     mermaid: 11.16.1
     chromium: 131.0.6778.204
+- sha256: a95fd4b0700b55be84cb918787eaddaf9f466608aeaae34b1ac22d49697b634a
+  verdict: accepts
+  cases:
+  - c4/should_handle_a_trailing_whitespaces_after_state-06397574.mmd
+  source_sha256: a95fd4b0700b55be84cb918787eaddaf9f466608aeaae34b1ac22d49697b634a
+  svg_sha256: c06352db4bb876f9c0ff5e62742ecf24d5f31d37810ae33e7ee773fdc726902e
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 826935afffaf1f93e3aa8e0ad35172cb872637c48cfe07e3651f743c5b3e6e2d
+  verdict: accepts
+  cases:
+  - c4/should_parse_a_c4_diagram_with_one_boundary_corr-b1ebe483.mmd
+  source_sha256: 826935afffaf1f93e3aa8e0ad35172cb872637c48cfe07e3651f743c5b3e6e2d
+  svg_sha256: 5452e62d0e20c4ba845341144821cefaa6e29834e0bccf918eb59838b6e4b4d2
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: bbf08ef2465ee919c7e585e8e6ac64d8b3ab2631c9c43f21e58becfd42a95d12
+  verdict: accepts
+  cases:
+  - c4/should_parse_a_c4_diagram_with_one_container_cor-39a355f9.mmd
+  source_sha256: bbf08ef2465ee919c7e585e8e6ac64d8b3ab2631c9c43f21e58becfd42a95d12
+  svg_sha256: 0356e38d5ab144dd612f36407384602477e47121f125b43a21b8c583fe19ffa5
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: cb5e70a4c201b9531f15a9eca91e8d992192b34258418adc06f330ee3045d640
+  verdict: accepts
+  cases:
+  - c4/should_parse_a_c4_diagram_with_one_system_correc-d19462c9.mmd
+  source_sha256: cb5e70a4c201b9531f15a9eca91e8d992192b34258418adc06f330ee3045d640
+  svg_sha256: f140b5312fd71d9761e560ad2bb3a16fc390729f8f9002002327802092b24fac
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 8bf8e3f17a81c4e85f2ce3f2280a67a310b1391289cae921afa855f320c5d94a
   verdict: rejects
   reason: 'TypeError: c4Shape[textType].text.split is not a function'
@@ -190,6 +230,79 @@ cases:
   cases:
   - c4/should_parse_tags-810b5561.mmd
   source_sha256: 7cbb425f9e2635955552746506f179c07830387f3a3f6ee54ee7d49db33a6606
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 7f4c3d18f89f2bd2dd779ab1c9551465aba19f3df9704d257b6cf8bc3aacb731
+  verdict: accepts
+  cases:
+  - c4/should_parse_the_alias-00f387d7.mmd
+  - c4/should_parse_the_label-b6cfa327.mmd
+  source_sha256: 7f4c3d18f89f2bd2dd779ab1c9551465aba19f3df9704d257b6cf8bc3aacb731
+  svg_sha256: 4ccdae1be910b7d0242ca5142bf446672fab19f81da0945dfa76a9085413b3ec
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 8c562ee44a411469c27decc1d37a213bedbee55c52a12b733a05d2d820116556
+  verdict: accepts
+  cases:
+  - c4/should_parse_the_alias-49e1079d.mmd
+  - c4/should_parse_the_label-ea96ef58.mmd
+  source_sha256: 8c562ee44a411469c27decc1d37a213bedbee55c52a12b733a05d2d820116556
+  svg_sha256: 9376b68c9925e6b378133f631b8fa40c0fe90c307e099e58a326ba0d0c95c875
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: a087a6ea8b78b9ccc957a1ce9d34cc606137b40555180809f6821cf6a49c8340
+  verdict: accepts
+  cases:
+  - c4/should_parse_the_alias-4caa65bc.mmd
+  - c4/should_parse_the_label-d91da1ec.mmd
+  source_sha256: a087a6ea8b78b9ccc957a1ce9d34cc606137b40555180809f6821cf6a49c8340
+  svg_sha256: 1c2ef30376b8bc50cd73c57fa5e7a2acd534814bc5666b5654be13c33eeddfae
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: a5b8512612249711a9ed15bc970f7f40456ab0c274333025ef7c0d0c1f9fa782
+  verdict: accepts
+  cases:
+  - c4/should_parse_the_description-550c66e4.mmd
+  source_sha256: a5b8512612249711a9ed15bc970f7f40456ab0c274333025ef7c0d0c1f9fa782
+  svg_sha256: 21bf4c04b9a73bb21a33d0f7c28172d56d66b4d1374d5c7af8451630014fa873
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: ca506508034dfd051007fb60a74536053e1b703783f4425ff3d3076098b809f7
+  verdict: accepts
+  cases:
+  - c4/should_parse_the_description-e90c085c.mmd
+  source_sha256: ca506508034dfd051007fb60a74536053e1b703783f4425ff3d3076098b809f7
+  svg_sha256: e1af773ae6c63d9c35505c53a3da0f2d32ab324b9416c093fc1402a32e27274e
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: eae6e364c27557fe73d07d2a2f51de53d638c62e468aa4fde55c7615223af62c
+  verdict: accepts
+  cases:
+  - c4/should_parse_the_technology-36d79db6.mmd
+  source_sha256: eae6e364c27557fe73d07d2a2f51de53d638c62e468aa4fde55c7615223af62c
+  svg_sha256: 3dda2c869716d6672ea4dc0a4e58b3253f712f6a1e29278cc855b1f46b61a019
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: '086862987f64de006bec8e925294a10a13ad06b2f8a78f64bfbaf31178341e1e'
+  verdict: accepts
+  cases:
+  - c4/should_parse_the_type-356086d1.mmd
+  source_sha256: '086862987f64de006bec8e925294a10a13ad06b2f8a78f64bfbaf31178341e1e'
+  svg_sha256: 0da701a272004a306629430877504bdd040e373e39319e2a3a91fe96a452b159
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -345,6 +458,27 @@ cases:
   - class_diagram/classdiagram_spec-15b3a3f4.mmd
   - class_diagram/should_parse_a_class_with_a_text_label_and_membe-4eaf8011.mmd
   source_sha256: 1364a0b71ef28def67b5f25137fafcecc2f066bf1d0fdad79f1fc81b8bb5c385
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 869194548dd64a97194007ec6eb37407bf7ef3a1a57f416327ca4b3333692429
+  verdict: accepts
+  cases:
+  - class_diagram/classdiagram_spec-2e88c886.mmd
+  - class_diagram/classdiagram_spec-300b79b8.mmd
+  - class_diagram/classdiagram_spec-3a9dd2e3.mmd
+  - class_diagram/classdiagram_spec-4bf09e3e.mmd
+  - class_diagram/classdiagram_spec-653b7d93.mmd
+  - class_diagram/classdiagram_spec-684a7f4f.mmd
+  - class_diagram/classdiagram_spec-7fb9bd59.mmd
+  - class_diagram/classdiagram_spec-a1c9edb1.mmd
+  - class_diagram/classdiagram_spec-bacaf421.mmd
+  - class_diagram/classdiagram_spec-c4b2bb4d.mmd
+  - class_diagram/classdiagram_spec-e7575c8e.mmd
+  - class_diagram/classdiagram_spec-f50fcc43.mmd
+  source_sha256: 869194548dd64a97194007ec6eb37407bf7ef3a1a57f416327ca4b3333692429
+  svg_sha256: d87eb401348f5507f48b74dc45a643558e3ef2fe88391d65fbaa66a25910e4f9
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -577,6 +711,16 @@ cases:
     mmdc: 11.12.0
     mermaid: 11.16.1
     chromium: 131.0.6778.204
+- sha256: 7419cf7250fcfdbcd77c5e257553ad2ef4dd06afea3409e4dbd60038d8a3b724
+  verdict: accepts
+  cases:
+  - class_diagram/yari-351e9277.mmd
+  source_sha256: 7419cf7250fcfdbcd77c5e257553ad2ef4dd06afea3409e4dbd60038d8a3b724
+  svg_sha256: ffbb8412978244ed71bfc2b539e084050d9b6bb416095fbbf4c114a68d6a036f
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 92c3a8659d258a646d6860af0e07cc618fe76ff5478eab96b4db18e73a921ee0
   verdict: rejects
   reason: 'Error: Parse error on line 1:'
@@ -593,6 +737,70 @@ cases:
   cases:
   - class_diagram/yari-afc4579e.mmd
   source_sha256: 77ef6f927572fed6abdfe20eb2964a5378117a6e697648cf7cac317223fd6364
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 83b1f5bc9ad84f129a2459f1e173323bfb6ee4913f2e4db2e4294f1ff9d999a2
+  verdict: accepts
+  cases:
+  - class_diagram/yari-ce275ecb.mmd
+  source_sha256: 83b1f5bc9ad84f129a2459f1e173323bfb6ee4913f2e4db2e4294f1ff9d999a2
+  svg_sha256: 44b7f3694f836e78a934a41cf3b126ccc834ee7021580a4efc4dda44b19ec47a
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 7488a310355c5bececebc9c51a78424d3a135810fea549ab113dd4b9761f1645
+  verdict: accepts
+  cases:
+  - class_diagram/yari-cec674cb.mmd
+  source_sha256: 7488a310355c5bececebc9c51a78424d3a135810fea549ab113dd4b9761f1645
+  svg_sha256: '050028734e0df3db9bbc28366a7a654456ee7b633011013643a3363463ff6d23'
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 3ff8fd2952ac1f5e5c8006c5bfb6c8a0ce04920d78e83d06bcbc9adac80568f3
+  verdict: accepts
+  cases:
+  - er_diagram/can_have_an_alias-1b20f3ad.mmd
+  - er_diagram/erdiagram_spec-c7a4a4a3.mmd
+  source_sha256: 3ff8fd2952ac1f5e5c8006c5bfb6c8a0ce04920d78e83d06bcbc9adac80568f3
+  svg_sha256: 665f9191eb7e1641e8d860080d085bbe5ba8fcb3c10e1053aa598d166a20108a
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 0af2b6fba51d8481bee6c7c567e8eb5be10e033be36e87abc652c76563b767ad
+  verdict: accepts
+  cases:
+  - er_diagram/can_have_an_alias_even_if_the_relationship_is_de-174fe763.mmd
+  - er_diagram/erdiagram_spec-1b43e890.mmd
+  source_sha256: 0af2b6fba51d8481bee6c7c567e8eb5be10e033be36e87abc652c76563b767ad
+  svg_sha256: 199409d29d759f2436ee716037a1b9fcc817e788225e0371c8c56bc4ca20c5d6
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 6d3905d268bba23c0d4c2f5ec426a8d42635363e7843399b232c7c4fe9b0a3a8
+  verdict: accepts
+  cases:
+  - er_diagram/can_have_an_alias_even_if_the_relationship_is_de-cadf88cc.mmd
+  - er_diagram/erdiagram_spec-f7724545.mmd
+  source_sha256: 6d3905d268bba23c0d4c2f5ec426a8d42635363e7843399b232c7c4fe9b0a3a8
+  svg_sha256: 14a9aa86965f2403800c944cf84a87dadc632c2209991d70e4b1636a0a6b98dd
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 51522e179bcf8addfb2d8fa57afc9b93879ad3d53de366b891729b21a166d860
+  verdict: accepts
+  cases:
+  - er_diagram/can_start_with_an_underscore-cf87bd6b.mmd
+  - er_diagram/erdiagram_spec-5154c96c.mmd
+  source_sha256: 51522e179bcf8addfb2d8fa57afc9b93879ad3d53de366b891729b21a166d860
+  svg_sha256: 74de7ab76a5df3f1e27ff42901a66e2d659729efe631fa8f4d383c693e9cb6be
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -630,12 +838,109 @@ cases:
     mmdc: 11.12.0
     mermaid: 11.16.1
     chromium: 131.0.6778.204
+- sha256: 65e5dd7ce2145a01981a3154e4643669e082b98163d1e939988f075a11f30fcd
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-0345e799.mmd
+  - er_diagram/erdiagram_spec-612d0507.mmd
+  - er_diagram/erdiagram_spec-7f7a1948.mmd
+  - er_diagram/erdiagram_spec-dec90227.mmd
+  - er_diagram/erdiagram_spec-e5edee2c.mmd
+  - er_diagram/should_allow_an_entity_with_a_single_attribute_t-108ca721.mmd
+  - er_diagram/should_allow_an_entity_with_a_single_attribute_t-495e39be.mmd
+  - er_diagram/should_allow_an_entity_with_a_single_attribute_t-5793e0e6.mmd
+  - er_diagram/should_allow_an_entity_with_a_single_attribute_t-63c835c4.mmd
+  - er_diagram/should_allow_an_entity_with_attribute_starting_w-4a001044.mmd
+  source_sha256: 65e5dd7ce2145a01981a3154e4643669e082b98163d1e939988f075a11f30fcd
+  svg_sha256: 9372bdaabe91853a06db42adcf36711600632f539756dd39abc73e8f442fc17c
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: deffac8ad7505c84504fbf9ecf0624be2397d4735bb9219339cc04631e6e6610
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-067ddc36.mmd
+  - er_diagram/should_be_possible_to_assign_a_class_to_an_entit-0e7057a7.mmd
+  source_sha256: deffac8ad7505c84504fbf9ecf0624be2397d4735bb9219339cc04631e6e6610
+  svg_sha256: '0899986ee2522af017f260a980cccff7da6886bfabd7e97c28bb926c80e3b5f3'
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 47d9b2af7a3d665dbaed674fd168c5b385fe133f56e4520ac02ce94a2697d0bd
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-0b0f62a5.mmd
+  - er_diagram/should_be_possible_to_assign_multiple_classes_to-150f2be6.mmd
+  source_sha256: 47d9b2af7a3d665dbaed674fd168c5b385fe133f56e4520ac02ce94a2697d0bd
+  svg_sha256: 24bfe0d15abdb31a4e5056f843efb3091f3d57617dad4a0638c25e44663cffca
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: f50920c30e46feeb76ef4128113696b69510c8a883dbadd05c6afec391fec8b3
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-0e528ed9.mmd
+  - er_diagram/erdiagram_spec-ae7b54b2.mmd
+  source_sha256: f50920c30e46feeb76ef4128113696b69510c8a883dbadd05c6afec391fec8b3
+  svg_sha256: 828b03d96b6c235fe41f7baeced3308a47227b1a80f9716c34987d50dd564c8f
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 50ea982d87a702ca980f4bfc371053ed723d44d6614971fba9c3dd0458283283
   verdict: accepts
   cases:
   - er_diagram/erdiagram_spec-111c698f.mmd
   source_sha256: 50ea982d87a702ca980f4bfc371053ed723d44d6614971fba9c3dd0458283283
   svg_sha256: 4d5182c39c4953c81684b9d8637686fcd1b808912c3461028883e4824a2fda35
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 9957dffcdbd1bbeca292e1b015293475f45038615e242222857c16440f5d2116
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-13961c38.mmd
+  - er_diagram/should_be_possible_to_define_a_class_with_styles-e6beaf8f.mmd
+  source_sha256: 9957dffcdbd1bbeca292e1b015293475f45038615e242222857c16440f5d2116
+  svg_sha256: d513dbe0195a7c421a92b7051a7ff80bbeb3529ff1de2df10015184583759b46
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: a37d1a0753a096fb35501cb4ae85e7c995732546311abde9cb3a02939d81e46f
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-155a02f0.mmd
+  - er_diagram/erdiagram_spec-7a1c5801.mmd
+  - er_diagram/should_associate_two_entities_correctly-086e79cb.mmd
+  source_sha256: a37d1a0753a096fb35501cb4ae85e7c995732546311abde9cb3a02939d81e46f
+  svg_sha256: b44cda7c8468e08a6699b007977eb465b288b87eae63e09361dd6eed929d6232
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: c558e1ce4b1c4c9b0fe532265e6f753326e7f392a13b38e00f7acb83cc332676
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-15eb058f.mmd
+  - er_diagram/should_limit_the_number_of_relationships_between-94f1532d.mmd
+  source_sha256: c558e1ce4b1c4c9b0fe532265e6f753326e7f392a13b38e00f7acb83cc332676
+  svg_sha256: 974dcdb0feddc490a7b7738713bb78b0ed9a889b88871e61a7973d0840b23d8f
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: eb2bf158f5e82b53bc6e334d112694634c52944b5e78d0d14c123cf47f2c125a
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-15f4d4f0.mmd
+  - er_diagram/should_allow_an_entity_with_attributes_that_have-e5c668af.mmd
+  source_sha256: eb2bf158f5e82b53bc6e334d112694634c52944b5e78d0d14c123cf47f2c125a
+  svg_sha256: 6a37021c897d0168787f6e76fd80f5ebbbfacded6c4acbef1bab146716f3034e
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -660,6 +965,29 @@ cases:
     mmdc: 11.12.0
     mermaid: 11.16.1
     chromium: 131.0.6778.204
+- sha256: 50c6039863eb4a062a392e773797b088e22e202bab7690b217fcb1202e7fedeb
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-1c5729ab.mmd
+  - er_diagram/erdiagram_spec-f9d92a86.mmd
+  - er_diagram/should_allow_recursive_relationships-19be24b1.mmd
+  source_sha256: 50c6039863eb4a062a392e773797b088e22e202bab7690b217fcb1202e7fedeb
+  svg_sha256: 61a4fc135f981d8e704d41d9231ce7e3cd0b1459f070aa7f8c5cab80fb236b5f
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: da857974dd7c0d990de74e8a7ef5e575179d3a8664e7dd931cb845f390d784b3
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-2534d7cc.mmd
+  - er_diagram/should_allow_an_empty_quoted_label-3dc6b5bf.mmd
+  source_sha256: da857974dd7c0d990de74e8a7ef5e575179d3a8664e7dd931cb845f390d784b3
+  svg_sha256: 3d6892546650c3bc53e5870b37a36a83f85d56a52ee744a69df7cd62e4b657af
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: ac1a1fde1725218569aa31d0c10f6c60a25977189e016b5e72ca820a7d81946d
   verdict: accepts
   cases:
@@ -676,6 +1004,52 @@ cases:
   - er_diagram/erdiagram_spec-3a39117b.mmd
   source_sha256: 43096736d6cb9a18136b2c54aa1203674b4c5c9a1c986bc1f8916df5b5c274cd
   svg_sha256: bb4332bcab438a93109face50357dfb8e78dd56884194f89f9ff7734a5604e9d
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 7cd8568750c913666a95463190011287e1b134a1e5f61c4701ff5a5a016ecd13
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-3c05a670.mmd
+  - er_diagram/erdiagram_spec-62144dcf.mmd
+  - er_diagram/should_allow_more_than_one_relationship_between-41c882c7.mmd
+  - er_diagram/should_allow_stand_alone_entities_with_no_relati-07af9b29.mmd
+  source_sha256: 7cd8568750c913666a95463190011287e1b134a1e5f61c4701ff5a5a016ecd13
+  svg_sha256: 9e15d93e889ebe604f306acd9b9669b3a71ff26d6e1a77f1c8f95004a6bd6433
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 4281d2ea4de14fa9be6a7d92cb7df84ba8b4dc95e16e731b7826abcd29722638
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-4475845d.mmd
+  - er_diagram/should_create_the_role_specified-5b421329.mmd
+  source_sha256: 4281d2ea4de14fa9be6a7d92cb7df84ba8b4dc95e16e731b7826abcd29722638
+  svg_sha256: 8fbdd38f555e97bd506616deea859f0e985c83bc7a840075761b84d6da1233c9
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 9b2919a37a5d1dd38e863b39d066219cc89d437f091144ae5fe24cd6b708a4dc
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-4763e192.mmd
+  - er_diagram/should_allow_no_whitespace_before_and_after_attr-f282244f.mmd
+  source_sha256: 9b2919a37a5d1dd38e863b39d066219cc89d437f091144ae5fe24cd6b708a4dc
+  svg_sha256: 5bf45e31bc1daa6c82622530601363aa077789bb181e355ab604f9f1d3fbd0f9
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 33d1d69214057cf99e83007e3da18747f0db975869d058475966a8d016e05d9d
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-49493d88.mmd
+  - er_diagram/should_allow_an_attribute_block_to_start_immedia-93f4b333.mmd
+  source_sha256: 33d1d69214057cf99e83007e3da18747f0db975869d058475966a8d016e05d9d
+  svg_sha256: 74de7ab76a5df3f1e27ff42901a66e2d659729efe631fa8f4d383c693e9cb6be
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -702,6 +1076,17 @@ cases:
     mmdc: 11.12.0
     mermaid: 11.16.1
     chromium: 131.0.6778.204
+- sha256: 04a9c1cb58cb08d431cec09784ef34d710fe4cb5ed45341bcfddda3d2ca192ef
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-53f1e9c4.mmd
+  - er_diagram/should_not_allow_leading_numbers_dashes_or_brack-11932686.mmd
+  source_sha256: 04a9c1cb58cb08d431cec09784ef34d710fe4cb5ed45341bcfddda3d2ca192ef
+  svg_sha256: 07f108fc6dd4a51bd4ff29efd083a40c8f40cf9d13bb522137ff611ac51581c4
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 7b5988ee6e7400a3468ccf48741000fb9ab3b55a7154dc03c7a279d09551c92e
   verdict: accepts
   cases:
@@ -712,12 +1097,98 @@ cases:
     mmdc: 11.12.0
     mermaid: 11.16.1
     chromium: 131.0.6778.204
+- sha256: 834761ae26d4bca2d01107018512748f945124d3c243249ba4b2f032951c5980
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-5d432351.mmd
+  - er_diagram/should_be_possible_to_assign_a_class_using_the_s-9fc10dec.mmd
+  source_sha256: 834761ae26d4bca2d01107018512748f945124d3c243249ba4b2f032951c5980
+  svg_sha256: '0899986ee2522af017f260a980cccff7da6886bfabd7e97c28bb926c80e3b5f3'
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: dd5ac7682ef045ce82bd2f08a3a105b641e76ea8c926305347df716040d83434
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-5f6b7672.mmd
+  - er_diagram/erdiagram_spec-fea32886.mmd
+  - er_diagram/should_allow_an_attribute_block_to_be_separated-0168fb66.mmd
+  - er_diagram/should_allow_whitespace_before_and_after_attribu-e81c580d.mmd
+  source_sha256: dd5ac7682ef045ce82bd2f08a3a105b641e76ea8c926305347df716040d83434
+  svg_sha256: 74de7ab76a5df3f1e27ff42901a66e2d659729efe631fa8f4d383c693e9cb6be
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: bd72752f63158d34df1b27616baa7977363076199ccaf5b11c76052d8ceef102
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-60d5cd2a.mmd
+  - er_diagram/erdiagram_spec-8d9e5aa8.mmd
+  - er_diagram/erdiagram_spec-aa3ef48f.mmd
+  - er_diagram/erdiagram_spec-cb9b20d1.mmd
+  - er_diagram/should_allow_alphanumeric_characters_dashes_unde-e9b54b86.mmd
+  - er_diagram/should_allow_an_entity_with_attribute_that_has_a-854f23e8.mmd
+  - er_diagram/should_allow_an_entity_with_attribute_that_is_an-238bb687.mmd
+  - er_diagram/should_allow_attribute_definitions_to_be_split_i-10f6ef77.mmd
+  source_sha256: bd72752f63158d34df1b27616baa7977363076199ccaf5b11c76052d8ceef102
+  svg_sha256: 91a9c78309fe9084cc90341c72b109c72e9ac5acfa8d3eefb4773c535236ab35
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 3b4f14b1930acb63c810b4ee8561b522f7b409cd860914f19e857ad768b3e376
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-677888ef.mmd
+  - er_diagram/should_be_possible_to_assign_multiple_separately-78058bfd.mmd
+  source_sha256: 3b4f14b1930acb63c810b4ee8561b522f7b409cd860914f19e857ad768b3e376
+  svg_sha256: eb44cdd6674d757a6957233af08ad3ea08c3dc8c961b35c0437dd491571d7f66
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 3d78a8d22fabb32a39d77f3420f2bbf8ce727af08a89f32578eff87336d5224f
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-71888748.mmd
+  source_sha256: 3d78a8d22fabb32a39d77f3420f2bbf8ce727af08a89f32578eff87336d5224f
+  svg_sha256: 06aa7d5b97e89bcd4435367815a8d7451cff55f8ae624c122f345d6eb5ea77d2
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 3279ae9517ac1209d01c565e2cdee5e655e774e69918d448a6b0708b89f0dbbf
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-759afb41.mmd
+  - er_diagram/should_be_possible_to_assign_a_class_using_the_s-f4ef0685.mmd
+  source_sha256: 3279ae9517ac1209d01c565e2cdee5e655e774e69918d448a6b0708b89f0dbbf
+  svg_sha256: '0899986ee2522af017f260a980cccff7da6886bfabd7e97c28bb926c80e3b5f3'
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: b63a44ad61c4724221be1cabdc029a9e89fe5ce9656508ef91e045e61c915c18
   verdict: accepts
   cases:
   - er_diagram/erdiagram_spec-7997ef63.mmd
   source_sha256: b63a44ad61c4724221be1cabdc029a9e89fe5ce9656508ef91e045e61c915c18
   svg_sha256: 5fc291788c594782186c2a5d5cde486a5f70f4722ec0a81416bf33b4bc3fcf47
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: f2896b00bd8f8c85a772c7c82f0d5704a9a644b5a6a7854eb07bb092654df850
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-7b131748.mmd
+  - er_diagram/erdiagram_spec-b0200028.mmd
+  - er_diagram/should_allow_an_entity_with_attribute_that_is_a-97cdd0a4.mmd
+  - er_diagram/should_allow_an_entity_with_multiple_attributes-70cc79a0.mmd
+  source_sha256: f2896b00bd8f8c85a772c7c82f0d5704a9a644b5a6a7854eb07bb092654df850
+  svg_sha256: dc623769aef3ae27a4c17884d6372fb26c3aa4044af0fc34fc5fdad42debf438
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -742,12 +1213,68 @@ cases:
     mmdc: 11.12.0
     mermaid: 11.16.1
     chromium: 131.0.6778.204
+- sha256: c3bea4fbb6d300eeb0402fd7e76a3da3eb7a4225458575278105f86fc6913085
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-8bd35b3d.mmd
+  - er_diagram/should_be_possible_to_assign_classes_using_the_s-989000e1.mmd
+  source_sha256: c3bea4fbb6d300eeb0402fd7e76a3da3eb7a4225458575278105f86fc6913085
+  svg_sha256: '0899986ee2522af017f260a980cccff7da6886bfabd7e97c28bb926c80e3b5f3'
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 5a175eed9a91d9b7e765d84296aff26d16b6d449b8609381b90f126de2aa053d
   verdict: accepts
   cases:
   - er_diagram/erdiagram_spec-8cb87484.mmd
   source_sha256: 5a175eed9a91d9b7e765d84296aff26d16b6d449b8609381b90f126de2aa053d
   svg_sha256: de161b6b4a746a9ba101ef4ab1e9e8b259e729295f19db3313d235c9b8706d20
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 7e776d72d7e0ea1205f8c4c7b4f6a1b3b8c3cf0eacedb7d5dc2dd7062d2ac096
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-8f33e689.mmd
+  - er_diagram/should_be_possible_to_assign_classes_using_the_s-784d9f9d.mmd
+  source_sha256: 7e776d72d7e0ea1205f8c4c7b4f6a1b3b8c3cf0eacedb7d5dc2dd7062d2ac096
+  svg_sha256: 5af1237d7174ba5aea86024553a50b06d7dda632d138b6a47bdac0d38751d2d4
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 4ff7f91de4195f4d27b015afcc72ccfa01227882cb4f7262528c7f88819fa0c5
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-9016f43e.mmd
+  - er_diagram/should_be_possible_to_apply_multiple_styles_to_a-0b961ca0.mmd
+  source_sha256: 4ff7f91de4195f4d27b015afcc72ccfa01227882cb4f7262528c7f88819fa0c5
+  svg_sha256: 37219e6dd7bbdda0cc9c10c2e2e401827196077e2c85f732e6d03d38ceec0204
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: a7d79f88a74d6110b50c84dcc53241f302a9b14af78ddd58e3e1e334d3665a27
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-972f998a.mmd
+  - er_diagram/erdiagram_spec-c24a3e99.mmd
+  - er_diagram/parses_a_multi_line_description_accdescr-c5daca2b.mmd
+  source_sha256: a7d79f88a74d6110b50c84dcc53241f302a9b14af78ddd58e3e1e334d3665a27
+  svg_sha256: a8668fc4370c6d01de007bc3c867d2a8776cff70fa3687792534d390e3d832e6
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 48852860d22ac1abbfeed40c18a190d48d808eabb867ebbcaa63a83413eff2c4
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-97d667d8.mmd
+  - er_diagram/should_be_possible_to_configure_the_default_clas-d09c328e.mmd
+  source_sha256: 48852860d22ac1abbfeed40c18a190d48d808eabb867ebbcaa63a83413eff2c4
+  svg_sha256: 6fe1d375dce9bfacb295a53e109de9adb6d251f22a3545d2f29ba00883432cc1
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -759,7 +1286,7 @@ cases:
   - er_diagram/erdiagram_spec-b2bb4486.mmd
   - er_diagram/should_allow_decimal_numbers_as_entity_names_wit-31b7bfa7.mmd
   source_sha256: ba31e6e6dc7e828d74746c6e133463e18972db550b4f81a07005e9a929edc62b
-  svg_sha256: f4e50c7c2c8379d8a41bec58da87eb761a18adc5fbc6ac5c0ed3944e35068f35
+  svg_sha256: 6bd71ed7076ffce14dc4addf37321258f40b5b680aa978ce32020f267e488e1b
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -772,6 +1299,19 @@ cases:
   - er_diagram/should_allow_decimal_numbers_in_relationships-fb5bd4ad.mmd
   source_sha256: bf9971af326e0a21e428795b005cf8807b4adaf0e917567268f48044e4649da1
   svg_sha256: 96aa669efbf88cb057c44e58db5cdf823069af0b167c6e66ff941b1fb74ac839
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 2cbc832345e4f4320df9d4a27e4dac34ae7d35f18ab15e1e6c1307dfe8cf7a2d
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-9c6cc600.mmd
+  - er_diagram/erdiagram_spec-d3ad6826.mmd
+  - er_diagram/should_allow_asterisk_at_the_start_of_attribute-c077427c.mmd
+  - er_diagram/should_allow_asterisks_at_the_start_of_attribute-90d52f18.mmd
+  source_sha256: 2cbc832345e4f4320df9d4a27e4dac34ae7d35f18ab15e1e6c1307dfe8cf7a2d
+  svg_sha256: 83ddea4b0341529dac28b8826cec379b184ceff2aa0fc2be0b9b3880c68bca67
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -828,6 +1368,17 @@ cases:
     mmdc: 11.12.0
     mermaid: 11.16.1
     chromium: 131.0.6778.204
+- sha256: 137b458f29cc082d7ef5c7ea32f08ff58bf8b80140efafc510e971670438ba2a
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-b3064d60.mmd
+  - er_diagram/should_allow_an_empty_attribute_block-faaafeba.mmd
+  source_sha256: 137b458f29cc082d7ef5c7ea32f08ff58bf8b80140efafc510e971670438ba2a
+  svg_sha256: 74de7ab76a5df3f1e27ff42901a66e2d659729efe631fa8f4d383c693e9cb6be
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 165a5d6170e47b487bf4ef4f967f360dbc07e35a83ed3bedc752c5024f032a27
   verdict: rejects
   reason: 'Error: Parse error on line 2:'
@@ -868,12 +1419,66 @@ cases:
     mmdc: 11.12.0
     mermaid: 11.16.1
     chromium: 131.0.6778.204
+- sha256: 3767a5f37567214db653f62b7b4bcf2768082da09228f532bc99aa7e18562ed9
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-e349dc49.mmd
+  - er_diagram/should_be_possible_to_assign_a_class_using_the_s-92eecb0d.mmd
+  source_sha256: 3767a5f37567214db653f62b7b4bcf2768082da09228f532bc99aa7e18562ed9
+  svg_sha256: 306e60c594d229a19482eafc1cca8b182204d681c0337516edaf425fd745140e
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: b4903434d78fe5febe49714935a8ca22d01a020e0035f0b9ad001087c5da1704
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-eb93b040.mmd
+  - er_diagram/should_be_possible_to_define_multiple_class_with-601f276e.mmd
+  source_sha256: b4903434d78fe5febe49714935a8ca22d01a020e0035f0b9ad001087c5da1704
+  svg_sha256: d513dbe0195a7c421a92b7051a7ff80bbeb3529ff1de2df10015184583759b46
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: d5e334e01af64931fc9e876b278037ad6566c11e22dbb576c570780a323e8b34
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-ebf76e86.mmd
+  - er_diagram/should_be_possible_to_apply_multiple_separately-d7b74f0d.mmd
+  source_sha256: d5e334e01af64931fc9e876b278037ad6566c11e22dbb576c570780a323e8b34
+  svg_sha256: 3645213701696c41dbcf7ef51543adfa8a7a588e6bf6bdfccf14362ccbae6f4c
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 7a7d77388dbb435f5d11b8f8ad1443463a9df334c9c9179a26c3135d0935a8c6
   verdict: accepts
   cases:
   - er_diagram/erdiagram_spec-f06cacb7.mmd
   source_sha256: 7a7d77388dbb435f5d11b8f8ad1443463a9df334c9c9179a26c3135d0935a8c6
   svg_sha256: f3a37160ffccb3fddb8ad1bd9aead949c3c583df275d8a657c4ef815237e3c68
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: d3e9a1194a37aeb89be33709ad5e27760a5c797b3cee1444b2203035a1833e41
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-fc2612f5.mmd
+  - er_diagram/should_be_possible_to_assign_multiple_classes_us-4452dbfe.mmd
+  source_sha256: d3e9a1194a37aeb89be33709ad5e27760a5c797b3cee1444b2203035a1833e41
+  svg_sha256: eb44cdd6674d757a6957233af08ad3ea08c3dc8c961b35c0437dd491571d7f66
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 131b881bddb2c054d548df01f554fe89f69f96701b9ce5d0121bff0a0e4e677d
+  verdict: accepts
+  cases:
+  - er_diagram/erdiagram_spec-fe04133b.mmd
+  source_sha256: 131b881bddb2c054d548df01f554fe89f69f96701b9ce5d0121bff0a0e4e677d
+  svg_sha256: f87285c480c63e5cf0439a2b8ec5838f609867ab080dc9158b3dc2791e9f5352
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -1032,6 +1637,16 @@ cases:
     mmdc: 11.12.0
     mermaid: 11.16.1
     chromium: 131.0.6778.204
+- sha256: 394aa3e43fa6fcef81d155609e554ee7b376ff9d4ec7883230ec5e927dbaf6ee
+  verdict: accepts
+  cases:
+  - flowchart/flow_edges_spec-303dd1b5.mmd
+  source_sha256: 394aa3e43fa6fcef81d155609e554ee7b376ff9d4ec7883230ec5e927dbaf6ee
+  svg_sha256: 773a327a156d96cc90c0f333dadbd41b887162324daf816a2d4ea5ac483c9084
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 380eee4bb303a3802ee95def97732e9c5dab2d7f1014c92c7de92702d8628b8c
   verdict: rejects
   reason: 'Error: Parse error on line 2:'
@@ -1097,6 +1712,38 @@ cases:
     mmdc: 11.12.0
     mermaid: 11.16.1
     chromium: 131.0.6778.204
+- sha256: 326beeea3b418d722708836149c24445e9e6e6fe3d1745e9891657bae70689f6
+  verdict: accepts
+  cases:
+  - flowchart/flow_edges_spec-93a08cac.mmd
+  - flowchart/flow_edges_spec-ea3a6b4d.mmd
+  - flowchart/flow_edges_spec-ea4ba2ef.mmd
+  source_sha256: 326beeea3b418d722708836149c24445e9e6e6fe3d1745e9891657bae70689f6
+  svg_sha256: 5d1d56e968a0be01342bcdfc9fea63f77e52a044a07dd7fe6e970b0d8fbe8187
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 75dc7cab051df1bd86a3bcd77232dde99dd978b48e1a10a7c8a068f7d19e27bd
+  verdict: accepts
+  cases:
+  - flowchart/flow_edges_spec-b2135331.mmd
+  source_sha256: 75dc7cab051df1bd86a3bcd77232dde99dd978b48e1a10a7c8a068f7d19e27bd
+  svg_sha256: 14b5fd88b8fc589d701de6a3a4c1927b095f063e1ede225fe90a092675992776
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: f2cf7c201ef652f4e037b150e08cf4554a31138154eecb248d7487c7afd2d5ee
+  verdict: accepts
+  cases:
+  - flowchart/flow_edges_spec-e74f4113.mmd
+  source_sha256: f2cf7c201ef652f4e037b150e08cf4554a31138154eecb248d7487c7afd2d5ee
+  svg_sha256: cb0ffa63f51f6ab72b091cefab6bf277b684f394606ea0dd3e78ebb1d328d9ba
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: eff655e9bf0ca2567668dbbd26281f768a5f8984c57396ca8eabb0f196572aa9
   verdict: rejects
   reason: 'Error: Parse error on line 4:'
@@ -1107,12 +1754,56 @@ cases:
     mmdc: 11.12.0
     mermaid: 11.16.1
     chromium: 131.0.6778.204
+- sha256: 8261a90a735d20fb6d14c33a7476157cff558df9b7d366fcfc59b1da3835a330
+  verdict: accepts
+  cases:
+  - flowchart/flow_md_string_spec-203f03d7.mmd
+  source_sha256: 8261a90a735d20fb6d14c33a7476157cff558df9b7d366fcfc59b1da3835a330
+  svg_sha256: b6dba73ede25715d17d79dfae9029ff6aca3f54d975a0cca08e6f26eca2069ae
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 5acf138815177e7d3bbfb47b1b81c885ef5ab238305882cb371ec99e8cb868a3
   verdict: rejects
   reason: 'Error: Parse error on line 3:'
   cases:
   - flowchart/flow_md_string_spec-26e1e470.mmd
   source_sha256: 5acf138815177e7d3bbfb47b1b81c885ef5ab238305882cb371ec99e8cb868a3
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: d7e3d1a46f2043573dcf4795197446e6c3e664e43ef83614f879ef9207103c20
+  verdict: accepts
+  cases:
+  - flowchart/flow_node_data_spec-06c34df5.mmd
+  source_sha256: d7e3d1a46f2043573dcf4795197446e6c3e664e43ef83614f879ef9207103c20
+  svg_sha256: 89cebe839bffd80fa62fac099f2b3dda1e59f63185decfc7f9cd95a2c1fc7b0e
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 79b64b95df82809223d3710d4a76d72d37b91c48b59d0639be9360e74f8b5789
+  verdict: accepts
+  cases:
+  - flowchart/flow_node_data_spec-0f9bed9c.mmd
+  source_sha256: 79b64b95df82809223d3710d4a76d72d37b91c48b59d0639be9360e74f8b5789
+  svg_sha256: a1f9842c851bdc8da166ba15d1131dd5b5e15590a5a17ccf659ef9b37a6cbd3b
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 9fa6e6fe62ab61c8cbc8df2d45b0525391189fb16cdc12aec073da405de69456
+  verdict: accepts
+  cases:
+  - flowchart/flow_node_data_spec-28571c8d.mmd
+  - flowchart/flow_node_data_spec-4fd7fcd1.mmd
+  - flowchart/flow_node_data_spec-7e4b9630.mmd
+  - flowchart/flow_node_data_spec-aa1926ba.mmd
+  - flowchart/flow_node_data_spec-d82861ba.mmd
+  source_sha256: 9fa6e6fe62ab61c8cbc8df2d45b0525391189fb16cdc12aec073da405de69456
+  svg_sha256: a95a4281ee2a903afe8f0270f5963bed635477f8f078805c4c1e2cac181231c9
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -1137,12 +1828,54 @@ cases:
     mmdc: 11.12.0
     mermaid: 11.16.1
     chromium: 131.0.6778.204
+- sha256: 38a1a80b2e1c486b17448617b65d5cf05d2efbfbb58a9c25ad812087750f2324
+  verdict: accepts
+  cases:
+  - flowchart/flow_node_data_spec-a394e7fa.mmd
+  - flowchart/flow_node_data_spec-a3b82ba2.mmd
+  source_sha256: 38a1a80b2e1c486b17448617b65d5cf05d2efbfbb58a9c25ad812087750f2324
+  svg_sha256: a6e0635bf3ec3b621949cf7f44e898c9d145716f5987bb28e041bf36f8cf6835
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 6515f242c5e5048658e3602df79029beb57ea4c8965e578186a739bed9d2a87c
+  verdict: accepts
+  cases:
+  - flowchart/flow_node_data_spec-b5764998.mmd
+  source_sha256: 6515f242c5e5048658e3602df79029beb57ea4c8965e578186a739bed9d2a87c
+  svg_sha256: f0c0779da6e932c405dd393293faf92e30c7f877ab8bee9dbfa1c8c30148e32a
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 999b67304ef3b24d7067579c4bf3f39c70b8e06f4b511bd6b819190d39e8bdcd
+  verdict: accepts
+  cases:
+  - flowchart/flow_node_data_spec-e7f5378e.mmd
+  source_sha256: 999b67304ef3b24d7067579c4bf3f39c70b8e06f4b511bd6b819190d39e8bdcd
+  svg_sha256: 60470118fc1d873e7edf1e1de2f0c2e216fa9d8319e2a24ae459c03c64905744
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: aef960230e1af9d2d8ace5b2e0ded01fe2e72374d2566ac3679bc96bea8c52da
   verdict: rejects
   reason: 'Error: No such shape: rect_left_inv_arrow. Shape names should be lowercase.'
   cases:
   - flowchart/flow_node_data_spec-e81505dd.mmd
   source_sha256: aef960230e1af9d2d8ace5b2e0ded01fe2e72374d2566ac3679bc96bea8c52da
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 8812d0f77765e66a42689285f6c8f2e333809ac23cbd8e552805e5faa80d0658
+  verdict: accepts
+  cases:
+  - flowchart/flow_singlenode_spec-03de5034.mmd
+  - flowchart/flow_singlenode_spec-4a265fd6.mmd
+  source_sha256: 8812d0f77765e66a42689285f6c8f2e333809ac23cbd8e552805e5faa80d0658
+  svg_sha256: fad51b357567bc463f5aa7c2154c73cadc56179b52bb3512462827139c58f038
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -1163,6 +1896,16 @@ cases:
   - flowchart/flow_spec-666b641c.mmd
   source_sha256: 1ca1425bfabc5aefefbc33c71529edc1f49704c99e6448d33454c6c270b76ddc
   svg_sha256: f1f42873c886db21326f3bf2ce44bbdccb8bfd992acd7ecad55c70f760da6074
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 24f4876602def55c2e8bf336f51765f035fb414bffe7c7c68cb68b90c9db8f22
+  verdict: accepts
+  cases:
+  - flowchart/flow_spec-6cfda390.mmd
+  source_sha256: 24f4876602def55c2e8bf336f51765f035fb414bffe7c7c68cb68b90c9db8f22
+  svg_sha256: 1cafe3f14e7dbeb43e58f52236f8c148ae342c101368001434dffd144459baee
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -1227,6 +1970,17 @@ cases:
     mmdc: 11.12.0
     mermaid: 11.16.1
     chromium: 131.0.6778.204
+- sha256: 193c8f1de7336d40f4bea35017f10e455bd7ab15ba202aea513e0c3b090c5da1
+  verdict: accepts
+  cases:
+  - flowchart/flow_text_spec-0828367a.mmd
+  - flowchart/flow_text_spec-3f2228b5.mmd
+  source_sha256: 193c8f1de7336d40f4bea35017f10e455bd7ab15ba202aea513e0c3b090c5da1
+  svg_sha256: f10517d7f415814c691f1e3ba3afb6eefc8c20fd8ac3215b57a0fa431533bad9
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 81277400370ddcb638da865a903e0875273b946f7ef3a2d23b8cf39f0de25e75
   verdict: rejects
   reason: 'Error: No such shape: ellipse. Please check your syntax.'
@@ -1287,6 +2041,16 @@ cases:
     mmdc: 11.12.0
     mermaid: 11.16.1
     chromium: 131.0.6778.204
+- sha256: c0a7c6dc1616455742789ceab8cc3351d311c3764486fc1bc24b8cef297b8b9f
+  verdict: accepts
+  cases:
+  - flowchart/subgraph_spec-3c153b6c.mmd
+  source_sha256: c0a7c6dc1616455742789ceab8cc3351d311c3764486fc1bc24b8cef297b8b9f
+  svg_sha256: 444eb7e59a34b032cd5e2afd51b7ff4d51ffb2da7fa6938daa34a3b1a8acc16b
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 6f230d678bfbc470e5d417adcaebef538e6032f7fdb99228285863114a322c10
   verdict: accepts
   cases:
@@ -1337,6 +2101,16 @@ cases:
     mmdc: 11.12.0
     mermaid: 11.16.1
     chromium: 131.0.6778.204
+- sha256: 9fb94ed0a4fecc8138bde1e97bca8c0143a400773d5011a000033c31fe64662d
+  verdict: accepts
+  cases:
+  - flowchart/xss22-4d17431a.mmd
+  source_sha256: 9fb94ed0a4fecc8138bde1e97bca8c0143a400773d5011a000033c31fe64662d
+  svg_sha256: 7e84de112a0e27b01b99388bc1ba9013c8441eb1a2a098befabc68d3b6d4a566
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 7b93aa3cfd3f0827d5df58ad803056842069cdd35dad615389138e1159896ddb
   verdict: rejects
   reason: 'UnknownDiagramError: No diagram type detected matching given configuration
@@ -1344,6 +2118,16 @@ cases:
   cases:
   - gantt/gantt_spec-5d8671fe.mmd
   source_sha256: 7b93aa3cfd3f0827d5df58ad803056842069cdd35dad615389138e1159896ddb
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 5fe2634074dba7816d921c1159d347b88e041465386fbddccd09423987d53096
+  verdict: accepts
+  cases:
+  - gantt/should_allow_for_a_accessibility_title_and_multi-3e73c61d.mmd
+  source_sha256: 5fe2634074dba7816d921c1159d347b88e041465386fbddccd09423987d53096
+  svg_sha256: cb11e20a9f08bc6727e04e7333bd3677b4b2eedac00be6673c70372888367e6b
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -1373,7 +2157,7 @@ cases:
   cases:
   - gitgraph/gitgraph_test-0b25d816.mmd
   source_sha256: 578bb77f782c7de15d1f56ffb2e780c863d92ae70421ae708a0c9ad6c777596a
-  svg_sha256: a60cf2021f54179740166d9dd9bf2457e0ac18729271c413c20482465450d8fd
+  svg_sha256: f20fcb135800109f8fa945fecf0b59db9f64f5466302b2af9735638dd2a027f5
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -1393,7 +2177,7 @@ cases:
   cases:
   - gitgraph/gitgraph_test-2991199d.mmd
   source_sha256: 45062b339aaf537a231bde8aa777356f103717b92223e060dc96d35f7b4ca374
-  svg_sha256: 26087560371f65ea14c0ea5c9eb4e0b7ebd94c81905d44a155f4efd4ee3674f6
+  svg_sha256: 6f765058a2945befa120a36c92da06ed52327dff03f01dd8ec7a7d4b2c9f204a
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -1443,7 +2227,7 @@ cases:
   cases:
   - gitgraph/gitgraph_test-5fd422d2.mmd
   source_sha256: b05c4c88c15e782bc3b161e6307798e053e675c588c7b43ea5817ae713b47e16
-  svg_sha256: 9157b0ff2458decb849741ca0df5a304f3d39553047d1e28180cf45beb5ff66a
+  svg_sha256: e40145e9c150002ce34cdf8fac45425058ef82b8686f9e8803ecd94490157f8e
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -1463,7 +2247,7 @@ cases:
   cases:
   - gitgraph/gitgraph_test-618ca788.mmd
   source_sha256: b9cb53821f13f237a1e3ad2615aff7448e0cd16cf0371ad57f80322b679ff6cf
-  svg_sha256: 04e1409915e62b4cd85256b0cddcef69663cbf39bf80a9ef03bf2371175e1657
+  svg_sha256: 309473db62d733c37060320994dca77f2908daa5305f1a55fb6dde5334fc955a
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -1473,7 +2257,7 @@ cases:
   cases:
   - gitgraph/gitgraph_test-6dbacd8b.mmd
   source_sha256: 134ba8557e3261f354216a6ccbb0ed3214f5b48230859b7325b144f3382cb8df
-  svg_sha256: ef8a677c222bc741cb9059ae70b2a16449942f9bc6fedee1904eca9b60710a52
+  svg_sha256: b4e38c9018f47aa594cee31f6b95fca1b481df46811bcde8b0a6f10ea582a84e
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -1483,7 +2267,7 @@ cases:
   cases:
   - gitgraph/gitgraph_test-7331cd25.mmd
   source_sha256: 329fdad18548d692812d6a69f9476b3c3ea19e5963650dd1575e348dfa5b3e38
-  svg_sha256: 2d826950ffca30410cd2fdeb15bb5a07c19fcca4ab9f3c145ec625f8cc6b2025
+  svg_sha256: 45a052ac3c76bec6d826d6a563688f2a2dbdf12d27544d87e328a854b84f3fb6
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -1524,7 +2308,7 @@ cases:
   cases:
   - gitgraph/gitgraph_test-b498c8db.mmd
   source_sha256: e16271bce7a29f5f9d96b26c6f671a7dc52f59f70811082089ab817a7d9e8ee3
-  svg_sha256: 3bebdc5c1dae9e52f11637e63daaec3850bd45f0e4475916e9bdc0f10b6b1469
+  svg_sha256: 995ee110d9afc7d26a7343c8b89e86766b0920a0ee1149f00c7d3cde7eec73fa
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -1534,7 +2318,7 @@ cases:
   cases:
   - gitgraph/gitgraph_test-b88a55d1.mmd
   source_sha256: 2dc5951d1617480c2601716b4fb89163ff5b4f47a4b4007b452bac16166a1d24
-  svg_sha256: 502726b076e2fddf7c118c83387a61d187d029d651447bb694b676d131885e36
+  svg_sha256: 0314b55ebb9b42d8b69f92e6468ced14cacc675f72b9edadbafd8e0093b22419
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -1595,7 +2379,7 @@ cases:
   cases:
   - gitgraph/gitgraph_test-f027449f.mmd
   source_sha256: b9e5cf1eecc71d9f72725b8e1ef2d5127f57f5a8b7e432c3efe9f9e4cf295923
-  svg_sha256: fd80dcf00999c8e46a728ee8e331c1df577ce2321b31da81b0bda7607bd18509
+  svg_sha256: 74bccbac7b7687273817e92ef963cef052bb7340797326a6d31fb889d6e46760
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -1615,7 +2399,7 @@ cases:
   cases:
   - gitgraph/gitgraph_test-f71b441d.mmd
   source_sha256: 477a4b4de38aeeececd3736aaf0b306d23fd4bdb3f84488f9f17da37aa6a1adb
-  svg_sha256: 3238119140b918a17c9a14a7b57b8d58754e33b3c321fc47f915315a356ac1e2
+  svg_sha256: 53415db998f7d897bfbbf188661b55d3a5456676d528a0660e32022221e511da
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -1658,7 +2442,7 @@ cases:
   cases:
   - gitgraph/should_handle_a_gitgraph_definition-4acb9709.mmd
   source_sha256: 80a35f059d40c524c0c6c6116c85c4a6b67c303b36e357c37f88455b95c2ffd8
-  svg_sha256: 28f485c33a0294b36fdd1fab2678fd165fd1dbf097ebb9a3cae9de349852cf22
+  svg_sha256: 26d67f2013d20a9548763292e6790701e3f365190a2db39a998027f1fabe5bc6
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -1845,6 +2629,16 @@ cases:
     mmdc: 11.12.0
     mermaid: 11.16.1
     chromium: 131.0.6778.204
+- sha256: ae55e26bb09410ca14b1179ac8de2927ee7599877cead1e1aecb288b8b1476bd
+  verdict: rejects
+  reason: mermaid error page
+  cases:
+  - pie/diagram_orchestration_spec-efffba9d.mmd
+  source_sha256: ae55e26bb09410ca14b1179ac8de2927ee7599877cead1e1aecb288b8b1476bd
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 4196aa988446d609b9b6e7dd2196408d178659d3c0585de103dd32e1e078b105
   verdict: rejects
   reason: 'Error: "ash" has invalid value: -60.67. Negative values are not allowed
@@ -1899,6 +2693,53 @@ cases:
     mmdc: 11.12.0
     mermaid: 11.16.1
     chromium: 131.0.6778.204
+- sha256: f71559b995b38079382c5da15b7d9b8df6b4677a523ef6d294926655d1b189ea
+  verdict: accepts
+  cases:
+  - radar/radar_test-0d9703ea.mmd
+  - radar/radar_test-e80cf717.mmd
+  source_sha256: f71559b995b38079382c5da15b7d9b8df6b4677a523ef6d294926655d1b189ea
+  svg_sha256: edbc4a4a1557190df4fc3f4dd7412d3f7254c7b9dbcdb9a3062a81a3493babde
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 28d78dbc933f46e655c648dfc926feb2100e9dc97cafe2d9d2f342f43d0f7a4e
+  verdict: accepts
+  cases:
+  - radar/radar_test-2d83d8bf.mmd
+  - radar/radar_test-3e1b309e.mmd
+  - radar/radar_test-ea83e1fa.mmd
+  source_sha256: 28d78dbc933f46e655c648dfc926feb2100e9dc97cafe2d9d2f342f43d0f7a4e
+  svg_sha256: f032ee6254d485e324d38e391507f1c646d14cff57ceafce086e439325235130
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 1856e5898deadfdf32736505ba195fa9adf8eff51fcf880f61dd0b748209014b
+  verdict: accepts
+  cases:
+  - radar/radar_test-68bd0563.mmd
+  - radar/radar_test-74b7506b.mmd
+  - radar/radar_test-dc54dea2.mmd
+  source_sha256: 1856e5898deadfdf32736505ba195fa9adf8eff51fcf880f61dd0b748209014b
+  svg_sha256: b9c10953b7028e33b16ef17ca6a5506e9582690328450d07bfefee275e0afe29
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: d37fa47f6ddd4304d1fe778ce90d81862367f167199cdf1fe15f55c15591699a
+  verdict: rejects
+  reason: mermaid error page
+  cases:
+  - radar/radar_test-759f8a97.mmd
+  - radar/radar_test-b7f9c5a6.mmd
+  - radar/radar_test-e8f66a82.mmd
+  source_sha256: d37fa47f6ddd4304d1fe778ce90d81862367f167199cdf1fe15f55c15591699a
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
 - sha256: 932d1d3d5b1485f8c7ffa2a8d5c289d8fd2191f34b0e4876211d0a0f4c8e19d0
   verdict: rejects
   reason: 'UnknownDiagramError: No diagram type detected matching given configuration
@@ -1906,6 +2747,16 @@ cases:
   cases:
   - radar/should_handle_radar_diagram_with_config_override-b1b9f111.mmd
   source_sha256: 932d1d3d5b1485f8c7ffa2a8d5c289d8fd2191f34b0e4876211d0a0f4c8e19d0
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 27be7222f9a091d0289c7d1193407586224d7eefba0ceb0fd010a3bab6d4e84b
+  verdict: accepts
+  cases:
+  - requirement/will_use_a_accessibility_title_and_multiline_des-78dce4af.mmd
+  source_sha256: 27be7222f9a091d0289c7d1193407586224d7eefba0ceb0fd010a3bab6d4e84b
+  svg_sha256: 3c19b4db97b6adb788bf4b1dedf45e3e9ee13657986edaf8003b358a183d103d
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -2096,7 +2947,7 @@ cases:
   - state_diagram/statediagram_spec-5e8d05fd.mmd
   - state_diagram/statediagram_spec-74b96cc5.mmd
   source_sha256: f954a207d268156db9ef4fa03bc2bd337a7b450431a17881d8340afaf7907ee1
-  svg_sha256: 668cfcaf327b194314d151c9875c54a52746963b5ed8608e73f474a11148e067
+  svg_sha256: 266aa694064c90a34ceb96b0c0658b8a7573fab452742f2cad4088eb71c0dac9
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -2107,7 +2958,7 @@ cases:
   - state_diagram/should_handle_concurrent_state-545e37dd.mmd
   - state_diagram/statediagram_v2_spec-df15b06f.mmd
   source_sha256: ac81202351080519abd3be47136693b1923d3545daae4c38a9ae9f8a56dd4bcb
-  svg_sha256: b89031beffa1b594bf1295d24bf227d4f2cde7a610572b45da9c4d9be8994fc0
+  svg_sha256: 6c7e1d730610e72cd7648b7f55c9404e80f1163e396298c7e2eb0cffce363444
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -2119,7 +2970,7 @@ cases:
   - state_diagram/statediagram_v2_spec-12f07330.mmd
   - state_diagram/statediagram_v2_spec-a4f41ba5.mmd
   source_sha256: 3cdc5b33610ac9fa78b47c7d848e92c479dba2d869846a5079696d6dbbe6a34e
-  svg_sha256: 713c184962c79b97948f6dd1d9031bb7f548c0cf44565b0e17b164ac4f67d80c
+  svg_sha256: 218f01fa9db43309a0a65bead37b0f58cf6774f6e9cebb312feb374fe5c99888
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -2132,7 +2983,7 @@ cases:
   - state_diagram/statediagram_spec-d87f6672.mmd
   - state_diagram/statediagram_spec-e9671157.mmd
   source_sha256: 7d170e7e057b50d816bb1feeaa7cfb956f54693e46f566795f190976c22d1516
-  svg_sha256: d3233a1d84d626148cdc9d2382640e3893685e7ea5a47cb97a7c67e7068f5cc1
+  svg_sha256: 944100057f38b917813e640b2c12975e7d07e63c1449d856f6aa22dbe980dae1
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -2158,7 +3009,7 @@ cases:
   - state_diagram/statediagram_spec-29608c39.mmd
   - state_diagram/statediagram_spec-d1fb1fa0.mmd
   source_sha256: fdd59cc948f3fb09b36f6505e49b2d080d8b3f807e55a3984c4485781ff30f60
-  svg_sha256: e793485cce5a2371bf5c992b858f3acf7d90cece1b4a43c82b9f7035201f77cd
+  svg_sha256: c67f93a308216d61fa3e07068bd706b55bc696f22f42dc52eaf5dd42f32eb71d
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -2170,7 +3021,7 @@ cases:
   - state_diagram/statediagram_v2_spec-7c0af12d.mmd
   - state_diagram/statediagram_v2_spec-e67480a3.mmd
   source_sha256: bf4b9616ae56d6f34081743f7fd46cb2a59972b97f3ed344ae6ffa96b32ec448
-  svg_sha256: 4bb67ba75184c0f9aafd8e0c5611474e2e1329a9825014e11119e05d336da9a7
+  svg_sha256: 2fc742af1c91b3f128decedeef788fde3575bf0efe6337b8eab42a602ab0da19
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -2208,7 +3059,7 @@ cases:
   - state_diagram/statediagram_spec-d2b5972f.mmd
   - state_diagram/statediagram_spec-fdf6c5aa.mmd
   source_sha256: 513745f42137ffa787ecc14c1235dbdc583943d4557dff6e4c9f2d7a2c7228fd
-  svg_sha256: f7186cc10c7cb1efd273d269decda900006b2576ee1c2d23b5f05211f3f0899e
+  svg_sha256: 5529aa2e8ea3a095ab4fd2d9182d8cbc41aeda7fbddcbf93cb6fa559ad51c4d2
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -2220,7 +3071,7 @@ cases:
   - state_diagram/statediagram_v2_spec-1e88919f.mmd
   - state_diagram/statediagram_v2_spec-eb42ee32.mmd
   source_sha256: ab22096408462008823fd90a0a1b147a3a446629c683b22b639cc2cd654ebdda
-  svg_sha256: 279eb1efe4a8ef2f11fbe1f04332d4263664e5e3f028abc45d47f6a731e57220
+  svg_sha256: 18e0034208fc0d09aa11d6d12c6d0065999b7b24280a2234028ced35c6970e6c
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -2233,7 +3084,7 @@ cases:
   - state_diagram/statediagram_spec-74261a4f.mmd
   - state_diagram/statediagram_spec-93d0ca3f.mmd
   source_sha256: f219383c9ad6e110a24c6165e1a8c836aea8c455a201d64637b8bacc339f5640
-  svg_sha256: d60a2e55c80df9827f5037b47b5bf3373642d9bd0159d20d096ccf1c1958af8f
+  svg_sha256: ef34dbd3f51c2419dd9ec47fc55d5203e5b3baaf07b8380062ac0ceaa434a4f9
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -2546,7 +3397,7 @@ cases:
   cases:
   - state_diagram/statediagram_spec-7e13c74d.mmd
   source_sha256: 834f30b9a80be3485ad5620ec973e2c9d0c0c4ada2365d74fbc1e592ca316f3a
-  svg_sha256: '008de54f34179d41454f7b5c4a76d1cdccee7ddcf07b7537bdedd1d3dbf258b0'
+  svg_sha256: d76cbb54cd988c9b06475124714f1bfe005c6eeab6ced7e7b3dfc2872cc86d79
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -2576,7 +3427,7 @@ cases:
   cases:
   - state_diagram/statediagram_spec-8f5295b8.mmd
   source_sha256: 811db6d06e6c426ae243f4e0aeaf4c961463573912bd442dedc8f840bbc8523f
-  svg_sha256: 135ed089861ca861405f788f639ddf8242d102e7d4205f7cc56b7423a419a50c
+  svg_sha256: d2493a01c411395de74fef58cc80ff6c88c1584106a179307626294f112dd940
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -2586,7 +3437,7 @@ cases:
   cases:
   - state_diagram/statediagram_spec-98fc6bd3.mmd
   source_sha256: 4837d6ed6d01e62e90c93c6fda15bea7db9519ee3625cf6d86002660717faeac
-  svg_sha256: cc31c72ee8c96ed36fa76a5c7e4060dafcb1dd214bdf85e43fec281703714ce3
+  svg_sha256: 93ce02fe44a83d97ebfaaef7bca5401f72711a32daf8a929b833936754a21565
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -2666,7 +3517,7 @@ cases:
   cases:
   - state_diagram/statediagram_spec-f4256d44.mmd
   source_sha256: 60746965a4e4f5048e36f05e179305a9cd1a8eca78eca9d13acabcbcbedba3f4
-  svg_sha256: 0b6953794ac75a3ebc8bf56a5c9254a0661e4a94a7c4401f2f85345b787c7f59
+  svg_sha256: 52aff125cac8830d718f9ca728de43029e393e54a535ddf16c9ee589be374790
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -2716,7 +3567,7 @@ cases:
   cases:
   - state_diagram/statediagram_v2_spec-2f81c3b1.mmd
   source_sha256: 43ad4a07f80ce5dfddbcc4ac90322e23f312098e1ed7af13937a28f923c65757
-  svg_sha256: 7a886940067c61f5376fd48869234961269687dbf953deb84ea8e6792163d6ff
+  svg_sha256: fee7f47684bdb8d53b0bb6be1b8b0da47d42bbc9a58749d0ea559610bdf3d4a3
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -2788,7 +3639,7 @@ cases:
   cases:
   - state_diagram/statediagram_v2_spec-62551c6b.mmd
   source_sha256: 5408a33897ebfc0be15f4cacf05ca079cc26b1f79aaccb1528a37a3a3096a558
-  svg_sha256: cf8fda2f6d95ee55c312f499588ed605eab96d18ad97982b422a32a0166650be
+  svg_sha256: a777bedcc99fb11e83f3c5fe52703bea4936292e215e657f719f0453859eb172
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -2798,7 +3649,7 @@ cases:
   cases:
   - state_diagram/statediagram_v2_spec-6a2ad467.mmd
   source_sha256: 00fb0d0263dfb95b1331bf8f00c6c07bc26cc2f604e85bfffa3828cb24fed9bb
-  svg_sha256: db4185cb66bfa01a69739a1f49c5d9abe176b86ac8911ff0953145bcc9541363
+  svg_sha256: 658500bca6b417bd6cfcc133348fdd369a0571562a5c9a1a3868ad9aa7903ed7
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -2848,7 +3699,7 @@ cases:
   cases:
   - state_diagram/statediagram_v2_spec-d6232e7e.mmd
   source_sha256: d910d476abffd28edd483f0041c770506ac552bdc7e74774133cdc07a907eb0a
-  svg_sha256: f44c130b336354bc01b36eee417d7c212a8371e04041fa083319016e5064e581
+  svg_sha256: b6f631ca4e5bbc24dff56c279ac5282ee2c51da4dfe0be2f813585dfa8a4b425
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -2910,7 +3761,7 @@ cases:
   cases:
   - unknown/classdiagram_spec-cce899ec.mmd
   source_sha256: 83653e933e97291c9489c956a73e2619780160bbe8ee8c454d320b6ad3c6f967
-  svg_sha256: e9ac3f7af23717045109701c33eac29f6c98c1585e975adad31a16e3aba69fe1
+  svg_sha256: 8efebde3638ec89dabd6ef3164d92693efa109a6272c841ea561f0005590485d
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -2920,7 +3771,7 @@ cases:
   cases:
   - unknown/classdiagram_spec-f3ac0001.mmd
   source_sha256: 358f9b0eb57ce53d6d5df9d2e651f461e3f34dba2a630f17673fef2a855356c2
-  svg_sha256: 3c193978ad9f65289c80a5ec5a3fa41384c87856b0f67c9c723a631c440d84ed
+  svg_sha256: 7c352a2cb129f9773a604f383636179af38d7334c8f749d2c8d5bf9527ac6b00
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1
@@ -2961,6 +3812,16 @@ cases:
   - unknown/statediagram_v2_spec-4d71f460.mmd
   source_sha256: 8abbbf821b384aaa13a1a099fedca2316b3aa3838231e82f87543547c3c30bf2
   svg_sha256: d2a33c3780fbb5231f28d1575a9787d3b7cc2b1c7ec83401331840b963f76466
+  toolchain:
+    mmdc: 11.12.0
+    mermaid: 11.16.1
+    chromium: 131.0.6778.204
+- sha256: 3f96fe36ab20bb5bfaee5cdbf03a1eec4d38eb5673b47266c8ba3ca1f4580105
+  verdict: accepts
+  cases:
+  - unknown/yari-ea799bdc.mmd
+  source_sha256: 3f96fe36ab20bb5bfaee5cdbf03a1eec4d38eb5673b47266c8ba3ca1f4580105
+  svg_sha256: 81bd96fe9cd314a3b328fe6bdc45fd91570ff1b4f993268c145da62215d67cb1
   toolchain:
     mmdc: 11.12.0
     mermaid: 11.16.1

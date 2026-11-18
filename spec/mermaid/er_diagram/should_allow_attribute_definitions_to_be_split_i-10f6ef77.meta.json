@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_allow_attribute_definitions_to_be_split_into_multiple_blocks_25",
+  "type": "er_diagram",
+  "source_file": "/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 361,
+  "metadata": {
+    "test_name": "should allow attribute definitions to be split into multiple blocks"
+  },
+  "id": "er_diagram/should_allow_attribute_definitions_to_be_split_i-10f6ef77",
+  "source_sha256": "bd72752f63158d34df1b27616baa7977363076199ccaf5b11c76052d8ceef102",
+  "recovered": true
+}

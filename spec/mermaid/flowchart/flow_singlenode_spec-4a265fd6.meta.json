@@ -1,0 +1,9 @@
+{
+  "name": "parser_should_handle_a_single_node_60",
+  "type": "flowchart",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/flowchart/parser/flow-singlenode.spec.js",
+  "line_number": 37,
+  "id": "flowchart/flow_singlenode_spec-4a265fd6",
+  "source_sha256": "8812d0f77765e66a42689285f6c8f2e333809ac23cbd8e552805e5faa80d0658",
+  "recovered": true
+}

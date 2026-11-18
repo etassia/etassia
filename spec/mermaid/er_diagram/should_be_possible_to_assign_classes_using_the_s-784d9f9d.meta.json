@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_be_possible_to_assign_classes_using_the_shorthand_syntax_while_defining_a_relationship_50",
+  "type": "er_diagram",
+  "source_file": "/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 952,
+  "metadata": {
+    "test_name": "should be possible to assign classes using the shorthand syntax while defining a relationship"
+  },
+  "id": "er_diagram/should_be_possible_to_assign_classes_using_the_s-784d9f9d",
+  "source_sha256": "7e776d72d7e0ea1205f8c4c7b4f6a1b3b8c3cf0eacedb7d5dc2dd7062d2ac096",
+  "recovered": true
+}

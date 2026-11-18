@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_be_possible_to_define_multiple_class_with_styles_at_the_same_time_44",
+  "type": "er_diagram",
+  "source_file": "/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 877,
+  "metadata": {
+    "test_name": "should be possible to define multiple class with styles at the same time"
+  },
+  "id": "er_diagram/should_be_possible_to_define_multiple_class_with-601f276e",
+  "source_sha256": "b4903434d78fe5febe49714935a8ca22d01a020e0035f0b9ad001087c5da1704",
+  "recovered": true
+}

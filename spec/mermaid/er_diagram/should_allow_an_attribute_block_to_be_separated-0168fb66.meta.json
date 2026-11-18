@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_allow_an_attribute_block_to_be_separated_from_the_entity_name_by_spaces_28",
+  "type": "er_diagram",
+  "source_file": "/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 392,
+  "metadata": {
+    "test_name": "should allow an attribute block to be separated from the entity name by spaces"
+  },
+  "id": "er_diagram/should_allow_an_attribute_block_to_be_separated-0168fb66",
+  "source_sha256": "dd5ac7682ef045ce82bd2f08a3a105b641e76ea8c926305347df716040d83434",
+  "recovered": true
+}

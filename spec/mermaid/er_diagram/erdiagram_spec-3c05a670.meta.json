@@ -1,0 +1,9 @@
+{
+  "name": "parser_${singleOccurrence} fails if not surrounded by quotes_2",
+  "type": "er_diagram",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 0,
+  "id": "er_diagram/erdiagram_spec-3c05a670",
+  "source_sha256": "7cd8568750c913666a95463190011287e1b134a1e5f61c4701ff5a5a016ecd13",
+  "recovered": true
+}

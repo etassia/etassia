@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_allow_an_entity_with_a_single_attribute_to_be_defined_with_a_key_16",
+  "type": "er_diagram",
+  "source_file": "/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 243,
+  "metadata": {
+    "test_name": "should allow an entity with a single attribute to be defined with a key"
+  },
+  "id": "er_diagram/should_allow_an_entity_with_a_single_attribute_t-108ca721",
+  "source_sha256": "65e5dd7ce2145a01981a3154e4643669e082b98163d1e939988f075a11f30fcd",
+  "recovered": true
+}

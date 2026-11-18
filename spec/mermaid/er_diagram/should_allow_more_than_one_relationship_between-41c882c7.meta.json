@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_allow_more_than_one_relationship_between_the_same_two_entities_35",
+  "type": "er_diagram",
+  "source_file": "/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 487,
+  "metadata": {
+    "test_name": "should allow more than one relationship between the same two entities"
+  },
+  "id": "er_diagram/should_allow_more_than_one_relationship_between-41c882c7",
+  "source_sha256": "7cd8568750c913666a95463190011287e1b134a1e5f61c4701ff5a5a016ecd13",
+  "recovered": true
+}

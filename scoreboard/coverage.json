@@ -5,9 +5,9 @@
       "keyword": "graph, flowchart, or flowchart-elk",
       "carried": true,
       "corpus_cases": 331,
-      "scoreable_cases": 244,
-      "corpus_passing": 244,
-      "status": "244/244 scoreable passing; 87 damaged or rejected"
+      "scoreable_cases": 274,
+      "corpus_passing": 274,
+      "status": "274/274 scoreable passing; 57 damaged or rejected"
     },
     {
       "type": "sequence",
@@ -23,9 +23,9 @@
       "keyword": "classDiagram",
       "carried": true,
       "corpus_cases": 465,
-      "scoreable_cases": 306,
-      "corpus_passing": 306,
-      "status": "306/306 scoreable passing; 159 damaged or rejected"
+      "scoreable_cases": 321,
+      "corpus_passing": 321,
+      "status": "321/321 scoreable passing; 144 damaged or rejected"
     },
     {
       "type": "state_diagram",
@@ -40,10 +40,10 @@
       "type": "er_diagram",
       "keyword": "erDiagram",
       "carried": true,
-      "corpus_cases": 161,
-      "scoreable_cases": 49,
-      "corpus_passing": 49,
-      "status": "49/49 scoreable passing; 112 damaged or rejected"
+      "corpus_cases": 160,
+      "scoreable_cases": 148,
+      "corpus_passing": 121,
+      "status": "121/148 scoreable passing; 12 damaged or rejected"
     },
     {
       "type": "user_journey",
@@ -59,9 +59,9 @@
       "keyword": "gantt",
       "carried": true,
       "corpus_cases": 26,
-      "scoreable_cases": 22,
-      "corpus_passing": 22,
-      "status": "22/22 scoreable passing; 4 damaged or rejected"
+      "scoreable_cases": 23,
+      "corpus_passing": 23,
+      "status": "23/23 scoreable passing; 3 damaged or rejected"
     },
     {
       "type": "pie",
@@ -122,9 +122,9 @@
       "keyword": "radar-beta",
       "carried": true,
       "corpus_cases": 42,
-      "scoreable_cases": 14,
+      "scoreable_cases": 22,
       "corpus_passing": 14,
-      "status": "14/14 scoreable passing; 28 damaged or rejected"
+      "status": "14/22 scoreable passing; 20 damaged or rejected"
     },
     {
       "type": "block",
@@ -140,9 +140,9 @@
       "keyword": "requirementDiagram",
       "carried": true,
       "corpus_cases": 25,
-      "scoreable_cases": 24,
-      "corpus_passing": 24,
-      "status": "24/24 scoreable passing; 1 damaged or rejected"
+      "scoreable_cases": 25,
+      "corpus_passing": 25,
+      "status": "25/25 scoreable passing"
     },
     {
       "type": "xychart",
@@ -194,9 +194,9 @@
       "keyword": "C4Context, C4Container, C4Component, C4Dynamic, C4Deployment, or a C4 diagram",
       "carried": true,
       "corpus_cases": 47,
-      "scoreable_cases": 11,
-      "corpus_passing": 11,
-      "status": "11/11 scoreable passing; 36 damaged or rejected"
+      "scoreable_cases": 25,
+      "corpus_passing": 25,
+      "status": "25/25 scoreable passing; 22 damaged or rejected"
     },
     {
       "type": "info",

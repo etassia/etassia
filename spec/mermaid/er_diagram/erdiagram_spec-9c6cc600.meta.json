@@ -1,0 +1,9 @@
+{
+  "name": "parser_should_allow_asterisks_at_the_start_of_attribute_declared_with_type_and_name_12",
+  "type": "er_diagram",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 211,
+  "id": "er_diagram/erdiagram_spec-9c6cc600",
+  "source_sha256": "2cbc832345e4f4320df9d4a27e4dac34ae7d35f18ab15e1e6c1307dfe8cf7a2d",
+  "recovered": true
+}

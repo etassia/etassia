@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_parse_the_alias_14",
+  "type": "c4",
+  "source_file": "/packages/mermaid/src/diagrams/c4/parser/c4Container.spec.js",
+  "line_number": 54,
+  "metadata": {
+    "test_name": "should parse the alias"
+  },
+  "id": "c4/should_parse_the_alias-4caa65bc",
+  "source_sha256": "a087a6ea8b78b9ccc957a1ce9d34cc606137b40555180809f6821cf6a49c8340",
+  "recovered": true
+}

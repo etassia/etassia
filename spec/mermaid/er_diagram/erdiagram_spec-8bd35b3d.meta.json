@@ -1,0 +1,9 @@
+{
+  "name": "parser_should_be_possible_to_assign_classes_using_the_shorthand_syntax_after_defining_an_alias_48",
+  "type": "er_diagram",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 942,
+  "id": "er_diagram/erdiagram_spec-8bd35b3d",
+  "source_sha256": "c3bea4fbb6d300eeb0402fd7e76a3da3eb7a4225458575278105f86fc6913085",
+  "recovered": true
+}

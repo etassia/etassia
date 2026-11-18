@@ -1,0 +1,9 @@
+{
+  "name": "parser_should_handle_multiple_edges_27",
+  "type": "flowchart",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/flowchart/parser/flow-edges.spec.js",
+  "line_number": 217,
+  "id": "flowchart/flow_edges_spec-4275a472",
+  "source_sha256": "b5c4c378f46cf631854d1844bf419fc400473bfaa65378661a160033c99a16af",
+  "recovered": true
+}

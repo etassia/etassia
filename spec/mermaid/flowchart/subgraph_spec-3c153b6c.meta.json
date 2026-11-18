@@ -1,0 +1,9 @@
+{
+  "name": "parser_should handle subgraphs with id and title in brackets and quotes_226",
+  "type": "flowchart",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/flowchart/parser/subgraph.spec.js",
+  "line_number": 0,
+  "id": "flowchart/subgraph_spec-3c153b6c",
+  "source_sha256": "c0a7c6dc1616455742789ceab8cc3351d311c3764486fc1bc24b8cef297b8b9f",
+  "recovered": true
+}

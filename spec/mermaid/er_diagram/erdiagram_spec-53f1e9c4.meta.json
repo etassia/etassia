@@ -1,0 +1,9 @@
+{
+  "name": "parser_should_not_allow_leading_numbers_dashes_or_brackets_13",
+  "type": "er_diagram",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 221,
+  "id": "er_diagram/erdiagram_spec-53f1e9c4",
+  "source_sha256": "04a9c1cb58cb08d431cec09784ef34d710fe4cb5ed45341bcfddda3d2ca192ef",
+  "recovered": true
+}

@@ -1,0 +1,9 @@
+{
+  "name": "parser_should_associate_two_entities_correctly_30",
+  "type": "er_diagram",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 421,
+  "id": "er_diagram/erdiagram_spec-7a1c5801",
+  "source_sha256": "a37d1a0753a096fb35501cb4ae85e7c995732546311abde9cb3a02939d81e46f",
+  "recovered": true
+}

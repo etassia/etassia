@@ -1,0 +1,9 @@
+{
+  "name": "parser_should_allow_an_entity_with_a_single_attribute_to_be_defined_14",
+  "type": "er_diagram",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 233,
+  "id": "er_diagram/erdiagram_spec-0345e799",
+  "source_sha256": "65e5dd7ce2145a01981a3154e4643669e082b98163d1e939988f075a11f30fcd",
+  "recovered": true
+}

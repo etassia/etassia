@@ -1,0 +1,12 @@
+{
+  "name": "parser_should_associate_two_entities_correctly_31",
+  "type": "er_diagram",
+  "source_file": "/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 421,
+  "metadata": {
+    "test_name": "should associate two entities correctly"
+  },
+  "id": "er_diagram/should_associate_two_entities_correctly-086e79cb",
+  "source_sha256": "a37d1a0753a096fb35501cb4ae85e7c995732546311abde9cb3a02939d81e46f",
+  "recovered": true
+}

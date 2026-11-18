@@ -1,0 +1,9 @@
+{
+  "name": "parser_should_be_possible_to_assign_a_class_using_the_shorthand_syntax_with_empty_block_45",
+  "type": "er_diagram",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/er/parser/erDiagram.spec.js",
+  "line_number": 917,
+  "id": "er_diagram/erdiagram_spec-5d432351",
+  "source_sha256": "834761ae26d4bca2d01107018512748f945124d3c243249ba4b2f032951c5980",
+  "recovered": true
+}

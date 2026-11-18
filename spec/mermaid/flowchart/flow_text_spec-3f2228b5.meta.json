@@ -1,0 +1,9 @@
+{
+  "name": "parser_should_handle_text_without_space_63",
+  "type": "flowchart",
+  "source_file": "/Users/mulgogi/src/external/mermaid-js/packages/mermaid/src/diagrams/flowchart/parser/flow-text.spec.js",
+  "line_number": 15,
+  "id": "flowchart/flow_text_spec-3f2228b5",
+  "source_sha256": "193c8f1de7336d40f4bea35017f10e455bd7ab15ba202aea513e0c3b090c5da1",
+  "recovered": true
+}
