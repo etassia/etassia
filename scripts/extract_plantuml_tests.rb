@@ -24,7 +24,7 @@ module PlantumlExtractor
   # and wbs are deliberately absent: they are in the reference-gap list
   # (issue #455), not carried.
   TYPES = %w[activity usecase component state entity network timing ebnf
-             mindmap gantt object class sequence].freeze
+             mindmap gantt object class sequence ditaa].freeze
 
   class CaseIdCollision < StandardError; end
 

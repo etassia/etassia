@@ -321,6 +321,20 @@
       "oracle_valid": 0,
       "corpus_passing": 0,
       "status": "0/0 oracle-valid cases pass; 0/0 cases are rejected by the pinned oracle"
+    },
+    {
+      "type": "git_diagram",
+      "carried": true,
+      "corpus_cases": 0,
+      "status": "declared; no corpus yet"
+    },
+    {
+      "type": "ditaa_diagram",
+      "carried": true,
+      "corpus_cases": 15,
+      "oracle_valid": 15,
+      "corpus_passing": 15,
+      "status": "15/15 oracle-valid cases pass; 0/15 cases are rejected by the pinned oracle"
     }
   ],
   "reference-gaps": {
@@ -335,14 +349,6 @@
       },
       {
         "type": "deployment",
-        "carried": false
-      },
-      {
-        "type": "ditaa",
-        "carried": false
-      },
-      {
-        "type": "git",
         "carried": false
       },
       {

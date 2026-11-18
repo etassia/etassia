@@ -22,7 +22,7 @@ require "time"
 require "yaml"
 
 module PlantumlOracle
-  CONTRACT_VERSION = 1
+  CONTRACT_VERSION = 2
   DEFAULT_BINARY = "plantuml"
   DEFAULT_TIMEOUT = 60
   KILL_GRACE = 2
@@ -122,7 +122,7 @@ module PlantumlOracle
   end
 
   def classify(run)
-    process_failure(run) || output_failure(run) || classify_svg(run)
+    process_failure(run) || output_failure(run) || classify_output(run)
   end
 
   def process_failure(run)
@@ -140,6 +140,31 @@ module PlantumlOracle
 
     infra("unexpected exit #{run.status}") unless
       [EXIT_VALID, EXIT_REJECTED].include?(run.status)
+  end
+
+  # Wrapped kinds whose engine is raster-only (ditaa) emit PNG bytes on
+  # stdout even under --svg. The jar's judgment is acceptance: PNG on
+  # stdout with exit 0 is a rendered diagram.
+  PNG_MAGIC = "\x89PNG\r\n\x1a\n".b.freeze
+
+  def classify_output(run)
+    return raster(run) if run.stdout.b.start_with?(PNG_MAGIC)
+
+    classify_svg(run)
+  end
+
+  def raster(run)
+    return infra("PNG output with exit #{run.status}") unless
+      run.status == EXIT_VALID
+
+    width, height = png_dimensions(run.stdout)
+    Result.new(state: :valid, svg: run.stdout,
+               reason: "rendered PNG #{width}x#{height}")
+  end
+
+  def png_dimensions(bytes)
+    header = bytes[16, 8]
+    [header.unpack1("N"), bytes[20, 4].unpack1("N")]
   end
 
   def classify_svg(run)

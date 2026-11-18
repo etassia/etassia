@@ -1,5 +1,5 @@
 ---
-generated_at: '2026-11-17T16:18:24Z'
+generated_at: '2026-11-18T14:38:26Z'
 toolchain:
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
@@ -14,7 +14,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.svg-sprites.svgTransformGroup--c1f4121ee890
   verdict: valid
   reason: rendered ACTIVITY
@@ -24,7 +24,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.svg-sprites.svgTransformMatrix--d89679373b37
   verdict: valid
   reason: rendered ACTIVITY
@@ -34,7 +34,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.svg-sprites.svgTransformRotate--17809190493c
   verdict: valid
   reason: rendered ACTIVITY
@@ -44,7 +44,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.svg-sprites.svgTransformScale--765d7ceef948
   verdict: valid
   reason: rendered ACTIVITY
@@ -54,7 +54,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.svg-sprites.svgTransformTranslate--a8ff9523d6bd
   verdict: valid
   reason: rendered ACTIVITY
@@ -64,7 +64,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-color-prefix.color_before_fork--197ef4e854f1
   verdict: valid
   reason: rendered ACTIVITY
@@ -74,7 +74,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-color-prefix.color_before_if--d8df0863f7c1
   verdict: valid
   reason: rendered ACTIVITY
@@ -84,7 +84,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-color-prefix.color_before_switch--0a682b53acd3
   verdict: valid
   reason: rendered ACTIVITY
@@ -94,7 +94,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-color-prefix.color_before_switch_three_cases--ff6198824ce0
   verdict: valid
   reason: rendered ACTIVITY
@@ -104,7 +104,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-color-prefix.color_before_while--2b9877c198ad
   verdict: valid
   reason: rendered ACTIVITY
@@ -114,7 +114,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-color-prefix.color_inside_case--94b163c8b357
   verdict: valid
   reason: rendered ACTIVITY
@@ -124,7 +124,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-color-prefix.color_multiline_activity--6d602f47b05b
   verdict: valid
   reason: rendered ACTIVITY
@@ -134,7 +134,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-color-prefix.color_then_action--821d37aa6d97
   verdict: valid
   reason: rendered ACTIVITY
@@ -144,7 +144,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-color-prefix.stereotype_color_before_switch--a70c2f7ccba1
   verdict: valid
   reason: rendered ACTIVITY
@@ -154,7 +154,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-deprecated-color.elseif_color--1058341ae93f
   verdict: valid
   reason: rendered ACTIVITY
@@ -164,7 +164,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-deprecated-color.elseif_is_color--fc52027de770
   verdict: valid
   reason: rendered ACTIVITY
@@ -174,7 +174,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-deprecated-color.elseif_is_stereo--97ab1eb92931
   verdict: valid
   reason: rendered ACTIVITY
@@ -184,7 +184,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-deprecated-color.elseif_stereo--fc509815755a
   verdict: valid
   reason: rendered ACTIVITY
@@ -194,7 +194,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-deprecated-color.if_color--5b91b6f55ba0
   verdict: valid
   reason: rendered ACTIVITY
@@ -204,7 +204,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-deprecated-color.if_is_color--72a6e7dfea05
   verdict: valid
   reason: rendered ACTIVITY
@@ -214,7 +214,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-deprecated-color.if_is_stereo--065d92cda34a
   verdict: valid
   reason: rendered ACTIVITY
@@ -224,7 +224,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-deprecated-color.if_stereo--0a7a1b943c61
   verdict: valid
   reason: rendered ACTIVITY
@@ -234,7 +234,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-deprecated-color.repeat_color--d76b92f6ed65
   verdict: valid
   reason: rendered ACTIVITY
@@ -244,7 +244,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-deprecated-color.repeat_label_color--5891f3735f7a
   verdict: valid
   reason: rendered ACTIVITY
@@ -254,7 +254,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-deprecated-color.repeat_stereo--6afd691aa1fa
   verdict: valid
   reason: rendered ACTIVITY
@@ -264,7 +264,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-deprecated-color.switch_color--81372b583001
   verdict: valid
   reason: rendered ACTIVITY
@@ -274,7 +274,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-deprecated-color.switch_stereo--447fb57a3df0
   verdict: valid
   reason: rendered ACTIVITY
@@ -284,7 +284,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-deprecated-color.while_color--adb2b7123b9b
   verdict: valid
   reason: rendered ACTIVITY
@@ -294,7 +294,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity-deprecated-color.while_stereo--0a35e768158d
   verdict: valid
   reason: rendered ACTIVITY
@@ -304,7 +304,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.activity.style-block-unclosed-at-eof--cc20c570afc2
   verdict: valid
   reason: rendered ACTIVITY
@@ -314,7 +314,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.simple.A0004--037b71303f4c
   verdict: valid
   reason: rendered ACTIVITY
@@ -324,7 +324,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.stereogroup.inline-semicolon-property-list--ec6bcc01fcfd
   verdict: valid
   reason: rendered ACTIVITY
@@ -334,7 +334,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.warnings.end_group--c7e1c5f66dd6
   verdict: valid
   reason: rendered ACTIVITY
@@ -344,7 +344,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.warnings.partition_no_bracket--ab4fd4e919a2
   verdict: valid
   reason: rendered ACTIVITY
@@ -354,7 +354,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.warnings.repeat_color--d76b92f6ed65
   verdict: valid
   reason: rendered ACTIVITY
@@ -364,7 +364,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: activity/resources.vega.nonreg.warnings.repeat_label_color--5891f3735f7a
   verdict: valid
   reason: rendered ACTIVITY
@@ -374,7 +374,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/java.net.sourceforge.plantuml.explain.DiagramExplainerTest--d715317341a6
   verdict: valid
   reason: rendered CLASS
@@ -384,7 +384,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.migration.HideShow001_Test--9be85612e170
   verdict: valid
   reason: rendered CLASS
@@ -394,7 +394,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.migration.HideShow002_Test--e022b1a868dd
   verdict: valid
   reason: rendered CLASS
@@ -404,7 +404,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.migration.HideShow003_Test--291a3bd4ffc3
   verdict: valid
   reason: rendered CLASS
@@ -414,7 +414,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.migration.HideShow004_Test--16625d433c68
   verdict: valid
   reason: rendered CLASS
@@ -424,7 +424,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2712.down_direction--b7562ecaf08a
   verdict: valid
   reason: rendered CLASS
@@ -434,7 +434,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2712.left_direction--817e051688df
   verdict: valid
   reason: rendered CLASS
@@ -444,7 +444,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2712.reported_case--4d4d68cc75f8
   verdict: valid
   reason: rendered CLASS
@@ -454,7 +454,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2712.right_direction--4bc244e3377d
   verdict: valid
   reason: rendered CLASS
@@ -464,7 +464,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2814.class_level_note_unaffected--8b789ec547c0
   verdict: valid
   reason: rendered CLASS
@@ -474,7 +474,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2814.field_and_method_note--dad15be25c38
   verdict: valid
   reason: rendered CLASS
@@ -484,7 +484,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2814.reported_case--cab9ac83dbb5
   verdict: valid
   reason: rendered CLASS
@@ -494,7 +494,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2814.reversed_order--0dac1bb4078f
   verdict: valid
   reason: rendered CLASS
@@ -504,7 +504,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2814.stereotype_colors--2b02c27ca536
   verdict: valid
   reason: rendered CLASS
@@ -514,7 +514,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2814.three_members--15d11a71125a
   verdict: valid
   reason: rendered CLASS
@@ -524,17 +524,17 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2846.bug--3c78f8407a42
   verdict: rejected
   reason: 'Syntax Error? (Assumed diagram type: sequence)'
   source_sha256: ece6bcd48bec3197c5b3eb885d7bda9419d7931887bd93f195af0fd4e95c441e
-  svg_sha256: 512afaef43421243b055cdcc567affb0c3c674372d91e2cba4344bcf2d66fc5d
+  svg_sha256: 65020a317918cfe8947f1dec416d9862201f906209f7cb6a5a18af7e67824d89
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2846.correct_code--c4f1bf12e099
   verdict: valid
   reason: rendered CLASS
@@ -544,7 +544,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2846.dollar_sign_code--64ad77e9de1f
   verdict: valid
   reason: rendered CLASS
@@ -554,7 +554,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2903.left_to_right--8310bfc61aae
   verdict: valid
   reason: rendered CLASS
@@ -564,7 +564,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2903.nodesep_ranksep--7c073f601760
   verdict: valid
   reason: rendered CLASS
@@ -574,7 +574,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2903.reported_case--fd42e1abb616
   verdict: valid
   reason: rendered CLASS
@@ -584,7 +584,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2903.two_association_classes--5589df921b7b
   verdict: valid
   reason: rendered CLASS
@@ -594,7 +594,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2903.without_association_class--633626f844fa
   verdict: valid
   reason: rendered CLASS
@@ -604,7 +604,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2904.all_visibilities--00480b0ff655
   verdict: valid
   reason: rendered CLASS
@@ -614,7 +614,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2904.diamond_at_tail--bb82b36b91be
   verdict: valid
   reason: rendered CLASS
@@ -624,7 +624,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2904.icon_size_zero--5d137d5deadd
   verdict: valid
   reason: rendered CLASS
@@ -634,7 +634,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2904.left_to_right--4e7a191e1721
   verdict: valid
   reason: rendered CLASS
@@ -644,7 +644,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2904.role_tail_only--c95e6006dcac
   verdict: valid
   reason: rendered CLASS
@@ -654,7 +654,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2904.role_without_visibility--6318bda823a1
   verdict: valid
   reason: rendered CLASS
@@ -664,7 +664,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.group2917.smetana_hide_class--cda3c6a5e269
   verdict: valid
   reason: rendered CLASS
@@ -674,7 +674,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.simple.A0005--f83e486078d0
   verdict: valid
   reason: rendered CLASS
@@ -684,17 +684,17 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.simple.NamespaceSeparatorColon001--c4bc36daba29
   verdict: rejected
   reason: 'Syntax Error? (Assumed diagram type: sequence)'
   source_sha256: d8815942b6670cf7d6aeac1fffbb8b2b0aa106ecc9b009afa21173f62b8bc2c0
-  svg_sha256: 74f9f94ed08fb40fe50c80633b386bd36cc328f7fb5d83974bbb1c401fa9a588
+  svg_sha256: 6899872cdec01be99212c08e139736d4c16f02f18f55beb54ba6288ca0daf8fe
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.simple.QualifiedAssoc001--8c3b78057dc3
   verdict: valid
   reason: rendered CLASS
@@ -704,7 +704,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.nonreg.simple.QualifiedAssoc002--d57fb49a9920
   verdict: valid
   reason: rendered CLASS
@@ -714,7 +714,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.svg.interactive.SVG0004_Svek--d500aa856a7e
   verdict: valid
   reason: rendered CLASS
@@ -724,7 +724,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.svg.interactive.SVG0006_Svek--70f5757ed2ca
   verdict: valid
   reason: rendered CLASS
@@ -734,7 +734,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.xmi.clazz.XMI0002_class--9616cd0e75d4
   verdict: valid
   reason: rendered CLASS
@@ -744,7 +744,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.xmi.clazz.XMI0003_class--d50636ffecaf
   verdict: valid
   reason: rendered CLASS
@@ -754,7 +754,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: class/resources.vega.xmi.clazz.XMI0004_class--32636d47dbd7
   verdict: valid
   reason: rendered CLASS
@@ -764,7 +764,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: component/resources.svg-sprites.svgGcpStyleMultiIcon--f379ef8f03e8
   verdict: valid
   reason: rendered DESCRIPTION
@@ -774,7 +774,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: component/resources.vega.graphml.GML0000--d8127a2bcd0f
   verdict: valid
   reason: rendered DESCRIPTION
@@ -784,7 +784,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: component/resources.vega.graphml.GML0001--b79265dd904f
   verdict: valid
   reason: rendered DESCRIPTION
@@ -794,7 +794,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: component/resources.vega.nonreg.simple.ComponentExtraArrows_0001--e56d8d1472e9
   verdict: valid
   reason: rendered DESCRIPTION
@@ -804,7 +804,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: component/resources.vega.svg.interactive.SVG0005_Svek--048648e8007e
   verdict: valid
   reason: rendered DESCRIPTION
@@ -814,7 +814,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: component/resources.vega.xmi.component.xmi0000--2f0c63fa3c08
   verdict: valid
   reason: rendered DESCRIPTION
@@ -824,7 +824,157 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
+- id: ditaa/etassia.arrows
+  verdict: valid
+  reason: rendered PNG 270x168
+  source_sha256: a5e0aa76cc576c539b256b36388945f62d52bb86efffebf15ca8c0438df684c5
+  svg_sha256: e38bdc82da3353cb2c10348e71897622b052d244fa5416d7ddda685ef86927da
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: ditaa/etassia.box
+  verdict: valid
+  reason: rendered PNG 150x98
+  source_sha256: a0c385f648f9ccf67619354c5bf161bfc8e0a6b2c91579c67657199d55645823
+  svg_sha256: d2765ce9976368d3a920605e76264bbc3d8342125308c21eb099cf0ac477d004
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: ditaa/etassia.bullets
+  verdict: valid
+  reason: rendered PNG 160x112
+  source_sha256: 3cd56defaac2dfe9d3e64ea73fdf56fd0129f44bcc09efa0df8a400a2b07ce82
+  svg_sha256: 22742b72fabef54375109cba8f19d86ef5279977da292aab907366f7ba476923
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: ditaa/etassia.colors
+  verdict: valid
+  reason: rendered PNG 230x168
+  source_sha256: 52768de2a3dfbd100c9edad4f697ee90d92c72a7893b5ffe3f968bfceb222b5b
+  svg_sha256: b20470c6fef395f7984579b069f21e874dcbc4cb9590def2ff206dc01c2df08e
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: ditaa/etassia.dashed
+  verdict: valid
+  reason: rendered PNG 300x126
+  source_sha256: 865903246269724b5738cdb0ec6e46877be88abb127fcb905afed93d425fd6d4
+  svg_sha256: '099ae4cee1289bba3d0572a41b174799d5bdb56c7930e9690201b3a8b5f3eba5'
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: ditaa/etassia.human-colors
+  verdict: valid
+  reason: rendered PNG 160x126
+  source_sha256: bec642868bd847ca9b83e7315902fe38d7efdb0d4effbcc6d62b569e22d11c53
+  svg_sha256: ab029c29d9ed914aade40aa0639cb22a39976a45ff5796f8edbfe134bfd60eb0
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: ditaa/etassia.nested
+  verdict: valid
+  reason: rendered PNG 220x140
+  source_sha256: fee0c8ab1e29a4b361d5a1c531e3203bd0d06ac538e2626d239688a40534d60a
+  svg_sha256: 6cdd825755ee24d4e1ee36a924bc589db3e7759c7fe21bb233f0e9b6f202b14f
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: ditaa/etassia.no-separation
+  verdict: valid
+  reason: rendered PNG 150x112
+  source_sha256: 400f6fc3340cbcd20b5cd0a776f4c7636b2e10cba20bd34208800d21a2f033e3
+  svg_sha256: 259daffd0089721f36a2834d887756cc45d5dfed7735d0799e8e62f3addb7e01
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: ditaa/etassia.no-shadows
+  verdict: valid
+  reason: rendered PNG 150x98
+  source_sha256: 817db98fc5d0ad3febe86008b64a895918926f2ffa4e974b34bf605518e51de9
+  svg_sha256: 8ae42dcdbb32738df4f1b6623c215eb043003d8d48835535ba1145212ef23d24
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: ditaa/etassia.open-lines
+  verdict: valid
+  reason: rendered PNG 230x112
+  source_sha256: e0c7c098b208712923fc803a18adbf36bdbca136b22742eaa03921f865367382
+  svg_sha256: 2b7e69021c0cc86dae9abf5644ee6fa53b6645972e8809ecded6d706c7ae02f0
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: ditaa/etassia.point-marker
+  verdict: valid
+  reason: rendered PNG 150x98
+  source_sha256: 2586a923f1bf6761e121f4feaff4695e732133142ca4b0f6e7f308b149997f40
+  svg_sha256: f1d96df3afc654ad119e359e21c33971f4c3a7977e26a71fb7556c5e433ffe6a
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: ditaa/etassia.round
+  verdict: valid
+  reason: rendered PNG 150x98
+  source_sha256: d4f41dcaabcac69ac602c031fd129b7be2a665ef8c5abb9801c5313f8e4a4f4b
+  svg_sha256: 4de8f82375a006ce535e8b02e060f9b19a183527798793ba0b6a9f48015f6de9
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: ditaa/etassia.scale
+  verdict: valid
+  reason: rendered PNG 300x196
+  source_sha256: 3d0ace5be12692051a0d0a5dfb1abed3ab64a76fed8981f02c0e3da06be2b953
+  svg_sha256: 312e1e1566c450b7af27a18d16500dbc576a3e4a44045c7c8e2259970049d5e8
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: ditaa/etassia.shapes
+  verdict: valid
+  reason: rendered PNG 290x140
+  source_sha256: 6e21620f221faa2eb81dd572abc5943d174d40bf52446dba18b2092d65f62769
+  svg_sha256: 595508bf1c3adb43a3fb9699e53840e7fe963830884fe709472a111c4c654fd0
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: ditaa/etassia.transparent
+  verdict: valid
+  reason: rendered PNG 150x98
+  source_sha256: 635c2401fff79a7f6cd60969176db71c57213c0c68d7873ad47bebe00af134e0
+  svg_sha256: f7a1221d2992ffe01105f4f8bd457c89b164f0289264d8c0d723d37fc2459dde
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
 - id: gantt/resources.vega.nonreg.warnings.gantt_labels--dd411cf687b9
   verdict: valid
   reason: rendered GANTT
@@ -834,7 +984,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: gantt/resources.vega.xgantt.gantt0--2ba578c56243
   verdict: valid
   reason: rendered GANTT
@@ -844,7 +994,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: gantt/resources.vega.xgantt.gantt1--cc3de958a95c
   verdict: valid
   reason: rendered GANTT
@@ -854,7 +1004,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: gantt/resources.vega.xgantt.gantt10--1abd88ba4293
   verdict: valid
   reason: rendered GANTT
@@ -864,7 +1014,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: gantt/resources.vega.xgantt.gantt11--d732b74d07a9
   verdict: valid
   reason: rendered GANTT
@@ -874,17 +1024,17 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: gantt/resources.vega.xgantt.gantt2--e5ccf8ad316d
   verdict: rejected
   reason: 'No matching verb phrase (Assumed diagram type: gantt)'
   source_sha256: eb07207cf61e6091c03c09571b5d4ca9f6d68364f847ff8532681b2e0407d795
-  svg_sha256: e4b97367af0cd9f78c10a48d4462b48bf6e0cee62837e6ea0e280f07748d7f24
+  svg_sha256: 0cfc1ccb3a95b185323d60300405de675e5a4a384237ff158a62c1cd5259f22f
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: gantt/resources.vega.xgantt.gantt3--2cc7a7abc6c9
   verdict: valid
   reason: rendered GANTT
@@ -894,7 +1044,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: gantt/resources.vega.xgantt.gantt4--6a88ff47a430
   verdict: valid
   reason: rendered GANTT
@@ -904,7 +1054,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: gantt/resources.vega.xgantt.gantt5--ae2f10a10012
   verdict: valid
   reason: rendered GANTT
@@ -914,7 +1064,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: gantt/resources.vega.xgantt.gantt6--77251fc4d16c
   verdict: valid
   reason: rendered GANTT
@@ -924,7 +1074,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: gantt/resources.vega.xgantt.gantt7--78f19d7a639b
   verdict: valid
   reason: rendered GANTT
@@ -934,7 +1084,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: gantt/resources.vega.xgantt.gantt8--b4b0c8cc4efe
   verdict: valid
   reason: rendered GANTT
@@ -944,7 +1094,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: gantt/resources.vega.xgantt.gantt9--15a304ea0dfd
   verdict: valid
   reason: rendered GANTT
@@ -954,7 +1104,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: gantt/resources.vega.xgantt.hms0--57ffa010e3e4
   verdict: valid
   reason: rendered GANTT
@@ -964,7 +1114,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: gantt/resources.vega.xgantt.hms1--35b7cd3f66fe
   verdict: valid
   reason: rendered GANTT
@@ -974,7 +1124,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: gantt/resources.vega.xgantt.hms2--a9b68becd921
   verdict: valid
   reason: rendered GANTT
@@ -984,7 +1134,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: gantt/resources.vega.xgantt.hms3--462e83f3c37a
   verdict: valid
   reason: rendered GANTT
@@ -994,7 +1144,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: mindmap/resources.vega.nonreg.mindmap.mindmap-boxless-and-leaf-variants--44fd3178200f
   verdict: valid
   reason: rendered MINDMAP
@@ -1004,7 +1154,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: mindmap/resources.vega.nonreg.mindmap.mindmap-deep-ancestor-cascade-with-stereotype--699c990a2c5f
   verdict: valid
   reason: rendered MINDMAP
@@ -1014,7 +1164,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: mindmap/resources.vega.svg.id.mindmap_01--7b23f99427d3
   verdict: valid
   reason: rendered MINDMAP
@@ -1024,7 +1174,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: mindmap/resources.vega.svg.id.mindmap_02_horizontal_alignment--a08f458ee954
   verdict: valid
   reason: rendered MINDMAP
@@ -1034,7 +1184,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/etassia.constructs.arrow-colour
   verdict: valid
   reason: rendered SEQUENCE
@@ -1044,7 +1194,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/etassia.constructs.arrow-extras
   verdict: valid
   reason: rendered SEQUENCE
@@ -1054,7 +1204,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/etassia.constructs.autonumber
   verdict: valid
   reason: rendered SEQUENCE
@@ -1064,7 +1214,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/etassia.constructs.autonumber-format
   verdict: valid
   reason: rendered SEQUENCE
@@ -1074,7 +1224,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/etassia.constructs.box-colour
   verdict: valid
   reason: rendered SEQUENCE
@@ -1084,7 +1234,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/etassia.constructs.order
   verdict: valid
   reason: rendered SEQUENCE
@@ -1094,7 +1244,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/etassia.constructs.participant-colour
   verdict: valid
   reason: rendered SEQUENCE
@@ -1104,7 +1254,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/etassia.constructs.spacing
   verdict: valid
   reason: rendered SEQUENCE
@@ -1114,7 +1264,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/etassia.constructs.unlabelled
   verdict: valid
   reason: rendered SEQUENCE
@@ -1124,7 +1274,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/etassia.create.basic
   verdict: valid
   reason: rendered SEQUENCE
@@ -1134,7 +1284,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/etassia.create.leftward
   verdict: valid
   reason: rendered SEQUENCE
@@ -1144,7 +1294,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/etassia.create.participant
   verdict: valid
   reason: rendered SEQUENCE
@@ -1154,7 +1304,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/etassia.self.label
   verdict: valid
   reason: rendered SEQUENCE
@@ -1164,7 +1314,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/etassia.self.wide
   verdict: valid
   reason: rendered SEQUENCE
@@ -1174,7 +1324,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/etassia.skinparam.paint
   verdict: valid
   reason: rendered SEQUENCE
@@ -1184,7 +1334,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/etassia.tail.group
   verdict: valid
   reason: rendered SEQUENCE
@@ -1194,7 +1344,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/java.nonreg.simple.SequenceArrows_0001_Test--d918f796209f
   verdict: valid
   reason: rendered SEQUENCE
@@ -1204,7 +1354,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/java.nonreg.simple.SequenceArrows_0002_Test--ae1299794d0b
   verdict: valid
   reason: rendered SEQUENCE
@@ -1214,7 +1364,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/java.nonreg.simple.TeozTimelineIssues_0002_Test--c35d69988621
   verdict: valid
   reason: rendered SEQUENCE
@@ -1224,7 +1374,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/java.nonreg.simple.TeozTimelineIssues_0003_Test--2dd4eecfa67b
   verdict: valid
   reason: rendered SEQUENCE
@@ -1234,7 +1384,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/java.nonreg.simple.TeozTimelineIssues_0004_Test--bea0f11e448b
   verdict: valid
   reason: rendered SEQUENCE
@@ -1244,7 +1394,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.svg-sprites.svgStyleFontWeightRoboto--a13609de5404
   verdict: valid
   reason: rendered SEQUENCE
@@ -1254,7 +1404,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.asciiverse.altpar_001--7ff458de0156
   verdict: valid
   reason: rendered SEQUENCE
@@ -1264,7 +1414,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.asciiverse.altpar_002--2a2a7bb5aacc
   verdict: valid
   reason: rendered SEQUENCE
@@ -1274,7 +1424,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.asciiverse.altpar_003--6893700e037a
   verdict: valid
   reason: rendered SEQUENCE
@@ -1284,7 +1434,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.asciiverse.altpar_004--2bd5234bfbfe
   verdict: valid
   reason: rendered SEQUENCE
@@ -1294,7 +1444,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.asciiverse.altpar_005--f0cf331472b7
   verdict: valid
   reason: rendered SEQUENCE
@@ -1304,7 +1454,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.asciiverse.altpar_007--e76e451484c6
   verdict: valid
   reason: rendered SEQUENCE
@@ -1314,7 +1464,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.asciiverse.altpar_008--e6d99fb6ac3c
   verdict: valid
   reason: rendered SEQUENCE
@@ -1324,7 +1474,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.asciiverse.basic_002--184d55bcfb9c
   verdict: valid
   reason: rendered SEQUENCE
@@ -1334,7 +1484,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.asciiverse.group_001--61e71ad8eca5
   verdict: valid
   reason: rendered SEQUENCE
@@ -1344,7 +1494,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.asciiverse.hello_001--18b03e1b811e
   verdict: valid
   reason: rendered SEQUENCE
@@ -1354,7 +1504,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.asciiverse.layout_001--fcaf69429c9c
   verdict: valid
   reason: rendered SEQUENCE
@@ -1364,7 +1514,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.asciiverse.layout_003--3d52db0edecd
   verdict: valid
   reason: rendered SEQUENCE
@@ -1374,7 +1524,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.asciiverse.leftmsg_002--ddc664f08110
   verdict: valid
   reason: rendered SEQUENCE
@@ -1384,7 +1534,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.asciiverse.leftmsg_003--990470abe6d9
   verdict: valid
   reason: rendered SEQUENCE
@@ -1394,7 +1544,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.asciiverse.nested_001--5bbc1c2fa32b
   verdict: valid
   reason: rendered SEQUENCE
@@ -1404,7 +1554,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.asciiverse.self_001--da4311bd2115
   verdict: valid
   reason: rendered SEQUENCE
@@ -1414,7 +1564,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.asciiverse.timeline_001--18d6381b866f
   verdict: valid
   reason: rendered SEQUENCE
@@ -1424,7 +1574,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.asciiverse.timeline_002--f985a9b8f0de
   verdict: valid
   reason: rendered SEQUENCE
@@ -1434,7 +1584,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group20505.min_width_center--0385427ea4be
   verdict: valid
   reason: rendered SEQUENCE
@@ -1444,7 +1594,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group20505.min_width_default--24072f84b995
   verdict: valid
   reason: rendered SEQUENCE
@@ -1454,7 +1604,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group20505.min_width_left--4f6a53784edf
   verdict: valid
   reason: rendered SEQUENCE
@@ -1464,7 +1614,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group20505.min_width_right--4f323bdad314
   verdict: valid
   reason: rendered SEQUENCE
@@ -1474,7 +1624,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group20505.min_width_skinparam--577feb6055fb
   verdict: valid
   reason: rendered SEQUENCE
@@ -1484,7 +1634,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2679.group_header_legacy_flat--5bcc726e80b1
   verdict: valid
   reason: rendered SEQUENCE
@@ -1494,7 +1644,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2679.group_header_nested--af2e98871d2d
   verdict: valid
   reason: rendered SEQUENCE
@@ -1504,7 +1654,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2679.group_header_nested_overrides_flat--29dfa779f376
   verdict: valid
   reason: rendered SEQUENCE
@@ -1514,7 +1664,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2679.reference_header_nested--a4a8af9cba7c
   verdict: valid
   reason: rendered SEQUENCE
@@ -1524,17 +1674,17 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2729.bare_activate_after_divider--80894b73726a
   verdict: rejected
   reason: 'Activate/Deactivate already done on OEM (Assumed diagram type: sequence)'
   source_sha256: 3516a1c59547fb833ef17f85f3e0387f81112dad7a5f5912ad076e737cc10306
-  svg_sha256: 90a532653fa6160c18e4216df0340b95202ce44ccdb1bbfc2ae6fd0e20430f72
+  svg_sha256: bd3c1a1cadd516038d65aa3c05a347d01f9bc940f5ded722ec59af0c22bfb70f
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2729.bare_activate_before_any_message--920d4bcaa3e9
   verdict: valid
   reason: rendered SEQUENCE
@@ -1544,17 +1694,17 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2729.bare_activate_two_participants_after_divider--54dfdd51ac5d
   verdict: rejected
   reason: 'Activate/Deactivate already done on OEM (Assumed diagram type: sequence)'
   source_sha256: c16d1b6335c487c8f95600bf122e933bad9764e4b2d3cffa22a40a3cf3b2ccf7
-  svg_sha256: f78ab70aa66aeab661b8f11aed7f7be627476dc47ec6d7bf187985b7b73566a2
+  svg_sha256: af7e2b6489101d5eec1729ebf02b359a4105cdb2893d0556bfdfa5f44ee4f34d
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2729.destroy_after_divider--559333843e38
   verdict: valid
   reason: rendered SEQUENCE
@@ -1564,7 +1714,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2729.message_before_activate_after_divider--62b7d8792525
   verdict: valid
   reason: rendered SEQUENCE
@@ -1574,7 +1724,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2788.activation--d783321e2c62
   verdict: valid
   reason: rendered SEQUENCE
@@ -1584,7 +1734,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2788.alt_else--e1598e37241a
   verdict: valid
   reason: rendered SEQUENCE
@@ -1594,7 +1744,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2788.cedeti_10_bufu072--cd27c406b434
   verdict: valid
   reason: rendered SEQUENCE
@@ -1604,7 +1754,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2788.divider--3e3df0d464c3
   verdict: valid
   reason: rendered SEQUENCE
@@ -1614,7 +1764,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2788.explicit_participants--ebbf246498ea
   verdict: valid
   reason: rendered SEQUENCE
@@ -1624,7 +1774,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2788.lirasa_26_tazo607--2018ad068c81
   verdict: valid
   reason: rendered SEQUENCE
@@ -1634,7 +1784,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2788.loop_long_label--d4b4359acf05
   verdict: valid
   reason: rendered SEQUENCE
@@ -1644,7 +1794,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2788.note_left_leftmost--d086f0811a32
   verdict: valid
   reason: rendered SEQUENCE
@@ -1654,7 +1804,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2788.ref_over--f0cb24bd16e0
   verdict: valid
   reason: rendered SEQUENCE
@@ -1664,7 +1814,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2788.right_margin_matches_left_both_self--833298c44032
   verdict: valid
   reason: rendered SEQUENCE
@@ -1674,7 +1824,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2788.x_outside_explicit_participant--6b4f8cacde95
   verdict: valid
   reason: rendered SEQUENCE
@@ -1684,7 +1834,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2791.box_between_external_participants--7d1d5500d228
   verdict: valid
   reason: rendered SEQUENCE
@@ -1694,7 +1844,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2791.box_forward_self_message_clears_next_participant--1a24d5f462c1
   verdict: valid
   reason: rendered SEQUENCE
@@ -1704,7 +1854,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2791.box_reverse_self_message_clears_previous_participant--c797d0cd3eab
   verdict: valid
   reason: rendered SEQUENCE
@@ -1714,7 +1864,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2791.hnote_left_on_self_message--6ef262c9c97b
   verdict: valid
   reason: rendered SEQUENCE
@@ -1724,7 +1874,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2791.nested_boxes_self_messages--ad11bf4b448a
   verdict: valid
   reason: rendered SEQUENCE
@@ -1734,7 +1884,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2791.note_left_on_self_message--a4059b3b3ee9
   verdict: valid
   reason: rendered SEQUENCE
@@ -1744,7 +1894,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2791.note_left_on_self_message_clears_previous_participant--459b540cd94b
   verdict: valid
   reason: rendered SEQUENCE
@@ -1754,7 +1904,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2791.note_on_self_message_inside_group_at_box_edge--41e5a7ff94cb
   verdict: valid
   reason: rendered SEQUENCE
@@ -1764,7 +1914,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2791.note_over_solo_box_participant--14a816e0bd6e
   verdict: valid
   reason: rendered SEQUENCE
@@ -1774,7 +1924,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2791.note_right_on_self_message--1a2e8a0dbc73
   verdict: valid
   reason: rendered SEQUENCE
@@ -1784,7 +1934,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2791.self_message_leftmost_of_multi--0742b0602928
   verdict: valid
   reason: rendered SEQUENCE
@@ -1794,7 +1944,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2791.self_message_leftmost_participant--9efe4ddda292
   verdict: valid
   reason: rendered SEQUENCE
@@ -1804,7 +1954,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2791.self_message_reverse_only--b0355d4c2434
   verdict: valid
   reason: rendered SEQUENCE
@@ -1814,7 +1964,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2791.self_message_solo--9d48b2180ff0
   verdict: valid
   reason: rendered SEQUENCE
@@ -1824,7 +1974,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2791.standalone_note_left_of_box_participant--5dbc30d9717f
   verdict: valid
   reason: rendered SEQUENCE
@@ -1834,7 +1984,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2834.nested_groups_and_notes--846af1d12917
   verdict: valid
   reason: rendered SEQUENCE
@@ -1844,7 +1994,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2834.reported_case--b74549f2f6be
   verdict: valid
   reason: rendered SEQUENCE
@@ -1854,7 +2004,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.group2883.mixed_same_and_different_participant_parallel_notes--f602d00329ee
   verdict: valid
   reason: rendered SEQUENCE
@@ -1864,7 +2014,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.note_across_group.message_after_group--f121a37a9290
   verdict: valid
   reason: rendered SEQUENCE
@@ -1874,7 +2024,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.note_across_group.nested_group--9617d3aa3c9f
   verdict: valid
   reason: rendered SEQUENCE
@@ -1884,7 +2034,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.note_across_group.participant_declared_after_group--fb338498bd7e
   verdict: valid
   reason: rendered SEQUENCE
@@ -1894,7 +2044,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.note_across_group.reported--4965c575d64a
   verdict: valid
   reason: rendered SEQUENCE
@@ -1904,7 +2054,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.note_across_group.two_notes_across--9edd3c67e417
   verdict: valid
   reason: rendered SEQUENCE
@@ -1914,7 +2064,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.svg.SVG0001--7624adcaae49
   verdict: valid
   reason: rendered SEQUENCE
@@ -1924,7 +2074,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.svg.SVG0002--8f71f44c46ac
   verdict: valid
   reason: rendered SEQUENCE
@@ -1934,7 +2084,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.svg.SVG0003--1f8e5fb51e4d
   verdict: valid
   reason: rendered SEQUENCE
@@ -1944,7 +2094,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.nonreg.warnings.note_top_on_ref--1f75ab64bf5e
   verdict: valid
   reason: rendered SEQUENCE
@@ -1954,7 +2104,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.sequence.newpage--793d6e993975
   verdict: valid
   reason: rendered SEQUENCE
@@ -1964,7 +2114,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.svg.id.sequence_02--671c16bf124d
   verdict: valid
   reason: rendered SEQUENCE
@@ -1974,7 +2124,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: sequence/resources.vega.tikz.tikz-scale-nested-scale--2539f518bd84
   verdict: valid
   reason: rendered SEQUENCE
@@ -1984,7 +2134,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.nonreg.group2783.composite_with_usymbol_unaffected--9ff8438d6389
   verdict: valid
   reason: rendered STATE
@@ -1994,7 +2144,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.nonreg.group2783.hide_stereotype--3c3df11188c4
   verdict: valid
   reason: rendered STATE
@@ -2004,7 +2154,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.nonreg.group2783.nested_styled_composite--9fdeebfef8b5
   verdict: valid
   reason: rendered STATE
@@ -2014,7 +2164,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.nonreg.group2783.reported_case--b751c664b1e5
   verdict: valid
   reason: rendered STATE
@@ -2024,7 +2174,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.nonreg.group2917.smetana_hide_state_node_label--e7427f6c97ec
   verdict: valid
   reason: rendered STATE
@@ -2034,7 +2184,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.nonreg.group2917.smetana_hide_state_plain_edges--50d75fee3f24
   verdict: valid
   reason: rendered STATE
@@ -2044,7 +2194,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.scxml.junction-pseudostate--d0ba53c8774b
   verdict: valid
   reason: rendered STATE
@@ -2054,7 +2204,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.scxml.state1--2a9cdaf97ed2
   verdict: valid
   reason: rendered STATE
@@ -2064,7 +2214,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.scxml.state2--fb703429167c
   verdict: valid
   reason: rendered STATE
@@ -2074,7 +2224,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.scxml.state3--961ba65368ac
   verdict: valid
   reason: rendered STATE
@@ -2084,7 +2234,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.scxml.state4--5966b349b1be
   verdict: valid
   reason: rendered STATE
@@ -2094,7 +2244,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.scxml.state5--5f7b0a94d845
   verdict: valid
   reason: rendered STATE
@@ -2104,7 +2254,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.composite-autarkic-simple--3530aaf547f2
   verdict: valid
   reason: rendered STATE
@@ -2114,7 +2264,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.composite-non-autarkic-outgoing-only--e37edbffc86a
   verdict: valid
   reason: rendered STATE
@@ -2124,7 +2274,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.composite-non-autarkic-start-end--9763f95eade3
   verdict: valid
   reason: rendered STATE
@@ -2134,7 +2284,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.composite-siblings-with-transition--cc6d1e3ddc83
   verdict: valid
   reason: rendered STATE
@@ -2144,7 +2294,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.composite-two-levels-nested--1e3e287a2c91
   verdict: valid
   reason: rendered STATE
@@ -2154,7 +2304,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.composite-two-levels-non-autarkic--59973592d243
   verdict: valid
   reason: rendered STATE
@@ -2164,7 +2314,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.concurrent-composite-non-autarkic-sibling-link--7250f3fe5b27
   verdict: valid
   reason: rendered STATE
@@ -2174,7 +2324,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.concurrent-composite-non-autarkic-start-end--488e0d41947d
   verdict: valid
   reason: rendered STATE
@@ -2184,7 +2334,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.concurrent-dash-three-regions--25752522be1a
   verdict: valid
   reason: rendered STATE
@@ -2194,7 +2344,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.concurrent-dash-two-regions--bc74b16f65e0
   verdict: valid
   reason: rendered STATE
@@ -2204,7 +2354,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.concurrent-nested-inside-composite--77e55ab8656d
   verdict: valid
   reason: rendered STATE
@@ -2214,7 +2364,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.concurrent-pipe-three-regions--9462476a0d07
   verdict: valid
   reason: rendered STATE
@@ -2224,7 +2374,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.concurrent-pipe-two-regions--a175de3aac5c
   verdict: valid
   reason: rendered STATE
@@ -2234,7 +2384,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.concurrent-pipe-with-nested-composite-region--ea0ea05e9906
   verdict: valid
   reason: rendered STATE
@@ -2244,7 +2394,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.concurrent-region-nested-composite--fb0c1d5416b6
   verdict: valid
   reason: rendered STATE
@@ -2254,7 +2404,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.concurrent-top-level-root--889957e6bd30
   verdict: valid
   reason: rendered STATE
@@ -2264,7 +2414,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.concurrent-with-internal-transitions--e3aca9e00cfa
   verdict: valid
   reason: rendered STATE
@@ -2274,7 +2424,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.junction-pseudostate--d0ba53c8774b
   verdict: valid
   reason: rendered STATE
@@ -2284,67 +2434,67 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.node-style-transition-label--37ff38b02a79
   verdict: valid
   reason: rendered STATE
   source_sha256: 2d51a08413ec0a943d0c4a75a725a0d06400085a0847f485e11ac2d272131918
-  svg_sha256: 8d24753fedde5a08a9d94313875d49564724405fb50036af4b75b5d214d74210
+  svg_sha256: cfc5cac25f11abd2596e63e887cacd6bd84faf46f97384f3a999172b824dc107
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.node-style-transition-label-orphaned-by-hide--63c66affc39f
   verdict: valid
   reason: rendered STATE
   source_sha256: 5c2401271cf3e3f010d3514200e71ae76fd547a8dcd555fd2e7dff4aae0a8f1d
-  svg_sha256: c62ec2c998a3dca41140ee58eba7e70789c2f4f671f21caad2d956919f7f254b
+  svg_sha256: e868f8ac0479054d909e473f76e359045a137c2749c1247a95851d680db841f0
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.node-style-transition-label-orphaned-by-remove--da7c69389e6a
   verdict: valid
   reason: rendered STATE
   source_sha256: fca17bf33817844d6ec010de4ae7598770172f14261a3399d5508aff3d3d6f1a
-  svg_sha256: d361e01c16942509a113b09d01e7cca1b9cb9ade8e2247bb9e20db81c85cf8ec
+  svg_sha256: e730c0d54ad37fb35bf21a094d6581e6a1bd95d40bcc9d56e558081ffeadb5a0
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.node-style-transition-label-orphaned-by-remove-both-sides--88c3dd7b08d2
   verdict: valid
   reason: rendered STATE
   source_sha256: d4b819ede6e6bf17f71dd7733018a7f90ce996b15665099ee9335f5b29d04069
-  svg_sha256: aeea0d0d2c96d09829032c1ca6f190bf068b5ffa0fcf08b7037cf0c7f7a246ff
+  svg_sha256: 2b3a5816948046288a8b4d2ef04a184db080fc22a885359af303c658f68ed039
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.node-style-transition-label-orphaned-by-remove-source--a43e8d630760
   verdict: valid
   reason: rendered STATE
   source_sha256: a7b4ef95b257e6fccb07f38d67f97e85d6d3ac44cdae90fd2cbb682fd1329d99
-  svg_sha256: 4ee00a35426a24aaf1f982703b6cb66ecf9588e10bb2011376ffb3e0cee15c25
+  svg_sha256: 9340b10abde5e62c8a3ffbb390443a77b1195a23452a77c063abe4f151c20e19
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.node-style-transition-label-remove-then-restore--ac94dbb9b063
   verdict: valid
   reason: rendered STATE
   source_sha256: ad6d3050447fa771f9cd2d5edc948c2300178deb79184d87f3f187562d3f421e
-  svg_sha256: 0b71bc5e17853d26268c6af0029b513772e02217a57182ed6f9a7bfb230cd997
+  svg_sha256: 4e04677a4ce877833ac6486a0ef415149ea30e4911f4dd0361adc0daa9d9234d
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.state.simple-states--9993a86fb808
   verdict: valid
   reason: rendered STATE
@@ -2354,7 +2504,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.svg.id.state_01--a67f2384e511
   verdict: valid
   reason: rendered STATE
@@ -2364,7 +2514,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.svg.id.state_02--d798639bbd3d
   verdict: valid
   reason: rendered STATE
@@ -2374,7 +2524,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.svg.id.state_03--2dca792e834f
   verdict: valid
   reason: rendered STATE
@@ -2384,7 +2534,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.svg.id.state_04--c7f1e06a9490
   verdict: valid
   reason: rendered STATE
@@ -2394,7 +2544,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: state/resources.vega.svg.id.state_05--8a6f5d22b598
   verdict: valid
   reason: rendered STATE
@@ -2404,7 +2554,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: timing/java.nonreg.simple.TimingMessageArrowFont_0001_Test--33abd6c86b15
   verdict: valid
   reason: rendered TIMING
@@ -2414,7 +2564,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: timing/java.nonreg.simple.TimingMessageArrowFont_0002_Test--6774e515bf88
   verdict: valid
   reason: rendered TIMING
@@ -2424,7 +2574,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: timing/resources.vega.timing.clock-decimal-period-offset--f65f295bfc2f
   verdict: valid
   reason: rendered TIMING
@@ -2434,7 +2584,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: usecase/resources.vega.tikz.tikz-scale-down--f8416a40f77a
   verdict: valid
   reason: rendered SEQUENCE
@@ -2444,7 +2594,7 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2
 - id: usecase/resources.vega.tikz.tikz-scale-up--561bebe96654
   verdict: valid
   reason: rendered SEQUENCE
@@ -2454,4 +2604,4 @@ verdicts:
   java: 26.0.2
   graphviz: 15.1.1
   command: plantuml --svg --pipe --charset UTF-8
-  contract: 1
+  contract: 2

@@ -41,6 +41,14 @@ module PlantumlOracleSpecSupport
 
   def error_image_exit0_run = run_of(stdout: error_svg)
   def diagram_exit200_run = run_of(status: 200, stdout: diagram_svg)
+  # A minimal PNG: magic + IHDR length/type + width 150, height 98.
+  def png_bytes
+    (PlantumlOracle::PNG_MAGIC.b + [13].pack("N") + "IHDR" +
+      [150, 98, 8, 2, 0, 0, 0].pack("N N C C C C C")).b
+  end
+
+  def png_run = run_of(stdout: png_bytes)
+  def png_exit200_run = run_of(status: 200, stdout: png_bytes)
   def empty_run = run_of(stdout: "")
   def truncated_run = run_of(stdout: "<svg><g>")
   def bare_svg_run = run_of(stdout: "<svg/>")
@@ -165,9 +173,11 @@ RSpec.describe PlantumlOracle do
   describe "classification" do
     {
       "rendered diagram, exit 0" => %i[valid valid_run],
+      "PNG output, exit 0 (raster kinds)" => %i[valid png_run],
       "error image, exit 200 (invalid seed)" => %i[rejected rejected_run],
       "error image that exits 0" => %i[rejected error_image_exit0_run],
       "diagram image with exit 200" => %i[infrastructure diagram_exit200_run],
+      "PNG output with exit 200" => %i[infrastructure png_exit200_run],
       "exit 0, empty stdout" => %i[infrastructure empty_run],
       "exit 0, truncated svg" => %i[infrastructure truncated_run],
       "exit 0, svg that is neither diagram nor error" =>
@@ -189,6 +199,12 @@ RSpec.describe PlantumlOracle do
 
     it "does not take exit 0 alone as proof that an error image is valid" do
       expect(judge_with(run_of(stdout: error_svg)).state).not_to eq(:valid)
+    end
+
+    it "names the PNG dimensions in a raster verdict" do
+      result = judge_with(png_run)
+
+      expect(result.reason).to eq("rendered PNG 150x98")
     end
 
     it "gives infrastructure failure no verdict" do

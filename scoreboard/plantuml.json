@@ -31,6 +31,16 @@
   },
   {
     "notation": "plantuml",
+    "type": "ditaa",
+    "cases": 15,
+    "oracle_valid": 15,
+    "passing": 15,
+    "pass_rate": 1.0,
+    "status": "15/15 oracle-valid cases pass; 0/15 cases are rejected by the pinned oracle",
+    "provenance": "ledger"
+  },
+  {
+    "notation": "plantuml",
     "type": "ebnf",
     "cases": 0,
     "oracle_valid": 0,
