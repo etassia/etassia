@@ -168,17 +168,13 @@ module UserJourneySpecHelpers
     expect(ratios.min).to be < 8
   end
 
-  def unicode_block_sources
-    [0x2028, 0x00A0].map do |codepoint|
-      separator = codepoint.chr(Encoding::UTF_8)
-      "journey\naccDescr {#{separator * 4000}}\nsection S\nT: 3: Me\n"
-    end
+  def unicode_block_source(codepoint, runs)
+    separator = codepoint.chr(Encoding::UTF_8)
+    "journey\naccDescr {#{separator * runs}}\nsection S\nT: 3: Me\n"
   end
 
-  def unicode_pair_ratio(separator_source, control_source)
-    separator = wall_time { parser.parse(separator_source) }
-    control = wall_time { parser.parse(control_source) }
-    separator / control
+  def unicode_block_sources
+    [unicode_block_source(0x2028, 4000), unicode_block_source(0x00A0, 4000)]
   end
 
   def expect_unicode_results(sources)
@@ -186,16 +182,21 @@ module UserJourneySpecHelpers
     expect(results).to eq([[["S", ["T"]]], [["S", ["T"]]]])
   end
 
+  def expect_unicode_run_linear(codepoint, runs)
+    doubled = unicode_block_source(codepoint, runs * 2)
+    base_time = best_parse_time(unicode_block_source(codepoint, runs))
+    failure_message = "U+#{format('%04X', codepoint)} does not parse linearly"
+    expect(best_parse_time(doubled)).to be < base_time * 3, failure_message
+  end
+
   def expect_unicode_line_separator_linear
     separator_source, control_source = unicode_block_sources
     expect(separator_source).not_to eq(control_source)
     expect_unicode_results([separator_source, control_source])
 
-    ratios = Array.new(3) do
-      unicode_pair_ratio(separator_source,
-                         control_source)
-    end
-    expect(ratios.min).to be < 15
+    # A run twice as long takes about twice the time on any machine; the
+    # ratio against the NBSP control's clock is not machine-stable.
+    expect_unicode_run_linear(0x2028, 4000)
   end
 
   def journey_fixture(filename)
