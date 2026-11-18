@@ -1,0 +1,5 @@
+---
+cop: Metrics/AbcSize
+rows:
+- file: lib/etassia/notation/plantuml/ditaa.rb
+  count: 2
