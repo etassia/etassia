@@ -1,0 +1,3 @@
+@startuml
+archimate #red care as "Customer Care"
+@enduml

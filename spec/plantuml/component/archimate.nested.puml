@@ -1,0 +1,8 @@
+@startuml
+package "Systems" {
+  archimate #application "Portal" as port <<application-component>>
+  archimate #technology "VPN" as vpn <<technology-device>>
+}
+archimate #business "Customer" as cust <<business-actor>>
+cust -down-> port : uses
+@enduml

@@ -1,0 +1,8 @@
+@startuml
+archimate #red "Customer" as cust
+archimate #lightblue "Portal" as port
+archimate #DarkSeaGreen "Server" as serv
+archimate #gold "Goal" as goal
+archimate #plum "Milestone" as mile
+archimate #wheat "Work package" as work
+@enduml
