@@ -11,6 +11,9 @@ module Etassia
       # parser, a ranked layout and a renderer. {Usecase} and {Component}
       # decide which source they claim.
       module NodeGraph
+        autoload :ArchimateSprites,
+                 "etassia/notation/plantuml/node_graph/archimate_sprites"
+
         # Lines another family owns; a source with one is never claimed.
         FOREIGN = /\A(?:participant|class|abstract|enum|boundary|control|
                    entity|collections|queue|autonumber|newpage|alt|loop|opt|
