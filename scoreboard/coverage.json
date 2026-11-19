@@ -253,10 +253,10 @@
     {
       "type": "component_diagram",
       "carried": true,
-      "corpus_cases": 6,
-      "oracle_valid": 6,
-      "corpus_passing": 6,
-      "status": "6/6 oracle-valid cases pass; 0/6 cases are rejected by the pinned oracle"
+      "corpus_cases": 16,
+      "oracle_valid": 16,
+      "corpus_passing": 16,
+      "status": "16/16 oracle-valid cases pass; 0/16 cases are rejected by the pinned oracle"
     },
     {
       "type": "state_diagram",
@@ -341,10 +341,6 @@
   ],
   "reference-gaps": {
     "plantuml-jar": [
-      {
-        "type": "archimate",
-        "carried": false
-      },
       {
         "type": "bpmn",
         "carried": false

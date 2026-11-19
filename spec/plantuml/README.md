@@ -153,3 +153,24 @@ oracle cannot render cannot be oracle-valid.
 Scoreboard rows live in `scoreboard/plantuml.json` and are measured the
 same way as every other row: `bundle exec rake plantuml`, checked by
 `bundle exec rake plantuml:check`.
+
+## The archimate ledger cohort
+
+`component/` also holds `archimate.*` LEDGER cases beside its upstream
+fixtures — PlantUML's test resources carry no `@startuml` archimate text.
+The `archimate` keyword rides the component notation, so the cases count
+in the component row of `pin.json` and the scoreboard. Each case is one
+archimate feature: a bare element, a six-colour spread, both display and
+code orders, the business-actor, application-component and
+technology-device icons, a labelled relation, the jar's
+update-in-place behaviour for a repeated code, and a package-nested
+pair.
+
+The vocabulary itself is generated: `scripts/build_archimate_sprites.rb`
+probes the pinned jar once per upstream sprite and commits the icon
+paths verbatim, with their placement geometry, into
+`node_graph/archimate_sprites.rb` (verified byte for byte at write
+time). The jar takes real colours rather than the layer words, and the
+bare stereotype name rather than its internal `$archimate/` prefixed
+form, so the cohort uses the jar-true forms; Etassia's wider acceptance
+of both stays pinned at the unit level.
