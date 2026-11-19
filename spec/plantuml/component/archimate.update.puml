@@ -1,0 +1,4 @@
+@startuml
+archimate #red "Portal" as port
+archimate #red "Portal" as port <<application-component>>
+@enduml

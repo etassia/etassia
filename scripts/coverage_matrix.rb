@@ -30,7 +30,7 @@ module CoverageMatrix
   # Updating these lists is a deliberate act: each addition is a row
   # somebody promises to port or explicitly declines.
   PLANTUML_JAR_UNCARRIED = %w[
-    archimate bpmn deployment json salt wbs yaml
+    bpmn deployment json salt wbs yaml
   ].freeze
   MERMAID_CLI_UNCARRIED = %w[
     flowchart-elk

@@ -1,0 +1,5 @@
+@startuml
+archimate #business "Customer" as cust <<business-actor>>
+archimate #application "Portal" as port <<application-component>>
+cust -down-> port : uses
+@enduml
