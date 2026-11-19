@@ -25,4 +25,12 @@ RSpec.describe Etassia::Runtime do
       expect(tally[:different]).to eq([])
     end
   end
+
+  it "renders the git ledger cohort identically through Rust and Ruby",
+     skip: skipped do
+    tally = NativeEquality.compare_git
+    warn "native git: #{tally[:same]} same, #{tally[:unported].size} unported"
+
+    expect(tally[:different]).to eq([])
+  end
 end
