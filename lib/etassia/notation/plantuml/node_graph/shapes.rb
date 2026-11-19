@@ -112,12 +112,21 @@ module Etassia
             draw_sprite if @p.node.sprite
           end
 
-          # The icon of an archimate element, centred at its top; the label
-          # moves down to make room.
+          # The icon of an archimate element, placed the way the jar places
+          # it: the sprite's probe geometry (relative to the jar's own box)
+          # re-anchored on this box. The label moves down to make room.
           def draw_sprite
-            left = @p.x + (@p.width / 2) - 8.5
-            add(Svg::Path, d: @p.node.sprite, fill: "#000000",
-                           transform: "translate(#{left},#{@p.y + 12})")
+            sprite = @p.node.sprite
+            place = "translate(#{sprite_left(sprite)},#{sprite_top(sprite)})"
+            add(Svg::Path, d: sprite[:d], fill: "#000000", transform: place)
+          end
+
+          def sprite_left(sprite)
+            (@p.x + (@p.width / 2) + sprite[:dx]) - sprite[:cx]
+          end
+
+          def sprite_top(sprite)
+            @p.y + sprite[:top] - sprite[:cy_top]
           end
 
           def draw_rect(origin, extent, radius = nil)

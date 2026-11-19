@@ -25,6 +25,15 @@ RSpec.describe Etassia::Notation::PlantUML, "#render shapes and maps" do
     REXML::XPath.match(root, "//#{name}")
   end
 
+  def device_sprite
+    sprite("technology-device")
+  end
+
+  def sprite(name)
+    Etassia::Notation::PlantUML::NodeGraph::ArchimateSprites::TABLE
+      .fetch(name)
+  end
+
   def bold_texts(root)
     all(root, "text").select { |t| t.attributes["font-weight"] == "bold" }
       .map { |t| t.texts.join }
@@ -249,11 +258,18 @@ RSpec.describe Etassia::Notation::PlantUML, "#render shapes and maps" do
       root = render("archimate #Technology \"VPN\" as v <<technology-device>>")
       icon = all(root, "path").find { |p| p.attributes["transform"] }
 
-      expect(icon.attributes["d"]).to start_with("M0.59,0")
+      expect(icon.attributes["d"]).to eq(device_sprite[:d])
     end
 
-    it "stays a plain box for a type without an icon" do
+    it "carries the node icon from the same vocabulary" do
       root = render("archimate #Technology \"VPN\" as v <<technology-node>>")
+      icon = all(root, "path").find { |p| p.attributes["transform"] }
+
+      expect(icon.attributes["d"]).to eq(sprite("technology-node")[:d])
+    end
+
+    it "stays a plain box for a type outside the vocabulary" do
+      root = render("archimate #Technology \"VPN\" as v <<no-such-type>>")
 
       expect(all(root, "path")).to be_empty
     end
