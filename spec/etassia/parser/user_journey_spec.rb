@@ -148,24 +148,21 @@ module UserJourneySpecHelpers
     end
   end
 
-  def unclosed_block_ratio(source, control_source)
-    refused = wall_time do
+  def unclosed_refusal_time(openers)
+    source = "journey\n#{"accDescr {x: 3: Me\n" * openers}"
+    wall_time do
       expect_parse_error(source, Etassia::Parser::ParseError, /Parse error/)
     end
-    accepted = wall_time do
-      expect(section_names_and_tasks(control_source)).to eq([["S", ["T"]]])
-    end
-    refused / accepted
   end
 
   def expect_unclosed_block_linear
-    source = "journey\n#{"accDescr {x: 3: Me\n" * 2000}"
-    control_source = "journey\n#{"accDescr {x: 3: Me}\n" * 2000}" \
-                     "section S\nT: 1: M\n"
-    expect(source.bytesize).to be > 30_000
+    expect("journey\n#{"accDescr {x: 3: Me\n" * 2000}".bytesize)
+      .to be > 30_000
 
-    ratios = Array.new(3) { unclosed_block_ratio(source, control_source) }
-    expect(ratios.min).to be < 8
+    ratios = Array.new(3) do
+      unclosed_refusal_time(4000) / unclosed_refusal_time(2000)
+    end
+    expect(ratios.min).to be < 3
   end
 
   def unicode_block_source(codepoint, runs)
@@ -702,11 +699,10 @@ RSpec.describe Etassia::Parser::UserJourney do
       end
 
       it "refuses a long unclosed block without rescanning it per line" do
-        # Control: the SAME 2000 openers with braces CLOSED, isolating the
-        # refusal's cost from machine speed. Do NOT split the two timed sides
-        # into separate phases and `min` each separately -- that flakes under
-        # load. Measure as ADJACENT PAIRS and take the minimum over the
-        # per-pair ratios, so both halves of a sample share one load regime.
+        # Doubling is machine-stable: a refusal twice as long takes about
+        # twice the time on any machine, and the per-line rescan defect
+        # this pins reads about four times. A ratio against another
+        # source's clock is not machine-stable and stays off the clock.
         expect_unclosed_block_linear
       end
 
