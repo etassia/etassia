@@ -2,7 +2,10 @@
 
 # Compares the Rust runtime's SVG with the Ruby pipeline's for Mermaid corpus
 # paths. Needs `etassia-native` loaded (see runtime_native_equality_spec.rb).
-require "etassia/notation/plantuml" unless defined?(Etassia::Notation::PlantUML)
+require "etassia/notation/plantuml"
+# The external notations ride the registry opt-in, not the require.
+Etassia::Notation.register(Etassia::Notation::PlantUML) unless
+  Etassia::Notation.send(:entries).key?(:plantuml)
 
 module NativeEquality
   CORPUS_ROOT = File.expand_path("../mermaid", __dir__)
