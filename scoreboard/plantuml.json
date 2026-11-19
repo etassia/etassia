@@ -22,11 +22,11 @@
   {
     "notation": "plantuml",
     "type": "component",
-    "cases": 6,
-    "oracle_valid": 6,
-    "passing": 6,
+    "cases": 16,
+    "oracle_valid": 16,
+    "passing": 16,
     "pass_rate": 1.0,
-    "status": "6/6 oracle-valid cases pass; 0/6 cases are rejected by the pinned oracle",
+    "status": "16/16 oracle-valid cases pass; 0/16 cases are rejected by the pinned oracle",
     "provenance": "upstream-fixture"
   },
   {

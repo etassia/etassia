@@ -1,5 +1,5 @@
 ---
-generated_at: '2026-11-18T23:28:02Z'
+generated_at: '2026-11-19T03:01:34Z'
 toolchain:
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
@@ -760,6 +760,106 @@ verdicts:
   reason: rendered CLASS
   source_sha256: f4234c162bfe0f3ab09954fb80acf434b47e04a614b71d410f2f66786b4613b6
   svg_sha256: 58a9114e5a5a832913cb2a050c0d309e4a1d1311b15685db858bd6342a9fc8b6
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: component/archimate.application-component
+  verdict: valid
+  reason: rendered DESCRIPTION
+  source_sha256: 18934a453ca7709aff8e6b34328778ed35a4fe13684392e9f243befb1b1a091a
+  svg_sha256: c59c53e1e1653f51cda87bf9830d982a4c62f3854741952f2ecd318413729926
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: component/archimate.business-actor
+  verdict: valid
+  reason: rendered DESCRIPTION
+  source_sha256: d23c81771553aa6c7347f142f33b4108f537525a1b585763b31d76db6d61ee3c
+  svg_sha256: 923a14b696032dce7e228aaed68264232a4d86fc34f11b78a53ed9d751050290
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: component/archimate.code-as-display
+  verdict: valid
+  reason: rendered DESCRIPTION
+  source_sha256: be1c152c73c050c5c41963026bb4985a94ac02d92096e48aaef12acd6889833f
+  svg_sha256: 75b9919e27791fc53e1d82abf7bd927fbebe666250487b81d06beb9d3d7943dd
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: component/archimate.colors
+  verdict: valid
+  reason: rendered DESCRIPTION
+  source_sha256: 75524aeea8354e602c634290d0295e76ddcd8f9bfd45a746892f8e91f244f79f
+  svg_sha256: 37bc963f308a191e7bbf55f54914641f2e63edefff59593ee533893b07bc23dd
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: component/archimate.display-quoted
+  verdict: valid
+  reason: rendered DESCRIPTION
+  source_sha256: 4c98ed0ff7a86920e99196a27334623f4a39f772a82b33799dcf7bdeb4257010
+  svg_sha256: 77ba905b3535bd960dd2a378e833798c004d08701c7c368a6545a3be09a2411e
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: component/archimate.nested
+  verdict: valid
+  reason: rendered DESCRIPTION
+  source_sha256: 010d7b73f296559977db32d47e7f7bd0f8d6e053913be6f3900648ef4a0e16c9
+  svg_sha256: b128610eda73d34f175512fde818262b2818903cf46fb95e3d072e0954ec8d6f
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: component/archimate.plain
+  verdict: valid
+  reason: rendered DESCRIPTION
+  source_sha256: 335bf18acbe484418d19ea5763d5afc0e0402ca94c87942d9e07daacee3e392f
+  svg_sha256: 172f1defd2b347e147c8333dd3fc7f6ca0effc07e084f197df03ec977949ab4f
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: component/archimate.relation
+  verdict: valid
+  reason: rendered DESCRIPTION
+  source_sha256: 88da16c7331a1905fb62bc36e08b6c521673d380710bf097e3c171bbf8c00ca0
+  svg_sha256: 92f8c2593d59bebac7d90ab7b523dce11175c886fbdc3f8e0ccda27c74a221dc
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: component/archimate.technology-device
+  verdict: valid
+  reason: rendered DESCRIPTION
+  source_sha256: edf19d345d19711ff7f83a38cfe2aed6b0fee730548cf1142d000bba9bb6b435
+  svg_sha256: aa3657041d2d8f9a14719ef89cc659aa29e9fff2ae8a1eda7328cbddebd7aeba
+  plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
+  java: 26.0.2
+  graphviz: 15.1.1
+  command: plantuml --svg --pipe --charset UTF-8
+  contract: 2
+- id: component/archimate.update
+  verdict: valid
+  reason: rendered DESCRIPTION
+  source_sha256: 5177b3be90bc979d3b6f13950cdd44e3cae383bcaf325824ec6b30a5da21c423
+  svg_sha256: 952b31ff526eea92ca25fc38f8643b9cba77a74ee607e1854b05e5ef90f51b8e
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
@@ -1779,7 +1879,7 @@ verdicts:
   verdict: rejected
   reason: 'Activate/Deactivate already done on OEM (Assumed diagram type: sequence)'
   source_sha256: 3516a1c59547fb833ef17f85f3e0387f81112dad7a5f5912ad076e737cc10306
-  svg_sha256: bd3c1a1cadd516038d65aa3c05a347d01f9bc940f5ded722ec59af0c22bfb70f
+  svg_sha256: f3e8e11318bd95727c8b37d8a128be9af1b5aa8828b0665eabff5faae9e78ad0
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
@@ -1799,7 +1899,7 @@ verdicts:
   verdict: rejected
   reason: 'Activate/Deactivate already done on OEM (Assumed diagram type: sequence)'
   source_sha256: c16d1b6335c487c8f95600bf122e933bad9764e4b2d3cffa22a40a3cf3b2ccf7
-  svg_sha256: af7e2b6489101d5eec1729ebf02b359a4105cdb2893d0556bfdfa5f44ee4f34d
+  svg_sha256: 5e4584a3599bcfbcdb74c92db1f887d194423d51044a20190e80f42e5867c8c6
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
@@ -2539,7 +2639,7 @@ verdicts:
   verdict: valid
   reason: rendered STATE
   source_sha256: 2d51a08413ec0a943d0c4a75a725a0d06400085a0847f485e11ac2d272131918
-  svg_sha256: f7e362e0171f12a8135a1ab35b9ae30f472a58d92bb7444eee6454a76e80fb56
+  svg_sha256: 51e7d99ceebed79215e43347fcd47b2421f3a215eb1c5ca5c85a4e4c43b05c57
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
@@ -2549,7 +2649,7 @@ verdicts:
   verdict: valid
   reason: rendered STATE
   source_sha256: 5c2401271cf3e3f010d3514200e71ae76fd547a8dcd555fd2e7dff4aae0a8f1d
-  svg_sha256: 3c20151fca08039b864baee06d90887b05962f5304736e42ff4d23fe29fc7a20
+  svg_sha256: 5b7aa2a740111d993bcdc7d682ad722c17a4938c100c152e350e59338558e276
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
@@ -2559,7 +2659,7 @@ verdicts:
   verdict: valid
   reason: rendered STATE
   source_sha256: fca17bf33817844d6ec010de4ae7598770172f14261a3399d5508aff3d3d6f1a
-  svg_sha256: 0fe0bda8bf6670e125e7e454589991ac096212c0a39c1fc113d3669c43c1c3f5
+  svg_sha256: 5b470f2fefbaaff3accf9e833e98b90c5c03b4a2cf562b761207501011f546d7
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
@@ -2569,7 +2669,7 @@ verdicts:
   verdict: valid
   reason: rendered STATE
   source_sha256: d4b819ede6e6bf17f71dd7733018a7f90ce996b15665099ee9335f5b29d04069
-  svg_sha256: 238793ea1350a952c3607b7a724224b788675dba6fe5e7a50773804da2322f83
+  svg_sha256: 268d6bad9676421595b4ca4a3162582717cedd25cf2d5bc3166d63b3ab39bb70
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
@@ -2579,7 +2679,7 @@ verdicts:
   verdict: valid
   reason: rendered STATE
   source_sha256: a7b4ef95b257e6fccb07f38d67f97e85d6d3ac44cdae90fd2cbb682fd1329d99
-  svg_sha256: bba5e7e358dc274c201a4241d7b4177013ac89a027c4e2ce26a454f05bc8fc8a
+  svg_sha256: 9a6bc4ce4b8ec00701caa3ee1a54e10a6726177f8268fb6dd60e6ad6c0796be5
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
@@ -2589,7 +2689,7 @@ verdicts:
   verdict: valid
   reason: rendered STATE
   source_sha256: ad6d3050447fa771f9cd2d5edc948c2300178deb79184d87f3f187562d3f421e
-  svg_sha256: e416377839b72a5c37331cc62dbfa78faef4d14363bc35179876b47bc4c151db
+  svg_sha256: 4e013339a5b5236aa440662028eca6cab0a5d5af932f201c3bb256b694dc101f
   plantuml: 1.2026.6 / 6287b33 [2026-06-08 16:02:56 UTC]
   java: 26.0.2
   graphviz: 15.1.1
