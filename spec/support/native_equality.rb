@@ -10,6 +10,7 @@ Etassia::Notation.register(Etassia::Notation::PlantUML) unless
 module NativeEquality
   CORPUS_ROOT = File.expand_path("../mermaid", __dir__)
   GIT_ROOT = File.expand_path("../plantuml/git", __dir__)
+  DITAA_ROOT = File.expand_path("../plantuml/ditaa", __dir__)
 
   # Corpus paths that Ruby renders, grouped by diagram type directory.
   def self.paths_by_type
@@ -32,6 +33,13 @@ module NativeEquality
     compare(Dir.glob(File.join(GIT_ROOT, "*.puml")).map do |path|
       path.delete_prefix("#{GIT_ROOT}/")
     end, root: GIT_ROOT)
+  end
+
+  # The ditaa ledger cohort, beside the mermaid corpus.
+  def self.compare_ditaa
+    compare(Dir.glob(File.join(DITAA_ROOT, "*.puml")).map do |path|
+      path.delete_prefix("#{DITAA_ROOT}/")
+    end, root: DITAA_ROOT)
   end
 
   def self.record(tally, path, ruby, root)

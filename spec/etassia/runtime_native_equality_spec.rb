@@ -33,4 +33,12 @@ RSpec.describe Etassia::Runtime do
 
     expect(tally[:different]).to eq([])
   end
+
+  it "renders the ditaa ledger cohort identically through Rust and Ruby",
+     skip: skipped do
+    tally = NativeEquality.compare_ditaa
+    warn "native ditaa: #{tally[:same]} same, #{tally[:unported].size} unported"
+
+    expect(tally[:different]).to eq([])
+  end
 end
