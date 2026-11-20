@@ -226,7 +226,7 @@ module ArchimateSprites
   # The same probes as the Ruby table, as the Rust renderer's static
   # vocabulary, so one probe run feeds both languages.
   def write_rust(rows, upstream, path)
-    body = String.new
+    body = +""
     body << rust_header(upstream)
     body << <<~RUST
       /// One sprite row of the Ruby `ArchimateSprites::TABLE`: the icon
@@ -271,12 +271,12 @@ module ArchimateSprites
   end
 
   def rust_row(name, row)
-    "    (#{name.inspect}, Sprite {\n" \
-      "        d: #{row[:d].inspect},\n" \
-      "        w: #{row[:w]}, h: #{row[:h]},\n" \
-      "        dx: #{row[:dx]}, top: #{row[:top]},\n" \
-      "        cx: #{row[:cx]}, cy_top: #{row[:cy_top]}\n" \
-      "    })"
+    "    (#{name.inspect}, Sprite {\n        " \
+      "d: #{row[:d].inspect},\n        " \
+      "w: #{row[:w]}, h: #{row[:h]},\n        " \
+      "dx: #{row[:dx]}, top: #{row[:top]},\n        " \
+      "cx: #{row[:cx]}, cy_top: #{row[:cy_top]}\n    " \
+      "})"
   end
 
   # Conservative bounding box of an absolute-coordinate SVG path: every
