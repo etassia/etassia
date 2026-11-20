@@ -234,6 +234,7 @@ module ArchimateSprites
       /// (w/h the path bounding box, dx the bbox centre right of the box
       /// centre, top the bbox top below the box top, cx/cy_top the
       /// absolute bbox centre and top the path was probed at).
+      #[derive(Debug)]
       pub struct Sprite {
           pub d: &'static str,
           pub w: f64,
