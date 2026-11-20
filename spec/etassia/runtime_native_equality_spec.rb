@@ -50,4 +50,13 @@ RSpec.describe Etassia::Runtime do
 
     expect(tally[:different]).to eq([])
   end
+
+  it "renders the use case cohort identically through Rust and Ruby",
+     skip: skipped do
+    tally = NativeEquality.compare_usecase
+    warn "native usecase: #{tally[:same]} same, " \
+         "#{tally[:unported].size} unported"
+
+    expect(tally[:different]).to eq([])
+  end
 end

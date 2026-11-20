@@ -12,6 +12,7 @@ module NativeEquality
   GIT_ROOT = File.expand_path("../plantuml/git", __dir__)
   DITAA_ROOT = File.expand_path("../plantuml/ditaa", __dir__)
   COMPONENT_ROOT = File.expand_path("../plantuml/component", __dir__)
+  USECASE_ROOT = File.expand_path("../plantuml/usecase", __dir__)
 
   # Corpus paths that Ruby renders, grouped by diagram type directory.
   def self.paths_by_type
@@ -48,6 +49,13 @@ module NativeEquality
     paths = Dir.glob(File.join(COMPONENT_ROOT, "archimate.*.puml"))
     compare(paths.map { |path| path.delete_prefix("#{COMPONENT_ROOT}/") },
             root: COMPONENT_ROOT)
+  end
+
+  # The use case ledger cohort, beside the mermaid corpus.
+  def self.compare_usecase
+    paths = Dir.glob(File.join(USECASE_ROOT, "*.puml"))
+    compare(paths.map { |path| path.delete_prefix("#{USECASE_ROOT}/") },
+            root: USECASE_ROOT)
   end
 
   def self.record(tally, path, ruby, root)
