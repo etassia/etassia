@@ -29,8 +29,12 @@ module CoverageMatrix
   # The reference tools' diagram kinds beyond what the notations carry.
   # Updating these lists is a deliberate act: each addition is a row
   # somebody promises to port or explicitly declines.
+  # The audited residue: every other jar kind the corpus names renders
+  # through a carried notation (wbs and deployment through PlantUML's Tree
+  # and Component readers, json and yaml through the data boxes, salt
+  # through its own notation) - one probe each, all SVG.
   PLANTUML_JAR_UNCARRIED = %w[
-    bpmn deployment json salt wbs yaml
+    bpmn
   ].freeze
   MERMAID_CLI_UNCARRIED = %w[
     flowchart-elk

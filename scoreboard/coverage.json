@@ -344,26 +344,6 @@
       {
         "type": "bpmn",
         "carried": false
-      },
-      {
-        "type": "deployment",
-        "carried": false
-      },
-      {
-        "type": "json",
-        "carried": false
-      },
-      {
-        "type": "salt",
-        "carried": false
-      },
-      {
-        "type": "wbs",
-        "carried": false
-      },
-      {
-        "type": "yaml",
-        "carried": false
       }
     ],
     "mermaid-cli": [
