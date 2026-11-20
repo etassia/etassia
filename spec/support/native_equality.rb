@@ -11,6 +11,7 @@ module NativeEquality
   CORPUS_ROOT = File.expand_path("../mermaid", __dir__)
   GIT_ROOT = File.expand_path("../plantuml/git", __dir__)
   DITAA_ROOT = File.expand_path("../plantuml/ditaa", __dir__)
+  COMPONENT_ROOT = File.expand_path("../plantuml/component", __dir__)
 
   # Corpus paths that Ruby renders, grouped by diagram type directory.
   def self.paths_by_type
@@ -40,6 +41,13 @@ module NativeEquality
     compare(Dir.glob(File.join(DITAA_ROOT, "*.puml")).map do |path|
       path.delete_prefix("#{DITAA_ROOT}/")
     end, root: DITAA_ROOT)
+  end
+
+  # The archimate ledger cohort, beside the mermaid corpus.
+  def self.compare_component
+    compare(Dir.glob(File.join(COMPONENT_ROOT, "archimate.*.puml")).map do |path|
+      path.delete_prefix("#{COMPONENT_ROOT}/")
+    end, root: COMPONENT_ROOT)
   end
 
   def self.record(tally, path, ruby, root)
