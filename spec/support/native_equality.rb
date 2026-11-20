@@ -45,9 +45,9 @@ module NativeEquality
 
   # The archimate ledger cohort, beside the mermaid corpus.
   def self.compare_component
-    compare(Dir.glob(File.join(COMPONENT_ROOT, "archimate.*.puml")).map do |path|
-      path.delete_prefix("#{COMPONENT_ROOT}/")
-    end, root: COMPONENT_ROOT)
+    paths = Dir.glob(File.join(COMPONENT_ROOT, "archimate.*.puml"))
+    compare(paths.map { |path| path.delete_prefix("#{COMPONENT_ROOT}/") },
+            root: COMPONENT_ROOT)
   end
 
   def self.record(tally, path, ruby, root)

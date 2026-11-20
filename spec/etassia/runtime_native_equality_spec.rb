@@ -42,10 +42,11 @@ RSpec.describe Etassia::Runtime do
     expect(tally[:different]).to eq([])
   end
 
-  it "renders the archimate ledger cohort identically through Rust and Ruby",
+  it "renders the archimate cohort identically through Rust and Ruby",
      skip: skipped do
     tally = NativeEquality.compare_component
-    warn "native component: #{tally[:same]} same, #{tally[:unported].size} unported"
+    warn "native component: #{tally[:same]} same, " \
+         "#{tally[:unported].size} unported"
 
     expect(tally[:different]).to eq([])
   end
