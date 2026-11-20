@@ -13,6 +13,7 @@ module NativeEquality
   DITAA_ROOT = File.expand_path("../plantuml/ditaa", __dir__)
   COMPONENT_ROOT = File.expand_path("../plantuml/component", __dir__)
   USECASE_ROOT = File.expand_path("../plantuml/usecase", __dir__)
+  TIMING_ROOT = File.expand_path("../plantuml/timing", __dir__)
 
   # Corpus paths that Ruby renders, grouped by diagram type directory.
   def self.paths_by_type
@@ -56,6 +57,13 @@ module NativeEquality
     paths = Dir.glob(File.join(USECASE_ROOT, "*.puml"))
     compare(paths.map { |path| path.delete_prefix("#{USECASE_ROOT}/") },
             root: USECASE_ROOT)
+  end
+
+  # The timing ledger cohort, beside the mermaid corpus.
+  def self.compare_timing
+    paths = Dir.glob(File.join(TIMING_ROOT, "*.puml"))
+    compare(paths.map { |path| path.delete_prefix("#{TIMING_ROOT}/") },
+            root: TIMING_ROOT)
   end
 
   def self.record(tally, path, ruby, root)
