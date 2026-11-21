@@ -124,7 +124,8 @@ module Etassia
         end
 
         # The positioned ParseError for a source the engine refused: the
-        # same four-line shape Parser::Base raises on the Ruby lane.
+        # same four-line shape Parser::Base raises on the Ruby lane. A
+        # missing cause renders the failure as the engine worded it.
         def rejection_message(error, source)
           cause = error.parse_failure_cause
           return "Parse error: #{error}" unless cause
@@ -132,10 +133,7 @@ module Etassia
           line, = cause.source.line_and_column(cause.position)
           column = ErrorFormatting.character_column(source, line,
                                                     cause.position)
-          ErrorFormatting.message(source, line, column, failure_text(cause),
-                                  "Parse error: #{cause}")
-        rescue StandardError
-          "Parse error: #{cause}"
+          ErrorFormatting.message(source, line, column, failure_text(cause))
         end
 
         # A Parsanol message is a String for some failures and an Array of

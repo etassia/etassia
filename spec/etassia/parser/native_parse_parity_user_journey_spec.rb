@@ -50,6 +50,22 @@ RSpec.describe Etassia::Parser::Native do
     end
   end
 
+  describe "a source nested deeper than the engine answers" do
+    # Native recurses on the machine stack once per nested block and a
+    # source past the guard kills the process (a segfault in the
+    # extension, not an exception), so the strict lane must refuse it
+    # before the engine ever sees it. MAX_NESTING is 32; each unclosed
+    # brace at a line end is one level.
+    it "raises ParseError naming the nesting bound" do
+      skip "parsanol engine absent" unless described_class.available?
+
+      deep = "journey\n#{"accDescr {\n" * 33}"
+
+      expect { parser.parse(deep) }
+        .to raise_error(Etassia::Parser::ParseError, /nests deeper/)
+    end
+  end
+
   describe "the builder's score check on the native lane" do
     [
       "journey\n  A: 0",
