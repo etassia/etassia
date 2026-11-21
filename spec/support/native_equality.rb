@@ -18,6 +18,7 @@ module NativeEquality
   MINDMAP_ROOT = File.expand_path("../plantuml/mindmap", __dir__)
   ACTIVITY_ROOT = File.expand_path("../plantuml/activity", __dir__)
   STATE_ROOT = File.expand_path("../plantuml/state", __dir__)
+  CLASS_ROOT = File.expand_path("../plantuml/class", __dir__)
 
   # Corpus paths that Ruby renders, grouped by diagram type directory.
   def self.paths_by_type
@@ -96,6 +97,23 @@ module NativeEquality
     paths = Dir.glob(File.join(ACTIVITY_ROOT, "*.puml"))
     compare(paths.map { |path| path.delete_prefix("#{ACTIVITY_ROOT}/") },
             root: ACTIVITY_ROOT)
+  end
+
+  # The class ledger cohort, beside the mermaid corpus. The `+package` and
+  # `set namespaceSeparator` cases are left out: the Ruby reader raises
+  # {Etassia::Notation::PlantUML::UnsupportedConstructError} for both, so
+  # there are no SVG bytes to compare (the Rust port refuses them too).
+  CLASS_ERROR_CASES = [
+    "resources.vega.nonreg.group2846.bug--3c78f8407a42.puml",
+    "resources.vega.nonreg.simple.NamespaceSeparatorColon001--c4bc36daba29.puml",
+  ].freeze
+
+  def self.compare_class
+    paths = Dir.glob(File.join(CLASS_ROOT, "*.puml")).reject do |path|
+      CLASS_ERROR_CASES.include?(File.basename(path))
+    end
+    compare(paths.map { |path| path.delete_prefix("#{CLASS_ROOT}/") },
+            root: CLASS_ROOT)
   end
 
   # The state ledger cohort, beside the mermaid corpus.
