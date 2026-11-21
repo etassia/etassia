@@ -17,6 +17,7 @@ module NativeEquality
   GANTT_ROOT = File.expand_path("../plantuml/gantt", __dir__)
   MINDMAP_ROOT = File.expand_path("../plantuml/mindmap", __dir__)
   ACTIVITY_ROOT = File.expand_path("../plantuml/activity", __dir__)
+  STATE_ROOT = File.expand_path("../plantuml/state", __dir__)
 
   # Corpus paths that Ruby renders, grouped by diagram type directory.
   def self.paths_by_type
@@ -95,6 +96,13 @@ module NativeEquality
     paths = Dir.glob(File.join(ACTIVITY_ROOT, "*.puml"))
     compare(paths.map { |path| path.delete_prefix("#{ACTIVITY_ROOT}/") },
             root: ACTIVITY_ROOT)
+  end
+
+  # The state ledger cohort, beside the mermaid corpus.
+  def self.compare_state
+    paths = Dir.glob(File.join(STATE_ROOT, "*.puml"))
+    compare(paths.map { |path| path.delete_prefix("#{STATE_ROOT}/") },
+            root: STATE_ROOT)
   end
 
   def self.record(tally, path, ruby, root)
