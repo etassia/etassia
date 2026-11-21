@@ -216,8 +216,7 @@ module Etassia
       # @return [String] the positioned, multi-line error message
       def format_parse_error(cause, source)
         line, column = failure_position(cause, source)
-        ErrorFormatting.message(source, line, column, failure_message(cause),
-                                fallback_message(cause))
+        ErrorFormatting.message(source, line, column, failure_message(cause))
       rescue StandardError
         fallback_message(cause)
       end

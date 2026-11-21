@@ -36,15 +36,16 @@ module Etassia
       end
 
       # The one parse-error message: line, column, the source line and a
-      # caret, with a fallback if the assembly itself blows up.
+      # caret. The geometry helpers below are nil-guarded, so assembly
+      # cannot raise for any line number a lane reports; a lane that needs
+      # a last-resort message keeps its own rescue.
       #
       # @param source [String] the parsed source
       # @param line [Integer] 1-based line
       # @param column [Integer] 1-based character column
       # @param failure_text [String] the failure's message, position aside
-      # @param fallback [String] what to return if the assembly raises
       # @return [String] the positioned, multi-line error message
-      def message(source, line, column, failure_text, fallback)
+      def message(source, line, column, failure_text)
         lines = source.lines(LINE_SEPARATOR)
         [
           "Parse error at line #{line}, column #{column}:",
@@ -52,8 +53,6 @@ module Etassia
           caret_for(lines[line - 1], column),
           failure_text,
         ].join(LINE_SEPARATOR)
-      rescue StandardError
-        fallback
       end
 
       # The caret has to sit under the character the column names once the
