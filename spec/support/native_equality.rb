@@ -14,6 +14,7 @@ module NativeEquality
   COMPONENT_ROOT = File.expand_path("../plantuml/component", __dir__)
   USECASE_ROOT = File.expand_path("../plantuml/usecase", __dir__)
   TIMING_ROOT = File.expand_path("../plantuml/timing", __dir__)
+  GANTT_ROOT = File.expand_path("../plantuml/gantt", __dir__)
 
   # Corpus paths that Ruby renders, grouped by diagram type directory.
   def self.paths_by_type
@@ -64,6 +65,20 @@ module NativeEquality
     paths = Dir.glob(File.join(TIMING_ROOT, "*.puml"))
     compare(paths.map { |path| path.delete_prefix("#{TIMING_ROOT}/") },
             root: TIMING_ROOT)
+  end
+
+  GANTT_ERROR_CASE = "resources.vega.xgantt.gantt2--e5ccf8ad316d.puml"
+
+  # The gantt ledger cohort, beside the mermaid corpus. The gantt2 case is
+  # left out: its trailing `and foo` makes both pipelines raise
+  # {Etassia::Notation::PlantUML::UnsupportedConstructError}, so there are
+  # no SVG bytes to compare.
+  def self.compare_gantt
+    paths = Dir.glob(File.join(GANTT_ROOT, "*.puml")).reject do |path|
+      File.basename(path) == GANTT_ERROR_CASE
+    end
+    compare(paths.map { |path| path.delete_prefix("#{GANTT_ROOT}/") },
+            root: GANTT_ROOT)
   end
 
   def self.record(tally, path, ruby, root)
