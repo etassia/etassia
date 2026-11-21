@@ -102,4 +102,12 @@ RSpec.describe Etassia::Runtime do
 
     expect(tally[:different]).to eq([])
   end
+
+  it "renders the class cohort identically through Rust and Ruby",
+     skip: skipped do
+    tally = NativeEquality.compare_class
+    warn "native class: #{tally[:same]} same, #{tally[:unported].size} unported"
+
+    expect(tally[:different]).to eq([])
+  end
 end
