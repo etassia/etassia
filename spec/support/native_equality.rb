@@ -105,7 +105,8 @@ module NativeEquality
   # there are no SVG bytes to compare (the Rust port refuses them too).
   CLASS_ERROR_CASES = [
     "resources.vega.nonreg.group2846.bug--3c78f8407a42.puml",
-    "resources.vega.nonreg.simple.NamespaceSeparatorColon001--c4bc36daba29.puml",
+    "resources.vega.nonreg.simple.NamespaceSeparatorColon001--" \
+    "c4bc36daba29.puml",
   ].freeze
 
   def self.compare_class
