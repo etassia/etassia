@@ -15,6 +15,7 @@ module NativeEquality
   USECASE_ROOT = File.expand_path("../plantuml/usecase", __dir__)
   TIMING_ROOT = File.expand_path("../plantuml/timing", __dir__)
   GANTT_ROOT = File.expand_path("../plantuml/gantt", __dir__)
+  MINDMAP_ROOT = File.expand_path("../plantuml/mindmap", __dir__)
 
   # Corpus paths that Ruby renders, grouped by diagram type directory.
   def self.paths_by_type
@@ -79,6 +80,13 @@ module NativeEquality
     end
     compare(paths.map { |path| path.delete_prefix("#{GANTT_ROOT}/") },
             root: GANTT_ROOT)
+  end
+
+  # The mindmap ledger cohort, beside the mermaid corpus.
+  def self.compare_mindmap
+    paths = Dir.glob(File.join(MINDMAP_ROOT, "*.puml"))
+    compare(paths.map { |path| path.delete_prefix("#{MINDMAP_ROOT}/") },
+            root: MINDMAP_ROOT)
   end
 
   def self.record(tally, path, ruby, root)
