@@ -1,14 +1,22 @@
 # frozen_string_literal: true
 
+require_relative "../error/parse_error"
+require_relative "error_formatting"
+require_relative "native/engine_unavailable_error"
+
 module Etassia
   module Parser
     # The native parse path: Mermaid grammars compiled from PARG
     # (etassia/etassia-grammar) and run by the parsanol engine.
     #
-    # It is strictly an accelerator. It answers only for input it accepts;
-    # on a missing engine, an unreadable encoding or any rejection it
-    # returns nil and the caller runs the Parslet grammar, which stays the
-    # source of every positioned ParseError.
+    # For a parser with a Ruby lane it is an accelerator: it answers only
+    # for input it accepts; on a missing engine, an unreadable encoding or
+    # any rejection it returns nil and the caller runs the Ruby grammar,
+    # which stays the source of every positioned ParseError.
+    #
+    # For a parser with NO Ruby lane (see Parser::UserJourney) .parse! is
+    # the whole contract: the engine is required, a decline raises instead
+    # of returning nil.
     module Native
       ARTIFACT_PATH = File.expand_path("native/mermaid.json", __dir__)
       ARTIFACT_VARIABLE = "ETASSIA_NATIVE_ARTIFACT"
@@ -47,6 +55,34 @@ module Etassia
           nil
         end
 
+        # The strict variant for a parser with no Ruby lane: the engine is
+        # the ONLY parse path, so a decline raises instead of returning
+        # nil. A parse is never silently handed to another parser, which
+        # would change both its cost and its answer.
+        #
+        # @param entry [Symbol] an entry of mermaid.parg
+        # @param source [String] Mermaid source
+        # @return [Hash, Array, Parsanol::Slice] the parse tree
+        # @raise [EngineUnavailableError] when the engine cannot serve the
+        #   parse at all: parsanol or its artifact did not load, or the
+        #   ETASSIA_NATIVE_PARSER switch turned the engine off
+        # @raise [Etassia::Parser::ParseError] when the engine is present
+        #   but the source is not readable UTF-8, nests deeper than
+        #   {MAX_NESTING}, or does not parse
+        def parse!(entry, source)
+          raise EngineUnavailableError, unavailable_message unless usable?
+          raise ParseError, unreadable_message(source) unless readable?(source)
+          raise ParseError, nesting_message if too_deep?(source)
+
+          # The guards stay outside the begin: they answer even when
+          # parsanol never loaded.
+          begin
+            artifact.parse(entry.to_s, source)
+          rescue Parsanol::ParseFailed => e
+            raise ParseError, rejection_message(e, source)
+          end
+        end
+
         # Forgets the loaded artifact (specs swap the engine out).
         def reset!
           @artifact = nil
@@ -54,6 +90,62 @@ module Etassia
         end
 
         private
+
+        # Whether the engine can serve a parse at all: present and not
+        # switched off by the environment.
+        def usable?
+          !disabled? && available?
+        end
+
+        def unavailable_message
+          if disabled?
+            "The parsanol native engine is switched off by " \
+              "#{DISABLE_VARIABLE}=#{ENV.fetch(DISABLE_VARIABLE, nil)} and " \
+              "this parser has no Ruby lane. Unset #{DISABLE_VARIABLE} or " \
+              "install a parsanol native gem."
+          else
+            "The parsanol native engine did not load. Install a parsanol " \
+              "native gem for this platform; this parser has no Ruby lane " \
+              "to fall back to."
+          end
+        end
+
+        # The engine reads UTF-8 only; anything else is the byte-level
+        # failure a UTF-8 reader sees, whatever tag the source carries.
+        def unreadable_message(source)
+          "Parse error: invalid byte sequence: the source is tagged " \
+            "#{source.encoding}, which the native engine cannot read as " \
+            "UTF-8"
+        end
+
+        def nesting_message
+          "Parse error: the source nests deeper than #{MAX_NESTING} " \
+            "levels, deeper than the engine answers"
+        end
+
+        # The positioned ParseError for a source the engine refused: the
+        # same four-line shape Parser::Base raises on the Ruby lane.
+        def rejection_message(error, source)
+          cause = error.parse_failure_cause
+          return "Parse error: #{error}" unless cause
+
+          line, = cause.source.line_and_column(cause.position)
+          column = ErrorFormatting.character_column(source, line,
+                                                    cause.position)
+          ErrorFormatting.message(source, line, column, failure_text(cause),
+                                  "Parse error: #{cause}")
+        rescue StandardError
+          "Parse error: #{cause}"
+        end
+
+        # A Parsanol message is a String for some failures and an Array of
+        # String and Slice parts for a literal mismatch; a Slice quotes its
+        # content, anything else renders as is.
+        def failure_text(cause)
+          Array(cause.message).map do |part|
+            part.is_a?(Parsanol::Slice) ? part.content.inspect : part.to_s
+          end.join
+        end
 
         def disabled?
           DISABLED_VALUES.include?(ENV.fetch(DISABLE_VARIABLE, "").downcase)
