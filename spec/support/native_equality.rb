@@ -16,6 +16,7 @@ module NativeEquality
   TIMING_ROOT = File.expand_path("../plantuml/timing", __dir__)
   GANTT_ROOT = File.expand_path("../plantuml/gantt", __dir__)
   MINDMAP_ROOT = File.expand_path("../plantuml/mindmap", __dir__)
+  ACTIVITY_ROOT = File.expand_path("../plantuml/activity", __dir__)
 
   # Corpus paths that Ruby renders, grouped by diagram type directory.
   def self.paths_by_type
@@ -87,6 +88,13 @@ module NativeEquality
     paths = Dir.glob(File.join(MINDMAP_ROOT, "*.puml"))
     compare(paths.map { |path| path.delete_prefix("#{MINDMAP_ROOT}/") },
             root: MINDMAP_ROOT)
+  end
+
+  # The activity ledger cohort, beside the mermaid corpus.
+  def self.compare_activity
+    paths = Dir.glob(File.join(ACTIVITY_ROOT, "*.puml"))
+    compare(paths.map { |path| path.delete_prefix("#{ACTIVITY_ROOT}/") },
+            root: ACTIVITY_ROOT)
   end
 
   def self.record(tally, path, ruby, root)
