@@ -271,7 +271,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
-      ETASSIA_RS_REF: 4f14595b081ae30cc4749bc35bcc3553c28d03bb
+      ETASSIA_RS_REF: 04350af89a5c9f78a981e583e86ce8e88a9cdf27
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4
