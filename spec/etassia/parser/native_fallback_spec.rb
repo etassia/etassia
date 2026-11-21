@@ -2,11 +2,17 @@
 
 require "spec_helper"
 
-# With the parsanol engine absent every native-declared type still parses
-# the whole corpus through its Parslet grammar, identically to the forced
-# Ruby path, and keeps raising positioned errors.
+# With the parsanol engine absent every native-declared type that keeps a
+# Ruby lane still parses the whole corpus through it, identically to the
+# forced Ruby path, and keeps raising positioned errors.
+#
+# user_journey retired its Ruby lane (issue #481): without the engine its
+# parser raises Native::EngineUnavailableError instead of falling back, so
+# it cannot appear here. That contract is pinned in
+# native_parse_parity_user_journey_spec.rb.
 RSpec.describe Etassia::Parser::Native do
-  NativeParity.native_directories.each do |directory|
+  NativeParity.native_directories.reject { |d| d == "user_journey" }
+    .each do |directory|
     context "with the #{directory} parser and the engine absent" do
       around do |example|
         previous = ENV.fetch("ETASSIA_NATIVE_PARSER", nil)

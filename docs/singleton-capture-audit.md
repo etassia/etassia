@@ -21,7 +21,7 @@ ruby scripts/audit_singleton_captures.rb --check
 | 07a | class, class_diagram | 3 | 1 hit |
 | 07b | sequence | 3 | 1 hit |
 | 07c | git, gitgraph | 3 | 2 hits |
-| 07d | gantt, radar, kanban, user_journey | 10 | 5 hits |
+| 07d | gantt, radar, kanban, user_journey | 10 | 4 hits |
 | 07e | architecture, c4, block | 9 | zero hits |
 | 07f | mindmap, requirement, timeline, pie, packet, quadrant, sankey, xychart, info, error | 30 | 11 hits |
 
@@ -77,13 +77,12 @@ ruby scripts/audit_singleton_captures.rb --check
 - `lib/etassia/parser/radar.rb`
 - `lib/etassia/parser/user_journey.rb`
 
-**Result:** 5 executable `Array(...)` hits
+**Result:** 4 executable `Array(...)` hits
 
 - `lib/etassia/parser/builders/gantt.rb:187` — `Array(parts.is_a?(Array) ? parts : [parts]).map do |part|`
 - `lib/etassia/parser/builders/kanban.rb:389` — `lines_array = Array(lines)`
 - `lib/etassia/parser/builders/radar.rb:117` — `Array(statements).grep(Hash).each do |statement|`
 - `lib/etassia/parser/radar.rb:72` — `assign_curve_values(curve, Array(data[:values]), axes)`
-- `lib/etassia/parser/user_journey.rb:187` — `Array(tree[:lines]).each do |line|`
 
 ## 07e — architecture, c4, block
 

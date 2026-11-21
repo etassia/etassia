@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "parslet"
+require_relative "error_formatting"
 require_relative "native"
 require_relative "native/declined"
 require_relative "../error"
@@ -26,14 +27,16 @@ module Etassia
     # @abstract Declare grammar and builder, or override #parse
     class Base
       EMPTY_SEPARATOR = ""
-      LINE_SEPARATOR = "\n"
-      private_constant :EMPTY_SEPARATOR, :LINE_SEPARATOR
+      private_constant :EMPTY_SEPARATOR
 
       class << self
         # Declares (with an argument) or reads (without) the native entry:
         # the mermaid.parg entry name and the native builder class that
         # turns its tree into the diagram. Without it, or when the native
-        # engine is absent, the Parslet grammar parses.
+        # engine is absent, the Ruby grammar parses. (A parser may instead
+        # require the engine and carry no Ruby lane at all -- see
+        # Parser::UserJourney, which overrides #parse to call
+        # Native.parse!.)
         #
         # @param entry [Symbol, nil] a mermaid.parg entry name
         # @param builder [Class, nil] builder responding to #apply(tree)
@@ -192,40 +195,17 @@ module Etassia
 
       # Locates a failure as a 1-based line and CHARACTER column.
       #
-      # Parslet counts bytes, so a line holding any multibyte character
-      # reports a column further right than the caret should sit — the
-      # message then underlines the wrong character.
+      # Parslet counts bytes, so the line comes from Parslet's own cache
+      # and the column is converted to characters by the shared geometry.
       #
       # @param cause [Parslet::Cause] the failure to locate
       # @param source [String] the source that was parsed
       # @return [Array(Integer, Integer)] 1-based line and character column
       def failure_position(cause, source)
         line, = cause.source.line_and_column(cause.pos)
-        lines = source.lines(LINE_SEPARATOR)
-        preceding = lines[0, line - 1].to_a.join(EMPTY_SEPARATOR)
-        offset = failure_byte_offset(cause, preceding)
 
-        [line, character_column(lines[line - 1], offset)]
-      end
-
-      def failure_byte_offset(cause, preceding)
-        cause.pos.bytepos - preceding.bytesize
-      end
-
-      def character_column(line, byte_offset)
-        line.to_s.byteslice(0, byte_offset).to_s.length + 1
-      end
-
-      # The caret has to sit under the character the column names once the
-      # message is printed. Padding with spaces put it eight columns early
-      # on a tab-indented line, so the prefix is carried through with its
-      # tabs intact and everything else blanked.
-      #
-      # @param line [String, nil] the source line being pointed at
-      # @param column [Integer] 1-based character column
-      # @return [String] the padding and the caret
-      def caret_for(line, column)
-        "#{line.to_s[0, column - 1].to_s.gsub(/[^\t]/, ' ')}^"
+        [line, ErrorFormatting.character_column(source, line,
+                                                cause.pos.bytepos)]
       end
 
       # The one parse-error message: line, column, the source line and a
@@ -235,23 +215,11 @@ module Etassia
       # @param source [String] the source that was parsed
       # @return [String] the positioned, multi-line error message
       def format_parse_error(cause, source)
-        lines = source.lines(LINE_SEPARATOR)
-        line_num, col_num = failure_position(cause, source)
-        [
-          "Parse error at line #{line_num}, column #{col_num}:",
-          source_line(lines, line_num),
-          caret_for(lines[line_num - 1], col_num),
-          failure_message(cause),
-        ].join(LINE_SEPARATOR)
+        line, column = failure_position(cause, source)
+        ErrorFormatting.message(source, line, column, failure_message(cause),
+                                fallback_message(cause))
       rescue StandardError
         fallback_message(cause)
-      end
-
-      def source_line(lines, line_num)
-        in_range = line_num.positive? && line_num <= lines.length
-        return "(end of input)" unless in_range
-
-        lines[line_num - 1].chomp(LINE_SEPARATOR)
       end
     end
   end

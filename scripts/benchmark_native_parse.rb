@@ -45,11 +45,18 @@ report = TYPES.map do |directory, parser_class|
   rows = { "corpus (#{sources.size} files)" => sources }
   rows["large pie (2000 slices)"] = [big] if directory == "pie"
   rows.map do |name, set|
-    ruby = best_of(parser_class, set, false)
+    # A type without a Ruby lane (user_journey, issue #481) has no ruby
+    # side to time: its rows carry the native timing alone.
+    ruby = begin
+      best_of(parser_class, set, false)
+    rescue Etassia::Parser::Native::EngineUnavailableError
+      nil
+    end
     native = best_of(parser_class, set, true)
     { type: directory, input: name,
-      ruby_ms: (ruby * 1000).round(2), native_ms: (native * 1000).round(2),
-      speedup: (ruby / native).round(2) }
+      ruby_ms: ruby && (ruby * 1000).round(2),
+      native_ms: (native * 1000).round(2),
+      speedup: ruby && (ruby / native).round(2) }
   end
 end.flatten
 

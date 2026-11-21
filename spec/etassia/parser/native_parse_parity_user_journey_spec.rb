@@ -2,88 +2,67 @@
 
 require "spec_helper"
 
-# Message each parse path raises for a source with an invalid score.
-module ScoreMessages
-  PATHS = [true, false].freeze
+# user_journey retired its Ruby lane (issue #481): the native artifact lane
+# is the ONLY parse path. The lane's contract: a missing or switched-off
+# engine raises Native::EngineUnavailableError -- never a silent answer
+# from another parser -- while everything the engine does answer for keeps
+# the builder's ScoreError.
+RSpec.describe Etassia::Parser::Native do
+  let(:parser) { Etassia::Parser::UserJourney.new }
+  let(:source) { "journey\nsection S\nT: 3: Me\n" }
 
-  module_function
+  # The engine cannot load: a leg without a parsanol native gem.
+  def without_engine
+    previous = ENV.fetch("ETASSIA_NATIVE_PARSER", nil)
+    ENV.delete("ETASSIA_NATIVE_PARSER")
+    described_class.reset!
+    allow(described_class).to receive(:require).with("parsanol")
+      .and_raise(LoadError)
+    yield
+  ensure
+    ENV["ETASSIA_NATIVE_PARSER"] = previous
+    described_class.reset!
+  end
 
-  def of(source)
-    PATHS.map do |native|
-      NativeParity.with_native(native) do
-        Etassia::Parser::UserJourney.new.parse(source)
-      rescue Etassia::Parser::ScoreError => e
-        e.message
+  def expect_unavailable(journey_source, message)
+    expect { parser.parse(journey_source) }
+      .to raise_error(Etassia::Parser::Native::EngineUnavailableError,
+                      message)
+  end
+
+  describe "with the engine absent" do
+    it "raises Native::EngineUnavailableError instead of a Ruby answer" do
+      without_engine { expect_unavailable(source, /parsanol native gem/) }
+    end
+
+    it "raises it before any builder runs" do
+      without_engine do
+        expect_unavailable("journey\n  A: 6: me", /parsanol native gem/)
       end
     end
   end
-end
 
-RSpec.describe Etassia::Parser::Native, ".parse parity (user_journey)" do
-  it_behaves_like "native corpus parity", "user_journey"
+  describe "with the engine switched off by the environment" do
+    it "raises Native::EngineUnavailableError naming the switch" do
+      NativeParity.with_native(false) do
+        expect_unavailable(source, /ETASSIA_NATIVE_PARSER/)
+      end
+    end
+  end
 
-  it_behaves_like "native edge parity", "user_journey", [
-    "journey",
-    "journey\n",
-    "  journey",
-    "Journey\n  A: 3",
-    "journey   \n  title T",
-    "journey\n  title T\n  section S\n    A: 5: Me, You\n    B: 3\n",
-    "journey\n  title  Spaced Title  \n",
-    "journey\n  title\n",
-    "journey\n  title a: 3\n",
-    "journey\n  title a: x\n",
-    "journey\n  section\n  A: 1",
-    "journey\n  section A\n  section B\n  X: 2: me",
-    "journey\r\n  title T\r\n  A: 3: me\r\n",
-    "journey\r\n  A: 3\r\n",
-    "journey\n  A: 3\n  %% comment\n  B: 4 %% trailing",
-    "journey\n  A: 3\n  %% final comment",
-    "journey\n  A: 3\n   ",
-    "journey\n\n\n  A: 3\n\n",
-    "journey\n  A: 3;\n",
-    "journey\n  A: 3 : Me, You  \n",
-    "journey\n  A: 3:\n  B: 4: \n  C: 5:   \n",
-    "journey\n  A: 3: me,\n",
-    "journey\n  A: 3: me,,you\n",
-    "journey\n  A: 3: , you\n",
-    "journey\n  A: 3: a:b, c d\n",
-    "journey\n  A: 3: \r\n  B: 4: x, \r\n",
-    "journey\n  Café ☕: 4: Zoë, 日本\n",
-    "journey\n  A b: 4\n",
-    "journey\n  A: 3x\n",
-    "journey\n  : 3\n",
-    "journey\n  A: 03\n",
-    "journey\n  title: 3\n  section: 4\n",
-    "journey\n  accTitle: T\n  accDescr: D\n  A: 3",
-    "journey\n  ACCTITLE : T\n  AccDescr:D\n",
-    "journey\n  accDescr {\n   multi\n   line\n  }\n  A: 3",
-    "journey\n  accDescr {\n  %% } comment\n  x\n  }\n  A: 3",
-    "journey\n  accDescr {\n  %%{ } }%%\n  x\n  }\n  A: 3",
-    "journey\n  accDescr {\n  %%{ } \n  x\n  }\n  A: 3",
-    "journey\n  accDescr {\r  %% }\r  x\r  }\n  A: 3",
-    "journey\n  accDescr { %% } x }\n  A: 3",
-    "journey\n  accDescr {\n unterminated\n  A: 3",
-    "journey\n  accDescr { } trailing: 3\n  B: 2",
-    "journey\n  accDescr {}\n",
-    "journey\n  A: 3\n  accDescr{x}\n  B: 2",
-    "%% lead\njourney\n  A: 3",
-    "journey\n  A: 3\nsection S\n  B: 2",
-    "",
-    "   ",
-  ]
+  describe "the builder's score check on the native lane" do
+    [
+      "journey\n  A: 0",
+      "journey\n  A: 6: me",
+      "journey\n  A: 3\n  B: 99",
+    ].each do |score_source|
+      it "raises ScoreError for #{score_source.inspect}" do
+        skip "parsanol engine absent" unless described_class.available?
 
-  [
-    "journey\n  A: 0",
-    "journey\n  A: 6: me",
-    "journey\n  A: 3\n  B: 99",
-  ].each do |source|
-    it "raises the same ScoreError for #{source.inspect}" do
-      skip "parsanol engine absent" unless described_class.available?
-
-      expect(ScoreMessages.of(source)).to eq(
-        [ScoreMessages.of(source).first] * 2,
-      ).and(all(start_with("Score must be between 1 and 5")))
+        expect { parser.parse(score_source) }
+          .to raise_error(Etassia::Parser::ScoreError,
+                          /Score must be between 1 and 5/)
+      end
     end
   end
 end
