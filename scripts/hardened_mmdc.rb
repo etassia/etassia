@@ -24,8 +24,24 @@ module HardenedMmdc
   # escaped the kill still holds the write end, and it will not let go.
   DRAIN_GRACE = 1
 
+  # Every value that enters a pid slot is normalised at the boundary (#456):
+  # an Integer passes, nil means already dead, and anything else is recorded
+  # and dropped before it can reach a kill site as, say, a `false` that
+  # aborts a whole oracle run with "can't be coerced into Integer". The
+  # writers also stamp the session once a group kill has been issued for it,
+  # so the unconditional cleanup of `run_mmdc` never re-runs the full sweep
+  # and re-wait a deadline pass already did.
   Session = Struct.new(:pid, :status, :descendants, :drain, :buffer,
-                       keyword_init: true)
+                       :group_killed, keyword_init: true) do
+    def pid=(value)
+      self[:pid] = HardenedMmdc.normalize_pid(value)
+    end
+
+    def descendants=(value)
+      kept = Array(value).filter_map { |pid| HardenedMmdc.normalize_pid(pid) }
+      self[:descendants] = kept
+    end
+  end
   private_constant :Session
 
   # Spawned into its own process group so a hung Chromium goes down with it.
@@ -59,12 +75,20 @@ module HardenedMmdc
     session.status = wait_with_deadline(session.pid,
                                         descendants: session.descendants)
     kill_group_id(session.pid)
+    session.group_killed = true
     session.drain.join(DRAIN_GRACE)
     [session.status, session.buffer]
   end
 
+  # Runs whether or not `finish_session` got anywhere — an interrupt or a
+  # raised wait still has to leave nothing behind. A session whose group the
+  # deadline pass already killed only needs its escapers swept: re-running
+  # the whole kill_group there re-did a ps sweep and a wait that had nothing
+  # left to answer, and every timed-out case paid for both.
   def cleanup_session(session)
-    kill_group(session.pid) if session.pid && session.status.nil?
+    if session.pid && session.status.nil? && !session.group_killed
+      kill_group(session.pid)
+    end
     kill_each(session.descendants)
     session.drain&.kill
   end
@@ -127,19 +151,30 @@ module HardenedMmdc
   # the program's pid. That still holds once the program has been reaped, which
   # is why a group can be cleaned up on the way out.
   #
+  # The slot boundary every pid passes through (#456). Integer passes; nil
+  # means already dead; anything else is recorded and dropped, so the value
+  # that once reached the kill sites as a `false` becomes a warning and a
+  # nil — a process already dead — instead of an aborted run.
+  def normalize_pid(value)
+    return value if value.is_a?(Integer)
+    return nil if value.nil?
+
+    warn "pid slot refused #{value.inspect} (#{value.class})"
+    nil
+  end
+
   # EPERM here means the same as ESRCH: nothing is left that can be signalled.
   # Measured — a live leader with a live child signals fine and the child dies,
   # a reaped leader gives ESRCH, and a leader that is still an unreaped zombie
   # gives EPERM.
   # A non-Integer pid here once crashed whole oracle runs with
-  # "TypeError: false can't be coerced into Integer" (#456). Six hundred
-  # instrumented sequential runs could not reproduce it and no code path
-  # produces one, so instead of guessing at a fix the sites record the value
-  # and its caller — the next occurrence becomes a captured trace instead of
-  # an aborted run. The kill itself is skipped: signalling a non-Integer is
-  # meaningless by definition.
+  # "TypeError: false can't be coerced into Integer" (#456). The slots
+  # normalise their values at the boundary now, so this is the last line of
+  # defence: a kill is skipped for anything that is not an Integer, and a nil
+  # — already dead — is skipped silently.
   def signalable?(pid, site)
     return true if pid.is_a?(Integer)
+    return false if pid.nil?
 
     warn "#{site}: refusing a non-Integer pid (#{pid.inspect}) from " \
          "#{caller_locations(1, 2).filter_map(&:label).first}"
@@ -170,7 +205,13 @@ module HardenedMmdc
   # the caller never reached its kill. Losing the descendants is survivable;
   # losing the group kill is not.
   def descendants_of(pid)
-    subtree_of(pid)
+    # Normalised here rather than at the writers alone: `update_descendants`
+    # concatenates into the session's list in place, and a row `ps` printed
+    # under process churn must reach the kill sites as nil — already dead —
+    # never as whatever the snapshot garbled.
+    return [] if pid.nil?
+
+    subtree_of(pid).filter_map { |child| normalize_pid(child) }
   rescue StandardError
     []
   end
