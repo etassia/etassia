@@ -146,6 +146,40 @@ RSpec.describe HardenedMmdc, :aggregate_failures do
         expect(gone?("26.43")).to be(true)
       end
     end
+
+    # A timed-out case used to be cleaned up twice: the deadline pass killed
+    # the group and reaped the leader, and then run_mmdc's unconditional
+    # cleanup ran the whole kill_group again — a second ps sweep plus a
+    # second wait that could only answer Errno::ECHILD.
+    describe "runs the group kill once for a case the deadline killed" do
+      let(:group_kills) { [] }
+
+      before do
+        stub_const("HardenedMmdc::CASE_TIMEOUT", 0.3)
+        allow(described_class).to receive(:kill_group)
+          .and_wrap_original do |original, pid|
+            group_kills << pid
+            original.call(pid)
+          end
+      end
+
+      def timed_out_run
+        Dir.mktmpdir do |dir|
+          input = File.join(dir, "in.mmd")
+          output = File.join(dir, "out.svg")
+          File.write(input, trivial_source)
+          prefix_path(fake_mmdc(dir, "#!/bin/sh\nexec /bin/sleep 26.57\n")) do
+            Timeout.timeout(guard) { described_class.run_mmdc(input, output) }
+          end
+        end
+      end
+
+      it "skips the group kill in cleanup" do
+        timed_out_run
+
+        expect(group_kills.length).to eq(1)
+      end
+    end
   end
 
   describe "cleaning up after mmdc" do
@@ -344,13 +378,53 @@ RSpec.describe HardenedMmdc, :aggregate_failures do
     end
   end
 
-  describe "the non-Integer pid diagnostic (#456)" do
+  # The false-pid path (#456): a `false` in a pid slot used to reach the kill
+  # sites and abort whole oracle runs with "can't be coerced into Integer".
+  # Every slot normalises at the boundary now, so the demonstration is of the
+  # boundary itself, against a real session struct and real processes.
+  describe "the false-pid path (#456)" do
+    let(:session) do
+      described_class.module_eval(
+        'Session.new(descendants: [], buffer: +"")', __FILE__, __LINE__
+      )
+    end
+
+    it "normalises a false pid to nil with a recorded warning" do
+      allow(described_class).to receive(:warn)
+
+      expect(described_class.normalize_pid(false)).to be_nil
+      expect(described_class).to have_received(:warn).once
+    end
+
+    it "passes Integer pids through and reads nil as already dead" do
+      allow(described_class).to receive(:warn)
+      expect(described_class.normalize_pid(4192)).to eq(4192)
+      expect(described_class.normalize_pid(nil)).to be_nil
+      expect(described_class).not_to have_received(:warn)
+    end
+
+    it "keeps false out of the session's pid slots" do
+      session.pid = false
+      session.descendants = [4192, false, nil, "churn"]
+
+      expect(session.pid).to be_nil
+      expect(session.descendants).to eq([4192])
+    end
+
     it "refuses a non-Integer pid with a warning instead of raising" do
       allow(described_class).to receive(:warn)
 
-      expect { described_class.send(:kill_each, [false, nil, "9"]) }
+      expect { described_class.send(:kill_each, [false, "9"]) }
         .not_to raise_error
-      expect(described_class).to have_received(:warn).exactly(3).times
+      expect(described_class).to have_received(:warn).exactly(2).times
+    end
+
+    it "skips a nil pid silently, as an already-dead process" do
+      allow(described_class).to receive(:warn)
+
+      described_class.send(:kill_each, [nil])
+
+      expect(described_class).not_to have_received(:warn)
     end
 
     it "refuses a non-Integer group id" do
@@ -366,6 +440,16 @@ RSpec.describe HardenedMmdc, :aggregate_failures do
       described_class.send(:kill_each, [pid])
       Process.wait(pid)
       expect(dies?(pid)).to be(true)
+    end
+
+    # A group kill that waits on a leader already reaped has nothing left to
+    # answer — cleanup after a finished session must not raise out of that.
+    it "tolerates a group kill waiting on an already-reaped leader" do
+      pid = Process.spawn("/bin/sh", "-c", "exit 0", pgroup: true)
+      spawned << pid
+      Process.wait(pid)
+
+      expect(described_class.send(:kill_group, pid)).to be_nil
     end
   end
 end
